@@ -90,11 +90,11 @@
       "status": "verified_scoped"
     },
     {
-      "verifier": "independent browser13",
+      "verifier": "exact clean browser base14/optional10/stale5 and native HTTP assertions",
       "action": "server HTML/Datastar SSE and isolated Cytoscape, serialized mutations",
       "id": "T06/T07",
       "failure_region": "published clean candidate replay pending",
-      "status": "verified_draft_composition",
+      "status": "accepted_scoped",
       "dependencies": [
         "T04",
         "T05"
@@ -117,10 +117,10 @@
       "action": "Bounded real jobs with cooperative cancel, reconnectable SSE, server case projection, versioned panel restoration and upload admission",
       "provenance": "root server/jobs; PM UI; independent QA and TechnicalDebt",
       "purpose": "Optional real progress/cancel and case details",
-      "verifier": "t08-tests18: 30 PASS; optional browser17: 10 PASS; updated stale-panel browser pending",
+      "verifier": "exact clean30 contract tests; actual browser optional10/stale5; independent QA/TD acceptance",
       "cost_budget_minutes": 60,
       "condition": "clean baseline and AC11 complete",
-      "status": "implemented_integration_verification"
+      "status": "accepted_scoped"
     },
     {
       "id": "T09/T10",
@@ -134,14 +134,17 @@
       "action": "public branch/PR, clean checkout, independent replay and council",
       "provenance": "root delivery + independent acceptance",
       "purpose": "Independent fixed candidate acceptance and delivery",
-      "verifier": "fixed SHA + clean run + QA/TD/Council",
+      "verifier": "b12554 exact clean, AC01–14 QA/TD, P3 five real affirmative votes, release/portable/unpacked checks",
       "cost_budget_minutes": 90,
       "condition": "mandatory AC01–12",
-      "status": "testing"
+      "status": "accepted_delivery_in_progress"
     }
   ],
-  "code_candidate": "d942f13306eabc0c3c9776f3bcbab26042384279",
+  "code_candidate": "b12554fcda6ff801392326bea85f0714221a9246",
   "schema_version": 1,
-  "recorded_utc": "2026-10-10T05:50:34.5427898Z",
-  "run_id": "sprint-01"
+  "recorded_utc": "2026-10-10T06:24:36.3074711Z",
+  "run_id": "sprint-01",
+  "acceptance_utc": "2026-10-10T06:24:36.3211485Z",
+  "sprint_start_utc": "2026-10-10T05:18:25Z",
+  "deadline_utc": "2026-10-10T13:18:25Z"
 }

@@ -29,3 +29,13 @@ Reviewer: independent Customer agent /root/customer. Scope: user comprehension; 
 ## Position
 
 The observed interface supports the intended local R1 scenario and communicates its boundaries. No Customer UX blocker is demonstrated in this limited review. This is not evidence that all AC01–14 passed: final acceptance must use fixed candidate SHA, clean run, independent browser evidence and remaining stale-panel checks. No final council vote cast here.
+
+## Final exact P3 vote
+
+Customer /root/customer votes FOR exact P3 proposal with SHA256 `630C01BB1F6AE957CF3AA1EF11E4E8CCCE43C371F1970321C5CECF0DDAE8CFBE`, verified from actual flw/evidence/p3-proposal.md. Candidate source is `b12554fcda6ff801392326bea85f0714221a9246`.
+
+Read independent qa-final-b12554.md, qa-final-coverage.json, debt.md and package-b12554.json. Final QA reports fresh pinned clean checkout and actual native launch; 30 contract tests; browser base14, optional10 and stale5; small corpus20; exact release admission11 and packaged browser14. QA explicitly maps AC01–14 to actual evidence, attributes CI metadata without claiming raw log coverage, and limits memory measurement honestly. Previously pending stale-panel check now has final frozen clean replay evidence. Customer does not claim to have rerun these tests.
+
+Scope accepted: local memory-only R1 prototype with optional jobs/case interaction; restart loss, latest-eight logs, bounded jobs, cooperative cancellation with noninterruptible third-party phase, UI subsets with complete JSON, precise per-job RSS unverified. The measured 25ms parse+analysis/31.70ms HTTP benchmark is scoped to the stated synthetic input and machine, not a general speedup claim. Minor UX-C01–04 are deferred to R2. Legacy equivalence, persistence, multi-user security and enterprise readiness remain future/unverified.
+
+Vote approves the exact conditional delivery resolution; independent final QA/TechnicalDebt gates and council majority remain required. Reporting-only commits must preserve frozen production identity. Human user's final acceptance is not replaced by this Customer role vote. No blocking Customer objection remains in this reviewed local scope.
