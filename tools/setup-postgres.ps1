@@ -7,7 +7,11 @@ $taskIdentity=[Security.Principal.WindowsIdentity]::GetCurrent().Name
 $taskAcl=New-Object Security.AccessControl.DirectorySecurity
 $taskAcl.SetAccessRuleProtection($true,$false)
 $taskAcl.AddAccessRule((New-Object Security.AccessControl.FileSystemAccessRule($taskIdentity,'FullControl','ContainerInherit,ObjectInherit','None','Allow')))
-Set-Acl -LiteralPath $taskLocal -AclObject $taskAcl
+# Persist only the modified access section. Set-Acl may also request SACL
+# privileges when applying a fresh descriptor on a newly extracted folder.
+[IO.FileSystemAclExtensions]::SetAccessControl([IO.DirectoryInfo]::new($taskLocal),$taskAcl)
+$taskPrivateAcl=Get-Acl -LiteralPath $taskLocal
+if(!$taskPrivateAcl.AreAccessRulesProtected -or $taskPrivateAcl.Access.Count -ne 1 -or $taskPrivateAcl.Access[0].IsInherited -or $taskPrivateAcl.Access[0].AccessControlType -ne 'Allow' -or $taskPrivateAcl.Access[0].FileSystemRights -ne 'FullControl' -or $taskPrivateAcl.Access[0].IdentityReference.Translate([Security.Principal.SecurityIdentifier]).Value -ne [Security.Principal.WindowsIdentity]::GetCurrent().User.Value){throw 'Private data directory access protection failed'}
 New-Item -ItemType Directory -Path (Join-Path $taskLocal 'logs') -Force|Out-Null
 $taskArchive=Join-Path $taskLocal 'postgresql-18.6-windows-x64.zip'
 $taskHash='E2246BA91D22345BC3D017586C09EDE52D9DF180B1EEB480F050445F1CAD84E2'
