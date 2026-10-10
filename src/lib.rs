@@ -6,6 +6,7 @@ pub mod domain;
 pub mod event_io;
 pub mod filters;
 pub mod jobs;
+mod migrations;
 pub mod mining;
 mod platform;
 mod platform_render;

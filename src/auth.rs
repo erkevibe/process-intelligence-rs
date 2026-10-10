@@ -44,10 +44,40 @@ struct Session {
     expires: i64,
 }
 #[derive(Debug, Clone, Default, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
 struct AuthData {
     users: BTreeMap<String, User>,
     projects: BTreeMap<String, Project>,
     sessions: BTreeMap<String, Session>,
+}
+pub(crate) fn validate_stored(value: &serde_json::Value) -> Result<(), ImportError> {
+    let data: AuthData = serde_json::from_value(value.clone()).map_err(|_| denied())?;
+    if serde_json::to_value(&data).map_err(|_| denied())? != *value {
+        return Err(denied());
+    }
+    for (id, user) in &data.users {
+        if id != &user.id || PasswordHash::new(&user.password_hash).is_err() {
+            return Err(denied());
+        }
+    }
+    for (id, project) in &data.projects {
+        if id != &project.id
+            || project
+                .members
+                .keys()
+                .any(|user| !data.users.contains_key(user))
+        {
+            return Err(denied());
+        }
+    }
+    for session in data.sessions.values() {
+        if !data.users.contains_key(&session.user_id)
+            || !data.projects.contains_key(&session.project_id)
+        {
+            return Err(denied());
+        }
+    }
+    Ok(())
 }
 struct Versioned {
     revision: u64,

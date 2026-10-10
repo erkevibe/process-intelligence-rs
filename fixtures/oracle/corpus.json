@@ -1,0 +1,361 @@
+{
+  "schema_version": 1,
+  "provenance": "Literal PM arithmetic, not Rust/legacy generated expected values; independent QA review required",
+  "parameters": {
+    "order": "source",
+    "lifecycle": "each-event",
+    "classifier": "concept:name",
+    "missing_timestamp": "allowed in source order",
+    "legacy_adapter": "XES normalized traces -> frequency-prefixed text, lossless hex UTF-8 labels; not legacy XES importer"
+  },
+  "fixtures": [
+    {
+      "id": "alternatives",
+      "traces": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "A",
+          "C"
+        ],
+        [
+          "A",
+          "B"
+        ]
+      ],
+      "expected": {
+        "cases": 3,
+        "events": 6,
+        "activities": 3,
+        "activity_counts": {
+          "A": 3,
+          "B": 2,
+          "C": 1
+        },
+        "variants": [
+          {
+            "sequence": [
+              "A",
+              "B"
+            ],
+            "count": 2
+          },
+          {
+            "sequence": [
+              "A",
+              "C"
+            ],
+            "count": 1
+          }
+        ],
+        "edges": [
+          {
+            "source": "A",
+            "target": "B",
+            "count": 2
+          },
+          {
+            "source": "A",
+            "target": "C",
+            "count": 1
+          }
+        ]
+      },
+      "xes_sha256": "928e69d4354c60e0ba968262178189f77ff4b504199219684844888393786ba9",
+      "label_tokens": {
+        "L41": "A",
+        "L42": "B",
+        "L43": "C"
+      },
+      "normalized_text": "1::L41::L42\n1::L41::L43\n1::L41::L42\n",
+      "text_sha256": "d7056b57861638bef47364c0ca5a24084d2f2c99428364257236f85f251c4973"
+    },
+    {
+      "id": "self-loop",
+      "traces": [
+        [
+          "A",
+          "A"
+        ],
+        [
+          "A"
+        ]
+      ],
+      "expected": {
+        "cases": 2,
+        "events": 3,
+        "activities": 1,
+        "activity_counts": {
+          "A": 3
+        },
+        "variants": [
+          {
+            "sequence": [
+              "A",
+              "A"
+            ],
+            "count": 1
+          },
+          {
+            "sequence": [
+              "A"
+            ],
+            "count": 1
+          }
+        ],
+        "edges": [
+          {
+            "source": "A",
+            "target": "A",
+            "count": 1
+          }
+        ]
+      },
+      "xes_sha256": "497f0358254a89b46429d8347b2f150f554397d3940701a663bf2a9717a26958",
+      "label_tokens": {
+        "L41": "A"
+      },
+      "normalized_text": "1::L41::L41\n1::L41\n",
+      "text_sha256": "7aea5781d73f94721dfac7275bb0a675c15b7a45eac7334dfc1318fcedd8e0b6"
+    },
+    {
+      "id": "empty-trace",
+      "traces": [
+        [],
+        [
+          "A"
+        ]
+      ],
+      "expected": {
+        "cases": 2,
+        "events": 1,
+        "activities": 1,
+        "activity_counts": {
+          "A": 1
+        },
+        "variants": [
+          {
+            "sequence": [],
+            "count": 1
+          },
+          {
+            "sequence": [
+              "A"
+            ],
+            "count": 1
+          }
+        ],
+        "edges": []
+      },
+      "xes_sha256": "c9c7cf34e6fa3eb358ab4146804eadab120ecc8a2992e979c50d3afac9731c6e",
+      "label_tokens": {
+        "L41": "A"
+      },
+      "normalized_text": "1::\n1::L41\n",
+      "text_sha256": "0185037381e633db88c8f54a49be4a1efba36dab46a514f118cfa607973e6948"
+    },
+    {
+      "id": "unicode",
+      "traces": [
+        [
+          "Проверка\n雪",
+          "Одобрить"
+        ],
+        [
+          "Одобрить",
+          "Проверка\n雪"
+        ]
+      ],
+      "expected": {
+        "cases": 2,
+        "events": 4,
+        "activities": 2,
+        "activity_counts": {
+          "Проверка\n雪": 2,
+          "Одобрить": 2
+        },
+        "variants": [
+          {
+            "sequence": [
+              "Проверка\n雪",
+              "Одобрить"
+            ],
+            "count": 1
+          },
+          {
+            "sequence": [
+              "Одобрить",
+              "Проверка\n雪"
+            ],
+            "count": 1
+          }
+        ],
+        "edges": [
+          {
+            "source": "Проверка\n雪",
+            "target": "Одобрить",
+            "count": 1
+          },
+          {
+            "source": "Одобрить",
+            "target": "Проверка\n雪",
+            "count": 1
+          }
+        ]
+      },
+      "xes_sha256": "a4886a085e3d69bcf8996f6ed9e9f4e2bdfa7ecc2c56251ce278d45d70fdc729",
+      "label_tokens": {
+        "Ld09fd180d0bed0b2d0b5d180d0bad0b00ae99baa": "Проверка\n雪",
+        "Ld09ed0b4d0bed0b1d180d0b8d182d18c": "Одобрить"
+      },
+      "normalized_text": "1::Ld09fd180d0bed0b2d0b5d180d0bad0b00ae99baa::Ld09ed0b4d0bed0b1d180d0b8d182d18c\n1::Ld09ed0b4d0bed0b1d180d0b8d182d18c::Ld09fd180d0bed0b2d0b5d180d0bad0b00ae99baa\n",
+      "text_sha256": "a24f7071840dd5322eb05ed1308189ae8adf1270feb59551c7315ba851309166"
+    },
+    {
+      "id": "lifecycle",
+      "traces": [
+        [
+          "A",
+          "A",
+          "B"
+        ]
+      ],
+      "lifecycles": [
+        [
+          "start",
+          "complete",
+          "complete"
+        ]
+      ],
+      "expected": {
+        "cases": 1,
+        "events": 3,
+        "activities": 2,
+        "activity_counts": {
+          "A": 2,
+          "B": 1
+        },
+        "variants": [
+          {
+            "sequence": [
+              "A",
+              "A",
+              "B"
+            ],
+            "count": 1
+          }
+        ],
+        "edges": [
+          {
+            "source": "A",
+            "target": "A",
+            "count": 1
+          },
+          {
+            "source": "A",
+            "target": "B",
+            "count": 1
+          }
+        ]
+      },
+      "xes_sha256": "672294eb6f97458448153f0e5aa7928867898f73cd3f986f87be7042daf7f59f",
+      "label_tokens": {
+        "L41": "A",
+        "L42": "B"
+      },
+      "normalized_text": "1::L41::L41::L42\n",
+      "text_sha256": "c612850f06ef537dda5686a913e6d0fec51e70ec5ea7929122d2c5efe1b83d9c"
+    },
+    {
+      "id": "timestamp-order",
+      "traces": [
+        [
+          "B",
+          "A",
+          "C"
+        ]
+      ],
+      "timestamps": [
+        [
+          "2026-01-01T00:00:02Z",
+          "2026-01-01T00:00:01Z",
+          "2026-01-01T00:00:01Z"
+        ]
+      ],
+      "expected": {
+        "cases": 1,
+        "events": 3,
+        "activities": 3,
+        "activity_counts": {
+          "A": 1,
+          "B": 1,
+          "C": 1
+        },
+        "variants": [
+          {
+            "sequence": [
+              "B",
+              "A",
+              "C"
+            ],
+            "count": 1
+          }
+        ],
+        "edges": [
+          {
+            "source": "B",
+            "target": "A",
+            "count": 1
+          },
+          {
+            "source": "A",
+            "target": "C",
+            "count": 1
+          }
+        ]
+      },
+      "timestamp_expected": {
+        "cases": 1,
+        "events": 3,
+        "activities": 3,
+        "activity_counts": {
+          "A": 1,
+          "B": 1,
+          "C": 1
+        },
+        "variants": [
+          {
+            "sequence": [
+              "A",
+              "C",
+              "B"
+            ],
+            "count": 1
+          }
+        ],
+        "edges": [
+          {
+            "source": "A",
+            "target": "C",
+            "count": 1
+          },
+          {
+            "source": "C",
+            "target": "B",
+            "count": 1
+          }
+        ]
+      },
+      "xes_sha256": "66f8b5ac2c76764700424b149cf97a195652b1b8f2a1bdc4a6ebc4f7d8936740",
+      "label_tokens": {
+        "L42": "B",
+        "L41": "A",
+        "L43": "C"
+      },
+      "normalized_text": "1::L42::L41::L43\n",
+      "text_sha256": "65c3b28a676584c815df02cb9e1b37482d3e3f220916f03ca97be11b4089b8a7"
+    }
+  ]
+}

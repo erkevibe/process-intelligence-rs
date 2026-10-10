@@ -38,6 +38,7 @@ pub struct AppState {
 }
 
 #[derive(Default, Clone, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
 pub(crate) struct Repository {
     pub(crate) logs: BTreeMap<String, StoredLog>,
     pub(crate) current: BTreeMap<String, String>,
@@ -715,7 +716,19 @@ async fn enqueue_job(state: AppState, content: Vec<u8>, filename: String) -> Res
         let permit = match state.cpu.clone().acquire_owned().await {
             Ok(p) => p,
             Err(_) => {
-                job.fail("worker_unavailable", "Обработка недоступна.");
+                let worker = state.clone();
+                let failed_job = job.clone();
+                let result = tokio::task::spawn_blocking(move || {
+                    failed_job.try_fail_with(
+                        "worker_unavailable",
+                        "Обработка недоступна.",
+                        |snapshot| persist_job(&worker, snapshot),
+                    )
+                })
+                .await;
+                if !matches!(result, Ok(Ok(_))) {
+                    tracing::error!(job_id=%job.snapshot().id, "job_persistence_failed");
+                }
                 return;
             }
         };
@@ -740,29 +753,37 @@ async fn enqueue_job(state: AppState, content: Vec<u8>, filename: String) -> Res
             match parsed {
                 Ok((data, analysis)) => {
                     run_job.set_stage("publishing");
-                    run_job.try_complete_with(|snapshot| {
-                        store_log(
-                            &worker,
-                            data,
-                            analysis,
-                            filename,
-                            start.elapsed().as_millis(),
-                            hash,
-                            crate::csv_io::NormalizationOrder::Source,
-                            Some(snapshot),
-                        )
-                        .map(|log| log.id)
-                    });
+                    run_job.try_complete_durable_with(
+                        |snapshot| {
+                            store_log(
+                                &worker,
+                                data,
+                                analysis,
+                                filename,
+                                start.elapsed().as_millis(),
+                                hash,
+                                crate::csv_io::NormalizationOrder::Source,
+                                Some(snapshot),
+                            )
+                            .map(|log| log.id)
+                        },
+                        |snapshot| persist_job(&worker, snapshot),
+                    )?;
                 }
                 Err(error) => {
-                    run_job.fail(&error.code, &import_error_message(&error));
+                    run_job.try_fail_with(
+                        &error.code,
+                        &import_error_message(&error),
+                        |snapshot| persist_job(&worker, snapshot),
+                    )?;
                 }
             }
             persist_job(&worker, &run_job.snapshot())
         })
         .await;
         if !matches!(result, Ok(Ok(()))) {
-            job.fail("storage_unavailable","Состояние не подтверждено базой. При перезапуске задача будет отмечена interrupted.");
+            // Do not advertise an uncommitted terminal snapshot. Restart will
+            // recover the last durable nonterminal state as interrupted.
             tracing::error!(job_id=%job.snapshot().id,"job_persistence_failed");
         }
         drop(lease);

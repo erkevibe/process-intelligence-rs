@@ -48,8 +48,8 @@ fn accepted_cancel_skips_publication_and_repeated_cancel_is_idempotent() {
     assert!(cancelled_request.cancel_requested);
     assert!(job.control().is_cancelled());
     assert_eq!(job.cancel(), cancelled_request);
-    // Running may continue during a noninterruptible parser; accepted request must dominate publication.
-    assert_eq!(cancelled_request.state, JobState::Running);
+    // CPU work may continue, but confirmed cancellation is already terminal.
+    assert_eq!(cancelled_request.state, JobState::Cancelled);
     job.set_stage("publishing");
     assert_eq!(job.snapshot(), cancelled_request);
     let marker = AtomicBool::new(false);

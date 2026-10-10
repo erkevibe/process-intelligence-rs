@@ -1,0 +1,226 @@
+{
+  "legacy_commit": "bbf24dfd43e72d6992392465f875a4367cbe792b",
+  "method": "org.apromore.splitminer.log.LogParser.getSimpleLog(String)",
+  "source_hashes": {
+    "LogParser.java": "14f30eee8c2099df3acf04c12ca2cb462b4fd7b6419b614309f8ae2db177dfa0",
+    "SimpleLog.java": "b4726afe80b4536ac5b27a5383a63a3a6d79cc9da2076078406aecf752eadfc7",
+    "LICENSE": "e3a994d82e644b03a792a930f574002658412f62407f5fee083f2555c5f23118"
+  },
+  "class_hashes": {
+    "LegacyHarness.class": "625fab990e609312312d739319c0aa66090552aa5393e368fb571914fdd2280c",
+    "org/apromore/splitminer/log/LogParser.class": "670d5c195c712696d6a2ba2f3c280e97d6d4cc4c329405b9ebfef139c1bbeaa4",
+    "org/apromore/splitminer/log/SimpleLog.class": "2125ccd50dbd26abd85688b45fdfeb4096766ae94b1edbf3e8896100d1b4da46"
+  },
+  "java_runtime_actual": "openjdk version \"11.0.32.1\" 2026-08-18\r\nOpenJDK Runtime Environment Temurin-11.0.32.1+1 (build 11.0.32.1+1)\r\nOpenJDK 64-Bit Server VM Temurin-11.0.32.1+1 (build 11.0.32.1+1, mixed mode)",
+  "java_version_stderr_sha256": "93a80478c2444d8d17e804a85b170290c6faf38e314cc6d0d6dffddccd40f5d7",
+  "jdk_archive_actual_sha256": "d5008f02174c1ad21c10407cbf104815cb390ec4c263d53946e8d0507d7a77f9",
+  "jdk_archive_expected_sha256": "d5008f02174c1ad21c10407cbf104815cb390ec4c263d53946e8d0507d7a77f9",
+  "corpus_sha256": "6c0ade912a2c6e9db989ecd0c81e2b4c5fe3c39d2fa6544837497976f5a6fc5b",
+  "results": [
+    {
+      "id": "alternatives",
+      "input_xes_sha256": "928e69d4354c60e0ba968262178189f77ff4b504199219684844888393786ba9",
+      "normalized_text_sha256": "d7056b57861638bef47364c0ca5a24084d2f2c99428364257236f85f251c4973",
+      "cases": 3,
+      "activities": 3,
+      "raw_total_events": -1,
+      "variants": [
+        {
+          "count": 2,
+          "sequence": [
+            "A",
+            "B"
+          ]
+        },
+        {
+          "count": 1,
+          "sequence": [
+            "A",
+            "C"
+          ]
+        }
+      ],
+      "stdout_sha256": "52daf4b4d24f7f7c808399262980b7da97f1175533cf70969abc731d9c2eb227",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "exit": 0,
+      "comparison": {
+        "cases": true,
+        "activities": true,
+        "variants": true
+      },
+      "boundaries": {
+        "raw_total_events": "Actual text overload leaves -1; not an event count oracle",
+        "dfg": "NOT executed legacy DFG; manual/Rust only",
+        "xes_importer": "NOT executed; explicit external normalization adapter"
+      }
+    },
+    {
+      "id": "self-loop",
+      "input_xes_sha256": "497f0358254a89b46429d8347b2f150f554397d3940701a663bf2a9717a26958",
+      "normalized_text_sha256": "7aea5781d73f94721dfac7275bb0a675c15b7a45eac7334dfc1318fcedd8e0b6",
+      "cases": 2,
+      "activities": 1,
+      "raw_total_events": -1,
+      "variants": [
+        {
+          "count": 1,
+          "sequence": [
+            "A"
+          ]
+        },
+        {
+          "count": 1,
+          "sequence": [
+            "A",
+            "A"
+          ]
+        }
+      ],
+      "stdout_sha256": "406cc3a05aee08d8729006eb4b0f76c5716fbcf49aa224e2e1480a6972900eb4",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "exit": 0,
+      "comparison": {
+        "cases": true,
+        "activities": true,
+        "variants": true
+      },
+      "boundaries": {
+        "raw_total_events": "Actual text overload leaves -1; not an event count oracle",
+        "dfg": "NOT executed legacy DFG; manual/Rust only",
+        "xes_importer": "NOT executed; explicit external normalization adapter"
+      }
+    },
+    {
+      "id": "empty-trace",
+      "input_xes_sha256": "c9c7cf34e6fa3eb358ab4146804eadab120ecc8a2992e979c50d3afac9731c6e",
+      "normalized_text_sha256": "0185037381e633db88c8f54a49be4a1efba36dab46a514f118cfa607973e6948",
+      "cases": 2,
+      "activities": 1,
+      "raw_total_events": -1,
+      "variants": [
+        {
+          "count": 1,
+          "sequence": []
+        },
+        {
+          "count": 1,
+          "sequence": [
+            "A"
+          ]
+        }
+      ],
+      "stdout_sha256": "4eed3e5768ac9e743bd00a3f6ce840658f55985492f392b94f5d7cff02a4f61c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "exit": 0,
+      "comparison": {
+        "cases": true,
+        "activities": true,
+        "variants": true
+      },
+      "boundaries": {
+        "raw_total_events": "Actual text overload leaves -1; not an event count oracle",
+        "dfg": "NOT executed legacy DFG; manual/Rust only",
+        "xes_importer": "NOT executed; explicit external normalization adapter"
+      }
+    },
+    {
+      "id": "unicode",
+      "input_xes_sha256": "a4886a085e3d69bcf8996f6ed9e9f4e2bdfa7ecc2c56251ce278d45d70fdc729",
+      "normalized_text_sha256": "a24f7071840dd5322eb05ed1308189ae8adf1270feb59551c7315ba851309166",
+      "cases": 2,
+      "activities": 2,
+      "raw_total_events": -1,
+      "variants": [
+        {
+          "count": 1,
+          "sequence": [
+            "Одобрить",
+            "Проверка\n雪"
+          ]
+        },
+        {
+          "count": 1,
+          "sequence": [
+            "Проверка\n雪",
+            "Одобрить"
+          ]
+        }
+      ],
+      "stdout_sha256": "766c15a357558418d677306b566904eda5259089c4fee7dbf1124c3d705b30e6",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "exit": 0,
+      "comparison": {
+        "cases": true,
+        "activities": true,
+        "variants": true
+      },
+      "boundaries": {
+        "raw_total_events": "Actual text overload leaves -1; not an event count oracle",
+        "dfg": "NOT executed legacy DFG; manual/Rust only",
+        "xes_importer": "NOT executed; explicit external normalization adapter"
+      }
+    },
+    {
+      "id": "lifecycle",
+      "input_xes_sha256": "672294eb6f97458448153f0e5aa7928867898f73cd3f986f87be7042daf7f59f",
+      "normalized_text_sha256": "c612850f06ef537dda5686a913e6d0fec51e70ec5ea7929122d2c5efe1b83d9c",
+      "cases": 1,
+      "activities": 2,
+      "raw_total_events": -1,
+      "variants": [
+        {
+          "count": 1,
+          "sequence": [
+            "A",
+            "A",
+            "B"
+          ]
+        }
+      ],
+      "stdout_sha256": "2e5defda90cf908d68aceed0b9428ebd9ed857ff25a10d9520df6424811cc1c4",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "exit": 0,
+      "comparison": {
+        "cases": true,
+        "activities": true,
+        "variants": true
+      },
+      "boundaries": {
+        "raw_total_events": "Actual text overload leaves -1; not an event count oracle",
+        "dfg": "NOT executed legacy DFG; manual/Rust only",
+        "xes_importer": "NOT executed; explicit external normalization adapter"
+      }
+    },
+    {
+      "id": "timestamp-order",
+      "input_xes_sha256": "66f8b5ac2c76764700424b149cf97a195652b1b8f2a1bdc4a6ebc4f7d8936740",
+      "normalized_text_sha256": "65c3b28a676584c815df02cb9e1b37482d3e3f220916f03ca97be11b4089b8a7",
+      "cases": 1,
+      "activities": 3,
+      "raw_total_events": -1,
+      "variants": [
+        {
+          "count": 1,
+          "sequence": [
+            "B",
+            "A",
+            "C"
+          ]
+        }
+      ],
+      "stdout_sha256": "4f3dfd2f5d03e07a94ee7114fd6d33b1ce687e8730603622fda50c6eed8def45",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "exit": 0,
+      "comparison": {
+        "cases": true,
+        "activities": true,
+        "variants": true
+      },
+      "boundaries": {
+        "raw_total_events": "Actual text overload leaves -1; not an event count oracle",
+        "dfg": "NOT executed legacy DFG; manual/Rust only",
+        "xes_importer": "NOT executed; explicit external normalization adapter"
+      }
+    }
+  ]
+}
