@@ -1,0 +1,47 @@
+{
+  "scope": "full available app18 stdout snapshot parsed; growing file, not entire lifetime",
+  "time_utc": "2026-10-10T06:11:28.4092174Z",
+  "lines": 146,
+  "first_timestamp": "2026-10-10T06:09:32.743903Z",
+  "last_timestamp": "2026-10-10T06:11:14.225731Z",
+  "levels": [
+    {
+      "level": "INFO",
+      "count": 145
+    },
+    {
+      "level": "WARN",
+      "count": 1
+    }
+  ],
+  "statuses": [
+    {
+      "status": "200",
+      "count": 118
+    },
+    {
+      "status": "202",
+      "count": 3
+    },
+    {
+      "status": "204",
+      "count": 1
+    },
+    {
+      "status": "422",
+      "count": 1
+    }
+  ],
+  "warnings": [
+    {
+      "timestamp": "2026-10-10T06:10:53.891033Z",
+      "level": "WARN",
+      "message": "import_rejected",
+      "code": "malformed_xml",
+      "job_id": null
+    }
+  ],
+  "hashed_snapshot_bytes": 37164,
+  "hashed_snapshot_sha256": "325B3D6D09299B869D9E0B359F07A1913B73CCE60093D20CF4812F223162549C",
+  "hash_limit": "Hash captured independently after summary parse; growing file intervals may differ"
+}

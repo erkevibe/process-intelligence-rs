@@ -1,6 +1,6 @@
 # T08 UI contract — optional after clean R1 baseline
 
-Status: proposal, not implemented. Owner UI: PM; Rust jobs and case projection: root; independent QA: qa_process. This document does not widen R1 AC01–12. Begin only after AC11 measurement and a verified clean baseline; protect the last hour for delivery. If less than 60 minutes remains before that protected hour, move T08 to the next iteration.
+Status: implementation contract agreed with root after independent AC11 and clean baseline. UI changes implemented; server integration and independent AC13/14 verification pending. Owner UI: PM; Rust jobs and case projection: root; independent QA: qa_process. This document does not widen R1 AC01–12. Begin only after AC11 measurement and a verified clean baseline; protect the last hour for delivery. If less than 60 minutes remains before that protected hour, move T08 to the next iteration.
 
 ## Reachable order and stop conditions
 
@@ -13,7 +13,7 @@ At 30 minutes, if job cancellation is not correct, defer case selection and use 
 
 ## User-visible job states
 
-One local worker: queued → running → completed | failed | cancelled. Proposal limits: one running job, one queued job and eight retained terminal snapshots. Full queue returns a stable error, without replacing the last valid analysis. Running stages use real transitions: upload received, validating/parsing, calculating counts, preparing result. While upload is underway, the browser may show “Загружаем файл…”; it does not invent upload byte percentages.
+One local worker: queued → running → completed | failed | cancelled. Actual admission bound: at most two accepted non-terminal jobs, one CPU worker, and eight retained terminal snapshots. A synchronous /logs import may occupy the worker, leaving both accepted jobs queued. Full queue returns a stable error, without replacing the last valid analysis. Running stages use real transitions: upload received, validating/parsing, calculating counts, preparing result. While upload is underway, the browser may show “Загружаем файл…”; it does not invent upload byte percentages.
 
 Copy examples:
 
@@ -29,17 +29,17 @@ No fabricated percentage, countdown or successful-completion timer. Stage text i
 
 ## HTTP/SSE addition
 
-Existing normal R1 POST /logs upload remains available. Optional job path POST /jobs accepts the same single file multipart contract and admission limits, returns a 202 Datastar HTML/SSE patch for stable #job-panel. Upload Datastar action uses contentType:form. Server first acquires a bounded slot; server-side parsing/mining never blocks the HTTP executor.
+Existing normal R1 POST /logs native multipart upload remains the default. Checkbox background-mode switches the same upload-form action to /jobs; it does not add a second submit button. Optional POST /jobs accepts the same single-file multipart contract and admission limits, returns 202 full HTML navigation with a new page nonce and root-rendered #job-panel. This agreed refinement replaces the original upload-patch proposal. Server first acquires a bounded slot; server-side parsing/mining never blocks the HTTP executor.
 
-The generated #job-panel has an escaped job ID and generated endpoint in data-events-url. Its static data-init expression calls @get(el.dataset.eventsUrl, {openWhenHidden:true}). Endpoint is GET /jobs/{id}/events. Datastar handles SSE; no custom EventSource/parser. One stream per current job, heartbeats from server, initial snapshot on every subscription/reconnect, monotonically increasing job_revision. If a page reloads, server GET / returns the current job snapshot or explicitly says no active job; it does not invent recovery after server restart.
+The generated stable hidden #job-connection is outside morphed #job-panel. It must not use data-ignore on the initializer: Datastar would ignore data-init as well. Its placement alone protects it from job-panel morph. Its static data-init expression calls @get(el.dataset.eventsUrl, {openWhenHidden:true}) with a root-generated data-events-url. Keeping the initializer outside morph prevents the first progress patch from destroying its stream cleanup scope. Endpoint is GET /jobs/{id}/events; GET /jobs/{id} exposes the authoritative JSON snapshot for independent checks. Datastar handles SSE; no custom EventSource/parser. One stream per current job, heartbeats from server, initial snapshot on every subscription/reconnect, monotonically increasing job_revision. If a page reloads, server GET / returns the current job snapshot or explicitly says no active job; it does not invent recovery after server restart.
 
-SSE patches #job-panel for progress. On completed, server patches #analysis-panel with the new analysis_version then sends the terminal job panel. Graph island remains outside both. Terminal job panel has no new data-init subscription. A transport failure displays “Связь с обработкой прервана; проверяем состояние”, never success. Server ignores stale job_revision; reconnection presents the actual current snapshot.
+SSE patches #job-panel for progress. On completed, server patches #analysis-panel with the new analysis_version then sends the terminal job panel. Graph island remains outside both. Terminal job panel has no data-init; the stable connection remains outside its morph and the finite server stream closes on the terminal snapshot. A transport failure displays “Связь с обработкой прервана; проверяем состояние”, never success. Server ignores stale job_revision; reconnection presents the actual current snapshot.
 
-POST /jobs/{id}/cancel is idempotent. Cancel button uses stable Datastar form/action with generated endpoint, outside the morph target or a dedicated stable bridge. Cancel must not wait behind the view/selection queue. It changes only cancel_requested; server confirms the actual terminal cancelled state. After accepted cancel, the job cannot publish completed/result. A cancellation arriving after completed returns the already terminal completed snapshot and explicitly does not claim cancellation.
+POST /jobs/{id}/cancel is idempotent. With Datastar SSE Accept it returns 204 and does not patch HTML; the watch stream alone owns job-panel. Direct API calls receive a JSON snapshot. This prevents a late cancel response from overwriting a newer terminal state. Cancel button uses stable Datastar form/action with generated endpoint, outside the morph target or a dedicated stable bridge. Cancel must not wait behind the view/selection queue. It changes only cancel_requested; server confirms the actual terminal cancelled state. After accepted cancel, the job cannot publish completed/result. A cancellation arriving after completed returns the already terminal completed snapshot and explicitly does not claim cancellation.
 
 ## Case selection without browser mining
 
-Show up to 20 case rows initially in a server-rendered case card: generated internal case ID, escaped optional name, event count. No search, paging or enterprise storage in this short T08. Explain the display limit; full cases remain in server memory.
+Show up to 20 case rows initially in a server-rendered case card: generated internal case ID, escaped optional name, event count. Selected-case activity details show at most 200 events; full selected-case data is available in JSON. No search, paging or enterprise storage in this short T08. Explain the display limit; full cases remain in server memory.
 
 Extend existing POST /logs/{id}/selection with kind=case and a generated case ID. Reuse the serialized mutation bridge; server validates case ownership. Case choice does not alter global counts, variants or threshold. Store selected_case_id separately from selected_id for node/edge, so clicking an element can show its aggregated count alongside the selected trace.
 
@@ -65,3 +65,19 @@ AC14: select distinct cases with duplicate names, an empty case and a self-loop;
 
 Security: file/log bounds remain enforced server-side; job IDs and case IDs are generated, activity names never enter expressions; CSP and local dependency tests rerun after integration. Missing evidence means unverified, never inferred PASS from a screen.
 
+
+## Exact implemented UI hooks
+
+Shell token JOB_PANEL is supplied by root; default is an empty hidden section with id=job-panel. Root owns safe generated events/cancel endpoints and all visible job stage text. The stable job-connection owns data-init; job-panel never owns the stream initializer. HTML data-job-state uses Rust Debug casing (Queued, Running, Completed, Failed, Cancelled); JSON uses snake_case. Use job-card, job-header, job-stage, job-memory, job-terminal/job-error classes. The stream is finite: it sends current snapshots through real job completion/cancel/failure, then closes. No progress percentages are required.
+
+Analysis-panel tokens CASE_ROWS and CASE_DETAILS are supplied by root. A row is a button with class case-button, type=button, generated data-case-id, aria-pressed, and static data-on:click="window.piQueueCase(el.dataset.caseId)". Name and event-count spans are escaped server values. No value is interpolated into the expression. piQueueCase reuses the stable unified mutation bridge with kind=case.
+
+The adapter styles only known graph IDs with amber case-path class. It preserves pan/zoom for the same log and respects server selected_id independently. Selected element green has precedence over case path amber. piGraphSnapshot diagnostics additionally expose selected_case_id and highlighted IDs for independent QA.
+
+Author validation: node --check static/app.js passed. Browser and integrated job/cancel/case acceptance remain independent QA work; source completion is not PASS.
+
+The existing node/edge selected details region has stable id=element-details. Case detail uses id=case-details. Independent browser tests must scope these explicitly instead of the now shared selection-details class.
+
+
+
+T08 stale-result refinement: server emits a completed job analysis patch only when its result_id is still repository.current. The adapter independently restores its cached accepted analysis panel when an older analysis/view arrives. Job panels remain outside this cache. Old completed job views use an explicit result link; reconnecting an old stream must not switch the current analysis. Deterministic browser injection of an old panel tests the presentation guard only, not mining correctness.

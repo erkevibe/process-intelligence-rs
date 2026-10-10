@@ -1,0 +1,308 @@
+{
+  "candidate": "d942f13306eabc0c3c9776f3bcbab26042384279",
+  "time_utc": "2026-10-10T05:51:23.1624567Z",
+  "sources": [
+    {
+      "source": "app-07.stderr.log",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null,
+      "last_write_utc": "2026-10-10T05:41:54.9206975Z",
+      "limitation": "File exists, not independently content-reviewed by qa_process"
+    },
+    {
+      "source": "app-07.stdout.log",
+      "status": "captured",
+      "bytes": 1221,
+      "sha256": null,
+      "last_write_utc": "2026-10-10T05:45:03.4452412Z",
+      "limitation": "Full available snapshot read; does not prove full lifetime coverage"
+    },
+    {
+      "source": "app-build-07.log",
+      "status": "missing",
+      "bytes": 73,
+      "sha256": "A0A09F1C24750E8BD77604CE36D298C5EF0AEF21A5955C99A3D76E8D00FADBB3",
+      "last_write_utc": "2026-10-10T05:41:54.8886682Z",
+      "limitation": "File exists, not independently content-reviewed by qa_process"
+    },
+    {
+      "source": "app.stderr.log",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "last_write_utc": "2026-10-10T05:31:56.9595681Z",
+      "limitation": "File exists, not independently content-reviewed by qa_process"
+    },
+    {
+      "source": "app.stdout.log",
+      "status": "missing",
+      "bytes": 202,
+      "sha256": "61B7F0E47DF29AADBC73C929C09CEFBC149336F68A647F8E7658C7713416A878",
+      "last_write_utc": "2026-10-10T05:35:38.6570833Z",
+      "limitation": "File exists, not independently content-reviewed by qa_process"
+    },
+    {
+      "source": "cargo-check.log",
+      "status": "missing",
+      "bytes": 5719,
+      "sha256": "21561047B6A7DF9DE893C863DEF939114504305DE099188203AC951ED950D9A7",
+      "last_write_utc": "2026-10-10T05:23:51.7382021Z",
+      "limitation": "File exists, not independently content-reviewed by qa_process"
+    },
+    {
+      "source": "cargo-fetch.log",
+      "status": "captured",
+      "bytes": 6337,
+      "sha256": "081C17317F1F6DF9E08805C1638E0CF100AAA08F22DBBCB5D26124E882FAF04B",
+      "last_write_utc": "2026-10-10T05:22:23.9074010Z",
+      "limitation": "Full available snapshot read; does not prove full lifetime coverage"
+    },
+    {
+      "source": "clean-build.log",
+      "status": "missing",
+      "bytes": 0,
+      "sha256": null,
+      "last_write_utc": "2026-10-10T05:51:03.1780388Z",
+      "limitation": "File exists, not independently content-reviewed by qa_process"
+    },
+    {
+      "source": "clean-setup.log",
+      "status": "captured",
+      "bytes": 872,
+      "sha256": "B13805F46D5A212E9DEA7BCE41F47E0EBB341CF485314F121F4EA4F624ED4264",
+      "last_write_utc": "2026-10-10T05:50:39.5626846Z",
+      "limitation": "Full available snapshot read; does not prove full lifetime coverage"
+    },
+    {
+      "source": "clippy-07.log",
+      "status": "captured",
+      "bytes": 114,
+      "sha256": "6F402C68AF5A8EC6346C0E6A56D6F2482A590AD8A1F1178191DA0FF6B105CA5B",
+      "last_write_utc": "2026-10-10T05:42:08.4140656Z",
+      "limitation": "Full available snapshot read; does not prove full lifetime coverage"
+    },
+    {
+      "source": "clippy-08.log",
+      "status": "missing",
+      "bytes": 3499,
+      "sha256": "5D3F50FB9F9D1CB7FC8C7D5C6CB5C43E9DDCF56136B71B69CDCDA0A215319859",
+      "last_write_utc": "2026-10-10T05:42:55.9837878Z",
+      "limitation": "File exists, not independently content-reviewed by qa_process"
+    },
+    {
+      "source": "contract-tests-05.log",
+      "status": "missing",
+      "bytes": 1748,
+      "sha256": "1151A45436736B57C06C3642AE4B1C54BCDD96B5B3AC80D98B6E9CB2F13D1602",
+      "last_write_utc": "2026-10-10T05:31:52.7290153Z",
+      "limitation": "File exists, not independently content-reviewed by qa_process"
+    },
+    {
+      "source": "core-tests-01.log",
+      "status": "missing",
+      "bytes": 1469,
+      "sha256": "69BFD71D390C45F20B2DF0F56DC608EF7990574952C0E6AB03B8C50BB61A965B",
+      "last_write_utc": "2026-10-10T05:25:45.8321038Z",
+      "limitation": "File exists, not independently content-reviewed by qa_process"
+    },
+    {
+      "source": "core-tests-02.log",
+      "status": "missing",
+      "bytes": 2809,
+      "sha256": "A615B668CAFA392CA70419771B0319882AA2165023B5C72F1F0133203CC59B63",
+      "last_write_utc": "2026-10-10T05:26:16.9076930Z",
+      "limitation": "File exists, not independently content-reviewed by qa_process"
+    },
+    {
+      "source": "core-tests-03.log",
+      "status": "truncated",
+      "bytes": 6380,
+      "sha256": "06428B5DDEADF8FF81B72029C873C90CEB02EDC011A4AF9511FC49E62750D7BD",
+      "last_write_utc": "2026-10-10T05:29:48.7265701Z",
+      "limitation": "Tail only inspected"
+    },
+    {
+      "source": "core-tests-04.log",
+      "status": "captured",
+      "bytes": 2280,
+      "sha256": "9141D5981BAF8DBAEFECDE59E438E75CACD8930D7186C3C2F065FB5FD60A9585",
+      "last_write_utc": "2026-10-10T05:30:38.6990780Z",
+      "limitation": "Full available snapshot read; does not prove full lifetime coverage"
+    },
+    {
+      "source": "http-direct-lld-build.log",
+      "status": "missing",
+      "bytes": 4402,
+      "sha256": "4B4D3909D1189280BDBD80DB2BB565B5CF3AF753481A1B97196C36A41483DBD0",
+      "last_write_utc": "2026-10-10T05:39:20.5237629Z",
+      "limitation": "File exists, not independently content-reviewed by qa_process"
+    },
+    {
+      "source": "http-direct-lld-list.log",
+      "status": "missing",
+      "bytes": 335,
+      "sha256": "4CA4E4105BFAE8017BBF5BBED8BD2179EA44CA3334206E1B5B682E6C1456F77C",
+      "last_write_utc": "2026-10-10T05:39:41.7450928Z",
+      "limitation": "File exists, not independently content-reviewed by qa_process"
+    },
+    {
+      "source": "http-direct-lld-pe.txt",
+      "status": "missing",
+      "bytes": 10253,
+      "sha256": "42A13F099BB485C935A489C647F342B901D35E096E7843035B6155A369FE6F05",
+      "last_write_utc": "2026-10-10T05:39:41.6240388Z",
+      "limitation": "File exists, not independently content-reviewed by qa_process"
+    },
+    {
+      "source": "http-direct-lld-tests.log",
+      "status": "missing",
+      "bytes": 464,
+      "sha256": "9783FC978242100090D0FDE357FA6B5413FDDAB1C3BE58CB2F7F60512130741E",
+      "last_write_utc": "2026-10-10T05:39:41.9247036Z",
+      "limitation": "File exists, not independently content-reviewed by qa_process"
+    },
+    {
+      "source": "http-lld-build.log",
+      "status": "missing",
+      "bytes": 4395,
+      "sha256": "60DDE81EA662970D10DB73FC8D11EC3E2F35BDF0282793B1AF757B4E2B324D1B",
+      "last_write_utc": "2026-10-10T05:35:44.5328051Z",
+      "limitation": "File exists, not independently content-reviewed by qa_process"
+    },
+    {
+      "source": "http-lld-pe.txt",
+      "status": "missing",
+      "bytes": 10254,
+      "sha256": "177767A67839BC455B36335E8A0CD9DE670514116CB8F4FD22B3333E886FCDF3",
+      "last_write_utc": "2026-10-10T05:36:39.6849790Z",
+      "limitation": "File exists, not independently content-reviewed by qa_process"
+    },
+    {
+      "source": "http-original-pe.txt",
+      "status": "missing",
+      "bytes": 9670,
+      "sha256": "83EC2859F7A87EEAE3CDE7BF67970AD561097A92BFC65C8B8AC9F25896DE7F01",
+      "last_write_utc": "2026-10-10T05:36:56.9875504Z",
+      "limitation": "File exists, not independently content-reviewed by qa_process"
+    },
+    {
+      "source": "http-original-symbols.txt",
+      "status": "missing",
+      "bytes": 16266939,
+      "sha256": "41FB4B14EB5E7064F05287B5CF04449E4E3BC49C19CD598D3765925FD43264A9",
+      "last_write_utc": "2026-10-10T05:36:58.8515834Z",
+      "limitation": "File exists, not independently content-reviewed by qa_process"
+    },
+    {
+      "source": "libtest-direct-lld-build.log",
+      "status": "missing",
+      "bytes": 1710,
+      "sha256": "F0AD8C22919CFC34CEADF710F2B4E759C4B9F98FAD34B74D89D9DD9DFF342105",
+      "last_write_utc": "2026-10-10T05:38:08.2744204Z",
+      "limitation": "File exists, not independently content-reviewed by qa_process"
+    },
+    {
+      "source": "llvm-tools-setup.log",
+      "status": "missing",
+      "bytes": 40,
+      "sha256": "BB5310345507CE52FA547A72ED9331902C8A28DDABAC91BD8C6210D4E7C64AF2",
+      "last_write_utc": "2026-10-10T05:26:40.4922749Z",
+      "limitation": "File exists, not independently content-reviewed by qa_process"
+    },
+    {
+      "source": "pinned-clippy-12.log",
+      "status": "captured",
+      "bytes": 3499,
+      "sha256": "F9AB679DF0D88FD1488D1BD10AC11667EE6C76309FC14B3C807E41D6BCAF7CD6",
+      "last_write_utc": "2026-10-10T05:47:56.6644580Z",
+      "limitation": "Full available snapshot read; does not prove full lifetime coverage"
+    },
+    {
+      "source": "pinned-contract-tests-09.log",
+      "status": "missing",
+      "bytes": 2511,
+      "sha256": "129C8A2F73FBE9D8029A0AF6EDF6A0D811B29DB41DD0AF39A62CD631FF2F4E35",
+      "last_write_utc": "2026-10-10T05:44:58.3810865Z",
+      "limitation": "File exists, not independently content-reviewed by qa_process"
+    },
+    {
+      "source": "pinned-contract-tests-11.log",
+      "status": "captured",
+      "bytes": 4536,
+      "sha256": "ED95982F814C732BA7D4E0631E8D175A64D184E76B5C73C727EC7EFE68F85213",
+      "last_write_utc": "2026-10-10T05:47:06.7485777Z",
+      "limitation": "Full available snapshot read; does not prove full lifetime coverage"
+    },
+    {
+      "source": "pinned-setup-09.log",
+      "status": "captured",
+      "bytes": 471,
+      "sha256": "52015249EA690373A18FA0DE3F4C93BD5719B3074A578DD43E37AB13EF458B74",
+      "last_write_utc": "2026-10-10T05:44:06.4500881Z",
+      "limitation": "Full available snapshot read; does not prove full lifetime coverage"
+    },
+    {
+      "source": "pinned-setup-10.log",
+      "status": "captured",
+      "bytes": 1091,
+      "sha256": "698C710E12C262256B9296D08E2EBF6037BAA469ECED8DB8A9B09B3EF27E4ABC",
+      "last_write_utc": "2026-10-10T05:45:49.8485930Z",
+      "limitation": "Full available snapshot read; does not prove full lifetime coverage"
+    },
+    {
+      "source": "pinned-setup-11.log",
+      "status": "captured",
+      "bytes": 407,
+      "sha256": "736F6496E88C65C0CC73FA68EA0A520B8CD1A31F3EEC7FE8B98F1666504F0434",
+      "last_write_utc": "2026-10-10T05:46:14.9902246Z",
+      "limitation": "Full available snapshot read; does not prove full lifetime coverage"
+    },
+    {
+      "source": "qa-admission.log",
+      "status": "captured",
+      "bytes": 4885,
+      "sha256": "E913C4D58B78819C59E99A3EF2DB15DD445130944D9EEE4C52F736C4D32B92E4",
+      "last_write_utc": "2026-10-10T05:45:03.8914138Z",
+      "limitation": "Full available snapshot read; does not prove full lifetime coverage"
+    },
+    {
+      "source": "raw-dylib-probe.log",
+      "status": "missing",
+      "bytes": 174,
+      "sha256": "3CAA0672E3A44F9204CE6859FB15A308658547F21FF10DE018D73881F9E10500",
+      "last_write_utc": "2026-10-10T05:28:29.7750532Z",
+      "limitation": "File exists, not independently content-reviewed by qa_process"
+    },
+    {
+      "source": "rust-components.log",
+      "status": "missing",
+      "bytes": 32,
+      "sha256": "7C035B99139556A98FEFBAE998BE3FA04EF972A85E2E561B6EED45D1377BBE49",
+      "last_write_utc": "2026-10-10T05:40:48.1833366Z",
+      "limitation": "File exists, not independently content-reviewed by qa_process"
+    },
+    {
+      "source": "rust-setup.log",
+      "status": "captured",
+      "bytes": 692,
+      "sha256": "8F565036BEB1F0753330B16BE1EEE19F73B9DF50395701589BA5AF081618C441",
+      "last_write_utc": "2026-10-10T05:20:25.1687234Z",
+      "limitation": "Full available snapshot read; does not prove full lifetime coverage"
+    },
+    {
+      "source": "wrapper-contract-tests-06.log",
+      "status": "captured",
+      "bytes": 5977,
+      "sha256": "3AABB2D53AAD0DAF408031E4F6FC9C3AAB54487859BABB8ACB6C7DD54519027A",
+      "last_write_utc": "2026-10-10T05:40:54.2116058Z",
+      "limitation": "Full available snapshot read; does not prove full lifetime coverage"
+    }
+  ],
+  "missing_external_sources": [
+    "GitHub Actions raw logs/status",
+    "git push stdout/stderr",
+    "complete agent event streams",
+    "retrospective task cards not yet read"
+  ]
+}

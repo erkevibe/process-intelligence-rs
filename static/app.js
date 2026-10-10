@@ -4,8 +4,10 @@
   let cy = null;
   let accepted = { analysis: -1, revision: -1, log: null };
   let lastPayload = '';
+  let acceptedPanel = null;
   let updateQueued = false;
   let isUpdating = false;
+  let selectedCase = null;
   const mutations = [];
   let mutationInFlight = false;
   const byId = id => document.getElementById(id);
@@ -14,6 +16,8 @@
   const graphStyle = () => [
     { selector: 'node', style: { 'background-color': css('--node'), 'border-color': css('--accent'), 'border-width': 1.5, 'shape': 'round-rectangle', 'width': 115, 'height': 55, 'label': 'data(displayLabel)', 'color': css('--text'), 'font-family': 'Segoe UI, sans-serif', 'font-size': 11, 'text-wrap': 'wrap', 'text-max-width': 100, 'text-valign': 'center', 'text-halign': 'center', 'text-outline-width': 0 } },
     { selector: 'edge', style: { 'width': 1.8, 'line-color': css('--edge'), 'target-arrow-color': css('--edge'), 'target-arrow-shape': 'triangle', 'curve-style': 'bezier', 'label': 'data(count)', 'color': css('--muted'), 'font-size': 10, 'text-background-color': css('--surface-2'), 'text-background-opacity': 1, 'text-background-padding': 3, 'text-rotation': 'autorotate', 'loop-direction': '-45deg', 'loop-sweep': '70deg' } },
+    { selector: '.case-path', style: { 'border-color': css('--case'), 'border-width': 2.5, 'line-color': css('--case'), 'target-arrow-color': css('--case'), 'width': 2.6 } },
+    { selector: 'node.case-path', style: { 'width': 115 } },
     { selector: ':selected', style: { 'border-color': css('--green'), 'border-width': 3, 'line-color': css('--green'), 'target-arrow-color': css('--green'), 'color': css('--green') } }
   ];
   function ensureGraph() {
@@ -61,6 +65,12 @@
     const form = input.closest('form');
     if (form) enqueueMutation(form.action, { threshold: input.value });
   };
+  window.piQueueCase = id => {
+    const form = byId('threshold-form');
+    if (!form || typeof id !== 'string' || !id.length) return;
+    const endpoint = new URL(form.action, location.href);
+    enqueueMutation(endpoint.pathname.replace(/\/view$/, '/selection'), { kind: 'case', id });
+  };
   function sendSelection(kind, id) {
     const form = byId('threshold-form');
     if (!form) return;
@@ -78,7 +88,16 @@
     const analysis = Number(graph.analysis_version);
     const revision = Number(graph.view_revision);
     if (!Number.isSafeInteger(analysis) || !Number.isSafeInteger(revision) || !Array.isArray(graph.nodes) || !Array.isArray(graph.edges)) { status('Неподдерживаемая версия данных графа.'); return; }
-    if (analysis < accepted.analysis || (analysis === accepted.analysis && revision < accepted.revision)) return;
+    const payloadLog = String(graph.log_id ?? analysis);
+    const olderVersion = analysis < accepted.analysis || (analysis === accepted.analysis && revision < accepted.revision);
+    const wrongLogForVersion = analysis === accepted.analysis && accepted.log !== null && payloadLog !== accepted.log;
+    if (olderVersion || wrongLogForVersion) {
+      // Protect server-rendered counts/details as well as the graph island.
+      // Only clone an already accepted, escaped server DOM; no HTML/SSE parsing.
+      const panel = byId('analysis-panel');
+      if (panel && acceptedPanel) panel.replaceWith(acceptedPanel.cloneNode(true));
+      return;
+    }
     const instance = ensureGraph();
     if (!instance) { status('Граф пока недоступен: проверьте загрузку локальных файлов.'); return; }
     const newLog = accepted.log !== String(graph.log_id ?? analysis);
@@ -107,6 +126,14 @@
       if (existing.length) existing.data(data);
       else instance.add({ group: 'edges', data });
     }
+    instance.elements().removeClass('case-path');
+    const highlight = graph.case_highlight;
+    for (const id of [...(Array.isArray(highlight?.node_ids) ? highlight.node_ids : []), ...(Array.isArray(highlight?.edge_ids) ? highlight.edge_ids : [])]) {
+      instance.getElementById(String(id)).addClass('case-path');
+    }
+    selectedCase = graph.selected_case_id ?? null;
+    const caseLegend = byId('case-legend');
+    if (caseLegend) caseLegend.hidden = selectedCase === null;
     instance.elements().unselect();
     const serverSelection = graph.selection?.id ?? graph.selected_id;
     const selectedIds = graph.selection === null || graph.selected_id === null ? [] : serverSelection ? [String(serverSelection)] : previousSelection;
@@ -117,6 +144,7 @@
     isUpdating = false;
     accepted = { analysis, revision, log: String(graph.log_id ?? analysis) };
     lastPayload = payload;
+    acceptedPanel = byId('analysis-panel')?.cloneNode(true) ?? null;
     const empty = byId('graph-empty');
     if (empty) empty.hidden = graph.nodes.length > 0;
     const summary = byId('graph-summary');
@@ -138,6 +166,10 @@
       const file = event.target.files?.[0];
       if (byId('file-label')) byId('file-label').textContent = file ? file.name : 'Выберите XES-файл';
     });
+    byId('background-mode')?.addEventListener('change', event => {
+      const form = byId('upload-form');
+      if (form) form.action = event.target.checked ? '/jobs' : '/logs';
+    });
     byId('upload-form')?.addEventListener('submit', event => {
       const file = byId('xes-file')?.files?.[0];
       if (file && file.size > 20 * 1024 * 1024) { event.preventDefault(); status('Файл превышает 20 MiB. Выберите меньший журнал.'); return; }
@@ -158,8 +190,10 @@
     syncGraph();
   }
   // Read-only diagnostic snapshot; does not perform analysis or filtering.
-  window.piGraphSnapshot = () => cy ? { ...accepted, pan: { ...cy.pan() }, zoom: cy.zoom(), nodes: cy.nodes().length, edges: cy.edges().length, selected: cy.$(':selected').map(element => element.id()) } : null;
+  window.piGraphSnapshot = () => cy ? { ...accepted, pan: { ...cy.pan() }, zoom: cy.zoom(), nodes: cy.nodes().length, edges: cy.edges().length, selected: cy.$(':selected').map(element => element.id()), selected_case_id: selectedCase, highlighted: cy.$('.case-path').map(element => element.id()), panel_version: { analysis: Number(byId('analysis-panel')?.dataset.analysisVersion ?? -1), revision: Number(byId('analysis-panel')?.dataset.viewRevision ?? -1) } } : null;
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initialize, { once: true });
   else initialize();
 })();
+
+
 

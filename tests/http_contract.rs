@@ -300,3 +300,51 @@ async fn byte_limit_is_413_before_xml_parse() {
         .unwrap();
     assert_eq!(r.status(), StatusCode::PAYLOAD_TOO_LARGE);
 }
+
+#[tokio::test]
+async fn whole_multipart_body_limit_returns_413_and_keeps_previous_export() {
+    let app = app();
+    let demo = app
+        .clone()
+        .oneshot(request("POST", "/demo", None, Body::empty()))
+        .await
+        .unwrap();
+    assert_eq!(demo.status(), StatusCode::OK);
+    let before = exported(&app).await;
+    let oversized = vec![b'x'; 22 * 1024 * 1024];
+    let response = app
+        .clone()
+        .oneshot(request(
+            "POST",
+            "/logs",
+            Some("multipart/form-data; boundary=qa-boundary"),
+            multipart(&oversized),
+        ))
+        .await
+        .unwrap();
+    assert_eq!(
+        response.status(),
+        StatusCode::PAYLOAD_TOO_LARGE,
+        "actual router status for whole multipart cap"
+    );
+    assert_eq!(exported(&app).await, before);
+}
+
+#[tokio::test]
+async fn timestamp_error_has_one_based_case_event_context() {
+    let app = app();
+    let response = app
+        .oneshot(request(
+            "POST",
+            "/logs",
+            Some("multipart/form-data; boundary=qa-boundary"),
+            multipart(include_bytes!("../fixtures/invalid-timestamp.xes")),
+        ))
+        .await
+        .unwrap();
+    assert_eq!(response.status(), StatusCode::UNPROCESSABLE_ENTITY);
+    assert!(
+        text(response).await.contains("Трасса 1, событие 1"),
+        "user-visible one-based source location"
+    );
+}

@@ -3,11 +3,16 @@ param(
  [string]$GeneratedDirectory=(Join-Path $PSScriptRoot '..\.local\qa-generated'),
  [string]$OutputDirectory=(Join-Path $PSScriptRoot '..\.local\qa-admission'),
  [string]$PublicSummary=(Join-Path $PSScriptRoot '..\flw\evidence\qa-admission.json'),
- [string]$PidFile=(Join-Path $PSScriptRoot '..\.local\app.pid')
+ [string]$PidFile=(Join-Path $PSScriptRoot '..\.local\app.pid'),
+ [string]$Profile='debug'
 )
 $ErrorActionPreference='Stop'
 New-Item -ItemType Directory -Force -Path $OutputDirectory | Out-Null
 $results=[Collections.Generic.List[object]]::new()
+$initial=Invoke-WebRequest "$BaseUrl/" -SkipHttpErrorCheck
+if (![regex]::IsMatch($initial.Content,'/logs/log-\d+/export')) {
+ Invoke-WebRequest "$BaseUrl/demo" -Method Post -SkipHttpErrorCheck | Out-Null
+}
 function CurrentExport([string]$html) {
  $id=[regex]::Match($html,'/logs/(log-\d+)/export').Groups[1].Value
  if (!$id) {throw 'No previous analysis ID found'}
@@ -53,6 +58,6 @@ foreach ($case in $cases) {
  $row=[pscustomobject]@{fixture=$case.name;fixture_sha256=(Get-FileHash -LiteralPath $file.FullName -Algorithm SHA256).Hash;bytes=$file.Length;expected_status=$case.status;actual_status=$response.StatusCode;passed=$matches;counts_or_previous_unchanged=$countsOk;cases=$actual.analysis.cases;events=$actual.analysis.events;activities=$actual.analysis.activities;http_upload_wall_ms=$clock.Elapsed.TotalMilliseconds;server_parse_analysis_ms=$actual.elapsed_ms;process_lifetime_peak_working_set_bytes=$peak}
  $results.Add($row);$row | ConvertTo-Json -Depth 5
 }
-$summary=[pscustomobject]@{run_id='sprint-01';observer='qa_process';time_utc=[DateTime]::UtcNow.ToString('o');profile='debug live server; not release';measurement_limits='HTTP wall includes multipart transport/render; server elapsed_ms reports parse+analysis; RSS is process-lifetime peak working set, not precise per-job peak';results=$results}
+$summary=[pscustomobject]@{run_id='sprint-01';observer='qa_process';time_utc=[DateTime]::UtcNow.ToString('o');profile=$Profile;measurement_limits='HTTP wall includes multipart transport/render; server elapsed_ms reports parse+analysis; memory is process-lifetime peak working set, not precise per-job RSS';results=$results}
 $summary | ConvertTo-Json -Depth 10 | Set-Content -LiteralPath $PublicSummary -Encoding utf8
 $summary | ConvertTo-Json -Depth 10 | Set-Content -LiteralPath (Join-Path $OutputDirectory 'full-results.json') -Encoding utf8

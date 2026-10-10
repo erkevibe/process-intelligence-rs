@@ -1,16 +1,31 @@
 //! Deterministic DFG counts. View filtering never changes the event log.
-use crate::domain::{Analysis, Edge, EventLog, GraphView, ImportError, Node, Variant};
+use crate::domain::{
+    Analysis, CaseHighlight, Edge, EventLog, GraphView, ImportError, Node, Variant,
+};
 use std::collections::BTreeMap;
 
 pub fn analyze(log: &EventLog) -> Analysis {
+    analyze_cancellable(log, &|| false).expect("non-cancellable analysis")
+}
+
+pub fn analyze_cancellable(
+    log: &EventLog,
+    cancelled: &dyn Fn() -> bool,
+) -> Result<Analysis, ImportError> {
     let mut counts = BTreeMap::<String, (u64, u64, u64)>::new();
     let mut edges = BTreeMap::<(String, String), u64>::new();
     let mut variants = BTreeMap::<Vec<String>, Vec<String>>::new();
     let mut events = 0;
     for case in &log.cases {
+        if cancelled() {
+            return Err(ImportError::new("cancelled", "Обработка отменена."));
+        }
         let sequence: Vec<String> = case.events.iter().map(|e| e.activity.clone()).collect();
         events += sequence.len();
         for activity in &sequence {
+            if cancelled() {
+                return Err(ImportError::new("cancelled", "Обработка отменена."));
+            }
             counts.entry(activity.clone()).or_default().0 += 1;
         }
         if let Some(first) = sequence.first() {
@@ -67,7 +82,10 @@ pub fn analyze(log: &EventLog) -> Analysis {
     for (i, variant) in variants.iter_mut().enumerate() {
         variant.id = format!("variant-{i}");
     }
-    Analysis {
+    if cancelled() {
+        return Err(ImportError::new("cancelled", "Обработка отменена."));
+    }
+    Ok(Analysis {
         cases: log.cases.len(),
         events,
         activities: nodes.len(),
@@ -75,7 +93,7 @@ pub fn analyze(log: &EventLog) -> Analysis {
         edges,
         variants,
         max_edge_frequency,
-    }
+    })
 }
 
 pub fn graph_view(
@@ -110,5 +128,10 @@ pub fn graph_view(
         nodes: analysis.nodes.clone(),
         edges,
         selected_id,
+        selected_case_id: None,
+        case_highlight: CaseHighlight {
+            node_ids: Vec::new(),
+            edge_ids: Vec::new(),
+        },
     })
 }

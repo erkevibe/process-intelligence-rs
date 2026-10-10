@@ -60,6 +60,12 @@ pub struct Analysis {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct CaseHighlight {
+    pub node_ids: Vec<String>,
+    pub edge_ids: Vec<String>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct GraphView {
     pub log_id: String,
     pub analysis_version: u64,
@@ -69,6 +75,8 @@ pub struct GraphView {
     pub nodes: Vec<Node>,
     pub edges: Vec<Edge>,
     pub selected_id: Option<String>,
+    pub selected_case_id: Option<String>,
+    pub case_highlight: CaseHighlight,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]

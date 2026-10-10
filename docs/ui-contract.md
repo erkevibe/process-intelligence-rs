@@ -41,3 +41,14 @@ Pinned bundles downloaded from official tagged repositories; SHA256 and license 
 The graph version guard alone does not protect panel HTML. A unified request queue now serializes both endpoint families through a stable Datastar bridge. The bridge fields never change while its request is in flight, even when panel morph removes old inputs. piRunMutation catches rejected requests and releases the queue. No cancellable before-patch hook was found in the pinned Datastar API; no unsupported hooks were added. Browser verification remains pending.
 
 
+
+## Integrated T08 selectors
+
+Node/edge details: #element-details. Case details: #case-details. Both share presentation class selection-details; selectors must use IDs. Job stream initializer is stable #job-connection outside morphed #job-panel. Datastar cancel gets 204; only the watch stream patches job-panel. See ui-t08-contract.md for exact bounded queue and memory behavior.
+
+
+## Integrated analysis-panel version guard
+
+After each accepted graph payload the adapter caches cloneNode(true) of the already rendered analysis-panel. If a later server patch contains an older analysis_version or view_revision, or a different log ID with the same analysis version, the next animation-frame synchronization restores a clone of that accepted panel before paint. It rejects the old graph payload too. Thus stale counts, threshold, case details and element details cannot remain alongside a newer graph. No statistics are calculated in the browser and no SSE or user HTML is parsed by this guard. The cache excludes job-panel and job-connection. New full-page navigation resets the local cache; a legitimately newer analysis creates a new accepted cache. Identical versions are allowed for ordinary valid rendering updates.
+
+piGraphSnapshot adds panel_version {analysis,revision} for independent verification. Required deterministic browser regression: capture an old panel; accept a higher revision or a newer log; insert the old clone; wait for synchronization; verify the current panel versions/counts/details and graph still match, and a subsequent genuine view/selection action works. Source syntax verification is not this browser PASS.

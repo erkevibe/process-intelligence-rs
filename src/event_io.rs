@@ -32,7 +32,23 @@ pub fn parse_xes(input: &[u8]) -> Result<EventLog, ImportError> {
 }
 
 pub fn parse_xes_with_limits(input: &[u8], limits: Limits) -> Result<EventLog, ImportError> {
-    let normalized = preflight(input, limits)?;
+    parse_xes_checked(input, limits, &|| false)
+}
+
+pub fn parse_xes_cancellable(
+    input: &[u8],
+    cancelled: &dyn Fn() -> bool,
+) -> Result<EventLog, ImportError> {
+    parse_xes_checked(input, Limits::default(), cancelled)
+}
+
+fn parse_xes_checked(
+    input: &[u8],
+    limits: Limits,
+    cancelled: &dyn Fn() -> bool,
+) -> Result<EventLog, ImportError> {
+    let normalized = preflight(input, limits, cancelled)?;
+    check_cancelled(cancelled)?;
     let options = XESImportOptions {
         verbose: false,
         sort_events_with_timestamp_key: None,
@@ -44,6 +60,7 @@ pub fn parse_xes_with_limits(input: &[u8], limits: Limits) -> Result<EventLog, I
             "Не удалось разобрать XES. Проверьте структуру журнала.",
         )
     })?;
+    check_cancelled(cancelled)?;
     let name = log
         .attributes
         .iter()
@@ -52,6 +69,7 @@ pub fn parse_xes_with_limits(input: &[u8], limits: Limits) -> Result<EventLog, I
         .cloned();
     let mut cases = Vec::with_capacity(log.traces.len());
     for (case_index, trace) in log.traces.into_iter().enumerate() {
+        check_cancelled(cancelled)?;
         let name = trace
             .attributes
             .iter()
@@ -123,7 +141,22 @@ fn malformed(message: &str) -> ImportError {
     ImportError::new("malformed_xml", message)
 }
 
-fn preflight(input: &[u8], limits: Limits) -> Result<Vec<u8>, ImportError> {
+fn check_cancelled(cancelled: &dyn Fn() -> bool) -> Result<(), ImportError> {
+    if cancelled() {
+        Err(ImportError::new(
+            "cancelled",
+            "Обработка отменена. Предыдущий анализ сохранён.",
+        ))
+    } else {
+        Ok(())
+    }
+}
+
+fn preflight(
+    input: &[u8],
+    limits: Limits,
+    cancelled: &dyn Fn() -> bool,
+) -> Result<Vec<u8>, ImportError> {
     if input.len() > limits.max_bytes {
         return Err(ImportError::new(
             "byte_limit",
@@ -138,6 +171,7 @@ fn preflight(input: &[u8], limits: Limits) -> Result<Vec<u8>, ImportError> {
     let mut buffer = Vec::new();
     let mut normalized = Writer::new(Vec::with_capacity(input.len()));
     loop {
+        check_cancelled(cancelled)?;
         let event = reader
             .read_event_into(&mut buffer)
             .map_err(|_| malformed("XML повреждён: проверьте теги и атрибуты."))?;
