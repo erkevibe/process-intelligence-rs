@@ -1,0 +1,19 @@
+if(!process.env.PLAYWRIGHT_MODULE||!process.env.BROWSER_EXECUTABLE)throw Error('Set bundled paths');
+const {chromium}=require(process.env.PLAYWRIGHT_MODULE);const fs=require('fs'),path=require('path');const base=(process.env.BASE_URL||'http://127.0.0.1:3000').replace(/\/$/,'');const out=path.resolve(process.env.QA_BROWSER_OUTPUT||'.local/qa-browser-stale');fs.mkdirSync(out,{recursive:true});const results=[];const record=(name,passed,detail)=>results.push({name,passed,detail});
+(async()=>{const browser=await chromium.launch({headless:true,executablePath:process.env.BROWSER_EXECUTABLE});const page=await browser.newPage({viewport:{width:1440,height:1100}});const errors=[];page.on('pageerror',e=>errors.push(e.message));
+const upload=async fixture=>{await page.goto(base);await page.locator('#background-mode').setChecked(false);await page.locator('#xes-file').setInputFiles(path.resolve(fixture));await Promise.all([page.waitForNavigation(),page.locator('#upload-form button[type=submit]').click()]);await page.waitForFunction(()=>window.piGraphSnapshot?.()?.nodes===3);};
+const setThreshold=async k=>page.locator('#threshold-form input[name=threshold]').evaluate((el,k)=>{el.value=String(k);el.dispatchEvent(new Event('change',{bubbles:true}));},k);
+const inject=async html=>page.evaluate(html=>{const template=document.createElement('template');template.innerHTML=html;document.getElementById('analysis-panel').replaceWith(template.content.firstElementChild);},html);
+try{
+ await upload('fixtures/manual.xes');const old=await page.locator('#analysis-panel').evaluate(el=>el.outerHTML);
+ await setThreshold(2);await page.waitForFunction(()=>window.piGraphSnapshot?.()?.edges===2);const acceptedHTML=await page.locator('#analysis-panel').evaluate(el=>el.outerHTML);const accepted=await page.evaluate(()=>window.piGraphSnapshot());
+ await inject(old);await page.waitForFunction(revision=>document.getElementById('analysis-panel').dataset.viewRevision===String(revision),accepted.revision,{timeout:8000});
+ record('stale same-log panel restored',await page.locator('#analysis-panel').evaluate(el=>el.outerHTML)===acceptedHTML&&(await page.evaluate(()=>window.piGraphSnapshot())).edges===2,{accepted,after:await page.evaluate(()=>window.piGraphSnapshot())});
+ await setThreshold(1);await page.waitForFunction(()=>window.piGraphSnapshot?.()?.edges===4);record('Datastar rebind after restoration',true,null);
+ const previousLogPanel=await page.locator('#analysis-panel').evaluate(el=>el.outerHTML);await upload('fixtures/semantics.xes');const latestHTML=await page.locator('#analysis-panel').evaluate(el=>el.outerHTML);const latest=await page.evaluate(()=>window.piGraphSnapshot());
+ await inject(previousLogPanel);await page.waitForFunction(analysis=>document.getElementById('analysis-panel').dataset.analysisVersion===String(analysis),latest.analysis,{timeout:8000});
+ record('previous-log panel cannot overwrite newer counts',await page.locator('#analysis-panel').evaluate(el=>el.outerHTML)===latestHTML&&(await page.evaluate(()=>window.piGraphSnapshot())).log===latest.log,null);
+ await page.locator('.case-button').filter({hasText:'2 событий'}).click();await page.waitForFunction(()=>window.piGraphSnapshot?.()?.highlighted.length===2);record('case binding works after stale clone restore',true,await page.evaluate(()=>window.piGraphSnapshot()));
+ await page.screenshot({path:path.join(out,'restored.png'),fullPage:true});
+}catch(e){record('stale regression exception',false,e.stack);await page.screenshot({path:path.join(out,'failure.png'),fullPage:true});}
+record('JavaScript exceptions',errors.length===0,errors);fs.writeFileSync(path.join(out,'report.json'),JSON.stringify({run_id:'sprint-01',time_utc:new Date().toISOString(),results},null,2));console.log(JSON.stringify(results,null,2));await browser.close();})().catch(e=>{console.error(e);process.exitCode=1;});

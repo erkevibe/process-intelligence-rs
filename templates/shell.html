@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ru" data-theme="dark" data-nonce="{{NONCE}}">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>Process Intelligence — анализ процессов</title>
+<link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/static/app.css">
+<script type="module" src="/static/vendor/datastar-1.0.4.js"></script>
+<script defer src="/static/vendor/cytoscape-3.33.1.min.js"></script>
+<script defer src="/static/app.js"></script>
+</head>
+<body>
+<div class="app-shell">
+<aside class="sidebar" aria-label="О приложении">
+<a class="brand" href="/" aria-label="Process Intelligence, главная"><span class="brand-mark">pi</span><span>Process<br><strong>Intelligence</strong></span></a>
+<div class="workspace-label">РАБОЧЕЕ ПРОСТРАНСТВО</div>
+<a class="nav-item active" href="/" aria-current="page"><span class="nav-icon">◇</span> Анализ журнала</a>
+<div class="sidebar-bottom"><span class="status-dot"></span> Локальное приложение<br><small>Данные в памяти · R1</small></div>
+</aside>
+<div class="workspace">
+<header class="topbar"><div class="breadcrumb">Рабочее пространство <span>/</span> <strong>Анализ журнала</strong></div><button type="button" id="theme-toggle" class="icon-button" aria-label="Переключить светлую и тёмную тему" title="Переключить тему">◐</button></header>
+<main>
+<section class="page-heading"><div><div class="eyebrow">PROCESS EXPLORER</div><h1>Увидеть, как работает процесс</h1><p>Загрузите журнал событий и найдите реальные пути от начала до результата.</p></div><span class="badge">Первое приближение</span></section>
+<section class="upload-card" aria-labelledby="upload-title">
+<div class="upload-icon" aria-hidden="true">↥</div><div class="upload-copy"><h2 id="upload-title">Начните с журнала событий</h2><p>XES · до 20 MiB · до 100 000 событий</p></div>
+<form id="upload-form" action="/logs" method="post" enctype="multipart/form-data"><label class="background-control" title="Реальные этапы обработки и запрос отмены"><input id="background-mode" type="checkbox"> Фоновая обработка</label><label class="file-control"><span id="file-label">Выберите XES-файл</span><input id="xes-file" type="file" name="file" accept=".xes,application/xml,text/xml" required></label><button class="button primary" type="submit">Анализировать <span aria-hidden="true">→</span></button></form>
+</section>
+{{JOB_PANEL}}
+<div id="connection-status" class="connection-status" role="status" aria-live="polite"></div>
+{{ERROR_PANEL}}
+<div class="explorer-grid">
+{{ANALYSIS_PANEL}}
+<section class="graph-card" aria-labelledby="graph-title"><header class="card-header"><div><span class="eyebrow">КАРТА ПРОЦЕССА</span><h2 id="graph-title">Непосредственные переходы</h2></div><div class="graph-controls" data-ignore><button id="graph-fit" class="small-button" type="button" title="Вписать граф в экран">Вписать</button><button id="graph-zoom-out" class="icon-button small" type="button" aria-label="Уменьшить граф">−</button><button id="graph-zoom-in" class="icon-button small" type="button" aria-label="Увеличить граф">+</button></div></header>
+<div class="graph-island" data-ignore><div id="cy" role="img" aria-label="Граф непосредственных переходов между действиями"></div><div id="graph-empty" class="graph-empty"><div class="empty-symbol" aria-hidden="true">◇</div><h3>Здесь появится ваш процесс</h3><p>Каждый узел — действие.<br>Каждая стрелка — следующий шаг в трассе.</p></div></div>
+<footer class="graph-footer"><span><i class="legend-node"></i> Действие</span><span><i class="legend-edge"></i> Частота перехода</span><span id="case-legend" hidden><i class="legend-case"></i> Выбранная трасса</span><span id="graph-summary">Ожидание журнала</span></footer>
+</section>
+</div>
+<section class="semantics-note"><span class="info-icon" aria-hidden="true">i</span><div><strong>Как читать результат</strong><p>Порядок событий берётся из XML. Каждое событие считается отдельно: lifecycle start/complete не объединяются. Порог меняет только видимые рёбра, исходная статистика остаётся прежней. DFG не показывает причинность или параллелизм.</p><p>Журналы хранятся в памяти до перезапуска. В памяти доступны последние 8 журналов. Перезапуск прерывает фоновые задачи; история задач не сохраняется. Сохраните нужный результат через экспорт JSON. Совместимость с Apromore ещё не подтверждена.</p></div></section>
+</main><footer class="page-footer"><span>Process Intelligence Core · Rust + Datastar</span><span>Локальный исследовательский прототип</span></footer>
+</div></div>
+<form id="mutation-form" method="post" hidden aria-hidden="true"><input name="threshold" value="1"><input name="kind" value=""><input name="id" value=""><button id="mutation-submit" type="button" data-on:click="window.piRunMutation(() => @post(document.getElementById('mutation-form').action, {contentType: 'form', selector: '#mutation-form', requestCancellation: 'disabled', retry: 'never'}))">Обновить анализ</button></form></body></html>
+
+
+
+

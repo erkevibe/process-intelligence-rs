@@ -1,0 +1,97 @@
+{
+  "source_sha": "b12554fcda6ff801392326bea85f0714221a9246",
+  "time_utc": "2026-10-10T06:18:44.1684415Z",
+  "observer": "qa_process",
+  "sources": [
+    {
+      "source": "clean-final-clone22.log",
+      "status": "captured",
+      "coverage": "Full completed available snapshot inspected",
+      "bytes": 711,
+      "sha256": "F3FB0CA54CF4ECF276DD5738270BF7EFA98A0503B4F9BCDBC2DC8D9926EE32B1",
+      "last_write_utc": "2026-10-10T06:14:56.2700720Z"
+    },
+    {
+      "source": "clean-final-setup22.log",
+      "status": "captured",
+      "coverage": "Full completed available snapshot inspected",
+      "bytes": 407,
+      "sha256": "736F6496E88C65C0CC73FA68EA0A520B8CD1A31F3EEC7FE8B98F1666504F0434",
+      "last_write_utc": "2026-10-10T06:15:01.6739692Z"
+    },
+    {
+      "source": "clean-final-fmt22.log",
+      "status": "captured",
+      "coverage": "Full completed available snapshot inspected",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "last_write_utc": "2026-10-10T06:15:01.6919669Z"
+    },
+    {
+      "source": "clean-final-clippy22.log",
+      "status": "captured",
+      "coverage": "Full completed available snapshot inspected",
+      "bytes": 9269,
+      "sha256": "F9417DAA3F21FE73066C444BCD5FE57A23D85D3BCCB00134ED8DAB63F27E6F77",
+      "last_write_utc": "2026-10-10T06:16:09.0863857Z"
+    },
+    {
+      "source": "clean-final-tests22.log",
+      "status": "captured",
+      "coverage": "Full completed available snapshot inspected",
+      "bytes": 6783,
+      "sha256": "6121B8E444DD29F1EC114E9C92CBCF5E5048B87AD2FAF1054034E29C739B07C5",
+      "last_write_utc": "2026-10-10T06:16:52.5553243Z"
+    },
+    {
+      "source": "clean-final-build22.log",
+      "status": "captured",
+      "coverage": "Full completed available snapshot inspected",
+      "bytes": 73,
+      "sha256": "A0A09F1C24750E8BD77604CE36D298C5EF0AEF21A5955C99A3D76E8D00FADBB3",
+      "last_write_utc": "2026-10-10T06:16:52.9959910Z"
+    },
+    {
+      "source": "qa-final-base22.log",
+      "status": "captured",
+      "coverage": "Full completed available snapshot inspected",
+      "bytes": 18865,
+      "sha256": "30916C4402D49DD5FBA33D0A095B5522C8DC5F9522C776FA857EC33FEE947C5B",
+      "last_write_utc": "2026-10-10T06:17:47.6884022Z"
+    },
+    {
+      "source": "qa-final-optional22.log",
+      "status": "captured",
+      "coverage": "Full completed available snapshot inspected",
+      "bytes": 3091,
+      "sha256": "0BEE8B219FA845B3F8D6D280F4A49C2B99D8E138B0C2591FDF33E1181C411330",
+      "last_write_utc": "2026-10-10T06:17:51.7862552Z"
+    },
+    {
+      "source": "qa-final-stale22.log",
+      "status": "captured",
+      "coverage": "Full completed available snapshot inspected",
+      "bytes": 1901,
+      "sha256": "10EDDE3760006DDB1A647E1732AA98362D1AF23909ABA93AFCF58CF16E95C0D1",
+      "last_write_utc": "2026-10-10T06:17:54.8118622Z"
+    }
+  ],
+  "missing": [
+    "GitHub Actions raw logs",
+    "git push raw stdout/stderr",
+    "complete independent agent event stream"
+  ],
+  "disabled": [
+    "Earlier app07 INFO events under inherited warning level"
+  ],
+  "not_in_run": [
+    "Database migrations",
+    "Distributed worker/broker",
+    "Production multi-user deployment"
+  ],
+  "truncated": [
+    "Older core03 tail-only inspection",
+    "app18 manually inspected tail + separate full parsed snapshot",
+    "ongoing clean final release24 inspection"
+  ]
+}

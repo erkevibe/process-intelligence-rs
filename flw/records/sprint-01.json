@@ -1,0 +1,150 @@
+{
+  "recording_note": "Consolidated task cards are retrospective from actual process evidence; no claim all cards were written before execution.",
+  "tasks": [
+    {
+      "verifier": "pinned setup import probe, native HTTP and core assertions, local health",
+      "action": "project-local GNU Rust, checked LLVM host dlltool, direct LLD",
+      "attempts": [
+        "core-tests-01.log",
+        "core-tests-02.log",
+        "contract-tests-05.log",
+        "http-direct-lld-tests.log",
+        "pinned-contract-tests-11.log"
+      ],
+      "actual_cost": "overlapping elapsed work; per-task time not separately measured",
+      "id": "T01",
+      "failure_region": "other toolchain versions and hosts",
+      "status": "verified_scoped",
+      "dependencies": [],
+      "purpose": "Local pinned build/run and CSP/SSE",
+      "risk": "high environment",
+      "condition": "Windows without preinstalled Rust",
+      "lineage": "ENV-OBS-02/03",
+      "cost_budget_minutes": 45,
+      "expected_effect": "actual executable startup and tests",
+      "provenance": "root + independent QA/TD"
+    },
+    {
+      "verifier": "flw/evidence/legacy-bootstrap.json",
+      "action": "pin SHAs and inspect Docker/Java readiness",
+      "id": "T02",
+      "failure_region": "runtime unavailable",
+      "status": "diagnostic_complete_compatibility_unverified",
+      "dependencies": [
+        "T01"
+      ],
+      "purpose": "Legacy oracle bounded diagnostic",
+      "risk": "medium",
+      "condition": "fixed Apromore references",
+      "lineage": "legacy M0a",
+      "cost_budget_minutes": 15,
+      "expected_effect": "available oracle or explicit blocker",
+      "provenance": "root"
+    },
+    {
+      "id": "T03",
+      "risk": "low",
+      "expected_effect": "counts independent of implementation",
+      "lineage": "manual specification",
+      "dependencies": [],
+      "action": "QA-authored synthetic corpus and manual expected outputs",
+      "provenance": "qa_process",
+      "purpose": "Independent manual oracle",
+      "verifier": "fixtures/*.expected.json + tests/CORPUS.md",
+      "cost_budget_minutes": 30,
+      "condition": "agreed event semantics",
+      "status": "verified_inputs"
+    },
+    {
+      "verifier": "core8 + full admission11 + invalid live/browser imports",
+      "action": "preflight bounds and semantics, structural normalization then Rust4PM",
+      "id": "T04",
+      "failure_region": "global defaults/list/container/gzip/roundtrip unsupported",
+      "status": "verified_scoped",
+      "dependencies": [
+        "T01",
+        "T03"
+      ],
+      "purpose": "Validated Rust4PM XES adapter",
+      "risk": "medium",
+      "condition": "UTF8 XES subset",
+      "lineage": "empty trace regression",
+      "cost_budget_minutes": 60,
+      "expected_effect": "exact event contract, rejected invalid input",
+      "provenance": "root implementation; independent QA"
+    },
+    {
+      "id": "T05",
+      "risk": "medium",
+      "expected_effect": "manual oracle and invariants",
+      "lineage": "manual/metamorphic corpus",
+      "dependencies": [
+        "T04"
+      ],
+      "action": "deterministic adjacent-event counts and server views",
+      "provenance": "root implementation; QA expected data",
+      "purpose": "Counts, variants, DFG and JSON",
+      "verifier": "core8 and HTTP6",
+      "cost_budget_minutes": 60,
+      "condition": "validated XML-order log",
+      "status": "verified_scoped"
+    },
+    {
+      "verifier": "exact clean browser base14/optional10/stale5 and native HTTP assertions",
+      "action": "server HTML/Datastar SSE and isolated Cytoscape, serialized mutations",
+      "id": "T06/T07",
+      "failure_region": "published clean candidate replay pending",
+      "status": "accepted_scoped",
+      "dependencies": [
+        "T04",
+        "T05"
+      ],
+      "purpose": "Integrated upload and graph controls",
+      "risk": "high stack spike",
+      "condition": "local browser + nonce CSP",
+      "lineage": "QA-BROWSER-01 referrer policy regression",
+      "cost_budget_minutes": 120,
+      "expected_effect": "valid upload, graph/filter/selection/export, panzoom retained",
+      "provenance": "PM UI/root server; independent QA"
+    },
+    {
+      "id": "T08",
+      "risk": "medium",
+      "expected_effect": "AC13/14 if implemented",
+      "dependencies": [
+        "T07"
+      ],
+      "action": "Bounded real jobs with cooperative cancel, reconnectable SSE, server case projection, versioned panel restoration and upload admission",
+      "provenance": "root server/jobs; PM UI; independent QA and TechnicalDebt",
+      "purpose": "Optional real progress/cancel and case details",
+      "verifier": "exact clean30 contract tests; actual browser optional10/stale5; independent QA/TD acceptance",
+      "cost_budget_minutes": 60,
+      "condition": "clean baseline and AC11 complete",
+      "status": "accepted_scoped"
+    },
+    {
+      "id": "T09/T10",
+      "risk": "medium",
+      "expected_effect": "reproducible accepted first iteration",
+      "dependencies": [
+        "T04",
+        "T05",
+        "T06/T07"
+      ],
+      "action": "public branch/PR, clean checkout, independent replay and council",
+      "provenance": "root delivery + independent acceptance",
+      "purpose": "Independent fixed candidate acceptance and delivery",
+      "verifier": "b12554 exact clean, AC01–14 QA/TD, P3 five real affirmative votes, release/portable/unpacked checks",
+      "cost_budget_minutes": 90,
+      "condition": "mandatory AC01–12",
+      "status": "accepted_delivery_in_progress"
+    }
+  ],
+  "code_candidate": "b12554fcda6ff801392326bea85f0714221a9246",
+  "schema_version": 1,
+  "recorded_utc": "2026-10-10T06:24:36.3074711Z",
+  "run_id": "sprint-01",
+  "acceptance_utc": "2026-10-10T06:24:36.3211485Z",
+  "sprint_start_utc": "2026-10-10T05:18:25Z",
+  "deadline_utc": "2026-10-10T13:18:25Z"
+}
