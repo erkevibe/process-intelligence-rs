@@ -1,6 +1,6 @@
 [package]
 name = "process-intelligence-rs"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2024"
 rust-version = "1.88"
 description = "A validated Rust process intelligence core with server-driven UI"
@@ -12,7 +12,7 @@ axum = { version = "0.8.9", features = ["multipart"] }
 tokio = { version = "1", features = ["macros", "rt-multi-thread", "net", "signal", "sync"] }
 tower-http = { version = "0.6", features = ["fs", "trace", "limit", "request-id"] }
 tower = { version = "0.5", features = ["util"] }
-serde = { version = "1", features = ["derive"] }
+serde = { version = "1", features = ["derive", "rc"] }
 serde_json = "1"
 chrono = { version = "0.4", features = ["serde"] }
 quick-xml = "0.37.4"
@@ -21,6 +21,10 @@ uuid = { version = "1", features = ["v4", "serde"] }
 tracing = "0.1"
 tracing-subscriber = { version = "0.3", features = ["env-filter", "json"] }
 futures-util = "0.3"
+csv = "1.4"
+sha2 = "0.10"
+argon2 = "=0.5.3"
+postgres = { version = "=0.19.14", features = ["with-serde_json-1"] }
 
 [dev-dependencies]
 http-body-util = "0.1"
