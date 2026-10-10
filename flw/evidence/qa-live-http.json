@@ -1,0 +1,81 @@
+{
+  "run_id": "sprint-01",
+  "observer": "qa_process",
+  "time_utc": "2026-10-10T05:35:38.6909893Z",
+  "scope": "live HTTP; in-process tests remain separate STOP scope; no browser claims",
+  "log_id": "log-1",
+  "results": [
+    {
+      "scenario": "health",
+      "passed": true,
+      "detail": {
+        "body": "{\"status\":\"ready\",\"version\":\"0.1.0\"}",
+        "status": 200
+      }
+    },
+    {
+      "scenario": "demo",
+      "passed": true,
+      "detail": {
+        "status": 200
+      }
+    },
+    {
+      "scenario": "manual-counts",
+      "passed": true,
+      "detail": {
+        "cases": 4,
+        "events": 10,
+        "activities": 3
+      }
+    },
+    {
+      "scenario": "csp-header",
+      "passed": true,
+      "detail": {
+        "policy": "default-src 'self'; script-src 'self' 'nonce-29b0952ed70a46369d71742f18ee7fd8'; style-src 'self' 'unsafe-inline'; connect-src 'self'; img-src 'self' data:; font-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'"
+      }
+    },
+    {
+      "scenario": "view-sse",
+      "passed": true,
+      "detail": {
+        "content_type": "text/event-stream",
+        "status": 200,
+        "raw_html_lines": 0
+      }
+    },
+    {
+      "scenario": "view-export-agreement",
+      "passed": true,
+      "detail": {
+        "edges": 2,
+        "threshold": 2,
+        "nodes": 3,
+        "revision": 1
+      }
+    },
+    {
+      "scenario": "invalid-preserves-previous",
+      "passed": true,
+      "detail": {
+        "log_id": "log-1",
+        "status": 422
+      }
+    },
+    {
+      "scenario": "invalid-selection",
+      "passed": true,
+      "detail": {
+        "status": 400
+      }
+    },
+    {
+      "scenario": "cross-origin",
+      "passed": true,
+      "detail": {
+        "status": 403
+      }
+    }
+  ]
+}

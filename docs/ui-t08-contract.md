@@ -1,0 +1,67 @@
+# T08 UI contract — optional after clean R1 baseline
+
+Status: proposal, not implemented. Owner UI: PM; Rust jobs and case projection: root; independent QA: qa_process. This document does not widen R1 AC01–12. Begin only after AC11 measurement and a verified clean baseline; protect the last hour for delivery. If less than 60 minutes remains before that protected hour, move T08 to the next iteration.
+
+## Reachable order and stop conditions
+
+1. 10 minutes: freeze job/case data contracts and one controlled cooperative job fixture with QA.
+2. 20 minutes: one job state panel, stage-only progress and cancellation request, terminal snapshot.
+3. 15 minutes: selected case details plus server-supplied highlighted graph IDs.
+4. 15 minutes: integrated independent checks; no additional animations or streaming percentages.
+
+At 30 minutes, if job cancellation is not correct, defer case selection and use remaining time for job QA. If the parser cannot interrupt its current stage, report that limitation. A partial implementation never receives AC13/14 PASS.
+
+## User-visible job states
+
+One local worker: queued → running → completed | failed | cancelled. Proposal limits: one running job, one queued job and eight retained terminal snapshots. Full queue returns a stable error, without replacing the last valid analysis. Running stages use real transitions: upload received, validating/parsing, calculating counts, preparing result. While upload is underway, the browser may show “Загружаем файл…”; it does not invent upload byte percentages.
+
+Copy examples:
+
+- queued: “Журнал ожидает обработки”.
+- parsing: “Читаем и проверяем XES”.
+- analyzing: “Считаем варианты и переходы”.
+- cancel_requested: “Отмена запрошена. Ожидаем безопасную остановку”.
+- non-interruptible parse: “Отмена запрошена. Разбор этого файла завершится перед остановкой”.
+- cancelled: “Обработка отменена. Предыдущий анализ сохранён”.
+- failed: stable code and plain Russian message, no exception details.
+
+No fabricated percentage, countdown or successful-completion timer. Stage text is sufficient. Percentage is allowed only if server supplies measured processed and total counts from the actual job. A synthetic slow fixture verifies cancellation only; it is not presented as a speed benchmark.
+
+## HTTP/SSE addition
+
+Existing normal R1 POST /logs upload remains available. Optional job path POST /jobs accepts the same single file multipart contract and admission limits, returns a 202 Datastar HTML/SSE patch for stable #job-panel. Upload Datastar action uses contentType:form. Server first acquires a bounded slot; server-side parsing/mining never blocks the HTTP executor.
+
+The generated #job-panel has an escaped job ID and generated endpoint in data-events-url. Its static data-init expression calls @get(el.dataset.eventsUrl, {openWhenHidden:true}). Endpoint is GET /jobs/{id}/events. Datastar handles SSE; no custom EventSource/parser. One stream per current job, heartbeats from server, initial snapshot on every subscription/reconnect, monotonically increasing job_revision. If a page reloads, server GET / returns the current job snapshot or explicitly says no active job; it does not invent recovery after server restart.
+
+SSE patches #job-panel for progress. On completed, server patches #analysis-panel with the new analysis_version then sends the terminal job panel. Graph island remains outside both. Terminal job panel has no new data-init subscription. A transport failure displays “Связь с обработкой прервана; проверяем состояние”, never success. Server ignores stale job_revision; reconnection presents the actual current snapshot.
+
+POST /jobs/{id}/cancel is idempotent. Cancel button uses stable Datastar form/action with generated endpoint, outside the morph target or a dedicated stable bridge. Cancel must not wait behind the view/selection queue. It changes only cancel_requested; server confirms the actual terminal cancelled state. After accepted cancel, the job cannot publish completed/result. A cancellation arriving after completed returns the already terminal completed snapshot and explicitly does not claim cancellation.
+
+## Case selection without browser mining
+
+Show up to 20 case rows initially in a server-rendered case card: generated internal case ID, escaped optional name, event count. No search, paging or enterprise storage in this short T08. Explain the display limit; full cases remain in server memory.
+
+Extend existing POST /logs/{id}/selection with kind=case and a generated case ID. Reuse the serialized mutation bridge; server validates case ownership. Case choice does not alter global counts, variants or threshold. Store selected_case_id separately from selected_id for node/edge, so clicking an element can show its aggregated count alongside the selected trace.
+
+Graph payload additions, computed only by server:
+
+```json
+{"selected_case_id":"case-3","case_highlight":{"node_ids":["n0","n2"],"edge_ids":["e2"]}}
+```
+
+The adapter applies a visual class to these known IDs. It does not reconstruct sequences or calculate edge frequencies. Highlighted edges are the intersection of the selected case transitions and current GraphView edges. A threshold never reintroduces a hidden edge. Case detail lists its ordered activities using escaped HTML and states: “Частоты на карте относятся ко всему журналу”. If all case edges are hidden, show “Переходы этой трассы скрыты текущим порогом”; retain the selected case and original details. Empty cases show an empty sequence, not a fake start/end.
+
+Case selection and view changes increment the same monotonic view_revision. Selection survives threshold changes when the selected case still belongs to the same log; a new log clears prior case/element selection and resets graph fitting. The unified request queue prevents out-of-order HTML panel mutation.
+
+## Memory limits and enterprise boundary
+
+Explicit copy: “Задачи и журналы находятся только в памяти. Перезапуск прерывает задачи и удаляет результаты. Это локальный прототип без авторизации”. Preserve the actual last-eight-log cap; completed jobs must not pin unlimited extra journals. Evict the oldest terminal snapshot beyond the proposed cap of eight; snapshots store result IDs and lightweight status, not duplicate EventLogs. No database, durable queue, multi-user isolation, external access or enterprise-readiness claim in T08.
+
+## Independent acceptance additions
+
+AC13: actual queued/running/stage/terminal sequence; /health and view requests stay responsive; accepted cancel cannot lead to completed; repeat cancel and post-completion cancel have truthful snapshots; reconnect does not duplicate results; busy/full queue preserves old analysis. Test both cancellable controlled work and non-interruptible parser messaging. Record what was actually tested.
+
+AC14: select distinct cases with duplicate names, an empty case and a self-loop; compare case details to independent fixture; change threshold; highlighted IDs remain a subset of visible graph; global stats and export stay consistent; rapid interleaved case/element/view actions settle on the same versions. Pan/zoom persists for the same log.
+
+Security: file/log bounds remain enforced server-side; job IDs and case IDs are generated, activity names never enter expressions; CSP and local dependency tests rerun after integration. Missing evidence means unverified, never inferred PASS from a screen.
+
