@@ -22,10 +22,12 @@ The same unreduced six-log large project and same100000-event17200026-byte input
 
 ## Пошаговый запуск восстановленной копии
 
+Проверенный в этой поставке путь резервирования, восстановления и offline migration использует PowerShell7.6.5 (`pwsh`). Чистый Start проверен отдельно в Windows PowerShell5.1 (`powershell`). Полная backup-цепочка в5.1 на этом стенде не подтверждена: проверочные процессы не начали выполнение; это не заменяется успешным результатом7. Никакие средства защиты не отключались. Если PowerShell7 отсутствует, установите его по [официальной инструкции Microsoft](https://learn.microsoft.com/en-us/powershell/scripting/install/install-powershell-on-windows); это дополнительное требование для проверенного эксплуатационного пути, а не скрытая смена версии приложения.
+
 Сохраните исходную установку0.3 целиком. В её каталоге сделайте новый backup и сохраните его manifest:
 
 ```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File tools/database-backup.ps1 -Mode Backup -BackupFile .local/backups/before04.dump
+pwsh -NoProfile -File tools/database-backup.ps1 -Mode Backup -BackupFile .local/backups/before04.dump
 ```
 
 Распакуйте0.4 в другой каталог. В дальнейших командах3104/5550 — примеры свободных HTTP/PostgreSQL портов; используйте один и тот же выбранный PostgreSQL порт на всех шагах. В новом каталоге:
@@ -37,8 +39,8 @@ powershell -NoProfile -ExecutionPolicy Bypass -File tools/setup-postgres.ps1 -Po
 Скопируйте только before04.dump и before04.dump.manifest.json из исходной установки в новый защищённый .local/backups. Не копируйте один старый private config в пустую новую установку: конфигурация привязана к исходному кластеру, а backup восстанавливается с новыми локальными credentials. Не переносите старый PGDATA вручную. Далее в новом каталоге:
 
 ```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File tools/database-backup.ps1 -Mode Restore -BackupFile .local/backups/before04.dump -TargetDatabase pi_restore_before04
-powershell -NoProfile -ExecutionPolicy Bypass -File tools/migrate-storage.ps1 -BackupFile .local/backups/before04.dump -Database pi_restore_before04
+pwsh -NoProfile -File tools/database-backup.ps1 -Mode Restore -BackupFile .local/backups/before04.dump -TargetDatabase pi_restore_before04
+pwsh -NoProfile -File tools/migrate-storage.ps1 -BackupFile .local/backups/before04.dump -Database pi_restore_before04
 powershell -NoProfile -ExecutionPolicy Bypass -File Start.ps1 -Port 3104 -PostgresPort 5550 -Database pi_restore_before04
 ```
 

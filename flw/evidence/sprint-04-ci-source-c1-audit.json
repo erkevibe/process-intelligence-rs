@@ -1,0 +1,222 @@
+{
+  "source_commit": "f3a3ad46056e402e6891c9549b1505876fbb8e7e",
+  "status": "source_ci_accepted_scoped_finaldelivery_pending",
+  "independent_public_api": [
+    {
+      "head_branch": "codex/sprint-04",
+      "id": 38063851783,
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "f3a3ad46056e402e6891c9549b1505876fbb8e7e"
+    },
+    {
+      "head_branch": "codex/sprint-04",
+      "id": 38063854449,
+      "event": "pull_request",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "f3a3ad46056e402e6891c9549b1505876fbb8e7e"
+    }
+  ],
+  "runs": [
+    {
+      "run_kind": "push",
+      "checkout_sha": "f3a3ad46056e402e6891c9549b1505876fbb8e7e",
+      "files": [
+        {
+          "path": "0_linux.txt",
+          "bytes": 77812,
+          "sha256": "e20d8c589d06b3b787f5d7ec2a84b0947151b0b7bff8d57863e63eccb077bdde",
+          "lines": 1113,
+          "coverage": "fullbytesloaded_hashed_machine"
+        },
+        {
+          "path": "linux/16_Post Run actions_checkout@3d3c42e5aac5ba805825da76410c181273ba90b1.txt",
+          "bytes": 1773,
+          "sha256": "3bd56b566e8367f80cd4c5e620cf3a496ccb1f8d8ab8fe1e3126fd9dc83a3d38",
+          "lines": 16,
+          "coverage": "fullbytesloaded_hashed_machine"
+        },
+        {
+          "path": "linux/17_Complete job.txt",
+          "bytes": 61,
+          "sha256": "5da7bc0dedb40fbe9de219cd68759fb3b4f9eb2f0f203a2c5e07c99ff53be845",
+          "lines": 2,
+          "coverage": "fullbytesloaded_hashed_machine"
+        },
+        {
+          "path": "linux/1_Set up job.txt",
+          "bytes": 2102,
+          "sha256": "28da2edae7fc7bcd80845adc523457378cd61fe7368eba428c50ba735ae97a4b",
+          "lines": 34,
+          "coverage": "fullbytesloaded_hashed_machine"
+        },
+        {
+          "path": "linux/2_Run actions_checkout@3d3c42e5aac5ba805825da76410c181273ba90b1.txt",
+          "bytes": 11555,
+          "sha256": "294a7e7a7a0db059f9de7d2905ae2c3825076445cd091dd0398f4fccdd0eb18f",
+          "lines": 115,
+          "coverage": "fullbytesloaded_hashed_machine"
+        },
+        {
+          "path": "linux/3_Pinned toolchain.txt",
+          "bytes": 769,
+          "sha256": "acff6a7afde2cd01c3d511a0f87b089f19f143461cca39beb5e008f369efe302",
+          "lines": 11,
+          "coverage": "fullbytesloaded_hashed_machine"
+        },
+        {
+          "path": "linux/4_Run cargo fmt --all -- --check.txt",
+          "bytes": 238,
+          "sha256": "de0b663889e4a4b9f10790d48f99467d41ddf768850e864943483e36cfcb8f8c",
+          "lines": 5,
+          "coverage": "fullbytesloaded_hashed_machine"
+        },
+        {
+          "path": "linux/5_Run cargo clippy --locked --all-targets -- -D warnings.txt",
+          "bytes": 23557,
+          "sha256": "3e4c76c1116c6130b8cfa45187ec862024b50fb513e1178dc9650edd30a2c3ff",
+          "lines": 389,
+          "coverage": "fullbytesloaded_hashed_machine"
+        },
+        {
+          "path": "linux/6_Run cargo test --locked --all-targets.txt",
+          "bytes": 23738,
+          "sha256": "4841cecaa18d1f7e62ee01bd899bd13485fce0e91dc3bd329f362dc6efe827a1",
+          "lines": 327,
+          "coverage": "fullbytesloaded_hashed_machine"
+        },
+        {
+          "path": "linux/7_Build release and local health smoke.txt",
+          "bytes": 12302,
+          "sha256": "325ef72f6200685ec85aae36ac7d8d7a5ab18c0ae54a0f92a9d92d28e8f69034",
+          "lines": 199,
+          "coverage": "fullbytesloaded_hashed_machine"
+        },
+        {
+          "path": "linux/8_Run actions_upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9.txt",
+          "bytes": 1744,
+          "sha256": "8eef1b7606b22ee775e54eb7018bbc8310fbfbf46fb66ed522d56f8d742af7d7",
+          "lines": 24,
+          "coverage": "fullbytesloaded_hashed_machine"
+        },
+        {
+          "path": "linux/system.txt",
+          "bytes": 592,
+          "sha256": "a04c6f0def2293cbe6265aa7112bd5a93c3c0f50c273a9638e4d3c9f13bdfc42",
+          "lines": 8,
+          "coverage": "fullbytesloaded_hashed_machine"
+        }
+      ],
+      "semantic_summary": {
+        "ordinary_passed": 63,
+        "failed": 0,
+        "explicit_ignored": 12,
+        "real_pg_credit": false,
+        "health": "PI_EPHEMERAL=1 memory-mode Linux ready smoke",
+        "fmt_clippy_release_present": true
+      },
+      "semantic_coverage": "identity/build/test/health stages reviewed; fullbytes fingerprint coverage does not mean human semantic review of every compiler line"
+    },
+    {
+      "run_kind": "pr",
+      "checkout_sha": "de0bd222ec0ad56ca020a6874b91e4e5bf18badb",
+      "files": [
+        {
+          "path": "0_linux.txt",
+          "bytes": 78477,
+          "sha256": "7b805cb6af7fa2f6766eb47d4bae5080e4ba3e3f3733ef065003a3efd9962b56",
+          "lines": 1125,
+          "coverage": "fullbytesloaded_hashed_machine"
+        },
+        {
+          "path": "linux/16_Post Run actions_checkout@3d3c42e5aac5ba805825da76410c181273ba90b1.txt",
+          "bytes": 1773,
+          "sha256": "c4c4ee13d722dc83c7a68e5f73f1e780cf87259520236081d3be09eb95cf9a96",
+          "lines": 16,
+          "coverage": "fullbytesloaded_hashed_machine"
+        },
+        {
+          "path": "linux/17_Complete job.txt",
+          "bytes": 61,
+          "sha256": "7f0d2684567f95110a27adb79ca90c1377733ce06b6dcdfc2ff4055888c2659a",
+          "lines": 2,
+          "coverage": "fullbytesloaded_hashed_machine"
+        },
+        {
+          "path": "linux/1_Set up job.txt",
+          "bytes": 2099,
+          "sha256": "fb08e01a957fb19c52e5312da686fac7065f72e45f8acd499c0a4a353c5d7cad",
+          "lines": 34,
+          "coverage": "fullbytesloaded_hashed_machine"
+        },
+        {
+          "path": "linux/2_Run actions_checkout@3d3c42e5aac5ba805825da76410c181273ba90b1.txt",
+          "bytes": 12223,
+          "sha256": "b5c0540e7c8a71d1e77764f06707c022a34c9ac1e83abd255346be2a98b57643",
+          "lines": 127,
+          "coverage": "fullbytesloaded_hashed_machine"
+        },
+        {
+          "path": "linux/3_Pinned toolchain.txt",
+          "bytes": 769,
+          "sha256": "e91abd30113f510ed102af174b6b27809345729ffff1b9c582a6c83e38f2b2f8",
+          "lines": 11,
+          "coverage": "fullbytesloaded_hashed_machine"
+        },
+        {
+          "path": "linux/4_Run cargo fmt --all -- --check.txt",
+          "bytes": 238,
+          "sha256": "6f302bb23ae97c1a4b4cc13c904e6156b26df4b7930dd0ea88f174850d5d8ac8",
+          "lines": 5,
+          "coverage": "fullbytesloaded_hashed_machine"
+        },
+        {
+          "path": "linux/5_Run cargo clippy --locked --all-targets -- -D warnings.txt",
+          "bytes": 23557,
+          "sha256": "b8ea252fa7f9a36ebc70ba20c3909ab6c3db1a3edb954a52519709cc8a500305",
+          "lines": 389,
+          "coverage": "fullbytesloaded_hashed_machine"
+        },
+        {
+          "path": "linux/6_Run cargo test --locked --all-targets.txt",
+          "bytes": 23738,
+          "sha256": "71e5901a87e66c3620acd74bd067f6337c22e400ce33e17925f622fe77e7b99e",
+          "lines": 327,
+          "coverage": "fullbytesloaded_hashed_machine"
+        },
+        {
+          "path": "linux/7_Build release and local health smoke.txt",
+          "bytes": 12302,
+          "sha256": "aa3eb5ccb5119a9b7224b29598766a3fcc82c43f331b3ed6a3b55bdd3d60ca55",
+          "lines": 199,
+          "coverage": "fullbytesloaded_hashed_machine"
+        },
+        {
+          "path": "linux/8_Run actions_upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9.txt",
+          "bytes": 1744,
+          "sha256": "2f3718fb611c4c00d442e20eab9da0a4dcb494316d8be0a5b70054beec2a1596",
+          "lines": 24,
+          "coverage": "fullbytesloaded_hashed_machine"
+        },
+        {
+          "path": "linux/system.txt",
+          "bytes": 583,
+          "sha256": "c3f60b6b3a9700dd64f7533ace3198f457994e4049a8b9e43546f45788935c55",
+          "lines": 8,
+          "coverage": "fullbytesloaded_hashed_machine"
+        }
+      ],
+      "semantic_summary": {
+        "ordinary_passed": 63,
+        "failed": 0,
+        "explicit_ignored": 12,
+        "real_pg_credit": false,
+        "health": "PI_EPHEMERAL=1 memory-mode Linux ready smoke",
+        "fmt_clippy_release_present": true
+      },
+      "semantic_coverage": "identity/build/test/health stages reviewed; fullbytes fingerprint coverage does not mean human semantic review of every compiler line"
+    }
+  ]
+}

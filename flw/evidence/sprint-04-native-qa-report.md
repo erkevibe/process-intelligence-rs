@@ -1,0 +1,20 @@
+# Sprint04 independent native/package QA — scoped report
+
+Exact source: `f3a3ad46056e402e6891c9549b1505876fbb8e7e`.
+Exact EXE SHA256: `B4EA51E5264646709A1DDDB5686132D2662BB5275B271F4473A7B7592D58AAB8`.
+Exact ZIP SHA256: `85C23B2E69D67D442067180C124E55958C64F6D1C73BDF1708C4CEF4AAB3BD1D`.
+
+Independent fresh extraction: all 1,666 manifest file SHA256 values and byte counts matched. No reparse points. Final full recheck passed after restoring the deliberately altered private manifest. Public package and canonical production files were not edited.
+
+Actual native Windows PowerShell 5 public Start cold bootstrap succeeded on isolated app3048/PG5561. First-account creation and HTTPOnly/Strict session cookie passed. Fresh database SQL contained schema versions1+2 and separate normalized records. Corrected actual Chrome browser passed project/demo graph and export with manually expected4cases/10events/3activities/4edges; CSP excludes unsafe-eval; no pageerrors or nonlocal requests. Browser attempt01 retained a harness timeout because the older copied harness expected graph on the current log-list route; attempt02 uses the analysis route and passed. No product fault inferred from that harness error.
+
+Unchanged stock backup helpers executed under the default PowerShell: full v2/auth/generic/project/record/ledger backup restored into NEW `pi_restore_native04`; ordered full value hashes AND versions matched for every row. Existing-target guard refused. Corrupted archive guard refused before target creation (confirmed absent). Stock migration helper refused an active application, an invalid private package manifest and corrupt backup. All expected negative commands returned failure.
+
+Stock public offline migration helper on the complete copied accepted0.3 dump (`E0F3F91B3D7461A1D6202DC08B30BCC7F7F1CAA1CB0D9F7D3891D70771D02E7C`) restored into NEW `pi_restore_old04`, completed with actual executable exit0. Independent full semantic SQL:94expected/94actualrecords,10legacy/10normalizedprojects,0mismatches,ledger2. Every original pi_kv key/version/full-document hash matched the pre-migration source fingerprint. This was the complete corpus, not a reduced demo migration.
+
+Security: isolated .local DACL protected with one current-SID rule; pi_app has no superuser/createDB/createRole/replication flags; PostgreSQL loopback listener only. Exact own app26896 was stopped after image-path verification; exact own PG cluster stopped using verified image/data-path. Both own ports closed. Protected user/shared apps and clusters were not touched.
+
+Limitations and failures: composed private recovery harness rejected by Windows antimalware before execution and was preserved without bypass. Subsequent ordinary stock nativePS5 backup starts had empty output/no archive and suspended/uninspectable child processes. First child45680 was cleaned by Root using independent kernel image/creation/user/command proof. Second tracked child23896/session74125 was independently cleaned by Root: kernel image, creation time and same-user/exact-script verified; proof `.local/sprint04/owned-suspended-verifier-cleanup02.json`. Foreground session ended with actual exit -1. No further equivalent nativePS5 backup starts were attempted. Therefore nativePS5 backup/restore acceptance is UNPROVEN; successful default-PowerShell backup/restore does not fill that scope. No Council vote or release-wide acceptance is made here. Extended model/view/RBAC browser scenarios were not executed by this specialist and require other QA evidence.
+
+Private evidence: `.local/sprint04/qa/native-specialist/manifest01.json`, `browser01/report.json`, `browser02/report.json`, `security01.json`, `migrated-values01.json`, ordered fingerprint files, full migration/startup/native logs and `coverage01.json`. Some negative direct helper outcomes are captured by tool-call outputs rather than separate raw files. The native-backup04 log initially could not be hashed while open; after tracked cleanup its full length was zero and SHA256 E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855. Coverage records the closed log.
+
