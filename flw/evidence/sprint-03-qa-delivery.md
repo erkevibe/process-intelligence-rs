@@ -1,0 +1,9 @@
+# Independent QA delivery supplement
+
+S3-A12 delivery **PASS** for source a0b4f6989825de47c48d1d6ab8e1cedbac19c017, EXE B38A6193EB6C3D7BCE6F1F4E75F6BE619AE626FD8CBB8F9BB23CD3E08D190A3A and ZIP DBC095FA57E1721A83181FE8B6CA1834DC0D568B761D4A90787D47C7CEC97E84. Merge/tag08cc456ff20fce0a54b172105ce1450021e353da differs from compiled runtime source; final checked documentation head1a3a and its CI were independently audited separately.
+
+QA independently downloaded the complete public v0.3.0 ZIP using curl -q, no authorization, HTTPS-only redirect policy. Native exit0, actual56411489 bytes and entire SHA256DBC match accepted canonical bytes. Root's separate anonymous download/proof and refreshed public asset metadata corroborate this; stale untagged URL metadata refusal before GET is retained as a failed verifier attempt, never download PASS.
+
+QA then independently performed read-only health requests for ports3000/3010/3030, verified actual user appPID40560 executable B38, untouched fresh setup form and current-user-only protected private ACL. Root postpublication proof separately confirms originalR1PID18104/S2PID35684 and ownPG42580/5437 preserved, noQAaccount created. No login, registration, database mutation or realuser0.2 migration was performed.
+
+The S3-F1 delivery conditions are fulfilled in this scope. Fixed artifact report847F and actual vote remain unchanged; this separate supplement closes their previously pending public delivery condition. SCALE01 HIGH OPEN and every bounded compatibility/coverage limitation in the fixed report remain. This is not all-Apromore, full-BPMN or enterprise completion.

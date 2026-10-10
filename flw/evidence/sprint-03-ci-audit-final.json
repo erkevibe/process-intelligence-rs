@@ -1,0 +1,217 @@
+{
+  "candidate_source": "a0b4f6989825de47c48d1d6ab8e1cedbac19c017",
+  "runs": [
+    {
+      "id": 38057295858,
+      "event": "push",
+      "actual_checkout": "1a3a6294f8b7ca014a4b11954013fb5ccd1c93f7",
+      "ordinary_passed": 60,
+      "explicit_ignored": 10,
+      "failed": 0,
+      "summary_count": 14,
+      "ignored_real_pg": {
+        "sprint02_platform": 2,
+        "sprint03_storage": 8
+      },
+      "ephemeral_health_smoke": true,
+      "actual_real_postgres_in_ci": false,
+      "files": [
+        {
+          "path": ".local/sprint03/ci-push-final-1a3a01/0_linux.txt",
+          "bytes": 76703,
+          "sha256": "1e04d55a99d6f2f6a64e75c692be43ba8573a42a93fcef3d89422b061c958488",
+          "coverage": "complete downloaded stopped-file machine snapshot; relevant compiler/test/health/upload steps independently inspected, not all setup-machine semantics"
+        },
+        {
+          "path": ".local/sprint03/ci-push-final-1a3a01/linux/16_Post Run actions_checkout@3d3c42e5aac5ba805825da76410c181273ba90b1.txt",
+          "bytes": 1773,
+          "sha256": "fd860abce7ecdc4d033e8910ad5f1f15888812718517a47664ccafad7e379757",
+          "coverage": "complete downloaded stopped-file machine snapshot; relevant compiler/test/health/upload steps independently inspected, not all setup-machine semantics"
+        },
+        {
+          "path": ".local/sprint03/ci-push-final-1a3a01/linux/17_Complete job.txt",
+          "bytes": 61,
+          "sha256": "92e157c9db913574c2045b8699220b8b8a1fc4caa77a971b2ae8e2709d8e81ad",
+          "coverage": "complete downloaded stopped-file machine snapshot; relevant compiler/test/health/upload steps independently inspected, not all setup-machine semantics"
+        },
+        {
+          "path": ".local/sprint03/ci-push-final-1a3a01/linux/1_Set up job.txt",
+          "bytes": 2102,
+          "sha256": "88594bc27f4d721422a08bf57828440df7e9bad3f30c97bd47a6367a3e3e0926",
+          "coverage": "complete downloaded stopped-file machine snapshot; relevant compiler/test/health/upload steps independently inspected, not all setup-machine semantics"
+        },
+        {
+          "path": ".local/sprint03/ci-push-final-1a3a01/linux/2_Run actions_checkout@3d3c42e5aac5ba805825da76410c181273ba90b1.txt",
+          "bytes": 11555,
+          "sha256": "5c1af8e8fad36c7979d4bd687cef630dccfc797f6613ec845278551adb23bf50",
+          "coverage": "complete downloaded stopped-file machine snapshot; relevant compiler/test/health/upload steps independently inspected, not all setup-machine semantics"
+        },
+        {
+          "path": ".local/sprint03/ci-push-final-1a3a01/linux/3_Pinned toolchain.txt",
+          "bytes": 769,
+          "sha256": "0f6d3a5fc7a9ffa0de9a5f5a89c52e9666c478f4ee88096d896e1a839ff2a957",
+          "coverage": "complete downloaded stopped-file machine snapshot; relevant compiler/test/health/upload steps independently inspected, not all setup-machine semantics"
+        },
+        {
+          "path": ".local/sprint03/ci-push-final-1a3a01/linux/4_Run cargo fmt --all -- --check.txt",
+          "bytes": 238,
+          "sha256": "43a16bef76c0bb2f84af3eca6eb5e22a14bcf89a5a38261c19fc9f40b4e9332d",
+          "coverage": "complete downloaded stopped-file machine snapshot; relevant compiler/test/health/upload steps independently inspected, not all setup-machine semantics"
+        },
+        {
+          "path": ".local/sprint03/ci-push-final-1a3a01/linux/5_Run cargo clippy --locked --all-targets -- -D warnings.txt",
+          "bytes": 23557,
+          "sha256": "34eee89d4cf10b9289d313a27404e640b0d2c5477cc8638bc5392cb772d564d9",
+          "coverage": "complete downloaded stopped-file machine snapshot; relevant compiler/test/health/upload steps independently inspected, not all setup-machine semantics"
+        },
+        {
+          "path": ".local/sprint03/ci-push-final-1a3a01/linux/6_Run cargo test --locked --all-targets.txt",
+          "bytes": 22629,
+          "sha256": "9a279db617315c76a294eec16812fa15358e4a3451bfadf51e156bd34db62fb0",
+          "coverage": "complete downloaded stopped-file machine snapshot; relevant compiler/test/health/upload steps independently inspected, not all setup-machine semantics"
+        },
+        {
+          "path": ".local/sprint03/ci-push-final-1a3a01/linux/7_Build release and local health smoke.txt",
+          "bytes": 12302,
+          "sha256": "044ee192c509e5e1cdd3405b71ae47c1e0c60ded00de93b8361471d5d4520a97",
+          "coverage": "complete downloaded stopped-file machine snapshot; relevant compiler/test/health/upload steps independently inspected, not all setup-machine semantics"
+        },
+        {
+          "path": ".local/sprint03/ci-push-final-1a3a01/linux/8_Run actions_upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9.txt",
+          "bytes": 1744,
+          "sha256": "4e0aa4fe5f1f03241353e743ef47649ffa0980f078bc7409a3ed7429d1366bb7",
+          "coverage": "complete downloaded stopped-file machine snapshot; relevant compiler/test/health/upload steps independently inspected, not all setup-machine semantics"
+        },
+        {
+          "path": ".local/sprint03/ci-push-final-1a3a01/linux/system.txt",
+          "bytes": 592,
+          "sha256": "b3c646cba4dd24ca905768fe30e200616f2dfc589abafaadfd5f71668e1c5d45",
+          "coverage": "complete downloaded stopped-file machine snapshot; relevant compiler/test/health/upload steps independently inspected, not all setup-machine semantics"
+        }
+      ]
+    },
+    {
+      "id": 38057298912,
+      "event": "pull_request_merge",
+      "actual_checkout": "6c58cc0ea6967bd244a46207b4a784097af4aa03",
+      "ordinary_passed": 60,
+      "explicit_ignored": 10,
+      "failed": 0,
+      "summary_count": 14,
+      "ignored_real_pg": {
+        "sprint02_platform": 2,
+        "sprint03_storage": 8
+      },
+      "ephemeral_health_smoke": true,
+      "actual_real_postgres_in_ci": false,
+      "files": [
+        {
+          "path": ".local/sprint03/ci-pr-final-1a3a01/0_linux.txt",
+          "bytes": 77368,
+          "sha256": "6359d94c3f7547ef81afdbbc9d23101848b68021cbfa425679aec498a9d5c22f",
+          "coverage": "complete downloaded stopped-file machine snapshot; relevant compiler/test/health/upload steps independently inspected, not all setup-machine semantics"
+        },
+        {
+          "path": ".local/sprint03/ci-pr-final-1a3a01/linux/16_Post Run actions_checkout@3d3c42e5aac5ba805825da76410c181273ba90b1.txt",
+          "bytes": 1773,
+          "sha256": "85c94ca4f3ed6661c287e00b056810808c138e444f5f4bc69f82f818af80af77",
+          "coverage": "complete downloaded stopped-file machine snapshot; relevant compiler/test/health/upload steps independently inspected, not all setup-machine semantics"
+        },
+        {
+          "path": ".local/sprint03/ci-pr-final-1a3a01/linux/17_Complete job.txt",
+          "bytes": 61,
+          "sha256": "d8a099c6394ba88004eb08bdd37556f4290e0f7941e9d4cf71ccd049c00bed3b",
+          "coverage": "complete downloaded stopped-file machine snapshot; relevant compiler/test/health/upload steps independently inspected, not all setup-machine semantics"
+        },
+        {
+          "path": ".local/sprint03/ci-pr-final-1a3a01/linux/1_Set up job.txt",
+          "bytes": 2099,
+          "sha256": "a405fe78aaa485ff6b0b41318fe5907a37c9f47112cf8254cf15b86b7a75333d",
+          "coverage": "complete downloaded stopped-file machine snapshot; relevant compiler/test/health/upload steps independently inspected, not all setup-machine semantics"
+        },
+        {
+          "path": ".local/sprint03/ci-pr-final-1a3a01/linux/2_Run actions_checkout@3d3c42e5aac5ba805825da76410c181273ba90b1.txt",
+          "bytes": 12223,
+          "sha256": "2751b7c0d97cf08edb572569b4e16877a8c55b88abd8727b77108f31029b762d",
+          "coverage": "complete downloaded stopped-file machine snapshot; relevant compiler/test/health/upload steps independently inspected, not all setup-machine semantics"
+        },
+        {
+          "path": ".local/sprint03/ci-pr-final-1a3a01/linux/3_Pinned toolchain.txt",
+          "bytes": 769,
+          "sha256": "d6ee2bb7547892782a21dbe764dadac136a60f7225a4e334b239b3cff22f9036",
+          "coverage": "complete downloaded stopped-file machine snapshot; relevant compiler/test/health/upload steps independently inspected, not all setup-machine semantics"
+        },
+        {
+          "path": ".local/sprint03/ci-pr-final-1a3a01/linux/4_Run cargo fmt --all -- --check.txt",
+          "bytes": 238,
+          "sha256": "25002cf500722fe36427ae70406a69e08ff1d15650c6fb48e0262c982711b59c",
+          "coverage": "complete downloaded stopped-file machine snapshot; relevant compiler/test/health/upload steps independently inspected, not all setup-machine semantics"
+        },
+        {
+          "path": ".local/sprint03/ci-pr-final-1a3a01/linux/5_Run cargo clippy --locked --all-targets -- -D warnings.txt",
+          "bytes": 23557,
+          "sha256": "815c2d44d9b8b5e27b3733b775f80daf3f161c03aa6892643838e60cd6c96087",
+          "coverage": "complete downloaded stopped-file machine snapshot; relevant compiler/test/health/upload steps independently inspected, not all setup-machine semantics"
+        },
+        {
+          "path": ".local/sprint03/ci-pr-final-1a3a01/linux/6_Run cargo test --locked --all-targets.txt",
+          "bytes": 22629,
+          "sha256": "b1324534f7dc80140107994d465eeb1d5052ae9b4e46c5bae7a6cfcd96519285",
+          "coverage": "complete downloaded stopped-file machine snapshot; relevant compiler/test/health/upload steps independently inspected, not all setup-machine semantics"
+        },
+        {
+          "path": ".local/sprint03/ci-pr-final-1a3a01/linux/7_Build release and local health smoke.txt",
+          "bytes": 12302,
+          "sha256": "e867481e8f9a6e92b1b3953732421867967c7bfb1d3fa970dcd2be6f8189c7a2",
+          "coverage": "complete downloaded stopped-file machine snapshot; relevant compiler/test/health/upload steps independently inspected, not all setup-machine semantics"
+        },
+        {
+          "path": ".local/sprint03/ci-pr-final-1a3a01/linux/8_Run actions_upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9.txt",
+          "bytes": 1744,
+          "sha256": "da58d9d8491e26356a5a0ab1e94a803d8a0594fa3d213c5557cf497fb9b73d2b",
+          "coverage": "complete downloaded stopped-file machine snapshot; relevant compiler/test/health/upload steps independently inspected, not all setup-machine semantics"
+        },
+        {
+          "path": ".local/sprint03/ci-pr-final-1a3a01/linux/system.txt",
+          "bytes": 583,
+          "sha256": "ca24b435ae166ae916930875221ff3ff5d43582ad56b901f1e1ba14140d28d4e",
+          "coverage": "complete downloaded stopped-file machine snapshot; relevant compiler/test/health/upload steps independently inspected, not all setup-machine semantics"
+        }
+      ]
+    }
+  ],
+  "scope": "push checkout final documentation head; runtime diff against a0b4 is empty. PR checkout generated merge SHA separately reported.",
+  "privacy": "no raw headers, credentials, tokens, or artifact signed/download URLs included",
+  "missing": "downloaded files only; runner machine state and external unavailable logs not claimed; health response body not printed in step log, successful smoke enforces status ready with grep",
+  "final_documentation_head": "1a3a6294f8b7ca014a4b11954013fb5ccd1c93f7",
+  "runtime_diff_empty": true,
+  "changed_paths": [
+    "README.md",
+    "docs/ROADMAP.md",
+    "docs/SPRINT_03_REPORT.md",
+    "flw/events.jsonl",
+    "flw/evidence/sprint-03-ci-audit-corrected.json",
+    "flw/evidence/sprint-03-ci-audit-corrected.md",
+    "flw/evidence/sprint-03-customer-final-vote.md",
+    "flw/evidence/sprint-03-customer-preliminary-final.md",
+    "flw/evidence/sprint-03-debt.md",
+    "flw/evidence/sprint-03-final-council-invitation.md",
+    "flw/evidence/sprint-03-final-council.md",
+    "flw/evidence/sprint-03-final-proposal.md",
+    "flw/evidence/sprint-03-ops-corrected-artifact.md",
+    "flw/evidence/sprint-03-oracle.md",
+    "flw/evidence/sprint-03-pm-final-vote.md",
+    "flw/evidence/sprint-03-pm-preliminary-final.md",
+    "flw/evidence/sprint-03-qa-corrected-frozen-identity.json",
+    "flw/evidence/sprint-03-qa-corrected-package-identity.json",
+    "flw/evidence/sprint-03-qa-final-log-inventory.json",
+    "flw/evidence/sprint-03-qa-final-log-supplement.json",
+    "flw/evidence/sprint-03-qa-final-report.json",
+    "flw/evidence/sprint-03-qa-final-report.md",
+    "flw/evidence/sprint-03-qa-final-vote.md",
+    "flw/evidence/sprint-03-qa-provenance-negatives.json",
+    "flw/evidence/sprint-03-root-final-vote.md",
+    "flw/evidence/sprint-03-td-final-report.md",
+    "flw/evidence/sprint-03-td-final-vote.md"
+  ]
+}

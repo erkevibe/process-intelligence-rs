@@ -1,0 +1,3 @@
+# Supplemental main/tag CI audit
+
+Independently loaded/fingerprinted all24 available downloaded files. Main38057618123 and release-tag38057663276 both actualcheckout08cc456ff20fce0a54b172105ce1450021e353da. Bounded semantic checks confirm fmt/clippy/release/ephemeral ready smoke/upload and60ordinaryPASS/10explicitPGignored each. These are supplementary Linux checks, not new Windowsartifact or realPG/Windows/crash credit. Accepted compiledsourcea0b4/B38/DBC unchanged; publicdelivery supplement already independently verified actual anonymousfullZIP and protectedliveinstallations. Fixed report/vote remain unchanged.

@@ -1,6 +1,6 @@
 # Спринт 03: сравнение, восстановление, BPMN
 
-**Артефакт принят; публичная поставка ещё проверяется.** Начало 10 октября 2026,11:37:57 UTC; предел19:37:57 UTC. Ошибки, проверка и публикация входят в восемь часов. [Неизменённый план](SPRINT_03_PLAN.md), [независимая матрица A01–A12](../flw/evidence/sprint-03-qa-final-report.md), [заключение TD](../flw/evidence/sprint-03-td-final-report.md), [решение Совета](../flw/evidence/sprint-03-final-council.md). A01–A11 прошли в выбранных границах; A12 принял артефакт, но ждёт публичного скачивания и проверки установок.
+**Спринт завершён; 0.3.0 опубликована и независимо проверена.** Начало 10 октября 2026,11:37:57 UTC; предел19:37:57 UTC. Ошибки, проверка и публикация входят в восемь часов. [Неизменённый план](SPRINT_03_PLAN.md), [независимая матрица A01–A12](../flw/evidence/sprint-03-qa-final-report.md), [заключение TD](../flw/evidence/sprint-03-td-final-report.md), [решение Совета](../flw/evidence/sprint-03-final-council.md). A01–A12 приняты в выбранных границах. Независимая проверка поставки завершилась 14:01:25 UTC, через 2 часа 23 минуты после начала; оставшийся бюджет не использован для расширения объёма. [Отдельное заключение QA о поставке](../flw/evidence/sprint-03-qa-delivery.md).
 
 ## Что получилось
 
@@ -30,7 +30,7 @@ Oracle — узкий настоящий Java-компонент через вн
 
 Frozen ordinary60PASS/10realPG явно ignored; отдельно независимые S3realPG8+S2realPG2 всеPASS. BPMN15 browser/API+1XML+6backup/restart/access; strict upgrade3PASS. Native Start: первые3 проверки и отдельная continuation2PASS, настоящий graph3nodes/4edges и export4cases/10events/3activities.
 
-Исправленный pushCI38054672102 действительно проверил a0b4, PR38054674511 — generated merge b1d18b79d67943e4c88fe8683ed4054b76c8c58c. fmt/clippy/60ordinary/release/ephemeral health PASS; realPG/Windows/crash CI не запускал. До поставки нужны actual final-doc-head CI, checked merge/tag и полный anonymous download SHA/bytes. [CI audit](../flw/evidence/sprint-03-ci-audit-corrected.md).
+Исправленный pushCI38054672102 действительно проверил a0b4, PR38054674511 — generated merge b1d18b79d67943e4c88fe8683ed4054b76c8c58c. fmt/clippy/60ordinary/release/ephemeral health PASS; realPG/Windows/crash CI не запускал. Финальный PR head1a3a проверен push38057295858/PR38057298912; merge и tag08cc456ff20fce0a54b172105ce1450021e353da проверены main38057618123/tag38057663276. Все эти CI успешны. Полный anonymous download SHA/bytes независимо совпал. [Финальный CI audit](../flw/evidence/sprint-03-ci-audit-final.md), [main/tag audit](../flw/evidence/sprint-03-ci-audit-late.md). [CI audit](../flw/evidence/sprint-03-ci-audit-corrected.md).
 
 ## Ошибки и границы
 
@@ -46,6 +46,6 @@ Coverage:170 доступныхQA/init/PG full-file fingerprints+2supplement и2
 
 ## Пользовательская поставка
 
-Отдельный кандидат0.3 уже готов на http://localhost:3030/PG5437 без QAаккаунта; пользователь создаёт свою первую учётную запись. R1:3000/0.2:3010 сохранены. Повторный запуск из установленного каталога: powershell -NoProfile -ExecutionPolicy Bypass -File Start.ps1 -Port 3030 -PostgresPort 5437. До actual public download hash/postpublication checks это не завершённая поставка.
+Отдельная принятая установка0.3 работает на http://localhost:3030/PG5437 без QAаккаунта; пользователь создаёт свою первую учётную запись. R1:3000/0.2:3010 сохранены. Повторный запуск из установленного каталога: powershell -NoProfile -ExecutionPolicy Bypass -File Start.ps1 -Port 3030 -PostgresPort 5437. Полный публичный ZIP независимо скачан и проверен, postpublication read-only проверки установок прошли. [Релиз](https://github.com/erkevibe/process-intelligence-rs/releases/tag/v0.3.0), [факты поставки](../flw/evidence/sprint-03-delivery.md).
 
-Полные R2–R5, enterprise readiness, исполнение BPMN, весь перенос Apromore и HA остаются следующими этапами. Совет принимает bounded artifact/условную поставку, не подменяет принятие реальным пользователем.
+Полные R2–R5, enterprise readiness, исполнение BPMN, весь перенос Apromore и HA остаются следующими этапами. Совет принял bounded artifact пятью голосами из пяти; обязательные условия поставки выполнены. Это не подменяет принятие реальным пользователем.

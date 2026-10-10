@@ -1,0 +1,9 @@
+# Independent final-head CI audit
+
+Accepted CI condition for final documentation head 1a3a6294f8b7ca014a4b11954013fb5ccd1c93f7. Full git name/status diff against accepted runtime a0b4 contains only README, docs and FLW evidence/events; runtime/build inputs including .github are unchanged (scoped git diff exit0). Canonical source/EXE/ZIP identities remain separate from this documentation head.
+
+Push run38057295858 actually checked out 1a3a6294f8b7ca014a4b11954013fb5ccd1c93f7. PR run38057298912 actually checked out generated merge 6c58cc0ea6967bd244a46207b4a784097af4aa03, explicitly different. All24 available downloaded files loaded fully, hashed and byte-counted in accompanying JSON. Relevant full linux logs independently inspected for actual checkout, fmt check, clippy warnings-as-errors, tests, release build, ephemeral ready smoke and artifact upload.
+
+Both runs: 60 ordinary PASS, 0 failed, 10 explicitly ignored (S2realPG2/S3realPG8). CI does not prove real PostgreSQL, Windows/native bootstrap, crash recovery or browser acceptance; those are independent local evidence. Health body is not printed; successful smoke checks status via ready grep. Linux artifacts are not the accepted Windows release ZIP.
+
+This satisfies the S3-F1 final-head CI/diff condition for merge/promotion. Public anonymous full ZIP hash and postpublication protected-installation proof remain PENDING. Signed links/tokens/raw runner URLs are excluded. Downloaded files and bounded semantic steps are covered; unavailable external streams/full runner state are not claimed. Fixed QA artifact report and vote remain unchanged.

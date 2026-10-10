@@ -15,3 +15,7 @@ PM and Customer subsequently supplied separate actual FOR votes on the same inde
 Decision authorizes bounded artifact promotion with every S3-F1 condition. A01–11 and A12 artifact independently accepted; A12 public delivery PENDING. Exact runtimea0b4/EXEB38/ZIPDBC remain immutable, source89 rejected. Final documentation/evidence-only diff, actual finalheadCI audit, checked merge/tag identity, anonymous whole-publicZIP hash/bytes and postpublication protected installation proof plus independent QA supplement remain mandatory before delivery COMPLETE. Original user data/installations preserved; no human acceptance impersonated.
 
 Root owns authorized integration/publicdelivery; QA owns delivery supplement/coverage; TD owns residual debt. SCALE01 HIGH OPEN; normalization/RSS before affected expansion, reserveexhaustion and physicalpowerloss not tested, narrowlegacy component and structuralBPMN only. Deadline2026-10-10 19:37:57UTC unchanged; no newfeatures. Control review accepts useful independent fault checks and calls for cheap verifier preflight/immutable attempt manifests to reduce repeated collector mistakes.
+
+## Subsequent actual delivery closure
+
+Mandatory public download and postpublication checks independently passed on 2026-10-10 at14:01:25UTC. See [independent QA delivery](sprint-03-qa-delivery.md) and [delivery facts](sprint-03-delivery.md). This subsequent outcome does not change the original proposal, votes or their times.
