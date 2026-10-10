@@ -9,7 +9,12 @@ $taskAcl.SetAccessRuleProtection($true,$false)
 $taskAcl.AddAccessRule((New-Object Security.AccessControl.FileSystemAccessRule($taskIdentity,'FullControl','ContainerInherit,ObjectInherit','None','Allow')))
 # Persist only the modified access section. Set-Acl may also request SACL
 # privileges when applying a fresh descriptor on a newly extracted folder.
-[IO.FileSystemAclExtensions]::SetAccessControl([IO.DirectoryInfo]::new($taskLocal),$taskAcl)
+$taskPrivateDirectory=[IO.DirectoryInfo]::new($taskLocal)
+if($taskPrivateDirectory.PSObject.Methods['SetAccessControl']){
+    $taskPrivateDirectory.SetAccessControl($taskAcl)
+}else{
+    [IO.FileSystemAclExtensions]::SetAccessControl($taskPrivateDirectory,$taskAcl)
+}
 $taskPrivateAcl=Get-Acl -LiteralPath $taskLocal
 if(!$taskPrivateAcl.AreAccessRulesProtected -or $taskPrivateAcl.Access.Count -ne 1 -or $taskPrivateAcl.Access[0].IsInherited -or $taskPrivateAcl.Access[0].AccessControlType -ne 'Allow' -or $taskPrivateAcl.Access[0].FileSystemRights -ne 'FullControl' -or $taskPrivateAcl.Access[0].IdentityReference.Translate([Security.Principal.SecurityIdentifier]).Value -ne [Security.Principal.WindowsIdentity]::GetCurrent().User.Value){throw 'Private data directory access protection failed'}
 New-Item -ItemType Directory -Path (Join-Path $taskLocal 'logs') -Force|Out-Null
