@@ -10,6 +10,8 @@ Each journal load reads log_state/data/source/analysis in one SQL snapshot. Stri
 
 At most2 heavy HTTP operations run globally. Saturation returns503/cache_busy; clients may retry. An operation's reservation survives a disconnected request while its blocking worker continues, and remains through response consumption/drop. Idle job event subscriptions do not hold reservations: only Completed analysis rendering acquires one. Health, lists, task status and cancellation remain available. Existing separate job/CPU/upload admission stays unchanged.
 
+Heavy HTTP and Completed SSE output is yielded in frames of at most16384 bytes. The unyielded tail retains its reservation; each output Bytes owner also retains it through clones/slices and transport ownership after body EOF. This prevents one giant JSON/SSE frame from bypassing the transport's between-frame buffer checks. The reservation tracks application/transport ownership, not when a remote application reads its final byte. OS socket buffers and acknowledgement timing remain outside the retained cache charge.
+
 Whole-project semantic backup deliberately loads a complete project while holding its mutation lock and one heavy reservation; it verifies matching revision and all views. It retains the existing20MiB downloadable backup limit. Large database-level backups use the packaged operator helper. Neither backup path is a128MiB total-memory promise.
 
 Administrator GET /diagnostics/cache returns aggregate charge/count/load/hit/eviction/oversize counters and current heavy admission count. It contains no cookies, passwords or raw process input. Private resource/version/read events support independent lazy-loading checks. Diagnostics alone do not prove memory improvement or data correctness.

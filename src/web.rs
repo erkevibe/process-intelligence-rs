@@ -342,6 +342,27 @@ async fn request_guard(State(state): State<AppState>, request: Request, next: Ne
     response
 }
 
+struct AdmittedBytes {
+    data: axum::body::Bytes,
+    _permit: Arc<tokio::sync::OwnedSemaphorePermit>,
+}
+const ADMITTED_FRAME_BYTES: usize = 16 * 1024;
+impl AsRef<[u8]> for AdmittedBytes {
+    fn as_ref(&self) -> &[u8] {
+        self.data.as_ref()
+    }
+}
+fn admitted_chunk(
+    data: axum::body::Bytes,
+    permit: Arc<tokio::sync::OwnedSemaphorePermit>,
+) -> axum::body::Bytes {
+    // Hyper can own a frame after the Body has reached EOF. Tie admission to
+    // that frame's shared allocation, including all Bytes clones/slices.
+    axum::body::Bytes::from_owner(AdmittedBytes {
+        data,
+        _permit: permit,
+    })
+}
 fn admitted_response(
     mut response: Response,
     permit: Option<Arc<tokio::sync::OwnedSemaphorePermit>>,
@@ -351,11 +372,23 @@ fn admitted_response(
         // disconnected. A slow client must not create unlimited payload pins.
         let (parts, body) = response.into_parts();
         let stream = body.into_data_stream();
-        let guarded =
-            futures_util::stream::unfold((stream, permit), |(mut stream, permit)| async move {
+        let guarded = futures_util::stream::unfold(
+            (stream, permit, axum::body::Bytes::new()),
+            |(mut stream, permit, mut pending)| async move {
                 use futures_util::StreamExt;
-                stream.next().await.map(|item| (item, (stream, permit)))
-            });
+                if pending.is_empty() {
+                    match stream.next().await? {
+                        Ok(data) => pending = admitted_chunk(data, permit.clone()),
+                        Err(error) => return Some((Err(error), (stream, permit, pending))),
+                    }
+                }
+                // Hyper's buffer ceiling is checked between frames, not within
+                // a frame. Keep the unyielded tail and its lease in this stream
+                // so one giant JSON/SSE allocation cannot bypass backpressure.
+                let frame = pending.split_to(pending.len().min(ADMITTED_FRAME_BYTES));
+                Some((Ok(frame), (stream, permit, pending)))
+            },
+        );
         response = Response::from_parts(parts, axum::body::Body::from_stream(guarded));
     }
     response
@@ -1059,16 +1092,26 @@ async fn job_events(Workspace(state): Workspace, Path(id): Path<String>) -> Resp
         );
     };
     let receiver = job.subscribe();
+    let frame_permit = Arc::new(Mutex::new(None::<Arc<tokio::sync::OwnedSemaphorePermit>>));
+    let carrier = frame_permit.clone();
     let stream = futures_util::stream::unfold(
-        (receiver, state, true, false, VecDeque::<SseEvent>::new()),
-        |(mut receiver, mut state, mut first, mut terminal, mut pending)| async move {
+        (
+            receiver,
+            state,
+            true,
+            false,
+            VecDeque::<SseEvent>::new(),
+            carrier,
+        ),
+        |(mut receiver, mut state, mut first, mut terminal, mut pending, carrier)| async move {
             // The previously yielded analysis event is consumed; release its
             // operation admission before waiting for another job snapshot.
             state.payload_permit = None;
+            *carrier.lock().expect("SSE admission carrier") = None;
             if let Some(event) = pending.pop_front() {
                 return Some((
                     Ok::<_, Infallible>(event),
-                    (receiver, state, first, terminal, pending),
+                    (receiver, state, first, terminal, pending, carrier),
                 ));
             }
             if terminal {
@@ -1103,7 +1146,7 @@ async fn job_events(Workspace(state): Workspace, Path(id): Path<String>) -> Resp
                             let event = pending.pop_front().expect("event");
                             return Some((
                                 Ok::<_, Infallible>(event),
-                                (receiver, state, first, terminal, pending),
+                                (receiver, state, first, terminal, pending, carrier),
                             ));
                         }
                     }
@@ -1122,7 +1165,11 @@ async fn job_events(Workspace(state): Workspace, Path(id): Path<String>) -> Resp
                 })
                 .await;
                 match result {
-                    Ok(Ok(Some(html))) => pending.push_back(patch_event("#analysis-panel", html)),
+                    Ok(Ok(Some(html))) => {
+                        *carrier.lock().expect("SSE admission carrier") =
+                            state.payload_permit.clone();
+                        pending.push_back(patch_event("#analysis-panel", html));
+                    }
                     Ok(Err(e)) => {
                         tracing::warn!(code=%e.code,"job_result_resource_refused");
                         return None;
@@ -1140,17 +1187,44 @@ async fn job_events(Workspace(state): Workspace, Path(id): Path<String>) -> Resp
             let event = pending.pop_front().expect("snapshot event");
             Some((
                 Ok::<_, Infallible>(event),
-                (receiver, state, first, terminal, pending),
+                (receiver, state, first, terminal, pending, carrier),
             ))
         },
     );
-    Sse::new(stream)
+    let response = Sse::new(stream)
         .keep_alive(
             axum::response::sse::KeepAlive::new()
                 .interval(std::time::Duration::from_secs(10))
                 .text("heartbeat"),
         )
-        .into_response()
+        .into_response();
+    let (parts, body) = response.into_parts();
+    let guarded = futures_util::stream::unfold(
+        (
+            body.into_data_stream(),
+            frame_permit,
+            axum::body::Bytes::new(),
+        ),
+        |(mut stream, carrier, mut pending)| async move {
+            use futures_util::StreamExt;
+            if pending.is_empty() {
+                let item = stream.next().await?;
+                let permit = carrier.lock().expect("SSE admission carrier").clone();
+                match item {
+                    Ok(data) => {
+                        pending = match permit {
+                            Some(permit) => admitted_chunk(data, permit),
+                            None => data,
+                        }
+                    }
+                    Err(error) => return Some((Err(error), (stream, carrier, pending))),
+                }
+            }
+            let frame = pending.split_to(pending.len().min(ADMITTED_FRAME_BYTES));
+            Some((Ok(frame), (stream, carrier, pending)))
+        },
+    );
+    Response::from_parts(parts, axum::body::Body::from_stream(guarded))
 }
 
 fn job_section(snapshot: &JobSnapshot) -> String {
@@ -1711,4 +1785,57 @@ fn patch(html: String) -> Response {
         Ok::<_, Infallible>(event)
     }))
     .into_response()
+}
+
+#[cfg(test)]
+mod admission_tests {
+    use super::*;
+    #[tokio::test]
+    async fn large_output_is_incremental_and_unyielded_tail_keeps_admission() {
+        use futures_util::StreamExt;
+        let slots = Arc::new(Semaphore::new(1));
+        let permit = Arc::new(slots.clone().try_acquire_owned().unwrap());
+        let expected: Vec<u8> = (0..ADMITTED_FRAME_BYTES * 3 + 7)
+            .map(|index| (index % 251) as u8)
+            .collect();
+        let response = admitted_response(expected.clone().into_response(), Some(permit));
+        let mut stream = response.into_body().into_data_stream();
+        let first = stream.next().await.unwrap().unwrap();
+        assert_eq!(first.len(), ADMITTED_FRAME_BYTES);
+        let mut actual = first.to_vec();
+        drop(first);
+        assert_eq!(slots.available_permits(), 0);
+        let mut last = None;
+        while let Some(frame) = stream.next().await {
+            let frame = frame.unwrap();
+            assert!(frame.len() <= ADMITTED_FRAME_BYTES);
+            actual.extend_from_slice(&frame);
+            last = Some(frame);
+        }
+        drop(stream);
+        assert_eq!(actual, expected);
+        assert_eq!(slots.available_permits(), 0);
+        drop(last);
+        assert_eq!(slots.available_permits(), 1);
+    }
+    #[tokio::test]
+    async fn transport_frame_and_slices_keep_admission_after_body_eof() {
+        use futures_util::StreamExt;
+        let slots = Arc::new(Semaphore::new(1));
+        let permit = Arc::new(slots.clone().try_acquire_owned().unwrap());
+        let response = admitted_response(
+            axum::body::Bytes::from_static(b"outgoing frame").into_response(),
+            Some(permit),
+        );
+        let mut stream = response.into_body().into_data_stream();
+        let chunk = stream.next().await.unwrap().unwrap();
+        assert!(stream.next().await.is_none());
+        drop(stream);
+        assert_eq!(slots.available_permits(), 0);
+        let tail = chunk.slice(3..);
+        drop(chunk);
+        assert_eq!(slots.available_permits(), 0);
+        drop(tail);
+        assert_eq!(slots.available_permits(), 1);
+    }
 }

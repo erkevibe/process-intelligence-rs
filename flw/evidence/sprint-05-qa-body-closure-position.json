@@ -1,0 +1,227 @@
+{
+  "finding": "S5-QA-BODY01",
+  "verdict": "CLOSED_FOR_TARGETED_DRAFT_RESUME_ONLY",
+  "exe_sha256": "E704A97D8DDBF7318465239AF91A1C6098B7D349225BAD26CC1B113A3BCB60DD",
+  "basis": [
+    {
+      "path": ".local/sprint05/qa/draft04-constrained01/report.json",
+      "sha256": "DE82522168A6B1106BF61A814559FC5AE7ACECC1A3978B8151585F8E7E04429F",
+      "report": {
+        "pass": true,
+        "checks": [
+          {
+            "name": "Constrained receive window: two actual undrained bodies reserve two and third refused",
+            "pass": true
+          },
+          {
+            "name": "Closing sockets releases independently; subsequent heavy response healthy",
+            "pass": true
+          }
+        ],
+        "observations": [
+          {
+            "exe_sha256": "e704a97d8ddbf7318465239af91a1c6098b7d349225bad26cc1b113a3bcb60dd"
+          },
+          {
+            "transport": [
+              {
+                "status": 200,
+                "content_length": null,
+                "transfer_encoding": "chunked",
+                "actual_rcvbuf": 4096,
+                "received_header_bytes": 313,
+                "body_bytes_drained": 0
+              },
+              {
+                "status": 200,
+                "content_length": null,
+                "transfer_encoding": "chunked",
+                "actual_rcvbuf": 4096,
+                "received_header_bytes": 313,
+                "body_bytes_drained": 0
+              }
+            ],
+            "diagnostics": {
+              "active_limit": 2,
+              "active_payload_operations": 2,
+              "cache": {
+                "charged_bytes": 0,
+                "entries": 0,
+                "evictions": 0,
+                "flight_hits": 0,
+                "hits": 0,
+                "loads": 2,
+                "misses": 2,
+                "oversize_bypasses": 2
+              },
+              "charged_byte_limit": 134217728,
+              "entry_limit": 8,
+              "scope": "retained cache estimate; active payloads/jobs/uploads/allocator excluded"
+            }
+          }
+        ],
+        "scope": "Independent transport diagnosis with SO_RCVBUF set before connect; headers-only receive, no body drainage; no performance claim"
+      }
+    },
+    {
+      "path": ".local/sprint05/qa/draft04-sse-consumed01/report.json",
+      "sha256": "79515BD57E27114249EDA3D9B8ED148E02E042F883D7CD8CBBA659DF63BE8707",
+      "report": {
+        "pass": true,
+        "checks": [
+          {
+            "name": "Real Completed job SSE reconnect: two undrained analysis payloads reserve two and third refused",
+            "pass": true
+          },
+          {
+            "name": "Closing sockets releases independently; subsequent heavy response healthy",
+            "pass": true
+          }
+        ],
+        "observations": [
+          {
+            "exe_sha256": "e704a97d8ddbf7318465239af91a1c6098b7d349225bad26cc1b113a3bcb60dd"
+          },
+          {
+            "real_job_snapshot": {
+              "id": "job-68",
+              "state": "completed",
+              "stage": "completed",
+              "job_revision": 4,
+              "cancel_requested": false,
+              "result_id": "log-69",
+              "error": null
+            }
+          },
+          {
+            "transport": [
+              {
+                "status": 200,
+                "content_length": null,
+                "transfer_encoding": "chunked",
+                "actual_rcvbuf": 4096,
+                "received_header_bytes": 257,
+                "body_bytes_drained": 0
+              },
+              {
+                "status": 200,
+                "content_length": null,
+                "transfer_encoding": "chunked",
+                "actual_rcvbuf": 4096,
+                "received_header_bytes": 257,
+                "body_bytes_drained": 0
+              }
+            ],
+            "diagnostics": {
+              "active_limit": 2,
+              "active_payload_operations": 2,
+              "cache": {
+                "charged_bytes": 0,
+                "entries": 0,
+                "evictions": 0,
+                "flight_hits": 0,
+                "hits": 0,
+                "loads": 1,
+                "misses": 1,
+                "oversize_bypasses": 0
+              },
+              "charged_byte_limit": 134217728,
+              "entry_limit": 8,
+              "scope": "retained cache estimate; active payloads/jobs/uploads/allocator excluded"
+            }
+          },
+          {
+            "full_sse_body_bytes": 38654386,
+            "full_sse_sha256": "4d9f6095aae1c43d4ffc67006ef4bc7b47ed5a025d777d8e65645cc0263934ee",
+            "analysis_patch": true,
+            "completed_patch": true
+          }
+        ],
+        "scope": "Independent transport diagnosis with SO_RCVBUF set before connect; headers-only receive, no body drainage; no performance claim"
+      }
+    },
+    {
+      "path": ".local/sprint05/qa/draft04-idle01/report.json",
+      "sha256": "7BD4C1238FF281438075FBD3B5B996F1805875E1E3A11A3249D96C033BB9E5E1",
+      "report": {
+        "checks": [
+          {
+            "name": "Twoactual nonterminal SSEwatchers idle retain noheavypermit; navigation andheavyexportavailable",
+            "pass": true
+          },
+          {
+            "name": "Real acceptedcancel remainsavailable and durableterminal",
+            "pass": true
+          }
+        ],
+        "observations": [
+          {
+            "pid": 23856
+          },
+          {
+            "input_bytes": 17500011,
+            "events": 100000,
+            "cases": 20000,
+            "activities": 100000,
+            "scope": "Separate valid stress; unchanged primarysixlog corpus"
+          },
+          {
+            "before_state": "running",
+            "after_state": "running",
+            "id": "job-72",
+            "diagnostic": {
+              "active_limit": 2,
+              "active_payload_operations": 0,
+              "cache": {
+                "charged_bytes": 66575277,
+                "entries": 1,
+                "evictions": 0,
+                "flight_hits": 0,
+                "hits": 0,
+                "loads": 1,
+                "misses": 1,
+                "oversize_bypasses": 0
+              },
+              "charged_byte_limit": 134217728,
+              "entry_limit": 8,
+              "scope": "retained cache estimate; active payloads/jobs/uploads/allocator excluded"
+            }
+          }
+        ],
+        "streams": [
+          {
+            "id": "job-72",
+            "closed": true,
+            "bytes": 1586,
+            "analysis_patch": false,
+            "terminal_patch": false,
+            "status": 200
+          },
+          {
+            "id": "job-72",
+            "closed": true,
+            "bytes": 1586,
+            "analysis_patch": false,
+            "terminal_patch": false,
+            "status": 200
+          }
+        ],
+        "pass": true,
+        "scope": "Exact repaired draftE704; realjobCPU noartificialdelay; idlewatcher/cancel scope only"
+      }
+    }
+  ],
+  "historical_failures": [
+    "draft02-body01: Node pause active1 vs2",
+    "draft03-body01: Node pause active1 vs2",
+    "draft03-constrained01: RCVBUF4096 headers-only active1 vs2",
+    "draft03-wire-diagnosis01: body77487851B active1 atheaders then0 after1s/3s; diagnosis completion only"
+  ],
+  "limitations": [
+    "No inference about Windows kernel allocation internals",
+    "No performance acceptance or frozen candidate acceptance",
+    "Future exact frozen artifact must independently replay admission/transport contracts",
+    "First failed wrapper file missing, actual exit1 preserved in tool output"
+  ],
+  "recommendation": "Authorize narrowly scoped development continuation via new exact Council proposal; reject C1 and retain failed artifacts"
+}

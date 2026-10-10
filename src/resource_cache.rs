@@ -553,4 +553,134 @@ mod tests {
         }
         assert!(resource_charge(&resource) >= 4096);
     }
+    #[test]
+    #[ignore = "requires an explicitly owned pi_s5_* database and an existing oversized valid log"]
+    fn postgres_oversize_concurrent_singleflight_uses_one_actual_load() {
+        use sha2::Digest;
+        use std::{
+            io::Write,
+            time::{Duration, Instant},
+        };
+
+        // Test scheduling only: no production delays or fault flags. Validate
+        // ownership before connecting; never print the private connection URL.
+        let url = std::env::var("S5_QA_DATABASE_URL").expect("S5_QA_DATABASE_URL required");
+        let config: postgres::Config = url
+            .parse()
+            .expect("invalid private test database configuration");
+        assert!(
+            config
+                .get_dbname()
+                .is_some_and(|name| name.starts_with("pi_s5_") && name.len() > 6),
+            "only an explicitly owned pi_s5_* database is allowed"
+        );
+        let project = std::env::var("S5_QA_PROJECT_ID").expect("S5_QA_PROJECT_ID required");
+        let id = std::env::var("S5_QA_LOG_ID").expect("S5_QA_LOG_ID required");
+        assert!(!project.is_empty() && id.starts_with("log-"));
+        let database = Database::connect(url).expect("owned test database must be ready schema2");
+        let before_revision = database
+            .project_header(&project)
+            .unwrap()
+            .expect("owned project missing")
+            .0;
+        let before_versions = database
+            .resource_versions(&project, &id, repository_v2::LOG_KINDS)
+            .unwrap();
+        assert_eq!(before_versions.len(), 4, "complete valid log required");
+        let cache = Arc::new(ResourceCache::new());
+        let key = Key {
+            project: project.clone(),
+            kind: "log".into(),
+            id: id.clone(),
+        };
+        let flight = cache.flight(&key).unwrap();
+        let gate = flight.lock().unwrap();
+        let mut threads = Vec::new();
+        for _ in 0..2 {
+            let cache = cache.clone();
+            let database = database.clone();
+            let project = project.clone();
+            let id = id.clone();
+            threads.push(std::thread::spawn(move || {
+                cache.get_log(&database, &project, &id)
+            }));
+        }
+        let deadline = Instant::now() + Duration::from_secs(5);
+        while cache.stats().misses < 2 && Instant::now() < deadline {
+            std::thread::sleep(Duration::from_millis(10));
+        }
+        let actual_misses = cache.stats().misses;
+        drop(gate);
+        // JoinHandle owns each returned log, preserving the first active
+        // resource's payload while the second waiter upgrades weak identities.
+        let first = threads
+            .remove(0)
+            .join()
+            .expect("first cache thread panicked")
+            .expect("first load failed");
+        let second = threads
+            .remove(0)
+            .join()
+            .expect("second cache thread panicked")
+            .expect("second load failed");
+        assert_eq!(
+            actual_misses, 2,
+            "both real SQL version reads must reach the flight gate within five seconds"
+        );
+        assert!(Arc::ptr_eq(&first.data, &second.data));
+        assert!(Arc::ptr_eq(&first.source, &second.source));
+        assert!(Arc::ptr_eq(&first.analysis, &second.analysis));
+        struct HashWriter(sha2::Sha256);
+        impl Write for HashWriter {
+            fn write(&mut self, bytes: &[u8]) -> std::io::Result<usize> {
+                self.0.update(bytes);
+                Ok(bytes.len())
+            }
+            fn flush(&mut self) -> std::io::Result<()> {
+                Ok(())
+            }
+        }
+        fn full_sha(log: &StoredLog) -> String {
+            let mut writer = HashWriter(sha2::Sha256::new());
+            serde_json::to_writer(&mut writer, log).expect("full resource serialization failed");
+            format!("{:x}", writer.0.finalize())
+        }
+        let first_sha = full_sha(&first);
+        assert_eq!(first_sha, full_sha(&second));
+        let stats = cache.stats();
+        assert_eq!(stats.loads, 1);
+        assert_eq!(stats.flight_hits, 1);
+        assert_eq!(stats.oversize_bypasses, 1);
+        assert_eq!(stats.entries, 0);
+        assert_eq!(stats.charged_bytes, 0);
+        assert_eq!(
+            database.project_header(&project).unwrap().unwrap().0,
+            before_revision
+        );
+        assert_eq!(
+            database
+                .resource_versions(&project, &id, repository_v2::LOG_KINDS)
+                .unwrap(),
+            before_versions
+        );
+        println!(
+            "singleflight_actual_db_read_only project={project} resource={id} full_sha256={first_sha} loads={} flight_hits={} oversize_bypasses={} entries={} charged_bytes={}",
+            stats.loads,
+            stats.flight_hits,
+            stats.oversize_bypasses,
+            stats.entries,
+            stats.charged_bytes
+        );
+        drop(first);
+        drop(second);
+        drop(flight);
+        assert!(
+            cache
+                .flights
+                .lock()
+                .unwrap()
+                .values()
+                .all(|flight| flight.strong_count() == 0)
+        );
+    }
 }
