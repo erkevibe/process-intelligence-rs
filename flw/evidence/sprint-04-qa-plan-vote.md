@@ -1,0 +1,11 @@
+# QA actual plan vote — S4-P1
+
+**FOR** exact docs/SPRINT_04_PLAN.md rawSHA25642CD4E4253AD85B2F91E3D047DB249A67B917AFF4E683B49AF062B77AE2BA277, independently full-read and recomputed. This is a prospective plan vote, not product/release acceptance.
+
+The proposal resolves the main preplan blockers: explicit offline migration without extending normal SQL/caller deadlines; retained unchanged inert legacy rows; globally gated v2 visibility and verified source-version/checksum stages; per-log split records/delta writes; fixed numeric thresholds before results; same unreduced cumulative six-log/100k corpus; independent exact-artifact/package/publication gates. No additional BPMN/features dilute preservation work.
+
+Mandatory tests must prove stage ownership and full-value equality, interruption/resume and no partial readiness, atomic result/terminal linkage, reservedlegacy write denial, auth/session/IDs/generic preservation, unchanged physical heavy-record versions/hashes on metadata mutation, and same-data performance sampling. Validate payload before exposure must include lazily read records, not just header. Final first adoption uses actual accepted0.3 binary on a NEW copied DB to obtain a valid same-DB session and full baseline; working user/shared installations stay untouched.
+
+Limits remain: lazy first-project load and cached wholeproject memory are measured residual debt; keeping duplicate inert legacy rows increases storage and requires future cleanup design. Three-run startup WorkingSet comparisons must use identical baseline/candidate dataset, sampling interval and controlled interference, not lifetime peak or app+PG conflation. A failed numeric/data gate is a failure, not waived by this vote. No SCALE01 general closure without actual delta/startup proof.
+
+No production changes, expensive execution or DB preparation are authorized by this vote alone before Root announces actual majority. QA will own independent tests/helpers/evidence after contracts. Mandatory observed failure triggers STOP affected migration/storage/release.

@@ -8,6 +8,19 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         )
         .json()
         .init();
+    let args: Vec<String> = std::env::args().skip(1).collect();
+    if !args.is_empty() {
+        if args != ["--migrate-storage"] {
+            return Err(std::io::Error::other("Supported option: --migrate-storage").into());
+        }
+        let url = std::env::var("PI_DATABASE_URL").map_err(|_| {
+            std::io::Error::other("Private PI_DATABASE_URL is required for offline migration.")
+        })?;
+        tokio::task::spawn_blocking(move || process_intelligence_rs::storage::migrate_offline(url))
+            .await?
+            .map_err(|e| std::io::Error::other(e.message))?;
+        return Ok(());
+    }
     let port: u16 = std::env::var("PORT")
         .unwrap_or_else(|_| "3000".into())
         .parse()?;

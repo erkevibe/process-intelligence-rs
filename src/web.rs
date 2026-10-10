@@ -44,13 +44,16 @@ pub(crate) struct Repository {
     pub(crate) current: BTreeMap<String, String>,
     pub(crate) sequence: u64,
     pub(crate) user_views: BTreeMap<String, BTreeMap<String, UserView>>,
-    pub(crate) models: BTreeMap<String, crate::platform::StoredModel>,
+    pub(crate) models: BTreeMap<String, Arc<crate::platform::StoredModel>>,
     pub(crate) durable_jobs: BTreeMap<String, JobSnapshot>,
     #[serde(skip)]
     pub(crate) storage_revision: u64,
+    #[serde(skip)]
+    pub(crate) persisted: Arc<crate::repository_v2::Baseline>,
 }
 
 #[derive(Clone, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
 pub(crate) struct StoredLog {
     pub(crate) id: String,
     pub(crate) filename: String,
@@ -70,11 +73,12 @@ pub(crate) struct StoredLog {
     pub(crate) project_id: Option<String>,
 }
 #[derive(Default, Clone, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
 pub(crate) struct UserView {
-    threshold: u64,
-    selected: Option<String>,
-    selected_case: Option<String>,
-    revision: u64,
+    pub(crate) threshold: u64,
+    pub(crate) selected: Option<String>,
+    pub(crate) selected_case: Option<String>,
+    pub(crate) revision: u64,
 }
 impl Repository {
     pub(crate) fn get_log(&self, state: &AppState, id: &str) -> Option<StoredLog> {
@@ -139,20 +143,9 @@ impl AppState {
         importing: bool,
     ) -> Result<(), crate::domain::ImportError> {
         if let (Some(platform), Some(actor)) = (&self.platform, &self.actor) {
-            let document = serde_json::to_value(&*next).map_err(|_| {
-                crate::domain::ImportError::new(
-                    "storage_serialization",
-                    "Не удалось сохранить данные.",
-                )
-            })?;
-            if importing {
-                crate::storage::validate_document_capacity(&document, true)?;
-            }
-            next.storage_revision = platform.database.write(
-                &format!("repository/{}", actor.project_id),
-                next.storage_revision,
-                document,
-            )?;
+            let write = crate::repository_v2::prepare(&actor.project_id, next, importing)?;
+            next.storage_revision = platform.database.write_project(write)?;
+            crate::repository_v2::mark_persisted(next);
         }
         Ok(())
     }

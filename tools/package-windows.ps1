@@ -1,4 +1,4 @@
-param([Parameter(Mandatory=$true)][string]$SourceCommit,[string]$Version='0.3.0',[Parameter(Mandatory=$true)][string]$BuildProof)
+param([Parameter(Mandatory=$true)][string]$SourceCommit,[string]$Version='0.4.0',[Parameter(Mandatory=$true)][string]$BuildProof)
 $ErrorActionPreference='Stop'
 if($SourceCommit -notmatch '^[0-9a-f]{40}$' -or $Version -notmatch '^\d+\.\d+\.\d+(-[a-zA-Z0-9]+)?$'){throw 'Explicit source SHA and safe version are required.'}
 $taskRoot=Split-Path -Parent $PSScriptRoot
@@ -30,7 +30,7 @@ foreach($taskFile in $taskProof.source_files){
     if((Get-FileHash -LiteralPath $taskPath).Hash -cne $taskFile.sha256 -or (Get-Item -LiteralPath $taskPath).Length -ne $taskFile.bytes){throw "Frozen source changed: $($taskFile.path)"}
 }
 $taskPgSource=Join-Path $taskRoot '.local/postgres18/pgsql'
-foreach($taskRequired in @('static','docs','fixtures','README.md','LICENSE','NOTICE','Cargo.lock','tools/setup-postgres.ps1','tools/start-packaged.ps1','tools/database-backup.ps1','tools/oracle')){if(-not (Test-Path -LiteralPath (Join-Path $taskFrozen $taskRequired))){throw "Missing frozen packaging input: $taskRequired"}}
+foreach($taskRequired in @('static','docs','fixtures','README.md','LICENSE','NOTICE','Cargo.lock','tools/setup-postgres.ps1','tools/start-packaged.ps1','tools/database-backup.ps1','tools/migrate-storage.ps1','tools/oracle')){if(-not (Test-Path -LiteralPath (Join-Path $taskFrozen $taskRequired))){throw "Missing frozen packaging input: $taskRequired"}}
 foreach($taskRequired in @('bin','lib','share','server_license.txt','commandlinetools_3rd_party_licenses.txt')){if(-not (Test-Path -LiteralPath (Join-Path $taskPgSource $taskRequired))){throw "Missing PostgreSQL runtime input: $taskRequired"}}
 $taskCargoText=Get-Content -LiteralPath (Join-Path $taskFrozen 'Cargo.toml') -Raw
 $taskPackageSection=[regex]::Match($taskCargoText,'(?ms)^\[package\]\s*\r?\n(?<body>.*?)(?=^\[|\z)')
@@ -47,9 +47,9 @@ Copy-Item -LiteralPath $taskExecutable -Destination (Join-Path $taskPackage 'pro
 foreach($taskDirectory in @('static','docs','fixtures')){Copy-Item -LiteralPath (Join-Path $taskFrozen $taskDirectory) -Destination (Join-Path $taskPackage $taskDirectory) -Recurse}
 foreach($taskFile in @('README.md','LICENSE','NOTICE','Cargo.lock')){if(Test-Path -LiteralPath (Join-Path $taskFrozen $taskFile)){Copy-Item -LiteralPath (Join-Path $taskFrozen $taskFile) -Destination $taskPackage}}
 New-Item -ItemType Directory -Path (Join-Path $taskPackage 'tools') -Force|Out-Null
-foreach($taskFile in @('setup-postgres.ps1','start-packaged.ps1','database-backup.ps1')){Copy-Item -LiteralPath (Join-Path $taskFrozen ('tools/'+$taskFile)) -Destination (Join-Path $taskPackage 'tools')}
+foreach($taskFile in @('setup-postgres.ps1','start-packaged.ps1','database-backup.ps1','migrate-storage.ps1')){Copy-Item -LiteralPath (Join-Path $taskFrozen ('tools/'+$taskFile)) -Destination (Join-Path $taskPackage 'tools')}
 Copy-Item -LiteralPath (Join-Path $taskFrozen 'tools/oracle') -Destination (Join-Path $taskPackage 'tools/oracle') -Recurse
-[IO.File]::WriteAllText((Join-Path $taskPackage 'Start.ps1'),"param([int]`$Port=3000,[int]`$PostgresPort=5433)`r`n& (Join-Path `$PSScriptRoot 'tools/start-packaged.ps1') -Port `$Port -PostgresPort `$PostgresPort`r`nexit `$LASTEXITCODE`r`n")
+[IO.File]::WriteAllText((Join-Path $taskPackage 'Start.ps1'),"param([int]`$Port=3000,[int]`$PostgresPort=5433,[string]`$Database='process_intelligence')`r`n& (Join-Path `$PSScriptRoot 'tools/start-packaged.ps1') -Port `$Port -PostgresPort `$PostgresPort -Database `$Database`r`nexit `$LASTEXITCODE`r`n")
 $taskPgSource=Join-Path $taskRoot '.local/postgres18/pgsql'
 $taskPgTarget=Join-Path $taskPackage 'runtime/postgresql/pgsql'
 New-Item -ItemType Directory -Path $taskPgTarget -Force|Out-Null
@@ -62,3 +62,5 @@ if(Test-Path -LiteralPath $taskZip){throw 'ZIP already exists.'}
 Compress-Archive -LiteralPath $taskPackage -DestinationPath $taskZip -CompressionLevel Optimal
 Write-Output "Package: $taskZip"
 Write-Output "SHA256: $((Get-FileHash -LiteralPath $taskZip).Hash)"
+
+

@@ -6,7 +6,7 @@ use crate::{
     csv_io::{self, CsvMapping, NormalizationOrder},
     domain::ImportError,
     filters::FilterSpec,
-    jobs::{JobError, JobState, JobStore},
+    jobs::JobStore,
     mining::analyze,
     platform_render as render,
     storage::{Database, sha256},
@@ -28,6 +28,7 @@ use std::{
 };
 use tokio::sync::Semaphore;
 #[derive(Clone, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
 pub(crate) struct StoredModel {
     pub id: String,
     pub name: String,
@@ -66,45 +67,76 @@ impl Platform {
             slots: Arc::new(Semaphore::new(2)),
             pending: Mutex::new(BTreeMap::new()),
         };
-        for project in platform.auth.all_projects() {
-            platform.load(&project.id)?;
+        let projects = platform.auth.all_projects();
+        for (id, _, value) in platform.database.project_headers()? {
+            if !projects.iter().any(|project| project.id == id) {
+                return Err(failure(
+                    "repository_corrupt",
+                    "Проект не принадлежит учётным записям.",
+                ));
+            }
+            crate::repository_v2::Header::parse(value)?;
+        }
+        for project in projects {
+            platform.recover_metadata(&project.id)?;
         }
         Ok(platform)
+    }
+    fn recover_metadata(&self, id: &str) -> Result<(), ImportError> {
+        if let Some((revision, value)) = self.database.project_header(id)? {
+            let mut header = crate::repository_v2::Header::parse(value)?;
+            let keys: std::collections::BTreeSet<_> =
+                self.database.record_keys(id)?.into_iter().collect();
+            let expected: std::collections::BTreeSet<_> = header
+                .log_ids
+                .iter()
+                .flat_map(|id| {
+                    ["log_state", "log_data", "log_source", "log_analysis"]
+                        .map(|kind| (kind.to_string(), id.clone()))
+                })
+                .chain(
+                    header
+                        .model_ids
+                        .iter()
+                        .map(|id| ("model".into(), id.clone())),
+                )
+                .collect();
+            if keys != expected {
+                return Err(failure(
+                    "repository_corrupt",
+                    "Неполный набор записей проекта.",
+                ));
+            }
+            if header.recover() {
+                self.database
+                    .write_project(crate::normalized::ProjectWrite {
+                        project: id.into(),
+                        expected: revision,
+                        metadata: header.value()?,
+                        puts: vec![],
+                        deletes: vec![],
+                    })?;
+            }
+        }
+        Ok(())
+    }
+    fn recover_repository(&self, id: &str, repository: &mut Repository) -> Result<(), ImportError> {
+        let mut header = crate::repository_v2::header(repository);
+        if header.recover() {
+            repository.durable_jobs = header.durable_jobs;
+            let write = crate::repository_v2::prepare(id, repository, false)?;
+            repository.storage_revision = self.database.write_project(write)?;
+            crate::repository_v2::mark_persisted(repository);
+        }
+        Ok(())
     }
     fn load(&self, id: &str) -> Result<(), ImportError> {
         let mut cache = self.workspaces.lock().expect("workspace mutex");
         if cache.contains_key(id) {
             return Ok(());
         }
-        let (revision, mut repository) = match self.database.read(&format!("repository/{id}"))? {
-            Some((revision, value)) => (
-                revision,
-                serde_json::from_value::<Repository>(value)
-                    .map_err(|_| failure("repository_corrupt", "Не удалось прочитать проект."))?,
-            ),
-            None => (0, Repository::default()),
-        };
-        repository.storage_revision = revision;
-        let mut recovered = false;
-        for job in repository.durable_jobs.values_mut() {
-            if !job.is_terminal() {
-                job.state = JobState::Failed;
-                job.stage = "interrupted".into();
-                job.result_id = None;
-                job.error=Some(JobError{code:"interrupted".into(),message:"Приложение было остановлено до подтверждения результата. Загрузите файл заново.".into()});
-                job.job_revision += 1;
-                recovered = true;
-            }
-        }
-        if recovered {
-            repository.storage_revision = self.database.write(
-                &format!("repository/{id}"),
-                revision,
-                serde_json::to_value(&repository).map_err(|_| {
-                    failure("repository_corrupt", "Не удалось сохранить восстановление.")
-                })?,
-            )?;
-        }
+        let mut repository = crate::repository_v2::load(&self.database, id)?;
+        self.recover_repository(id, &mut repository)?;
         let snapshots = repository
             .durable_jobs
             .values()
@@ -788,13 +820,13 @@ fn insert_model(
     };
     next.models.insert(
         id.clone(),
-        StoredModel {
+        Arc::new(StoredModel {
             id: id.clone(),
             name,
             revision: 1,
             model,
             source_log,
-        },
+        }),
     );
     state.commit(&mut next)?;
     *repo = next;
@@ -911,6 +943,7 @@ async fn save_model(
         }
         crate::bpmn::validate_edit(&saved.model, &model)?;
         model.discovery = saved.model.discovery.clone();
+        let saved = Arc::make_mut(saved);
         saved.model = model;
         saved.revision += 1;
         state.commit(&mut next)?;
@@ -1125,7 +1158,7 @@ fn validate_backup(repo: &Repository) -> Result<(), ImportError> {
     }
     Ok(())
 }
-fn exportable_model(model: &ProcessModel) -> Result<(), ImportError> {
+pub(crate) fn exportable_model(model: &ProcessModel) -> Result<(), ImportError> {
     crate::bpmn::validate(model)?;
     let bytes = serde_json::to_vec(model)
         .map_err(|_| failure("model_json", "Не удалось сериализовать модель."))?;
