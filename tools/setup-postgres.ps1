@@ -50,6 +50,9 @@ $taskSecrets=Get-Content -LiteralPath $taskConfig -Raw|ConvertFrom-Json
 if($LASTEXITCODE -ne 0){
     # Wait for pg_ctl itself, not its long-lived PostgreSQL process tree or inherited pipe.
     $taskStart=Start-Process -FilePath (Join-Path $taskPgBin 'pg_ctl.exe') -ArgumentList @('-D',('"'+$taskData+'"'),'-l',('"'+(Join-Path $taskLocal 'logs/postgres-server.log')+'"'),'-w','start') -WindowStyle Hidden -PassThru -RedirectStandardOutput (Join-Path $taskLocal 'logs/pg-start.out') -RedirectStandardError (Join-Path $taskLocal 'logs/pg-start.err')
+    # Windows PowerShell 5 needs the process handle retained before waiting;
+    # otherwise an exited PassThru process can expose a null ExitCode.
+    $taskStartHandle=$taskStart.Handle
     if(!$taskStart.WaitForExit(30000) -or $taskStart.ExitCode -ne 0){throw 'PostgreSQL server start failed'}
 }
 $env:PGPASSWORD=$taskSecrets.admin_password
