@@ -162,8 +162,9 @@ fn response_error(error: ImportError) -> Response {
     let status = match error.code.as_str() {
         "access_denied" => StatusCode::FORBIDDEN,
         "not_found" => StatusCode::NOT_FOUND,
+        "project_capacity" => StatusCode::PAYLOAD_TOO_LARGE,
         "storage_conflict" | "model_conflict" => StatusCode::CONFLICT,
-        "storage_unavailable" => StatusCode::SERVICE_UNAVAILABLE,
+        "storage_unavailable" | "storage_busy" => StatusCode::SERVICE_UNAVAILABLE,
         _ => StatusCode::UNPROCESSABLE_ENTITY,
     };
     (
@@ -908,12 +909,8 @@ async fn save_model(
                 "Модель изменена. Откройте её заново.",
             ));
         }
-        let original_nodes=saved.model.nodes.iter().map(|node|(&node.id,node.kind)).collect::<BTreeMap<_,_>>();
-        let incoming_nodes=model.nodes.iter().map(|node|(&node.id,node.kind)).collect::<BTreeMap<_,_>>();
-        let original_flows=saved.model.flows.iter().map(|flow|(&flow.id,(&flow.source,&flow.target))).collect::<BTreeMap<_,_>>();
-        let incoming_flows=model.flows.iter().map(|flow|(&flow.id,(&flow.source,&flow.target))).collect::<BTreeMap<_,_>>();
-        if saved.model.process_id!=model.process_id||original_nodes!=incoming_nodes||original_flows!=incoming_flows {return Err(failure("model_structure","Редактор меняет подписи и положение. Для изменения структуры импортируйте новую BPMN-модель."));}
-        model.discovery=saved.model.discovery.clone();
+        crate::bpmn::validate_edit(&saved.model, &model)?;
+        model.discovery = saved.model.discovery.clone();
         saved.model = model;
         saved.revision += 1;
         state.commit(&mut next)?;

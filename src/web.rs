@@ -38,6 +38,7 @@ pub struct AppState {
 }
 
 #[derive(Default, Clone, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
 pub(crate) struct Repository {
     pub(crate) logs: BTreeMap<String, StoredLog>,
     pub(crate) current: BTreeMap<String, String>,
@@ -130,16 +131,27 @@ impl AppState {
         self.actor.as_ref().map_or("local", |a| a.id.as_str())
     }
     pub(crate) fn commit(&self, next: &mut Repository) -> Result<(), crate::domain::ImportError> {
+        self.commit_with_capacity(next, true)
+    }
+    fn commit_with_capacity(
+        &self,
+        next: &mut Repository,
+        importing: bool,
+    ) -> Result<(), crate::domain::ImportError> {
         if let (Some(platform), Some(actor)) = (&self.platform, &self.actor) {
+            let document = serde_json::to_value(&*next).map_err(|_| {
+                crate::domain::ImportError::new(
+                    "storage_serialization",
+                    "Не удалось сохранить данные.",
+                )
+            })?;
+            if importing {
+                crate::storage::validate_document_capacity(&document, true)?;
+            }
             next.storage_revision = platform.database.write(
                 &format!("repository/{}", actor.project_id),
                 next.storage_revision,
-                serde_json::to_value(&*next).map_err(|_| {
-                    crate::domain::ImportError::new(
-                        "storage_serialization",
-                        "Не удалось сохранить данные.",
-                    )
-                })?,
+                document,
             )?;
         }
         Ok(())
@@ -533,7 +545,7 @@ async fn import(state: AppState, bytes: Vec<u8>, filename: String) -> Response {
                 &state,
                 current(&state).as_ref(),
                 Some((&error.code, &import_error_message(&error))),
-                if error.code == "byte_limit" {
+                if matches!(error.code.as_str(), "byte_limit" | "project_capacity") {
                     StatusCode::PAYLOAD_TOO_LARGE
                 } else if error.code.starts_with("storage_") {
                     StatusCode::SERVICE_UNAVAILABLE
@@ -621,7 +633,7 @@ pub(crate) fn store_log(
         terminal.result_id = Some(id);
         next.durable_jobs.insert(terminal.id.clone(), terminal);
     }
-    state.commit(&mut next)?;
+    state.commit_with_capacity(&mut next, true)?;
     *repository = next;
     Ok(log)
 }
@@ -631,6 +643,7 @@ pub(crate) fn persist_job(
 ) -> Result<(), crate::domain::ImportError> {
     let mut repository = state.repository.lock().expect("repository mutex");
     let mut next = repository.clone();
+    let new_job = !next.durable_jobs.contains_key(&snapshot.id);
     if next
         .durable_jobs
         .get(&snapshot.id)
@@ -654,7 +667,8 @@ pub(crate) fn persist_job(
     for id in terminal.iter().take(terminal.len().saturating_sub(8)) {
         next.durable_jobs.remove(id);
     }
-    state.commit(&mut next)?;
+    // Terminal/cancel persistence uses the headroom reserved by payload writes.
+    state.commit_with_capacity(&mut next, new_job)?;
     *repository = next;
     Ok(())
 }
@@ -687,6 +701,8 @@ async fn enqueue_job(state: AppState, content: Vec<u8>, filename: String) -> Res
             return error_json(
                 if e.code == "job_queue_full" {
                     StatusCode::TOO_MANY_REQUESTS
+                } else if e.code == "project_capacity" {
+                    StatusCode::PAYLOAD_TOO_LARGE
                 } else {
                     StatusCode::SERVICE_UNAVAILABLE
                 },
@@ -715,7 +731,19 @@ async fn enqueue_job(state: AppState, content: Vec<u8>, filename: String) -> Res
         let permit = match state.cpu.clone().acquire_owned().await {
             Ok(p) => p,
             Err(_) => {
-                job.fail("worker_unavailable", "Обработка недоступна.");
+                let worker = state.clone();
+                let failed_job = job.clone();
+                let result = tokio::task::spawn_blocking(move || {
+                    failed_job.try_fail_with(
+                        "worker_unavailable",
+                        "Обработка недоступна.",
+                        |snapshot| persist_job(&worker, snapshot),
+                    )
+                })
+                .await;
+                if !matches!(result, Ok(Ok(_))) {
+                    tracing::error!(job_id=%job.snapshot().id, "job_persistence_failed");
+                }
                 return;
             }
         };
@@ -740,29 +768,37 @@ async fn enqueue_job(state: AppState, content: Vec<u8>, filename: String) -> Res
             match parsed {
                 Ok((data, analysis)) => {
                     run_job.set_stage("publishing");
-                    run_job.try_complete_with(|snapshot| {
-                        store_log(
-                            &worker,
-                            data,
-                            analysis,
-                            filename,
-                            start.elapsed().as_millis(),
-                            hash,
-                            crate::csv_io::NormalizationOrder::Source,
-                            Some(snapshot),
-                        )
-                        .map(|log| log.id)
-                    });
+                    run_job.try_complete_durable_with(
+                        |snapshot| {
+                            store_log(
+                                &worker,
+                                data,
+                                analysis,
+                                filename,
+                                start.elapsed().as_millis(),
+                                hash,
+                                crate::csv_io::NormalizationOrder::Source,
+                                Some(snapshot),
+                            )
+                            .map(|log| log.id)
+                        },
+                        |snapshot| persist_job(&worker, snapshot),
+                    )?;
                 }
                 Err(error) => {
-                    run_job.fail(&error.code, &import_error_message(&error));
+                    run_job.try_fail_with(
+                        &error.code,
+                        &import_error_message(&error),
+                        |snapshot| persist_job(&worker, snapshot),
+                    )?;
                 }
             }
             persist_job(&worker, &run_job.snapshot())
         })
         .await;
         if !matches!(result, Ok(Ok(()))) {
-            job.fail("storage_unavailable","Состояние не подтверждено базой. При перезапуске задача будет отмечена interrupted.");
+            // Do not advertise an uncommitted terminal snapshot. Restart will
+            // recover the last durable nonterminal state as interrupted.
             tracing::error!(job_id=%job.snapshot().id,"job_persistence_failed");
         }
         drop(lease);

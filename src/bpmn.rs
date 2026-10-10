@@ -462,6 +462,47 @@ fn xml_text(value: &str) -> bool {
     })
 }
 
+/// Structural editing permits ordinary tasks and sequence flows, while keeping
+/// imported start/end/gateway identities and kinds intact.
+pub fn validate_edit(original: &ProcessModel, incoming: &ProcessModel) -> Result<(), ImportError> {
+    validate(incoming)?;
+    if original.process_id != incoming.process_id {
+        return Err(unsupported("Редактор сохраняет идентификатор процесса."));
+    }
+    let existing: BTreeMap<_, _> = original
+        .nodes
+        .iter()
+        .map(|node| (&node.id, node.kind))
+        .collect();
+    let changed: BTreeMap<_, _> = incoming
+        .nodes
+        .iter()
+        .map(|node| (&node.id, node.kind))
+        .collect();
+    for (id, kind) in &existing {
+        match changed.get(id) {
+            Some(incoming_kind) if incoming_kind != kind => {
+                return Err(unsupported("Тип существующего узла менять нельзя."));
+            }
+            None if *kind != NodeKind::Task => {
+                return Err(unsupported(
+                    "Начало, конец и шлюзы нельзя удалять в редакторе.",
+                ));
+            }
+            _ => {}
+        }
+    }
+    if changed
+        .iter()
+        .any(|(id, kind)| !existing.contains_key(id) && *kind != NodeKind::Task)
+    {
+        return Err(unsupported(
+            "В редакторе можно добавлять только обычные задачи.",
+        ));
+    }
+    Ok(())
+}
+
 pub fn validate(model: &ProcessModel) -> Result<(), ImportError> {
     if model.schema_version != 1 {
         return Err(unsupported("Версия модели не поддерживается."));

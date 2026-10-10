@@ -1,0 +1,33 @@
+import fs from 'node:fs';import path from 'node:path';import crypto from 'node:crypto';import {spawnSync} from 'node:child_process';
+const [jdk,privateDir='.local/sprint03/oracle',attempt='reference-01',build='build-01']=process.argv.slice(2);
+if(!jdk||!/^reference-[a-z0-9-]+$/.test(attempt))throw Error('Usage: node run-reference.mjs JDK_HOME PRIVATE_DIR reference-unique-attempt');
+const corpus=JSON.parse(fs.readFileSync('fixtures/oracle/corpus.json','utf8'));
+const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
+const lock=JSON.parse(fs.readFileSync('tools/oracle/reference.lock.json','utf8'));
+for(const s of lock.sources)if(sha(fs.readFileSync(path.join(privateDir,s.name)))!==s.sha256)throw Error('Pinned source changed '+s.name);
+if(!/^build-[a-z0-9-]+$/.test(build))throw Error('Invalid build attempt');
+const classes=path.join(privateDir,build,'classes');
+const target=path.join(privateDir,attempt);if(fs.existsSync(target))throw Error('Attempt exists; logs must not be overwritten');fs.mkdirSync(target,{recursive:true});
+const runtime=spawnSync(path.join(jdk,'bin/java.exe'),['-version'],{encoding:'utf8',timeout:10000});
+fs.writeFileSync(path.join(target,'runtime.stdout.log'),runtime.stdout??'');fs.writeFileSync(path.join(target,'runtime.stderr.log'),runtime.stderr??'');
+if(runtime.status!==0||runtime.error||!/version "11\./.test(runtime.stderr))throw Error('Actual Java 11 runtime probe failed');
+const archive=path.join(privateDir,'jdk.zip');
+const actualArchiveHash=fs.existsSync(archive)?sha(fs.readFileSync(archive)):null;
+if(actualArchiveHash!==null&&actualArchiveHash!==lock.jdk.sha256)throw Error('Private JDK ZIP checksum mismatch');
+const results=[];
+for(const f of corpus.fixtures){
+ const input=fs.readFileSync(`fixtures/oracle/${f.id}.txt`);if(sha(input)!==f.text_sha256)throw Error('Frozen text hash mismatch');
+ const xes=fs.readFileSync(`fixtures/oracle/${f.id}.xes`);if(sha(xes)!==f.xes_sha256)throw Error('Frozen XES hash mismatch');
+ const p=spawnSync(path.join(jdk,'bin/java.exe'),['-cp',classes,'LegacyHarness',`fixtures/oracle/${f.id}.txt`],{encoding:'utf8',timeout:10000});
+ fs.writeFileSync(path.join(target,f.id+'.stdout.log'),p.stdout??'');fs.writeFileSync(path.join(target,f.id+'.stderr.log'),p.stderr??'');
+ if(p.status!==0||p.error)throw Error('Actual reference execution failed '+f.id);
+ const rows=p.stdout.trimEnd().split(/\r?\n/).map(r=>r.split('\t'));const variants=rows.filter(r=>r[0]==='variant').map(r=>({count:Number(r[1]),sequence:(r[2]||'').split(',').filter(Boolean).map(token=>{if(!(token in f.label_tokens))throw Error('Unknown legacy label');return f.label_tokens[token];})}));
+ const canonical=v=>JSON.stringify(v.map(x=>[x.sequence,x.count]).sort((a,b)=>JSON.stringify(a[0]).localeCompare(JSON.stringify(b[0]))));
+ const result={id:f.id,input_xes_sha256:f.xes_sha256,normalized_text_sha256:f.text_sha256,cases:Number(rows.find(r=>r[0]==='cases')[1]),activities:Number(rows.find(r=>r[0]==='activities')[1]),raw_total_events:Number(rows.find(r=>r[0]==='raw_total_events')[1]),variants,stdout_sha256:sha(p.stdout),stderr_sha256:sha(p.stderr),exit:p.status};
+ result.comparison={cases:result.cases===f.expected.cases,activities:result.activities===f.expected.activities,variants:canonical(variants)===canonical(f.expected.variants)};
+ result.boundaries={raw_total_events:'Actual text overload leaves -1; not an event count oracle',dfg:'NOT executed legacy DFG; manual/Rust only',xes_importer:'NOT executed; explicit external normalization adapter'};
+ results.push(result);
+}
+const report={legacy_commit:lock.legacy_commit,method:'org.apromore.splitminer.log.LogParser.getSimpleLog(String)',source_hashes:Object.fromEntries(['LogParser.java','SimpleLog.java','LICENSE'].map(n=>[n,sha(fs.readFileSync(path.join(privateDir,n)))])),class_hashes:Object.fromEntries(['LegacyHarness.class','org/apromore/splitminer/log/LogParser.class','org/apromore/splitminer/log/SimpleLog.class'].map(n=>[n,sha(fs.readFileSync(path.join(classes,n)))])),java_runtime_actual:runtime.stderr.trim(),java_version_stderr_sha256:sha(runtime.stderr),jdk_archive_actual_sha256:actualArchiveHash,jdk_archive_expected_sha256:lock.jdk.sha256,corpus_sha256:sha(fs.readFileSync('fixtures/oracle/corpus.json')),results};
+fs.writeFileSync(path.join(target,'results.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report,null,2));
+if(results.some(r=>Object.values(r.comparison).some(v=>!v)))process.exitCode=1;

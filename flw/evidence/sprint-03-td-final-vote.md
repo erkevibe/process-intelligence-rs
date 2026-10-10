@@ -1,0 +1,9 @@
+# Actual TechnicalDebt vote — S3-F1
+
+Full immutable sprint-03-final-proposal.md independently read and rawSHA256 verified8664000A2BBA7CD950317A1DF8E8FF09B9B3EC17316E6C26053242E491FDC7CE. Actual vote FOR (за) only this exact proposal. Fixed independent final report remains rawSHA0FE1145E096AE1E1A8CF9E648432C022F3D6A06D6AFF56F64F1529962C393DFC, independently reverified; this vote does not alter it or transfer earlier votes.
+
+Accept bounded corrected artifact sourcea0b4f6989825de47c48d1d6ab8e1cedbac19c017 / EXEB38A6193EB6C3D7BCE6F1F4E75F6BE619AE626FD8CBB8F9BB23CD3E08D190A3A / ZIPDBC095FA57E1721A83181FE8B6CA1834DC0D568B761D4A90787D47C7CEC97E84 and authorize promotion under all stated conditions. No unresolved observed mandatory artifact defect remains. Independent Root/QA provenance acceptance avoids TD self-QA of historically authored scripts.
+
+This vote does not mark A12/public delivery complete. Finalhead actual CI with independent bounded audit, docs/evidence-only runtime-equivalence diff, exact-head merge/tag, anonymous whole ZIP download SHA/56411489bytes and independent protected-installation preservation supplement remain required. Runtime or asset-byte mutation invalidates this acceptance; no repackaging final docs into canonical frozen ZIP. Observed mandatory delivery failure blocks completion irrespective of vote.
+
+SCALE01 HIGH/OPEN remains accepted and blocks further expansion of affected whole-document path until storage normalization/bounded validation; ownerRoot/storage nextsprint. Scope excludes fullenterprise/Apromore/BPMN, physicalpowerloss, arbitraryaggregateRSS and unexecutedreserve-exhaustion. Exact before-final bootstrap test is reconstructed state, not actualfinalkill; missing/reusedhistoricalstreams and verifierfailures remain explicit. No deadline extension or additional feature work. No runtime edits by reviewer.

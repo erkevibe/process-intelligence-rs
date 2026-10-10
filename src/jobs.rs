@@ -119,9 +119,17 @@ impl Job {
         if !snapshot.is_terminal() && !snapshot.cancel_requested {
             let mut predicted = snapshot.clone();
             predicted.cancel_requested = true;
+            predicted.state = JobState::Cancelled;
+            predicted.stage = "cancelled".into();
+            predicted.result_id = None;
+            predicted.error = None;
             predicted.job_revision += 1;
             commit(&predicted)?;
-            snapshot.cancel_requested = true;
+            // A confirmed cancellation is terminal and durable before it is
+            // exposed through GET/watch. The worker cannot publish a result
+            // while this lock is held, and later start/complete/fail are no-ops.
+            predicted.job_revision -= 1;
+            *snapshot = predicted;
             self.cancelled.store(true, Ordering::Release);
             self.publish(&mut snapshot);
         }
@@ -135,9 +143,17 @@ impl Job {
         &self,
         commit: impl FnOnce(&JobSnapshot) -> Result<String, crate::domain::ImportError>,
     ) -> JobSnapshot {
+        self.try_complete_durable_with(commit, |_| Ok(()))
+            .expect("in-memory terminal failure")
+    }
+    pub fn try_complete_durable_with(
+        &self,
+        commit: impl FnOnce(&JobSnapshot) -> Result<String, crate::domain::ImportError>,
+        commit_failure: impl FnOnce(&JobSnapshot) -> Result<(), crate::domain::ImportError>,
+    ) -> Result<JobSnapshot, crate::domain::ImportError> {
         let mut snapshot = self.snapshot.lock().expect("job mutex");
         if snapshot.is_terminal() || snapshot.state != JobState::Running {
-            return snapshot.clone();
+            return Ok(snapshot.clone());
         }
         if snapshot.cancel_requested {
             snapshot.state = JobState::Cancelled;
@@ -150,36 +166,56 @@ impl Job {
                     snapshot.stage = "completed".into();
                 }
                 Err(error) => {
-                    snapshot.state = JobState::Failed;
-                    snapshot.stage = "failed".into();
-                    snapshot.error = Some(JobError {
+                    let mut predicted = snapshot.clone();
+                    predicted.state = JobState::Failed;
+                    predicted.stage = "failed".into();
+                    predicted.error = Some(JobError {
                         code: error.code,
                         message: error.message,
                     });
+                    predicted.job_revision += 1;
+                    commit_failure(&predicted)?;
+                    predicted.job_revision -= 1;
+                    *snapshot = predicted;
                 }
             }
         }
         self.publish(&mut snapshot);
-        snapshot.clone()
+        Ok(snapshot.clone())
     }
     pub fn fail(&self, code: &str, message: &str) -> JobSnapshot {
+        self.try_fail_with(code, message, |_| Ok(()))
+            .expect("in-memory failure")
+    }
+    pub fn try_fail_with(
+        &self,
+        code: &str,
+        message: &str,
+        commit: impl FnOnce(&JobSnapshot) -> Result<(), crate::domain::ImportError>,
+    ) -> Result<JobSnapshot, crate::domain::ImportError> {
         let mut snapshot = self.snapshot.lock().expect("job mutex");
         if snapshot.is_terminal() {
-            return snapshot.clone();
+            return Ok(snapshot.clone());
         }
-        if snapshot.cancel_requested || code == "cancelled" {
-            snapshot.state = JobState::Cancelled;
-            snapshot.stage = "cancelled".into();
+        let mut predicted = snapshot.clone();
+        if predicted.cancel_requested || code == "cancelled" {
+            predicted.state = JobState::Cancelled;
+            predicted.stage = "cancelled".into();
         } else {
-            snapshot.state = JobState::Failed;
-            snapshot.stage = "failed".into();
-            snapshot.error = Some(JobError {
+            predicted.state = JobState::Failed;
+            predicted.stage = "failed".into();
+            predicted.error = Some(JobError {
                 code: code.into(),
                 message: message.into(),
             });
         }
+        predicted.result_id = None;
+        predicted.job_revision += 1;
+        commit(&predicted)?;
+        predicted.job_revision -= 1;
+        *snapshot = predicted;
         self.publish(&mut snapshot);
-        snapshot.clone()
+        Ok(snapshot.clone())
     }
 }
 #[derive(Clone)]

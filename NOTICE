@@ -19,3 +19,9 @@ Third-party components remain subject to their respective licenses:
 The dependency manifest records declared metadata; it is not a complete
 independent license audit. This notice does not replace any accompanying
 third-party license.
+Sprint 03 reference tooling invokes unchanged selected ApromoreCore LGPL-3.0
+sources in a separate private checkout. Those sources, compiled classes and JDK
+are not included in this project's MIT runtime or Windows archive. The reference
+scope and upstream source hashes/licenses are recorded in docs/ORACLE.md and
+tools/oracle/reference.lock.json. Compile-only OpenXES types are unimplemented
+signature scaffolding; they do not provide an OpenXES importer.

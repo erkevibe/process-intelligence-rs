@@ -1,0 +1,44 @@
+{
+  "source_commit": "a0b4f6989825de47c48d1d6ab8e1cedbac19c017",
+  "checks": [
+    {
+      "name": "wrong_commit",
+      "pass": true,
+      "native_exit": 1,
+      "expected_guard": "/HEAD must equal/"
+    },
+    {
+      "name": "wrong_version",
+      "pass": true,
+      "native_exit": 1,
+      "expected_guard": "/Package version must exactly match/"
+    },
+    {
+      "name": "dirty_source",
+      "pass": true,
+      "native_exit": 1,
+      "expected_guard": "/must be committed and clean/"
+    },
+    {
+      "name": "modified_executable",
+      "pass": true,
+      "native_exit": 1,
+      "expected_guard": "/Build artifacts no longer match proof/"
+    },
+    {
+      "name": "modified_frozen_asset",
+      "pass": true,
+      "native_exit": 1,
+      "expected_guard": "/Frozen source changed/"
+    }
+  ],
+  "private_copy_mutations_only": true,
+  "canonical_artifacts_unchanged": {
+    "exe": "B38A6193EB6C3D7BCE6F1F4E75F6BE619AE626FD8CBB8F9BB23CD3E08D190A3A",
+    "archive": "22521535CB4CB329AB636207C8F0017AAC8A8A7D9455784153C347022A8F8139",
+    "zip": "DBC095FA57E1721A83181FE8B6CA1834DC0D568B761D4A90787D47C7CEC97E84"
+  },
+  "canonical_all_source_files_reverified": 227,
+  "private_runtime_scaffold": "empty runtime dirs and two actual license files only, sufficient to reach Version guard; no private positive package claim",
+  "private_inputs_restored": true
+}
