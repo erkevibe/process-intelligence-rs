@@ -6,7 +6,7 @@
   "database": "pi_s4_baseline01",
   "dump_sha256": "E0F3F91B3D7461A1D6202DC08B30BCC7F7F1CAA1CB0D9F7D3891D70771D02E7C",
   "sampling": "100ms requested independent async health; actual intervals recorded around135ms due measurement overhead",
-  "pg_scope": "shared PG all-process sum, not exclusive QA aggregateRSS",
+  "pg_scope": "All PostgreSQL processes on host, including user/shared/other clusters; not exclusive QA app+PG aggregateRSS",
   "interference": "no cargo/rustc/rust-lld processes observed at spotcheck duringrun1; not continuous absence proof",
   "baseline_source": "a0b4f6989825de47c48d1d6ab8e1cedbac19c017",
   "runs": [
