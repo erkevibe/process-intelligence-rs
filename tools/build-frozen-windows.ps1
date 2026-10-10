@@ -1,5 +1,7 @@
 param([Parameter(Mandatory=$true)][string]$SourceCommit,[switch]$RunTests)
 $ErrorActionPreference='Stop'
+$taskCallerLocation=Get-Location
+try {
 $taskRoot=Split-Path -Parent $PSScriptRoot
 Set-Location -LiteralPath $taskRoot
 if($SourceCommit -cnotmatch '^[0-9a-f]{40}$'){throw 'Explicit lowercase 40-character source commit required.'}
@@ -54,3 +56,6 @@ $taskRustVersion=(& $taskRustc --version --verbose | Out-String).Trim()
 if($LASTEXITCODE -ne 0){throw 'Rust compiler version probe failed.'}
 [ordered]@{schema_version=1;package_version=$taskPackageVersion;source_commit=$SourceCommit;source_directory=$taskFrozen;source_archive=$taskArchive;source_archive_sha256=(Get-FileHash -LiteralPath $taskArchive).Hash;source_files=$taskAfter;executable_path=$taskExe;executable_sha256=(Get-FileHash -LiteralPath $taskExe).Hash;cargo_lock_sha256=(Get-FileHash -LiteralPath (Join-Path $taskFrozen 'Cargo.lock')).Hash;profile='release';build_exit=$taskBuildExit;tests_requested=[bool]$RunTests;test_exit=$taskTestExit;build_log=$taskLog;test_log=$taskTestLog;cargo_version=$taskCargoVersion;rustc_version=$taskRustVersion;rustup_toolchain=$env:RUSTUP_TOOLCHAIN;rustflags=$env:CARGO_ENCODED_RUSTFLAGS;completed_utc=[DateTime]::UtcNow.ToString('o')} | ConvertTo-Json -Depth 8 | Set-Content -LiteralPath $taskProof -Encoding utf8
 Write-Output "Build proof: $taskProof"
+} finally {
+    Set-Location -LiteralPath $taskCallerLocation.Path
+}
