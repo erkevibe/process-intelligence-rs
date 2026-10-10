@@ -209,6 +209,12 @@ pub(crate) fn run(client: &mut Client) -> Result<(), ImportError> {
     let mut tx = client
         .transaction()
         .map_err(|_| normalized::unavailable())?;
+    // Close the final keyset/revision race even for managed pi_kv writers
+    // that do not hold the platform lease. SHARE conflicts with their
+    // ROW EXCLUSIVE lock; the existing lock/transaction deadlines remain.
+    // Our own subsequent FOR UPDATE lock is compatible within this session.
+    tx.batch_execute("LOCK TABLE public.pi_kv IN SHARE MODE")
+        .map_err(|_| normalized::unavailable())?;
     let final_keys: Vec<String> = tx
         .query(
             "SELECT key FROM public.pi_kv WHERE key LIKE 'repository/%' ORDER BY key",
