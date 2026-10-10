@@ -1,0 +1,88 @@
+{
+  "finding": "S3-QA-CAP01",
+  "assessment": "functional regression closure observed on draft cap03; final source/package acceptance pending",
+  "exe_sha256": "0bfbf697b3a29ae1357ff13ead049f0e3c2bb70f3ee40c65ce4f356d9a0b9d77",
+  "draft_only": true,
+  "checks": [
+    {
+      "name": "known existing export healthy after two earlier controlled capacity refusals; original six full logs preserved",
+      "pass": true
+    },
+    {
+      "name": "exactcap03 same100k controlled durable project_capacity Failed noresult allsixlogshashes preserved healthyexport",
+      "pass": true
+    },
+    {
+      "name": "post-refusal existing project remains writable for model commit",
+      "pass": true
+    },
+    {
+      "name": "capacity refusal cancellation and terminal revisions survive actual restart idempotently with original logs preserved",
+      "pass": true
+    }
+  ],
+  "old_nonterminal_recovery": {
+    "name": "same unreduced cumulative database recovers both interrupted jobs and preserves all six full log hashes",
+    "pass": true
+  },
+  "full_six_log_hashes": {
+    "log-9": "d1092fe88a2c17ce3b374dd015918c0cc766f3bc9a18e668f58804b110c52af7",
+    "log-11": "082676b9850124f6d29fd0cc3dc9f15a14395ddfed3979b3648a4c55076165a9",
+    "log-17": "d59e53bd0884b269ebcf476355c0739eb507fca459524d95d3e121d551077013",
+    "log-20": "7480598ddd2cd6cbe46ee1ee502febbc7e397d2092d6483e5a85f340e4737a0d",
+    "log-23": "6180c80b43611952ec227cd752d608f60e7f4dc6cab271b591d14235a39fa438",
+    "log-26": "ab3321425ce65c5d9488a493637e8d9490d892b6f5f6719d3d5a595460926f32"
+  },
+  "capacity_terminal": {
+    "event": "capacity_terminal",
+    "snapshot": {
+      "id": "job-42",
+      "state": "failed",
+      "stage": "failed",
+      "job_revision": 4,
+      "cancel_requested": false,
+      "result_id": null,
+      "error": {
+        "code": "project_capacity",
+        "message": "В проекте недостаточно места для этого изменения. Новый результат не сохранён; прежние данные доступны. Для нового журнала используйте другой проект."
+      }
+    },
+    "payload_bytes": 17200026
+  },
+  "process_observations": [
+    {
+      "event": "own_child_started",
+      "pid": 40152
+    },
+    {
+      "event": "own_child_stopped",
+      "pid": 40152
+    },
+    {
+      "event": "own_child_started",
+      "pid": 17180
+    },
+    {
+      "event": "own_child_stopped",
+      "pid": 17180
+    }
+  ],
+  "sources": {
+    "src/storage.rs": "923c7a0efe051ca0fadba345e42c47e58d5bf2aa21e5fcb0f1f39c4b9ed6e0cd",
+    "src/platform.rs": "d8b2288d31b50f4792c5db8f22850c4897e494e4c2c9da4d94f77777efef8418",
+    "src/web.rs": "33706ee6f9a596d59c4c28fbb27d4c184e7914eacbcbe760ce2efb7f575fd843"
+  },
+  "private_reports": [
+    ".local/sprint03/qa/capacity-regression02/report.json",
+    ".local/sprint03/qa/capacity-regression03/report.json",
+    ".local/sprint03/qa/capacity-regression04/report.json",
+    ".local/sprint03/qa/capacity-regression05/report.json"
+  ],
+  "limitations": [
+    "02 and03 stopped after verifier-only export-route errors; their full reports retained, no PASS claimed for unfinished chains",
+    "05 reuses unchanged cumulative six log documents and identical100k payload; new model/job metadata legitimately changes",
+    "Old job31/32 recovery was observed on draftcap02 EE52, not retroactively labelled cap03",
+    "Threshold reserve exhaustion, all maximum-project combinations and mathematical estimator proof not claimed",
+    "Final candidate build/package and wider exact replay still required"
+  ]
+}

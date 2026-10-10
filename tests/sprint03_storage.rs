@@ -311,3 +311,41 @@ fn actual_server_deadlines_abort_no_late_mutation_and_fail_closed() {
     reopened.health().unwrap();
     assert_eq!(snapshot(&mut a), before);
 }
+
+#[test]
+#[ignore = "actual isolated pi_s3_fresh only; capacity pre-SQL acceptance"]
+fn capacity_batch_refusal_is_atomic_and_does_not_poison_worker() {
+    let db = Database::connect(scoped("QA_S3_DATABASE_URL", "pi_s3_fresh")).unwrap();
+    let suffix = std::time::SystemTime::now()
+        .duration_since(std::time::UNIX_EPOCH)
+        .unwrap()
+        .as_nanos();
+    let small_key = format!("qa/capacity/{suffix}/small");
+    let large_key = format!("qa/capacity/{suffix}/large");
+    assert!(db.read(&small_key).unwrap().is_none());
+    assert!(db.read(&large_key).unwrap().is_none());
+    let oversized = Value::String("X".repeat((1usize << 28) - (64 << 10) + 1));
+    let error = db
+        .write_batch(vec![
+            (small_key.clone(), 0, serde_json::json!({"preserve":true})),
+            (large_key.clone(), 0, oversized),
+        ])
+        .unwrap_err();
+    assert_eq!(error.code, "project_capacity");
+    assert!(
+        db.read(&small_key).unwrap().is_none(),
+        "batch partially committed before oversized document validation"
+    );
+    assert!(db.read(&large_key).unwrap().is_none());
+    db.health().unwrap();
+    assert_eq!(
+        db.write(&small_key, 0, serde_json::json!({"after_refusal":true}))
+            .unwrap(),
+        1
+    );
+    assert_eq!(
+        db.read(&small_key).unwrap(),
+        Some((1, serde_json::json!({"after_refusal":true})))
+    );
+    db.health().unwrap();
+}

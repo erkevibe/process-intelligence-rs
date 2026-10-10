@@ -162,6 +162,7 @@ fn response_error(error: ImportError) -> Response {
     let status = match error.code.as_str() {
         "access_denied" => StatusCode::FORBIDDEN,
         "not_found" => StatusCode::NOT_FOUND,
+        "project_capacity" => StatusCode::PAYLOAD_TOO_LARGE,
         "storage_conflict" | "model_conflict" => StatusCode::CONFLICT,
         "storage_unavailable" | "storage_busy" => StatusCode::SERVICE_UNAVAILABLE,
         _ => StatusCode::UNPROCESSABLE_ENTITY,
