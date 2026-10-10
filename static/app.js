@@ -11,6 +11,7 @@
   const mutations = [];
   let mutationInFlight = false;
   const byId = id => document.getElementById(id);
+  const readOnly = document.documentElement.dataset.readonly === 'true';
   const status = message => { const node = byId('connection-status'); if (node) node.textContent = message; };
   const css = name => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
   const graphStyle = () => [
@@ -33,6 +34,7 @@
     return cy;
   }
   function enqueueMutation(action, values) {
+    if (readOnly) return;
     const endpoint = new URL(action, location.href);
     if (endpoint.origin !== location.origin || !/^\/logs\/log-\d+\/(view|selection)$/.test(endpoint.pathname)) {
       status('Не удалось определить действие для текущего журнала.');
@@ -153,6 +155,7 @@
   }
   function queueGraphUpdate() { if (!updateQueued) { updateQueued = true; requestAnimationFrame(syncGraph); } }
   function initialize() {
+    if (readOnly) document.querySelectorAll('#threshold-form input, #threshold-form button, .case-button').forEach(control => { control.disabled = true; });
     let storedTheme;
     try { storedTheme = localStorage.getItem('pi-theme'); } catch { /* Local storage is optional. */ }
     if (storedTheme === 'light' || storedTheme === 'dark') document.documentElement.dataset.theme = storedTheme;

@@ -1,5 +1,5 @@
 //! In-memory bounded jobs. Publication and cancellation share one lock.
-use serde::Serialize;
+use serde::{Deserialize, Serialize};
 use std::{
     collections::BTreeMap,
     sync::{
@@ -9,7 +9,7 @@ use std::{
 };
 use tokio::sync::{OwnedSemaphorePermit, Semaphore, watch};
 
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub enum JobState {
     Queued,
@@ -19,13 +19,13 @@ pub enum JobState {
     Cancelled,
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, Serialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct JobError {
     pub code: String,
     pub message: String,
 }
 
-#[derive(Debug, Clone, PartialEq, Eq, Serialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct JobSnapshot {
     pub id: String,
     pub state: JobState,
@@ -108,16 +108,33 @@ impl Job {
         }
     }
     pub fn cancel(&self) -> JobSnapshot {
+        self.try_cancel_with(|_| Ok(()))
+            .expect("in-memory cancellation")
+    }
+    pub fn try_cancel_with(
+        &self,
+        commit: impl FnOnce(&JobSnapshot) -> Result<(), crate::domain::ImportError>,
+    ) -> Result<JobSnapshot, crate::domain::ImportError> {
         let mut snapshot = self.snapshot.lock().expect("job mutex");
         if !snapshot.is_terminal() && !snapshot.cancel_requested {
+            let mut predicted = snapshot.clone();
+            predicted.cancel_requested = true;
+            predicted.job_revision += 1;
+            commit(&predicted)?;
             snapshot.cancel_requested = true;
             self.cancelled.store(true, Ordering::Release);
             self.publish(&mut snapshot);
         }
-        snapshot.clone()
+        Ok(snapshot.clone())
     }
     /// The callback commits a result only while cancel cannot be accepted.
     pub fn complete_with(&self, commit: impl FnOnce() -> String) -> JobSnapshot {
+        self.try_complete_with(|_| Ok(commit()))
+    }
+    pub fn try_complete_with(
+        &self,
+        commit: impl FnOnce(&JobSnapshot) -> Result<String, crate::domain::ImportError>,
+    ) -> JobSnapshot {
         let mut snapshot = self.snapshot.lock().expect("job mutex");
         if snapshot.is_terminal() || snapshot.state != JobState::Running {
             return snapshot.clone();
@@ -126,9 +143,21 @@ impl Job {
             snapshot.state = JobState::Cancelled;
             snapshot.stage = "cancelled".into();
         } else {
-            snapshot.result_id = Some(commit());
-            snapshot.state = JobState::Completed;
-            snapshot.stage = "completed".into();
+            match commit(&snapshot) {
+                Ok(id) => {
+                    snapshot.result_id = Some(id);
+                    snapshot.state = JobState::Completed;
+                    snapshot.stage = "completed".into();
+                }
+                Err(error) => {
+                    snapshot.state = JobState::Failed;
+                    snapshot.stage = "failed".into();
+                    snapshot.error = Some(JobError {
+                        code: error.code,
+                        message: error.message,
+                    });
+                }
+            }
         }
         self.publish(&mut snapshot);
         snapshot.clone()
@@ -195,6 +224,9 @@ impl JobStore {
         }
     }
     pub fn create(&self) -> Result<JobLease, &'static str> {
+        self.create_with_id(None)
+    }
+    pub fn create_with_id(&self, explicit: Option<String>) -> Result<JobLease, &'static str> {
         let permit = self
             .slots
             .clone()
@@ -202,7 +234,7 @@ impl JobStore {
             .map_err(|_| "job_queue_full")?;
         let mut entries = self.entries.lock().expect("jobs mutex");
         entries.sequence += 1;
-        let id = format!("job-{}", entries.sequence);
+        let id = explicit.unwrap_or_else(|| format!("job-{}", entries.sequence));
         let job = Arc::new(Job::new(id.clone()));
         entries.jobs.insert(id.clone(), job.clone());
         entries.current = Some(id);
@@ -210,6 +242,33 @@ impl JobStore {
             job,
             _permit: permit,
         })
+    }
+    pub fn restore(snapshots: &[JobSnapshot]) -> Self {
+        Self::restore_with_slots(snapshots, Arc::new(Semaphore::new(2)))
+    }
+    pub fn restore_with_slots(snapshots: &[JobSnapshot], slots: Arc<Semaphore>) -> Self {
+        let store = Self {
+            entries: Mutex::new(Entries::default()),
+            slots,
+        };
+        {
+            let mut entries = store.entries.lock().expect("jobs mutex");
+            for snapshot in snapshots {
+                let job = Arc::new(Job::new(snapshot.id.clone()));
+                *job.snapshot.lock().expect("job mutex") = snapshot.clone();
+                job.changes.send_replace(snapshot.clone());
+                entries.sequence = entries.sequence.max(
+                    snapshot
+                        .id
+                        .strip_prefix("job-")
+                        .and_then(|s| s.parse().ok())
+                        .unwrap_or(0),
+                );
+                entries.current = Some(snapshot.id.clone());
+                entries.jobs.insert(snapshot.id.clone(), job);
+            }
+        }
+        store
     }
     pub fn get(&self, id: &str) -> Option<Arc<Job>> {
         self.entries

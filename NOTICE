@@ -1,0 +1,21 @@
+Process Intelligence Core
+
+The original code in this repository is distributed under the MIT license
+in LICENSE. No Apromore source code is included in this implementation.
+
+Third-party components remain subject to their respective licenses:
+
+- Rust dependencies: pinned by Cargo.lock; package names, versions and
+  declared licenses are listed in docs/DEPENDENCIES.json.
+- Datastar and Cytoscape: local browser distributions, integrity metadata
+  and accompanying licenses are retained in static/vendor and
+  static/vendor-manifest.json.
+- Windows release packages include PostgreSQL 18.6 runtime files from the
+  EnterpriseDB distribution. Its server_license.txt and
+  commandlinetools_3rd_party_licenses.txt are included alongside the runtime
+  in runtime/postgresql/pgsql. PostgreSQL data and credentials are created
+  locally on first launch and are excluded from the distribution.
+
+The dependency manifest records declared metadata; it is not a complete
+independent license audit. This notice does not replace any accompanying
+third-party license.

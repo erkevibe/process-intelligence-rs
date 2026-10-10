@@ -1,0 +1,65 @@
+{
+  "candidate": "c0180a2bf0069b599f112226a10a13f67ce82f17",
+  "app_logs": [
+    {
+      "source": "s2-qa-final08-app01.stdout.log",
+      "sha256": "12FA3BA918648B673CA17BAF9F4991EFB33D8B8F9FA11581F3BB9E4FF8046FEC",
+      "bytes": 100621,
+      "lines": 393,
+      "unparsed": 0,
+      "levels": {
+        "WARN": 1,
+        "INFO": 392
+      },
+      "statuses": {
+        "422": 4,
+        "409": 1,
+        "200": 274,
+        "303": 39,
+        "404": 6,
+        "403": 11
+      },
+      "scope": "full stopped-file parsing; no lifetime/global claim"
+    },
+    {
+      "source": "s2-qa-final08-app02.stdout.log",
+      "sha256": "177EDB5DEF3F535B8543ECA7362F2C2DB107C3319C7BBE3EE76DC27EF586D8AD",
+      "bytes": 12952,
+      "lines": 50,
+      "unparsed": 0,
+      "levels": {
+        "INFO": 50
+      },
+      "statuses": {
+        "503": 3,
+        "303": 6,
+        "200": 32
+      },
+      "scope": "full stopped-file parsing; no lifetime/global claim"
+    }
+  ],
+  "job_logs": [
+    {
+      "source": "app-1791620839083.stdout.log",
+      "sha256": "D19EE6CA3E2AD012623314E538E43BC9CE2139304D4D1CDF9F55D878E931C2F7",
+      "bytes": 5105,
+      "lines": 20,
+      "unparsed": 0,
+      "levels": {
+        "INFO": 20
+      },
+      "scope": "full stopped own child-file parsing"
+    },
+    {
+      "source": "app-1791620839539.stdout.log",
+      "sha256": "241DA30AC4EBB55A97E62817E52D0F1CE52E34B1265D8F17C5BFC44A8ECD021E",
+      "bytes": 15286,
+      "lines": 61,
+      "unparsed": 0,
+      "levels": {
+        "INFO": 61
+      },
+      "scope": "full stopped own child-file parsing"
+    }
+  ]
+}

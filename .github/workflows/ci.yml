@@ -19,7 +19,7 @@ jobs:
       - name: Build release and local health smoke
         run: |
           cargo build --locked --release
-          target/release/process-intelligence-rs > server.log 2>&1 &
+          PI_EPHEMERAL=1 target/release/process-intelligence-rs > server.log 2>&1 &
           server_pid=$!
           trap 'kill "$server_pid"' EXIT
           for attempt in $(seq 1 20); do

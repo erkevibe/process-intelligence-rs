@@ -1,0 +1,11 @@
+<log>
+ <trace><string key="concept:name" value="c1"/>
+  <event><string key="concept:name" value="A"/><date key="time:timestamp" value="2026-10-12T10:00:00+05:00"/><string key="lifecycle:transition" value="complete"/></event>
+  <event><string key="concept:name" value="C"/><date key="time:timestamp" value="2026-10-12T09:00:00+05:00"/><string key="lifecycle:transition" value="start"/></event>
+  <event><string key="concept:name" value="B"/><date key="time:timestamp" value="2026-10-12T09:00:00+05:00"/><string key="lifecycle:transition" value="complete"/></event>
+ </trace>
+ <trace><string key="concept:name" value="c2"/>
+  <event><string key="concept:name" value="A"/><date key="time:timestamp" value="2026-10-12T09:00:00+05:00"/><string key="lifecycle:transition" value="complete"/></event>
+  <event><string key="concept:name" value="B"/><date key="time:timestamp" value="2026-10-12T10:00:00+05:00"/><string key="lifecycle:transition" value="complete"/></event>
+ </trace>
+</log>

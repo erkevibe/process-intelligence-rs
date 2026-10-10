@@ -1,0 +1,38 @@
+# Sprint02 independent final candidate review
+
+Candidate `8c91d847834cc7675f69dc72b0b82caf30e485d7`, version0.2.0. QA/ProcessLogAuditor independent of production, UI, provenance-script authors. Current status: **source04 superseded by forthcoming installer fix; actual04 A01–A11 selected-slice evidence retained; A12 fresh package failed before PostgreSQL creation. No final vote.** Earlier e29/f89/271a candidates superseded; their evidence is not relabeled as final.
+
+BuildProof `.local/build-229334b3d0264ab297b82264fafb0604-proof.json`: independently verified all150 frozen-file hashes,0mismatches. Exact release executable SHA256 `9C2317F76EF39888DBC20373D9CADA0068F2CCC32FF2278CE9BA0984B0FC8ACF`, checked before launch and after author's negative mutation probe restored bytes. Build/test exits0 in proof; actual optimized build1m36s completed log. Full ordinary test results49PASS plus2explicitPG tests ignored; independently executed those2 against frozen manifest/target on isolated fresh realPG database and bothPASS. Ignored is never credited as executed.
+
+| Criterion | Independent actual evidence and scoped judgment |
+|---|---|
+| A01 CSV | PASS:5pure CSV tests including independently authored equivalent XES analysis/event semantics; native preview/mapping/import, quoted Unicode/newline labels; row2 error422 preserves full old export. |
+| A02 Ordering | PASS: sourceACB/AB versus stable timestampCBA/AB, missing/naive offset reject, lifecycle retained, original ordinals preserved. Real PG hash-valid restore missing and noncanonical timestamp-order rejects before project adoption. Export policy/sourcehash present. |
+| A03 Durability | PASS: realPG CAS/batchrollback/newconnection; identical-name logs and IDs retained, full export/model across actual release process1040→44516. Persistent8accepted9threjected, all8exports unchanged. No claimed PostgreSQL data-directory disaster recovery. |
+| A04 Backup/restore | PASS: original raw download bytes→fresh project, retained source identities/hash/counts/params/model and new project ownership ID; version/digest/context-invalid rejection atomic; lowallocator restore creation does not overwrite old logs/models. Auth excluded. Arbitrary reserialization not promised; interrupted backup refused. |
+| A05 Projects/RBAC | PASS: real distinct sessions, foreignknown log/model/job snapshot/events/cancel denied; granted viewer reads exports/backup but11forged mutations403; editor save succeeds, stale409; actor views separate. This is bounded local role enforcement, not enterpriseSSO. |
+| A06 Identity | PASS: actual login/logout revocation403, server cookiesHttpOnly/SameSite, persisted Argon2id implementation reviewed plus credential session checks. Wrong-origin guards in R1 regression tests. No secrets in backup/public summaries; no internet-facing deployment claim. |
+| A07 Jobs | PASS: exact optimized app observed running/parsing and queued before actual owned process termination; both failed/interrupted/null after restart, no extra logs. Accepted queued cancellation stayscancelled/null/idempotent. Direct actualPG snapshots confirm completedlinks existing and failed/cancellednull. Activejobs backup_busy422. |
+| A08 BPMN | PASS:6independenttests strict namespace/unknown semantics/DTD/eventdefs/conditions/extensions/IDs/DI/finite limits, exact labels/coordinates/flows roundtrip and bothgenericgateways. Actual canvasclick→Apply→nativeSave→XML escape/xy export; stale edit409;245longlabel canonicaloverflow rejectsbeforepublication preservingoldinventory. |
+| A09 Baseline discovery | PASS: exact observed languageABC/AC/AA andempty/A handDFS oracle; zero observed cases rejects; saved/exported actual model. Does not imply fitness/precision/generalization/parallel causality. |
+| A10 Filters | PASS: handprojection/AND-before-projection/sourceimmutability/emptytraces; actual visible pickerB→counts2cases/3events/2activities; source searchfindsremovedB; quoted Unicode/newline picker values preserved exactly and recomputation2events/2cases. Display threshold remains actor-isolated. |
+| A11 Calendar | PASS: fixedoffset+05 Mon–Fri9–18 weekend/holiday/additivity, invalidrange/weekdays/collectionlimits and ChronoMAX positiveoffset safeerrors. Actual human table1ч without rawJSONpre, exported durations3600000/0 match handexpected. No DST/IANA claim. |
+| A12 Clean integrated delivery | Partial pending package-CWD: frozenfile/exactexe proof,49+2tests, complete actualreleasechains andrestart, provenance negative5 PASS independent report/log reading. Port3011 release app CWDroot, so local staticasset bytes not claimed packagevalidated yet. Separate packaged3012 assets/browser awaits readiness. |
+
+Reports, hashes and safe stopped-log counters: `sprint-02-qa-final04-evidence.json`. Raw sources remain private in `.local/qa-sprint02-final04-*`, `.local/logs/s2-qa-final04-*`. Exact release chains: jobs6, browser20, roles5, negativeCSV2, modelcap2, logcap2, collision2, restart4, lease3, additionalUI3; these are distinct verifier assertions, not an aggregate stage-quality score.
+
+## Process audit and limits
+
+Stopped exact-release app logs01/02 fully parsed379/42JSONlines,0unparsed, stderr empty. Actual viewer403 count11 and lease503 count3 recorded; prior visibilityfinding closed on exactcandidate. Single WARN import_rejected/log_limit is expected ninthnegative. Separate job child's stopped files still need final inventory/scan; no fullshell/global-lifetime monitoring claim. Frozen build/test files read via complete automated result scan; initial raw BuildProof output tool was truncated, then all150hashes independently checked from fully parsed proof instead of claiming visible fullmanifest.
+
+Provenance-script authorship is TD/root; QA independently checked output identity and read negative03 report/log5mismatchrejections beforeoutput and restoredexe, not merely trusting author narrative. Fresh package initialization on separatePG5434 and package manifest/licenses/ZIP validation remain pending root logs plus independent packagedbrowser.
+
+No reviewed blocking product failure in executed exactcandidate scope. Historical failures and verifier defects retained in prefreeze/observation reports. Early download full raw transcript missing, some author process exits/CI remain attributed, legacyoracle absent; do not label fullcoverage. Only ownQA database reset, backend terminated and owned matched executable/child processes stopped; root/R1/runtimePG server untouched. Exact final ownPID44516 stopped; no ownQAapp left running.
+
+Original R2–R5 stages, legacycompatibility, SSO/distributedjobs, arbitraryBPMN and IANA/DST remain outside/unverified. Final council vote requires exact resolution and completedA12; this report is not a vote.
+
+## Post-check package blocker
+
+Root reports fresh package04 failed before PostgreSQL/password creation: installer Set-Acl demanded SeSecurityPrivilege. No packaged3012 app was launched, no A12 PASS. Narrow installer repair to pure DACL setter requires source05/build/package proof and independent non-admin ACL/fresh-init evidence; core04 actual results do not automatically become05results. Parent reports src/tests/static/templates unchanged, to be independently hash-compared when05proof exists.
+
+Supplementary exact04 owned process reopen independently confirmed2distinct logIDs (events3/2) and each full analysis/sourcehash via HTTP, private two-log-restart report; own process stopped. Equal-filename capacity corpus8 logs retained before restart; final05 must explicitly recheck two equal-filename distinctIDs after real process restart as well. Additional04evidence does not overcome installer blocker.
