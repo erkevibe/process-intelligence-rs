@@ -15,6 +15,6 @@ $env:PI_DATABASE_URL=$taskPrivate.database_url
 $taskPrivate=$null
 $env:PORT=[string]$Port
 $env:RUST_LOG='info'
-Write-Output "Open http://127.0.0.1:$Port — create your account on first start. Stop the application with Ctrl+C."
+Write-Output "Open http://127.0.0.1:$Port - create your account on first start. Stop the application with Ctrl+C."
 try{& (Join-Path $taskRoot 'process-intelligence-rs.exe');$taskExit=$LASTEXITCODE}finally{Remove-Item Env:PI_DATABASE_URL -ErrorAction SilentlyContinue}
 exit $taskExit
