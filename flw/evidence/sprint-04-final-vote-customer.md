@@ -1,0 +1,11 @@
+# Actual independent Customer vote — S4-F1
+
+Customer /root/customer votes FOR exact sprint-04-final-proposal.md rawSHA256 `58129AB99ACD04708D29B4FE534B73B20C4817693102B542A1F533B4846A76D7`, independently recomputed after full actual read. New vote, no plan/preliminary vote transfer or silence credit.
+
+Read full QA A06 supplement and independently verified hash `8DF1E96D1C7EBB6BA9F6AC1AB7AF1B060600CE27DEBB5CF4C249D5BE3BF40EEC`; read full fixed TD report/hash `799D0D06EFA5468606445F8E2B1F7A2C841A9BD06997082DB31FBC30B2FFC7F3`. Previously full QA main report verified FC13DB5C... . The Customer import-measurement condition is fulfilled: actual same100k worker2302.633ms includes durable commit before Completed; admission100ms and client upload end-to-end are explicitly different/unmeasured. No numeric gate changed or admission relabelled as completion.
+
+Accept bounded tested A01–A09 C1 artifact and conditional promotion only: source f3a3ad46056e402e6891c9549b1505876fbb8e7e, EXEB4EA51E5264646709A1DDDB5686132D2662BB5275B271F4473A7B7592D58AAB8, ZIP85C23B2E69D67D442067180C124E55958C64F6D1C73BDF1708C4CEF4AAB3BD1D/56521463bytes. Actual migration/data/fault/delta/SAMEcapacity/numeric and native recovery evidence supports concrete customer benefit without loss/access compromise. No remaining Customer-only mandatory observed blocker in that scope.
+
+Accepted limits: CACHE01 high, DISK01 moderate, native5backupUNVERIFIED; warmed/sampled WorkingSet/firstload and ownPG shared-page limits; no fullR2–R5/Apromore/enterprise or maximumaggregate guarantee. PowerShell7.6.5 prerequisite, official installlink, pinned corrected operator guide and frozenZIP old5example warning remain P0 promotion conditions, not optional polish. No protection bypass or package rewriting permitted.
+
+A10 remains PENDING. Actual final docs-head CI/audit, exact checked merge/tag, anonymous wholeZIP SHA/bytes and independent postpublication new3040/exe/privateACL/firstaccount plus preserved3000/3010/3030 checks must complete before delivery COMPLETE. Runtime/build/artifact changes invalidate acceptance. This vote cannot waive delivery failure, independent STOP, human final acceptance or original deadline. No runtime or user installation action during review/vote.
