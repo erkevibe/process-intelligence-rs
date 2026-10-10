@@ -7,13 +7,133 @@
   "actual_cost": "Overlapping elapsed work; individual task time was not independently measured.",
   "source_commit": "f3a3ad46056e402e6891c9549b1505876fbb8e7e",
   "tasks": [
-    {"id":"S4-T01","owner":"root + nonvoting storage_developer","purpose":"Remove whole-project writes and metadata-startup payload scanning","action":"Separate bounded headers and resource records; atomic revision/CAS and result/job commit","dependencies":[],"risk":"high persisted data","verifier":"Exact C1 independent delta, CAS, restore and startup evidence","status":"candidate_verified_final_matrix_pending","acceptance":["A01","A04","A05","A06"]},
-    {"id":"S4-T02","owner":"root + nonvoting storage_developer","purpose":"Safely adopt complete accepted0.3 data","action":"Explicit offline known-source staged migration, original retention, SHARE final barrier","dependencies":["S4-T01"],"risk":"high data migration","verifier":"Full94-value mapping, old sessions, original hashes, actual stage/backend/final kill and repeat","status":"candidate_verified_final_matrix_pending","acceptance":["A01","A02","A03"]},
-    {"id":"S4-T03","owner":"root","purpose":"Reject corrupt or unsupported persisted data before exposure","action":"Strict schema/catalog and lazy payload validation with controlled refusal","dependencies":["S4-T01"],"risk":"high semantic data integrity","verifier":"Independent exact C1 schema and five payload corruption negatives","status":"candidate_verified_final_matrix_pending","acceptance":["A01","A07"]},
-    {"id":"S4-T04","owner":"qa_process independent","purpose":"Measure the approved scope without changing gates or data","action":"Same complete0.3 corpus, three warm ready/mutation samples, sampled app/PG memory and first load","dependencies":["S4-T01","S4-T02"],"risk":"medium measurement validity","verifier":"Fixed baseline and exact C1 reports; own-cluster memory supplement; sample/lifetime scope disclosures","status":"candidate_verified_final_matrix_pending","acceptance":["A05","A06"]},
-    {"id":"S4-T05","owner":"qa_process + independent native specialist","purpose":"Preserve core workflows and prove crash/backup behavior","action":"API/browser/RBAC/job interruption/WAL/full new restore/negative guards on owned isolated resources","dependencies":["S4-T02","S4-T03"],"risk":"high recovery and permissions","verifier":"Independent frozen tests and full snapshots; native PS5 Start and PS7.6.5 backup/migration","status":"candidate_verified_with_explicit_PS5_backup_unverified_boundary","acceptance":["A02","A07","A08","A09"]},
-    {"id":"S4-T06","owner":"root + qa_process independent","purpose":"Produce an immutable reviewable Windows artifact","action":"Frozen source build/tests and exact package/manifest; clean user install on separate ports","dependencies":["S4-T01","S4-T02","S4-T03"],"risk":"high provenance and user data","verifier":"Build proof, all1666 manifest entries, source277-file provenance, preserved original user installs","status":"candidate_verified_final_matrix_pending","acceptance":["A09"]},
-    {"id":"S4-T07","owner":"root chair; fixed Customer/PM/QA/TD seats","purpose":"Accept and publicly deliver only the reviewed scope","action":"Independent positions, immutable proposal and actual majority; finalhead CI; exact anonymous ZIP and postlive QA","dependencies":["S4-T04","S4-T05","S4-T06"],"risk":"high artifact promotion","verifier":"New exact-proposal votes, full CI logs, public digest/bytes and independent delivery supplement","status":"pending","acceptance":["A10"]}
+    {
+      "id": "S4-T01",
+      "owner": "root + nonvoting storage_developer",
+      "purpose": "Remove whole-project writes and metadata-startup payload scanning",
+      "action": "Separate bounded headers and resource records; atomic revision/CAS and result/job commit",
+      "dependencies": [],
+      "risk": "high persisted data",
+      "verifier": "Exact C1 independent delta, CAS, restore and startup evidence",
+      "status": "accepted_scoped_exact_C1",
+      "acceptance": [
+        "A01",
+        "A04",
+        "A05",
+        "A06"
+      ]
+    },
+    {
+      "id": "S4-T02",
+      "owner": "root + nonvoting storage_developer",
+      "purpose": "Safely adopt complete accepted0.3 data",
+      "action": "Explicit offline known-source staged migration, original retention, SHARE final barrier",
+      "dependencies": [
+        "S4-T01"
+      ],
+      "risk": "high data migration",
+      "verifier": "Full94-value mapping, old sessions, original hashes, actual stage/backend/final kill and repeat",
+      "status": "accepted_scoped_exact_C1",
+      "acceptance": [
+        "A01",
+        "A02",
+        "A03"
+      ]
+    },
+    {
+      "id": "S4-T03",
+      "owner": "root",
+      "purpose": "Reject corrupt or unsupported persisted data before exposure",
+      "action": "Strict schema/catalog and lazy payload validation with controlled refusal",
+      "dependencies": [
+        "S4-T01"
+      ],
+      "risk": "high semantic data integrity",
+      "verifier": "Independent exact C1 schema and five payload corruption negatives",
+      "status": "accepted_scoped_exact_C1",
+      "acceptance": [
+        "A01",
+        "A07"
+      ]
+    },
+    {
+      "id": "S4-T04",
+      "owner": "qa_process independent",
+      "purpose": "Measure the approved scope without changing gates or data",
+      "action": "Same complete0.3 corpus, three warm ready/mutation samples, sampled app/PG memory and first load",
+      "dependencies": [
+        "S4-T01",
+        "S4-T02"
+      ],
+      "risk": "medium measurement validity",
+      "verifier": "Fixed baseline and exact C1 reports; own-cluster memory supplement; sample/lifetime scope disclosures",
+      "status": "accepted_scoped_exact_C1",
+      "acceptance": [
+        "A05",
+        "A06"
+      ]
+    },
+    {
+      "id": "S4-T05",
+      "owner": "qa_process + independent native specialist",
+      "purpose": "Preserve core workflows and prove crash/backup behavior",
+      "action": "API/browser/RBAC/job interruption/WAL/full new restore/negative guards on owned isolated resources",
+      "dependencies": [
+        "S4-T02",
+        "S4-T03"
+      ],
+      "risk": "high recovery and permissions",
+      "verifier": "Independent frozen tests and full snapshots; native PS5 Start and PS7.6.5 backup/migration",
+      "status": "accepted_scoped_PS7_chain_PS5_Start_PS5_backup_unverified",
+      "acceptance": [
+        "A02",
+        "A07",
+        "A08",
+        "A09"
+      ]
+    },
+    {
+      "id": "S4-T06",
+      "owner": "root + qa_process independent",
+      "purpose": "Produce an immutable reviewable Windows artifact",
+      "action": "Frozen source build/tests and exact package/manifest; clean user install on separate ports",
+      "dependencies": [
+        "S4-T01",
+        "S4-T02",
+        "S4-T03"
+      ],
+      "risk": "high provenance and user data",
+      "verifier": "Build proof, all1666 manifest entries, source277-file provenance, preserved original user installs",
+      "status": "accepted_scoped_exact_C1",
+      "acceptance": [
+        "A09"
+      ]
+    },
+    {
+      "id": "S4-T07",
+      "owner": "root chair; fixed Customer/PM/QA/TD seats",
+      "purpose": "Accept and publicly deliver only the reviewed scope",
+      "action": "Independent positions, immutable proposal and actual majority; finalhead CI; exact anonymous ZIP and postlive QA",
+      "dependencies": [
+        "S4-T04",
+        "S4-T05",
+        "S4-T06"
+      ],
+      "risk": "high artifact promotion",
+      "verifier": "New exact-proposal votes, full CI logs, public digest/bytes and independent delivery supplement",
+      "status": "accepted_scoped_exact_C1",
+      "acceptance": [
+        "A10"
+      ]
+    }
   ],
-  "residuals": ["whole opened project payload cache and first-load memory", "retained inert legacy rows and disk cost", "native PS5 full backup chain unverified; verified path requires PowerShell7.6.5", "bounded snapshot log coverage, not complete historical stream", "full R2-R5 and enterprise remain partial"]
+  "residuals": [
+    "whole opened project payload cache and first-load memory",
+    "retained inert legacy rows and disk cost",
+    "native PS5 full backup chain unverified; verified path requires PowerShell7.6.5",
+    "bounded snapshot log coverage, not complete historical stream",
+    "full R2-R5 and enterprise remain partial"
+  ],
+  "stage_completed_utc": "2026-10-10T16:29:16.7113417Z",
+  "elapsed_seconds": 5487.711
 }
