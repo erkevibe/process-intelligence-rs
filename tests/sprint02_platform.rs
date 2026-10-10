@@ -271,6 +271,85 @@ async fn actual_sessions_cross_user_restart_corrupt_restore_and_logout() {
         serde_json::from_str::<Value>(&get(&a, &export_path, &owner).await.1).unwrap(),
         original
     );
+    let mut invalid_order: Value = serde_json::from_str(&backup).unwrap();
+    invalid_order["payload"]["logs"][&log]["order"] = json!("timestamp");
+    invalid_order["payload"]["logs"][&log]["source"]["cases"][0]["events"][0]["timestamp"] =
+        Value::Null;
+    invalid_order["digest_sha256"] = json!(process_intelligence_rs::storage::sha256(
+        &serde_json::to_vec(&invalid_order["payload"]).unwrap()
+    ));
+    assert_eq!(
+        send(
+            &a,
+            "POST",
+            "/restore",
+            &owner,
+            "multipart/form-data; boundary=qa-s2",
+            mp(&serde_json::to_vec(&invalid_order).unwrap())
+        )
+        .await
+        .0,
+        422,
+        "correct digest cannot excuse timestamp ordering with missing timestamp"
+    );
+    assert_eq!(
+        get(&a, "/projects", &owner)
+            .await
+            .1
+            .matches("/open")
+            .count(),
+        projects_before.matches("/open").count()
+    );
+    assert_eq!(
+        serde_json::from_str::<Value>(&get(&a, &export_path, &owner).await.1).unwrap(),
+        original
+    );
+    let mut noncanonical: Value = serde_json::from_str(&backup).unwrap();
+    noncanonical["payload"]["logs"][&log]["order"] = json!("timestamp");
+    for case in noncanonical["payload"]["logs"][&log]["source"]["cases"]
+        .as_array_mut()
+        .unwrap()
+    {
+        for (i, event) in case["events"]
+            .as_array_mut()
+            .unwrap()
+            .iter_mut()
+            .enumerate()
+        {
+            event["timestamp"] = json!(format!("2026-10-12T{:02}:00:00Z", 12 - i));
+        }
+    }
+    noncanonical["payload"]["logs"][&log]["data"] =
+        noncanonical["payload"]["logs"][&log]["source"].clone();
+    noncanonical["digest_sha256"] = json!(process_intelligence_rs::storage::sha256(
+        &serde_json::to_vec(&noncanonical["payload"]).unwrap()
+    ));
+    assert_eq!(
+        send(
+            &a,
+            "POST",
+            "/restore",
+            &owner,
+            "multipart/form-data; boundary=qa-s2",
+            mp(&serde_json::to_vec(&noncanonical).unwrap())
+        )
+        .await
+        .0,
+        422,
+        "hash-valid source/data/analysis consistency cannot excuse noncanonical timestamp order"
+    );
+    assert_eq!(
+        get(&a, "/projects", &owner)
+            .await
+            .1
+            .matches("/open")
+            .count(),
+        projects_before.matches("/open").count()
+    );
+    assert_eq!(
+        serde_json::from_str::<Value>(&get(&a, &export_path, &owner).await.1).unwrap(),
+        original
+    );
     let second = tokio::task::spawn_blocking(move || AppState::open(3000, u))
         .await
         .unwrap();

@@ -1059,6 +1059,16 @@ fn validate_backup(repo: &Repository) -> Result<(), ImportError> {
                 return Err(failure("backup_invalid", "Неверная метка события."));
             }
         }
+        let mut normalized_source = log.source.as_ref().clone();
+        crate::csv_io::normalize(&mut normalized_source, log.order)?;
+        if serde_json::to_value(&normalized_source).ok()
+            != serde_json::to_value(log.source.as_ref()).ok()
+        {
+            return Err(failure(
+                "backup_invalid",
+                "Порядок событий не соответствует политике копии.",
+            ));
+        }
         let filtered = crate::filters::apply(&log.source, &log.filters)?;
         if serde_json::to_value(&filtered).ok() != serde_json::to_value(log.data.as_ref()).ok()
             || serde_json::to_value(analyze(&log.data)).ok()
