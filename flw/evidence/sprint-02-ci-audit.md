@@ -1,0 +1,9 @@
+# Independent ProcessLogAuditor: sprint02 Linux push CI
+
+Run38039651254, final report/CI head c023d1da2ae92628c0f7c4b46fea4560649b39db. Available downloaded files were loaded fully and hashed; aggregate 0_linux.txt and separate step/system files inventoried in sprint-02-ci-audit.json. Semantic test/build/smoke sections independently inspected. Compilation dependency lines and runner internals are captured machine output, not independent functional coverage. Root reports all10steps SUCCESS; inspected output supports fmt, clippy -D warnings, ordinary tests, optimized release, ephemeral health assertion and artifact upload completion.
+
+Actual ordinary test results: core8 + HTTP8 + jobs7 + optionalHTTP7 + BPMN6 + calendar4 + CSV5 + filters4 =49PASS, zero failed. Real PostgreSQL2 explicitly ignored with requirement messages. No PostgreSQL service/bootstrap or actual PG2 execution is established by this CI run. Separate local exact11 PG2 acceptance remains its own evidence. Health smoke explicitly uses PI_EPHEMERAL=1 and checks ready; it proves Linux ephemeral startup only, not durable database platform or Windows package startup.
+
+No raw tokens, credential headers or platform signed URLs published. CI artifact upload success is not evidence that QA downloaded and replayed the Linux archive. PR run38039721060 is separate and not reviewed here; no prediction of its outcome. Available snapshots, not universal CI/service/log lifetime coverage. Historical overwritten native stderr remains missing; attributed diagnostic outputs are not replacements for raw full history.
+
+Package11 root-owned after-process now stopped. Available after-stopped stdout fully loaded/JSON parsed and hash inventoried alongside CI metadata. Earlier source11 own stopped app JSON396+49 and packaged-before300appJSON+13startuptext remain safe prior inventory. No root/shared/user/R1 process was stopped by QA during this audit.

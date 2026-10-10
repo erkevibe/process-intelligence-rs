@@ -1,0 +1,101 @@
+{
+  "ordinary_tests_passed": 49,
+  "ephemeral_health_only": true,
+  "run_id": "38039651254",
+  "limitations": "Available downloaded files only; no live CI/service/internal coverage; no PostgreSQL CI parity; historical native stderr overwritten",
+  "files": [
+    {
+      "sha256": "604DAA33599D07552AFAC9C1C3761B1FFAAEDE645B08D61EC116F1D3ECD38D09",
+      "read_scope": "full available file loaded; semantic test/build/smoke sections independently inspected",
+      "path": "0_linux.txt",
+      "lines": 1064,
+      "bytes": 72913
+    },
+    {
+      "sha256": "DEAEB91EFBF52CB1E44AA55E4C82170E142D2073C694D85708BCF949BB9A311E",
+      "read_scope": "full available file loaded; semantic test/build/smoke sections independently inspected",
+      "path": "linux\\1_Set up job.txt",
+      "lines": 33,
+      "bytes": 2107
+    },
+    {
+      "sha256": "2D44818C0978E83A4A3AD5984F782B9051DEA9A6851CE433233A6D7EEC65B9EC",
+      "read_scope": "full available file loaded; semantic test/build/smoke sections independently inspected",
+      "path": "linux\\16_Post Run actions_checkout@3d3c42e5aac5ba805825da76410c181273ba90b1.txt",
+      "lines": 15,
+      "bytes": 1773
+    },
+    {
+      "sha256": "E8AFA22C2150540D315086C41804CDFFE2381264E0E5BE4C064EB31B175699FD",
+      "read_scope": "full available file loaded; semantic test/build/smoke sections independently inspected",
+      "path": "linux\\17_Complete job.txt",
+      "lines": 1,
+      "bytes": 61
+    },
+    {
+      "sha256": "C9279ACC1EE0EFC1BB2CCE9E61C4964A5A2DBEE04EF36154D687440111AFD377",
+      "read_scope": "full available file loaded; semantic test/build/smoke sections independently inspected",
+      "path": "linux\\2_Run actions_checkout@3d3c42e5aac5ba805825da76410c181273ba90b1.txt",
+      "lines": 114,
+      "bytes": 11555
+    },
+    {
+      "sha256": "15BEEC922E860CD8E2DA9707979843ECBF474702CD7538F28E890CE21A5E2CF1",
+      "read_scope": "full available file loaded; semantic test/build/smoke sections independently inspected",
+      "path": "linux\\3_Pinned toolchain.txt",
+      "lines": 10,
+      "bytes": 769
+    },
+    {
+      "sha256": "9EE9D131DCF7C31E0C9EFB7A816031EFC4A9342345AAA4FBB20F1C3D68FE32A8",
+      "read_scope": "full available file loaded; semantic test/build/smoke sections independently inspected",
+      "path": "linux\\4_Run cargo fmt --all -- --check.txt",
+      "lines": 4,
+      "bytes": 238
+    },
+    {
+      "sha256": "B61F5D88A874B9D52038C38333ED1AE77A757D1E207B031DD96783AB55FFCDB5",
+      "read_scope": "full available file loaded; semantic test/build/smoke sections independently inspected",
+      "path": "linux\\5_Run cargo clippy --locked --all-targets -- -D warnings.txt",
+      "lines": 388,
+      "bytes": 23557
+    },
+    {
+      "sha256": "A5BC6F73325D2C3C3BBA20A9FAE6A7CB5F49EBA49A9622F4396A349F677492E9",
+      "read_scope": "full available file loaded; semantic test/build/smoke sections independently inspected",
+      "path": "linux\\6_Run cargo test --locked --all-targets.txt",
+      "lines": 278,
+      "bytes": 18834
+    },
+    {
+      "sha256": "95BC9C3EA03A32F60A41357221DC976C4D83BB1492229B42B23D2312097BFEB0",
+      "read_scope": "full available file loaded; semantic test/build/smoke sections independently inspected",
+      "path": "linux\\7_Build release and local health smoke.txt",
+      "lines": 198,
+      "bytes": 12302
+    },
+    {
+      "sha256": "AC9F90BD53CC111EC60842E6D60BE8109CD7EDE7787410E833345D751F69A78C",
+      "read_scope": "full available file loaded; semantic test/build/smoke sections independently inspected",
+      "path": "linux\\8_Run actions_upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9.txt",
+      "lines": 23,
+      "bytes": 1744
+    },
+    {
+      "sha256": "F9CBBBC46DCBB5F11CB5DF3CD69B2DC5221EF1E611C10DF1643C80BC178571DD",
+      "read_scope": "full available file loaded; semantic test/build/smoke sections independently inspected",
+      "path": "linux\\system.txt",
+      "lines": 8,
+      "bytes": 592
+    }
+  ],
+  "postgres_tests_explicitly_ignored": 2,
+  "package_after_stopped": {
+    "nonjson_lines": 13,
+    "json_lines": 33,
+    "sha256": "664B3484F73B593B7C49105C48EE80B3BA55AB50184E3850CAA4963338355260",
+    "bytes": 9317
+  },
+  "postgres_ci_verified": false,
+  "head_commit": "c023d1da2ae92628c0f7c4b46fea4560649b39db"
+}

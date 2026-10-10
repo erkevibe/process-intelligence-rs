@@ -1,6 +1,6 @@
 # Спринт 02: выбранные R2–R5, версия 0.2.0
 
-Все 12 обязательных критериев выбранного объёма прошли независимую проверку. СОВЕТ FLW принял точную резолюцию S2-R2 пятью новыми голосами из пяти. Старые попытки/голоса не заменяют финальную проверку. Публичная доставка и CI на момент исходной записи выполняются; окончательный результат будет добавлен после фактической проверки.
+Все 12 обязательных критериев выбранного объёма прошли независимую проверку. СОВЕТ FLW принял точную резолюцию S2-R2 пятью новыми голосами из пяти. Старые попытки/голоса не заменяют финальную проверку. [Релиз 0.2.0](https://github.com/erkevibe/process-intelligence-rs/releases/tag/v0.2.0) опубликован; публичный ZIP скачан без авторизации и проверен по SHA256. Поставка проверена в `09:05:39 UTC`, через 2 часа 25 минут 33 секунды после начала спринта.
 
 ## Что получилось
 
@@ -23,6 +23,8 @@
 
 ## Точная проверка и поставка
 
+[PR №2](https://github.com/erkevibe/process-intelligence-rs/pull/2) объединён после успешных [push CI](https://github.com/erkevibe/process-intelligence-rs/actions/runs/38039651254) и [PR CI](https://github.com/erkevibe/process-intelligence-rs/actions/runs/38039721060). Tag `v0.2.0` указывает на merge `a0c91dd992466e0815485c3c454bfb11a3b8e410`. Публичный архив — 56 334 920 bytes. [Доказательство доставки](../flw/evidence/sprint-02-delivery.json) фиксирует URL, версии и хеш повторной загрузки. [Независимый аудит доступных push CI logs](../flw/evidence/sprint-02-ci-audit.md) подтверждает 49 обычных PASS, fmt/clippy/release и ephemeral health smoke; реальный PostgreSQL в CI не проверен. Для отдельного PR CI подтверждён успешный статус GitHub; его сырые журналы независимо не разбирались.
+
 Frozen application source: `d0784e2766f5af875225e62f85aa11f85ccce5d9`. EXE SHA256: `E2189EA8C463E7E3E146EF7983608A95F474B2FFA35FA02555F8A0CF3E47986E`. Windows ZIP SHA256: `E075D999D03729CFC453CCE67BC1400F9413AD7111B750FE873F998D5B47A739`. Source commit ZIP отличается от последующего merge/tag commit с отчётами/CI; runtime после приёмки не меняется.
 
 Свежая release-сборка и 49 обычных тестов прошли; fmt/clippy exact frozen прошли. Два PostgreSQL-теста в обычном запуске явно ignored и отдельно реально исполнены независимым QA на изолированной БД. QA заново проверил exact11 jobs6, browser20, roles5, CSV/model/log-cap/ID-collision/lease-loss negatives и restart с полными exports двух одноимённых журналов. Exact package: 1635 hash/size совпали, private DACL без admin token, fresh native PS5 bundled PostgreSQL cold initialization, nonsuperuser/ROLLBACK и recovery отсутствующей test DB. Package-CWD browser20/roles5/UI3 и actual37824→820 restart/after4 прошли.
@@ -39,7 +41,7 @@ Frozen application source: `d0784e2766f5af875225e62f85aa11f85ccce5d9`. EXE SHA25
 
 Наконец полный cold native PS5 запуск выявил null ExitCode у exited Start-Process. Реальный exit7 control подтвердил Handle-first; exact11 удерживает Handle перед прежним timeout/nonzero gate. Новый холодный запуск и public user installation прошли. Старый S2-R1 superseded; ранее полученные PM/TD голоса исторические, новые пять голосов относятся только к S2-R2.
 
-Ошибки приватных verifier (CLI sequence/redirect/status, selector/JSON reserialization, oversize copy/port/descendant wait) не скрыты и не объявлены продуктовым PASS. Два ранних native stderr файла перезаписаны: diagnostic tool outputs сохранены, полного historical raw coverage нет. QA покрывает конкретные остановленные snapshots, не всю жизнь процессов и не невыполненный CI.
+Ошибки приватных verifier (CLI sequence/redirect/status, selector/JSON reserialization, oversize copy/port/descendant wait) не скрыты и не объявлены продуктовым PASS. Два ранних native stderr файла перезаписаны: diagnostic tool outputs сохранены, полного historical raw coverage нет. QA покрывает конкретные остановленные snapshots и доступные push CI logs, не всю жизнь процессов или все среды выполнения.
 
 ## Что осталось
 
@@ -47,4 +49,4 @@ Frozen application source: `d0784e2766f5af875225e62f85aa11f85ccce5d9`. EXE SHA25
 
 Открытый долг: явные DB deadlines, измеренный RSS/worst-case workload, recovery между initdb и private config, небольшие UX замечания Apply→Save и UTF8 bytes для пароля. Локальный объём не означает enterprise readiness.
 
-Бюджет: начало `2026-10-10 06:40:06 UTC` / `11:40:06 Asia/Qyzylorda`; предел `14:40:06 UTC` / `19:40:06`, восемь часов. Подготовка, ошибки, повторные проверки и публикация входят в лимит. Приёмка продукта получена до предела; actual remote verification time и CI result добавляются после выполнения. Linux CI health smoke явно использует поддержанный ephemeral mode; реальные PG2 — отдельное локальное QA evidence, CI PG parity не заявляется.
+Бюджет: начало `2026-10-10 06:40:06 UTC` / `11:40:06 Asia/Qyzylorda`; предел `14:40:06 UTC` / `19:40:06`, восемь часов. Подготовка, ошибки, повторные проверки и публикация входят в лимит. Публичная доставка проверена `09:05:39 UTC` / `14:05:39 Asia/Qyzylorda`; финальные отчёты опубликованы в пределах того же лимита. Linux CI health smoke явно использует поддержанный ephemeral mode; реальные PG2 — отдельное локальное QA evidence, CI PG parity не заявляется.
