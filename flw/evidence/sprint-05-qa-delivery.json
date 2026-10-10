@@ -1,0 +1,218 @@
+{
+  "utc": "2026-10-10T23:39:01.611492+00:00",
+  "verdict": "PASS A10 selected public artifact and read-only live delivery gates",
+  "compiled_source": "55e8dd28bee413316deba0aa252ceb6a436b9ffa",
+  "checked_head": "23decaaab8cbf7cb2737a4120edfb7f25c8b7dc5",
+  "merge_and_public_tag_target": "fc165ddc3f2be680835b4d7cae4b6b33b89fa8f6",
+  "merge_runtime_inputs_unchanged": true,
+  "public": {
+    "utc": "2026-10-10T23:36:47.632739+00:00",
+    "anonymous_download_actual_exit": 0,
+    "auth": "curl -q HTTPS-only; no cookies/header/token/config arguments",
+    "zip_sha256": "BF900C88EC8B5E8ABFFC292C5C9704B152C053725D1DA7B15EE3E930285B4EFB",
+    "zip_bytes": 56611093,
+    "checksum_sha256": "4F958A2DDAC3A4A0435AC8CCE9094BDB0B5CA97EF2EB06B2C2B57F1D084E44B4",
+    "manifest_files_verified": 1669,
+    "fresh_extraction_no_reparse_or_private_local": true,
+    "build_proof_source": "55e8dd28bee413316deba0aa252ceb6a436b9ffa",
+    "exe_sha256": "4DA47C60DA169B2B0D659E4583A72EA5E17DBCE18B83E28B8923B2DF1CDAF98A",
+    "release_id": 409270988,
+    "tag": "v0.5.0",
+    "merge_tag_target": "fc165ddc3f2be680835b4d7cae4b6b33b89fa8f6",
+    "assets": [
+      {
+        "id": 629259467,
+        "name": "process-intelligence-rs-0.5.0-windows-x86_64.zip",
+        "size": 56611093,
+        "digest": "sha256:bf900c88ec8b5e8abffc292c5c9704b152c053725d1da7b15ee3e930285b4efb",
+        "browser_download_url": "https://github.com/erkevibe/process-intelligence-rs/releases/download/v0.5.0/process-intelligence-rs-0.5.0-windows-x86_64.zip"
+      },
+      {
+        "id": 629259688,
+        "name": "process-intelligence-rs-0.5.0-windows-x86_64.zip.sha256",
+        "size": 115,
+        "digest": "sha256:4f958a2ddac3a4a0435ac8cce9094bdb0b5ca97ef2eb06b2c2b57f1d084e44b4",
+        "browser_download_url": "https://github.com/erkevibe/process-intelligence-rs/releases/download/v0.5.0/process-intelligence-rs-0.5.0-windows-x86_64.zip.sha256"
+      }
+    ],
+    "release_front_prerequisite_official_install_pinned_guide_frozen_warning": true,
+    "release_body": "Operator prerequisite: PowerShell7 for the verified backup/restore/offline migration path (tested7.6.5). Native Windows PowerShell5.1 Start is verified separately; its full backup chain is unverified on this host. Frozen ZIP PowerShell5 backup examples are build-time snapshots: use pwsh for the verified backup/restore/migration path. Install PowerShell7 from https://learn.microsoft.com/en-us/powershell/scripting/install/install-powershell-on-windows . Follow the pinned current operator guide: https://github.com/erkevibe/process-intelligence-rs/blob/23decaaab8cbf7cb2737a4120edfb7f25c8b7dc5/docs/STORAGE_V2.md\n\nSelected local-platform iteration0.5: metadata-only navigation, individual journal/model loading and a global clean cache limited to128MiB charged estimate/eight entries. Oversized resources bypass retention; eviction never deletes database records. Current authorization and record versions are checked before disclosure. Existing schema2 and delta/CAS persistence are retained.\n\nTwo heavy HTTP operations are admitted globally. Blocking workers and outgoing byte owners retain admission; ordinary and Completed SSE output is incrementally framed. Idle SSE, health, status and cancellation remain available. This is a retained-cache contract, not a physical-memory ceiling; active jobs/uploads/validation/backup/allocator/OS pages remain separate.\n\nFixed identical corpus: three full six-log projects, three A\u2192B\u2192C\u2192A cycles,72 full exports and18 canonical hashes equal the accepted0.4 baseline. Sampled application WorkingSet maximum405,127,168 bytes versus1,109,307,392; quiescent maximum186,798,080 versus1,089,306,624. Actual sampling average167ms despite100ms target; lifetime peak414,781,440 reported separately. No universal worst-case or enterprise/parity claim.\n\nIndependent checks include actual concurrent slow ordinary/Completed SSE output, idle subscriptions, oversize/single-flight/eviction, current-role denial, corruption/CAS/delta preservation, real Running+Queued application crash and owned PostgreSQL WAL restart, unchanged historical full values/versions, healthy subsequent writes, native Windows cold/restored startup and isolated Datastar/browser scenarios. Ordinary tests70PASS/13explicitignored; applicable real PostgreSQL regressions are separate.\n\nSchema2 from0.4 needs no migration. For schema1 use a separately restored copy and explicit offline migration. Whole-project downloadable backup retains20MiB limit and temporarily materializes one full project. Full PostgreSQL backup/new restore preserves all94 normalized historical records and12 legacy KV values/versions. Existing-target, corrupt archive and active-app migration refusals are checked. Legacy disk duplicates remain; PowerShell5 backup remains UNVERIFIED.\n\nWindows ZIP56611093 bytes,1669 manifest files.\nZIP SHA256: BF900C88EC8B5E8ABFFC292C5C9704B152C053725D1DA7B15EE3E930285B4EFB\nEXE SHA256: 4DA47C60DA169B2B0D659E4583A72EA5E17DBCE18B83E28B8923B2DF1CDAF98A\nCompiled source55e8dd28bee413316deba0aa252ceb6a436b9ffa. Final review/merge includes evidence and documentation only. Frozen ZIP documents describe build-time status; use pinned current report/operator instructions for final acceptance and interpreter scope.\n\nExtract to a fresh directory and run Windows PowerShell with documented child-process policy:\npowershell -NoProfile -ExecutionPolicy Bypass -File .\\Start.ps1 -Port 3050 -PostgresPort 5439\nOpen http://127.0.0.1:3050 and create your first local account. These example ports must be free; existing installations remain separate. Preserve the protected .local data directory. For backup/restore/migration use the pinned operator guide and PowerShell7.6.5.\n\nThis release continues partial R3 and provides measured R6 groundwork. Full Apromore compatibility, complete BPMN, IANA/DST, distributed jobs, HA and enterprise readiness remain future work. User acceptance is separate from automated and Council acceptance.\n\n\nCompiled source: https://github.com/erkevibe/process-intelligence-rs/tree/55e8dd28bee413316deba0aa252ceb6a436b9ffa\nActual merge/tag target: fc165ddc3f2be680835b4d7cae4b6b33b89fa8f6\nReport: https://github.com/erkevibe/process-intelligence-rs/blob/main/docs/SPRINT_05_REPORT.md\nRoadmap: https://github.com/erkevibe/process-intelligence-rs/blob/main/docs/ROADMAP.md\n",
+    "status": "artifact public proof PASS; fresh live/old preservation PENDING",
+    "history": "Guessed package-manifest.json did not exist; actual build-manifest.json inspected and full verified. Root upload proof retains historical draft URLs; fresh public API canonical v0.5.0 URLs verified, not inherited."
+  },
+  "live": {
+    "fresh_app_pid": 47492,
+    "exe_sha256": "4DA47C60DA169B2B0D659E4583A72EA5E17DBCE18B83E28B8923B2DF1CDAF98A",
+    "fresh_app_path": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\installed\\sprint-05-55e8dd2\\process-intelligence-rs-0.5.0-windows-x86_64\\process-intelligence-rs.exe",
+    "private_acl_current_sid_only": true,
+    "protected_old": [
+      {
+        "exe_sha256": "1B675C467767A351C271E5071B79C376E3362A79296C3FD5C82D928315F4F070",
+        "port": 3000,
+        "pid": 18104,
+        "path": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\dist\\process-intelligence-rs-0.1.0-windows-x86_64\\process-intelligence-rs.exe",
+        "read_only": true,
+        "created_utc": "2026-10-10T06:23:15.2051390Z",
+        "version": "0.1.0"
+      },
+      {
+        "exe_sha256": "E2189EA8C463E7E3E146EF7983608A95F474B2FFA35FA02555F8A0CF3E47986E",
+        "port": 3010,
+        "pid": 35684,
+        "path": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\installed\\sprint-02-d0784e2\\process-intelligence-rs-0.2.0-windows-x86_64\\process-intelligence-rs.exe",
+        "read_only": true,
+        "created_utc": "2026-10-10T08:46:23.2518130Z",
+        "version": "0.2.0"
+      },
+      {
+        "exe_sha256": "B38A6193EB6C3D7BCE6F1F4E75F6BE619AE626FD8CBB8F9BB23CD3E08D190A3A",
+        "port": 3030,
+        "pid": 40560,
+        "path": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\installed\\sprint-03-a0b4f69\\process-intelligence-rs-0.3.0-windows-x86_64\\process-intelligence-rs.exe",
+        "read_only": true,
+        "created_utc": "2026-10-10T13:16:54.0586110Z",
+        "version": "0.3.0"
+      },
+      {
+        "exe_sha256": "B4EA51E5264646709A1DDDB5686132D2662BB5275B271F4473A7B7592D58AAB8",
+        "port": 3040,
+        "pid": 42072,
+        "path": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\installed\\sprint-04-f3a3ad4\\process-intelligence-rs-0.4.0-windows-x86_64\\process-intelligence-rs.exe",
+        "read_only": true,
+        "created_utc": "2026-10-10T15:40:13.2206870Z",
+        "version": "0.4.0"
+      }
+    ],
+    "pass": true,
+    "utc": "2026-10-10T23:38:18.2646939Z",
+    "fresh_auth_rows": 0,
+    "fresh_pg_pid": 46176,
+    "health": {
+      "status": "ready",
+      "version": "0.5.0"
+    },
+    "scope": "Independent read-only GET health/setup, CIM/listeners/file hashes/ACL and SELECT counts on ONLY fresh5439; no login/account/write/migration/stop. Protected databases not queried or altered.",
+    "fresh_project_rows": 0,
+    "setup_first_user_form": true,
+    "protected_clusters": [
+      {
+        "path": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\postgres18\\pgsql\\bin\\postgres.exe",
+        "created_utc": "2026-10-10T06:53:51.9926130Z",
+        "read_only_listener_image": true,
+        "port": 5433,
+        "pid": 6644
+      },
+      {
+        "path": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\installed\\sprint-02-d0784e2\\process-intelligence-rs-0.2.0-windows-x86_64\\runtime\\postgresql\\pgsql\\bin\\postgres.exe",
+        "created_utc": "2026-10-10T08:46:21.6295150Z",
+        "read_only_listener_image": true,
+        "port": 5435,
+        "pid": 26596
+      },
+      {
+        "path": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\installed\\sprint-03-a0b4f69\\process-intelligence-rs-0.3.0-windows-x86_64\\runtime\\postgresql\\pgsql\\bin\\postgres.exe",
+        "created_utc": "2026-10-10T13:16:52.5849120Z",
+        "read_only_listener_image": true,
+        "port": 5437,
+        "pid": 42580
+      },
+      {
+        "path": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\installed\\sprint-04-f3a3ad4\\process-intelligence-rs-0.4.0-windows-x86_64\\runtime\\postgresql\\pgsql\\bin\\postgres.exe",
+        "created_utc": "2026-10-10T15:40:11.4283150Z",
+        "read_only_listener_image": true,
+        "port": 5438,
+        "pid": 37996
+      }
+    ]
+  },
+  "private_proofs": [
+    {
+      "path": ".local\\sprint05\\qa\\delivery\\public-proof.json",
+      "sha256": "8D73B081D35A379AB0FDB1C80D713EBEF8485E505B819911A7028B25F6AFADED"
+    },
+    {
+      "path": ".local\\sprint05\\qa\\delivery\\live-proof.json",
+      "sha256": "F1935B4ED8F5B530466FB187C9015932DF95B1D84BD426106EE3B68507FFCB28"
+    }
+  ],
+  "available_late_logs": [
+    {
+      "path": ".local\\sprint05\\logs\\install-user05-01.result.json",
+      "bytes": 175,
+      "sha256": "2920ECCDA482DA0E4DA42A01D1ABE59F6975154D486CAB9CFE0294BEBEC97190",
+      "coverage": "full available snapshot; fresh live files may grow"
+    },
+    {
+      "path": ".local\\sprint05\\logs\\install-user05-01.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "coverage": "full available snapshot; fresh live files may grow"
+    },
+    {
+      "path": ".local\\sprint05\\logs\\install-user05-01.stdout.log",
+      "bytes": 54,
+      "sha256": "9C1EFEDDE469ED208667BDAD102D0F4A9D406E8938701AD055AA7D3B46B38B9F",
+      "coverage": "full available snapshot; fresh live files may grow"
+    },
+    {
+      "path": ".local\\sprint05\\logs\\publish-release01.result.json",
+      "bytes": 117,
+      "sha256": "B4C93C5AAF0E6AB8E24525B82667861A00914C8B965B06FE0454C94A079806BA",
+      "coverage": "full available snapshot; fresh live files may grow"
+    },
+    {
+      "path": ".local\\sprint05\\logs\\publish-release01.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "coverage": "full available snapshot; fresh live files may grow"
+    },
+    {
+      "path": ".local\\sprint05\\logs\\publish-release01.stdout.log",
+      "bytes": 554,
+      "sha256": "5A4B36666E323D65B212224FB2CA40F2FE8CB275D77F7A4BCDDDDCC732FDBE2C",
+      "coverage": "full available snapshot; fresh live files may grow"
+    },
+    {
+      "path": ".local\\sprint05\\logs\\verify-live05-01.result.json",
+      "bytes": 126,
+      "sha256": "A1511DB07618CF2BC4C1C8789F3AA700D36842BE44A832719CDDD67D65452793",
+      "coverage": "full available snapshot; fresh live files may grow"
+    },
+    {
+      "path": ".local\\sprint05\\logs\\verify-live05-01.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "coverage": "full available snapshot; fresh live files may grow"
+    },
+    {
+      "path": ".local\\sprint05\\logs\\verify-live05-01.stdout.log",
+      "bytes": 1349,
+      "sha256": "8C797BDF670EDE20292CC956B6A1A5A6A54A0F9A76BC62538B88357F1BF6AC19",
+      "coverage": "full available snapshot; fresh live files may grow"
+    },
+    {
+      "path": ".local\\logs\\s5-user-start01.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "coverage": "full available snapshot; fresh live files may grow"
+    },
+    {
+      "path": ".local\\logs\\s5-user-start01.stdout.log",
+      "bytes": 3484,
+      "sha256": "7EED38DFCE7646F73FA243AA1CF4D61C80B4730ED6715F8665E0BCCEE0DFAF21",
+      "coverage": "full available snapshot; fresh live files may grow"
+    }
+  ],
+  "late_file_count": 11,
+  "late_bytes": 5859,
+  "prior_ci_audit_sha256": "E2E7C9C81857CF522046E03259CFD14FE072A920C599C5BC6186AB599C10E8C8",
+  "limits": [
+    "A10 PASS covers exact immutable download/package and read-only first-user/live identities; human acceptance remains separate.",
+    "Protected database contents not queried or cloned for postlive; no new user login/write/migration/stop. Preserved executable hashes/PIDs/starttimes/listeners/health verified; original data hashes established by isolated copied corpus acceptance.",
+    "Anonymous curl native exit0 retained as actual tool session13384; no separate initial raw stdout file, progress/tool output captured. Full downloaded bytes retained/hash verified.",
+    "Guessed package-manifest.json read failed; actual build-manifest.json verified. Root upload proof draft untagged URLs historical only; fresh current API canonical v0.5 URLs used.",
+    "Fresh launcher still live: native long-lived parent lifetime exit uncaptured. stderr snapshot0 is not all-machine error-free claim. Root premature missing proof read tool-only failure preserved in task context.",
+    "NativePS5 full backup UNVERIFIED; tested stock Power7.6.5 recovery prerequisite/current pinned H guide/frozen ZIP warning verified publicly. DISK01/active transient memory and sampled WS limitations persist.",
+    "Prior immutable QA A01\u2013A08/CI audits remain fixed; late supplemental log snapshot is bounded available coverage, not complete historical streams."
+  ]
+}

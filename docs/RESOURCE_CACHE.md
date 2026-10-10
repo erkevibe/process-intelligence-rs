@@ -1,6 +1,6 @@
-# Resource loading and cache contract (0.5 development)
+# Resource loading and cache contract (accepted selected0.5 scope)
 
-Sprint05 implements individual resource loading on the existing schema2. Acceptance status is determined by SPRINT_05_PLAN.md and the eventual independent report; implementation text is not a PASS.
+Sprint05 implements individual resource loading on the existing schema2. SPRINT_05_PLAN.md fixes the contract; SPRINT_05_REPORT.md and immutable independent artifact/CI/delivery evidence record actual selected acceptance. This contract text alone is not a test result.
 
 Project workspaces keep complete ID catalogs, current selections, per-user views and durable job snapshots. They keep no clean heavy journal/model payloads. Dirty objects exist only during admitted operations; after successful CAS acknowledgement, their IDs remain in the catalog and the transient maps are cleared. Baseline uses weak identities and small state. Only explicit durable deletion sets can remove records; cache eviction cannot write SQL.
 
@@ -16,4 +16,4 @@ Whole-project semantic backup deliberately loads a complete project while holdin
 
 Administrator GET /diagnostics/cache returns aggregate charge/count/load/hit/eviction/oversize counters and current heavy admission count. It contains no cookies, passwords or raw process input. Private resource/version/read events support independent lazy-loading checks. Diagnostics alone do not prove memory improvement or data correctness.
 
-Existing schema2 copies require no new migration. For schema1 follow STORAGE_V2.md against a separately restored copy. The verified operator interpreter scope inherited from0.4 is PowerShell7.6.5 for database backup/restore/offline migration; native Windows PowerShell5.1 Start is separate. New0.5 artifact evidence is required before transferring those results. Do not mutate a reviewed package's manifest-protected contents.
+Existing schema2 copies require no new migration. For schema1 follow STORAGE_V2.md against a separately restored copy. Exact0.5 independent package evidence verifies PowerShell7.6.5 database backup/restore/offline migration and separately native Windows PowerShell5.1 cold/restored Start; native5 full backup remains UNVERIFIED. See SPRINT_05_REPORT.md and flw/evidence/sprint-05-package-qa-report.json; do not transfer results to other artifacts or interpreters. Do not mutate a reviewed package's manifest-protected contents.

@@ -1,0 +1,345 @@
+{
+  "utc": "2026-10-10T23:34:14.392009+00:00",
+  "verdict": "PASS exact final H CI promotion gate",
+  "head": "23decaaab8cbf7cb2737a4120edfb7f25c8b7dc5",
+  "compiled_source": "55e8dd28bee413316deba0aa252ceb6a436b9ffa",
+  "source_equivalence": {
+    "head": "23decaaab8cbf7cb2737a4120edfb7f25c8b7dc5",
+    "compiled_source": "55e8dd28bee413316deba0aa252ceb6a436b9ffa",
+    "changed_paths": [
+      "README.md",
+      "docs/ROADMAP.md",
+      "docs/SPRINT_05_REPORT.md",
+      "docs/STORAGE_V2.md",
+      "flw/events-sprint-05.jsonl",
+      "flw/evidence/sprint-05-customer-final-position.md",
+      "flw/evidence/sprint-05-customer-final-vote.md",
+      "flw/evidence/sprint-05-debt.md",
+      "flw/evidence/sprint-05-final-council.json",
+      "flw/evidence/sprint-05-final-invitation.md",
+      "flw/evidence/sprint-05-final-proposal.md",
+      "flw/evidence/sprint-05-package-qa-coverage.json",
+      "flw/evidence/sprint-05-package-qa-report.json",
+      "flw/evidence/sprint-05-pm-final-position.md",
+      "flw/evidence/sprint-05-pm-final-vote.md",
+      "flw/evidence/sprint-05-qa-c2-corpus-preservation.json",
+      "flw/evidence/sprint-05-qa-c2-original-state.json",
+      "flw/evidence/sprint-05-qa-c2-oversize-scope.json",
+      "flw/evidence/sprint-05-qa-c2-performance.json",
+      "flw/evidence/sprint-05-qa-final-vote.md",
+      "flw/evidence/sprint-05-qa-final.json",
+      "flw/evidence/sprint-05-qa-final.md",
+      "flw/evidence/sprint-05-root-final-position.md",
+      "flw/evidence/sprint-05-root-final-vote.md",
+      "flw/evidence/sprint-05-skill-review.json",
+      "flw/evidence/sprint-05-td-c2-artifact-position.md",
+      "flw/evidence/sprint-05-td-c2-source-audit.md",
+      "flw/evidence/sprint-05-td-final-report.md",
+      "flw/evidence/sprint-05-td-final-vote.md",
+      "flw/evidence/sprint-05-td-log-inventory.json",
+      "flw/skills/project-payload-admission/SKILL.md",
+      "flw/skills/project-postgres-document-capacity/SKILL.md"
+    ],
+    "only_readme_docs_flw": true,
+    "proposal_sha256": "603ACC466D2F0DF8D50D1C4E1C08068C9C3EE9C9F05D21742960DA16A50EF661",
+    "proposal_matches": true,
+    "votes": [
+      {
+        "path": "flw/evidence/sprint-05-root-final-vote.md",
+        "sha256": "5186F1AB77C3619441A63A8322F899C8E67BA1DED6482FEB51AD0AD6B0093B4C",
+        "matches_council": true
+      },
+      {
+        "path": "flw/evidence/sprint-05-customer-final-vote.md",
+        "sha256": "C2E65AFE83A4C54E96F7E9040D5332A2F0653FE7F2B4F3FA2AED5CAEB4AEDC27",
+        "matches_council": true
+      },
+      {
+        "path": "flw/evidence/sprint-05-pm-final-vote.md",
+        "sha256": "0A48C15953BF6E444D66CDA916C2ED7FBE920FA49EFC46C416E07370D3FF407E",
+        "matches_council": true
+      },
+      {
+        "path": "flw/evidence/sprint-05-qa-final-vote.md",
+        "sha256": "8D0EDF1F5CF0B7C8007C1D6F98704F8449A83920AC4DD4B411D3E4233CEDF506",
+        "matches_council": true
+      },
+      {
+        "path": "flw/evidence/sprint-05-td-final-vote.md",
+        "sha256": "FE78D9497CA98B70E2692F0D5531DC962CE18AD55ED0BF456741992B0E25BA57",
+        "matches_council": true
+      }
+    ],
+    "runtime_workflow_tools_tests_static_dependencies_unchanged": true,
+    "ci_status": "PENDING actual H run logs; no source CI credit"
+  },
+  "runs": [
+    {
+      "run_id": 38095182384,
+      "event": "push",
+      "head_sha": "23decaaab8cbf7cb2737a4120edfb7f25c8b7dc5",
+      "checkout_sha": "23decaaab8cbf7cb2737a4120edfb7f25c8b7dc5",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Pinned toolchain",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run cargo fmt --all -- --check",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run cargo clippy --locked --all-targets -- -D warnings",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run cargo test --locked --all-targets",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Build release and local health smoke",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ],
+      "ordinary_passed": 70,
+      "explicitly_ignored": 13,
+      "archive_sha256": "3D390814B0284DC1060F29EA34097F06FFB15DF4826AF81152FBBC2268B8B67B",
+      "archive_bytes": 41660,
+      "files": [
+        {
+          "path": ".local\\sprint05\\ci-push-final-h01\\0_linux.txt",
+          "bytes": 78925,
+          "sha256": "7AB450A1C182BCC97ACCC445CE85C319675791221AF19AE565D570CAD2FAD448"
+        },
+        {
+          "path": ".local\\sprint05\\ci-push-final-h01\\linux\\16_Post Run actions_checkout@3d3c42e5aac5ba805825da76410c181273ba90b1.txt",
+          "bytes": 1773,
+          "sha256": "0A781C50A414617EBCFD2A3B1BF846F9DDEA86438EBA42F88EAE9CE2D80DA98C"
+        },
+        {
+          "path": ".local\\sprint05\\ci-push-final-h01\\linux\\17_Complete job.txt",
+          "bytes": 61,
+          "sha256": "61FB4CECFEFBE30A5D9CBD7A2417EEBC5AAC64558B5C40AF3D74AE6C4DDC67E1"
+        },
+        {
+          "path": ".local\\sprint05\\ci-push-final-h01\\linux\\1_Set up job.txt",
+          "bytes": 2107,
+          "sha256": "4DF3359748901A5B035B420303B6351AA05425E78A6B3B364B57D60CCE69496C"
+        },
+        {
+          "path": ".local\\sprint05\\ci-push-final-h01\\linux\\2_Run actions_checkout@3d3c42e5aac5ba805825da76410c181273ba90b1.txt",
+          "bytes": 11555,
+          "sha256": "D4E3967C5108E8BB7E4CCA52B787A360983E6580FED7017CD85E81D588F70648"
+        },
+        {
+          "path": ".local\\sprint05\\ci-push-final-h01\\linux\\3_Pinned toolchain.txt",
+          "bytes": 769,
+          "sha256": "99F5ACA9AAAD0B9726CAB7BCF133F6BD37C0262D6CFDD09BB0AA5B11002CC57F"
+        },
+        {
+          "path": ".local\\sprint05\\ci-push-final-h01\\linux\\4_Run cargo fmt --all -- --check.txt",
+          "bytes": 238,
+          "sha256": "60EC731AC5DE0C95524B95774E0ED37CF13B423FD9B2AD2264D0713D50F61632"
+        },
+        {
+          "path": ".local\\sprint05\\ci-push-final-h01\\linux\\5_Run cargo clippy --locked --all-targets -- -D warnings.txt",
+          "bytes": 23557,
+          "sha256": "6D4D0D473F511539AE67EBF68AB253CD114D773571D55B59F1D080DE6DF5F648"
+        },
+        {
+          "path": ".local\\sprint05\\ci-push-final-h01\\linux\\6_Run cargo test --locked --all-targets.txt",
+          "bytes": 24846,
+          "sha256": "4297F03AC7707488760BDE8EA5C8FADFF221E33ADFBD4B4983246DE1483E23EE"
+        },
+        {
+          "path": ".local\\sprint05\\ci-push-final-h01\\linux\\7_Build release and local health smoke.txt",
+          "bytes": 12302,
+          "sha256": "9593689DBBD1F9F40FCA9349FBC377766747F6C5155C6FC356C2270781092346"
+        },
+        {
+          "path": ".local\\sprint05\\ci-push-final-h01\\linux\\8_Run actions_upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9.txt",
+          "bytes": 1744,
+          "sha256": "4D84EDC843E555EEF35C7531B06680B1575FD2E1DF65D114350BC9C54C49C848"
+        },
+        {
+          "path": ".local\\sprint05\\ci-push-final-h01\\linux\\system.txt",
+          "bytes": 592,
+          "sha256": "D3A489333B0097C9DBD7A566F43479EEE3496EB1CC5387765C97DADDE5BB7C8E"
+        }
+      ],
+      "full_available_file_count": 12,
+      "full_available_bytes": 158469,
+      "release_health_scope": "Linux optimized release + PI_EPHEMERAL=1 memory health smoke; bash -e and successful API step. No actual CI PostgreSQL credit.",
+      "semantic_summary": "fmt check; clippy all-targets -D warnings; ordinary70/ignored13; optimized release; ready health grep and Linux artifact upload all successful. Toolchain/install/dependency compile logs fully loaded; no all-machine claim."
+    },
+    {
+      "run_id": 38095184778,
+      "event": "pull_request",
+      "head_sha": "23decaaab8cbf7cb2737a4120edfb7f25c8b7dc5",
+      "checkout_sha": "5c09014764b18ec7e7b4247b3025b5fcf62ca46c",
+      "status": "completed",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Pinned toolchain",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run cargo fmt --all -- --check",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run cargo clippy --locked --all-targets -- -D warnings",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run cargo test --locked --all-targets",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Build release and local health smoke",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ],
+      "ordinary_passed": 70,
+      "explicitly_ignored": 13,
+      "archive_sha256": "3F1426B5227037B15B409A3268F039B39F790F1667F974FF71B401462AD46CCB",
+      "archive_bytes": 42131,
+      "files": [
+        {
+          "path": ".local\\sprint05\\ci-pr-final-h01\\0_linux.txt",
+          "bytes": 79588,
+          "sha256": "E3DFD6CDDAE82AA56C135A9D7863D1FF93CA87D2CB21ED401236622193AB77CD"
+        },
+        {
+          "path": ".local\\sprint05\\ci-pr-final-h01\\linux\\16_Post Run actions_checkout@3d3c42e5aac5ba805825da76410c181273ba90b1.txt",
+          "bytes": 1773,
+          "sha256": "BDD9497D300FD46762E576F573043D4EA51568D8F9C2A9E819E252DA260B1EDB"
+        },
+        {
+          "path": ".local\\sprint05\\ci-pr-final-h01\\linux\\17_Complete job.txt",
+          "bytes": 61,
+          "sha256": "94BE3DA6F136808637530D94428F3A6BCB94E0B6CFE8B4084BC8C29B83E2C275"
+        },
+        {
+          "path": ".local\\sprint05\\ci-pr-final-h01\\linux\\1_Set up job.txt",
+          "bytes": 2102,
+          "sha256": "60B4D49314BA4C61C58B727D59C2D063A724452EC78C778EB4BF9831B372BFD5"
+        },
+        {
+          "path": ".local\\sprint05\\ci-pr-final-h01\\linux\\2_Run actions_checkout@3d3c42e5aac5ba805825da76410c181273ba90b1.txt",
+          "bytes": 12223,
+          "sha256": "13002B46ED667ED2156447978E6A033DC8506263B1E684D86F9B6273E8CB4ADC"
+        },
+        {
+          "path": ".local\\sprint05\\ci-pr-final-h01\\linux\\3_Pinned toolchain.txt",
+          "bytes": 769,
+          "sha256": "1922ABF538C37CC7F4FF989C3751B8851F20556ECB868D62D5923AD5BE3411A5"
+        },
+        {
+          "path": ".local\\sprint05\\ci-pr-final-h01\\linux\\4_Run cargo fmt --all -- --check.txt",
+          "bytes": 238,
+          "sha256": "2C29F427DCCBB0887551B54783A63C12C44D19208D499A910A7B42CAFC298A8A"
+        },
+        {
+          "path": ".local\\sprint05\\ci-pr-final-h01\\linux\\5_Run cargo clippy --locked --all-targets -- -D warnings.txt",
+          "bytes": 23557,
+          "sha256": "684F52342885D5ECF6EA83B3DDEA48DC0709B619FE1951F20FB5F59D3DCDBDEF"
+        },
+        {
+          "path": ".local\\sprint05\\ci-pr-final-h01\\linux\\6_Run cargo test --locked --all-targets.txt",
+          "bytes": 24846,
+          "sha256": "E9F63E412F59AE7A4828E168C271C4A9100169AA46ADCA34A0FA595AF73FA0E2"
+        },
+        {
+          "path": ".local\\sprint05\\ci-pr-final-h01\\linux\\7_Build release and local health smoke.txt",
+          "bytes": 12302,
+          "sha256": "0EB0DA77B017F96B77A1B528FFB27C9C3A3F3772A690233BCB95165A1B37B243"
+        },
+        {
+          "path": ".local\\sprint05\\ci-pr-final-h01\\linux\\8_Run actions_upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9.txt",
+          "bytes": 1744,
+          "sha256": "D6BDF4E5EC3CDD6C1E8C55B7F409A766BD3FBE3749BFA74673A0E81438D867A4"
+        },
+        {
+          "path": ".local\\sprint05\\ci-pr-final-h01\\linux\\system.txt",
+          "bytes": 583,
+          "sha256": "87ACE0DB5C743214F7CE945B0C60E398EF674C5893324666F7D34138B4ED5FC9"
+        }
+      ],
+      "full_available_file_count": 12,
+      "full_available_bytes": 159786,
+      "release_health_scope": "Linux optimized release + PI_EPHEMERAL=1 memory health smoke; bash -e and successful API step. No actual CI PostgreSQL credit.",
+      "semantic_summary": "fmt check; clippy all-targets -D warnings; ordinary70/ignored13; optimized release; ready health grep and Linux artifact upload all successful. Toolchain/install/dependency compile logs fully loaded; no all-machine claim."
+    }
+  ],
+  "limitations": [
+    "Full available12+12 files loaded/fingerprinted; duplicate full+step logs counted separately, not unique runtime coverage.",
+    "Initial broad shell log output truncated16154tokens; excluded as full semantic proof. Subsequent bounded semantic extracts and full-file loading/fingerprints cover preserved originals.",
+    "PR checkout is synthetic merge5c09014764b18ec7e7b4247b3025b5fcf62ca46c, push checkout exact H; neither is newly rebuilt Windows ZIP identity.",
+    "Ignored PG13 not executed in CI; applicable local frozenPG6 separate in immutable QA report.",
+    "A10 public delivery/install/postlive pending; CI success does not complete it."
+  ]
+}
