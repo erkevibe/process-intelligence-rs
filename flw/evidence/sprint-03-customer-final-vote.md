@@ -1,0 +1,13 @@
+# Actual Customer vote — S3-F1
+
+Customer /root/customer votes FOR exact sprint-03-final-proposal.md rawSHA256 `8664000A2BBA7CD950317A1DF8E8FF09B9B3EC17316E6C26053242E491FDC7CE`, independently recomputed after reading the full actual proposal. This is a new final-resolution vote, not transferred from planning/resume/preliminary positions. Other seats' votes did not determine this judgement.
+
+Scope: bounded artifact acceptance and conditional promotion only. Source `a0b4f6989825de47c48d1d6ab8e1cedbac19c017`, EXE `B38A6193EB6C3D7BCE6F1F4E75F6BE619AE626FD8CBB8F9BB23CD3E08D190A3A`, ZIP `DBC095FA57E1721A83181FE8B6CA1834DC0D568B761D4A90787D47C7CEC97E84`/56411489bytes. Rejected89 artifacts remain rejected.
+
+Basis: full independent QA final report was previously read/hash-verified; read full independent TD final report now. Their bounded A01–11 and artifact acceptance addresses Customer P0 requirements: strict real old0.2 first adoption with same session/full hashes/IDs/exports, migration/crash/restore/deadline faults, non-destructive bootstrap and capacity refusal. Structural task/flow editing plus Save auto-applying pending fields adds useful model editing while retaining exact limits and permissions. No outstanding Customer-only blocker is demonstrated in this scope.
+
+Limits accepted explicitly: actual oracle is unchanged text LogParser cases/activities/variants only; manual event/DFG expectations are not legacy parity. Reconstructed before-final bootstrap state is not an actual kill, immediate PG termination is not physical-power-loss proof, full historical raw streams are missing, reserve exhaustion was not executed. SCALE01 high remains open with named next-sprint storage/workload owner and gate; eight worst-case logs/64projects/RSS/debug-mode guarantees and enterprise/full Apromore/BPMN claims are excluded.
+
+A12 is NOT complete by this vote. Actual final-head CI and bounded audit, anonymous whole ZIP hash/size, postpublication B38/new3030 first-account/privateACL and preservation of live R1/0.2 checks plus independent QA delivery supplement remain conditions. Runtime/build/package inputs must remain unchanged; docs-only reporting cannot retrofit ZIP bytes. An actual delivery failure blocks completion. Original deadline and no-user-data migration/deletion remain fixed.
+
+Control cost was justified by real faults caught before release and strict upgrade proof; future cheap verifier preflights/attempt manifest reduce repeated helper errors without weakening data guarantees. This role does not impersonate the human user or replace final human acceptance. No runtime/UI/data action taken while reviewing/voting.

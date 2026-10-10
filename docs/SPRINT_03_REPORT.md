@@ -1,23 +1,51 @@
 # Спринт 03: сравнение, восстановление, BPMN
 
-Рабочий отчёт, **приёмка и поставка ещё не завершены**. Начало 10 октября 2026, 11:37:57 UTC; предельное завершение 19:37:57 UTC. Точный принятый объём — [S3-P1](SPRINT_03_PLAN.md). Рабочая установка 0.2 и исходный R1 сохраняются; новая версия поставляется отдельно.
+**Артефакт принят; публичная поставка ещё проверяется.** Начало 10 октября 2026,11:37:57 UTC; предел19:37:57 UTC. Ошибки, проверка и публикация входят в восемь часов. [Неизменённый план](SPRINT_03_PLAN.md), [независимая матрица A01–A12](../flw/evidence/sprint-03-qa-final-report.md), [заключение TD](../flw/evidence/sprint-03-td-final-report.md), [решение Совета](../flw/evidence/sprint-03-final-council.md). A01–A11 прошли в выбранных границах; A12 принял артефакт, но ждёт публичного скачивания и проверки установок.
 
-## Что уже наблюдалось
+## Что получилось
 
-- Зафиксированы шесть XES-примеров, ручные ожидаемые значения и происхождение reference. Реально выполнен неизменённый `LogParser.getSimpleLog(String)` из закреплённого ApromoreCore: совпали число трасс, различных действий и варианты. Это узкое сравнение отдельного компонента через внешний адаптер, а не импорт XES в Apromore Portal, не Split Miner и не общая совместимость. События и DFG сверены с независимыми ручными ожиданиями. [Границы и воспроизведение](ORACLE.md).
-- На копиях прежней базы проверены сохранение входа и сессии, полных журналов и моделей после миграции; проверены отказ при неизвестной схеме/checksum, откат миграции и блокировки. Новая схема версии 1 использует ledger и checksum полного SQL. Проверки ранних draft с иным checksum остаются историческими, окончательная версия требует повторения.
-- На отдельном кластере PostgreSQL выполнены аварийные остановки до и после commit: неподтверждённые записи отсутствуют, подтверждённая группа сохраняется полностью. Проверен database backup/restore в новую базу и отказ при повреждённом архиве или существующем target. [Порядок эксплуатации](DATABASE_RECOVERY.md).
-- Независимая проверка выявила ошибку native PowerShell 5 при атомарной записи конфигурации. Сохранённый кластер продолжил настройку с прежними credentials после исправления; отдельный точный Совет разрешил продолжение затронутых работ. Исходные failure logs сохранены.
-- Независимая проверка задач обнаружила публикацию terminal cancellation до durable commit; аудит нашёл аналогичное окно обычной ошибки. Исправление сохраняет terminal snapshot под mutex до публикации в GET/watch. Три независимых callback-refusal теста и восемь реальных проверок перезапуска прошли. Точный Совет S3-RESUME-2b разрешил продолжение пятью новыми голосами из пяти; это не приёмка выпуска.
-- Сохранена неудачная debug-проверка открытия накопленной базы около 153 MB: PostgreSQL завершил транзакцию по десятисекундному пределу. Та же база без сокращения данных открылась в оптимизированной Windows-сборке: первый полный старт 9792 ms, следующие 13683/11278 ms после дополнительных задач. Исходные 18 полных объектов журналов/моделей сохранили SHA256. Это проверенный размер, не обещание масштабируемости; полная проверка документов при подключении остаётся высоким долгом.
-- Дополнительно проверены реально наблюдавшаяся выполняющаяся задача перед аварийной остановкой и её `interrupted` восстановление; потеря собственного соединения PostgreSQL дала защищённым запросам/health ответ 503, а явный restart сохранил terminal snapshots и journal IDs. Принудительная остановка собственного процесса между созданием ledger и commit миграции оставила прежние документы и не оставила частичный ledger/constraint; следующий запуск выполнил миграцию.
+| Приоритет | Фактический результат |
+|---|---|
+| Сравнение | Шесть фиксированных XES-примеров с SHA и независимыми ручными counts/variants/DFG. Неизменённый LogParser.getSimpleLog(String) закреплённого ApromoreCore реально выполнен; cases/activities/variants совпали с точным Rust EXE. |
+| Миграции | Schema v1/version/name/checksum полного SQL, singleton до DDL, атомарные DDL+ledger. Fresh/распознанная0.2/reopen; future/checksum/неизвестная структура отклоняются без изменений. |
+| Обновление0.2 | Новая восстановленная копия сначала запущена принятым старым EXE и получила сессию; затем точный B38 впервые мигрировал её. Все auth/repository/generic строки/версии/полные хеши, прежняя сессия, IDs, exports, XML, параметры и два одноимённых журнала сохранились. Реальная пользовательская0.2 не обновлялась. |
+| Восстановление | Настоящий kill до commit миграции оставил старые документы без частичного ledger; reopen мигрировал базу. Immediate crash своего PostgreSQL до/после commit дал none либо complete-new. Custom dump/NEW restore сохранил auth/schema/данные; corrupt/existing-target контролируемо отклонены. |
+| Задачи и сбои | Queued и реально наблюдавшаяся Running после kill восстановились Failed/interrupted/null. Completed linkage, cancel, malformed import и повторный restart сохраняют terminal snapshots/IDs/revisions. Реальные SQL deadlines/connectionfault дают failclosed до явного reopen, без автоматического mutation retry. |
+| Windows | Свежий точный native PowerShell5 пакет, staged resume/same credentials, существующая роль/отсутствующая БД, unknown/missing/ambiguous config без reset. Первый аккаунт/login, manual graph/export проверены. |
+| BPMN | Добавление/удаление task/sequenceFlow, подписи/координаты, текущие поля при Save, защищённые start/end/gateways, серверные graph/revision/access guards; XML re-import, backup/restore и restart сохранили модель. |
 
-## Осталось до приёмки
+Oracle — узкий настоящий Java-компонент через внешний адаптер, не Portal, не полный XES importer и не Split Miner. Events/DFG проверены вручную отдельно; legacy raw_total_events=-1 сохранён. Timestamp/lifecycle normalization, fitness/precision и общая совместимость не заявлены. [Происхождение и воспроизведение](ORACLE.md).
 
-Финальная проверка исходного кандидата `89cdcbcef5c988ff46716bb0e1ae16e8c2334e6a` обнаружила S3-QA-CAP01: принятый импорт 100 000 событий в накопленный проект из шести журналов превысил предел контейнера JSONB PostgreSQL. Сохранённые данные не потеряны, но база закрыла новые операции; этот кандидат **не принят для выпуска**, его пакет не опубликован. Исходный проект содержит 204 725 604 байта JSON, консервативная оценка JSONB — 256 248 313 байт; проверка использует те же данные без уменьшения. Исправление проверяет вместимость до SQL и оставляет 2 MiB для сохранения состояния принятых задач. Все изменения содержимого и новые задачи используют нижний бюджет; принятые задачи и восстановление — отдельный верхний. Независимый повтор cap03 на той же базе и том же входе 100 000 событий /17 200 026 байт дал четыре PASS: durable Failed/null, прежние шесть полных хешей, health/export200, запись модели, отмена и настоящий перезапуск. Отдельный реальный PG-тест oversized batch дал PASS: ни одна часть не записана, worker остался доступен и следующая небольшая запись прошла. СОВЕТ S3-RESUME-3 разрешил продолжение пятью новыми голосами из пяти; это не приёмка выпуска. Эксперимент с намеренным исчерпанием резерва не выполнен; предел обоснован ограниченными metadata-путями и проверенным сценарием отмены. Новый точный кандидат и итоговая приёмка обязательны. Старые результаты сборки, CI и проверки упаковки остаются историческими доказательствами, а не приёмкой исправленной поставки.
+## Точные исходники и проверки
 
-Редактор BPMN расширен: добавление/удаление задач и переходов, защищённые начало/конец/шлюзы, проверка графа и revision на сервере, применение полей выбранного узла при Save. На draft release07 независимые пять unit tests, пятнадцать native browser/API проверок, один точный XML re-import и шесть backup/restore/restart/isolation проверок прошли. Лимиты 1001 узел/4001 переход/JSON больше1 MiB отклонены без замены прежней модели.
+| Идентификатор | Значение |
+|---|---|
+| Runtime source | a0b4f6989825de47c48d1d6ab8e1cedbac19c017 |
+| Frozen source archive SHA256 | 22521535CB4CB329AB636207C8F0017AAC8A8A7D9455784153C347022A8F8139 |
+| Windows EXE SHA256 | B38A6193EB6C3D7BCE6F1F4E75F6BE619AE626FD8CBB8F9BB23CD3E08D190A3A |
+| Windows ZIP SHA256 | DBC095FA57E1721A83181FE8B6CA1834DC0D568B761D4A90787D47C7CEC97E84 |
+| ZIP/manifest | 56411489байт/1663файла |
 
-После закрытия STOP повторить обязательные проверки на новом замороженном исходном коммите и точном EXE, проверить свежую Windows-поставку в native PowerShell 5, получить независимые заключения QA/TD и голоса Совета. Draft PR №3 и CI прежнего кандидата существуют; релиз, публичный SHA256 ZIP и окончательная отдельная пользовательская поставка **не выполнены**. Этот документ в исходном архиве — снимок до финальной поставки; точные финальные идентификаторы будут в актуальном отчёте репозитория и release notes.
+Независимо проверены227 source files и1663 файла свежей распаковки. Пять provenance negatives на приватных копиях отклонили неверный commit/version, dirty source, изменённый EXE/frozen asset; оригинальные bytes не менялись. В ZIP документы остаются снимком a0b4; финальные documentation commits/merge/tag отделяются от compiled source.
 
-Enterprise readiness, исполнение BPMN, полный перенос Apromore, кластерная отказоустойчивость и общий процент совместимости не заявляются. Проверенный backup БД не включает глобальные роли или private config; их сохранение — отдельная эксплуатационная обязанность.
+Frozen ordinary60PASS/10realPG явно ignored; отдельно независимые S3realPG8+S2realPG2 всеPASS. BPMN15 browser/API+1XML+6backup/restart/access; strict upgrade3PASS. Native Start: первые3 проверки и отдельная continuation2PASS, настоящий graph3nodes/4edges и export4cases/10events/3activities.
+
+Исправленный pushCI38054672102 действительно проверил a0b4, PR38054674511 — generated merge b1d18b79d67943e4c88fe8683ed4054b76c8c58c. fmt/clippy/60ordinary/release/ephemeral health PASS; realPG/Windows/crash CI не запускал. До поставки нужны actual final-doc-head CI, checked merge/tag и полный anonymous download SHA/bytes. [CI audit](../flw/evidence/sprint-03-ci-audit-corrected.md).
+
+## Ошибки и границы
+
+Независимые проверки обнаружили native File.Replace ошибку, terminal publication до durable commit и JSONB overflow при принятом100000-event импорте в накопленный шестижурнальный проект. Кандидат89/B6D/D35 отклонён и не опубликован. Исправления получили новые регрессии/QA/TD и отдельные точные решения Совета; failure logs сохранены.
+
+Capacity guard до SQL использует нижний payload/admission budget266272768байт и верхний268369920для принятых jobs/recovery;2MiB оставлены для ограниченного terminal metadata. SAME полный накопленный проект/SAME100000events/17200026bytes на точном B38 дал durable Failed/project_capacity/null, прежние шесть полных хешей, health/export200, дальнейшую запись модели/cancel/restart. Oversized batch не записал ни одну часть и не закрыл worker. Reserve exhaustion не выполнен; восемь журналов — потолок количества, не любых размеров.
+
+SCALE01 HIGH OPEN: whole-project clones/typed validation всех документов внутри10s startup transaction. Исторический debug reopen около153MB действительно failed timeout; тот же несокращённый corpus открылся в optimized сборке, нынешний cumulative прошёл exact final checks. Все64проекта/максимальный aggregate/RSS/debugstartup/worst concurrency не сертифицированы. Следующий эксплуатационный приоритет — отдельные записи logs/models, убрать полные копии/тяжёлую startup transaction, измерить время/RSS и развить versioned migrations. [Роадмап](ROADMAP.md).
+
+Точное before-final bootstrap состояние реконструировано и resumed0 с прежними credentials: это не actual kill финального установщика. Ранний реальный File.Replace fault остаётся историческим mechanism proof. PG crash — immediate process stop, не physical powerloss/HA. Dump не включает глобальные роли/private config; возврат к0.2 через прежнюю БД/backup, не oldEXE поверх upgradedDB. [Восстановление](DATABASE_RECOVERY.md).
+
+Coverage:170 доступныхQA/init/PG full-file fingerprints+2supplement и24CI, required assertion/failure contexts отдельно. Не полная семантическая сертификация каждого исторического shellstream. Cross-DB cookie, route/default-submit selector, environment/collector failures retained; missing/reusedstderr/tool-only и invalidRootinventory01 не объявлены completePASS. FLW поймал реальные дефекты до публикации; следующий процесс — дешёвый preflight/immutable attempt manifest, без неизменённых дорогих local reruns ради docs.
+
+## Пользовательская поставка
+
+Отдельный кандидат0.3 уже готов на http://localhost:3030/PG5437 без QAаккаунта; пользователь создаёт свою первую учётную запись. R1:3000/0.2:3010 сохранены. Повторный запуск из установленного каталога: powershell -NoProfile -ExecutionPolicy Bypass -File Start.ps1 -Port 3030 -PostgresPort 5437. До actual public download hash/postpublication checks это не завершённая поставка.
+
+Полные R2–R5, enterprise readiness, исполнение BPMN, весь перенос Apromore и HA остаются следующими этапами. Совет принимает bounded artifact/условную поставку, не подменяет принятие реальным пользователем.

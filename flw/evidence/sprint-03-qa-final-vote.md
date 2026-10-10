@@ -1,0 +1,9 @@
+# Independent QA actual vote — S3-F1
+
+Vote: **FOR** the exact proposal rawSHA256 8664000A2BBA7CD950317A1DF8E8FF09B9B3EC17316E6C26053242E491FDC7CE. I read the complete proposal and independently recomputed its raw SHA256. My fixed artifact report remains unchanged at 847F51193CD367F3F6065162E380DF3CAA605DD1590389EB1D5A5797EF515E5D.
+
+This is a new actual release-promotion vote, not a transferred plan or resume vote. It accepts the bounded tested runtime source a0b4f6989825de47c48d1d6ab8e1cedbac19c017, EXE B38A6193EB6C3D7BCE6F1F4E75F6BE619AE626FD8CBB8F9BB23CD3E08D190A3A and ZIP DBC095FA57E1721A83181FE8B6CA1834DC0D568B761D4A90787D47C7CEC97E84. Independent operational/artifact acceptance is supported by my exact-candidate reports; no unresolved mandatory observed product failure remains in that scope.
+
+A12 delivery remains PENDING. This vote explicitly requires the proposal's final-head successful CI plus independent audit, documentation/evidence-only diff with runtime inputs unchanged, actual anonymous whole-file ZIP hash/bytes, and actual protected-installation postpublication proof reviewed in a separate QA delivery supplement. Runtime mutation, mismatched public bytes or mandatory delivery failure invalidates/blocks the applicable acceptance. API metadata alone is insufficient.
+
+SCALE01 HIGH OPEN, reserve exhaustion not executed, reconstructed before-final bootstrap boundary not actual finalartifact kill, limited legacy component comparison, partial closed BPMN scope and missing historical raw streams remain limitations; none is converted to universal compatibility or completion credit. Rejected89 remains rejected. Existing realuser0.2 is not upgraded.
