@@ -1,0 +1,9 @@
+# Actual Customer plan vote S5-P1
+
+Customer /root/customer votes FOR exact docs/SPRINT_05_PLAN.md rawSHA256 `0A0C5F8CB468F618ABD01403BDADE40D817A5E25F82428C94D981C21113480ED`, independently computed after full actual read. New vote, no earlier position/vote transfer. No runtime/DB/live installation action.
+
+Basis: per-resource single-snapshot loads and metadata catalogs, authorization/version validation on every hit, separate actor views, authoritative durable deletion/catalog contract and failed-CAS preservation address data/access risks. Global128MiB charged/8entry retained cache, oversize bypass with bounded active2 and response-body permits explicitly distinguish retained cache from process RAM. Three unchanged full projects and repeated A→B→C→A evictions/full hashes make improvement observable. Fixed numerical latency/working-set/quiescent75% gates, same100k regression, owned-fault/backup and exact package/public conditions preserve measurable completion.
+
+Accepted limits: wholeproject backup materializes a consistent project under one admitted heavy operation; active/inflight buffers/jobs and allocator remain separately measured. Oversize bypass is legitimate only if no hidden resident strong ownership defeats the retained bound. Unrequested payload corruption deferred is acceptable; requested corruption must refuse rather than expose a stale cache fallback. No schema3/cleanup/BPMN/oracle/PS5security expansion. DISK01 and PS5backup remain debt.
+
+Schedule risk: ambitious concurrent consumer/cache refactor across routes; final90min protected and unresolved mandatory gates mean partial, not changed thresholds. No unconditional guarantee of reaching quiescent memory target before actual measurements. Specific data loss/leakage/stale overwrite or cache-budget breach blocks affected acceptance. Final frozen independent QA/TD/new Council and public proof still required; human acceptance not replaced.

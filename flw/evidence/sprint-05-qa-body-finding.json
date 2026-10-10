@@ -1,0 +1,24 @@
+{
+  "finding": "S5-QA-BODY01",
+  "severity": "STOP",
+  "status": "OPEN",
+  "artifact_sha256": "ACE6CD259F54B2297C31A6C1EF6EC9EFDB0E98945119A4B6C5DAF5EF0F53A7DF",
+  "candidate_source": "8cd9672cdea9e86dd5e0e417d095a74ea5766c33",
+  "scope": "Draft functional response-body ownership; no performance credit",
+  "expected_active": 2,
+  "actual_active": 1,
+  "paused_client_buffered_bytes": [
+    65214,
+    65214
+  ],
+  "report_sha256": "9C3E0E8826CB29ADCCB999AB4C2786DD0286330E08E50BD4BB3F494FD309ADFA",
+  "stdout_sha256": "8D02969893722C4EC17BEA34F7AA048C41C7C82765A4E7D7124AC29172DAA967",
+  "stderr_bytes": 0,
+  "wrapper_exit": 1,
+  "wrapper_log_file": "missing; tool output retained",
+  "own_pid": 48876,
+  "own_pid_absent": true,
+  "owner": "Root production author",
+  "impact": "Response admission reservation may release while a large unfinished transport body remains owned; immediate refusal contract violated",
+  "next": "Repair mechanism and independently replay unchanged paused-body scenario on new immutable artifact; do not accept C1"
+}

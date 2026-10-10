@@ -11,13 +11,20 @@ use serde::{Deserialize, Serialize};
 use serde_json::{Value, json};
 use std::{
     collections::{BTreeMap, BTreeSet},
-    sync::Arc,
+    sync::{Arc, Weak},
 };
 
 #[derive(Default, Clone)]
 pub(crate) struct Baseline {
-    logs: BTreeMap<String, StoredLog>,
-    models: BTreeMap<String, Arc<StoredModel>>,
+    logs: BTreeMap<String, LogToken>,
+    models: BTreeMap<String, Weak<StoredModel>>,
+}
+#[derive(Clone)]
+struct LogToken {
+    state: Value,
+    data: Weak<crate::domain::EventLog>,
+    source: Weak<crate::domain::EventLog>,
+    analysis: Weak<crate::domain::Analysis>,
 }
 #[derive(Default, Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
@@ -98,8 +105,24 @@ pub(crate) fn header(repo: &Repository) -> Header {
         sequence: repo.sequence,
         user_views: repo.user_views.clone(),
         durable_jobs: repo.durable_jobs.clone(),
-        log_ids: repo.logs.keys().cloned().collect(),
-        model_ids: repo.models.keys().cloned().collect(),
+        log_ids: repo
+            .log_ids
+            .iter()
+            .chain(repo.logs.keys())
+            .filter(|id| !repo.deleted_log_ids.contains(*id))
+            .cloned()
+            .collect::<BTreeSet<_>>()
+            .into_iter()
+            .collect(),
+        model_ids: repo
+            .model_ids
+            .iter()
+            .chain(repo.models.keys())
+            .filter(|id| !repo.deleted_model_ids.contains(*id))
+            .cloned()
+            .collect::<BTreeSet<_>>()
+            .into_iter()
+            .collect(),
     }
 }
 fn log_state(log: &StoredLog) -> Value {
@@ -122,24 +145,27 @@ pub(crate) fn prepare(
         }
         let old = next.persisted.logs.get(id);
         let state = log_state(log);
-        if old.is_none_or(|old| log_state(old) != state) {
+        if next.deleted_log_ids.contains(id) {
+            return Err(corrupt());
+        }
+        if old.is_none_or(|old| old.state != state) {
             puts.push(("log_state".into(), id.clone(), state));
         }
-        if old.is_none_or(|old| !Arc::ptr_eq(&old.data, &log.data)) {
+        if old.is_none_or(|old| !Weak::ptr_eq(&old.data, &Arc::downgrade(&log.data))) {
             puts.push((
                 "log_data".into(),
                 id.clone(),
                 serde_json::to_value(log.data.as_ref()).map_err(|_| corrupt())?,
             ));
         }
-        if old.is_none_or(|old| !Arc::ptr_eq(&old.source, &log.source)) {
+        if old.is_none_or(|old| !Weak::ptr_eq(&old.source, &Arc::downgrade(&log.source))) {
             puts.push((
                 "log_source".into(),
                 id.clone(),
                 serde_json::to_value(log.source.as_ref()).map_err(|_| corrupt())?,
             ));
         }
-        if old.is_none_or(|old| !Arc::ptr_eq(&old.analysis, &log.analysis)) {
+        if old.is_none_or(|old| !Weak::ptr_eq(&old.analysis, &Arc::downgrade(&log.analysis))) {
             puts.push((
                 "log_analysis".into(),
                 id.clone(),
@@ -148,14 +174,17 @@ pub(crate) fn prepare(
         }
     }
     for (id, model) in &next.models {
-        if id != &model.id || crate::bpmn::validate(&model.model).is_err() {
+        if id != &model.id
+            || next.deleted_model_ids.contains(id)
+            || crate::bpmn::validate(&model.model).is_err()
+        {
             return Err(corrupt());
         }
         if next
             .persisted
             .models
             .get(id)
-            .is_none_or(|old| !Arc::ptr_eq(old, model))
+            .is_none_or(|old| !Weak::ptr_eq(old, &Arc::downgrade(model)))
         {
             puts.push((
                 "model".into(),
@@ -164,22 +193,12 @@ pub(crate) fn prepare(
             ));
         }
     }
-    for id in next
-        .persisted
-        .logs
-        .keys()
-        .filter(|id| !next.logs.contains_key(*id))
-    {
+    for id in &next.deleted_log_ids {
         for kind in ["log_state", "log_data", "log_source", "log_analysis"] {
             deletes.push((kind.into(), id.clone()));
         }
     }
-    for id in next
-        .persisted
-        .models
-        .keys()
-        .filter(|id| !next.models.contains_key(*id))
-    {
+    for id in &next.deleted_model_ids {
         deletes.push(("model".into(), id.clone()));
     }
     for (_, _, value) in &puts {
@@ -194,22 +213,61 @@ pub(crate) fn prepare(
     })
 }
 pub(crate) fn mark_persisted(repo: &mut Repository) {
-    repo.persisted = Arc::new(Baseline {
-        logs: repo.logs.clone(),
-        models: repo.models.clone(),
-    });
+    let h = header(repo);
+    repo.log_ids = h.log_ids.into_iter().collect();
+    repo.model_ids = h.model_ids.into_iter().collect();
+    let baseline = Arc::make_mut(&mut repo.persisted);
+    baseline.logs.retain(|id, _| repo.log_ids.contains(id));
+    baseline.models.retain(|id, _| repo.model_ids.contains(id));
+    for (id, log) in &repo.logs {
+        baseline.logs.insert(id.clone(), token(log));
+    }
+    for (id, model) in &repo.models {
+        baseline.models.insert(id.clone(), Arc::downgrade(model));
+    }
+    repo.deleted_log_ids.clear();
+    repo.deleted_model_ids.clear();
+    if repo.lazy_resources {
+        repo.logs.clear();
+        repo.models.clear();
+    }
 }
-pub(crate) fn load(database: &Database, project: &str) -> Result<Repository, ImportError> {
+fn token(log: &StoredLog) -> LogToken {
+    LogToken {
+        state: log_state(log),
+        data: Arc::downgrade(&log.data),
+        source: Arc::downgrade(&log.source),
+        analysis: Arc::downgrade(&log.analysis),
+    }
+}
+pub(crate) fn track_log(repo: &mut Repository, log: &StoredLog) {
+    Arc::make_mut(&mut repo.persisted)
+        .logs
+        .insert(log.id.clone(), token(log));
+}
+pub(crate) fn track_model(repo: &mut Repository, model: &Arc<StoredModel>) {
+    Arc::make_mut(&mut repo.persisted)
+        .models
+        .insert(model.id.clone(), Arc::downgrade(model));
+}
+pub(crate) type Versions = Vec<(String, u64)>;
+pub(crate) const LOG_KINDS: &[&str] = &["log_analysis", "log_data", "log_source", "log_state"];
+pub(crate) const MODEL_KINDS: &[&str] = &["model"];
+pub(crate) fn load_metadata(database: &Database, project: &str) -> Result<Repository, ImportError> {
     let Some((revision, value)) = database.project_header(project)? else {
-        return Ok(Repository::default());
+        return Ok(Repository {
+            lazy_resources: true,
+            ..Default::default()
+        });
     };
     let h = Header::parse(value)?;
     let expected: BTreeSet<_> = h
         .log_ids
         .iter()
         .flat_map(|id| {
-            ["log_state", "log_data", "log_source", "log_analysis"]
-                .map(|kind| (kind.to_string(), id.clone()))
+            LOG_KINDS
+                .iter()
+                .map(move |kind| (kind.to_string(), id.clone()))
         })
         .chain(h.model_ids.iter().map(|id| ("model".into(), id.clone())))
         .collect();
@@ -217,64 +275,114 @@ pub(crate) fn load(database: &Database, project: &str) -> Result<Repository, Imp
     if actual != expected {
         return Err(corrupt());
     }
-    let mut repo = Repository {
+    Ok(Repository {
         current: h.current,
         sequence: h.sequence,
         user_views: h.user_views,
         durable_jobs: h.durable_jobs,
         storage_revision: revision,
+        log_ids: h.log_ids.into_iter().collect(),
+        model_ids: h.model_ids.into_iter().collect(),
+        lazy_resources: true,
         ..Default::default()
-    };
-    for id in h.log_ids {
-        let Value::Object(mut state) = database
-            .project_record(project, "log_state", &id)?
-            .ok_or_else(corrupt)?
-        else {
-            return Err(corrupt());
-        };
-        for (field, kind) in [
-            ("data", "log_data"),
-            ("source", "log_source"),
-            ("analysis", "log_analysis"),
-        ] {
-            if state
-                .insert(
-                    field.into(),
-                    database
-                        .project_record(project, kind, &id)?
-                        .ok_or_else(corrupt)?,
-                )
-                .is_some()
-            {
-                return Err(corrupt());
-            }
-        }
-        let log: StoredLog = serde_json::from_value(Value::Object(state)).map_err(|_| corrupt())?;
-        if log.id != id
-            || log.project_id.as_deref() != Some(project)
-            || log.source_sha256.len() != 64
-            || !log.source_sha256.bytes().all(|b| b.is_ascii_hexdigit())
-            || log.analysis.cases != log.data.cases.len()
-            || log.analysis.events != log.data.cases.iter().map(|c| c.events.len()).sum::<usize>()
+    })
+}
+pub(crate) fn load_log(
+    database: &Database,
+    project: &str,
+    id: &str,
+) -> Result<(StoredLog, Versions), ImportError> {
+    let records = database.resource_records(project, id, LOG_KINDS)?;
+    decode_log(project, id, records)
+}
+pub(crate) fn decode_log(
+    project: &str,
+    id: &str,
+    records: Vec<(String, u64, Value)>,
+) -> Result<(StoredLog, Versions), ImportError> {
+    let mut pieces = BTreeMap::new();
+    let mut versions = Vec::new();
+    for (kind, version, value) in records {
+        if version == 0
+            || !LOG_KINDS.contains(&kind.as_str())
+            || pieces.insert(kind.clone(), value).is_some()
         {
             return Err(corrupt());
         }
-        for data in [&log.source, &log.data] {
-            let mut ids = BTreeSet::new();
-            if data.cases.len() > 20_000
-                || data.cases.iter().map(|c| c.events.len()).sum::<usize>() > 100_000
-                || data.cases.iter().any(|c| {
-                    c.id.is_empty()
-                        || !ids.insert(&c.id)
-                        || c.events
-                            .iter()
-                            .any(|e| e.activity.is_empty() || e.activity.len() > 4096)
-                })
-            {
-                return Err(corrupt());
-            }
+        versions.push((kind, version));
+    }
+    versions.sort();
+    if pieces.len() != 4 {
+        return Err(corrupt());
+    }
+    let Value::Object(mut state) = pieces.remove("log_state").ok_or_else(corrupt)? else {
+        return Err(corrupt());
+    };
+    for (field, kind) in [
+        ("data", "log_data"),
+        ("source", "log_source"),
+        ("analysis", "log_analysis"),
+    ] {
+        if state
+            .insert(field.into(), pieces.remove(kind).ok_or_else(corrupt)?)
+            .is_some()
+        {
+            return Err(corrupt());
         }
-        validate_log(&log)?;
+    }
+    let log: StoredLog = serde_json::from_value(Value::Object(state)).map_err(|_| corrupt())?;
+    if log.id != id
+        || log.project_id.as_deref() != Some(project)
+        || log.source_sha256.len() != 64
+        || !log.source_sha256.bytes().all(|b| b.is_ascii_hexdigit())
+        || log.analysis.cases != log.data.cases.len()
+        || log.analysis.events != log.data.cases.iter().map(|c| c.events.len()).sum::<usize>()
+    {
+        return Err(corrupt());
+    }
+    for data in [&log.source, &log.data] {
+        let mut ids = BTreeSet::new();
+        if data.cases.len() > 20_000
+            || data.cases.iter().map(|c| c.events.len()).sum::<usize>() > 100_000
+            || data.cases.iter().any(|c| {
+                c.id.is_empty()
+                    || !ids.insert(&c.id)
+                    || c.events
+                        .iter()
+                        .any(|e| e.activity.is_empty() || e.activity.len() > 4096)
+            })
+        {
+            return Err(corrupt());
+        }
+    }
+    validate_log(&log)?;
+    Ok((log, versions))
+}
+pub(crate) fn load_model(
+    database: &Database,
+    project: &str,
+    id: &str,
+) -> Result<(Arc<StoredModel>, Versions), ImportError> {
+    let mut records = database.resource_records(project, id, MODEL_KINDS)?;
+    if records.len() != 1 {
+        return Err(corrupt());
+    }
+    let (kind, version, value) = records.remove(0);
+    if kind != "model" || version == 0 {
+        return Err(corrupt());
+    }
+    let model: StoredModel = serde_json::from_value(value).map_err(|_| corrupt())?;
+    if model.id != id || crate::platform::exportable_model(&model.model).is_err() {
+        return Err(corrupt());
+    }
+    Ok((Arc::new(model), vec![(kind, version)]))
+}
+// Complete semantic materialization is reserved for backup and tests.
+pub(crate) fn load(database: &Database, project: &str) -> Result<Repository, ImportError> {
+    let mut repo = load_metadata(database, project)?;
+    repo.lazy_resources = false;
+    for id in repo.log_ids.clone() {
+        let (log, _) = load_log(database, project, &id)?;
         for view in repo.user_views.values().filter_map(|views| views.get(&id)) {
             validate_view(
                 &log,
@@ -285,23 +393,15 @@ pub(crate) fn load(database: &Database, project: &str) -> Result<Repository, Imp
         }
         repo.logs.insert(id, log);
     }
-    for id in h.model_ids {
-        let model: StoredModel = serde_json::from_value(
-            database
-                .project_record(project, "model", &id)?
-                .ok_or_else(corrupt)?,
-        )
-        .map_err(|_| corrupt())?;
-        if model.id != id || crate::platform::exportable_model(&model.model).is_err() {
-            return Err(corrupt());
-        }
-        repo.models.insert(id, Arc::new(model));
+    for id in repo.model_ids.clone() {
+        repo.models
+            .insert(id.clone(), load_model(database, project, &id)?.0);
     }
     mark_persisted(&mut repo);
     Ok(repo)
 }
 
-fn validate_view(
+pub(crate) fn validate_view(
     log: &StoredLog,
     threshold: u64,
     selected: Option<&str>,
@@ -348,4 +448,74 @@ fn validate_log(log: &StoredLog) -> Result<(), ImportError> {
         return Err(corrupt());
     }
     Ok(())
+}
+
+#[cfg(test)]
+mod lazy_tests {
+    use super::*;
+    fn log() -> StoredLog {
+        let data = Arc::new(crate::domain::EventLog {
+            name: None,
+            cases: vec![],
+            warnings: vec![],
+        });
+        StoredLog {
+            id: "log-1".into(),
+            filename: "empty.xes".into(),
+            analysis_version: 1,
+            view_revision: 1,
+            threshold: 1,
+            selected: None,
+            selected_case: None,
+            analysis: Arc::new(crate::mining::analyze(&data)),
+            source: data.clone(),
+            data,
+            elapsed_ms: 0,
+            source_sha256: "0".repeat(64),
+            order: crate::csv_io::NormalizationOrder::Source,
+            filters: Default::default(),
+            calendar: Default::default(),
+            project_id: Some("p".into()),
+        }
+    }
+    #[test]
+    fn metadata_delta_preserves_unloaded_catalog_and_only_explicit_deletion_removes() {
+        let mut repo = Repository {
+            lazy_resources: true,
+            log_ids: BTreeSet::from(["log-1".into(), "log-2".into()]),
+            ..Default::default()
+        };
+        let base = log();
+        track_log(&mut repo, &base);
+        repo.logs.insert(base.id.clone(), base);
+        repo.sequence += 1;
+        let write = prepare("p", &repo, false).unwrap();
+        assert!(write.puts.is_empty());
+        assert!(write.deletes.is_empty());
+        assert_eq!(
+            Header::parse(write.metadata).unwrap().log_ids,
+            vec!["log-1", "log-2"]
+        );
+        mark_persisted(&mut repo);
+        assert!(repo.logs.is_empty());
+        assert_eq!(repo.log_ids.len(), 2);
+        repo.deleted_log_ids.insert("log-1".into());
+        let write = prepare("p", &repo, false).unwrap();
+        assert_eq!(write.deletes.len(), 4);
+        assert_eq!(
+            Header::parse(write.metadata).unwrap().log_ids,
+            vec!["log-2"]
+        );
+    }
+    #[test]
+    fn comparison_tokens_do_not_keep_heavy_owners_alive() {
+        let mut repo = Repository::default();
+        let base = log();
+        let weak = Arc::downgrade(&base.data);
+        track_log(&mut repo, &base);
+        assert_eq!(Arc::strong_count(&base.data), 2);
+        drop(base);
+        assert!(weak.upgrade().is_none());
+        assert!(repo.persisted.logs["log-1"].data.upgrade().is_none());
+    }
 }

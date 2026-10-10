@@ -35,6 +35,7 @@ pub struct AppState {
     pub(crate) platform: Option<Arc<crate::platform::Platform>>,
     pub(crate) actor: Option<crate::auth::Actor>,
     pub(crate) session: Option<String>,
+    pub(crate) payload_permit: Option<Arc<tokio::sync::OwnedSemaphorePermit>>,
 }
 
 #[derive(Default, Clone, Serialize, Deserialize)]
@@ -50,6 +51,16 @@ pub(crate) struct Repository {
     pub(crate) storage_revision: u64,
     #[serde(skip)]
     pub(crate) persisted: Arc<crate::repository_v2::Baseline>,
+    #[serde(skip)]
+    pub(crate) lazy_resources: bool,
+    #[serde(skip)]
+    pub(crate) log_ids: BTreeSet<String>,
+    #[serde(skip)]
+    pub(crate) model_ids: BTreeSet<String>,
+    #[serde(skip)]
+    pub(crate) deleted_log_ids: BTreeSet<String>,
+    #[serde(skip)]
+    pub(crate) deleted_model_ids: BTreeSet<String>,
 }
 
 #[derive(Clone, Serialize, Deserialize)]
@@ -81,8 +92,34 @@ pub(crate) struct UserView {
     pub(crate) revision: u64,
 }
 impl Repository {
-    pub(crate) fn get_log(&self, state: &AppState, id: &str) -> Option<StoredLog> {
-        let mut log = self.logs.get(id)?.clone();
+    pub(crate) fn get_log_base(
+        &mut self,
+        state: &AppState,
+        id: &str,
+    ) -> Result<Option<StoredLog>, crate::domain::ImportError> {
+        state.validate_resource_actor()?;
+        let base = if let Some(log) = self.logs.get(id) {
+            log.clone()
+        } else if self.lazy_resources && self.log_ids.contains(id) {
+            let platform = state.platform.as_ref().expect("lazy platform");
+            let actor = state.actor.as_ref().expect("scoped actor");
+            platform
+                .resources
+                .get_log(&platform.database, &actor.project_id, id)?
+        } else {
+            return Ok(None);
+        };
+        crate::repository_v2::track_log(self, &base);
+        Ok(Some(base))
+    }
+    pub(crate) fn get_log(
+        &mut self,
+        state: &AppState,
+        id: &str,
+    ) -> Result<Option<StoredLog>, crate::domain::ImportError> {
+        let Some(mut log) = self.get_log_base(state, id)? else {
+            return Ok(None);
+        };
         if let Some(view) = self
             .user_views
             .get(state.actor_id())
@@ -93,7 +130,54 @@ impl Repository {
             log.selected_case = view.selected_case.clone();
             log.view_revision = view.revision;
         }
-        Some(log)
+        crate::repository_v2::validate_view(
+            &log,
+            log.threshold,
+            log.selected.as_deref(),
+            log.selected_case.as_deref(),
+        )?;
+        Ok(Some(log))
+    }
+    pub(crate) fn get_model(
+        &mut self,
+        state: &AppState,
+        id: &str,
+    ) -> Result<Option<Arc<crate::platform::StoredModel>>, crate::domain::ImportError> {
+        state.validate_resource_actor()?;
+        let model = if let Some(model) = self.models.get(id) {
+            model.clone()
+        } else if self.lazy_resources && self.model_ids.contains(id) {
+            let p = state.platform.as_ref().expect("lazy platform");
+            p.resources.get_model(
+                &p.database,
+                &state.actor.as_ref().expect("actor").project_id,
+                id,
+            )?
+        } else {
+            return Ok(None);
+        };
+        crate::repository_v2::track_model(self, &model);
+        Ok(Some(model))
+    }
+    pub(crate) fn log_count(&self) -> usize {
+        self.log_ids
+            .iter()
+            .chain(self.logs.keys())
+            .collect::<BTreeSet<_>>()
+            .len()
+    }
+    pub(crate) fn model_count(&self) -> usize {
+        self.model_ids
+            .iter()
+            .chain(self.models.keys())
+            .collect::<BTreeSet<_>>()
+            .len()
+    }
+    pub(crate) fn contains_log(&self, id: &str) -> bool {
+        self.log_ids.contains(id) || self.logs.contains_key(id)
+    }
+    pub(crate) fn contains_model(&self, id: &str) -> bool {
+        self.model_ids.contains(id) || self.models.contains_key(id)
     }
     fn save_view(&mut self, state: &AppState, log: &StoredLog) {
         self.user_views
@@ -112,6 +196,23 @@ impl Repository {
 }
 
 impl AppState {
+    fn validate_resource_actor(&self) -> Result<(), crate::domain::ImportError> {
+        if let (Some(p), Some(expected)) = (&self.platform, &self.actor) {
+            let actual = p.auth.actor(self.session.as_deref().ok_or_else(|| {
+                crate::domain::ImportError::new("access_denied", "Войдите в проект.")
+            })?)?;
+            if actual.id != expected.id
+                || actual.project_id != expected.project_id
+                || actual.role != expected.role
+            {
+                return Err(crate::domain::ImportError::new(
+                    "access_denied",
+                    "Права проекта изменились. Откройте его заново.",
+                ));
+            }
+        }
+        Ok(())
+    }
     pub fn open(port: u16, url: String) -> Result<Self, crate::domain::ImportError> {
         let mut state = Self::new(port);
         state.platform = Some(Arc::new(crate::platform::Platform::open(url)?));
@@ -127,6 +228,7 @@ impl AppState {
             platform: None,
             actor: None,
             session: None,
+            payload_permit: None,
         }
     }
 }
@@ -144,7 +246,24 @@ impl AppState {
     ) -> Result<(), crate::domain::ImportError> {
         if let (Some(platform), Some(actor)) = (&self.platform, &self.actor) {
             let write = crate::repository_v2::prepare(&actor.project_id, next, importing)?;
+            let logs = write
+                .puts
+                .iter()
+                .filter(|(kind, _, _)| kind.starts_with("log_"))
+                .map(|(_, id, _)| id.clone())
+                .chain(next.deleted_log_ids.iter().cloned())
+                .collect::<Vec<_>>();
+            let models = write
+                .puts
+                .iter()
+                .filter(|(kind, _, _)| kind == "model")
+                .map(|(_, id, _)| id.clone())
+                .chain(next.deleted_model_ids.iter().cloned())
+                .collect::<Vec<_>>();
             next.storage_revision = platform.database.write_project(write)?;
+            platform
+                .resources
+                .invalidate(&actor.project_id, &logs, &models);
             crate::repository_v2::mark_persisted(next);
         }
         Ok(())
@@ -223,6 +342,58 @@ async fn request_guard(State(state): State<AppState>, request: Request, next: Ne
     response
 }
 
+struct AdmittedBytes {
+    data: axum::body::Bytes,
+    _permit: Arc<tokio::sync::OwnedSemaphorePermit>,
+}
+const ADMITTED_FRAME_BYTES: usize = 16 * 1024;
+impl AsRef<[u8]> for AdmittedBytes {
+    fn as_ref(&self) -> &[u8] {
+        self.data.as_ref()
+    }
+}
+fn admitted_chunk(
+    data: axum::body::Bytes,
+    permit: Arc<tokio::sync::OwnedSemaphorePermit>,
+) -> axum::body::Bytes {
+    // Hyper can own a frame after the Body has reached EOF. Tie admission to
+    // that frame's shared allocation, including all Bytes clones/slices.
+    axum::body::Bytes::from_owner(AdmittedBytes {
+        data,
+        _permit: permit,
+    })
+}
+fn admitted_response(
+    mut response: Response,
+    permit: Option<Arc<tokio::sync::OwnedSemaphorePermit>>,
+) -> Response {
+    if let Some(permit) = permit {
+        // Keep admission until the complete response stream is consumed or
+        // disconnected. A slow client must not create unlimited payload pins.
+        let (parts, body) = response.into_parts();
+        let stream = body.into_data_stream();
+        let guarded = futures_util::stream::unfold(
+            (stream, permit, axum::body::Bytes::new()),
+            |(mut stream, permit, mut pending)| async move {
+                use futures_util::StreamExt;
+                if pending.is_empty() {
+                    match stream.next().await? {
+                        Ok(data) => pending = admitted_chunk(data, permit.clone()),
+                        Err(error) => return Some((Err(error), (stream, permit, pending))),
+                    }
+                }
+                // Hyper's buffer ceiling is checked between frames, not within
+                // a frame. Keep the unyielded tail and its lease in this stream
+                // so one giant JSON/SSE allocation cannot bypass backpressure.
+                let frame = pending.split_to(pending.len().min(ADMITTED_FRAME_BYTES));
+                Some((Ok(frame), (stream, permit, pending)))
+            },
+        );
+        response = Response::from_parts(parts, axum::body::Body::from_stream(guarded));
+    }
+    response
+}
+
 async fn guard_inner(State(state): State<AppState>, mut request: Request, next: Next) -> Response {
     let host = request
         .headers()
@@ -258,6 +429,7 @@ async fn guard_inner(State(state): State<AppState>, mut request: Request, next: 
         }
     }
     let path = request.uri().path().to_string();
+    let mut permit = None;
     if let Some(platform) = &state.platform {
         let public = matches!(path.as_str(), "/health" | "/setup" | "/login")
             || path.starts_with("/static/");
@@ -292,7 +464,36 @@ async fn guard_inner(State(state): State<AppState>, mut request: Request, next: 
                     "Роль viewer допускает только чтение.",
                 );
             }
-            let root = state.clone();
+            let method = request.method();
+            let heavy = path == "/"
+                || path == "/logs" && method != axum::http::Method::GET
+                || path.starts_with("/logs/")
+                || path.starts_with("/models/")
+                || path == "/models" && method != axum::http::Method::GET
+                || matches!(
+                    path.as_str(),
+                    "/backup" | "/restore" | "/demo" | "/jobs" | "/csv/preview" | "/csv/import"
+                );
+            permit = if heavy {
+                if let Some(p) = &state.platform {
+                    match p.payload_slots.clone().try_acquire_owned() {
+                        Ok(p) => Some(Arc::new(p)),
+                        Err(_) => {
+                            return error_json(
+                                StatusCode::SERVICE_UNAVAILABLE,
+                                "cache_busy",
+                                "Другие операции уже используют данные. Повторите запрос.",
+                            );
+                        }
+                    }
+                } else {
+                    None
+                }
+            } else {
+                None
+            };
+            let mut root = state.clone();
+            root.payload_permit = permit.clone();
             let platform = platform.clone();
             match tokio::task::spawn_blocking(move || platform.scope(&root, actor)).await {
                 Ok(Ok(mut scoped)) => {
@@ -321,7 +522,7 @@ async fn guard_inner(State(state): State<AppState>, mut request: Request, next: 
         .get::<AppState>()
         .cloned()
         .unwrap_or_else(|| state.clone());
-    if upload_too_large {
+    let response = if upload_too_large {
         page(
             &scoped,
             current(&scoped).as_ref(),
@@ -330,7 +531,8 @@ async fn guard_inner(State(state): State<AppState>, mut request: Request, next: 
         )
     } else {
         next.run(request).await
-    }
+    };
+    admitted_response(response, permit)
 }
 async fn health(State(state): State<AppState>) -> Response {
     if let Some(platform) = state.platform {
@@ -350,29 +552,42 @@ async fn health(State(state): State<AppState>) -> Response {
 }
 
 fn current(state: &AppState) -> Option<StoredLog> {
-    let repository = state.repository.lock().expect("repository mutex");
-    repository
-        .current
-        .get(state.actor_id())
-        .and_then(|id| repository.get_log(state, id))
+    current_result(state).ok().flatten()
+}
+fn current_result(state: &AppState) -> Result<Option<StoredLog>, crate::domain::ImportError> {
+    let mut repository = state.repository.lock().expect("repository mutex");
+    match repository.current.get(state.actor_id()).cloned() {
+        Some(id) => repository.get_log(state, &id),
+        None => Ok(None),
+    }
 }
 
 async fn index(Workspace(state): Workspace) -> Response {
     let job = state.jobs.current().map(|job| job.snapshot());
-    page_with_job(
-        &state,
-        current(&state).as_ref(),
-        None,
-        StatusCode::OK,
-        job.as_ref(),
-    )
+    let log = match tokio::task::spawn_blocking({
+        let state = state.clone();
+        move || current_result(&state)
+    })
+    .await
+    {
+        Ok(Ok(log)) => log,
+        Ok(Err(e)) => return resource_error(e),
+        Err(_) => {
+            return error_json(
+                StatusCode::INTERNAL_SERVER_ERROR,
+                "worker_failed",
+                "Не удалось открыть журнал.",
+            );
+        }
+    };
+    page_with_job(&state, log.as_ref(), None, StatusCode::OK, job.as_ref())
 }
 
 async fn show(Workspace(state): Workspace, Path(id): Path<String>) -> Response {
     let save = state.clone();
     let log = tokio::task::spawn_blocking(move || {
         let mut repository = save.repository.lock().expect("repository mutex");
-        let log = repository.get_log(&save, &id);
+        let log = repository.get_log(&save, &id)?;
         if log.is_some() {
             let mut next = repository.clone();
             next.current.insert(save.actor_id().into(), id);
@@ -385,6 +600,7 @@ async fn show(Workspace(state): Workspace, Path(id): Path<String>) -> Response {
     match log {
         Ok(Ok(Some(log))) => page(&state, Some(&log), None, StatusCode::OK),
         Ok(Ok(None)) => not_found(),
+        Ok(Err(e)) => resource_error(e),
         _ => error_json(
             StatusCode::SERVICE_UNAVAILABLE,
             "storage_unavailable",
@@ -566,7 +782,7 @@ pub(crate) fn store_log(
     completed: Option<&JobSnapshot>,
 ) -> Result<StoredLog, crate::domain::ImportError> {
     let mut repository = state.repository.lock().expect("repository mutex");
-    if state.platform.is_some() && repository.logs.len() >= MAX_LOGS {
+    if state.platform.is_some() && repository.log_count() >= MAX_LOGS {
         return Err(crate::domain::ImportError::new(
             "log_limit",
             "В проекте уже восемь журналов. Создайте другой проект для нового импорта; прежние данные сохранены.",
@@ -578,7 +794,7 @@ pub(crate) fn store_log(
     let (number, id) = loop {
         let number = state.next_id(fallback)?;
         let id = format!("log-{number}");
-        if !next.logs.contains_key(&id) {
+        if !next.contains_log(&id) {
             break (number, id);
         }
         fallback += 1;
@@ -718,6 +934,10 @@ async fn enqueue_job(state: AppState, content: Vec<u8>, filename: String) -> Res
         StatusCode::ACCEPTED,
         Some(&lease.job.snapshot()),
     );
+    let mut state = state;
+    // Background work has its own bounded job lease, independent of the
+    // upload HTTP operation and its response lifetime.
+    state.payload_permit = None;
     tokio::spawn(async move {
         let job = lease.job.clone();
         let start = Instant::now();
@@ -872,13 +1092,26 @@ async fn job_events(Workspace(state): Workspace, Path(id): Path<String>) -> Resp
         );
     };
     let receiver = job.subscribe();
+    let frame_permit = Arc::new(Mutex::new(None::<Arc<tokio::sync::OwnedSemaphorePermit>>));
+    let carrier = frame_permit.clone();
     let stream = futures_util::stream::unfold(
-        (receiver, state, true, false, VecDeque::<SseEvent>::new()),
-        |(mut receiver, state, mut first, mut terminal, mut pending)| async move {
+        (
+            receiver,
+            state,
+            true,
+            false,
+            VecDeque::<SseEvent>::new(),
+            carrier,
+        ),
+        |(mut receiver, mut state, mut first, mut terminal, mut pending, carrier)| async move {
+            // The previously yielded analysis event is consumed; release its
+            // operation admission before waiting for another job snapshot.
+            state.payload_permit = None;
+            *carrier.lock().expect("SSE admission carrier") = None;
             if let Some(event) = pending.pop_front() {
                 return Some((
                     Ok::<_, Infallible>(event),
-                    (receiver, state, first, terminal, pending),
+                    (receiver, state, first, terminal, pending, carrier),
                 ));
             }
             if terminal {
@@ -905,15 +1138,46 @@ async fn job_events(Workspace(state): Workspace, Path(id): Path<String>) -> Resp
             }
             terminal = snapshot.is_terminal();
             if snapshot.state == JobState::Completed {
-                let repository = state.repository.lock().expect("repository mutex");
-                let log = snapshot
-                    .result_id
-                    .as_ref()
-                    .filter(|id| repository.current.get(state.actor_id()) == Some(*id))
-                    .and_then(|id| repository.get_log(&state, id));
-                drop(repository);
-                if let Some(log) = log {
-                    pending.push_back(patch_event("#analysis-panel", panel(&log)));
+                if let Some(p) = &state.platform {
+                    match p.payload_slots.clone().try_acquire_owned() {
+                        Ok(permit) => state.payload_permit = Some(Arc::new(permit)),
+                        Err(_) => {
+                            pending.push_back(patch_event("#job-panel",format!("{}<p>Результат сохранён. Откройте журнал после завершения других операций.</p>",job_panel(&snapshot))));
+                            let event = pending.pop_front().expect("event");
+                            return Some((
+                                Ok::<_, Infallible>(event),
+                                (receiver, state, first, terminal, pending, carrier),
+                            ));
+                        }
+                    }
+                }
+                let worker = state.clone();
+                let id = snapshot.result_id.clone();
+                let result = tokio::task::spawn_blocking(move || {
+                    let mut repository = worker.repository.lock().expect("repository mutex");
+                    let log = match id
+                        .filter(|id| repository.current.get(worker.actor_id()) == Some(id))
+                    {
+                        Some(id) => repository.get_log(&worker, &id)?,
+                        None => None,
+                    };
+                    Ok::<_, crate::domain::ImportError>(log.as_ref().map(panel))
+                })
+                .await;
+                match result {
+                    Ok(Ok(Some(html))) => {
+                        *carrier.lock().expect("SSE admission carrier") =
+                            state.payload_permit.clone();
+                        pending.push_back(patch_event("#analysis-panel", html));
+                    }
+                    Ok(Err(e)) => {
+                        tracing::warn!(code=%e.code,"job_result_resource_refused");
+                        return None;
+                    }
+                    Err(_) => return None,
+                    _ => {
+                        state.payload_permit = None;
+                    }
                 }
             }
             pending.push_back(
@@ -923,17 +1187,44 @@ async fn job_events(Workspace(state): Workspace, Path(id): Path<String>) -> Resp
             let event = pending.pop_front().expect("snapshot event");
             Some((
                 Ok::<_, Infallible>(event),
-                (receiver, state, first, terminal, pending),
+                (receiver, state, first, terminal, pending, carrier),
             ))
         },
     );
-    Sse::new(stream)
+    let response = Sse::new(stream)
         .keep_alive(
             axum::response::sse::KeepAlive::new()
                 .interval(std::time::Duration::from_secs(10))
                 .text("heartbeat"),
         )
-        .into_response()
+        .into_response();
+    let (parts, body) = response.into_parts();
+    let guarded = futures_util::stream::unfold(
+        (
+            body.into_data_stream(),
+            frame_permit,
+            axum::body::Bytes::new(),
+        ),
+        |(mut stream, carrier, mut pending)| async move {
+            use futures_util::StreamExt;
+            if pending.is_empty() {
+                let item = stream.next().await?;
+                let permit = carrier.lock().expect("SSE admission carrier").clone();
+                match item {
+                    Ok(data) => {
+                        pending = match permit {
+                            Some(permit) => admitted_chunk(data, permit),
+                            None => data,
+                        }
+                    }
+                    Err(error) => return Some((Err(error), (stream, carrier, pending))),
+                }
+            }
+            let frame = pending.split_to(pending.len().min(ADMITTED_FRAME_BYTES));
+            Some((Ok(frame), (stream, carrier, pending)))
+        },
+    );
+    Response::from_parts(parts, axum::body::Body::from_stream(guarded))
 }
 
 fn job_section(snapshot: &JobSnapshot) -> String {
@@ -1068,8 +1359,10 @@ async fn update_view(
     let result = tokio::task::spawn_blocking(move || {
         let mut repository = worker.repository.lock().expect("repository mutex");
         let mut next = repository.clone();
-        let Some(mut log) = repository.get_log(&worker, &id) else {
-            return not_found();
+        let mut log = match repository.get_log(&worker, &id) {
+            Ok(Some(log)) => log,
+            Ok(None) => return not_found(),
+            Err(e) => return resource_error(e),
         };
         match graph_view(
             &log.analysis,
@@ -1125,8 +1418,10 @@ async fn select(
     let result = tokio::task::spawn_blocking(move || {
         let mut repository = worker.repository.lock().expect("repository mutex");
         let mut next = repository.clone();
-        let Some(mut log) = repository.get_log(&worker, &id) else {
-            return not_found();
+        let mut log = match repository.get_log(&worker, &id) {
+            Ok(Some(log)) => log,
+            Ok(None) => return not_found(),
+            Err(e) => return resource_error(e),
         };
         let valid = match form.kind.as_str() {
             "node" => log.analysis.nodes.iter().any(|n| n.id == form.id),
@@ -1179,9 +1474,11 @@ async fn graph(
     Query(query): Query<GraphQuery>,
 ) -> Response {
     tokio::task::spawn_blocking(move || {
-        let repository = state.repository.lock().expect("repository mutex");
-        let Some(log) = repository.get_log(&state, &id) else {
-            return not_found();
+        let mut repository = state.repository.lock().expect("repository mutex");
+        let log = match repository.get_log(&state, &id) {
+            Ok(Some(log)) => log,
+            Ok(None) => return not_found(),
+            Err(e) => return resource_error(e),
         };
         match graph_view(
             &log.analysis,
@@ -1207,9 +1504,9 @@ async fn graph(
 
 async fn export(Workspace(state): Workspace, Path(id): Path<String>) -> Response {
     tokio::task::spawn_blocking(move|| {
-    let repository = state.repository.lock().expect("repository mutex");
-    let Some(log) = repository.get_log(&state, &id) else {
-        return not_found();
+    let mut repository = state.repository.lock().expect("repository mutex");
+    let log = match repository.get_log(&state, &id) {
+        Ok(Some(log))=>log, Ok(None)=>return not_found(), Err(e)=>return resource_error(e),
     };
     let mut response = Json(json!({
         "schema_version":1,"log_id":log.id,"name":log.filename,"analysis_version":log.analysis_version,"view_revision":log.view_revision,
@@ -1236,6 +1533,15 @@ fn not_found() -> Response {
         "not_found",
         "Журнал не найден в текущем проекте.",
     )
+}
+fn resource_error(e: crate::domain::ImportError) -> Response {
+    let status = match e.code.as_str() {
+        "access_denied" => StatusCode::FORBIDDEN,
+        "storage_conflict" => StatusCode::CONFLICT,
+        "storage_unavailable" | "storage_busy" | "cache_busy" => StatusCode::SERVICE_UNAVAILABLE,
+        _ => StatusCode::UNPROCESSABLE_ENTITY,
+    };
+    error_json(status, &e.code, &e.message)
 }
 fn error_json(status: StatusCode, code: &str, message: &str) -> Response {
     (status, Json(json!({"code":code,"message":message}))).into_response()
@@ -1479,4 +1785,57 @@ fn patch(html: String) -> Response {
         Ok::<_, Infallible>(event)
     }))
     .into_response()
+}
+
+#[cfg(test)]
+mod admission_tests {
+    use super::*;
+    #[tokio::test]
+    async fn large_output_is_incremental_and_unyielded_tail_keeps_admission() {
+        use futures_util::StreamExt;
+        let slots = Arc::new(Semaphore::new(1));
+        let permit = Arc::new(slots.clone().try_acquire_owned().unwrap());
+        let expected: Vec<u8> = (0..ADMITTED_FRAME_BYTES * 3 + 7)
+            .map(|index| (index % 251) as u8)
+            .collect();
+        let response = admitted_response(expected.clone().into_response(), Some(permit));
+        let mut stream = response.into_body().into_data_stream();
+        let first = stream.next().await.unwrap().unwrap();
+        assert_eq!(first.len(), ADMITTED_FRAME_BYTES);
+        let mut actual = first.to_vec();
+        drop(first);
+        assert_eq!(slots.available_permits(), 0);
+        let mut last = None;
+        while let Some(frame) = stream.next().await {
+            let frame = frame.unwrap();
+            assert!(frame.len() <= ADMITTED_FRAME_BYTES);
+            actual.extend_from_slice(&frame);
+            last = Some(frame);
+        }
+        drop(stream);
+        assert_eq!(actual, expected);
+        assert_eq!(slots.available_permits(), 0);
+        drop(last);
+        assert_eq!(slots.available_permits(), 1);
+    }
+    #[tokio::test]
+    async fn transport_frame_and_slices_keep_admission_after_body_eof() {
+        use futures_util::StreamExt;
+        let slots = Arc::new(Semaphore::new(1));
+        let permit = Arc::new(slots.clone().try_acquire_owned().unwrap());
+        let response = admitted_response(
+            axum::body::Bytes::from_static(b"outgoing frame").into_response(),
+            Some(permit),
+        );
+        let mut stream = response.into_body().into_data_stream();
+        let chunk = stream.next().await.unwrap().unwrap();
+        assert!(stream.next().await.is_none());
+        drop(stream);
+        assert_eq!(slots.available_permits(), 0);
+        let tail = chunk.slice(3..);
+        drop(chunk);
+        assert_eq!(slots.available_permits(), 0);
+        drop(tail);
+        assert_eq!(slots.available_permits(), 1);
+    }
 }

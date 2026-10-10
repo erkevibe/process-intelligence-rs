@@ -1,0 +1,11 @@
+# Customer independent BODY resume position, before proposal
+
+Owner /root/customer. Read invitation, exact draft04 constrained ordinary/report and actual CompletedSSE/report, TD BODY01/02 source positions. No runtime/DB change and no vote. C1 remains withdrawn.
+
+Fact: exact E704 draft under actual4096-byte receive window and headers-only/no body drain retains two active heavy operations for both ordinary responses and real Completed job SSE, refuses a third, and releases independently on socket close with legitimate subsequent response healthy. This is meaningful independent transport evidence, not a unit test or merely Node paused event consumption. User value: slow/disconnected clients cannot defeat the intended bounded heavy operation admission while large app-owned payload remains unfinished.
+
+Risk: full-consumed completion release and idle SSE watcher behavior are still pending at this snapshot. Without them the repair may protect slow outputs yet starve normal navigation/status after output completes, or let idle watchers hold heavy permits. Exact output equality/hash, counter scope and ownership must stay honest; app ownership is not a promise that lease lasts until a peer application reads the final network byte. NativeOS cause of earlier active1 probes is unidentified, not a proven kernel/Hyper story.
+
+Proposal: support newC2 freeze/full acceptance after independent QA/TD close all meaningful targeted cases, including fully consumed payload and idleSSE/health/navigation, with exact E704/web source identity. Preserve repeated failures/withdrawnC1 and no lowered gate/timeouts/corpus. New C2 then repeats required final lazy/cache/data/performance/package gates; this targeted evidence is not a release or blanket memory proof. No additional feature/deadline authority.
+
+Basis: TD inspected16384-byte pending-tail plus Bytesowner reservation, no timers/fake counters/cycles; actual ordinary2PASS and CompletedSSE2PASS demonstrate the intended constrained-output branch. Independent Customer did not perform those requests; accepts attributed evidence for preliminary position only. Remaining actual closure and immutable proposal precede any new Customer vote. Existing protected installs remain untouched.

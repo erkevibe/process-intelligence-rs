@@ -1,0 +1,187 @@
+{
+  "source": "55e8dd28bee413316deba0aa252ceb6a436b9ffa",
+  "exe_sha256": "4DA47C60DA169B2B0D659E4583A72EA5E17DBCE18B83E28B8923B2DF1CDAF98A",
+  "primary_pass": true,
+  "cycles": 3,
+  "full_export_hashes": 18,
+  "samples": 547,
+  "app_ws_max": 405127168.0,
+  "lifetime_peak": 414781440.0,
+  "quiescent": [
+    {
+      "cycle": 1,
+      "samples": 31,
+      "max_app_ws": 179593216.0
+    },
+    {
+      "cycle": 2,
+      "samples": 29,
+      "max_app_ws": 182853632.0
+    },
+    {
+      "cycle": 3,
+      "samples": 30,
+      "max_app_ws": 186798080.0
+    }
+  ],
+  "ready_ms": [
+    971.1768,
+    853.6522,
+    894.3236
+  ],
+  "small_metrics": [
+    {
+      "operation": "first_protected_project_open_including_redirect_and_lazy_load",
+      "wall_ms": 32.437799999999925,
+      "status": 200
+    },
+    {
+      "operation": "existing_export_after_first_navigation",
+      "wall_ms": 637.0668000000001,
+      "status": 200
+    },
+    {
+      "operation": "view_1",
+      "wall_ms": 172.23550000000023,
+      "status": 200
+    },
+    {
+      "operation": "view_2",
+      "wall_ms": 159.92750000000024,
+      "status": 200
+    },
+    {
+      "operation": "view_3",
+      "wall_ms": 213.45150000000012,
+      "status": 200
+    },
+    {
+      "operation": "model_1",
+      "wall_ms": 21.274399999999787,
+      "status": 200
+    },
+    {
+      "operation": "model_2",
+      "wall_ms": 15.346700000000055,
+      "status": 200
+    },
+    {
+      "operation": "model_3",
+      "wall_ms": 13.222999999999956,
+      "status": 200
+    },
+    {
+      "operation": "job_admission_1",
+      "wall_ms": 204.0697,
+      "status": 202
+    },
+    {
+      "operation": "job_cancel_1",
+      "wall_ms": 8.559000000000196,
+      "status": 200
+    },
+    {
+      "operation": "job_admission_2",
+      "wall_ms": 199.10390000000007,
+      "status": 202
+    },
+    {
+      "operation": "job_cancel_2",
+      "wall_ms": 6.644999999999527,
+      "status": 200
+    },
+    {
+      "operation": "job_admission_3",
+      "wall_ms": 208.39889999999923,
+      "status": 202
+    },
+    {
+      "operation": "job_cancel_3",
+      "wall_ms": 7.780399999999645,
+      "status": 200
+    }
+  ],
+  "small_checks": [
+    {
+      "name": "3realview+3realmodelwrites all18originalheavyrecordversions/fullhashes unchanged",
+      "pass": true
+    },
+    {
+      "name": "3actualaccepted100kjobcancellations heavyversions/fullhashes unchanged",
+      "pass": true
+    }
+  ],
+  "baseline_app_ws_gate": 1109307392,
+  "baseline_quiescent_gate": 816979968,
+  "scope": "ExactC2 fixedmatchedprimary3cycles6logsA/B/C/A; full consumed export hashes equal pinnedB4; exclusiveCPUwindow; appWS finite sampled, lifetimepeak separate; PGsum ownpackage only sharedpages may doublecount",
+  "sample_interval_ms": {
+    "target": 100,
+    "min": 147.16570000000138,
+    "mean": 167.3856913919414,
+    "max": 966.1549999999988
+  },
+  "full_export_elapsed_max_ms": 1041.2829999999958,
+  "cache_cycle_checkpoints": [
+    {
+      "cycle": 1,
+      "cache": {
+        "active_limit": 2,
+        "active_payload_operations": 0,
+        "cache": {
+          "charged_bytes": 133156447,
+          "entries": 3,
+          "evictions": 21,
+          "flight_hits": 0,
+          "hits": 0,
+          "loads": 24,
+          "misses": 24,
+          "oversize_bypasses": 0
+        },
+        "charged_byte_limit": 134217728,
+        "entry_limit": 8,
+        "scope": "retained cache estimate; active payloads/jobs/uploads/allocator excluded"
+      }
+    },
+    {
+      "cycle": 2,
+      "cache": {
+        "active_limit": 2,
+        "active_payload_operations": 0,
+        "cache": {
+          "charged_bytes": 133156447,
+          "entries": 3,
+          "evictions": 45,
+          "flight_hits": 0,
+          "hits": 0,
+          "loads": 48,
+          "misses": 48,
+          "oversize_bypasses": 0
+        },
+        "charged_byte_limit": 134217728,
+        "entry_limit": 8,
+        "scope": "retained cache estimate; active payloads/jobs/uploads/allocator excluded"
+      }
+    },
+    {
+      "cycle": 3,
+      "cache": {
+        "active_limit": 2,
+        "active_payload_operations": 0,
+        "cache": {
+          "charged_bytes": 133156447,
+          "entries": 3,
+          "evictions": 69,
+          "flight_hits": 0,
+          "hits": 0,
+          "loads": 72,
+          "misses": 72,
+          "oversize_bypasses": 0
+        },
+        "charged_byte_limit": 134217728,
+        "entry_limit": 8,
+        "scope": "retained cache estimate; active payloads/jobs/uploads/allocator excluded"
+      }
+    }
+  ],
+  "numeric_gates_pass": true
+}

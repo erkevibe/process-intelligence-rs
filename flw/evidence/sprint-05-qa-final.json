@@ -1,0 +1,407 @@
+{
+  "utc": "2026-10-10T23:24:31.759271+00:00",
+  "role": "Independent QA / ProcessLogAuditor; not production author",
+  "source": "55e8dd28bee413316deba0aa252ceb6a436b9ffa",
+  "exe_sha256": "4DA47C60DA169B2B0D659E4583A72EA5E17DBCE18B83E28B8923B2DF1CDAF98A",
+  "zip_sha256": "BF900C88EC8B5E8ABFFC292C5C9704B152C053725D1DA7B15EE3E930285B4EFB",
+  "zip_bytes": 56611093,
+  "plan_sha256": "0A0C5F8CB468F618ABD01403BDADE40D817A5E25F82428C94D981C21113480ED",
+  "position": "Support bounded artifact acceptance and promotion conditional on exact final Council, final-head CI and nonwaivable public/postlive A10. This is a preproposal QA position, not a vote or completed public delivery.",
+  "matrix": [
+    {
+      "id": "A01",
+      "status": "PASS scoped",
+      "basis": "Original10 complete project headers/version/doc SHA including jobs/views/model catalogs; original94 records and all users/original memberships equal accepted B4. New QA sessions/projects legitimately differ.",
+      "evidence": [
+        "flw/evidence/sprint-05-qa-c2-original-state.json"
+      ]
+    },
+    {
+      "id": "A02",
+      "status": "PASS",
+      "basis": "Metadata load counters zero; requested log loads independently; unrequested corrupt sibling deferred, requested corruption422 before disclosure, restored record exact.",
+      "evidence": [
+        ".local/sprint05/qa/c2-functional01/functional-report.json"
+      ]
+    },
+    {
+      "id": "A03",
+      "status": "PASS bounded",
+      "basis": "128MiB/8 retained checkpoints; actual model entry eviction; oversized full decoded77487851B usable without retention; actual PG singleflight one load; two constrained outbound bodies/SSE hold2 permits, third503, independent drops1/0; disconnected blocked worker retains permit; idle actual Running watchers navigation works.",
+      "evidence": [
+        ".local/sprint05/qa/c2-admission01/admission-report.json",
+        ".local/sprint05/qa/c2-body01/report.json",
+        ".local/sprint05/qa/c2-sse-body01/report.json",
+        ".local/sprint05/qa/c2-idle01/report.json",
+        ".local/sprint05/qa/c2-model-cache01/report.json",
+        ".local/sprint05/qa/c2-oversize01/report.json",
+        ".local/sprint05/qa/logs/c2-singleflight01.stdout.log"
+      ]
+    },
+    {
+      "id": "A04",
+      "status": "PASS",
+      "basis": "Exact fixed six logs times3 projects, A/B/C/A all6 times3 cycles:72 full reads/18 hashes equal pinned B4, actual69 evictions/72 loads final133156447B/3 entries.",
+      "evidence": [
+        "flw/evidence/sprint-05-qa-c2-performance.json"
+      ]
+    },
+    {
+      "id": "A05",
+      "status": "PASS scoped",
+      "basis": "Views/model/job cancellation preserve all18 original heavy versions/hashes; source-based filters/calendar preserve unloaded siblings; same cached session role upgrade/downgrade enforced; cross-user and CAS rollback PG tests pass. Completed result and actual interrupted/null durable recovery observed, no general exhaustive race claim.",
+      "evidence": [
+        ".local/sprint05/qa/c2-role-delta02/report.json",
+        ".local/sprint05/qa/logs/c2-pg02.stdout.log",
+        ".local/sprint05/qa/logs/c2-pg04.stdout.log",
+        ".local/sprint05/qa/logs/c2-capacity01.stdout.log",
+        ".local/sprint05/qa/c2-recovery01/report.json"
+      ]
+    },
+    {
+      "id": "A06",
+      "status": "PASS scoped",
+      "basis": "Unchanged17200026B100k import Completed/result exact(worker512ms); actual Running+Queued app kill recover Failed/interrupted/null with full record invariance. Own5571 immediate PG/WAL crash actual ctl0/restart0; failclosed then auth/export/write200. Unloaded two same-filename logs+two models semantic backup/new restore/restart exact; full six-log app backup controlled422 backup_limit unchanged20MiB; full stock DB backup separately proven.",
+      "evidence": [
+        ".local/sprint05/qa/c2-recovery01/report.json",
+        ".local/sprint05/qa/c2-project-backup02/report.json",
+        "flw/evidence/sprint-05-package-qa-report.json"
+      ]
+    },
+    {
+      "id": "A07",
+      "status": "PASS fixed numeric gates",
+      "basis": "Exact matched frozen corpus, exclusive CPU window, baseline thresholds frozen before candidate. See numeric section and actual intervals; metadata open is not payload load, admission is not completion.",
+      "evidence": [
+        "flw/evidence/sprint-05-qa-c2-performance.json"
+      ]
+    },
+    {
+      "id": "A08",
+      "status": "PASS applicable scope",
+      "basis": "70 ordinary PASS/13 explicitly ignored. Independently executed applicable real PG6: S2two/S4two/S5singleflightone/S3capacityone. Other historical S3v1 migration tests not credited. Exact frozen build/test0; package1669/frozen355 full hashes; nativePS5 cold+selected DB Start; Power7.6.5 full old03 restore/migrate/backup/new restore94 records/full six exports and refusal negatives.",
+      "evidence": [
+        "flw/evidence/sprint-05-package-qa-report.json",
+        "flw/evidence/sprint-05-package-qa-coverage.json"
+      ]
+    },
+    {
+      "id": "A09",
+      "status": "SCOPED audit PASS; final Council/final-head CI PENDING",
+      "basis": "Independent available raw/source/debt contour established, failures/gaps retained. No final release vote yet; new immutable proposal and final-head CI required.",
+      "evidence": []
+    },
+    {
+      "id": "A10",
+      "status": "PENDING nonwaivable",
+      "basis": "Public exact ZIP/checksum anonymous full download/manifest; fresh user0.5 live and protected old versions postlive still required.",
+      "evidence": []
+    }
+  ],
+  "performance": {
+    "source": "55e8dd28bee413316deba0aa252ceb6a436b9ffa",
+    "exe_sha256": "4DA47C60DA169B2B0D659E4583A72EA5E17DBCE18B83E28B8923B2DF1CDAF98A",
+    "primary_pass": true,
+    "cycles": 3,
+    "full_export_hashes": 18,
+    "samples": 547,
+    "app_ws_max": 405127168.0,
+    "lifetime_peak": 414781440.0,
+    "quiescent": [
+      {
+        "cycle": 1,
+        "samples": 31,
+        "max_app_ws": 179593216.0
+      },
+      {
+        "cycle": 2,
+        "samples": 29,
+        "max_app_ws": 182853632.0
+      },
+      {
+        "cycle": 3,
+        "samples": 30,
+        "max_app_ws": 186798080.0
+      }
+    ],
+    "ready_ms": [
+      971.1768,
+      853.6522,
+      894.3236
+    ],
+    "small_metrics": [
+      {
+        "operation": "first_protected_project_open_including_redirect_and_lazy_load",
+        "wall_ms": 32.437799999999925,
+        "status": 200
+      },
+      {
+        "operation": "existing_export_after_first_navigation",
+        "wall_ms": 637.0668000000001,
+        "status": 200
+      },
+      {
+        "operation": "view_1",
+        "wall_ms": 172.23550000000023,
+        "status": 200
+      },
+      {
+        "operation": "view_2",
+        "wall_ms": 159.92750000000024,
+        "status": 200
+      },
+      {
+        "operation": "view_3",
+        "wall_ms": 213.45150000000012,
+        "status": 200
+      },
+      {
+        "operation": "model_1",
+        "wall_ms": 21.274399999999787,
+        "status": 200
+      },
+      {
+        "operation": "model_2",
+        "wall_ms": 15.346700000000055,
+        "status": 200
+      },
+      {
+        "operation": "model_3",
+        "wall_ms": 13.222999999999956,
+        "status": 200
+      },
+      {
+        "operation": "job_admission_1",
+        "wall_ms": 204.0697,
+        "status": 202
+      },
+      {
+        "operation": "job_cancel_1",
+        "wall_ms": 8.559000000000196,
+        "status": 200
+      },
+      {
+        "operation": "job_admission_2",
+        "wall_ms": 199.10390000000007,
+        "status": 202
+      },
+      {
+        "operation": "job_cancel_2",
+        "wall_ms": 6.644999999999527,
+        "status": 200
+      },
+      {
+        "operation": "job_admission_3",
+        "wall_ms": 208.39889999999923,
+        "status": 202
+      },
+      {
+        "operation": "job_cancel_3",
+        "wall_ms": 7.780399999999645,
+        "status": 200
+      }
+    ],
+    "small_checks": [
+      {
+        "name": "3realview+3realmodelwrites all18originalheavyrecordversions/fullhashes unchanged",
+        "pass": true
+      },
+      {
+        "name": "3actualaccepted100kjobcancellations heavyversions/fullhashes unchanged",
+        "pass": true
+      }
+    ],
+    "baseline_app_ws_gate": 1109307392,
+    "baseline_quiescent_gate": 816979968,
+    "scope": "ExactC2 fixedmatchedprimary3cycles6logsA/B/C/A; full consumed export hashes equal pinnedB4; exclusiveCPUwindow; appWS finite sampled, lifetimepeak separate; PGsum ownpackage only sharedpages may doublecount",
+    "sample_interval_ms": {
+      "target": 100,
+      "min": 147.16570000000138,
+      "mean": 167.3856913919414,
+      "max": 966.1549999999988
+    },
+    "full_export_elapsed_max_ms": 1041.2829999999958,
+    "cache_cycle_checkpoints": [
+      {
+        "cycle": 1,
+        "cache": {
+          "active_limit": 2,
+          "active_payload_operations": 0,
+          "cache": {
+            "charged_bytes": 133156447,
+            "entries": 3,
+            "evictions": 21,
+            "flight_hits": 0,
+            "hits": 0,
+            "loads": 24,
+            "misses": 24,
+            "oversize_bypasses": 0
+          },
+          "charged_byte_limit": 134217728,
+          "entry_limit": 8,
+          "scope": "retained cache estimate; active payloads/jobs/uploads/allocator excluded"
+        }
+      },
+      {
+        "cycle": 2,
+        "cache": {
+          "active_limit": 2,
+          "active_payload_operations": 0,
+          "cache": {
+            "charged_bytes": 133156447,
+            "entries": 3,
+            "evictions": 45,
+            "flight_hits": 0,
+            "hits": 0,
+            "loads": 48,
+            "misses": 48,
+            "oversize_bypasses": 0
+          },
+          "charged_byte_limit": 134217728,
+          "entry_limit": 8,
+          "scope": "retained cache estimate; active payloads/jobs/uploads/allocator excluded"
+        }
+      },
+      {
+        "cycle": 3,
+        "cache": {
+          "active_limit": 2,
+          "active_payload_operations": 0,
+          "cache": {
+            "charged_bytes": 133156447,
+            "entries": 3,
+            "evictions": 69,
+            "flight_hits": 0,
+            "hits": 0,
+            "loads": 72,
+            "misses": 72,
+            "oversize_bypasses": 0
+          },
+          "charged_byte_limit": 134217728,
+          "entry_limit": 8,
+          "scope": "retained cache estimate; active payloads/jobs/uploads/allocator excluded"
+        }
+      }
+    ],
+    "numeric_gates_pass": true
+  },
+  "own_pg_sum_max_bytes": 359940096.0,
+  "original_full_state": {
+    "scope": "Exact C2 after functional/job/app/PGcrash checks: original ten projects compared against acceptedB4 copied baseline",
+    "original_projects": 10,
+    "headers_full_versions_document_hashes_and_jobs_views_models_catalog_preserved": true,
+    "all_users_full_hash_preserved": true,
+    "all_original_membership_project_full_hash_preserved": true,
+    "all_original94record_full_version_document_hash_preserved": true,
+    "before_sha256": "4ABE28DEAB6FCDD830033318C4B4399EC5B6855198A1B232D9654DD696EE8909",
+    "after_sha256": "4ABE28DEAB6FCDD830033318C4B4399EC5B6855198A1B232D9654DD696EE8909",
+    "exclusions": "Auth revision/sessions and new QA clone/project memberships legitimately change with native login/grants; no blanket complete-auth-byte equality claimed"
+  },
+  "evidence": {
+    "flw/evidence/sprint-05-qa-c2-original-state.json": {
+      "sha256": "769EE544EEBDF4A18D1BF2D3018241F6C4E1949D54C3F677D703E8A41BC59265",
+      "bytes": 778
+    },
+    ".local/sprint05/qa/c2-functional01/functional-report.json": {
+      "sha256": "9B881126711F1B1E480CDDB3F49A4CFAC2B049E77DBAC6BC270C340B0C49B446",
+      "bytes": 8679
+    },
+    ".local/sprint05/qa/c2-admission01/admission-report.json": {
+      "sha256": "42B491B6D53F9F99BD495C5A2369F96729003106DAEC22C446565FCC53ACF3CD",
+      "bytes": 1158
+    },
+    ".local/sprint05/qa/c2-body01/report.json": {
+      "sha256": "26AF325A7B25B66DAD5D5DBB3219023DDB7A8AAD63068060F9912960E653F57C",
+      "bytes": 1609
+    },
+    ".local/sprint05/qa/c2-sse-body01/report.json": {
+      "sha256": "78F6095B75BA97E04FB7648B612256F4CE93B45B9BE7063B18121FFB250BB647",
+      "bytes": 2090
+    },
+    ".local/sprint05/qa/c2-idle01/report.json": {
+      "sha256": "BB4F08FBEBB2901AA58D62A99B61162087CB73D1B097BA0D8E5F9F41EDBE712A",
+      "bytes": 1570
+    },
+    ".local/sprint05/qa/c2-model-cache01/report.json": {
+      "sha256": "2C2D506528208EED08170FE5DA681C0BAB01E336E17571ED75C6EFFDEFB99F8E",
+      "bytes": 6003
+    },
+    ".local/sprint05/qa/c2-oversize01/report.json": {
+      "sha256": "76E1F2DA016C0D3492E5C635F533A55E9263CAA2775251123DB73F9F2A4985AE",
+      "bytes": 1284
+    },
+    ".local/sprint05/qa/logs/c2-singleflight01.stdout.log": {
+      "sha256": "A44E4E1EF3DFF03361B33C253063602E15D63524EFCAF73E4AEF5479AA3D0DF6",
+      "bytes": 427
+    },
+    "flw/evidence/sprint-05-qa-c2-performance.json": {
+      "sha256": "ADA659B0E040F60AB6392BA2236E451393B427FBE727129598D41C8A6D9ECA77",
+      "bytes": 4764
+    },
+    ".local/sprint05/qa/c2-role-delta02/report.json": {
+      "sha256": "7AAA05DB9F41EA546808B2A58A71166079F27D0D2C986F207F7DC8726A8F278F",
+      "bytes": 699
+    },
+    ".local/sprint05/qa/logs/c2-pg02.stdout.log": {
+      "sha256": "D6FE2A9DDD7ABD0110D2B468A92C87A1A9D566AE062C893D9FA52541DA6DF550",
+      "bytes": 240
+    },
+    ".local/sprint05/qa/logs/c2-pg04.stdout.log": {
+      "sha256": "32B9931C166345C53B2255A7EE24F6160313A5D38F35D8F304395A9288B5DA27",
+      "bytes": 272
+    },
+    ".local/sprint05/qa/logs/c2-capacity01.stdout.log": {
+      "sha256": "E0F982677EAC833E1201B4BF31303FB458EE5640314FA059E3B1DE36A11939E3",
+      "bytes": 184
+    },
+    ".local/sprint05/qa/c2-recovery01/report.json": {
+      "sha256": "B1113FB9DE570B07132ADB572E45C21E74368D7E22EE7F2C5B8CD9DED45EDF14",
+      "bytes": 1692
+    },
+    ".local/sprint05/qa/c2-project-backup02/report.json": {
+      "sha256": "1F97BFC13ED3C24D1912C6F48994FECB8F7B2635861ECBF12ECE3CA6A333AE2B",
+      "bytes": 784
+    },
+    "flw/evidence/sprint-05-package-qa-report.json": {
+      "sha256": "6FBBCA567E41B8B6C6C9F703594D9B2E3DF2D8D4C42B0417668C3EB19A4B5F63",
+      "bytes": 34705
+    },
+    "flw/evidence/sprint-05-package-qa-coverage.json": {
+      "sha256": "8A73A797AEC4A1CD8C57C2F00CCB3BC763290FE8349AB9544F7B1F0F1436B4EC",
+      "bytes": 1628
+    }
+  },
+  "raw_inventory": {
+    "path": ".local\\sprint05\\qa\\final-log-inventory01.json",
+    "sha256": "416BF8D3313D203936DB24312DADD0E6AE54B25DECE51AEB1D89BEBC408609D3",
+    "files": 414,
+    "bytes": 736252,
+    "unreadable": 0
+  },
+  "package_second_reader": {
+    "path": ".local/sprint05/qa/package-second-reader-inventory01.json",
+    "sha256": "AA512CE786BFBE62FD4598F7BE6B59D7B10C1096C5D73215C9F2C8AB4574A93F",
+    "files": 117,
+    "bytes": 184273,
+    "hash_mismatches": 0
+  },
+  "failed_history": [
+    "C1/8cd rejected after original paused-body admission failure; draft ownerBytes and constrained receiver failures preserved; new16KiB mechanism independently closed on C2 exact body/SSE tests. No kernel/network internal cause inferred.",
+    "B4 companion01 wrong port3046 vs3051 before checks; corrected unique02 actualB4.",
+    "Role-delta01 removed current filtered labels, not all source labels; correct02 source options/reset, no weakened expected0.",
+    "Projectbackup01 CRLF parsing caused lookup undefined after real restore; correct02 CRLF parsing only; source unchanged.",
+    "Draft singleflight wrapper positional arguments failed before cargo; explicit array unique02 actual execution.",
+    "Root initial clippy argument and warning-bearing draft builds preserved; final frozen ordinary build warning-free.",
+    "Package native01 host Restricted policy before execution, documented process-only launcher policy used; initial GET/users405 and SVG/Cytoscape verifier mismatch corrected. Security virus/PUA historical harness read blocked without execution/retry/bypass.",
+    "Preliminary collector sharing/selfstdout hash and guessed filename read failures preserved; corrected available snapshots used, not stale variables."
+  ],
+  "limitations": [
+    "NativePS5 backup UNVERIFIED; actual stock PowerShell7.6.5 full chain only. Frozen ZIP docs snapshot requires current pinned operator guide disclosure.",
+    "Retained charged budget is not RSS/heap/allocator/request-memory cap. Sampled WS and lifetime peak separate; ownPG sums may double-count shared pages, not physical host RAM.",
+    "SSE reports inherited headers-only labels describe constrained phase; subsequent actual full body38654386B and active0 script assertion separately observed. Oversize inherited scope corrected by immutable clarification8371AD.",
+    "Bounded full available files, not all-machine logs. Missing first BODY wrapper file has actual tool exit1 only. Historical preparatory tool failures may be tool-output-only. Native long-lived launcher final lifetime exit not captured.",
+    "Journal starts contemporaneously22:19 after22:11 planning gap; no retrospective prewritten/full historical journal claim. Live files can grow after snapshots.",
+    "No complete Apromore parity, enterprise/64-project maximum, physical RAM, universal race coverage or zero-error claim. DISK01 remains explicit.",
+    "Protected old installation proof supplied by Root read-only; independently reviewed captured health identity, no QA user login/mutation. Final independent postlive still pending."
+  ]
+}

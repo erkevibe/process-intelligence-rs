@@ -53,6 +53,8 @@ pub(crate) struct Platform {
     pub auth: Auth,
     workspaces: Mutex<BTreeMap<String, Cached>>,
     slots: Arc<Semaphore>,
+    pub(crate) resources: crate::resource_cache::ResourceCache,
+    pub(crate) payload_slots: Arc<Semaphore>,
     pending: Mutex<BTreeMap<String, PendingCsv>>,
 }
 impl Platform {
@@ -65,6 +67,8 @@ impl Platform {
             auth,
             workspaces: Mutex::new(BTreeMap::new()),
             slots: Arc::new(Semaphore::new(2)),
+            resources: crate::resource_cache::ResourceCache::new(),
+            payload_slots: Arc::new(Semaphore::new(2)),
             pending: Mutex::new(BTreeMap::new()),
         };
         let projects = platform.auth.all_projects();
@@ -131,11 +135,15 @@ impl Platform {
         Ok(())
     }
     fn load(&self, id: &str) -> Result<(), ImportError> {
-        let mut cache = self.workspaces.lock().expect("workspace mutex");
-        if cache.contains_key(id) {
+        if self
+            .workspaces
+            .lock()
+            .expect("workspace mutex")
+            .contains_key(id)
+        {
             return Ok(());
         }
-        let mut repository = crate::repository_v2::load(&self.database, id)?;
+        let mut repository = crate::repository_v2::load_metadata(&self.database, id)?;
         self.recover_repository(id, &mut repository)?;
         let snapshots = repository
             .durable_jobs
@@ -143,13 +151,14 @@ impl Platform {
             .cloned()
             .collect::<Vec<_>>();
         let jobs = Arc::new(JobStore::restore_with_slots(&snapshots, self.slots.clone()));
-        cache.insert(
-            id.into(),
-            Cached {
+        self.workspaces
+            .lock()
+            .expect("workspace mutex")
+            .entry(id.into())
+            .or_insert_with(|| Cached {
                 repository: Arc::new(Mutex::new(repository)),
                 jobs,
-            },
-        );
+            });
         Ok(())
     }
     pub fn scope(&self, root: &AppState, actor: Actor) -> Result<AppState, ImportError> {
@@ -278,6 +287,13 @@ pub(crate) fn routes() -> Router<AppState> {
         .route("/models/{id}/json", get(model_json))
         .route("/backup", get(backup))
         .route("/restore", post(restore))
+        .route("/diagnostics/cache", get(cache_stats))
+}
+async fn cache_stats(Workspace(state): Workspace) -> Response {
+    match (platform(&state),actor(&state)) {
+        (Ok(p),Ok(actor)) if actor.admin=>Json(json!({"cache":p.resources.stats(),"active_payload_operations":2usize.saturating_sub(p.payload_slots.available_permits()),"active_limit":2,"charged_byte_limit":crate::resource_cache::BYTE_LIMIT,"entry_limit":crate::resource_cache::ENTRY_LIMIT,"scope":"retained cache estimate; active payloads/jobs/uploads/allocator excluded"})).into_response(),
+        _=>response_error(failure("access_denied","Диагностика доступна администратору.")),
+    }
 }
 #[derive(Deserialize)]
 struct Credentials {
@@ -412,22 +428,26 @@ async fn create_user(Workspace(state): Workspace, Form(form): Form<Credentials>)
     }
 }
 async fn logs(Workspace(state): Workspace) -> Response {
-    let repo = state.repository.lock().expect("repository mutex");
-    let items = repo
-        .logs
-        .values()
-        .map(|log| (log.id.clone(), log.filename.clone(), log.analysis.events))
-        .collect::<Vec<_>>();
-    page(
-        "Журналы",
-        render::logs_list(
-            &items,
-            state
-                .actor
-                .as_ref()
-                .is_some_and(|actor| actor.role.can_write()),
-        ),
-    )
+    let writable = state.actor.as_ref().is_some_and(|a| a.role.can_write());
+    let items = match blocking(move || {
+        let a = actor(&state)?;
+        platform(&state)?
+            .database
+            .resource_summaries(&a.project_id)
+            .map(|items| {
+                items
+                    .into_iter()
+                    .filter(|(kind, _, _, _)| kind == "log_state")
+                    .map(|(_, id, name, events)| (id, name, events as usize))
+                    .collect::<Vec<_>>()
+            })
+    })
+    .await
+    {
+        Ok(items) => items,
+        Err(e) => return response_error(e),
+    };
+    page("Журналы", render::logs_list(&items, writable))
 }
 async fn csv_form(Workspace(state): Workspace) -> Response {
     page(
@@ -624,8 +644,8 @@ async fn activity_options(
     }
     tokio::task::spawn_blocking(move || {
         let log = state.repository.lock().expect("repository mutex").get_log(&state, &id);
-        let Some(log) = log else {
-            return response_error(failure("not_found", "Журнал не найден."));
+        let log = match log {
+            Ok(Some(log))=>log,Ok(None)=>return response_error(failure("not_found", "Журнал не найден.")),Err(e)=>return response_error(e),
         };
         let labels: std::collections::BTreeSet<_> = log.source.cases.iter()
             .flat_map(|case| &case.events).map(|event| event.activity.clone()).collect();
@@ -637,9 +657,9 @@ async fn activity_options(
 }
 async fn log_tools(Workspace(state): Workspace, Path(id): Path<String>) -> Response {
     tokio::task::spawn_blocking(move|| {
-    let repo = state.repository.lock().expect("repository mutex");
+    let mut repo = state.repository.lock().expect("repository mutex");
     match repo.get_log(&state, &id) {
-        Some(log) => page(
+        Ok(Some(log)) => page(
             "Фильтры и календарь",
             format!(
                 "<h1>{}</h1><p><a href=\"/logs/{id}\">Открыть анализ</a> · <a href=\"/logs/{id}/export\">Экспорт с политиками</a></p>{}<h2>Рабочая длительность трасс</h2>{}",
@@ -653,7 +673,8 @@ async fn log_tools(Workspace(state): Workspace, Path(id): Path<String>) -> Respo
                 render::calendar_table(&calendar_results(&log))
             ),
         ),
-        None => response_error(failure("not_found", "Журнал не найден.")),
+        Ok(None) => response_error(failure("not_found", "Журнал не найден.")),
+        Err(e)=>response_error(e),
     }
 
     }).await.unwrap_or_else(|_|response_error(failure("worker_failed","Не удалось подготовить результат.")))
@@ -710,12 +731,10 @@ async fn filter_log(
             remove_activities: labels(&form.remove)?,
         };
         let mut repo = state.repository.lock().expect("repository mutex");
-        let mut next = repo.clone();
         let mut log = repo
-            .logs
-            .get(&id)
-            .cloned()
+            .get_log_base(&state, &id)?
             .ok_or_else(|| failure("not_found", "Журнал не найден."))?;
+        let mut next = repo.clone();
         let data = crate::filters::apply(&log.source, &spec)?;
         log.analysis = Arc::new(analyze(&data));
         log.data = Arc::new(data);
@@ -778,12 +797,12 @@ async fn set_calendar(
         let now = chrono::Utc::now();
         crate::calendar::business_millis(now, now, &spec)?;
         let mut repo = state.repository.lock().expect("repository mutex");
-        let mut next = repo.clone();
-        let log = next
-            .logs
-            .get_mut(&id)
+        let mut log = repo
+            .get_log_base(&state, &id)?
             .ok_or_else(|| failure("not_found", "Журнал не найден."))?;
+        let mut next = repo.clone();
         log.calendar = spec;
+        next.logs.insert(id.clone(), log);
         state.commit(&mut next)?;
         *repo = next;
         Ok(id)
@@ -805,7 +824,7 @@ fn insert_model(
 ) -> Result<String, ImportError> {
     exportable_model(&model)?;
     let mut repo = state.repository.lock().expect("repository mutex");
-    if repo.models.len() >= 64 {
+    if repo.model_count() >= 64 {
         return Err(failure("model_limit", "Максимум 64 модели в проекте."));
     }
     let mut next = repo.clone();
@@ -813,7 +832,7 @@ fn insert_model(
     let mut fallback = next.sequence;
     let id = loop {
         let id = format!("model-{}", state.next_id(fallback)?);
-        if !next.models.contains_key(&id) {
+        if !next.contains_model(&id) {
             break id;
         }
         fallback += 1;
@@ -833,22 +852,26 @@ fn insert_model(
     Ok(id)
 }
 async fn models(Workspace(state): Workspace) -> Response {
-    let repo = state.repository.lock().expect("repository mutex");
-    let items = repo
-        .models
-        .values()
-        .map(|model| (model.id.clone(), model.name.clone(), model.revision))
-        .collect::<Vec<_>>();
-    page(
-        "BPMN",
-        render::models_list(
-            &items,
-            state
-                .actor
-                .as_ref()
-                .is_some_and(|actor| actor.role.can_write()),
-        ),
-    )
+    let writable = state.actor.as_ref().is_some_and(|a| a.role.can_write());
+    let items = match blocking(move || {
+        let a = actor(&state)?;
+        platform(&state)?
+            .database
+            .resource_summaries(&a.project_id)
+            .map(|items| {
+                items
+                    .into_iter()
+                    .filter(|(kind, _, _, _)| kind == "model")
+                    .map(|(_, id, name, revision)| (id, name, revision))
+                    .collect::<Vec<_>>()
+            })
+    })
+    .await
+    {
+        Ok(items) => items,
+        Err(e) => return response_error(e),
+    };
+    page("BPMN", render::models_list(&items, writable))
 }
 async fn import_model(Workspace(state): Workspace, multipart: Multipart) -> Response {
     let _permit = match state.uploads.clone().try_acquire_owned() {
@@ -879,9 +902,7 @@ async fn discover(Workspace(state): Workspace, Path(id): Path<String>) -> Respon
             .repository
             .lock()
             .expect("repository mutex")
-            .logs
-            .get(&id)
-            .cloned()
+            .get_log_base(&state, &id)?
             .ok_or_else(|| failure("not_found", "Журнал не найден."))?;
         let model = crate::bpmn::discover(&log.data)?;
         insert_model(
@@ -898,19 +919,24 @@ async fn discover(Workspace(state): Workspace, Path(id): Path<String>) -> Respon
     }
 }
 async fn model(Workspace(state): Workspace, Path(id): Path<String>) -> Response {
-    let repo = state.repository.lock().expect("repository mutex");
-    match repo.models.get(&id) {
-        Some(m) => page(
-            "Модель BPMN",
-            render::model_editor(
-                &id,
-                &m.model,
-                m.revision,
-                state.actor.as_ref().is_some_and(|a| a.role.can_write()),
+    tokio::task::spawn_blocking(move || {
+        let mut repo = state.repository.lock().expect("repository mutex");
+        match repo.get_model(&state, &id) {
+            Ok(Some(m)) => page(
+                "Модель BPMN",
+                render::model_editor(
+                    &id,
+                    &m.model,
+                    m.revision,
+                    state.actor.as_ref().is_some_and(|a| a.role.can_write()),
+                ),
             ),
-        ),
-        None => response_error(failure("not_found", "Модель не найдена.")),
-    }
+            Ok(None) => response_error(failure("not_found", "Модель не найдена.")),
+            Err(e) => response_error(e),
+        }
+    })
+    .await
+    .unwrap_or_else(|_| response_error(failure("worker_failed", "Не удалось открыть модель.")))
 }
 #[derive(Deserialize)]
 struct ModelForm {
@@ -930,11 +956,10 @@ async fn save_model(
             .map_err(|_| failure("model_json", "Неверный JSON модели."))?;
         exportable_model(&model)?;
         let mut repo = state.repository.lock().expect("repository mutex");
-        let mut next = repo.clone();
-        let saved = next
-            .models
-            .get_mut(&id)
+        let mut saved = repo
+            .get_model(&state, &id)?
             .ok_or_else(|| failure("not_found", "Модель не найдена."))?;
+        let mut next = repo.clone();
         if saved.revision != form.revision {
             return Err(failure(
                 "model_conflict",
@@ -943,9 +968,10 @@ async fn save_model(
         }
         crate::bpmn::validate_edit(&saved.model, &model)?;
         model.discovery = saved.model.discovery.clone();
-        let saved = Arc::make_mut(saved);
-        saved.model = model;
-        saved.revision += 1;
+        let saved_mut = Arc::make_mut(&mut saved);
+        saved_mut.model = model;
+        saved_mut.revision += 1;
+        next.models.insert(id.clone(), saved);
         state.commit(&mut next)?;
         *repo = next;
         Ok(id)
@@ -957,34 +983,44 @@ async fn save_model(
     }
 }
 async fn export_model(Workspace(state): Workspace, Path(id): Path<String>) -> Response {
-    let repo = state.repository.lock().expect("repository mutex");
-    match repo.models.get(&id) {
-        Some(m) => match crate::bpmn::serialize(&m.model) {
-            Ok(xml) => {
-                let mut response = xml.into_response();
-                response.headers_mut().insert(
-                    header::CONTENT_TYPE,
-                    "application/xml; charset=utf-8".parse().expect("type"),
-                );
-                response.headers_mut().insert(
-                    header::CONTENT_DISPOSITION,
-                    format!("attachment; filename=\"{id}.bpmn\"")
-                        .parse()
-                        .expect("ID"),
-                );
-                response
-            }
+    tokio::task::spawn_blocking(move || {
+        let mut repo = state.repository.lock().expect("repository mutex");
+        match repo.get_model(&state, &id) {
+            Ok(Some(m)) => match crate::bpmn::serialize(&m.model) {
+                Ok(xml) => {
+                    let mut response = xml.into_response();
+                    response.headers_mut().insert(
+                        header::CONTENT_TYPE,
+                        "application/xml; charset=utf-8".parse().expect("type"),
+                    );
+                    response.headers_mut().insert(
+                        header::CONTENT_DISPOSITION,
+                        format!("attachment; filename=\"{id}.bpmn\"")
+                            .parse()
+                            .expect("ID"),
+                    );
+                    response
+                }
+                Err(e) => response_error(e),
+            },
+            Ok(None) => response_error(failure("not_found", "Модель не найдена.")),
             Err(e) => response_error(e),
-        },
-        None => response_error(failure("not_found", "Модель не найдена.")),
-    }
+        }
+    })
+    .await
+    .unwrap_or_else(|_| response_error(failure("worker_failed", "Не удалось открыть модель.")))
 }
 async fn model_json(Workspace(state): Workspace, Path(id): Path<String>) -> Response {
-    let repo = state.repository.lock().expect("repository mutex");
-    match repo.models.get(&id) {
-        Some(m) => Json(m).into_response(),
-        None => response_error(failure("not_found", "Модель не найдена.")),
-    }
+    tokio::task::spawn_blocking(move || {
+        let mut repo = state.repository.lock().expect("repository mutex");
+        match repo.get_model(&state, &id) {
+            Ok(Some(m)) => Json(m.as_ref()).into_response(),
+            Ok(None) => response_error(failure("not_found", "Модель не найдена.")),
+            Err(e) => response_error(e),
+        }
+    })
+    .await
+    .unwrap_or_else(|_| response_error(failure("worker_failed", "Не удалось открыть модель.")))
 }
 #[derive(Serialize, Deserialize)]
 struct Backup {
@@ -1012,7 +1048,9 @@ async fn backup(Workspace(state): Workspace) -> Response {
                 "Дождитесь завершения или отмены фоновых задач перед созданием резервной копии.",
             ));
         }
-        let payload = serde_json::to_value(&*repo)
+        let full=crate::repository_v2::load(&platform(&state)?.database,&a.project_id)?;
+        if full.storage_revision!=repo.storage_revision {return Err(failure("storage_conflict","Проект изменился во время подготовки копии."));}
+        let payload = serde_json::to_value(&full)
             .map_err(|_| failure("backup", "Не удалось подготовить копию."))?;
         let digest_sha256 = digest(&payload)?;
         Ok::<_, ImportError>(Backup {

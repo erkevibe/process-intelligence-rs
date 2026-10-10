@@ -1,0 +1,3 @@
+# Sprint05 plan decision
+
+S5-P1 exact SHA2560A0C5F8CB468F618ABD01403BDADE40D817A5E25F82428C94D981C21113480ED accepted by actual5/5 FOR: Root, Customer, PM, QA/ProcessLogAuditor, TD/SkillManager. All separate vote sources sprint-05-*-plan-vote.md. No AGAINST/ABSTAIN; silence not counted. Initial invitations/positions before proposal. Authorizes scoped draft development, independent baseline and final candidate acceptance; not a release vote. Root owns integration/storage SQL/web/platform; storage_developer nonvoting owns repository_v2/resource_cache only; QA and TD separate independent checks. Final protected90min and unresolved-gate fallback unchanged.

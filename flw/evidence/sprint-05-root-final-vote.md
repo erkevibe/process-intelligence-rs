@@ -1,0 +1,5 @@
+# Root actual S5-F1 vote
+
+FOR exact flw/evidence/sprint-05-final-proposal.md SHA256603ACC466D2F0DF8D50D1C4E1C08068C9C3EE9C9F05D21742960DA16A50EF661. Root is author/integrator, not independent QA. Five independent positions preceded proposal. Full QA matrix A6EF6013FF8E75B876A257C1A3E7DD1985294946F04F82BA14979644E0E231DE and TD fixed verdictFC3C2AE68E581165189E6D3B5FE3BFE3C07B8C2C7E9C383268F71C5751793354 read; exact C2/source55e8/EXE4DA47/ZIPBF900 unchanged.
+
+Support selected measured demand-loading/cache ownership and preservation contract, with CACHE01 cause-specific closure and explicit residual debt. Vote permits checked documentation/evidence head CI, verified merge and unchanged immutable publication only under the proposal's mandatory gates. Final-head independent CI and anonymous/newuser/oldlive A10 remain incomplete and cannot be overridden by this vote. No complete enterprise/Apromore/fullR2-R5/physicalmemory claim; PS5backup UNVERIFIED, DISK01 and semantic20MiB limit remain. C1/failed verifier history preserved. Deadline unchanged; human acceptance separate.
