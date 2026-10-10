@@ -10,7 +10,8 @@
 - [Роадмап](docs/ROADMAP.md)
 - [Техническое задание](docs/SPECIFICATION.md)
 - [Защита плана на 8 часов](docs/PLAN_8H.md)
-- [Применение Frame Logical Work](docs/FLW.md)
+- [Применение Frame AI Logic Work](docs/FLW.md)
+- [СОВЕТ и независимый разбор плана](docs/COUNCIL.md)
 
 ## Предлагаемый стек
 
