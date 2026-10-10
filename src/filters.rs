@@ -1,6 +1,7 @@
 use crate::domain::{EventLog, ImportError};
 use serde::{Deserialize, Serialize};
 #[derive(Debug, Clone, Default, Deserialize, Serialize)]
+#[serde(deny_unknown_fields)]
 pub struct FilterSpec {
     pub case_activity: Option<String>,
     pub min_events: Option<usize>,

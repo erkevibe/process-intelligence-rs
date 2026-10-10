@@ -1,0 +1,59 @@
+{
+  "proposal": "S4-F1",
+  "proposal_sha256": "58129AB99ACD04708D29B4FE534B73B20C4817693102B542A1F533B4846A76D7",
+  "recorded_utc": "2026-10-10T16:19:05.9401803Z",
+  "fixed_seats": 5,
+  "actual_for": 5,
+  "actual_against": 0,
+  "actual_abstain": 0,
+  "majority_approved": true,
+  "votes": [
+    {
+      "path": "flw/evidence/sprint-04-final-vote-root.md",
+      "seat": "root",
+      "sha256": "DA35E8DBF875D796236D2F8A6BE6455B74952D52E012725C8DD4672E9E4A04D2",
+      "vote": "FOR"
+    },
+    {
+      "path": "flw/evidence/sprint-04-final-vote-qa.md",
+      "seat": "qa",
+      "sha256": "0CFAF4D2473B1E5E3D26F70BC6D689A7BC60C795F261F0D5F45833DF3780EBFF",
+      "vote": "FOR"
+    },
+    {
+      "path": "flw/evidence/sprint-04-final-vote-td.md",
+      "seat": "td",
+      "sha256": "C72DCB05B49DD825AF81EBB21B37A5602B915DB2D8EE6EDFDAD2B5EDE134AE86",
+      "vote": "FOR"
+    },
+    {
+      "path": "flw/evidence/sprint-04-final-vote-customer.md",
+      "seat": "customer",
+      "sha256": "26DCCE24BAD0A26FB466243D8FC618B217C2F0811995A1CEF1319762DDAF1CC0",
+      "vote": "FOR"
+    },
+    {
+      "path": "flw/evidence/sprint-04-final-vote-pm.md",
+      "seat": "pm",
+      "sha256": "158C89B91D710657D23F0A6F45F2812376C9E04FC83ECE72D74F8DA344F0F2A4",
+      "vote": "FOR"
+    }
+  ],
+  "decision": "Bounded A01-A09 exact C1 accepted; conditional promotion authorized; A10/public delivery PENDING",
+  "compiled_source": "f3a3ad46056e402e6891c9549b1505876fbb8e7e",
+  "exe_sha256": "B4EA51E5264646709A1DDDB5686132D2662BB5275B271F4473A7B7592D58AAB8",
+  "zip_sha256": "85C23B2E69D67D442067180C124E55958C64F6D1C73BDF1708C4CEF4AAB3BD1D",
+  "nonwaivable": [
+    "Visible testedPowerShell7.6.5 prerequisite/install/pinned corrected guide and frozenZIP5examples warning",
+    "Unchanged source/runtime/artifact identity",
+    "Actual finalheadCI with independent bounded audit",
+    "Exact merge/tag/source distinctions",
+    "Anonymous full ZIP hash and56521463bytes",
+    "Independent postpublication clean3040 and protectedold3000/3010/3030 preservation"
+  ],
+  "open_debt": [
+    "CACHE01 high",
+    "DISK01 moderate",
+    "PS5BACKUP01 UNVERIFIED moderate"
+  ]
+}

@@ -61,7 +61,7 @@ fn table_contract(tx: &mut Transaction<'_>, name: &str, checks: i64) -> Result<(
     }
     Ok(())
 }
-pub(crate) fn apply(client: &mut Client) -> Result<(), ImportError> {
+fn baseline(client: &mut Client, adopt: bool, ready_v2: bool) -> Result<(), ImportError> {
     let mut tx = client.transaction().map_err(|_| database_error())?;
     let table = exists(&mut tx, "public.pi_kv")?;
     let sequence = exists(&mut tx, "public.pi_resource_sequence")?;
@@ -105,7 +105,7 @@ pub(crate) fn apply(client: &mut Client) -> Result<(), ImportError> {
                 &[],
             )
             .map_err(|_| database_error())?;
-        if rows.len() != 1
+        if rows.len() != if ready_v2 { 2 } else { 1 }
             || rows[0].get::<_, i32>(0) != VERSION
             || rows[0].get::<_, String>(1) != "baseline_v1"
             || rows[0].get::<_, String>(2) != checksum
@@ -117,51 +117,8 @@ pub(crate) fn apply(client: &mut Client) -> Result<(), ImportError> {
             return Err(invalid());
         }
     }
-    if table {
-        for row in tx
-            .query("SELECT key,version,document FROM public.pi_kv", &[])
-            .map_err(|_| database_error())?
-        {
-            let key: String = row.get(0);
-            let version: i64 = row.get(1);
-            let value: serde_json::Value = row.get(2);
-            if version < 1 {
-                return Err(invalid());
-            }
-            if key == "auth" {
-                crate::auth::validate_stored(&value).map_err(|_| invalid())?;
-            } else if key.starts_with("repository/") {
-                let repository: crate::web::Repository =
-                    serde_json::from_value(value.clone()).map_err(|_| invalid())?;
-                if serde_json::to_value(&repository).map_err(|_| invalid())? != value {
-                    return Err(invalid());
-                }
-                for (id, log) in &repository.logs {
-                    if id != &log.id || log.project_id.as_deref() != key.strip_prefix("repository/")
-                    {
-                        return Err(invalid());
-                    }
-                }
-                for (id, model) in &repository.models {
-                    if id != &model.id || crate::bpmn::validate(&model.model).is_err() {
-                        return Err(invalid());
-                    }
-                }
-                for (id, job) in &repository.durable_jobs {
-                    if id != &job.id
-                        || (job.state == crate::jobs::JobState::Completed
-                            && !job
-                                .result_id
-                                .as_ref()
-                                .is_some_and(|id| repository.logs.contains_key(id)))
-                        || (job.state != crate::jobs::JobState::Completed
-                            && job.result_id.is_some())
-                    {
-                        return Err(invalid());
-                    }
-                }
-            }
-        }
+    if !ledger && !adopt {
+        return Err(invalid());
     }
     if !ledger {
         tx.batch_execute(MIGRATION).map_err(|_| database_error())?;
@@ -170,4 +127,54 @@ pub(crate) fn apply(client: &mut Client) -> Result<(), ImportError> {
     tx.commit().map_err(|_| database_error())?;
     tracing::info!(schema_version = VERSION, adopted = !ledger, "schema_ready");
     Ok(())
+}
+
+pub(crate) fn validate_v1(client: &mut Client) -> Result<(), ImportError> {
+    baseline(client, false, false)
+}
+
+pub(crate) fn apply(client: &mut Client) -> Result<(), ImportError> {
+    let ledger: bool = client
+        .query_one(
+            "SELECT to_regclass('public.pi_schema_migrations') IS NOT NULL",
+            &[],
+        )
+        .map_err(|_| database_error())?
+        .get(0);
+    if !ledger {
+        let old: bool = client.query_one("SELECT to_regclass('public.pi_kv') IS NOT NULL OR to_regclass('public.pi_resource_sequence') IS NOT NULL", &[]).map_err(|_| database_error())?.get(0);
+        if old {
+            return Err(ImportError::new(
+                "migration_required",
+                "Требуется офлайн-миграция базы. Сохраните резервную копию и запустите --migrate-storage.",
+            ));
+        }
+        let shadow:bool=client.query_one("SELECT to_regclass('public.pi_projects') IS NOT NULL OR to_regclass('public.pi_records') IS NOT NULL OR to_regclass('public.pi_migration_v2') IS NOT NULL",&[]).map_err(|_|database_error())?.get(0);
+        if shadow {
+            return Err(invalid());
+        }
+        baseline(client, true, false)?;
+        return crate::normalized::initialize_empty(client);
+    }
+    let version: i32 = client
+        .query_one(
+            "SELECT coalesce(max(version),0) FROM public.pi_schema_migrations",
+            &[],
+        )
+        .map_err(|_| database_error())?
+        .get(0);
+    match version {
+        1 => {
+            validate_v1(client)?;
+            Err(ImportError::new(
+                "migration_required",
+                "Требуется офлайн-миграция базы 0.3. Сохраните резервную копию и запустите --migrate-storage.",
+            ))
+        }
+        2 => {
+            baseline(client, false, true)?;
+            crate::normalized::validate_ready(client)
+        }
+        _ => Err(invalid()),
+    }
 }

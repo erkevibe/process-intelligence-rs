@@ -20,12 +20,14 @@ pub enum JobState {
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
 pub struct JobError {
     pub code: String,
     pub message: String,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
 pub struct JobSnapshot {
     pub id: String,
     pub state: JobState,

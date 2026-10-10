@@ -1,0 +1,44 @@
+{
+  "source_commit": "f3a3ad46056e402e6891c9549b1505876fbb8e7e",
+  "exe_sha256": "B4EA51E5264646709A1DDDB5686132D2662BB5275B271F4473A7B7592D58AAB8",
+  "import": {
+    "normalized_record_commit_utc": "2026-10-10T15:41:26.155430Z",
+    "completed_utc": "2026-10-10T15:41:26.315337Z",
+    "input_bytes": 17200026,
+    "worker_start_utc": "2026-10-10T15:41:24.012704Z",
+    "post_202_to_completed_ms": 2305.941,
+    "result": "log-68",
+    "log_sha256": "2AC09FF80C61E961317F11391BD61FE9014372683DB294E2E9BE05809B5AAA8F",
+    "admission_server_ms": 100,
+    "worker_completion_elapsed_ms": 2302.633,
+    "interval": "Running/parsing trace to Completed trace, including analysis/publishing/durable commit; UTC log-derived observation, not client upload end-to-end stopwatch",
+    "job": "job-67",
+    "events": 100000
+  },
+  "first_project_navigation_lazy_load_ms": 2351.6653,
+  "already_loaded_export_client_ms": 73.7865,
+  "mutation_memory": {
+    "interval_mean_ms": 139.85891111111113,
+    "scope": "Exact C1 mutation series; host PostgreSQL sum includes other clusters, not exclusive own PG or physical RAM; finite sampling can miss peaks; lifetime peak separate",
+    "source_sha256": "90C9CE1BD3BC5D66CD71D54E3D3184EA0C0EE7FC53AA5FA8E94511FE5CD9EF9E",
+    "interval_min_ms": 124.6358,
+    "interval_max_ms": 185.7437,
+    "app_process_lifetime_peak_working_set_bytes": 413163520,
+    "app_sampled_working_set_max_bytes": 406962176,
+    "samples": 64,
+    "sample_target_ms": 100,
+    "all_host_pg_sum_sampled_max_bytes": 1449467904
+  },
+  "journal": {
+    "events_sha256": "15D93959788EA34A2A911D93DEC7739E967032F9741FC492B0FB12E7C5CDFEF5",
+    "assessment": "Current taskcards and execution event explicitly retrospective consolidation. Earlier contemporaneous execution journal gap remains a nonruntime traceability limitation; no invented per-task timings or complete historical machine stream.",
+    "records_sha256": "7588F24B77D032DC9946CD796D15FCF1F597D527C7851C5F8C0330B2A800E0B0"
+  },
+  "coverage": {
+    "bytes": 722679,
+    "captured_at_utc": "2026-10-10T16:02:21.077Z",
+    "scope": "Fixed fully loaded available-byte inventory snapshot, not every historical stream or semantic universal PASS",
+    "files": 266
+  },
+  "fixed_main_report_sha256": "FC13DB5CB69FD96E16AD3D65EBD12FE015C90004E20439DBE5AFE881649AB036"
+}

@@ -25,6 +25,7 @@ impl Role {
     }
 }
 #[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
 pub struct User {
     pub id: String,
     pub username: String,
@@ -32,12 +33,14 @@ pub struct User {
     pub admin: bool,
 }
 #[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
 pub struct Project {
     pub id: String,
     pub name: String,
     pub members: BTreeMap<String, Role>,
 }
 #[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
 struct Session {
     user_id: String,
     project_id: String,
@@ -122,12 +125,15 @@ fn password_hash(password: &str) -> Result<String, ImportError> {
 impl Auth {
     pub fn open(database: Database) -> Result<Self, ImportError> {
         let (revision, data) = match database.read("auth")? {
-            Some((rev, value)) => (
-                rev,
-                serde_json::from_value(value).map_err(|_| {
-                    ImportError::new("auth_corrupt", "Не удалось прочитать учётные записи.")
-                })?,
-            ),
+            Some((rev, value)) => {
+                validate_stored(&value)?;
+                (
+                    rev,
+                    serde_json::from_value(value).map_err(|_| {
+                        ImportError::new("auth_corrupt", "Не удалось прочитать учётные записи.")
+                    })?,
+                )
+            }
             None => (0, AuthData::default()),
         };
         Ok(Self {

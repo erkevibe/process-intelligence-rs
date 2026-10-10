@@ -1,0 +1,7 @@
+# Sprint04 final Council invitation
+
+Recorded from actual clock read2026-10-10 16:07:08UTC, before final proposal. Fixed five voting seats remain Root/chair, Customer /root/customer, PM /root/pm_final, independent QA/ProcessLogAuditor /root/qa_process and independent TechnicalDebt/SkillManager /root/technical_debt. No seat is replaced; technical storage developer and native QA specialist are nonvoting.
+
+All four other fixed seats were actually invited to review C1 and supply independent positions before immutable F1. Root fully read the fixed independent QA report FC13DB5CB69FD96E16AD3D65EBD12FE015C90004E20439DBE5AFE881649AB036 and PM/Customer preliminary positions; TD is completing its fixed report. An additional import-completion observation is being checked separately from admission time. Plan and preliminary votes do not transfer to F1. Final votes require the exact readable proposal and its actual SHA256; a changed proposal requires new votes.
+
+Proposed decision scope: bounded sourcef3a3ad46056e402e6891c9549b1505876fbb8e7e, exact B4 executable/85 ZIP, qualified Windows operator path; finalheadCI, public whole-file verification and postlive independent acceptance remain mandatory. Native5 Start is verified; full native5 backup UNVERIFIED, PowerShell7.6.5 stock backup/restore/migration is the verified path. Whole-project cache/disk and fullR2–R5/enterprise limits stay explicit. Five fixed seats require at least three actual FOR votes. User authorization does not replace independent evidence or required delivery conditions.

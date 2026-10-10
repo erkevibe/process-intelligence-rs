@@ -1,7 +1,8 @@
 use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
 pub struct Event {
     pub ordinal: usize,
     pub activity: String,
@@ -9,21 +10,24 @@ pub struct Event {
     pub lifecycle: Option<String>,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
 pub struct Case {
     pub id: String,
     pub name: Option<String>,
     pub events: Vec<Event>,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
 pub struct EventLog {
     pub name: Option<String>,
     pub cases: Vec<Case>,
     pub warnings: Vec<String>,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
 pub struct Node {
     pub id: String,
     pub label: String,
@@ -32,7 +36,8 @@ pub struct Node {
     pub end_count: u64,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
 pub struct Edge {
     pub id: String,
     pub source: String,
@@ -40,7 +45,8 @@ pub struct Edge {
     pub count: u64,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
 pub struct Variant {
     pub id: String,
     pub sequence: Vec<String>,
@@ -48,7 +54,8 @@ pub struct Variant {
     pub case_ids: Vec<String>,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
 pub struct Analysis {
     pub cases: usize,
     pub events: usize,
@@ -59,13 +66,13 @@ pub struct Analysis {
     pub max_edge_frequency: u64,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct CaseHighlight {
     pub node_ids: Vec<String>,
     pub edge_ids: Vec<String>,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct GraphView {
     pub log_id: String,
     pub analysis_version: u64,
@@ -79,7 +86,7 @@ pub struct GraphView {
     pub case_highlight: CaseHighlight,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 pub struct ImportError {
     pub code: String,
     pub message: String,

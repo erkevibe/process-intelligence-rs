@@ -1,0 +1,46 @@
+{
+  "os": {
+    "Caption": "Майкрософт Windows 11 Домашняя",
+    "Version": "10.0.26200"
+  },
+  "database": "pi_s4_baseline01",
+  "dump_sha256": "E0F3F91B3D7461A1D6202DC08B30BCC7F7F1CAA1CB0D9F7D3891D70771D02E7C",
+  "sampling": "100ms requested independent async health; actual intervals recorded around135ms due measurement overhead",
+  "pg_scope": "All PostgreSQL processes on host, including user/shared/other clusters; not exclusive QA app+PG aggregateRSS",
+  "interference": "no cargo/rustc/rust-lld processes observed at spotcheck duringrun1; not continuous absence proof",
+  "baseline_source": "a0b4f6989825de47c48d1d6ab8e1cedbac19c017",
+  "runs": [
+    {
+      "actual_interval_average_ms": 136.16226907216495,
+      "sample_count": 98,
+      "ready_ms": 13333.0418,
+      "run": 1,
+      "max_working_set": 2107166720.0
+    },
+    {
+      "actual_interval_average_ms": 135.66854123711343,
+      "sample_count": 98,
+      "ready_ms": 13202.6784,
+      "run": 2,
+      "max_working_set": 2106945536.0
+    },
+    {
+      "actual_interval_average_ms": 134.683300990099,
+      "sample_count": 102,
+      "ready_ms": 13645.3114,
+      "run": 3,
+      "max_working_set": 2106953728.0
+    }
+  ],
+  "source_unchanged": true,
+  "all_own_apps_stopped": true,
+  "startup_comparator_max_working_set": 2107166720.0,
+  "verifier_history": "01/02 blockinghealthsampling about1s preserved; preliminary suspectedcleanuphang disproven by actual01exit0; unnecessary02 repeat retained; numerical comparator03 only",
+  "old_exe_sha256": "B38A6193EB6C3D7BCE6F1F4E75F6BE619AE626FD8CBB8F9BB23CD3E08D190A3A",
+  "source_full_row_fingerprint_sha256": "88C5104189327875132579F8043037440EE863C4708B7736515BE125A119A7AB",
+  "cpu": {
+    "Name": "AMD Ryzen AI 9 HX 370 w/ Radeon 890M           ",
+    "NumberOfCores": 12,
+    "NumberOfLogicalProcessors": 24
+  }
+}

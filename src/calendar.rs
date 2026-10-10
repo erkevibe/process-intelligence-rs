@@ -2,6 +2,7 @@ use crate::domain::ImportError;
 use chrono::{DateTime, Datelike, Duration, FixedOffset, NaiveDate, TimeZone, Utc};
 use serde::{Deserialize, Serialize};
 #[derive(Debug, Clone, Deserialize, Serialize)]
+#[serde(deny_unknown_fields)]
 pub struct CalendarSpec {
     pub offset_minutes: i32,
     pub weekdays: Vec<u32>,
