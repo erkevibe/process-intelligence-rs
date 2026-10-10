@@ -1,0 +1,865 @@
+{
+  "captured_utc": "2026-10-10T23:16:42.992578+00:00",
+  "specialist": "independent package QA; nonvoting",
+  "source": "55e8dd28bee413316deba0aa252ceb6a436b9ffa",
+  "zip_sha256": "BF900C88EC8B5E8ABFFC292C5C9704B152C053725D1DA7B15EE3E930285B4EFB",
+  "zip_bytes": 56611093,
+  "exe_sha256": "4DA47C60DA169B2B0D659E4583A72EA5E17DBCE18B83E28B8923B2DF1CDAF98A",
+  "build_proof_sha256": "44024F1A73BED61DD20357C04B65AE49813B2CBFAB4CEBA63B3A9AAEEE61A006",
+  "manifest_records": 1669,
+  "frozen_source_files": 355,
+  "final_all_manifest_and_frozen_source_sizes_hashes": true,
+  "native_ps51_start": {
+    "cold_actual_pass": true,
+    "selected_restored_database_actual_pass": true,
+    "documented_process_policy": "-NoProfile -ExecutionPolicy Bypass -File Start.ps1; only child stock PS5 module path; no global or antivirus changes",
+    "private_acl_current_user_only": true,
+    "nonsuperuser_transaction_rollback": true,
+    "long_lived_launcher_final_exit": "not captured after guarded forced app shutdown; wrapper/readiness exits captured, no graceful-exit claim"
+  },
+  "browser_fresh": {
+    "checks": [
+      "actual isolated browser login",
+      "actual background upload Completed SSE rendered graph",
+      "actual Datastar threshold graph patch",
+      "models browser page",
+      "no unhandled page JavaScript errors"
+    ],
+    "errors": [],
+    "isolatedContext": true,
+    "pass": true
+  },
+  "browser_restored": {
+    "checks": [
+      "legacy owner browser login selected restored database",
+      "restored six-log catalog visible",
+      "restored small log actual browser graph",
+      "restored model actual Cytoscape browser rendering",
+      "no unhandled page JavaScript errors"
+    ],
+    "errors": [],
+    "isolatedContext": true,
+    "pass": true
+  },
+  "power76_recovery": {
+    "source": "55e8dd28bee413316deba0aa252ceb6a436b9ffa",
+    "shell": "PowerShell7.6.5",
+    "old_dump_sha256": "E0F3F91B3D7461A1D6202DC08B30BCC7F7F1CAA1CB0D9F7D3891D70771D02E7C",
+    "old_database": "pi_restore_s5_old01",
+    "new_database": "pi_restore_s5_new01",
+    "kv_rows": 12,
+    "record_rows": 94,
+    "all_legacy_values_versions_preserved": true,
+    "full_normalized_backup_restore_equal": true,
+    "existing_target_refused_unchanged": true,
+    "corrupt_refused_no_target": true,
+    "source_unchanged": true,
+    "normalized_fingerprint_sha256": "D734EF4EE927C29EA60CADA40711C112AF07D81C68E575ABD8AD42D37FA98B6F",
+    "backup_sha256": "768E81A26774E5EA55544B18F593072FBB69A2B6D4993A278433711AD42DCC8D",
+    "pass": true
+  },
+  "restored_full_exports": {
+    "selected_database": "pi_restore_s5_new01",
+    "legacy_owner_actual_login": true,
+    "six_full_exports": [
+      {
+        "id": "log-11",
+        "events": 2,
+        "canonical_sha256": "38DFB8D2EC93E33BD7AECEA9E716A952D8B49FB089EFA3091A68EDBDA79887BE"
+      },
+      {
+        "id": "log-17",
+        "events": 100000,
+        "canonical_sha256": "8BDAD311EE11FFD9A9A239705E58F407E409F517DCCA42661ADBCE061EFDD03D"
+      },
+      {
+        "id": "log-20",
+        "events": 100000,
+        "canonical_sha256": "F2EA923209AF5BCCED3DE972D66D0191D863C8981013BC44C4366D55C5FC473C"
+      },
+      {
+        "id": "log-23",
+        "events": 100000,
+        "canonical_sha256": "6C03160E365AEC3B7EE23EAFB0507D102DB71EAE9AED22B37555E6FBA3406820"
+      },
+      {
+        "id": "log-26",
+        "events": 100000,
+        "canonical_sha256": "94CF4BF5B86B88551403AED6862C518E89F96CD041D1A6791F26B58945C939C9"
+      },
+      {
+        "id": "log-9",
+        "events": 3,
+        "canonical_sha256": "8039D6E3597DD6B940C129D0E36DFBE2CF11AEF61B8D7FD6A81E066C18C13941"
+      }
+    ],
+    "complete_counts": true,
+    "browser_claim": false,
+    "pass": true
+  },
+  "active_app_migration_refusal": {
+    "actual_migration_exit": 1,
+    "all_kv_records_versions_hashes_unchanged": true,
+    "pass": true
+  },
+  "owned_cleanup": {
+    "owned_app_stopped": true,
+    "owned_app_pid": 36876,
+    "owned_pg_pid": 32080,
+    "ports_closed": true,
+    "owned_pg_stopped": true,
+    "utc": "2026-10-10T23:15:35.2782072Z",
+    "exit": 0
+  },
+  "historical_attempts": [
+    {
+      "name": "native-start01",
+      "actual_exit": 1,
+      "scope": "host Restricted execution policy before script execution; package still cold; retained raw; documented child policy repairs invocation02"
+    },
+    {
+      "name": "fresh01",
+      "actual_exit": 1,
+      "scope": "successful setup then verifier GET/users assumed unsupported route405; public route contract corrected02"
+    },
+    {
+      "name": "restored-browser01",
+      "actual_exit": 1,
+      "scope": "3 actual successful browser checks then verifier expected SVG; maintained Cytoscape renderer inspected, corrected actual02"
+    }
+  ],
+  "tool_only_history": [
+    {
+      "scope": "read-only guessed backup-postgres/restore-postgres/migrate-postgres paths missing; actual maintained filenames inspected afterward",
+      "raw_file": "not captured; complete tool output available"
+    },
+    {
+      "scope": "historical sprint04 recovery01.ps1 read security virus/PUA blocked; no execution/no retry/no workaround",
+      "raw_file": "not captured; tool-only output available"
+    },
+    {
+      "scope": "private fixture unredacted first-lines read auto-review rejected due potential credentials; not executed; replaced safe targeted redacted fixture inspection/actual private-login consumption",
+      "raw_file": "not captured; tool-only rejection available"
+    },
+    {
+      "scope": "one redaction orchestration JS malformed string SyntaxError before any tool command; corrected explicit safe Python redactor",
+      "raw_file": "not captured; tool-only output available"
+    },
+    {
+      "scope": "DATABASE_RECOVERY.md preparatory tool output truncated at2000tokens; no content used as execution proof",
+      "raw_file": "tool output truncated; file remains available"
+    }
+  ],
+  "limits": [
+    "native PowerShell5.1 backup remains UNVERIFIED; no equivalent retry of historical security-blocked verifier",
+    "only PowerShell7.6.5 complete stock recovery chain tested",
+    "reviewed ZIP docs are frozen source snapshot; recovery guidance has historical0.4/native5.1 examples requiring pinned current operator guide disclosure",
+    "no universal error-free or enterprise-readiness claim",
+    "no old installation destructive operation performed; own resources5572/3054 only"
+  ],
+  "raw_logs": [
+    {
+      "path": ".local\\sprint05\\package-qa\\active-after01.result.json",
+      "bytes": 54,
+      "sha256": "63A0CA65AA693F71F904C10CF8DD6836FF86DD4B22EC67F8F2808D7E0D50F16A",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\active-after01.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\active-after01.stdout.log",
+      "bytes": 13934,
+      "sha256": "AF0A06ED75C8208769CBF906F7A749AE79341815207C7AA7E86E51B9958D11A1",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\active-before01.result.json",
+      "bytes": 54,
+      "sha256": "22530042F9C3378FFA42D6E169E5E252761E25A9F0BA81545C643EEF365D11A3",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\active-before01.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\active-before01.stdout.log",
+      "bytes": 13934,
+      "sha256": "AF0A06ED75C8208769CBF906F7A749AE79341815207C7AA7E86E51B9958D11A1",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\active-migrate-refusal01.result.json",
+      "bytes": 54,
+      "sha256": "0CB7ECA8A573A50EDB488021E2178DFA8D6CB6C2DB480410003E471865C8FAD8",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\active-migrate-refusal01.stderr.log",
+      "bytes": 572,
+      "sha256": "009DD6DA14D9935513809420BE51EAD3F8668A1C3C6E33411961BAB1D169DB40",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\active-migrate-refusal01.stdout.log",
+      "bytes": 113,
+      "sha256": "278EF7E9D7F2C2B3F26A2384D39C926BEAEEFB331FBA07E30DA93754CA07E0F4",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\active-refusal01.report.json",
+      "bytes": 104,
+      "sha256": "9AC0EE183B574D7FFF78E59877211FF5A1A8996C396E3CAB522450558720E739",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\active-wrapper01.result.json",
+      "bytes": 61,
+      "sha256": "12D043EF30535D20323C6A7730C0342664C0642C6C08D38568542BD711D1D3AB",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\active-wrapper01.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\active-wrapper01.stdout.log",
+      "bytes": 80,
+      "sha256": "0F492EADF3AF8045F62629CBAD6762172A154687CA976725E618CAEDC2CDECA5",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\after-existing-refusal01-kv.result.json",
+      "bytes": 86,
+      "sha256": "E033B0C8879487C1DF08818FEEEAEE22C2BA3EEDB11617802D43B23F9B0AB7E7",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\after-existing-refusal01-kv.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\after-existing-refusal01-kv.stdout.log",
+      "bytes": 1852,
+      "sha256": "BD9E2657A6A8C5C27BFA4CE774C405EFC0E6AC1620F0F4AE335BA665D707251D",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\after-existing-refusal01-records.result.json",
+      "bytes": 86,
+      "sha256": "C9ACF63C0561B8A102550825C256C1726D32FCC32E60E8392C03C48D59981490",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\after-existing-refusal01-records.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\after-existing-refusal01-records.stdout.log",
+      "bytes": 17966,
+      "sha256": "CEA3EC79DCC2DFE402B48DC54AAE55780D31DAE4C513CA15EAC32412488B6DF7",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\backup-migrated01.result.json",
+      "bytes": 86,
+      "sha256": "BB2349120AAA7EC57B0140529AB7DB1137364CFDF9CA7C72D82EF4C423C1BC71",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\backup-migrated01.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\backup-migrated01.stdout.log",
+      "bytes": 98,
+      "sha256": "27A666F0D5F5D80C7854E14306C4C2469170E3529873F14A1AF328753BFCD3E7",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\browser01.report.json",
+      "bytes": 292,
+      "sha256": "E1B7489B730715D5805AFC6F13BA60CFAA65C4B87D886CBABA6B510F93A5E11B",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\browser01.result.json",
+      "bytes": 61,
+      "sha256": "5FD1132468E18E45C5AA31537C99978AD9A0D0B059625E26F44413C2EC2BF3C8",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\browser01.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\browser01.stdout.log",
+      "bytes": 13,
+      "sha256": "46F7E19A308FCF9DD5D1D68DE1DD2A578693CBCDF52BE9EE3F58BA1BBF6695A0",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\corrupt-archive-refusal01.result.json",
+      "bytes": 86,
+      "sha256": "220BD84E2C8571C9B64B123EDC910CB292DD7363700D17939EEAB0FB948DD98F",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\corrupt-archive-refusal01.stderr.log",
+      "bytes": 387,
+      "sha256": "C91D219D3E869F74B09CA5BE9F61487BD1CA1B8C205A2798CE1C7F419F39B837",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\corrupt-archive-refusal01.stdout.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\corrupt-target-absent01.result.json",
+      "bytes": 86,
+      "sha256": "75B5794448C81A25865F9DC5D3647A3EB173EA4A6E8E9223C9F16C0FD440A731",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\corrupt-target-absent01.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\corrupt-target-absent01.stdout.log",
+      "bytes": 3,
+      "sha256": "13BF7B3039C63BF5A50491FA3CFD8EB4E699D1BA1436315AEF9CBE5711530354",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\existing-target-refusal01.result.json",
+      "bytes": 86,
+      "sha256": "61772F80D6F3F984DD2BC3FBA007F5E874BC58A0969EA15B08A404052B2B511D",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\existing-target-refusal01.stderr.log",
+      "bytes": 425,
+      "sha256": "15E0C615CFC8CDDA0EBDA83C859F518289DF9547071969DBDC4BE99B318E24EE",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\existing-target-refusal01.stdout.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\fresh01.result.json",
+      "bytes": 61,
+      "sha256": "0E99FCEAE276EE73082F885782D1B4AC728C7A4D0C147763141EDED0FCAEE6CC",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\fresh01.stderr.log",
+      "bytes": 1356,
+      "sha256": "FDDD116B267718C6EE4872C00BC6B8B6D0448F7ABD220ABC7170F18E8FF66ADE",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\fresh01.stdout.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\fresh02.result.json",
+      "bytes": 61,
+      "sha256": "25C6D65E00955974E35CADCACE86FDF585D3FFC9B18509AB24B38D32E0159C3A",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\fresh02.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\fresh02.stdout.log",
+      "bytes": 78,
+      "sha256": "D25F2D5A40596F4B42D592D1B484007869727D669E9DEADCB66D519C67FF43D6",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\migrated-schema01.result.json",
+      "bytes": 86,
+      "sha256": "64EF8AACA04FE2EB30D4C298E458B9AB97234F362F1FAE86B0C7CFA36F4DFCD4",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\migrated-schema01.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\migrated-schema01.stdout.log",
+      "bytes": 162,
+      "sha256": "F2995DEABB4DAE1CA00704FB8E9D02B7F0E7F1A380E957972D6B5FDDBA337D31",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\native-start01.result.json",
+      "bytes": 537,
+      "sha256": "38F1FDEFDD3711CBEB18C1570B8BFBA729113ACC8F499439D472F4021FA0DA5C",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\native-start01.stderr.log",
+      "bytes": 504,
+      "sha256": "6820CAFA991EFD7FADA267BB9208D050E6834EDFC0231A7E860F571C2A594220",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\native-start01.stdout.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\native-start02.result.json",
+      "bytes": 604,
+      "sha256": "2F81D3385B4B7303F8B9EA49C51F3A78715ED14393BDD7DD1CCA0585D8DAECE5",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\native-start02.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\native-start02.stdout.log",
+      "bytes": 24005,
+      "sha256": "C1102DAB78753D25A503D51E7C6BAF901519AB0390C3D6B01B36725CD490EAF4",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\native-wrapper01.result.json",
+      "bytes": 61,
+      "sha256": "067326439641C83F05C726D47B23615C84B1EF393F5228A96741A2CF2A49BA38",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\native-wrapper01.stderr.log",
+      "bytes": 358,
+      "sha256": "302318BD826A6A318AAA37B9342B043BC9FDB33DD0D3BF550BE0C2EB2E05FE5B",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\native-wrapper01.stdout.log",
+      "bytes": 539,
+      "sha256": "024A88EBFAEFC271B9E26FF73D93120F37227F098A7D20DCD7EB6799DE3F70A2",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\native-wrapper02.result.json",
+      "bytes": 61,
+      "sha256": "EF27D661C78716A9042FB99BD561E28AE4BD98BB5FAC409B6DFAF678F06BEF41",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\native-wrapper02.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\native-wrapper02.stdout.log",
+      "bytes": 606,
+      "sha256": "B5B858D43F90619FEF0297355C70C583BCAB76662D52EC6AD81575DACD58D0FE",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\new-restored01-kv.result.json",
+      "bytes": 86,
+      "sha256": "56A65AB053C8F9EF598CA42D0FD82D90999CD9ABD5DC9173FD3E3BB9F38EB31B",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\new-restored01-kv.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\new-restored01-kv.stdout.log",
+      "bytes": 1852,
+      "sha256": "BD9E2657A6A8C5C27BFA4CE774C405EFC0E6AC1620F0F4AE335BA665D707251D",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\new-restored01-records.result.json",
+      "bytes": 86,
+      "sha256": "0FD3304ED8E2C32E5488C5C5217E08F6279F8C7A26B1140F5FA08C6806C5A961",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\new-restored01-records.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\new-restored01-records.stdout.log",
+      "bytes": 17966,
+      "sha256": "CEA3EC79DCC2DFE402B48DC54AAE55780D31DAE4C513CA15EAC32412488B6DF7",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\old-after-migrate01-kv.result.json",
+      "bytes": 86,
+      "sha256": "65CF8889EA93BD4E39233456C50D71A19753BA48CB6B83DB5D49F7F6DE6B8435",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\old-after-migrate01-kv.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\old-after-migrate01-kv.stdout.log",
+      "bytes": 1852,
+      "sha256": "BD9E2657A6A8C5C27BFA4CE774C405EFC0E6AC1620F0F4AE335BA665D707251D",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\old-after-migrate01-records.result.json",
+      "bytes": 86,
+      "sha256": "CAAA6427C4F3D95A6AE35B376349F254E0BF1B3C405DBEF30E70A6FFFBDF3A7D",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\old-after-migrate01-records.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\old-after-migrate01-records.stdout.log",
+      "bytes": 17966,
+      "sha256": "CEA3EC79DCC2DFE402B48DC54AAE55780D31DAE4C513CA15EAC32412488B6DF7",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\old-before-migrate01-kv.result.json",
+      "bytes": 86,
+      "sha256": "56BFA6961AD2BB97FB16218286A121DFC8C85860BF0C303AFA86EDFE8B82E4DD",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\old-before-migrate01-kv.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\old-before-migrate01-kv.stdout.log",
+      "bytes": 1852,
+      "sha256": "BD9E2657A6A8C5C27BFA4CE774C405EFC0E6AC1620F0F4AE335BA665D707251D",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\old-migrate01.result.json",
+      "bytes": 86,
+      "sha256": "10CF21683F6492CDB6EE898FB213057B0600ABB13FCC61F6561128A9FC6CC577",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\old-migrate01.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\old-migrate01.stdout.log",
+      "bytes": 200,
+      "sha256": "67000C694D6712DD59C77FB6F2062BBA2208FA3C8AC07DB26C5A90B92DD640F1",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\pg-stop01.result.json",
+      "bytes": 198,
+      "sha256": "DEF90D9DC33ADE6CD73C2B1C15D636092D903FB353A65EE10C59EA4C5DE88A23",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\pg-stop01.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\pg-stop01.stdout.log",
+      "bytes": 59,
+      "sha256": "3A6747065DE8C2DBC66A6BAA73D5AB09C2C03EB8851704F973AC4B886E6805F2",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\power7-shell01.result.json",
+      "bytes": 19,
+      "sha256": "3BED2591497B89B762FBDECA5FC4DA005CC8CB3BDEDE1FCB6DE0D5E2C45F98D3",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\power7-shell01.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\power7-shell01.stdout.log",
+      "bytes": 7,
+      "sha256": "F1B9015FDDBC74EB77F6AC486B89917547A7FF3848591E50BD7B084B560CC2DF",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\power7-version01.result.json",
+      "bytes": 86,
+      "sha256": "EFF68F08DC527F0D6E16CD5EE22C5B6DE59E284CD9E2458D8C3D54FEB1D6CE24",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\power7-version01.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\power7-version01.stdout.log",
+      "bytes": 111,
+      "sha256": "6FCCB30C36CCA649115F9D60C0EBC081E6A1EA1536991A4B4F0BBC3FF17D343E",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\recovery-wrapper01.result.json",
+      "bytes": 61,
+      "sha256": "26A5264E256E7CC2087A8613A71B3267298FFAC8E1F2A0084BC48A93C72F5162",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\recovery-wrapper01.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\recovery-wrapper01.stdout.log",
+      "bytes": 727,
+      "sha256": "DAABBB9E7F1B387F0A11F68A8ED57629BD657B2DF27ED684832CAA5FCE7AF845",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\recovery01.report.json",
+      "bytes": 725,
+      "sha256": "94A3C453CA2ECC37FE49C60FF132074E556B09B455C16B2D388DFD72056BA6EE",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\restore-migrated01.result.json",
+      "bytes": 86,
+      "sha256": "AB1D9B5978827D5E165ECE680E54EACB6F337762737A890AB9EF754A2A0FC0E9",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\restore-migrated01.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\restore-migrated01.stdout.log",
+      "bytes": 111,
+      "sha256": "6FCCB30C36CCA649115F9D60C0EBC081E6A1EA1536991A4B4F0BBC3FF17D343E",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\restored-browser01.report.json",
+      "bytes": 472,
+      "sha256": "BFDF3211EDEF669FDE71BB67EAA86F4758BF689BC98AA7B8A4D7DC77FF3A29AB",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\restored-browser01.result.json",
+      "bytes": 61,
+      "sha256": "CA55723D8342516EB532AB9F3A637BA35574CFAD1BFB0EADA7E9111A468282ED",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\restored-browser01.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\restored-browser01.stdout.log",
+      "bytes": 113,
+      "sha256": "21ACD6AEE7964DF2A9E2F90A437763EF94FD1170460E4A8701CFC12F2E6D2722",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\restored-browser02.report.json",
+      "bytes": 327,
+      "sha256": "BF0641BCEFD956AE42D18F9CD8BCA9911237E663083A771B01A720567F92C52A",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\restored-browser02.result.json",
+      "bytes": 61,
+      "sha256": "BC4F59359B9D9C8D61CC674713820ECD1E808E9E9141E5D3E585D7229647F6AC",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\restored-browser02.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\restored-browser02.stdout.log",
+      "bytes": 13,
+      "sha256": "46F7E19A308FCF9DD5D1D68DE1DD2A578693CBCDF52BE9EE3F58BA1BBF6695A0",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\restored-protocol01.report.json",
+      "bytes": 1121,
+      "sha256": "4C03DCDC1470385923F12F18A3AF16CF80207366BAE651D8E6B0C1FB158F6104",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\restored-protocol01.result.json",
+      "bytes": 61,
+      "sha256": "EA9934322E3D7292D240CB4470F93F400108419670F1F0235F4EE940D33CAFB6",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\restored-protocol01.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\restored-protocol01.stdout.log",
+      "bytes": 1123,
+      "sha256": "C7E6539C549CF8AF7677EDCCCC94759FE4F324AC86603518DC7B2B6A4B211BEB",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\selected-start01.result.json",
+      "bytes": 309,
+      "sha256": "AEA7E740DCF986D3939793A1D3CE78E9CD8292DFDF909DB047ADCDCEC0619ADC",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\selected-start01.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\selected-start01.stdout.log",
+      "bytes": 35317,
+      "sha256": "59D533ECF64A73B78D08EA8F8B4A48513B1CA23760BBA1AF6CE0392D042605B2",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\selected-wrapper01.result.json",
+      "bytes": 61,
+      "sha256": "BA630B95B45A73241C461FB317D843840C8C14F998E80757BC2A6BCD9F6472EE",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\selected-wrapper01.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\selected-wrapper01.stdout.log",
+      "bytes": 311,
+      "sha256": "BAD8B89D905687F2D73B081AE104820DEA6EBD1294B3EDB237856AACADA29647",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\source-final01-kv.result.json",
+      "bytes": 86,
+      "sha256": "7990A58F19271E2E9819F802F9A9D6887A4A8A781F09D52B8F3D95D138A2ECDB",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\source-final01-kv.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\source-final01-kv.stdout.log",
+      "bytes": 1852,
+      "sha256": "BD9E2657A6A8C5C27BFA4CE774C405EFC0E6AC1620F0F4AE335BA665D707251D",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\source-final01-records.result.json",
+      "bytes": 86,
+      "sha256": "191B2F7F5AA6A69CCD3A4D4FD41234BE4BE1706F8E1709898EAC0F7CF6D8757C",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\source-final01-records.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\source-final01-records.stdout.log",
+      "bytes": 17966,
+      "sha256": "CEA3EC79DCC2DFE402B48DC54AAE55780D31DAE4C513CA15EAC32412488B6DF7",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\verify01.result.json",
+      "bytes": 61,
+      "sha256": "14C0D98754174510E09667E5BC24F242C7ED9D2D4ACE8907C02FF7A8E2B14FC5",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\verify01.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "status": "captured_complete_file"
+    },
+    {
+      "path": ".local\\sprint05\\package-qa\\verify01.stdout.log",
+      "bytes": 826,
+      "sha256": "A170EF67CBB5AE765C9971D740CC235104EA5D2823B706FF0DF4C6CBB4D943B9",
+      "status": "captured_complete_file"
+    }
+  ],
+  "pass": true
+}

@@ -1,0 +1,39 @@
+{
+  "all_hashes_match": true,
+  "preliminary_collector_issue": "First preliminary report included its own still-open stdout hash; corrected before publication by excluding collector outputs from primary inventory. Preliminary report bytes were rewritten; first stdout SHA and all runtime raw logs retained; no runtime gate changed.",
+  "report_sha256": "6FBBCA567E41B8B6C6C9F703594D9B2E3DF2D8D4C42B0417668C3EB19A4B5F63",
+  "collector_excluded_files": [
+    {
+      "Name": "final-report01.result.json",
+      "Length": 61,
+      "sha256": "56D6B0F2FE9840DCC980DEE3D58633777E57EE210EBA6A5D3DF7F61CC5827C03"
+    },
+    {
+      "Name": "final-report01.stderr.log",
+      "Length": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "Name": "final-report01.stdout.log",
+      "Length": 236,
+      "sha256": "C6F951F0027AD0D3B446D11282F2B9847B03E537501DAE101ABFDF5199E965C2"
+    },
+    {
+      "Name": "final-report02.result.json",
+      "Length": 61,
+      "sha256": "F5940CCDF942455E9347003EDE5F0D42ACC6397C956D4F2CB9B0370BD95AFCF6"
+    },
+    {
+      "Name": "final-report02.stderr.log",
+      "Length": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "Name": "final-report02.stdout.log",
+      "Length": 236,
+      "sha256": "E83B10F81B8E29F5E11EF7B02761635B7AB5373DAAFF6EF06AB71E9A82B7FBDC"
+    }
+  ],
+  "tool_only_scope": "Read failures, auto-review rejection and orchestration syntax error retained in tool history, no fabricated disk raw copies",
+  "checked_raw_logs": 117
+}

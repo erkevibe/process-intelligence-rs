@@ -1,0 +1,11 @@
+# Customer actual S5-F1 vote
+
+Fixed Customer seat /root/customer: **FOR** exact S5-F1 proposal `flw/evidence/sprint-05-final-proposal.md`, independently read in full and SHA256 verified **603ACC466D2F0DF8D50D1C4E1C08068C9C3EE9C9F05D21742960DA16A50EF661**. This is a new vote; neither planning nor BODY-resume votes transfer.
+
+Read actual completed QA conclusions A01–A08 scoped PASS, A09 bounded audit with Council/CI pending, A10 pending; independently verified QA JSON A6EF6013FF8E75B876A257C1A3E7DD1985294946F04F82BA14979644E0E231DE and narrative49019FA95ACF67FE341AD10F110801E209CE5AC68AFBC59CDA730583C129471F. Read and verified TD final FC3C2AE68E581165189E6D3B5FE3BFE3C07B8C2C7E9C383268F71C5751793354 and debt806739B4E03916EE02F209E5E68D65815E3C4083B71687B557DC0F07A6F613C2. These complete the preproposal matrix/debt conditions in my independent final position.
+
+Basis: exact unchanged C2 source55e8dd28bee413316deba0aa252ceb6a436b9ffa / EXE4DA47C60DA169B2B0D659E4583A72EA5E17DBCE18B83E28B8923B2DF1CDAF98A / ZIPBF900C88EC8B5E8ABFFC292C5C9704B152C053725D1DA7B15EE3E930285B4EFB materially reduces retained memory on the fixed full corpus while preserving original access,94 records, full exports and durable jobs. Independent lazy/corruption/auth/CAS/eviction/transport/recovery and cold package/operator evidence support the selected contract. No remaining Customer P0 runtime blocker established. C1 remains rejected and historical failures preserved.
+
+FOR authorizes only the proposal's bounded promotion path. Exact final-head CI/source equivalence, public anonymous complete ZIP/manifest verification, fresh user installation and independent protected old3000/3010/3030/3040 checks remain nonwaivable; failure blocks completion even after majority. I do not record any pending check as PASS. Visible PowerShell7.6.5 prerequisite/current pinned guide/frozen snapshot warning are required. NativePS5 backup UNVERIFIED,20MiB semantic backup refusal, retained disk copies, active/allocator/OS memory and sampled-versus-continuous memory limits remain explicit. Cache charge is not a physical128MiB RAM limit. No full R2–R5, enterprise or Apromore-parity claim, and no replacement of human acceptance.
+
+Only this own evidence file written; no runtime/database action. Risk appetite remains medium overall and low for data/access/atomicity.
