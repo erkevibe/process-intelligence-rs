@@ -75,7 +75,9 @@ enum Command {
     ProjectHeader(String),
     ProjectHeaders,
     RecordKeys(String),
-    ProjectRecord(String, String, String),
+    ResourceRecords(String, String, Vec<String>),
+    ResourceVersions(String, String, Vec<String>),
+    ResourceSummaries(String),
     ProjectWrite(crate::normalized::ProjectWrite),
 }
 enum Reply {
@@ -86,7 +88,9 @@ enum Reply {
     Id(u64),
     Keys(Vec<(String, String)>),
     Headers(Vec<(String, u64, Value)>),
-    Record(Option<Value>),
+    Records(Vec<(String, u64, Value)>),
+    RecordVersions(Vec<(String, u64)>),
+    Summaries(Vec<(String, String, String, u64)>),
 }
 #[derive(Clone)]
 pub struct Database {
@@ -127,7 +131,25 @@ impl Database {
                     Command::ProjectHeaders=>Ok(Reply::Headers(crate::normalized::headers(&mut client)?)),
                     Command::ProjectHeader(project)=>Ok(Reply::Document(crate::normalized::read_header(&mut client,&project)?)),
                     Command::RecordKeys(project)=>Ok(Reply::Keys(client.query("SELECT kind,resource_id FROM public.pi_records WHERE project_id=$1 ORDER BY kind,resource_id",&[&project]).map_err(|_|unavailable())?.iter().map(|r|(r.get(0),r.get(1))).collect())),
-                    Command::ProjectRecord(project,kind,id)=>Ok(Reply::Record(client.query_opt("SELECT document FROM public.pi_records WHERE project_id=$1 AND kind=$2 AND resource_id=$3",&[&project,&kind,&id]).map_err(|_|unavailable())?.map(|r|r.get(0)))),
+                    Command::ResourceRecords(project,id,kinds)=>{
+                        let rows=client.query("SELECT kind,version,document FROM public.pi_records WHERE project_id=$1 AND resource_id=$2 AND kind=ANY($3) ORDER BY kind",&[&project,&id,&kinds]).map_err(|_|unavailable())?;
+                        tracing::info!(%project,resource_id=%id,records=rows.len(),"resource_payload_read");
+                        Ok(Reply::Records(rows.iter().map(|r|(r.get(0),r.get::<_,i64>(1) as u64,r.get(2))).collect()))
+                    },
+                    Command::ResourceVersions(project,id,kinds)=>Ok(Reply::RecordVersions(client.query("SELECT kind,version FROM public.pi_records WHERE project_id=$1 AND resource_id=$2 AND kind=ANY($3) ORDER BY kind",&[&project,&id,&kinds]).map_err(|_|unavailable())?.iter().map(|r|(r.get(0),r.get::<_,i64>(1) as u64)).collect())),
+                    Command::ResourceSummaries(project)=>{
+                        // Only bounded scalar metadata crosses the worker boundary. A list
+                        // never deserializes log data/source/analysis or model documents.
+                        let rows=client.query("SELECT kind,resource_id,CASE WHEN kind='log_state' THEN document->>'filename' ELSE document->>'name' END,CASE WHEN kind='model' THEN document->>'revision' ELSE (SELECT a.document->>'events' FROM public.pi_records a WHERE a.project_id=r.project_id AND a.resource_id=r.resource_id AND a.kind='log_analysis') END FROM public.pi_records r WHERE project_id=$1 AND kind IN ('log_state','model') ORDER BY kind,resource_id",&[&project]).map_err(|_|unavailable())?;
+                        let mut summaries=Vec::new();
+                        for row in rows {
+                            let name=row.get::<_,Option<String>>(2).filter(|s|s.len()<=65536).ok_or_else(crate::normalized::invalid)?;
+                            let number=row.get::<_,Option<String>>(3).and_then(|s|s.parse::<u64>().ok()).ok_or_else(crate::normalized::invalid)?;
+                            summaries.push((row.get(0),row.get(1),name,number));
+                        }
+                        tracing::info!(%project,records=summaries.len(),"resource_summary_read");
+                        Ok(Reply::Summaries(summaries))
+                    },
                     Command::ProjectWrite(write)=>{let mut tx=client.transaction().map_err(|_|unavailable())?;let version=crate::normalized::write(&mut tx,&write)?;validate_record_index(&mut tx,&write.project,&write.metadata)?;tx.commit().map_err(|_|unavailable())?;tracing::info!(records_written=write.puts.len(),records_deleted=write.deletes.len(),project_revision=version,"normalized_committed");Ok(Reply::Version(version))},                    Command::Lease=>{if lease_held{return Ok(Reply::Ready);}let row=client.query_one("SELECT pg_try_advisory_lock($1)",&[&LEASE]).map_err(|_|unavailable())?;if !row.get::<_,bool>(0){return Err(ImportError::new("app_already_running","С этой базой уже работает приложение. Остановите прежний экземпляр."));}lease_held=true;Ok(Reply::Ready)},
                     Command::Health=>{client.query_one("SELECT 1",&[]).map_err(|_|unavailable())?;Ok(Reply::Ready)},
                     Command::Read(key)=>{
@@ -315,6 +337,45 @@ fn validate_record_index(
     Ok(())
 }
 impl Database {
+    pub(crate) fn resource_records(
+        &self,
+        project: &str,
+        id: &str,
+        kinds: &[&str],
+    ) -> Result<Vec<(String, u64, Value)>, ImportError> {
+        match self.request(Command::ResourceRecords(
+            project.into(),
+            id.into(),
+            kinds.iter().map(|k| k.to_string()).collect(),
+        ))? {
+            Reply::Records(v) => Ok(v),
+            _ => unreachable!(),
+        }
+    }
+    pub(crate) fn resource_versions(
+        &self,
+        project: &str,
+        id: &str,
+        kinds: &[&str],
+    ) -> Result<Vec<(String, u64)>, ImportError> {
+        match self.request(Command::ResourceVersions(
+            project.into(),
+            id.into(),
+            kinds.iter().map(|k| k.to_string()).collect(),
+        ))? {
+            Reply::RecordVersions(v) => Ok(v),
+            _ => unreachable!(),
+        }
+    }
+    pub(crate) fn resource_summaries(
+        &self,
+        project: &str,
+    ) -> Result<Vec<(String, String, String, u64)>, ImportError> {
+        match self.request(Command::ResourceSummaries(project.into()))? {
+            Reply::Summaries(v) => Ok(v),
+            _ => unreachable!(),
+        }
+    }
     pub(crate) fn project_headers(&self) -> Result<Vec<(String, u64, Value)>, ImportError> {
         match self.request(Command::ProjectHeaders)? {
             Reply::Headers(v) => Ok(v),
@@ -333,21 +394,6 @@ impl Database {
     pub(crate) fn record_keys(&self, project: &str) -> Result<Vec<(String, String)>, ImportError> {
         match self.request(Command::RecordKeys(project.into()))? {
             Reply::Keys(d) => Ok(d),
-            _ => unreachable!(),
-        }
-    }
-    pub(crate) fn project_record(
-        &self,
-        project: &str,
-        kind: &str,
-        id: &str,
-    ) -> Result<Option<Value>, ImportError> {
-        match self.request(Command::ProjectRecord(
-            project.into(),
-            kind.into(),
-            id.into(),
-        ))? {
-            Reply::Record(d) => Ok(d),
             _ => unreachable!(),
         }
     }

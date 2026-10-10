@@ -1,4 +1,4 @@
-param([Parameter(Mandatory=$true)][string]$SourceCommit,[string]$Version='0.4.0',[Parameter(Mandatory=$true)][string]$BuildProof)
+param([Parameter(Mandatory=$true)][string]$SourceCommit,[string]$Version='0.5.0',[Parameter(Mandatory=$true)][string]$BuildProof)
 $ErrorActionPreference='Stop'
 if($SourceCommit -notmatch '^[0-9a-f]{40}$' -or $Version -notmatch '^\d+\.\d+\.\d+(-[a-zA-Z0-9]+)?$'){throw 'Explicit source SHA and safe version are required.'}
 $taskRoot=Split-Path -Parent $PSScriptRoot

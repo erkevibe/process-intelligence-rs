@@ -1,0 +1,118 @@
+{
+  "identity": "ACCEPTED B4 BASELINE, not new05candidate",
+  "exe_sha256": "B4EA51E5264646709A1DDDB5686132D2662BB5275B271F4473A7B7592D58AAB8",
+  "helper_kind_note": "Reused historical helper has literal kind=candidate to enable normalized-storage invariant assertions; actualexe B4 and ownconfiguration pin baseline. Not product05evidence",
+  "ready_three_ms": [
+    1001.7979,
+    841.1287,
+    890.7601
+  ],
+  "ready_source_sha256": "EA9C0360724E3E0D6F3D51DFC6B3609CAA031268F4099E1D2DEB9A045A00565E",
+  "metrics": [
+    {
+      "operation": "first_protected_project_open_including_redirect_and_lazy_load",
+      "wall_ms": 5626.1308,
+      "status": 200
+    },
+    {
+      "operation": "existing_export_after_first_navigation",
+      "wall_ms": 97.15269999999964,
+      "status": 200
+    },
+    {
+      "operation": "view_1",
+      "wall_ms": 186.66590000000087,
+      "status": 200
+    },
+    {
+      "operation": "view_2",
+      "wall_ms": 181.98110000000088,
+      "status": 200
+    },
+    {
+      "operation": "view_3",
+      "wall_ms": 182.02260000000024,
+      "status": 200
+    },
+    {
+      "operation": "model_1",
+      "wall_ms": 16.03060000000005,
+      "status": 200
+    },
+    {
+      "operation": "model_2",
+      "wall_ms": 13.487499999999272,
+      "status": 200
+    },
+    {
+      "operation": "model_3",
+      "wall_ms": 11.968199999999342,
+      "status": 200
+    },
+    {
+      "operation": "job_admission_1",
+      "wall_ms": 204.57270000000062,
+      "status": 202
+    },
+    {
+      "operation": "job_cancel_1",
+      "wall_ms": 7.324399999999514,
+      "status": 200
+    },
+    {
+      "operation": "job_admission_2",
+      "wall_ms": 157.6322999999993,
+      "status": 202
+    },
+    {
+      "operation": "job_cancel_2",
+      "wall_ms": 7.349099999999453,
+      "status": 200
+    },
+    {
+      "operation": "job_admission_3",
+      "wall_ms": 188.4255000000012,
+      "status": 202
+    },
+    {
+      "operation": "job_cancel_3",
+      "wall_ms": 6.190299999998388,
+      "status": 200
+    }
+  ],
+  "checks": [
+    {
+      "name": "3realview+3realmodelwrites all18originalheavyrecordversions/fullhashes unchanged",
+      "pass": true
+    },
+    {
+      "name": "3actualaccepted100kjobcancellations heavyversions/fullhashes unchanged",
+      "pass": true
+    }
+  ],
+  "observations": [
+    {
+      "app_pid": 33812,
+      "sampler_pid": 48364
+    },
+    {
+      "job_stress_payload_bytes": 17200026,
+      "job_activities": 100000,
+      "scope": "distinct real valid100k labels; same baseline/candidate workload; separate allA120 capacitypayload proven elsewhere"
+    },
+    {
+      "cancelled": "job-64"
+    },
+    {
+      "cancelled": "job-65"
+    },
+    {
+      "cancelled": "job-66"
+    }
+  ],
+  "actual_wrapper_exit": 0,
+  "all_own_app_sampler_stopped": true,
+  "original10projectcopy_unchanged": "Mutations only deterministic cloned project-A; original copiedproject remained unmodified. Auth sessions legitimately added",
+  "attempt01": "Wrong inherited envPORT3046/client3051, norequests; exactownapp/nodecleanup. Preserved failure before corrected unique02",
+  "small_source_sha256": "F5DA4F0029A6BB6322330E1242A013856516CA7A17540E3D939BEE0D1446BCF9"
+}

@@ -1,0 +1,17 @@
+# Resource loading and cache contract (0.5 development)
+
+Sprint05 implements individual resource loading on the existing schema2. Acceptance status is determined by SPRINT_05_PLAN.md and the eventual independent report; implementation text is not a PASS.
+
+Project workspaces keep complete ID catalogs, current selections, per-user views and durable job snapshots. They keep no clean heavy journal/model payloads. Dirty objects exist only during admitted operations; after successful CAS acknowledgement, their IDs remain in the catalog and the transient maps are cleared. Baseline uses weak identities and small state. Only explicit durable deletion sets can remove records; cache eviction cannot write SQL.
+
+The reusable cache is global across all projects, logs and models: at most134217728 charged bytes and8 entries. Its deterministic charge includes owned collection/string capacities, struct storage, Arc/allocator allowances and cache key/entry overhead. Source and filtered data are charged separately even if shared. This estimate is deliberately conservative and is not the application's physical memory limit. A larger single resource bypasses retention and remains available through admitted loading. Active payloads, validation, response buffers, up to2 background jobs, uploads, whole-project backup and allocator pages are separate memory consumers.
+
+Each journal load reads log_state/data/source/analysis in one SQL snapshot. Strict nested schema, ownership, source/filter/analysis, calendar and selection validation precedes exposure. Models receive the existing strict export/edit contract. Every hit checks stored versions and current session/project/role; actor views are applied to a private clone of the base log. Restored projects can contain identical IDs because cache identity includes project and resource kind.
+
+At most2 heavy HTTP operations run globally. Saturation returns503/cache_busy; clients may retry. An operation's reservation survives a disconnected request while its blocking worker continues, and remains through response consumption/drop. Idle job event subscriptions do not hold reservations: only Completed analysis rendering acquires one. Health, lists, task status and cancellation remain available. Existing separate job/CPU/upload admission stays unchanged.
+
+Whole-project semantic backup deliberately loads a complete project while holding its mutation lock and one heavy reservation; it verifies matching revision and all views. It retains the existing20MiB downloadable backup limit. Large database-level backups use the packaged operator helper. Neither backup path is a128MiB total-memory promise.
+
+Administrator GET /diagnostics/cache returns aggregate charge/count/load/hit/eviction/oversize counters and current heavy admission count. It contains no cookies, passwords or raw process input. Private resource/version/read events support independent lazy-loading checks. Diagnostics alone do not prove memory improvement or data correctness.
+
+Existing schema2 copies require no new migration. For schema1 follow STORAGE_V2.md against a separately restored copy. The verified operator interpreter scope inherited from0.4 is PowerShell7.6.5 for database backup/restore/offline migration; native Windows PowerShell5.1 Start is separate. New0.5 artifact evidence is required before transferring those results. Do not mutate a reviewed package's manifest-protected contents.
