@@ -1,0 +1,15 @@
+# Sprint04 separate native selector and PostgreSQL WAL recovery supplement
+
+Exact source f3a3ad46056e402e6891c9549b1505876fbb8e7e; exact EXE SHA256 B4EA51E5264646709A1DDDB5686132D2662BB5275B271F4473A7B7592D58AAB8. Previous native report remains unchanged.
+
+Actual native Windows PowerShell5 public `Start.ps1 -Database pi_restore_old04 -Port3048 -PostgresPort5561` selected the complete migrated accepted0.3 database. Existing qa_owner login and project opening succeeded; authenticated log26 export returned100,000 events. This covers the public Database parameter rather than a private executable environment override.
+
+After those legitimate authentication actions, independent ordered snapshots covered every pi_kv auth/generic value and version, every project header/record full value and version, migration ledger checksum, and all durable job states. Actual abrupt force-stop targeted ONLY postmaster47420 after exact executable path, data directory, pidfile and creation-time guards. No process-tree kill, reset or production fault flag was used. While the application remained live, health and protected export both returned503; the full log was not exposed. There was no concurrent mutation or in-flight job in this crash scenario, so it does not claim a job-commit race test.
+
+Normal startup of the SAME preserved cluster produced real PostgreSQL logs: interrupted/not properly shut down, automatic recovery, WAL redo, end-of-recovery checkpoint and ready. All full row/version snapshots AND complete durable job snapshots matched exactly before/after. Aggregate linkage query found18 jobs:2Completed,11Failed,5Cancelled,0nonterminal and0completed result orphans. No late job result or terminal state appeared. Public native selected-database Start was used again after recovery; the pre-crash cookie remained valid, and full100k export SHA256 matched exactly.
+
+Parent QA then executed its exact frozen single individual-document guard test against NEW `pi_s3_fresh` created exclusively in this isolated5561 cluster. Its result belongs to parent evidence `.local/logs/s4-qa-c1-individualguard01.log`; this specialist does not independently credit that test.
+
+Exact owned app and cluster were subsequently stopped after executable/data identity guards. Ports3048/5561 closed; no protected shared/user resource touched. The PostgreSQL startup tool session returned actual exit0 after owned cluster cleanup; full recovery logs were preserved. App+PG aggregate WorkingSet samples and processLifetimePeak samples were NOT-IN-RUN for this functional crash check; no memory maximum is claimed.
+
+Private proof: `.local/sprint04/qa/native-specialist/wal-evidence01.json`, `wal-crash-identity01.json`, `wal-failclosed01.json`, `wal-jobs-aggregate01.json`, `wal-export-before.json`, `wal-export-after.json`, full before/after row/job snapshots, native selected-start stdout/stderr and full PostgreSQL recovery log. Snapshots and cookie remain in protected current-user-only private directory. NativePS5 backup suspended-process limitation remains explicit in the previous report and was not retried.

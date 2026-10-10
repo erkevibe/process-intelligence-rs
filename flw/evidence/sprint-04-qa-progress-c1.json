@@ -1,0 +1,117 @@
+{
+  "source_commit": "f3a3ad46056e402e6891c9549b1505876fbb8e7e",
+  "pending": [
+    "backend interruption",
+    "schema anomalies",
+    "full oldcookie+API persistence",
+    "complete failed cancelled crash/restart",
+    "native/backup/provenance",
+    "exact CI audit",
+    "publicdelivery"
+  ],
+  "exe_sha256": "B4EA51E5264646709A1DDDB5686132D2662BB5275B271F4473A7B7592D58AAB8",
+  "suites": [
+    {
+      "report_sha256": "03EAECB9CCD860CAC124DF5ACCE92F83070CF7A8927E26A32D243C5DF6D36E9B",
+      "suite": "lazy-negatives-c1-02",
+      "checks": [
+        {
+          "name": "log_data corrupt lazy payload controlled503-beforeexport healthyworker no rewrite",
+          "pass": true
+        },
+        {
+          "name": "log_source corrupt lazy payload controlled503-beforeexport healthyworker no rewrite",
+          "pass": true
+        },
+        {
+          "name": "log_analysis corrupt lazy payload controlled503-beforeexport healthyworker no rewrite",
+          "pass": true
+        },
+        {
+          "name": "log_state corrupt lazy payload controlled503-beforeexport healthyworker no rewrite",
+          "pass": true
+        },
+        {
+          "name": "model corrupt lazy payload controlled503-beforeexport healthyworker no rewrite",
+          "pass": true
+        }
+      ],
+      "observed_errors": 0,
+      "pass_checks": 5
+    },
+    {
+      "report_sha256": "3E5625F2543309A26BCA0E27466D00905FB44C705E6B6958A63F0BB98205EB92",
+      "suite": "final-barrier-c1-01",
+      "checks": [
+        {
+          "name": "actual finalledger wait ShareLock blocks concurrentRowExclusive writer; processkill rollback preserves all original rows ledger1",
+          "pass": true
+        },
+        {
+          "name": "finalboundary interrupted recognized resume all94fullsemanticvalues originals unchanged",
+          "pass": true
+        },
+        {
+          "name": "completed CLI idempotent fullrecordSHA andversions unchanged",
+          "pass": true
+        }
+      ],
+      "observed_errors": 0,
+      "pass_checks": 3
+    },
+    {
+      "report_sha256": "2F2B341EEE72F9A53BCFD538C797C276C89E3E8C42310B7DB9E20074B9610D48",
+      "suite": "migration-kill-c1-01",
+      "checks": [
+        {
+          "name": "actualown migrationprocess kill during observedcommittedpartialshadowrecords; originalfullrows unchanged and noledger2",
+          "pass": true
+        },
+        {
+          "name": "partialmigration normalstartup refuses readiness without exposing partialshadow",
+          "pass": true
+        },
+        {
+          "name": "recognized same-source resume all94fullvalues exact noorphans no originalrewrite",
+          "pass": true
+        },
+        {
+          "name": "completedofflinerepeat idempotent normalizedversions/fullhashes stable",
+          "pass": true
+        }
+      ],
+      "observed_errors": 0,
+      "pass_checks": 4
+    },
+    {
+      "report_sha256": "DF1E6EF9F1412EBF944315C0CC5A546B4F785F745342BD896E8356F26F95071A",
+      "suite": "capacity-c1-01",
+      "checks": [
+        {
+          "name": "SAME17200026bytes100k formerlycapacityrefused cumulative6logproject nowCompleted7thlog all24originalrecordversions/fullhashes unchanged export100kevents health200",
+          "pass": true
+        }
+      ],
+      "observed_errors": 0,
+      "pass_checks": 1
+    },
+    {
+      "report_sha256": "22347E4827C7B62C2C8A6A0680AC99344EB79B72C0E2D7D225D4C7AA3EBE855D",
+      "suite": "mutation-perf-c1-candidate01",
+      "checks": [
+        {
+          "name": "3realview+3realmodelwrites all18originalheavyrecordversions/fullhashes unchanged",
+          "pass": true
+        },
+        {
+          "name": "3actualaccepted100kjobcancellations heavyversions/fullhashes unchanged",
+          "pass": true
+        }
+      ],
+      "observed_errors": 0,
+      "pass_checks": 2
+    }
+  ],
+  "status": "partial_exact_candidate_evidence_not_release_acceptance",
+  "zip_sha256": "85C23B2E69D67D442067180C124E55958C64F6D1C73BDF1708C4CEF4AAB3BD1D"
+}
