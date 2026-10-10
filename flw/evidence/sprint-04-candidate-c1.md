@@ -1,0 +1,7 @@
+# Sprint04 integrated candidate C1
+
+Candidate explicitly designated during the15:30–15:31UTC build handoff; formal record reconciled against actual clock2026-10-10T15:36:38Z. Earlier15:30:45 second precision was an estimate, not a clock observation. Frozen source f3a3ad46056e402e6891c9549b1505876fbb8e7e, implementation barrier8ba187a. Build/tests completed exit0 and packaging completed: exact identities recorded in sprint-04-c1-build.json. This is an acceptance candidate, not accepted or delivered software. Draft0059279 and A7 proofs remain draft observations and are not transferred automatically.
+
+Full contour: independent QA/ProcessLogAuditor actual A01-A10, independent TD source/debt review, exact-source/package provenance, native Windows5 installation/backup/migration checks, actual final-head CI. Fixed five seats Root/Customer/PM/QA/TD invited before final proposal; positions first, exact proposal/votes after artifacts/evidence exist. No vote is requested on missing artifacts. The approved S4-P1 rawSHA42CD4E4253AD85B2F91E3D047DB249A67B917AFF4E683B49AF062B77AE2BA277 is preserved byte-for-byte in the source Git blob using the explicit -text attribute.
+
+Mandatory unresolved acceptance at designation: finalbarrier concurrent insertion/crash, schema/lazy-corrupt negatives, matched final metrics, exact native package/backup/recovery, final artifact Council/CI and public/postlive delivery. Whole-project payload cache and retained original legacy rows remain declared memory/disk debt. Existing user applications and databases untouched.
