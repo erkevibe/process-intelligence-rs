@@ -1,0 +1,117 @@
+{
+  "candidate": "8c91d847834cc7675f69dc72b0b82caf30e485d7",
+  "executable_sha256": "9C2317F76EF39888DBC20373D9CADA0068F2CCC32FF2278CE9BA0984B0FC8ACF",
+  "frozen_files_checked": 150,
+  "mismatches": 0,
+  "reports": [
+    {
+      "source": ".local/qa-sprint02-final04-jobs/report.json",
+      "sha256": "10BA4A20BCA1FFAEDD486869EC175658D8F88249A41EC539500AC9C013A73CA4",
+      "assertions": 6,
+      "failed": 0,
+      "scope": "actual exact release; appcwd root for3011; packagecwd pending"
+    },
+    {
+      "source": ".local/qa-sprint02-final04-browser/report-before.json",
+      "sha256": "841325712485AEB9E9004D2BFBC56CE1A7BB55D492F3C18D9632F55E07E4CB02",
+      "assertions": 20,
+      "failed": 0,
+      "scope": "actual exact release; appcwd root for3011; packagecwd pending"
+    },
+    {
+      "source": ".local/qa-sprint02-final04-browser/report-after.json",
+      "sha256": "B5D1BBF012A6FCB32F8F31179A3257940C66D73875C848681C6D5F9E3631573B",
+      "assertions": 4,
+      "failed": 0,
+      "scope": "actual exact release; appcwd root for3011; packagecwd pending"
+    },
+    {
+      "source": ".local/qa-sprint02-final04-browser/roles-report.json",
+      "sha256": "1A6B10AF9567079AB8E415E652E432951116E3DFCDA1A94A933DA8CC0F0EA92F",
+      "assertions": 5,
+      "failed": 0,
+      "scope": "actual exact release; appcwd root for3011; packagecwd pending"
+    },
+    {
+      "source": ".local/qa-sprint02-final04-browser/csv-negative-report.json",
+      "sha256": "8B3B035E2916E3818AEF487A5E4412AD0CE9CC2F9AD6469C76276E9E449E6270",
+      "assertions": 2,
+      "failed": 0,
+      "scope": "actual exact release; appcwd root for3011; packagecwd pending"
+    },
+    {
+      "source": ".local/qa-sprint02-final04-browser/model-limit-report.json",
+      "sha256": "79C290370F93156ADBBAB9F2B9C364273A0857D6D76F12DD3C3A2ABF449BF2EF",
+      "assertions": 2,
+      "failed": 0,
+      "scope": "actual exact release; appcwd root for3011; packagecwd pending"
+    },
+    {
+      "source": ".local/qa-sprint02-final04-browser/capacity-report.json",
+      "sha256": "42611105030AAFD441386E1F8997E88F0F271B0166F1C198FB508C8ADB0C87BF",
+      "assertions": 2,
+      "failed": 0,
+      "scope": "actual exact release; appcwd root for3011; packagecwd pending"
+    },
+    {
+      "source": ".local/qa-sprint02-final04-browser/restore-collision-report.json",
+      "sha256": "8E4E80368AE5BDEA71E67D30703F687C795858510957B2FEB51F9CC15844D2AB",
+      "assertions": 2,
+      "failed": 0,
+      "scope": "actual exact release; appcwd root for3011; packagecwd pending"
+    },
+    {
+      "source": ".local/qa-sprint02-final04-browser/lease-report.json",
+      "sha256": "4A3D220D358F26901B7657A1B92F91595921BB2AE7DBE95A3D44E8338E313FFF",
+      "assertions": 3,
+      "failed": 0,
+      "scope": "actual exact release; appcwd root for3011; packagecwd pending"
+    },
+    {
+      "source": ".local/qa-sprint02-final04-browser/extra-report.json",
+      "sha256": "2DFBB58D24BF31F3748DC01F35127CB92115A01E33BB4D45F47AC893F4058FBB",
+      "assertions": 3,
+      "failed": 0,
+      "scope": "actual exact release; appcwd root for3011; packagecwd pending"
+    }
+  ],
+  "app_logs": [
+    {
+      "source": "s2-qa-final04-app01.stdout.log",
+      "sha256": "FA77CB93F134E29D714C405CC823421498ACDBF56C35419DF82116A042EE3365",
+      "bytes": 97188,
+      "lines": 379,
+      "unparsed": 0,
+      "levels": {
+        "WARN": 1,
+        "INFO": 378
+      },
+      "statuses": {
+        "303": 36,
+        "403": 11,
+        "200": 266,
+        "404": 6,
+        "409": 1,
+        "422": 4
+      },
+      "scope": "full stopped-file automated parsing not lifetime coverage"
+    },
+    {
+      "source": "s2-qa-final04-app02.stdout.log",
+      "sha256": "7771AACB9A67C0C3D759E687C7D38DDF5B191FAB6248965D5CCEAB3ABD58706E",
+      "bytes": 11008,
+      "lines": 42,
+      "unparsed": 0,
+      "levels": {
+        "INFO": 42
+      },
+      "statuses": {
+        "303": 4,
+        "200": 28,
+        "503": 3
+      },
+      "scope": "full stopped-file automated parsing not lifetime coverage"
+    }
+  ],
+  "package": "pending"
+}

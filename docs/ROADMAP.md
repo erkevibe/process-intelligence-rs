@@ -4,7 +4,20 @@
 
 ## Этапы и результаты
 
-Текущий спринт 02: выбранные сквозные сценарии R2–R5 за восемь часов. [План и A01–A12](SPRINT_02_PLAN.md), [ТЗ итерации](SPRINT_02_SPECIFICATION.md). R1 уже принят; исходные exit criteria R2–R5 ниже остаются в силе. CSV/сохранение относятся к R2, проекты/права/jobs к R3, ограниченный BPMN и baseline discovery к R4, фильтры и календарь с фиксированным offset к R5. Во время разработки эти сценарии ещё не считаются принятой поставкой.
+Спринт 02 принят: все 12 выбранных сквозных критериев R2–R5 прошли независимую проверку, включая чистую Windows-установку и настоящий перезапуск. [Отчёт](SPRINT_02_REPORT.md), [план и A01–A12](SPRINT_02_PLAN.md), [ТЗ итерации](SPRINT_02_SPECIFICATION.md). R1 принят; исходные exit criteria R2–R5 ниже остаются в силе. CSV/сохранение относятся к R2, проекты/права/jobs к R3, ограниченный BPMN и baseline discovery к R4, фильтры и календарь с фиксированным offset к R5. Полные R2–R5 остаются частично реализованными.
+
+### На каком этапе сейчас
+
+| Этап | Уже работает после спринта 02 | Что нужно для полного этапа |
+|---|---|---|
+| R1 | Принятый XES/статистика/варианты/DFG/SSE | Поддерживать регрессии |
+| R2 — частично | CSV mapping, явный порядок событий, SHA256, PostgreSQL, backup/restore | Восстановить legacy oracle, заморозить corpus/golden outputs и проверить расхождения |
+| R3 — частично | Локальный вход, проекты, owner/editor/viewer, долговечные jobs, сохранение после restart | Папки/жизненный цикл проектов, migrations/audit, deadlines и дальнейшее развёртывание |
+| R4 — частично | Строгий BPMN subset, labels/positions edit/save/export, observed-variants baseline | Полный согласованный model contract, структурное редактирование и метрики качества discovery |
+| R5 — частично | Фильтры исходных трасс/действий и рабочие интервалы с fixed offset | Приоритетные остальные Core contracts, IANA/DST, conversions и Split Miner |
+| R6 — впереди | Контракты хранения/задач создают основу | Измерить реальные нагрузки/RSS, затем большие данные и распределение |
+
+Следующий достижимый спринт: начать oracle/corpus и закрыть эксплуатационный долг PostgreSQL — явные deadlines, восстановление прерванной настройки, проверяемые migrations/backup recovery. Затем расширять проекты и BPMN по конкретным пользовательским сценариям. Объём и срок следующего спринта защищаются отдельно; это приоритеты, не обещание полного enterprise за одну итерацию.
 
 | Этап | Плановый объём | Результат | Условие завершения |
 |---|---|---|---|
@@ -46,7 +59,7 @@ R2 может идти одновременно с улучшением R1, но
 | OpenXES и импорт | WRAP + VALIDATE | Rust4PM adapter + normalization |
 | DFG и варианты | REIMPLEMENT или WRAP + VALIDATE | Rust mining module |
 | Process Discoverer UI | REIMPLEMENT | Datastar shell + Cytoscape |
-| Model Editor | REIMPLEMENT | bpmn-js component + server storage |
+| Model Editor | REIMPLEMENT | BPMN contract + server storage; текущий ограниченный viewer/editor на Cytoscape |
 | Repository и Database | REIMPLEMENT | PostgreSQL + storage interfaces |
 | Permissions и Calendar | PORT SEMANTICS | Rust с отдельными поведенческими тестами |
 | Split Miner | PORT при подтверждённой потребности | Отдельный алгоритм с обязательной проверкой |
