@@ -1,0 +1,56 @@
+{
+  "format": 1,
+  "utc": "2026-10-11T14:37:33.7371053Z",
+  "decision": "ACCEPT_FINITE_EVIDENCE_SOURCE_REVIEW_DEFER_PRODUCT_DELIVERY",
+  "proposal_sha256": "7C2DF80F82514DD0844C159C8070B4BFA6615F31DE30C7BBDEB8CCAB8134E652",
+  "invitation_sha256": "23278B4CEDE01F831B9CC6A05EE2AB841430A282BA30C87957899EF11581BDBC",
+  "runtime_source": "b4edef34b083d1cb7737cf648f1c051eeb94127a",
+  "report_sha256": "771C7FEEE23C4E9FE1628A3B20A5880786D2E403192825AF84264652BE469B15",
+  "qa_aggregate_sha256": "A4D561E467B3F6C3C5B1C8DDF7136017DDB0A28DD2B135C4A7D8EC9E6B74B490",
+  "actual_for": 5,
+  "actual_against": 0,
+  "votes": [
+    {
+      "vote": "FOR",
+      "role": "Root",
+      "sha256": "F9BE651CD1A36DD2343FD1F7BD8317CB0A2EDD17CCA8EF35F8B1A8720A42F7AA",
+      "path": "flw/evidence/sprint-09-root-final-vote01.json"
+    },
+    {
+      "vote": "FOR",
+      "role": "PM",
+      "sha256": "F857A48832401B54B3A5218ACB1C6397E83357AD9163B3EBF30886A2838876B2",
+      "path": "flw/evidence/sprint-09-pm-final-vote01.md"
+    },
+    {
+      "vote": "FOR",
+      "role": "Customer",
+      "sha256": "C4D9FCC6C3BC6CA06B7352E3EDE9CA53F5949B849AAF27F8C79DDEF4400F2692",
+      "path": "flw/evidence/sprint-09-customer-final-vote01.md"
+    },
+    {
+      "vote": "FOR",
+      "role": "QA_ProcessLogAuditor",
+      "sha256": "716E16E6E795B40D6C9B4CF06EA7039D94EAEFD7C2BEAEEAE1F09B1A487451A6",
+      "path": "flw/evidence/sprint-09-qa-final-vote01.md"
+    },
+    {
+      "vote": "FOR",
+      "role": "TechnicalDebt",
+      "sha256": "9B09D57A6969B246A0A36405CC944F945279D28D5AF20A275CFAB8E424848B4E",
+      "path": "flw/evidence/sprint-09-td-final-vote01.json"
+    }
+  ],
+  "criteria": {
+    "R3-04": "OPEN",
+    "DISK01": "OPEN",
+    "R3-01": "OPEN",
+    "R3-02": "OPEN"
+  },
+  "mandatory_gap": "C17 SQL5 INCONCLUSIVE_NOT_PASS, not same-backend57014; no compensation or retry",
+  "authorized": "Public source/evidence/documentation review transfer and exact audit-head CI checks only; PR10 remains draft; frozen runtime unchanged",
+  "official_release_tag_merge_human_install_authorized": false,
+  "previous_accepted_version": "0.6.1",
+  "delivery_receipt": "PENDING actual source/evidence push and final audit-head CI; separate file follows",
+  "scope": "Five actual new votes, no inferred initial support or old-vote transfer; not whole R3 or enterprise acceptance"
+}

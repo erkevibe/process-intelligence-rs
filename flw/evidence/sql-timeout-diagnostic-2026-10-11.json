@@ -1,0 +1,81 @@
+{
+  "format": 1,
+  "utc": "2026-10-11T15:05:42.4462508Z",
+  "scope": "Post-sprint bounded timeout diagnosis. Does not amend the frozen Sprint09 final vote/report/decision.",
+  "runtime_source": "b4edef34b083d1cb7737cf648f1c051eeb94127a",
+  "exe_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+  "database": "pi_restore_s9_sqltimeout_diagnostic01",
+  "production_options": "-c statement_timeout=5000 -c lock_timeout=2000 -c transaction_timeout=10000 -c idle_in_transaction_session_timeout=10000 -c search_path=public,pg_catalog -c TimeZone=UTC -c DateStyle=ISO,YMD",
+  "direct": {
+    "backend_pid": 45384,
+    "elapsed_ms": 5003.59,
+    "sqlstate": "57014",
+    "aborted_transaction_sqlstate": "25P02",
+    "same_backend_rollback_recovered": true,
+    "native_exit": 0,
+    "watchdog": false,
+    "public_objects_before_after": [
+      0,
+      0
+    ]
+  },
+  "cli": {
+    "backend_pid": 51888,
+    "native_pid": 49432,
+    "native_creation_utc": "2026-10-11T15:02:37.4801025Z",
+    "native_exit": 1,
+    "watchdog": false,
+    "sqlstate": "57014",
+    "parse_to_error_observed_ms": 5006,
+    "error": "cleanup_storage_unavailable",
+    "plan_created": false,
+    "test_only_sql_injection": "Initial identity SELECT augmented with CROSS JOIN (SELECT pg_sleep(8)); original runtime binary and options unchanged",
+    "server_error_followed_by": "ECONNRESET preserved; cause not inferred"
+  },
+  "post": {
+    "recovered": 1,
+    "watchdog": false,
+    "public_objects": 0,
+    "cleanup_sessions": 0,
+    "native_exit": 0
+  },
+  "private_input_inventory": {
+    "files": 25,
+    "sha256": "AE8A540B7706B1DE1CEA9D986FEEEB6938256FE9C80C9C40BDEF47F4F5BC8CC8",
+    "root_hash_length_mismatch": 0
+  },
+  "independent_reviews": [
+    {
+      "role": "QA",
+      "complete_files": 25,
+      "sha256": "E9EDFF65F4CC6E5ED9EF849D0C0F95E73E8AA3828053097738ABB386E9C1F500"
+    },
+    {
+      "role": "TechnicalDebt",
+      "complete_files": 25,
+      "sha256": "8AD7E8918D2B1B768980AA5D18C025FB963C3759722D6C35B767FC689AF0A5F9"
+    }
+  ],
+  "raw_bindings": {
+    "server_snapshot": "AA2282E39394B1578CD960A3B24D68292043035F6FFA56BEA310CB22166CF9BB",
+    "cli_result": "38B5EB7D602A84CAAD8BBC786B7FA2CCB72D03A9009F9D22C046C4ABEC7279C8",
+    "post_stdout": "5284D0477648DA388A0FCC1026FFED8D5148B6FA1F3DC552D31E12EB5D18E6B3",
+    "direct_stdout": "6910DF382CFF8D026BE7514FAF42F11D5BA824B025D26D3AFBB314853D99AE49"
+  },
+  "result": "PASS bounded production-config, rollback and frozen-CLI injected-query timeout handling diagnosis",
+  "original_full_corpus_SQL5": "INCONCLUSIVE_NOT_PASS",
+  "criteria": {
+    "R3-02": "OPEN",
+    "R3-01": "OPEN",
+    "R3-04": "OPEN",
+    "DISK01": "OPEN"
+  },
+  "release_authorized": false,
+  "limits": [
+    "New empty diagnostic database only; no Apply/DELETE or managed-table writes",
+    "Injected query is not the original unchanged-query full-corpus cleanup acceptance",
+    "Wire interval includes scheduling; not exact server execution duration",
+    "Private logs remain private; immutable snapshot is not continuous all-process audit",
+    "No cause established for the earlier backpressure experiment completing without timeout"
+  ]
+}

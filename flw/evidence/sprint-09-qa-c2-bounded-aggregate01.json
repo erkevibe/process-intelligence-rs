@@ -1,0 +1,275 @@
+{
+  "format": 1,
+  "utc": "2026-10-11T14:30:00.984654+00:00",
+  "scope": "Primary independent QA bounded currentC2 execution/evidence aggregate; no overall acceptance or release approval",
+  "source_commit": "b4edef34b083d1cb7737cf648f1c051eeb94127a",
+  "version": "0.7.1",
+  "exe_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+  "zip_sha256": "EDACC3B836B5660439FFAA684A3D92451512731ADD9AAE89F0703A6E400C975A",
+  "manifest_files": 1736,
+  "archive_files_including_manifest": 1737,
+  "cases": [
+    {
+      "case": "C01",
+      "disposition": "BOUNDED_CURRENT_C2_EVIDENCE",
+      "overall_criterion_accepted": false
+    },
+    {
+      "case": "C02",
+      "disposition": "BOUNDED_CURRENT_C2_EVIDENCE",
+      "overall_criterion_accepted": false
+    },
+    {
+      "case": "C03",
+      "disposition": "BOUNDED_CURRENT_C2_EVIDENCE",
+      "overall_criterion_accepted": false
+    },
+    {
+      "case": "C04",
+      "disposition": "BOUNDED_CURRENT_C2_EVIDENCE",
+      "overall_criterion_accepted": false
+    },
+    {
+      "case": "C05",
+      "disposition": "BOUNDED_CURRENT_C2_EVIDENCE",
+      "overall_criterion_accepted": false
+    },
+    {
+      "case": "C06",
+      "disposition": "BOUNDED_CURRENT_C2_EVIDENCE",
+      "overall_criterion_accepted": false
+    },
+    {
+      "case": "C07",
+      "disposition": "BOUNDED_CURRENT_C2_EVIDENCE",
+      "overall_criterion_accepted": false
+    },
+    {
+      "case": "C08",
+      "disposition": "BOUNDED_CURRENT_C2_EVIDENCE",
+      "overall_criterion_accepted": false
+    },
+    {
+      "case": "C09",
+      "disposition": "BOUNDED_CURRENT_C2_EVIDENCE",
+      "overall_criterion_accepted": false
+    },
+    {
+      "case": "C10",
+      "disposition": "BOUNDED_CURRENT_C2_EVIDENCE",
+      "overall_criterion_accepted": false
+    },
+    {
+      "case": "C11",
+      "disposition": "BOUNDED_CURRENT_C2_EVIDENCE",
+      "overall_criterion_accepted": false
+    },
+    {
+      "case": "C12",
+      "disposition": "BOUNDED_CURRENT_C2_EVIDENCE",
+      "overall_criterion_accepted": false
+    },
+    {
+      "case": "C13",
+      "disposition": "BOUNDED_CURRENT_C2_EVIDENCE",
+      "overall_criterion_accepted": false
+    },
+    {
+      "case": "C14",
+      "disposition": "BOUNDED_CURRENT_C2_EVIDENCE",
+      "overall_criterion_accepted": false
+    },
+    {
+      "case": "C15",
+      "disposition": "BOUNDED_CURRENT_C2_EVIDENCE",
+      "overall_criterion_accepted": false
+    },
+    {
+      "case": "C16",
+      "disposition": "BOUNDED_CURRENT_C2_EVIDENCE",
+      "overall_criterion_accepted": false
+    },
+    {
+      "case": "C17",
+      "disposition": "PARTIAL_LOCK2_TX10_VERIFIED_SQL5_INCONCLUSIVE_NOT_PASS",
+      "overall_criterion_accepted": false
+    },
+    {
+      "case": "C18",
+      "disposition": "FULL_OLD03_NEW_RESTORE_20LOG_14MODEL_14BPMN_EXPORT_RBAC_RESTART_EVIDENCE",
+      "overall_criterion_accepted": false
+    }
+  ],
+  "named_scope": {
+    "C01": "unreduced original0.3 10projects94records, full614MB source/restorePRE, actualVerify0/Apply0 removes10legacy only, complete120retained rows/restore unchanged",
+    "C02": "same unreduced original with legitimate maintained model update before backup; actualVerify0/Apply0/current!=legacy accepted, all full retained current values preserved",
+    "C03": "actual sameDB hostname alias refusal/native1/full12pair comparator with C06",
+    "C04": "distinct actual DB OIDs in same owned cluster/equal complete PRE; remaining gates independently required",
+    "C05": "whole closed physical clone sameSysID/DBOID plus identity privilege-unavailable conservative native1, no fallback/grants",
+    "C06": "five exact archive-byte/manifest/substitution refusals native1/noPlan/all wholePREPOST conserved",
+    "C07_C16": "32fresh finite helpercases/positive exactcaps/fullvalues/native0or1, six causal foreign-role/source-restore holders separate; C14 wrongepoch corrected additively, syntheticC08 not realLOGIN",
+    "C08_real": "actual supported restored LOGIN one new session/Auth+1, originalplanApply1cleanup_changed/fullbothcurrentPREPOSTconserved; HTTPresponse capture missing explicitly",
+    "C17": "PG55P03 lock~2.009s and PG25P04 TX9.999s/fullPRE independently reviewed; one SQL5 receiverpause completed/native0/no57014, mandatorySQL5 OPEN/no retry",
+    "C18": "new full oldarchive appcopy all20logs14models14BPMN/full48exports/ViewerRBAC/exactrestart, separate untouched verification; no partial-subset transfer",
+    "F01": "actual external samebackend/xact/five grantedlocks beforeDELETEforward/native1/fullPRE",
+    "F02": "actual DELETE complete/COMMIT notforwarded/native3 explicit outcome_unconfirmed/fullPRE",
+    "F03": "actual realCOMMITresponse withheld/native3 explicit outcome_unconfirmed/exact2KVPOST/restorenone",
+    "RECEIPT4": "known realCOMMITACK forwarded then receiptwritefailure/native4/noautomaticretry/exact2KVPOST/restorenone",
+    "L05": "separate actualprecommit targettrigger afterAuthUPDATE503/fullrollback/failclosed/restart/noWitness; separate realCOMMITACKwithheld503/completecommittedPOST/manualrestart/noextraWitness",
+    "GENUINE_DELETE": "real migrated original project: legacy1+marker1+header1+28records removed, allunrelated fullraw/versions/seq and exactAuth/ownerwitness preserved; direct303 before14:40",
+    "BUSINESS": "fresh C2 supported lifecycle/auditproducers13independent digests/importtrust normalization/512513three trails/ownerisolation/currentrights/archivewritable/actual100k interruption/recovery/fullstocknewrestore/strictdowngrade; originaldirectfreshpendingcache/noresurrection separate from faultcopy"
+  },
+  "inputs": [
+    {
+      "path": ".local/sprint09/qa/full-post-compare-c2-02.json",
+      "bytes": 603,
+      "sha256": "C52990DB7E23E41CD5EF6054B24FBD33AFE1BC58474AA6AC76E70D54087E1466"
+    },
+    {
+      "path": ".local/sprint09/qa/full-post-compare-c2-c02-01.json",
+      "bytes": 639,
+      "sha256": "8CF58D9AE85D31B0160EE405BE506C8DF781E4FCC2431B46F1D82D869490383B"
+    },
+    {
+      "path": ".local/sprint09/qa/c18-c2-restart-conservation02.json",
+      "bytes": 12741,
+      "sha256": "B0332F3441386F80B000E1F0CF9F8C0CD01490776519AAB51D3E061D5ADDC499"
+    },
+    {
+      "path": ".local/sprint09/qa/c2-finite-independent02.json",
+      "bytes": 7419,
+      "sha256": "1CACDAFD658A5931F79272683182280B137CE9AB88629612841DC68ECD0D3589"
+    },
+    {
+      "path": ".local/sprint09/qa/c2-faults-independent02.json",
+      "bytes": 16222,
+      "sha256": "77CB7FD43636236B781387BF69E5EC50186E285C3971C52A50A900C930785BAD"
+    },
+    {
+      "path": ".local/sprint09/qa/c05-c2-independent-review01.json",
+      "bytes": 15195,
+      "sha256": "3CA56DEB23B525F994FFC6C766C614BF6ABCDC3A1D0836F5C87F0D655339860E"
+    },
+    {
+      "path": ".local/sprint09/qa/root-c03-c06-c2-independent01.json",
+      "bytes": 48480,
+      "sha256": "752864FC11C012DBC879E59E554D4842B4BA983F520610ED83904D121F9C18FB"
+    },
+    {
+      "path": ".local/sprint09/qa/cold-c2-independent02.json",
+      "bytes": 8111,
+      "sha256": "CD26E02F5589F9C9AD32C6D10EF6D91D050DC6BEFE2D80F0CD2175C9466DC033"
+    },
+    {
+      "path": ".local/sprint09/qa/receipt-c2-independent01.json",
+      "bytes": 5269,
+      "sha256": "0FEAB6569602F6E225BC7F0DC488CC8370E868EB5EB9DA16A356EE9DBD84BA92"
+    },
+    {
+      "path": ".local/sprint09/qa/l05-c2-precommit-independent02.json",
+      "bytes": 12525,
+      "sha256": "359DB1A6B3A2B5307A5A4AC2EB04AB355F5C5D50A663FB271946963B74DB0A13"
+    },
+    {
+      "path": ".local/sprint09/qa/l05-c2-unknown-compare01.json",
+      "bytes": 1661,
+      "sha256": "1BC049E2DCDC234EA7D1B161127ECD56957C50F2537AEDCBF69FF7DDA15D4221"
+    },
+    {
+      "path": ".local/sprint09/qa/l05-c2-unknown-recovery-independent01.json",
+      "bytes": 6455,
+      "sha256": "7D3719E4EF0B030E626AB8580B4EC216297F11016CB23AD9AEA8FD226C5D6A75"
+    },
+    {
+      "path": ".local/sprint09/qa/sql5-c2-final-attribution01.json",
+      "bytes": 1033,
+      "sha256": "57ABCC41AA3B4997DF0572A2D0F76B37BB3086F5F646E699E8CCA04378180EFB"
+    },
+    {
+      "path": ".local/sprint09/qa/genuine-c2-delete-independent04.json",
+      "bytes": 5004,
+      "sha256": "E36B6653C66A08E934AADBD74252FCEF612D74130EEAF30494C2292DA5EEA029"
+    },
+    {
+      "path": "flw/evidence/sprint-09-qa-business-c2-small01.md",
+      "bytes": 5250,
+      "sha256": "FE5B7C6D396B67C9D5AB639729826CA93AF5CF89A6AEF44D6A55B1B39A108279"
+    },
+    {
+      "path": "flw/evidence/sprint-09-qa-business-c2-recovery-stock-downgrade01.md",
+      "bytes": 5613,
+      "sha256": "9F6FD269F9C279C394CF61D6D72BE06EC92904344E8B8F4003FCF0B4BB9002D6"
+    },
+    {
+      "path": "flw/evidence/sprint-09-qa-business-c2-real-login-cleanup01.md",
+      "bytes": 2619,
+      "sha256": "1C5D3EE3BBFED00639FF9983E8C3528AF97B29C9227A78A10709570F6A10194F"
+    },
+    {
+      "path": "flw/evidence/sprint-09-qa-business-c2-direct-delete-cache01.md",
+      "bytes": 3168,
+      "sha256": "9E2E405B7646CFC68E9EBDF41E399EB311B55070BD2290859A652C313F506433"
+    },
+    {
+      "path": "flw/evidence/sprint-09-qa-cleanup-guards-c2-finite01.json",
+      "bytes": 162385,
+      "sha256": "D8E35431CFF959805CCA84653298541C8119A1D7E1BD1D3AEF704CC44DEDD388"
+    },
+    {
+      "path": "flw/evidence/sprint-09-qa-c2-c14-epoch-addendum02.json",
+      "bytes": 7328,
+      "sha256": "A9CF1A69222296D199E7B1028074F8F1DE5261A2AA6317630998CE8EBA58D14F"
+    },
+    {
+      "path": "flw/evidence/sprint-09-c2-cold-root-execution01.md",
+      "bytes": 5585,
+      "sha256": "84EA5E9B2C5355E53B4559AE96B72183C685F10D448123C05AE7789B99B3C082"
+    },
+    {
+      "path": "flw/evidence/sprint-09-c2-receipt4-root-execution01.md",
+      "bytes": 1512,
+      "sha256": "9CEDCC381A24551A4F0DD43927DDA47BACF22CA15DAAC7F525006D046666119C"
+    },
+    {
+      "path": "flw/evidence/sprint-09-c2-l05-precommit-root-execution01.json",
+      "bytes": 2251,
+      "sha256": "DCFC54C099801621441710E16A3B08E07906BA4441992334509E9DE328F670A4"
+    },
+    {
+      "path": "flw/evidence/sprint-09-td-sql5-inconclusive-l05-recovery-review01.json",
+      "bytes": 2384,
+      "sha256": "B84D7C08911DF0F40C89263BD66C937E65E0E1591C68A66B55961BEE46A84678"
+    },
+    {
+      "path": "flw/evidence/sprint-09-td-c17-lock-tx-actual-review01.json",
+      "bytes": 12024,
+      "sha256": "6252C55F9AC92E43345B485DE33A68AF4B27F47AA078650615BDFB64DCEC0BA0"
+    }
+  ],
+  "criteria": {
+    "R3-01": "OPEN",
+    "R3-02": "OPEN",
+    "R3-04": "OPEN",
+    "DISK01": "OPEN"
+  },
+  "release": "NOT_ACCEPTED_NOT_PUBLISHED; PR10 draft; no tag/merge/humaninstallation authorization",
+  "mandatory_blocker": "C17 actual SQL5 timeout was not demonstrated; fullPOST source/restore unchanged but completion cannot replace frozen57014 expectation",
+  "capture_limits": [
+    "No continuous all-descendant/PID attestation; named native handles/creation/path/hash/streams/actual exits only, pending/missing remain explicit",
+    "SQL5 Node writable queues may retain large bytes; no bounded total observer memory claim",
+    "Cold native5 long-lived app/parent final exit values missing UNKNOWN despite actual startup/readiness/browser0 and guardedPGclosure0",
+    "Real restoredLOGIN HTTPresponse missing, actual request invocation/persisted exactly1session/nativeApply1/fullconservation retained",
+    "Model-update short Node child initial nativeidentity missing; HTTP/currentrow change independently bound",
+    "L05 proxy precise OS creation missing; spawnUTC/path/SHA/native0 and app identity retained",
+    "Historical C1 STOP/failed migrations/budget faults/proxy refusions and all helper failures preserved, no C1 PASS transfer",
+    "Whole JSON raw values/semanticsequence preserved; no physical disk shrink/PG TOAST no-read/globalexactlyonce/COMMITACK guarantee",
+    "Private cold installation is not public delivery; no accepted release implied"
+  ],
+  "review_attempts": [
+    "Cold verifier01 error-vs-code KeyError retained; distinct02 actualfield",
+    "Precommit verifier01 assumed literalP0001 log; distinct02 samebackend actualS9_L05_PRECOMMIT_TARGET_REFUSAL sentinel; no fabricated literalSQLSTATE",
+    "Genuine oracle01 markerobject identity,02 absentlegacyorganization,03 emptyAuthaudit omission failed; distinct04 uses source serde default/skip-empty decoder with same exact expected transform",
+    "SQL5 outputACL translation/SeSecurityPrivilege preparation failures beforechild preserved; exactownedSID icacls repair verified"
+  ],
+  "process_log_auditor": "Actual launch-bound native wrappers and stage observations retained; no fabricated liveaudit interval or blanket zero exit claim"
+}

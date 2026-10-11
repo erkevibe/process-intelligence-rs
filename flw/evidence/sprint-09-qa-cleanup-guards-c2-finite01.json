@@ -1,0 +1,3225 @@
+{
+  "scope": "32 fresh independent C07-C16 finite subcases, including four explicitly supplemental; separate six causal regressions previously reported",
+  "council_targeted_decision_sha256": "23EA2F593BA61D00EECE5EF4ABFB0ED77EBA018BC9910A40355C5FDAB996565F",
+  "closure_capture_sha256": "1CF61112687CD06E59F1E5E8CF1907F20CB1CE15E3CB3B5A6989089AA11A6808",
+  "c08_real_login": "Owned separately by primary QA; synthetic session not acceptance",
+  "protected_installations_mutated": false,
+  "exe_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+  "closure_native_process_sha256": "1FCC1BF42532A2AD5D74826E380F59E5EB070921CCF949A6B4E81E8F451C4FF4",
+  "format": 1,
+  "version": "0.7.1",
+  "product_budgets_seconds": [
+    5,
+    2,
+    10,
+    300
+  ],
+  "binding_sha256": "815793029C1A9E2EE3FA2C22B48E552306458DCF33287BBCC7F044C0263498AF",
+  "launcher": {
+    "start_utc": "2026-10-11T12:40:39.0516105Z",
+    "executable_sha256": "362A356CE7F0940EC74F73A8FC2C990A2CC24A38A11C90BBD8ECA947110AD139",
+    "pid": 43196,
+    "helper_sha256": "5BFAD1B0E40DEDF26176359C4296543D9AC968511898806EFBFE4ED468539C4F",
+    "cases": [
+      "c07",
+      "c08g",
+      "c07synthetic",
+      "c08gsynthetic",
+      "c08syntheticsession",
+      "c09",
+      "c10",
+      "c11sha",
+      "c11sum",
+      "c11key",
+      "c11header",
+      "c12ledger",
+      "c12future",
+      "c12unknownobject",
+      "c12knownstage",
+      "c12rls",
+      "c12trigger",
+      "c16rows10000",
+      "c16rows10001",
+      "c16key512",
+      "c16key513",
+      "c15stale",
+      "c15wrong",
+      "c15identity",
+      "c16plan4194304",
+      "c16plan4194305",
+      "c14empty",
+      "c13sourcelease",
+      "c13restorelease",
+      "c13writer",
+      "c13table",
+      "c14oldplan"
+    ],
+    "end_utc": "2026-10-11T12:48:46.4244166Z",
+    "path": "C:\\Users\\alikh\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+    "native_exit": 0,
+    "creation_utc": "2026-10-11T12:40:38.5725209Z"
+  },
+  "source_commit": "b4edef34b083d1cb7737cf648f1c051eeb94127a",
+  "zip_sha256": "EDACC3B836B5660439FFAA684A3D92451512731ADD9AAE89F0703A6E400C975A",
+  "manifest_sha256": "B446949B4453345292BEABBE3E0B8BF64195AA902E09BD8C498302835491B856",
+  "finite_passed": 32,
+  "private_inventory_sha256": "65075FE3B798899EEED8E96E90C25D8F93ED6BAABEE73C3D7EFCEE7E0A403865",
+  "criteria_accepted": [],
+  "author": "/root/qa_cleanup_guards_s9",
+  "holder_closure": "Four scoped sleep holders canceled explicitly: native1 user-request cancellation, full streams; six separate interactive causal clients native0 rollback/quit",
+  "rows": [
+    {
+      "actual_boundary": null,
+      "native_products": [
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c07-apply.stdout",
+          "label": "c07-apply",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c07-apply.stderr",
+          "process_sha256": "9619936A4A94744492AD55343F8159F90E6E8DE05444D3A976A2A8536B252BDF",
+          "native_process": {
+            "start_utc": "2026-10-11T12:40:53.0908103Z",
+            "stderr_sha256": "56A9433E337EA5138E333802E35FA2D65CAB9228600CAEE59348F8E3E16EE429",
+            "label": "c07-apply",
+            "creation_utc": "2026-10-11T12:40:53.0935027Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:40:56.3955947Z",
+            "pid": 22504,
+            "native_exit": 1,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+          }
+        },
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c07-verify.stdout",
+          "label": "c07-verify",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c07-verify.stderr",
+          "process_sha256": "61917A8A32B352D3159889672EEE47E1F0064D0BF91B5F5008AF2999A74B2E23",
+          "native_process": {
+            "start_utc": "2026-10-11T12:40:46.83235Z",
+            "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "label": "c07-verify",
+            "creation_utc": "2026-10-11T12:40:46.833936Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:40:51.2298673Z",
+            "pid": 52428,
+            "native_exit": 0,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "F4C1609F96B517B0980891BDC7EC3644C5F9DF404B407BA1B5D9FCD3C9D0C99D"
+          }
+        }
+      ],
+      "result_sha256": "256DF0B1DD58D665D55E148265A582B35AFBD6B71E804E42F703058D7A2CD939",
+      "status": "PASS_ON_EXACT_C2",
+      "result": {
+        "actual_guard_matches": true,
+        "expected_guard": "cleanup_changed",
+        "restore_conserved": true,
+        "post": [
+          "B04AA3DF4AF20FB984693513E89F0BE9D718D46DEB78AEC4EC17AD17FA91EBAE",
+          "DE37F3CF04F8284DD2E9924140E2ED48FE34A7F80B50C88D8BD863B2BBD5AC72"
+        ],
+        "baseline_verify": 0,
+        "pre": [
+          "B04AA3DF4AF20FB984693513E89F0BE9D718D46DEB78AEC4EC17AD17FA91EBAE",
+          "DE37F3CF04F8284DD2E9924140E2ED48FE34A7F80B50C88D8BD863B2BBD5AC72"
+        ],
+        "apply_exit": 1,
+        "case": "c07",
+        "source_conserved": true,
+        "pass": true
+      },
+      "full_snapshots": [
+        {
+          "native_exit": 0,
+          "native_process_sha256": "BAF348C226CC55EF39BF66FAC4D16F1371A306D37149C309277986EDDD2AA92C",
+          "sha256": "DE37F3CF04F8284DD2E9924140E2ED48FE34A7F80B50C88D8BD863B2BBD5AC72",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c07-post-pi_restore_s9_gc2_c07_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "9A7927ED592C75CA5E0F9CEC4D0861CC3D14A85FBA13F13A956DC1514F138296",
+          "sha256": "B04AA3DF4AF20FB984693513E89F0BE9D718D46DEB78AEC4EC17AD17FA91EBAE",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c07-post-pi_restore_s9_gc2_c07_s.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "182FF4E1007CAC178635E4BE919BFC42ECC4F24FAF2639A59F0364DBE79BEB42",
+          "sha256": "DE37F3CF04F8284DD2E9924140E2ED48FE34A7F80B50C88D8BD863B2BBD5AC72",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c07-pre-pi_restore_s9_gc2_c07_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "A34773816EC862134474FB5912D0F051A9ABA112A6EDC7812DB15D006B3489DF",
+          "sha256": "B04AA3DF4AF20FB984693513E89F0BE9D718D46DEB78AEC4EC17AD17FA91EBAE",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c07-pre-pi_restore_s9_gc2_c07_s.stdout"
+        }
+      ],
+      "case": "c07",
+      "supplemental": false,
+      "controlled_holder": null
+    },
+    {
+      "actual_boundary": null,
+      "native_products": [
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c08g-apply.stdout",
+          "label": "c08g-apply",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c08g-apply.stderr",
+          "process_sha256": "2FA998C6CF2BB7818F14307EEB973FCD7523A58DE730AE6C6275D8AFFB7FDA37",
+          "native_process": {
+            "start_utc": "2026-10-11T12:41:08.3535052Z",
+            "stderr_sha256": "56A9433E337EA5138E333802E35FA2D65CAB9228600CAEE59348F8E3E16EE429",
+            "label": "c08g-apply",
+            "creation_utc": "2026-10-11T12:41:08.3548248Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:41:12.025713Z",
+            "pid": 37932,
+            "native_exit": 1,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+          }
+        },
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c08g-verify.stdout",
+          "label": "c08g-verify",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c08g-verify.stderr",
+          "process_sha256": "0FE12AE2953EB1E52606DCD857D935B2E70A4BD838231F5E3E192E40C214D21D",
+          "native_process": {
+            "start_utc": "2026-10-11T12:41:03.2418604Z",
+            "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "label": "c08g-verify",
+            "creation_utc": "2026-10-11T12:41:03.2434384Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:41:06.97337Z",
+            "pid": 50780,
+            "native_exit": 0,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "2D79285309DECD91DD93488D74EE4E8E3F9F7EBAAB506ED3E5337D164D76E991"
+          }
+        }
+      ],
+      "result_sha256": "2EA82F95BF46AFE623138779BF14569CB97879D219CA28F18D3E8E48487DD738",
+      "status": "PASS_ON_EXACT_C2",
+      "result": {
+        "actual_guard_matches": true,
+        "expected_guard": "cleanup_changed",
+        "restore_conserved": true,
+        "post": [
+          "752564059133FF57293469D7755216CC8BFF7B91943E3199F9F74CD53317DA33",
+          "B47F89D1EB4112785B4ED1692FB721C038248E8E26151457F22DEA77DE441B8E"
+        ],
+        "baseline_verify": 0,
+        "pre": [
+          "752564059133FF57293469D7755216CC8BFF7B91943E3199F9F74CD53317DA33",
+          "B47F89D1EB4112785B4ED1692FB721C038248E8E26151457F22DEA77DE441B8E"
+        ],
+        "apply_exit": 1,
+        "case": "c08g",
+        "source_conserved": true,
+        "pass": true
+      },
+      "full_snapshots": [
+        {
+          "native_exit": 0,
+          "native_process_sha256": "940BA86F6B140FCAF940E6D34EECDD4E7F5DCB5A62C2C1911FBAE8DC8E4C2906",
+          "sha256": "B47F89D1EB4112785B4ED1692FB721C038248E8E26151457F22DEA77DE441B8E",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c08g-post-pi_restore_s9_gc2_c08g_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "EE9E766158B5EA50DF33BE1C0EB399BB6B65B72FA0D4BAC3DBA776C4FC479F2D",
+          "sha256": "752564059133FF57293469D7755216CC8BFF7B91943E3199F9F74CD53317DA33",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c08g-post-pi_restore_s9_gc2_c08g_s.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "7888E157F9D66FBC69A32ED830B2A8218C6E7F4EF6DF5E9C3304FD057B220B20",
+          "sha256": "B47F89D1EB4112785B4ED1692FB721C038248E8E26151457F22DEA77DE441B8E",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c08g-pre-pi_restore_s9_gc2_c08g_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "04CE4D0371AD33C9AB58A33A65495FFFF8883CB6151B8236D646A58C5CA3A172",
+          "sha256": "752564059133FF57293469D7755216CC8BFF7B91943E3199F9F74CD53317DA33",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c08g-pre-pi_restore_s9_gc2_c08g_s.stdout"
+        }
+      ],
+      "case": "c08g",
+      "supplemental": false,
+      "controlled_holder": null
+    },
+    {
+      "actual_boundary": null,
+      "native_products": [
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c07synthetic-apply.stdout",
+          "label": "c07synthetic-apply",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c07synthetic-apply.stderr",
+          "process_sha256": "211D0785A0E906B0F5B15CF17D87549BC6A14DACA004A8101420AF62D438D9AF",
+          "native_process": {
+            "start_utc": "2026-10-11T12:41:22.967913Z",
+            "stderr_sha256": "56A9433E337EA5138E333802E35FA2D65CAB9228600CAEE59348F8E3E16EE429",
+            "label": "c07synthetic-apply",
+            "creation_utc": "2026-10-11T12:41:22.9693433Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:41:26.3386286Z",
+            "pid": 25340,
+            "native_exit": 1,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+          }
+        },
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c07synthetic-verify.stdout",
+          "label": "c07synthetic-verify",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c07synthetic-verify.stderr",
+          "process_sha256": "E0417140CEDDE5C1EA906B379F5AAE763CFBFD1B8AF31078A4A2F7F416FEEC4B",
+          "native_process": {
+            "start_utc": "2026-10-11T12:41:18.4233532Z",
+            "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "label": "c07synthetic-verify",
+            "creation_utc": "2026-10-11T12:41:18.4245718Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:41:22.331398Z",
+            "pid": 47140,
+            "native_exit": 0,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "F9BFD746834A876F643C02D116A361E4276B57E75BD2B949F9ECFDB46A9EF2C0"
+          }
+        }
+      ],
+      "result_sha256": "D6C1FE3B3B61E193DD69B9B7B5EBE504DA5110271011646A11E668A42B7D6DD2",
+      "status": "PASS_ON_EXACT_C2",
+      "result": {
+        "actual_guard_matches": true,
+        "expected_guard": "cleanup_changed",
+        "restore_conserved": true,
+        "post": [
+          "BA435CE3482A6D76C9FCD851B699C44861B502FBE4BE28B3E08503848AA6AB3E",
+          "8450A8C7F35F1BFDDA6DB5448A036968392CC3991C8AE89816D4B93E04263359"
+        ],
+        "baseline_verify": 0,
+        "pre": [
+          "BA435CE3482A6D76C9FCD851B699C44861B502FBE4BE28B3E08503848AA6AB3E",
+          "8450A8C7F35F1BFDDA6DB5448A036968392CC3991C8AE89816D4B93E04263359"
+        ],
+        "apply_exit": 1,
+        "case": "c07synthetic",
+        "source_conserved": true,
+        "pass": true
+      },
+      "full_snapshots": [
+        {
+          "native_exit": 0,
+          "native_process_sha256": "F370F9F312CC347D0E20AB475063E11C383C478B6E820495ED9522792FBEF9C7",
+          "sha256": "8450A8C7F35F1BFDDA6DB5448A036968392CC3991C8AE89816D4B93E04263359",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c07synthetic-post-pi_restore_s9_gc2_c07synthetic_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "AD3F090AC2F72BB330C8FE8CAFB037F0EF06FB4B0EED262852802E81B0297DF9",
+          "sha256": "BA435CE3482A6D76C9FCD851B699C44861B502FBE4BE28B3E08503848AA6AB3E",
+          "rows": 142,
+          "bytes": 80152,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c07synthetic-post-pi_restore_s9_gc2_c07synthetic_s.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "7E02A0E050157B4D0AEDF344988D6889FD74ABE7B8E2AFA89C7A103C68F25B25",
+          "sha256": "8450A8C7F35F1BFDDA6DB5448A036968392CC3991C8AE89816D4B93E04263359",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c07synthetic-pre-pi_restore_s9_gc2_c07synthetic_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "4C0BC0F087E9B019DCA340FCDEF831F8BEF2B45203D3A2D08A5C87375636F02E",
+          "sha256": "BA435CE3482A6D76C9FCD851B699C44861B502FBE4BE28B3E08503848AA6AB3E",
+          "rows": 142,
+          "bytes": 80152,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c07synthetic-pre-pi_restore_s9_gc2_c07synthetic_s.stdout"
+        }
+      ],
+      "case": "c07synthetic",
+      "supplemental": true,
+      "controlled_holder": null
+    },
+    {
+      "actual_boundary": null,
+      "native_products": [
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c08gsynthetic-apply.stdout",
+          "label": "c08gsynthetic-apply",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c08gsynthetic-apply.stderr",
+          "process_sha256": "E950CA6C60ABF59A8FDB42CD3B4E136972A65CDC92231DF91AF48AF7B650F31E",
+          "native_process": {
+            "start_utc": "2026-10-11T12:41:37.7976595Z",
+            "stderr_sha256": "56A9433E337EA5138E333802E35FA2D65CAB9228600CAEE59348F8E3E16EE429",
+            "label": "c08gsynthetic-apply",
+            "creation_utc": "2026-10-11T12:41:37.7988286Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:41:41.0906764Z",
+            "pid": 32080,
+            "native_exit": 1,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+          }
+        },
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c08gsynthetic-verify.stdout",
+          "label": "c08gsynthetic-verify",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c08gsynthetic-verify.stderr",
+          "process_sha256": "25B514BEB9A56A0D0AB195EC261F959A914C9945BDC58D47B911381726DBAE42",
+          "native_process": {
+            "start_utc": "2026-10-11T12:41:33.3178371Z",
+            "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "label": "c08gsynthetic-verify",
+            "creation_utc": "2026-10-11T12:41:33.31914Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:41:37.0232286Z",
+            "pid": 24896,
+            "native_exit": 0,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "0B8390330D89291966F9DF9640C9ED6BA0822B9E9DCF1E3D0BDC4B44FA66170F"
+          }
+        }
+      ],
+      "result_sha256": "22CBC555CD13CAC47E78E0E16649AAA669580EBC06DC587CC9C8A176207AC0A1",
+      "status": "PASS_ON_EXACT_C2",
+      "result": {
+        "actual_guard_matches": true,
+        "expected_guard": "cleanup_changed",
+        "restore_conserved": true,
+        "post": [
+          "FDB764D073AEC71352DCB41F603A3BF2306AC9E76A34482467E7208E3952CFA7",
+          "F0663E3D8FE051704EA895D23985C0581C4EFD4AA301DFF13D8A9B68F85FB97C"
+        ],
+        "baseline_verify": 0,
+        "pre": [
+          "FDB764D073AEC71352DCB41F603A3BF2306AC9E76A34482467E7208E3952CFA7",
+          "F0663E3D8FE051704EA895D23985C0581C4EFD4AA301DFF13D8A9B68F85FB97C"
+        ],
+        "apply_exit": 1,
+        "case": "c08gsynthetic",
+        "source_conserved": true,
+        "pass": true
+      },
+      "full_snapshots": [
+        {
+          "native_exit": 0,
+          "native_process_sha256": "93B752B74B0DE618D9C85F77C26AE176DD7F82CAEC9999B0D3DC268CF2E2178D",
+          "sha256": "F0663E3D8FE051704EA895D23985C0581C4EFD4AA301DFF13D8A9B68F85FB97C",
+          "rows": 142,
+          "bytes": 80152,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c08gsynthetic-post-pi_restore_s9_gc2_c08gsynthetic_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "45ADC5EF0017781616710FFFD46A15DDE64EF4D326F4BAE513A3DCE20353DF29",
+          "sha256": "FDB764D073AEC71352DCB41F603A3BF2306AC9E76A34482467E7208E3952CFA7",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c08gsynthetic-post-pi_restore_s9_gc2_c08gsynthetic_s.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "FE494BA1218F14F4487CDAA904AEF5888A8E94D9B28E34963FE21F52D740A055",
+          "sha256": "F0663E3D8FE051704EA895D23985C0581C4EFD4AA301DFF13D8A9B68F85FB97C",
+          "rows": 142,
+          "bytes": 80152,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c08gsynthetic-pre-pi_restore_s9_gc2_c08gsynthetic_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "88BDDC7D1ABF8A52F0D8C34CB15F9087841456DA1404B4315A17F37643FC32D5",
+          "sha256": "FDB764D073AEC71352DCB41F603A3BF2306AC9E76A34482467E7208E3952CFA7",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c08gsynthetic-pre-pi_restore_s9_gc2_c08gsynthetic_s.stdout"
+        }
+      ],
+      "case": "c08gsynthetic",
+      "supplemental": true,
+      "controlled_holder": null
+    },
+    {
+      "actual_boundary": null,
+      "native_products": [
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c08syntheticsession-apply.stdout",
+          "label": "c08syntheticsession-apply",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c08syntheticsession-apply.stderr",
+          "process_sha256": "543C62B12AEB2CC392BDCE680F70487556FC15D8343810B7BE36BE067C4CBE43",
+          "native_process": {
+            "start_utc": "2026-10-11T12:41:52.3539065Z",
+            "stderr_sha256": "56A9433E337EA5138E333802E35FA2D65CAB9228600CAEE59348F8E3E16EE429",
+            "label": "c08syntheticsession-apply",
+            "creation_utc": "2026-10-11T12:41:52.3552548Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:41:55.7476121Z",
+            "pid": 44416,
+            "native_exit": 1,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+          }
+        },
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c08syntheticsession-verify.stdout",
+          "label": "c08syntheticsession-verify",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c08syntheticsession-verify.stderr",
+          "process_sha256": "69FAF8119A3BF62A43C32A7B9982A953EAA8E168A266DB82C5569AB2C17ADD08",
+          "native_process": {
+            "start_utc": "2026-10-11T12:41:47.7357664Z",
+            "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "label": "c08syntheticsession-verify",
+            "creation_utc": "2026-10-11T12:41:47.7372331Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:41:51.6662059Z",
+            "pid": 2240,
+            "native_exit": 0,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "C2793DFD66E1B9C9F4C1605F848DBC25761AFF42A431A4FC7ED2EB890E379AAE"
+          }
+        }
+      ],
+      "result_sha256": "19CC4F4D916AC8CB00EB387B938AD3E6B69612A2DDEEDD6AA8AF70F259734552",
+      "status": "PASS_ON_EXACT_C2",
+      "result": {
+        "actual_guard_matches": true,
+        "expected_guard": "cleanup_changed",
+        "restore_conserved": true,
+        "post": [
+          "2F640CF15DB64527671DFD373ABD07A742533742E596D406309161430B1AB269",
+          "2D56D9BF347DFF3DFA447E1C26FA785129BD79C5B09631B907BE778856CDFACB"
+        ],
+        "baseline_verify": 0,
+        "pre": [
+          "2F640CF15DB64527671DFD373ABD07A742533742E596D406309161430B1AB269",
+          "2D56D9BF347DFF3DFA447E1C26FA785129BD79C5B09631B907BE778856CDFACB"
+        ],
+        "apply_exit": 1,
+        "case": "c08syntheticsession",
+        "source_conserved": true,
+        "pass": true
+      },
+      "full_snapshots": [
+        {
+          "native_exit": 0,
+          "native_process_sha256": "482F64AAD73C3843BDA7F379AC514DA44A5A3DBCECB5512BB9ACE1201AC02322",
+          "sha256": "2D56D9BF347DFF3DFA447E1C26FA785129BD79C5B09631B907BE778856CDFACB",
+          "rows": 142,
+          "bytes": 80330,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c08syntheticsession-post-pi_restore_s9_gc2_c08syntheticsession_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "0C9B055A21FC65A53252FDECC02931D298638056A8D3CC2E74B27BF5B8910B6F",
+          "sha256": "2F640CF15DB64527671DFD373ABD07A742533742E596D406309161430B1AB269",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c08syntheticsession-post-pi_restore_s9_gc2_c08syntheticsession_s.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "500F737F6E5D89ADB5579028EB7675AA08FC7FC5C8F09A673EF5A5A43637667E",
+          "sha256": "2D56D9BF347DFF3DFA447E1C26FA785129BD79C5B09631B907BE778856CDFACB",
+          "rows": 142,
+          "bytes": 80330,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c08syntheticsession-pre-pi_restore_s9_gc2_c08syntheticsession_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "30C030800C0D548CB0FE2180296A75DEBDC68EE09DDEA842F7F4F58607FF1469",
+          "sha256": "2F640CF15DB64527671DFD373ABD07A742533742E596D406309161430B1AB269",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c08syntheticsession-pre-pi_restore_s9_gc2_c08syntheticsession_s.stdout"
+        }
+      ],
+      "case": "c08syntheticsession",
+      "supplemental": true,
+      "controlled_holder": null
+    },
+    {
+      "actual_boundary": null,
+      "native_products": [
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c09-apply.stdout",
+          "label": "c09-apply",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c09-apply.stderr",
+          "process_sha256": "C5637E52CCE72A137B8E02BB1C9C5B56AAF81AF9B5EFB0AE1C2E28F9BF6B8558",
+          "native_process": {
+            "start_utc": "2026-10-11T12:42:06.8973198Z",
+            "stderr_sha256": "A773360754A951A29B631D93AC32FE40C5EEE4279E9521BA70BADE6375CCF658",
+            "label": "c09-apply",
+            "creation_utc": "2026-10-11T12:42:06.8990388Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:42:10.2408982Z",
+            "pid": 50592,
+            "native_exit": 1,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+          }
+        },
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c09-verify.stdout",
+          "label": "c09-verify",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c09-verify.stderr",
+          "process_sha256": "8FC0AA8D5916D8881AFEF0EDA907FD507DAFDE64C41A0F4F0EC9EEE87B94FD8B",
+          "native_process": {
+            "start_utc": "2026-10-11T12:42:02.2948485Z",
+            "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "label": "c09-verify",
+            "creation_utc": "2026-10-11T12:42:02.2963317Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:42:06.113466Z",
+            "pid": 29592,
+            "native_exit": 0,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "75516E849968A6F3D45782FD1B4F6D749E41B5E837C6AE0FA3FCD4293B7D29BE"
+          }
+        }
+      ],
+      "result_sha256": "503C6B82BAA40CC4CEEE5F42F3FCDC80F8017F81F6B65EFCB4FB022982875CC0",
+      "status": "PASS_ON_EXACT_C2",
+      "result": {
+        "actual_guard_matches": true,
+        "expected_guard": "cleanup_source_invalid",
+        "restore_conserved": true,
+        "post": [
+          "18006ABD97B8643B325EB0AFC964DDBFDF5F01DC7BCB20CEEEEB9C783BED1201",
+          "6F4AD40766200E089F177A69E81D61556354D58C7943485B755DB24227D1D080"
+        ],
+        "baseline_verify": 0,
+        "pre": [
+          "18006ABD97B8643B325EB0AFC964DDBFDF5F01DC7BCB20CEEEEB9C783BED1201",
+          "6F4AD40766200E089F177A69E81D61556354D58C7943485B755DB24227D1D080"
+        ],
+        "apply_exit": 1,
+        "case": "c09",
+        "source_conserved": true,
+        "pass": true
+      },
+      "full_snapshots": [
+        {
+          "native_exit": 0,
+          "native_process_sha256": "03A7B2F5E4EA152F6F5B5952A7917C91103F04EF71FAADAA336F4C2874ABC02E",
+          "sha256": "6F4AD40766200E089F177A69E81D61556354D58C7943485B755DB24227D1D080",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c09-post-pi_restore_s9_gc2_c09_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "AB5B1ED295EC374EE9BCEC32CE6EEC965AE127A55DF72E0CAA51547313CC12B0",
+          "sha256": "18006ABD97B8643B325EB0AFC964DDBFDF5F01DC7BCB20CEEEEB9C783BED1201",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c09-post-pi_restore_s9_gc2_c09_s.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "3B6246097D5FE6403FECBE0DCAACA56D7B9FCB11912750E0C3E8E9A9A413D91B",
+          "sha256": "6F4AD40766200E089F177A69E81D61556354D58C7943485B755DB24227D1D080",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c09-pre-pi_restore_s9_gc2_c09_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "487B3AEC7D8BE223975FD2028E407406E1F7EC19488EAABF436F19134634ED96",
+          "sha256": "18006ABD97B8643B325EB0AFC964DDBFDF5F01DC7BCB20CEEEEB9C783BED1201",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c09-pre-pi_restore_s9_gc2_c09_s.stdout"
+        }
+      ],
+      "case": "c09",
+      "supplemental": false,
+      "controlled_holder": null
+    },
+    {
+      "actual_boundary": null,
+      "native_products": [
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c10-apply.stdout",
+          "label": "c10-apply",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c10-apply.stderr",
+          "process_sha256": "3CC584D5F5A1221A52D05BE785B502D960EA78DAAEC093F4CEF095FD844B3472",
+          "native_process": {
+            "start_utc": "2026-10-11T12:42:22.2715309Z",
+            "stderr_sha256": "A773360754A951A29B631D93AC32FE40C5EEE4279E9521BA70BADE6375CCF658",
+            "label": "c10-apply",
+            "creation_utc": "2026-10-11T12:42:22.2728151Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:42:25.7192889Z",
+            "pid": 40988,
+            "native_exit": 1,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+          }
+        },
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c10-verify.stdout",
+          "label": "c10-verify",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c10-verify.stderr",
+          "process_sha256": "B12C0BA4AE572D497C053930B2D39FFD35E80D04FEF31D81746FD50A6E3796A0",
+          "native_process": {
+            "start_utc": "2026-10-11T12:42:17.468847Z",
+            "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "label": "c10-verify",
+            "creation_utc": "2026-10-11T12:42:17.4704365Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:42:21.1189984Z",
+            "pid": 45496,
+            "native_exit": 0,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "CCECF73DF0CD2A840F3568A498A865D216C4C2CD1374D19AEE1D1959A8E76DB9"
+          }
+        }
+      ],
+      "result_sha256": "DD7AB0A2BEDED40053F7FD8D59B6D1826DEA6FFD5825F80545282B6B463462DF",
+      "status": "PASS_ON_EXACT_C2",
+      "result": {
+        "actual_guard_matches": true,
+        "expected_guard": "cleanup_source_invalid",
+        "restore_conserved": true,
+        "post": [
+          "370A4A909C4521C7D11B3769918B2ED6AE47214E105E10C88A0CE00CBF7872FA",
+          "363DA842F88F4A4E66D24144169A33C5529B0ADF65D2B8800A6839185A1A1E3B"
+        ],
+        "baseline_verify": 0,
+        "pre": [
+          "370A4A909C4521C7D11B3769918B2ED6AE47214E105E10C88A0CE00CBF7872FA",
+          "363DA842F88F4A4E66D24144169A33C5529B0ADF65D2B8800A6839185A1A1E3B"
+        ],
+        "apply_exit": 1,
+        "case": "c10",
+        "source_conserved": true,
+        "pass": true
+      },
+      "full_snapshots": [
+        {
+          "native_exit": 0,
+          "native_process_sha256": "929E266F37796614191499CF91ADC8C3EAA67B1271754106E56E1B1531D605EC",
+          "sha256": "363DA842F88F4A4E66D24144169A33C5529B0ADF65D2B8800A6839185A1A1E3B",
+          "rows": 142,
+          "bytes": 80186,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c10-post-pi_restore_s9_gc2_c10_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "8BF65976CE6276B8D46CE0BCD67144E3D0FB5F5D446FD803E9B4D8FDDD114DDB",
+          "sha256": "370A4A909C4521C7D11B3769918B2ED6AE47214E105E10C88A0CE00CBF7872FA",
+          "rows": 142,
+          "bytes": 80186,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c10-post-pi_restore_s9_gc2_c10_s.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "6EE18B2E1278DA5336673103F13018A104BD7C1D07866004C0E570B10239D9F7",
+          "sha256": "363DA842F88F4A4E66D24144169A33C5529B0ADF65D2B8800A6839185A1A1E3B",
+          "rows": 142,
+          "bytes": 80186,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c10-pre-pi_restore_s9_gc2_c10_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "C35B1C5B4A7DA19EA3374D1913EDD05F5CEECC3C6000E5A06A5DFB912BA4E2A4",
+          "sha256": "370A4A909C4521C7D11B3769918B2ED6AE47214E105E10C88A0CE00CBF7872FA",
+          "rows": 142,
+          "bytes": 80186,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c10-pre-pi_restore_s9_gc2_c10_s.stdout"
+        }
+      ],
+      "case": "c10",
+      "supplemental": false,
+      "controlled_holder": null
+    },
+    {
+      "actual_boundary": null,
+      "native_products": [
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c11sha-apply.stdout",
+          "label": "c11sha-apply",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c11sha-apply.stderr",
+          "process_sha256": "FCFD787E9423B43ACE97C718F2EFBF5A86B25455E0B14B3575BFC89A62711BFB",
+          "native_process": {
+            "start_utc": "2026-10-11T12:42:37.6346262Z",
+            "stderr_sha256": "A773360754A951A29B631D93AC32FE40C5EEE4279E9521BA70BADE6375CCF658",
+            "label": "c11sha-apply",
+            "creation_utc": "2026-10-11T12:42:37.6366601Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:42:41.0927392Z",
+            "pid": 40816,
+            "native_exit": 1,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+          }
+        },
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c11sha-verify.stdout",
+          "label": "c11sha-verify",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c11sha-verify.stderr",
+          "process_sha256": "26143FAC68265501E91F0952B3288D6F2914AD093F49810326E4C29EC395EE22",
+          "native_process": {
+            "start_utc": "2026-10-11T12:42:32.7420862Z",
+            "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "label": "c11sha-verify",
+            "creation_utc": "2026-10-11T12:42:32.743824Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:42:36.7947042Z",
+            "pid": 22432,
+            "native_exit": 0,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "795A5225116986EF7DDDB9FDA1D989E4452563513429F0FBA6F58863C7D08832"
+          }
+        }
+      ],
+      "result_sha256": "1AA213B05F0A713F40E666FB6E1F4BC87101F1A5DD0661223C9F5D1A93770B35",
+      "status": "PASS_ON_EXACT_C2",
+      "result": {
+        "actual_guard_matches": true,
+        "expected_guard": "cleanup_source_invalid",
+        "restore_conserved": true,
+        "post": [
+          "282AED8F8D3243B8FDB88BD3C2755723FC64F895DBDFD23D60CD90EBD15B39F4",
+          "D84419610C7C96F3189D6E45BCA85D28EB8C7109C303049AF7729D62A6ED45DE"
+        ],
+        "baseline_verify": 0,
+        "pre": [
+          "282AED8F8D3243B8FDB88BD3C2755723FC64F895DBDFD23D60CD90EBD15B39F4",
+          "D84419610C7C96F3189D6E45BCA85D28EB8C7109C303049AF7729D62A6ED45DE"
+        ],
+        "apply_exit": 1,
+        "case": "c11sha",
+        "source_conserved": true,
+        "pass": true
+      },
+      "full_snapshots": [
+        {
+          "native_exit": 0,
+          "native_process_sha256": "90343E59BCE44207E8AB34FF629E29D74E3FECF6725B7F8771E743596ECBD6ED",
+          "sha256": "D84419610C7C96F3189D6E45BCA85D28EB8C7109C303049AF7729D62A6ED45DE",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c11sha-post-pi_restore_s9_gc2_c11sha_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "383CF4A63AF6992A3ECCC24CD997EAFA952C478CEDE74BC72D4F4E172D313BB9",
+          "sha256": "282AED8F8D3243B8FDB88BD3C2755723FC64F895DBDFD23D60CD90EBD15B39F4",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c11sha-post-pi_restore_s9_gc2_c11sha_s.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "99E5F20303B49296E28330F4BDB168B6201AD10515F2C3E9D1E0A2088E7C79C1",
+          "sha256": "D84419610C7C96F3189D6E45BCA85D28EB8C7109C303049AF7729D62A6ED45DE",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c11sha-pre-pi_restore_s9_gc2_c11sha_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "EBADF4DC704D57FFBB81F3D9A63289D0A7EED029009A2EAEA8C3529029B5D9C1",
+          "sha256": "282AED8F8D3243B8FDB88BD3C2755723FC64F895DBDFD23D60CD90EBD15B39F4",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c11sha-pre-pi_restore_s9_gc2_c11sha_s.stdout"
+        }
+      ],
+      "case": "c11sha",
+      "supplemental": false,
+      "controlled_holder": null
+    },
+    {
+      "actual_boundary": null,
+      "native_products": [
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c11sum-apply.stdout",
+          "label": "c11sum-apply",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c11sum-apply.stderr",
+          "process_sha256": "BD9474068902E361513D65F467298F6D9BEBFD5FEEC36E62164F08B9848ADE94",
+          "native_process": {
+            "start_utc": "2026-10-11T12:42:53.0726187Z",
+            "stderr_sha256": "826971A546D6B2711FE7252A9B5D24CED3F41CB898FE6320CACA1A510D5506C6",
+            "label": "c11sum-apply",
+            "creation_utc": "2026-10-11T12:42:53.0739827Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:42:56.0231418Z",
+            "pid": 24744,
+            "native_exit": 1,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+          }
+        },
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c11sum-verify.stdout",
+          "label": "c11sum-verify",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c11sum-verify.stderr",
+          "process_sha256": "4F81D95F3256336D30ABAC93A5AD6E82274736A0B0E51E3A5A71A614DABED1A8",
+          "native_process": {
+            "start_utc": "2026-10-11T12:42:48.1548637Z",
+            "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "label": "c11sum-verify",
+            "creation_utc": "2026-10-11T12:42:48.1562412Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:42:52.1761953Z",
+            "pid": 45924,
+            "native_exit": 0,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "C45035BD34E42D65E374491606155997253BF703FDB8D56F3109D855E02572CA"
+          }
+        }
+      ],
+      "result_sha256": "595861060042B2D527CC28623818ACEB4EDF0588C1712BB546DE743BBDDD0A19",
+      "status": "PASS_ON_EXACT_C2",
+      "result": {
+        "actual_guard_matches": true,
+        "expected_guard": "cleanup_schema",
+        "restore_conserved": true,
+        "post": [
+          "D4A75188B85D28A35CD5A40C715E41AD89F5891B77B0273CE95A3A506E4A7273",
+          "FD372CE6C5E94920DAB64E9E8EA0C525C55E5A7448304677F559091A743321F4"
+        ],
+        "baseline_verify": 0,
+        "pre": [
+          "D4A75188B85D28A35CD5A40C715E41AD89F5891B77B0273CE95A3A506E4A7273",
+          "FD372CE6C5E94920DAB64E9E8EA0C525C55E5A7448304677F559091A743321F4"
+        ],
+        "apply_exit": 1,
+        "case": "c11sum",
+        "source_conserved": true,
+        "pass": true
+      },
+      "full_snapshots": [
+        {
+          "native_exit": 0,
+          "native_process_sha256": "468F56C1D78A35A004D53F780E441E5D4736709277563E9D0598A146716C1EF7",
+          "sha256": "FD372CE6C5E94920DAB64E9E8EA0C525C55E5A7448304677F559091A743321F4",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c11sum-post-pi_restore_s9_gc2_c11sum_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "FEDA4B380C910DE85D3066FA40032C41BCE471AB223C2C1977A6014300F9D948",
+          "sha256": "D4A75188B85D28A35CD5A40C715E41AD89F5891B77B0273CE95A3A506E4A7273",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c11sum-post-pi_restore_s9_gc2_c11sum_s.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "4B9609E66F9FC971309445E29E1B4783B055FD3366CDF2FF66CC405577378F26",
+          "sha256": "FD372CE6C5E94920DAB64E9E8EA0C525C55E5A7448304677F559091A743321F4",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c11sum-pre-pi_restore_s9_gc2_c11sum_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "705164909F2E861D273A39FB35E10E7D599D73B5618C2B408547D03D0A8139A8",
+          "sha256": "D4A75188B85D28A35CD5A40C715E41AD89F5891B77B0273CE95A3A506E4A7273",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c11sum-pre-pi_restore_s9_gc2_c11sum_s.stdout"
+        }
+      ],
+      "case": "c11sum",
+      "supplemental": false,
+      "controlled_holder": null
+    },
+    {
+      "actual_boundary": null,
+      "native_products": [
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c11key-apply.stdout",
+          "label": "c11key-apply",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c11key-apply.stderr",
+          "process_sha256": "009487A1F26C5DC1E7C38A23774066E6DC92864877AAEAB011E316E06A58C4F8",
+          "native_process": {
+            "start_utc": "2026-10-11T12:43:07.865722Z",
+            "stderr_sha256": "A773360754A951A29B631D93AC32FE40C5EEE4279E9521BA70BADE6375CCF658",
+            "label": "c11key-apply",
+            "creation_utc": "2026-10-11T12:43:07.8670943Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:43:11.2751901Z",
+            "pid": 3100,
+            "native_exit": 1,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+          }
+        },
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c11key-verify.stdout",
+          "label": "c11key-verify",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c11key-verify.stderr",
+          "process_sha256": "E8C862135FBF7D00E0B951538F1A0160904F5E3ABDAF35435A78D7E41697534D",
+          "native_process": {
+            "start_utc": "2026-10-11T12:43:03.0202084Z",
+            "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "label": "c11key-verify",
+            "creation_utc": "2026-10-11T12:43:03.0220869Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:43:07.020985Z",
+            "pid": 31712,
+            "native_exit": 0,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "232C8F35A78EF37C24501A563A8926DB7A236ED8991BA1F2E805575F44574B8E"
+          }
+        }
+      ],
+      "result_sha256": "D34900578E891A96EAA7F2D8B68C097281777A5F373329EAFEDA7956B06811DD",
+      "status": "PASS_ON_EXACT_C2",
+      "result": {
+        "actual_guard_matches": true,
+        "expected_guard": "cleanup_source_invalid",
+        "restore_conserved": true,
+        "post": [
+          "FA2ED9643B45A8B8CFF211F471C4227148CAD081C260F565A70D3BE590B3D98A",
+          "88DBB10B5410F5F870319E68FB31F171BF6EA9BAA1E23742F07841F056BC20C3"
+        ],
+        "baseline_verify": 0,
+        "pre": [
+          "FA2ED9643B45A8B8CFF211F471C4227148CAD081C260F565A70D3BE590B3D98A",
+          "88DBB10B5410F5F870319E68FB31F171BF6EA9BAA1E23742F07841F056BC20C3"
+        ],
+        "apply_exit": 1,
+        "case": "c11key",
+        "source_conserved": true,
+        "pass": true
+      },
+      "full_snapshots": [
+        {
+          "native_exit": 0,
+          "native_process_sha256": "4E790C8471DB5787AC4A48F8E2762FBE81534AA0718B8253121EA1E1730BBFEA",
+          "sha256": "88DBB10B5410F5F870319E68FB31F171BF6EA9BAA1E23742F07841F056BC20C3",
+          "rows": 143,
+          "bytes": 80216,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c11key-post-pi_restore_s9_gc2_c11key_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "01384BFA1D7A8F1FFF987C9144D160221BC696541E106F76CB0F726D072F6E7A",
+          "sha256": "FA2ED9643B45A8B8CFF211F471C4227148CAD081C260F565A70D3BE590B3D98A",
+          "rows": 143,
+          "bytes": 80216,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c11key-post-pi_restore_s9_gc2_c11key_s.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "AFE2C889B210465673F71BDC49C3323AD7F4BB895A81BEF758657399DAA8E406",
+          "sha256": "88DBB10B5410F5F870319E68FB31F171BF6EA9BAA1E23742F07841F056BC20C3",
+          "rows": 143,
+          "bytes": 80216,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c11key-pre-pi_restore_s9_gc2_c11key_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "9A1BD166F4E864848C9B9BA45CA36A102CB7937CEA3544692FE218B5CACEDEE8",
+          "sha256": "FA2ED9643B45A8B8CFF211F471C4227148CAD081C260F565A70D3BE590B3D98A",
+          "rows": 143,
+          "bytes": 80216,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c11key-pre-pi_restore_s9_gc2_c11key_s.stdout"
+        }
+      ],
+      "case": "c11key",
+      "supplemental": false,
+      "controlled_holder": null
+    },
+    {
+      "actual_boundary": null,
+      "native_products": [
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c11header-apply.stdout",
+          "label": "c11header-apply",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c11header-apply.stderr",
+          "process_sha256": "C55D1CCC485C2FDD6E1E5EB1E43C6317BCC1227BFB9B3F706CD1B8E0F91525FC",
+          "native_process": {
+            "start_utc": "2026-10-11T12:43:23.2499481Z",
+            "stderr_sha256": "A773360754A951A29B631D93AC32FE40C5EEE4279E9521BA70BADE6375CCF658",
+            "label": "c11header-apply",
+            "creation_utc": "2026-10-11T12:43:23.2512868Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:43:26.7971258Z",
+            "pid": 14608,
+            "native_exit": 1,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+          }
+        },
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c11header-verify.stdout",
+          "label": "c11header-verify",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c11header-verify.stderr",
+          "process_sha256": "B141559C5D700F3D7049549AE8D30160C00212651A3CA7963BFE9141BE01C39A",
+          "native_process": {
+            "start_utc": "2026-10-11T12:43:18.2397619Z",
+            "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "label": "c11header-verify",
+            "creation_utc": "2026-10-11T12:43:18.2415815Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:43:22.391884Z",
+            "pid": 46364,
+            "native_exit": 0,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "39F3864F6F932631166592436CBBC2C37BB48D5904F371DB0A45B6115D146C5E"
+          }
+        }
+      ],
+      "result_sha256": "942B0810E9D1CD3E6796FA5EC04CE54BEDA9DE6A4C1CCC99E308482E9478CECD",
+      "status": "PASS_ON_EXACT_C2",
+      "result": {
+        "actual_guard_matches": true,
+        "expected_guard": "cleanup_source_invalid",
+        "restore_conserved": true,
+        "post": [
+          "7240895C28F4B12079D913E94D8B5C67E92A901B9AD5F5608EAB80831C35325A",
+          "95647F9410C37A75F093BAAAF52E3F9BE191CD718ECF0F6822FA2DC77FE4093C"
+        ],
+        "baseline_verify": 0,
+        "pre": [
+          "7240895C28F4B12079D913E94D8B5C67E92A901B9AD5F5608EAB80831C35325A",
+          "95647F9410C37A75F093BAAAF52E3F9BE191CD718ECF0F6822FA2DC77FE4093C"
+        ],
+        "apply_exit": 1,
+        "case": "c11header",
+        "source_conserved": true,
+        "pass": true
+      },
+      "full_snapshots": [
+        {
+          "native_exit": 0,
+          "native_process_sha256": "89540A70E84E13E0056D6B6F0BA7086FB77356F8795B7CC1DC89E3CB360DF096",
+          "sha256": "95647F9410C37A75F093BAAAF52E3F9BE191CD718ECF0F6822FA2DC77FE4093C",
+          "rows": 136,
+          "bytes": 75566,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c11header-post-pi_restore_s9_gc2_c11header_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "5682C8119E0435A4D40CF600670191AEAAAA730E0D813FB667D55FBCD7F9CF89",
+          "sha256": "7240895C28F4B12079D913E94D8B5C67E92A901B9AD5F5608EAB80831C35325A",
+          "rows": 136,
+          "bytes": 75566,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c11header-post-pi_restore_s9_gc2_c11header_s.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "A0632C432C6A40A7C8195953D7C41E57AD328560B030637E89B6ECB8C8826D87",
+          "sha256": "95647F9410C37A75F093BAAAF52E3F9BE191CD718ECF0F6822FA2DC77FE4093C",
+          "rows": 136,
+          "bytes": 75566,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c11header-pre-pi_restore_s9_gc2_c11header_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "A0BF079090067CF8E205A0269A0DE55E58B89E4B8189FE52AF86A4C8E8D480D6",
+          "sha256": "7240895C28F4B12079D913E94D8B5C67E92A901B9AD5F5608EAB80831C35325A",
+          "rows": 136,
+          "bytes": 75566,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c11header-pre-pi_restore_s9_gc2_c11header_s.stdout"
+        }
+      ],
+      "case": "c11header",
+      "supplemental": false,
+      "controlled_holder": null
+    },
+    {
+      "actual_boundary": null,
+      "native_products": [
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c12ledger-apply.stdout",
+          "label": "c12ledger-apply",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c12ledger-apply.stderr",
+          "process_sha256": "251B82BA2FC1398CF5F495F30B8DEFFAB077CF0DC4DA99A941D9C489473EE9A5",
+          "native_process": {
+            "start_utc": "2026-10-11T12:43:38.391223Z",
+            "stderr_sha256": "826971A546D6B2711FE7252A9B5D24CED3F41CB898FE6320CACA1A510D5506C6",
+            "label": "c12ledger-apply",
+            "creation_utc": "2026-10-11T12:43:38.3929483Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:43:41.3624858Z",
+            "pid": 49968,
+            "native_exit": 1,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+          }
+        },
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c12ledger-verify.stdout",
+          "label": "c12ledger-verify",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c12ledger-verify.stderr",
+          "process_sha256": "CC8BD9BBA7FF1FEB71EB54946509F1CB76E13A58AC4112CA5B1AB6CB824AC81F",
+          "native_process": {
+            "start_utc": "2026-10-11T12:43:33.8962765Z",
+            "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "label": "c12ledger-verify",
+            "creation_utc": "2026-10-11T12:43:33.8979614Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:43:37.7492803Z",
+            "pid": 51936,
+            "native_exit": 0,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "FD993499929B103D96CA09ECA38E244B8788E90FF4B8600C67FE0A3928A6827E"
+          }
+        }
+      ],
+      "result_sha256": "135F0FF9709CC4449F1A197E161E287B569993E59466732D9273E762CF0336AC",
+      "status": "PASS_ON_EXACT_C2",
+      "result": {
+        "actual_guard_matches": true,
+        "expected_guard": "cleanup_schema",
+        "restore_conserved": true,
+        "post": [
+          "0E9CB2464ED4A8AE0F14CCCA803FE5F5A9D9A4DABB49D161EBEE0A9496090311",
+          "DA5ADFF45E04A723C65A93F5327496ACB4C3506DAE7BA3E125C6F1102DD9E733"
+        ],
+        "baseline_verify": 0,
+        "pre": [
+          "0E9CB2464ED4A8AE0F14CCCA803FE5F5A9D9A4DABB49D161EBEE0A9496090311",
+          "DA5ADFF45E04A723C65A93F5327496ACB4C3506DAE7BA3E125C6F1102DD9E733"
+        ],
+        "apply_exit": 1,
+        "case": "c12ledger",
+        "source_conserved": true,
+        "pass": true
+      },
+      "full_snapshots": [
+        {
+          "native_exit": 0,
+          "native_process_sha256": "7F234D3098EFBA70ACC747197923C83EDB4EED59BC3A8BE77307653ECDABF068",
+          "sha256": "DA5ADFF45E04A723C65A93F5327496ACB4C3506DAE7BA3E125C6F1102DD9E733",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c12ledger-post-pi_restore_s9_gc2_c12ledger_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "A71D1EFB30D47EBF301A1693BB752D56D901F101B03D31FD5D420F4DF3DA116A",
+          "sha256": "0E9CB2464ED4A8AE0F14CCCA803FE5F5A9D9A4DABB49D161EBEE0A9496090311",
+          "rows": 141,
+          "bytes": 79988,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c12ledger-post-pi_restore_s9_gc2_c12ledger_s.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "577BF6D1D1F39281F0193DFED1F143DE1B5D7137434D6D700857C26DA0988454",
+          "sha256": "DA5ADFF45E04A723C65A93F5327496ACB4C3506DAE7BA3E125C6F1102DD9E733",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c12ledger-pre-pi_restore_s9_gc2_c12ledger_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "3A24B0D45B1A541C1869574E9DD142B09EED40CD92515BA121133C603FE72B5F",
+          "sha256": "0E9CB2464ED4A8AE0F14CCCA803FE5F5A9D9A4DABB49D161EBEE0A9496090311",
+          "rows": 141,
+          "bytes": 79988,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c12ledger-pre-pi_restore_s9_gc2_c12ledger_s.stdout"
+        }
+      ],
+      "case": "c12ledger",
+      "supplemental": false,
+      "controlled_holder": null
+    },
+    {
+      "actual_boundary": null,
+      "native_products": [
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c12future-apply.stdout",
+          "label": "c12future-apply",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c12future-apply.stderr",
+          "process_sha256": "0F2609D808D5C086BBB525CEAA6BD88543D43CEA97779A55C84ABAF0BDD32DAE",
+          "native_process": {
+            "start_utc": "2026-10-11T12:43:52.7989861Z",
+            "stderr_sha256": "826971A546D6B2711FE7252A9B5D24CED3F41CB898FE6320CACA1A510D5506C6",
+            "label": "c12future-apply",
+            "creation_utc": "2026-10-11T12:43:52.8003894Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:43:55.6962832Z",
+            "pid": 47888,
+            "native_exit": 1,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+          }
+        },
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c12future-verify.stdout",
+          "label": "c12future-verify",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c12future-verify.stderr",
+          "process_sha256": "83E7EAE32A43C6739005B5D9F9E07F3665DCB78F86DB61CFE1CAC8ED6C2D3D94",
+          "native_process": {
+            "start_utc": "2026-10-11T12:43:48.2753437Z",
+            "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "label": "c12future-verify",
+            "creation_utc": "2026-10-11T12:43:48.2774581Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:43:52.1897242Z",
+            "pid": 43024,
+            "native_exit": 0,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "82AAC59FB7E23E0D22D86AA27936706FCB154C1ADBEA6E0B9D07FD199D74B703"
+          }
+        }
+      ],
+      "result_sha256": "7C1C489BD665AA1485A314C204B819F08445FDAE1945F0FD284394D509586BEF",
+      "status": "PASS_ON_EXACT_C2",
+      "result": {
+        "actual_guard_matches": true,
+        "expected_guard": "cleanup_schema",
+        "restore_conserved": true,
+        "post": [
+          "3F8894BD7F2A5E4EFAD5068D19891E62629408BEC01C371C0CAC6E0E36E2F6C9",
+          "073ADED3FE4F545F78B10982753C47A02B152AC0DDA4DB1E253C3687D3850362"
+        ],
+        "baseline_verify": 0,
+        "pre": [
+          "3F8894BD7F2A5E4EFAD5068D19891E62629408BEC01C371C0CAC6E0E36E2F6C9",
+          "073ADED3FE4F545F78B10982753C47A02B152AC0DDA4DB1E253C3687D3850362"
+        ],
+        "apply_exit": 1,
+        "case": "c12future",
+        "source_conserved": true,
+        "pass": true
+      },
+      "full_snapshots": [
+        {
+          "native_exit": 0,
+          "native_process_sha256": "5FFA00E28417BA4CB9E7181CD6B1B06D12528C8A78F35BAEE7C648EF22F68A72",
+          "sha256": "073ADED3FE4F545F78B10982753C47A02B152AC0DDA4DB1E253C3687D3850362",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c12future-post-pi_restore_s9_gc2_c12future_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "D395972D9CAA1B15994D6EFC87A39314B46F771FD3DAD8DE85D4391B2F91CEE4",
+          "sha256": "3F8894BD7F2A5E4EFAD5068D19891E62629408BEC01C371C0CAC6E0E36E2F6C9",
+          "rows": 143,
+          "bytes": 80346,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c12future-post-pi_restore_s9_gc2_c12future_s.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "B2E52311BE6533ECBD2DFED8F52E545F1406200A2F95F0F9DF65B370F1EB3E77",
+          "sha256": "073ADED3FE4F545F78B10982753C47A02B152AC0DDA4DB1E253C3687D3850362",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c12future-pre-pi_restore_s9_gc2_c12future_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "D1775F3D349C70338882C725CF8B44F685239E8111EBDFDF150C1A638D10D86C",
+          "sha256": "3F8894BD7F2A5E4EFAD5068D19891E62629408BEC01C371C0CAC6E0E36E2F6C9",
+          "rows": 143,
+          "bytes": 80346,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c12future-pre-pi_restore_s9_gc2_c12future_s.stdout"
+        }
+      ],
+      "case": "c12future",
+      "supplemental": false,
+      "controlled_holder": null
+    },
+    {
+      "actual_boundary": null,
+      "native_products": [
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c12unknownobject-apply.stdout",
+          "label": "c12unknownobject-apply",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c12unknownobject-apply.stderr",
+          "process_sha256": "DA9C3147728B92AF0DC059EF4B8FDC66ABBBF65B987771A528E62F693AC4B2A7",
+          "native_process": {
+            "start_utc": "2026-10-11T12:44:07.2154852Z",
+            "stderr_sha256": "826971A546D6B2711FE7252A9B5D24CED3F41CB898FE6320CACA1A510D5506C6",
+            "label": "c12unknownobject-apply",
+            "creation_utc": "2026-10-11T12:44:07.2171934Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:44:10.2131834Z",
+            "pid": 39484,
+            "native_exit": 1,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+          }
+        },
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c12unknownobject-verify.stdout",
+          "label": "c12unknownobject-verify",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c12unknownobject-verify.stderr",
+          "process_sha256": "DA3982B937631945BD04C902C64AB7D7A817F8C939831696C50D011769960515",
+          "native_process": {
+            "start_utc": "2026-10-11T12:44:02.5277914Z",
+            "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "label": "c12unknownobject-verify",
+            "creation_utc": "2026-10-11T12:44:02.5294418Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:44:06.5907307Z",
+            "pid": 45748,
+            "native_exit": 0,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "99A3234D802B5BEE3DAC61CB6CE6136B6CB64604879A129DB42B1D6790EBB2E6"
+          }
+        }
+      ],
+      "result_sha256": "5B3C19BA8A85CA93ABCC79A91FB3161D4787CC20AD875CED1CD44DF1A581EDE0",
+      "status": "PASS_ON_EXACT_C2",
+      "result": {
+        "actual_guard_matches": true,
+        "expected_guard": "cleanup_schema",
+        "restore_conserved": true,
+        "post": [
+          "7A1B0529AD374731FA8D1B129125CCF0A8275CEB814BBFAE725CABD0D4CC9BEB",
+          "11D03248D3A898543B04EA38D9BBF34AFD56A17880181F0E83F9DCA203DC5358"
+        ],
+        "baseline_verify": 0,
+        "pre": [
+          "7A1B0529AD374731FA8D1B129125CCF0A8275CEB814BBFAE725CABD0D4CC9BEB",
+          "11D03248D3A898543B04EA38D9BBF34AFD56A17880181F0E83F9DCA203DC5358"
+        ],
+        "apply_exit": 1,
+        "case": "c12unknownobject",
+        "source_conserved": true,
+        "pass": true
+      },
+      "full_snapshots": [
+        {
+          "native_exit": 0,
+          "native_process_sha256": "BCF333EE554E86C8F1F14CC5AD5BC0410F8210B691B4988F4EF1D4058A987F56",
+          "sha256": "11D03248D3A898543B04EA38D9BBF34AFD56A17880181F0E83F9DCA203DC5358",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c12unknownobject-post-pi_restore_s9_gc2_c12unknownobject_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "E6E4D13E0B2B95D35DC55E0B3F21A9FB479C8C607B72D343842D846A71B5427D",
+          "sha256": "7A1B0529AD374731FA8D1B129125CCF0A8275CEB814BBFAE725CABD0D4CC9BEB",
+          "rows": 150,
+          "bytes": 83731,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c12unknownobject-post-pi_restore_s9_gc2_c12unknownobject_s.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "F6733819C7A9802F4E55EA4B06A46CC0C8466DD2BB0E8FC4CB756E556D771DDB",
+          "sha256": "11D03248D3A898543B04EA38D9BBF34AFD56A17880181F0E83F9DCA203DC5358",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c12unknownobject-pre-pi_restore_s9_gc2_c12unknownobject_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "DC18836C276D078E8AAB6C07928B2E4487D5A24CE2CB206DB9C12B43ADAD7AE8",
+          "sha256": "7A1B0529AD374731FA8D1B129125CCF0A8275CEB814BBFAE725CABD0D4CC9BEB",
+          "rows": 150,
+          "bytes": 83731,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c12unknownobject-pre-pi_restore_s9_gc2_c12unknownobject_s.stdout"
+        }
+      ],
+      "case": "c12unknownobject",
+      "supplemental": true,
+      "controlled_holder": null
+    },
+    {
+      "actual_boundary": null,
+      "native_products": [
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c12knownstage-apply.stdout",
+          "label": "c12knownstage-apply",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c12knownstage-apply.stderr",
+          "process_sha256": "79BB07F091CEF5A78D0609FC0ABF4DE5B12A1ABA6EEA51DB362F5769A8737662",
+          "native_process": {
+            "start_utc": "2026-10-11T12:44:21.6664125Z",
+            "stderr_sha256": "826971A546D6B2711FE7252A9B5D24CED3F41CB898FE6320CACA1A510D5506C6",
+            "label": "c12knownstage-apply",
+            "creation_utc": "2026-10-11T12:44:21.6680125Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:44:24.6977088Z",
+            "pid": 6336,
+            "native_exit": 1,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+          }
+        },
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c12knownstage-verify.stdout",
+          "label": "c12knownstage-verify",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c12knownstage-verify.stderr",
+          "process_sha256": "3CB49FA01451EEE9501CEADF06FC0DA529A6CAC3CF3647F0A976D7B4AD44B894",
+          "native_process": {
+            "start_utc": "2026-10-11T12:44:17.2312808Z",
+            "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "label": "c12knownstage-verify",
+            "creation_utc": "2026-10-11T12:44:17.233019Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:44:21.0373729Z",
+            "pid": 53048,
+            "native_exit": 0,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "4776748D50736F1770646EFB50695857A92112A488BEF0DA87520F7C3EAEADE7"
+          }
+        }
+      ],
+      "result_sha256": "712B87A607122DBEF929D93C6F54D1860C005B19E2DADD77B2698D090CC2D535",
+      "status": "PASS_ON_EXACT_C2",
+      "result": {
+        "actual_guard_matches": true,
+        "expected_guard": "cleanup_schema",
+        "restore_conserved": true,
+        "post": [
+          "285996EF0DD6C8A0A659F417DB048465E428DDCB82D8A5665AD156579BF66618",
+          "7032343FFA1A9152F016DF390FC0F296D1B01FEE9E8EF25E2F4F2EEC6610EA08"
+        ],
+        "baseline_verify": 0,
+        "pre": [
+          "285996EF0DD6C8A0A659F417DB048465E428DDCB82D8A5665AD156579BF66618",
+          "7032343FFA1A9152F016DF390FC0F296D1B01FEE9E8EF25E2F4F2EEC6610EA08"
+        ],
+        "apply_exit": 1,
+        "case": "c12knownstage",
+        "source_conserved": true,
+        "pass": true
+      },
+      "full_snapshots": [
+        {
+          "native_exit": 0,
+          "native_process_sha256": "505EF19AB2CCD4B35EBEA230603D1E8DFC0323201819147A66210E6EC89344AB",
+          "sha256": "7032343FFA1A9152F016DF390FC0F296D1B01FEE9E8EF25E2F4F2EEC6610EA08",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c12knownstage-post-pi_restore_s9_gc2_c12knownstage_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "7432D8595FEE8ECE7D86C88CDFCEB8862A0092243FBE57D9CCCE11341A7CE4C1",
+          "sha256": "285996EF0DD6C8A0A659F417DB048465E428DDCB82D8A5665AD156579BF66618",
+          "rows": 143,
+          "bytes": 80688,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c12knownstage-post-pi_restore_s9_gc2_c12knownstage_s.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "8D83443750442393D4F73CA6671B6280A5A089C38884C7E6988E00A3C963A73B",
+          "sha256": "7032343FFA1A9152F016DF390FC0F296D1B01FEE9E8EF25E2F4F2EEC6610EA08",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c12knownstage-pre-pi_restore_s9_gc2_c12knownstage_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "A7945205F1AE7DD63636B26BEAF8E79B7C150DACCA3E9C7E12082BFF2DADF6DE",
+          "sha256": "285996EF0DD6C8A0A659F417DB048465E428DDCB82D8A5665AD156579BF66618",
+          "rows": 143,
+          "bytes": 80688,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c12knownstage-pre-pi_restore_s9_gc2_c12knownstage_s.stdout"
+        }
+      ],
+      "case": "c12knownstage",
+      "supplemental": false,
+      "controlled_holder": null
+    },
+    {
+      "actual_boundary": null,
+      "native_products": [
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c12rls-apply.stdout",
+          "label": "c12rls-apply",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c12rls-apply.stderr",
+          "process_sha256": "EB2FC78DB148446B984E59BB5EB3E598162C62A91A2526190F8B3CB9055352DB",
+          "native_process": {
+            "start_utc": "2026-10-11T12:44:36.4056324Z",
+            "stderr_sha256": "826971A546D6B2711FE7252A9B5D24CED3F41CB898FE6320CACA1A510D5506C6",
+            "label": "c12rls-apply",
+            "creation_utc": "2026-10-11T12:44:36.4075828Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:44:39.3334612Z",
+            "pid": 25340,
+            "native_exit": 1,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+          }
+        },
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c12rls-verify.stdout",
+          "label": "c12rls-verify",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c12rls-verify.stderr",
+          "process_sha256": "CAE775A2E19F5E2217BE8D30255DC4BC3C4DB409AA110D7B82F66CB456D8511D",
+          "native_process": {
+            "start_utc": "2026-10-11T12:44:31.8813793Z",
+            "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "label": "c12rls-verify",
+            "creation_utc": "2026-10-11T12:44:31.8832233Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:44:35.7535936Z",
+            "pid": 51976,
+            "native_exit": 0,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "063BBD1A32A95637CDE142B14633BB1CFA46EFE052FAAEE8E0C50709EF692F2B"
+          }
+        }
+      ],
+      "result_sha256": "E5C9B4068DDE6620F27D20BC0B39FF0F795E90BF427E2500C8372FF90129DE1A",
+      "status": "PASS_ON_EXACT_C2",
+      "result": {
+        "actual_guard_matches": true,
+        "expected_guard": "cleanup_schema",
+        "restore_conserved": true,
+        "post": [
+          "FA8F238C4795D8E9C7010F04BF841C4D938C004E320086E7223463125A5231FB",
+          "085CB485D9498304BFEBE190354902B383604BA3D272EA3EC6D88FF17BDDD0F0"
+        ],
+        "baseline_verify": 0,
+        "pre": [
+          "FA8F238C4795D8E9C7010F04BF841C4D938C004E320086E7223463125A5231FB",
+          "085CB485D9498304BFEBE190354902B383604BA3D272EA3EC6D88FF17BDDD0F0"
+        ],
+        "apply_exit": 1,
+        "case": "c12rls",
+        "source_conserved": true,
+        "pass": true
+      },
+      "full_snapshots": [
+        {
+          "native_exit": 0,
+          "native_process_sha256": "DC2923D301BB001943F3953511AFC1BD5F1C95518AB1434D1BC614F58F1574AE",
+          "sha256": "085CB485D9498304BFEBE190354902B383604BA3D272EA3EC6D88FF17BDDD0F0",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c12rls-post-pi_restore_s9_gc2_c12rls_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "4435B9BD351EB3C3EB3FD8C070372E1DF649397F2BD3191057335B6E62A77DE9",
+          "sha256": "FA8F238C4795D8E9C7010F04BF841C4D938C004E320086E7223463125A5231FB",
+          "rows": 142,
+          "bytes": 80170,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c12rls-post-pi_restore_s9_gc2_c12rls_s.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "4561514E5A64DAB9915E81A49857B22A4BFA8CDA44DE5DB25421A980ED56F6D2",
+          "sha256": "085CB485D9498304BFEBE190354902B383604BA3D272EA3EC6D88FF17BDDD0F0",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c12rls-pre-pi_restore_s9_gc2_c12rls_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "B329E12C3CEE76EFAF89D55C4BDBE74718ACFCB959B5DB493DCD184DCDA04F23",
+          "sha256": "FA8F238C4795D8E9C7010F04BF841C4D938C004E320086E7223463125A5231FB",
+          "rows": 142,
+          "bytes": 80170,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c12rls-pre-pi_restore_s9_gc2_c12rls_s.stdout"
+        }
+      ],
+      "case": "c12rls",
+      "supplemental": false,
+      "controlled_holder": null
+    },
+    {
+      "actual_boundary": null,
+      "native_products": [
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c12trigger-apply.stdout",
+          "label": "c12trigger-apply",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c12trigger-apply.stderr",
+          "process_sha256": "33ED0F32CB01EF3FFFD344B50205CEA78C65C09EA1106ED53CEBEF5127750849",
+          "native_process": {
+            "start_utc": "2026-10-11T12:44:51.5428711Z",
+            "stderr_sha256": "826971A546D6B2711FE7252A9B5D24CED3F41CB898FE6320CACA1A510D5506C6",
+            "label": "c12trigger-apply",
+            "creation_utc": "2026-10-11T12:44:51.5446837Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:44:54.5302066Z",
+            "pid": 35532,
+            "native_exit": 1,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+          }
+        },
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c12trigger-verify.stdout",
+          "label": "c12trigger-verify",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c12trigger-verify.stderr",
+          "process_sha256": "ECF9BAB0D8DBB7342F72A38CFF0E7EF05F88F29F39A12CC55084AA38EF1D566C",
+          "native_process": {
+            "start_utc": "2026-10-11T12:44:46.8474375Z",
+            "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "label": "c12trigger-verify",
+            "creation_utc": "2026-10-11T12:44:46.8495553Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:44:50.8930272Z",
+            "pid": 23596,
+            "native_exit": 0,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "54BA51AA9401F5D8BD7280B5E1E21B74B932E30A1AB053C2850110660359071A"
+          }
+        }
+      ],
+      "result_sha256": "531E170721D592938B0F645E50407C530B904A79C21735E927F80AC1F7C7C6B3",
+      "status": "PASS_ON_EXACT_C2",
+      "result": {
+        "actual_guard_matches": true,
+        "expected_guard": "cleanup_schema",
+        "restore_conserved": true,
+        "post": [
+          "020CADECDCE6637AE22CC08495C7CF4073422C75E9699CF418F66B767097996B",
+          "1C05FCC1F039638E36013E3E8BD761057A1E8C1FD73F0A2ACE7A1E8933A6AB77"
+        ],
+        "baseline_verify": 0,
+        "pre": [
+          "020CADECDCE6637AE22CC08495C7CF4073422C75E9699CF418F66B767097996B",
+          "1C05FCC1F039638E36013E3E8BD761057A1E8C1FD73F0A2ACE7A1E8933A6AB77"
+        ],
+        "apply_exit": 1,
+        "case": "c12trigger",
+        "source_conserved": true,
+        "pass": true
+      },
+      "full_snapshots": [
+        {
+          "native_exit": 0,
+          "native_process_sha256": "FE83F218C4A35295CA2DDC7C7C5E9F27C4E7C96D715844A89606F51D2152AA7B",
+          "sha256": "1C05FCC1F039638E36013E3E8BD761057A1E8C1FD73F0A2ACE7A1E8933A6AB77",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c12trigger-post-pi_restore_s9_gc2_c12trigger_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "AF3DABB902A4BA45A47416BDAB2FB6CAF2A96829573DE2D6124F81B58ADEE112",
+          "sha256": "020CADECDCE6637AE22CC08495C7CF4073422C75E9699CF418F66B767097996B",
+          "rows": 143,
+          "bytes": 80554,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c12trigger-post-pi_restore_s9_gc2_c12trigger_s.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "A44D9490233B10FE51873266C278A10866ACC2CDAEC18855E053312AD4F7F2DC",
+          "sha256": "1C05FCC1F039638E36013E3E8BD761057A1E8C1FD73F0A2ACE7A1E8933A6AB77",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c12trigger-pre-pi_restore_s9_gc2_c12trigger_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "9A1E84683F748C7C03D5ABBD00DF7679DD10B15A9FA5480C66650CE767C69A7E",
+          "sha256": "020CADECDCE6637AE22CC08495C7CF4073422C75E9699CF418F66B767097996B",
+          "rows": 143,
+          "bytes": 80554,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c12trigger-pre-pi_restore_s9_gc2_c12trigger_s.stdout"
+        }
+      ],
+      "case": "c12trigger",
+      "supplemental": false,
+      "controlled_holder": null
+    },
+    {
+      "actual_boundary": {
+        "total_rows": 10000,
+        "max_key_bytes": 51
+      },
+      "native_products": [
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c16rows10000-verify.stdout",
+          "label": "c16rows10000-verify",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c16rows10000-verify.stderr",
+          "process_sha256": "828C26EE17D69EBF7BBD73221A02EB53E5DD45AC7DFAFF6128A7322BF5EE22C6",
+          "native_process": {
+            "start_utc": "2026-10-11T12:45:02.5595773Z",
+            "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "label": "c16rows10000-verify",
+            "creation_utc": "2026-10-11T12:45:02.5614226Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:45:06.7151561Z",
+            "pid": 22636,
+            "native_exit": 0,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "5C5016061936D84FA9CCE4A3C5A3581503A6D6B6073E60F2AE70E7CDD3FC6EBE"
+          }
+        }
+      ],
+      "result_sha256": "635DC6357C3A760A4D5CA1C316C200D8AF5B663E84E16CC75DA2AA0725073473",
+      "status": "PASS_ON_EXACT_C2",
+      "result": {
+        "expected_outcome": "cleanup_verified",
+        "matches": true,
+        "source_conserved": true,
+        "expected_exit": 0,
+        "pass": true,
+        "restore_conserved": true,
+        "pre": [
+          "E90BDB496539C2C1CA38B6054D40C2E3D25B02C6C63D2C203EC04A9C21C76BB1",
+          "B135A16D09037044218B79A4F05C17B6A1B1EF7535ED4263CD89EA0834AF202F"
+        ],
+        "case": "c16rows10000",
+        "native_exit": 0,
+        "post": [
+          "E90BDB496539C2C1CA38B6054D40C2E3D25B02C6C63D2C203EC04A9C21C76BB1",
+          "B135A16D09037044218B79A4F05C17B6A1B1EF7535ED4263CD89EA0834AF202F"
+        ]
+      },
+      "full_snapshots": [
+        {
+          "native_exit": 0,
+          "native_process_sha256": "2802D497DBFFEAB373652440C30B038B07AE6B2D89136F37025DC8F22BA9C936",
+          "sha256": "B135A16D09037044218B79A4F05C17B6A1B1EF7535ED4263CD89EA0834AF202F",
+          "rows": 10123,
+          "bytes": 517121,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c16rows10000-post-pi_restore_s9_gc2_c16rows10000_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "ABAB900ACA69B665AA8F20B3EAB6ADF629EDC61DD14D953E58160215F5F30B1D",
+          "sha256": "E90BDB496539C2C1CA38B6054D40C2E3D25B02C6C63D2C203EC04A9C21C76BB1",
+          "rows": 10123,
+          "bytes": 517121,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c16rows10000-post-pi_restore_s9_gc2_c16rows10000_s.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "E4713EBDEF969BD0FED9C3DF2A2B5D064316D62C3F33FE9935A3D7ED8FAE447D",
+          "sha256": "B135A16D09037044218B79A4F05C17B6A1B1EF7535ED4263CD89EA0834AF202F",
+          "rows": 10123,
+          "bytes": 517121,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c16rows10000-pre-pi_restore_s9_gc2_c16rows10000_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "872D98AD0C48BCDD567B8959C9009DEB25CB8669C488AED561374FEE8D75CBC9",
+          "sha256": "E90BDB496539C2C1CA38B6054D40C2E3D25B02C6C63D2C203EC04A9C21C76BB1",
+          "rows": 10123,
+          "bytes": 517121,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c16rows10000-pre-pi_restore_s9_gc2_c16rows10000_s.stdout"
+        }
+      ],
+      "case": "c16rows10000",
+      "supplemental": false,
+      "controlled_holder": null
+    },
+    {
+      "actual_boundary": {
+        "total_rows": 10001,
+        "max_key_bytes": 51
+      },
+      "native_products": [
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c16rows10001-verify.stdout",
+          "label": "c16rows10001-verify",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c16rows10001-verify.stderr",
+          "process_sha256": "140FE1B674C411037A3BF5CB283E2829CE1F641CA71AFDD49C212F698146B596",
+          "native_process": {
+            "start_utc": "2026-10-11T12:45:15.3250777Z",
+            "stderr_sha256": "CA2B2F72C60ACC24E66E1231BDA8C80BE5F9CCF37F3DB57658E11F5CAC537E8B",
+            "label": "c16rows10001-verify",
+            "creation_utc": "2026-10-11T12:45:15.3268197Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:45:18.1178044Z",
+            "pid": 52464,
+            "native_exit": 1,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+          }
+        }
+      ],
+      "result_sha256": "456EED6E72666A7674499A5064F2C2284599EB852FC3DF1A982CA0B42951D8D5",
+      "status": "PASS_ON_EXACT_C2",
+      "result": {
+        "expected_outcome": "cleanup_limit",
+        "matches": true,
+        "source_conserved": true,
+        "expected_exit": 1,
+        "pass": true,
+        "restore_conserved": true,
+        "pre": [
+          "37BFFC9856E947F8202D96B82DDC6D337018183DB288D0934AA7765BF5D3A561",
+          "F38FADFC65D5447C9DBD617D3544BA42D50C7FD6F3573BB01D8A99F72AC41711"
+        ],
+        "case": "c16rows10001",
+        "native_exit": 1,
+        "post": [
+          "37BFFC9856E947F8202D96B82DDC6D337018183DB288D0934AA7765BF5D3A561",
+          "F38FADFC65D5447C9DBD617D3544BA42D50C7FD6F3573BB01D8A99F72AC41711"
+        ]
+      },
+      "full_snapshots": [
+        {
+          "native_exit": 0,
+          "native_process_sha256": "D97FF9AB1DBF1D1ACBF149BD1860B12397BD7B8F6C5CFE2590E5457423D972EE",
+          "sha256": "F38FADFC65D5447C9DBD617D3544BA42D50C7FD6F3573BB01D8A99F72AC41711",
+          "rows": 10124,
+          "bytes": 517165,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c16rows10001-post-pi_restore_s9_gc2_c16rows10001_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "DF33CAB9487DF2B4C156DE5D20E5BD9942C5E37E67750EF87188C1F23BB02153",
+          "sha256": "37BFFC9856E947F8202D96B82DDC6D337018183DB288D0934AA7765BF5D3A561",
+          "rows": 10124,
+          "bytes": 517165,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c16rows10001-post-pi_restore_s9_gc2_c16rows10001_s.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "BD65D97AB0A2A9B0F31C86B17CBCC9E6F37D2B4C4225984ED031B86F5AB15DF7",
+          "sha256": "F38FADFC65D5447C9DBD617D3544BA42D50C7FD6F3573BB01D8A99F72AC41711",
+          "rows": 10124,
+          "bytes": 517165,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c16rows10001-pre-pi_restore_s9_gc2_c16rows10001_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "7615FB38BD5CD5D8F26205BB99CE37F6789BEBC8AABDAD139C6F691F4F05ECEE",
+          "sha256": "37BFFC9856E947F8202D96B82DDC6D337018183DB288D0934AA7765BF5D3A561",
+          "rows": 10124,
+          "bytes": 517165,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c16rows10001-pre-pi_restore_s9_gc2_c16rows10001_s.stdout"
+        }
+      ],
+      "case": "c16rows10001",
+      "supplemental": false,
+      "controlled_holder": null
+    },
+    {
+      "actual_boundary": {
+        "total_rows": 20,
+        "max_key_bytes": 512
+      },
+      "native_products": [
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c16key512-verify.stdout",
+          "label": "c16key512-verify",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c16key512-verify.stderr",
+          "process_sha256": "3A1A97AA858ECBBE7C5740CB3776D5E4D23DB6BBE0A726004916819C04341CEB",
+          "native_process": {
+            "start_utc": "2026-10-11T12:45:26.3651984Z",
+            "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "label": "c16key512-verify",
+            "creation_utc": "2026-10-11T12:45:26.3671961Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:45:30.2042146Z",
+            "pid": 31552,
+            "native_exit": 0,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "E24E2DD8918345C4B3E11D96CE4046C341A005E69FCB7221BD21BA704A1A5298"
+          }
+        }
+      ],
+      "result_sha256": "93C7B75DCCC12771DA256CF19DDEB88EF23CE943D32DB3C5AB84ADB2639E1274",
+      "status": "PASS_ON_EXACT_C2",
+      "result": {
+        "expected_outcome": "cleanup_verified",
+        "matches": true,
+        "source_conserved": true,
+        "expected_exit": 0,
+        "pass": true,
+        "restore_conserved": true,
+        "pre": [
+          "6B43048DC608E9F7D254E8516B8DDEE66086AD1FFEAA8497B72EF00E51580DBB",
+          "E92EEDEBCEAEF05CD614DDEC5C22642F957FD3AE4BDB585383297A2C79F51D68"
+        ],
+        "case": "c16key512",
+        "native_exit": 0,
+        "post": [
+          "6B43048DC608E9F7D254E8516B8DDEE66086AD1FFEAA8497B72EF00E51580DBB",
+          "E92EEDEBCEAEF05CD614DDEC5C22642F957FD3AE4BDB585383297A2C79F51D68"
+        ]
+      },
+      "full_snapshots": [
+        {
+          "native_exit": 0,
+          "native_process_sha256": "4B6C659EE79F2E8987096ADF53D758B1B3F01961141923765D19A66CB353AB69",
+          "sha256": "E92EEDEBCEAEF05CD614DDEC5C22642F957FD3AE4BDB585383297A2C79F51D68",
+          "rows": 143,
+          "bytes": 80704,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c16key512-post-pi_restore_s9_gc2_c16key512_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "E7FF099D9ACB22657ED1FB3CFA42C790823B8AFDAD902BD6A55CE9FF95081CFA",
+          "sha256": "6B43048DC608E9F7D254E8516B8DDEE66086AD1FFEAA8497B72EF00E51580DBB",
+          "rows": 143,
+          "bytes": 80704,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c16key512-post-pi_restore_s9_gc2_c16key512_s.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "9B41593158E4A8E684106881E54D1F0C0ABCB45FB79420FB54AF0347A2EEC04E",
+          "sha256": "E92EEDEBCEAEF05CD614DDEC5C22642F957FD3AE4BDB585383297A2C79F51D68",
+          "rows": 143,
+          "bytes": 80704,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c16key512-pre-pi_restore_s9_gc2_c16key512_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "8F0591C427E17F041E7319596FE7EC847C60577BEF265231F4C42B21BEB73D35",
+          "sha256": "6B43048DC608E9F7D254E8516B8DDEE66086AD1FFEAA8497B72EF00E51580DBB",
+          "rows": 143,
+          "bytes": 80704,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c16key512-pre-pi_restore_s9_gc2_c16key512_s.stdout"
+        }
+      ],
+      "case": "c16key512",
+      "supplemental": false,
+      "controlled_holder": null
+    },
+    {
+      "actual_boundary": {
+        "total_rows": 20,
+        "max_key_bytes": 513
+      },
+      "native_products": [
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c16key513-verify.stdout",
+          "label": "c16key513-verify",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c16key513-verify.stderr",
+          "process_sha256": "B9F1435520A970CC273CA49DAEC51083DEF3B96C6042E2260C04F7826DA6AD3F",
+          "native_process": {
+            "start_utc": "2026-10-11T12:45:38.261196Z",
+            "stderr_sha256": "CA2B2F72C60ACC24E66E1231BDA8C80BE5F9CCF37F3DB57658E11F5CAC537E8B",
+            "label": "c16key513-verify",
+            "creation_utc": "2026-10-11T12:45:38.2626639Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:45:40.9469273Z",
+            "pid": 48580,
+            "native_exit": 1,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+          }
+        }
+      ],
+      "result_sha256": "44F8D99C1D47E5C5845FEEAE08CF63D740D26314B1314DBF9127E0D95DDF6402",
+      "status": "PASS_ON_EXACT_C2",
+      "result": {
+        "expected_outcome": "cleanup_limit",
+        "matches": true,
+        "source_conserved": true,
+        "expected_exit": 1,
+        "pass": true,
+        "restore_conserved": true,
+        "pre": [
+          "532AA4F5868E3D642A084E5D18308134BCD3AC7F63F2122F7554C5FB035E930D",
+          "AE7502D7AE93D2D682B3A005C083A5E68401D78F0501BE647B3DFEF839FEEF65"
+        ],
+        "case": "c16key513",
+        "native_exit": 1,
+        "post": [
+          "532AA4F5868E3D642A084E5D18308134BCD3AC7F63F2122F7554C5FB035E930D",
+          "AE7502D7AE93D2D682B3A005C083A5E68401D78F0501BE647B3DFEF839FEEF65"
+        ]
+      },
+      "full_snapshots": [
+        {
+          "native_exit": 0,
+          "native_process_sha256": "22D8BFAD96B01E800B80B4AF32F3F25D8A0E84C5CD7D5743E73E30312E94F8E4",
+          "sha256": "AE7502D7AE93D2D682B3A005C083A5E68401D78F0501BE647B3DFEF839FEEF65",
+          "rows": 143,
+          "bytes": 80705,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c16key513-post-pi_restore_s9_gc2_c16key513_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "B3EA0578F3E16549B13719FFE974142537DC9C94683932A39F7F954790A57A2E",
+          "sha256": "532AA4F5868E3D642A084E5D18308134BCD3AC7F63F2122F7554C5FB035E930D",
+          "rows": 143,
+          "bytes": 80705,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c16key513-post-pi_restore_s9_gc2_c16key513_s.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "161ADD769F89AE59363C5E618A33C9E794FC5C07D491F354BC8FAB5ECE4626E4",
+          "sha256": "AE7502D7AE93D2D682B3A005C083A5E68401D78F0501BE647B3DFEF839FEEF65",
+          "rows": 143,
+          "bytes": 80705,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c16key513-pre-pi_restore_s9_gc2_c16key513_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "E6C65D44C7EA0E0E91F761584455DC228D733D0EEC05AEAFE52ED66A5B726466",
+          "sha256": "532AA4F5868E3D642A084E5D18308134BCD3AC7F63F2122F7554C5FB035E930D",
+          "rows": 143,
+          "bytes": 80705,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c16key513-pre-pi_restore_s9_gc2_c16key513_s.stdout"
+        }
+      ],
+      "case": "c16key513",
+      "supplemental": false,
+      "controlled_holder": null
+    },
+    {
+      "actual_boundary": null,
+      "native_products": [
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c15stale-apply.stdout",
+          "label": "c15stale-apply",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c15stale-apply.stderr",
+          "process_sha256": "D6082904E2337E742E2A52C096097634101497B1FCFC38F6E47C2C49E2D0D6CB",
+          "native_process": {
+            "start_utc": "2026-10-11T12:45:52.4180407Z",
+            "stderr_sha256": "CEB49A691CCD5A44D23EDCB4D29B61763C08EFF95D34452EBB282BEB74468192",
+            "label": "c15stale-apply",
+            "creation_utc": "2026-10-11T12:45:52.4202285Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:45:55.168647Z",
+            "pid": 34604,
+            "native_exit": 1,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+          }
+        },
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c15stale-verify.stdout",
+          "label": "c15stale-verify",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c15stale-verify.stderr",
+          "process_sha256": "942C7D5B507B8AB62E6FAB133DC1C37227959FF62210EA595EE407E025445554",
+          "native_process": {
+            "start_utc": "2026-10-11T12:45:47.9380403Z",
+            "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "label": "c15stale-verify",
+            "creation_utc": "2026-10-11T12:45:47.939888Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:45:51.8061136Z",
+            "pid": 47596,
+            "native_exit": 0,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "2A43E076B5E486F08CAF485C1A91813AF69A32F79BD9E7124EDCAE80D0BC4218"
+          }
+        }
+      ],
+      "result_sha256": "8320C454444AF9CAAA42E8E837ADACAE09EA874D33CDE2EF1C4ADD2F0749D766",
+      "status": "PASS_ON_EXACT_C2",
+      "result": {
+        "expected_outcome": "cleanup_plan_sha",
+        "matches": true,
+        "source_conserved": true,
+        "expected_exit": 1,
+        "pass": true,
+        "restore_conserved": true,
+        "pre": [
+          "3FEF9BD8860B7B286A12E82468E110B77D7540CA0CA37DB48CE814FA61AEB5EB",
+          "BA4EC4E2DE4E8C08F15E1C45FE6FCBE4B1D7522A768C261BE39479CA40386B73"
+        ],
+        "case": "c15stale",
+        "native_exit": 1,
+        "post": [
+          "3FEF9BD8860B7B286A12E82468E110B77D7540CA0CA37DB48CE814FA61AEB5EB",
+          "BA4EC4E2DE4E8C08F15E1C45FE6FCBE4B1D7522A768C261BE39479CA40386B73"
+        ]
+      },
+      "full_snapshots": [
+        {
+          "native_exit": 0,
+          "native_process_sha256": "AA558A9811E89DB33E3DD720FBB55AA6C01DFEC17333279E4DE96E4F2F1D13AA",
+          "sha256": "BA4EC4E2DE4E8C08F15E1C45FE6FCBE4B1D7522A768C261BE39479CA40386B73",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c15stale-post-pi_restore_s9_gc2_c15stale_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "ED1CF215CF4E858670498ED2EA8C9A99D00D0F7279EFBFFE8DCC33A5F028B20F",
+          "sha256": "3FEF9BD8860B7B286A12E82468E110B77D7540CA0CA37DB48CE814FA61AEB5EB",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c15stale-post-pi_restore_s9_gc2_c15stale_s.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "5C0639074B91FDEA916F9A59A7D23B0DA4F441F96E8931B87E58127CF1B22812",
+          "sha256": "BA4EC4E2DE4E8C08F15E1C45FE6FCBE4B1D7522A768C261BE39479CA40386B73",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c15stale-pre-pi_restore_s9_gc2_c15stale_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "5F29B10B3EB958AD25BE1269DC5C0FAE93BE621BA1477B48EC44053285CF0352",
+          "sha256": "3FEF9BD8860B7B286A12E82468E110B77D7540CA0CA37DB48CE814FA61AEB5EB",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c15stale-pre-pi_restore_s9_gc2_c15stale_s.stdout"
+        }
+      ],
+      "case": "c15stale",
+      "supplemental": false,
+      "controlled_holder": null
+    },
+    {
+      "actual_boundary": null,
+      "native_products": [
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c15wrong-apply.stdout",
+          "label": "c15wrong-apply",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c15wrong-apply.stderr",
+          "process_sha256": "75AFD208281A8590449C8C66853CC1A6A0237F76CF8B777A38E96E9AEDDA4CEF",
+          "native_process": {
+            "start_utc": "2026-10-11T12:46:07.2372715Z",
+            "stderr_sha256": "CEB49A691CCD5A44D23EDCB4D29B61763C08EFF95D34452EBB282BEB74468192",
+            "label": "c15wrong-apply",
+            "creation_utc": "2026-10-11T12:46:07.2388821Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:46:10.1587366Z",
+            "pid": 45868,
+            "native_exit": 1,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+          }
+        },
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c15wrong-verify.stdout",
+          "label": "c15wrong-verify",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c15wrong-verify.stderr",
+          "process_sha256": "F0D4D0A0FB35A7D8D74D6497EEA5E7D04A55092B2EFE51ACA57BB55942F269A6",
+          "native_process": {
+            "start_utc": "2026-10-11T12:46:02.8359152Z",
+            "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "label": "c15wrong-verify",
+            "creation_utc": "2026-10-11T12:46:02.8377103Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:46:06.7588875Z",
+            "pid": 32640,
+            "native_exit": 0,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "A0135CB22192878559D3050B0E3220BC75CF007DAC8BF079FAA24D703014DB1C"
+          }
+        }
+      ],
+      "result_sha256": "D546345DFDA4C9E38E65595B42743032FA280A074FE230F8D15BFE5287DF82D1",
+      "status": "PASS_ON_EXACT_C2",
+      "result": {
+        "expected_outcome": "cleanup_plan_sha",
+        "matches": true,
+        "source_conserved": true,
+        "expected_exit": 1,
+        "pass": true,
+        "restore_conserved": true,
+        "pre": [
+          "5BF171D2D69F1FF8A7FAA1707ED3C01E9EA6A97B647CA1B1CD3C838DA5CB0715",
+          "BCE75564B61713BCC39E80C3FA1DE43CEA1BC833D315B4905272FECD5F847827"
+        ],
+        "case": "c15wrong",
+        "native_exit": 1,
+        "post": [
+          "5BF171D2D69F1FF8A7FAA1707ED3C01E9EA6A97B647CA1B1CD3C838DA5CB0715",
+          "BCE75564B61713BCC39E80C3FA1DE43CEA1BC833D315B4905272FECD5F847827"
+        ]
+      },
+      "full_snapshots": [
+        {
+          "native_exit": 0,
+          "native_process_sha256": "AEBB78B6C88954E54756376739809589B4F2F9D94A9B53E01F152FD7F7E8B155",
+          "sha256": "BCE75564B61713BCC39E80C3FA1DE43CEA1BC833D315B4905272FECD5F847827",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c15wrong-post-pi_restore_s9_gc2_c15wrong_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "E2D85BC9CC0C329094CFCEED7146C194F577E6B615C8DA74D5175CE935ED3D26",
+          "sha256": "5BF171D2D69F1FF8A7FAA1707ED3C01E9EA6A97B647CA1B1CD3C838DA5CB0715",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c15wrong-post-pi_restore_s9_gc2_c15wrong_s.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "5E7090121A2CDEBCE34A2C22BD8B910AADB9D0CD52D490363175166BF8B6FCEE",
+          "sha256": "BCE75564B61713BCC39E80C3FA1DE43CEA1BC833D315B4905272FECD5F847827",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c15wrong-pre-pi_restore_s9_gc2_c15wrong_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "AD7B6AFC8F39BB572BB7F1571023214C1C40EE5EF0EFD1FB1A6D928D5B712D58",
+          "sha256": "5BF171D2D69F1FF8A7FAA1707ED3C01E9EA6A97B647CA1B1CD3C838DA5CB0715",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c15wrong-pre-pi_restore_s9_gc2_c15wrong_s.stdout"
+        }
+      ],
+      "case": "c15wrong",
+      "supplemental": false,
+      "controlled_holder": null
+    },
+    {
+      "actual_boundary": null,
+      "native_products": [
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c15identity-apply.stdout",
+          "label": "c15identity-apply",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c15identity-apply.stderr",
+          "process_sha256": "F2FE80B5ED6E5C3A66096E01D5CA94141A2BDF09D9D3E4B31410C27EA0C2607C",
+          "native_process": {
+            "start_utc": "2026-10-11T12:46:24.7237231Z",
+            "stderr_sha256": "C7A454D9B93835C8EB00BFFE7AAAAD550C7D159A888ABCB398D71E00E23DD450",
+            "label": "c15identity-apply",
+            "creation_utc": "2026-10-11T12:46:24.7254375Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:46:27.923134Z",
+            "pid": 19100,
+            "native_exit": 1,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+          }
+        },
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c15identity-verify.stdout",
+          "label": "c15identity-verify",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c15identity-verify.stderr",
+          "process_sha256": "B787996DC33636929A398BEF70C8AD8051CF0114CB32C43194811FE61BA9F92F",
+          "native_process": {
+            "start_utc": "2026-10-11T12:46:17.9055753Z",
+            "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "label": "c15identity-verify",
+            "creation_utc": "2026-10-11T12:46:17.9072742Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:46:21.8357423Z",
+            "pid": 11136,
+            "native_exit": 0,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "F36B91E2743217F60C4F169CC3B19C95CD8F10BB00F749A2B355EA4AD4A7E62C"
+          }
+        }
+      ],
+      "result_sha256": "78164CA8CE1BF5C0D6A021E22E7D07B7929F838BF0FBC8624594D8005335CBF2",
+      "status": "PASS_ON_EXACT_C2",
+      "result": {
+        "expected_outcome": "cleanup_identity",
+        "matches": true,
+        "source_conserved": true,
+        "expected_exit": 1,
+        "pass": true,
+        "restore_conserved": true,
+        "pre": [
+          "B2A90D95D54F07DA8452CE6887C75D2D9DCD0E414D1229E0FAAA889609540D0A",
+          "7D636D12257A8E7B36848CCFF22C78EBFFC5071D2079923FDADA0CDF63F23EDB"
+        ],
+        "case": "c15identity",
+        "native_exit": 1,
+        "post": [
+          "B2A90D95D54F07DA8452CE6887C75D2D9DCD0E414D1229E0FAAA889609540D0A",
+          "7D636D12257A8E7B36848CCFF22C78EBFFC5071D2079923FDADA0CDF63F23EDB"
+        ]
+      },
+      "full_snapshots": [
+        {
+          "native_exit": 0,
+          "native_process_sha256": "5B762DE88E47834F6E7C5F642696CC07F109BA1780248973A501705DC61EE6A1",
+          "sha256": "7D636D12257A8E7B36848CCFF22C78EBFFC5071D2079923FDADA0CDF63F23EDB",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c15identity-post-pi_restore_s9_gc2_c15identity_alt.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "17F74D1E5AB6F3E5DE2BF0A4FA78E398819B8162114AC0CF003FB3F7ED125DE8",
+          "sha256": "B2A90D95D54F07DA8452CE6887C75D2D9DCD0E414D1229E0FAAA889609540D0A",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c15identity-post-pi_restore_s9_gc2_c15identity_s.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "A37C4428E987E7854EF3BEDA6FB6D23F5C36CF755C1FDFE42E453A4EEE487659",
+          "sha256": "7D636D12257A8E7B36848CCFF22C78EBFFC5071D2079923FDADA0CDF63F23EDB",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c15identity-pre-pi_restore_s9_gc2_c15identity_alt.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "25631099E9A99EF4A2737351FED0C5E6A725DF63E581C0941E154EE3A56F902A",
+          "sha256": "B2A90D95D54F07DA8452CE6887C75D2D9DCD0E414D1229E0FAAA889609540D0A",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c15identity-pre-pi_restore_s9_gc2_c15identity_s.stdout"
+        }
+      ],
+      "case": "c15identity",
+      "supplemental": false,
+      "controlled_holder": null
+    },
+    {
+      "actual_boundary": {
+        "actual_plan_bytes": 4194304,
+        "sha256": "80A21C1EFAE518AF0E7D85B4D9F1BCA3F7460BD18064D5BD68785773448D4824"
+      },
+      "native_products": [
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c16plan4194304-apply.stdout",
+          "label": "c16plan4194304-apply",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c16plan4194304-apply.stderr",
+          "process_sha256": "F1B90E0F51B5048C48FED46E8CE400C7757770419D4DC04BD388847B3ED49210",
+          "native_process": {
+            "start_utc": "2026-10-11T12:46:40.1262157Z",
+            "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "label": "c16plan4194304-apply",
+            "creation_utc": "2026-10-11T12:46:40.1276283Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:46:47.8938648Z",
+            "pid": 46324,
+            "native_exit": 0,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "CF2665E88B061E6CFBFAD9E87A3AA67494170E8EAC6B1AB33B58806A3CBB8FCB"
+          }
+        },
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c16plan4194304-verify.stdout",
+          "label": "c16plan4194304-verify",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c16plan4194304-verify.stderr",
+          "process_sha256": "F3FF57ABC3853788F224479B9AB2203630BA9665A8B7D35E571FD33EF9998B7C",
+          "native_process": {
+            "start_utc": "2026-10-11T12:46:35.6840937Z",
+            "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "label": "c16plan4194304-verify",
+            "creation_utc": "2026-10-11T12:46:35.6857053Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:46:39.612128Z",
+            "pid": 39864,
+            "native_exit": 0,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "D7DDC84642CA2BE9A8E1D62FA145E634FC72F3419582D552FD9DEA165C018483"
+          }
+        }
+      ],
+      "result_sha256": "B8CD175ECDF3751CFE9C41A1224876A7DB7A1E65A83FC4C90DA5687EE319F6AD",
+      "status": "PASS_ON_EXACT_C2",
+      "result": {
+        "expected_source_sha": "933C44218123A72417113CE97BD809218855BB7CF24C04F63DCFF3DEE5CB4F05",
+        "restore_conserved": true,
+        "native_exit": 0,
+        "actual_source_sha": "933C44218123A72417113CE97BD809218855BB7CF24C04F63DCFF3DEE5CB4F05",
+        "pass": true,
+        "case": "c16plan4194304",
+        "bytes": 4194304
+      },
+      "full_snapshots": [
+        {
+          "native_exit": 0,
+          "native_process_sha256": "B6349DC5AF3480963D1E68EAFF419E094FAAFADC067D996AB0EDBD81DE8B6094",
+          "sha256": "163A602013555B29D96B41F54326443920B65923CD392E41372A2214FEA87A90",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c16plan4194304-post-pi_restore_s9_gc2_c16plan4194304_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "BDD464C1F7E6122889A31122E7ED21252CA5A6B6A9CFA7EF44B32982E5CEB3D9",
+          "sha256": "933C44218123A72417113CE97BD809218855BB7CF24C04F63DCFF3DEE5CB4F05",
+          "rows": 140,
+          "bytes": 72081,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c16plan4194304-post-pi_restore_s9_gc2_c16plan4194304_s.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "9F6532B6E9C6C3C2FB4CF57F35B60920F613F43525F9C79914AEA1BE8B60DB5B",
+          "sha256": "163A602013555B29D96B41F54326443920B65923CD392E41372A2214FEA87A90",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c16plan4194304-pre-pi_restore_s9_gc2_c16plan4194304_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "13F1E4FB073077452D16C8E1E87E1D4C26D1E5958E558972E2361A6D6E0C6085",
+          "sha256": "48929C18D0CAF0CE825F4CE68A8AC66EFEB9CE8A63CDFEE0EF2CBCBA3386FD4B",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c16plan4194304-pre-pi_restore_s9_gc2_c16plan4194304_s.stdout"
+        }
+      ],
+      "case": "c16plan4194304",
+      "supplemental": false,
+      "controlled_holder": null
+    },
+    {
+      "actual_boundary": {
+        "actual_plan_bytes": 4194305,
+        "sha256": "270FEC6429EECF95B14A9F72AC8169FFEDF016DF5464983BE61B0F6400F7F4C3"
+      },
+      "native_products": [
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c16plan4194305-apply.stdout",
+          "label": "c16plan4194305-apply",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c16plan4194305-apply.stderr",
+          "process_sha256": "6413069048FDB5CFF9C4A61AD2B0DA647C98150629AF9480C723D70D8FE920CB",
+          "native_process": {
+            "start_utc": "2026-10-11T12:46:59.9829128Z",
+            "stderr_sha256": "CA2B2F72C60ACC24E66E1231BDA8C80BE5F9CCF37F3DB57658E11F5CAC537E8B",
+            "label": "c16plan4194305-apply",
+            "creation_utc": "2026-10-11T12:46:59.984984Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:47:02.7039879Z",
+            "pid": 43000,
+            "native_exit": 1,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+          }
+        },
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c16plan4194305-verify.stdout",
+          "label": "c16plan4194305-verify",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c16plan4194305-verify.stderr",
+          "process_sha256": "6F395C9C57B7D7F61A415A654B42861F58C3072102C5345161FDFEEEB6CD143D",
+          "native_process": {
+            "start_utc": "2026-10-11T12:46:55.622572Z",
+            "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "label": "c16plan4194305-verify",
+            "creation_utc": "2026-10-11T12:46:55.6246359Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:46:59.5110537Z",
+            "pid": 14864,
+            "native_exit": 0,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "6246497EF33A0FA7C71B9DAA812A3E53BAC0D073EAA6E83CF16787BCBC38551F"
+          }
+        }
+      ],
+      "result_sha256": "5AFDFD4B0D4937FA27F260152D9206EE21D8D19759F53D2806FA29B0D24F2B10",
+      "status": "PASS_ON_EXACT_C2",
+      "result": {
+        "expected_outcome": "cleanup_limit",
+        "matches": true,
+        "source_conserved": true,
+        "expected_exit": 1,
+        "pass": true,
+        "restore_conserved": true,
+        "pre": [
+          "E0006132A9FEA477940616EDD8027B46EDCCCA4B40ACF1CE7CA2CBDAD1C79506",
+          "CA81471847B4D2D20B4D30513ABB763B7C98733911EC51F5A49D13AC01775330"
+        ],
+        "case": "c16plan4194305",
+        "native_exit": 1,
+        "post": [
+          "E0006132A9FEA477940616EDD8027B46EDCCCA4B40ACF1CE7CA2CBDAD1C79506",
+          "CA81471847B4D2D20B4D30513ABB763B7C98733911EC51F5A49D13AC01775330"
+        ]
+      },
+      "full_snapshots": [
+        {
+          "native_exit": 0,
+          "native_process_sha256": "9245E7A200F96B6C1D6E5C23E14F107205E4ACEEB7748311586FB2EF646DBE70",
+          "sha256": "CA81471847B4D2D20B4D30513ABB763B7C98733911EC51F5A49D13AC01775330",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c16plan4194305-post-pi_restore_s9_gc2_c16plan4194305_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "54A84ED9ED0F5C56BB63CEC49571109A78FCD9788BA4B4D5D3D7A88DBBF2A1AD",
+          "sha256": "E0006132A9FEA477940616EDD8027B46EDCCCA4B40ACF1CE7CA2CBDAD1C79506",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c16plan4194305-post-pi_restore_s9_gc2_c16plan4194305_s.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "9C67D036B4E513F1E7B3D265D430832A6569D893923951062FF33090873078F9",
+          "sha256": "CA81471847B4D2D20B4D30513ABB763B7C98733911EC51F5A49D13AC01775330",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c16plan4194305-pre-pi_restore_s9_gc2_c16plan4194305_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "CE3E7E51E53AE8D3FBB4A8F885DBB1AC3F6914B81F43725B3F5BC7AADE388BCA",
+          "sha256": "E0006132A9FEA477940616EDD8027B46EDCCCA4B40ACF1CE7CA2CBDAD1C79506",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c16plan4194305-pre-pi_restore_s9_gc2_c16plan4194305_s.stdout"
+        }
+      ],
+      "case": "c16plan4194305",
+      "supplemental": false,
+      "controlled_holder": null
+    },
+    {
+      "actual_boundary": null,
+      "native_products": [
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c14empty-apply.stdout",
+          "label": "c14empty-apply",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c14empty-apply.stderr",
+          "process_sha256": "AE5170066BC56D354F21D84EAB290AF34F36A03CD8BD68C64F33C35ADC2F07A7",
+          "native_process": {
+            "start_utc": "2026-10-11T12:47:14.4616652Z",
+            "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "label": "c14empty-apply",
+            "creation_utc": "2026-10-11T12:47:14.4638159Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:47:18.7568948Z",
+            "pid": 50960,
+            "native_exit": 0,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "1E882D3294376DBAF832F59BDBF0C0009E6DADDAD12868E00B3B3B6FFF721349"
+          }
+        },
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c14empty-verify.stdout",
+          "label": "c14empty-verify",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c14empty-verify.stderr",
+          "process_sha256": "79CFAC18075BEEFE8F01A6E924E2DA0DDA236507C12772FF3380B2DE3FB3DA4C",
+          "native_process": {
+            "start_utc": "2026-10-11T12:47:10.5282445Z",
+            "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "label": "c14empty-verify",
+            "creation_utc": "2026-10-11T12:47:10.529902Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:47:14.4530692Z",
+            "pid": 45144,
+            "native_exit": 0,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "182CD0DF490FF62158E342E8297C252FA97A99891051611220DF6DDED8C3A17F"
+          }
+        }
+      ],
+      "result_sha256": "FD517388CEC00F7A0B1CBA5B2E316CE60FFBD4EF1B953DA6D10F9D5475235CA2",
+      "status": "PASS_ON_EXACT_C2",
+      "result": {
+        "expected_outcome": "cleanup_empty",
+        "matches": true,
+        "source_conserved": true,
+        "expected_exit": 0,
+        "pass": true,
+        "restore_conserved": true,
+        "pre": [
+          "569C17BFA4B32B0E5D1DC5D507B958E422A42ABA763EE916FB87BB59A4257844",
+          "8921FD49F07ADCFE420406881CA9F3F76B580D1ED0F8842DF1D8323A19729C5B"
+        ],
+        "case": "c14empty",
+        "native_exit": 0,
+        "post": [
+          "569C17BFA4B32B0E5D1DC5D507B958E422A42ABA763EE916FB87BB59A4257844",
+          "8921FD49F07ADCFE420406881CA9F3F76B580D1ED0F8842DF1D8323A19729C5B"
+        ]
+      },
+      "full_snapshots": [
+        {
+          "native_exit": 0,
+          "native_process_sha256": "FA3E91F83F734F72ED66ACB658D8880165D7615F799E2777719864F53669A536",
+          "sha256": "8921FD49F07ADCFE420406881CA9F3F76B580D1ED0F8842DF1D8323A19729C5B",
+          "rows": 140,
+          "bytes": 72081,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c14empty-post-pi_restore_s9_gc2_c14empty_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "13F26DAC523C3F5B7F021A66D26DCA505D33364C6C7F51F8FA5F13BFDE0FB4CE",
+          "sha256": "569C17BFA4B32B0E5D1DC5D507B958E422A42ABA763EE916FB87BB59A4257844",
+          "rows": 140,
+          "bytes": 72081,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c14empty-post-pi_restore_s9_gc2_c14empty_s.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "D967FBCC980DEB5C28D81DB38DFC2E06B6D55147609D8F1C155436A5EDEFAFD2",
+          "sha256": "8921FD49F07ADCFE420406881CA9F3F76B580D1ED0F8842DF1D8323A19729C5B",
+          "rows": 140,
+          "bytes": 72081,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c14empty-pre-pi_restore_s9_gc2_c14empty_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "1565DDFB1D2F27EF966C7E1D4B72A2A3DF76DE59C8376329E229B026850E701C",
+          "sha256": "569C17BFA4B32B0E5D1DC5D507B958E422A42ABA763EE916FB87BB59A4257844",
+          "rows": 140,
+          "bytes": 72081,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c14empty-pre-pi_restore_s9_gc2_c14empty_s.stdout"
+        }
+      ],
+      "case": "c14empty",
+      "supplemental": false,
+      "controlled_holder": null
+    },
+    {
+      "actual_boundary": null,
+      "native_products": [
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c13sourcelease-apply.stdout",
+          "label": "c13sourcelease-apply",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c13sourcelease-apply.stderr",
+          "process_sha256": "39D76030D1B812F94F92F4EFDC1BA76434EDD9D49D69493AF9E325E677A54322",
+          "native_process": {
+            "start_utc": "2026-10-11T12:47:30.6504496Z",
+            "stderr_sha256": "3420F5DA9FEEDEC0FF5F1ABB67D4F2C215119BC9C10F2C7BED406413674125A6",
+            "label": "c13sourcelease-apply",
+            "creation_utc": "2026-10-11T12:47:30.6519283Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:47:33.6527356Z",
+            "pid": 48116,
+            "native_exit": 1,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+          }
+        },
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c13sourcelease-verify.stdout",
+          "label": "c13sourcelease-verify",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c13sourcelease-verify.stderr",
+          "process_sha256": "4982A00761D59D9BB6267C7A69EABEB13D23C4C73BA7CAE00E26188792AC8B55",
+          "native_process": {
+            "start_utc": "2026-10-11T12:47:25.8800419Z",
+            "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "label": "c13sourcelease-verify",
+            "creation_utc": "2026-10-11T12:47:25.881612Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:47:29.6351567Z",
+            "pid": 52460,
+            "native_exit": 0,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "2E76FE2385D111CDCACC3755609D549AB3BEF62F71C821D2534A81E27C591603"
+          }
+        }
+      ],
+      "result_sha256": "4379A95DC9DC79CAEA16D6CCCB30B9F78AE61197E18CDF820CBC1A3CB47BB65E",
+      "status": "PASS_ON_EXACT_C2",
+      "result": {
+        "expected_outcome": "cleanup_busy",
+        "matches": true,
+        "source_conserved": true,
+        "expected_exit": 1,
+        "pass": true,
+        "restore_conserved": true,
+        "pre": [
+          "48A3734811D269D4F80BDBED690184B567A69A127710A57B8630D147F5471E0B",
+          "444061991D7D94A5129AEFA9FACCE9C05344C3A9D910AA4944B29696ADAD46AE"
+        ],
+        "case": "c13sourcelease",
+        "native_exit": 1,
+        "post": [
+          "48A3734811D269D4F80BDBED690184B567A69A127710A57B8630D147F5471E0B",
+          "444061991D7D94A5129AEFA9FACCE9C05344C3A9D910AA4944B29696ADAD46AE"
+        ]
+      },
+      "full_snapshots": [
+        {
+          "native_exit": 0,
+          "native_process_sha256": "9338E8C0E995E9685EC1F5903E37E860412E269280E332067BCF8C0944C094A8",
+          "sha256": "444061991D7D94A5129AEFA9FACCE9C05344C3A9D910AA4944B29696ADAD46AE",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c13sourcelease-post-pi_restore_s9_gc2_c13sourcelease_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "08621D9FA47490C105AC2B1773645559577D4C3A7DA55CD01F0580CBDD4C03B6",
+          "sha256": "48A3734811D269D4F80BDBED690184B567A69A127710A57B8630D147F5471E0B",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c13sourcelease-post-pi_restore_s9_gc2_c13sourcelease_s.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "47756747B83DE336E6526E5EDE861F477683232C7FDB6A7FAB456C88E6632DE5",
+          "sha256": "444061991D7D94A5129AEFA9FACCE9C05344C3A9D910AA4944B29696ADAD46AE",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c13sourcelease-pre-pi_restore_s9_gc2_c13sourcelease_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "580EFCF4A45B8E59F118247C448F441012146BD4826344402C164C41FA457391",
+          "sha256": "48A3734811D269D4F80BDBED690184B567A69A127710A57B8630D147F5471E0B",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c13sourcelease-pre-pi_restore_s9_gc2_c13sourcelease_s.stdout"
+        }
+      ],
+      "case": "c13sourcelease",
+      "supplemental": false,
+      "controlled_holder": {
+        "start_utc": "2026-10-11T12:47:29.8488595Z",
+        "stdout_sha": "7EB70257593DA06F682A3DDDA54A9D260D4FC514F645237F5CA74B08F8DA61A6",
+        "creation_utc": "2026-10-11T12:47:29.850934Z",
+        "end_utc": "2026-10-11T12:47:34.3111405Z",
+        "pid": 46572,
+        "native_exit": 1,
+        "backend_pid": 21404,
+        "stderr_sha": "F128AA8451B4B0F91B1AA18C91E4B333E27B4CDEE34D473EA8306233EA9F08FC",
+        "path": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\cluster01\\process-intelligence-rs-0.6.1-windows-x86_64\\runtime\\postgresql\\pgsql\\bin\\psql.exe"
+      }
+    },
+    {
+      "actual_boundary": null,
+      "native_products": [
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c13restorelease-apply.stdout",
+          "label": "c13restorelease-apply",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c13restorelease-apply.stderr",
+          "process_sha256": "9CB6C1A2852B12F6F2D56B6B7E46DD2D59187738DA20B3CA3B30DED4D6500367",
+          "native_process": {
+            "start_utc": "2026-10-11T12:47:46.2776922Z",
+            "stderr_sha256": "3420F5DA9FEEDEC0FF5F1ABB67D4F2C215119BC9C10F2C7BED406413674125A6",
+            "label": "c13restorelease-apply",
+            "creation_utc": "2026-10-11T12:47:46.2797193Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:47:49.2028056Z",
+            "pid": 24532,
+            "native_exit": 1,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+          }
+        },
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c13restorelease-verify.stdout",
+          "label": "c13restorelease-verify",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c13restorelease-verify.stderr",
+          "process_sha256": "4D9400A2953B35F86C47D2D492F025B2001A3333E58AA0360FA6C05930923F92",
+          "native_process": {
+            "start_utc": "2026-10-11T12:47:41.1396498Z",
+            "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "label": "c13restorelease-verify",
+            "creation_utc": "2026-10-11T12:47:41.1414621Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:47:45.4227234Z",
+            "pid": 46180,
+            "native_exit": 0,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "33653AD2D6497E777921155B7D8BD658C0134EDEFCEE280C0F91C1989A33EBE1"
+          }
+        }
+      ],
+      "result_sha256": "0590AB7CBD575D7BBE892DF23FD1BB8527366FF00C36679098DF276B3592A35A",
+      "status": "PASS_ON_EXACT_C2",
+      "result": {
+        "expected_outcome": "cleanup_busy",
+        "matches": true,
+        "source_conserved": true,
+        "expected_exit": 1,
+        "pass": true,
+        "restore_conserved": true,
+        "pre": [
+          "6CCA61BC35B96FE649715D187DA39498FE3558D361D07FBE1E596C1825B6D891",
+          "AAD3CDBE1D0DCB4482CF11A872DFDEC7FEB8832B189030668BBF5CC7BDA0137A"
+        ],
+        "case": "c13restorelease",
+        "native_exit": 1,
+        "post": [
+          "6CCA61BC35B96FE649715D187DA39498FE3558D361D07FBE1E596C1825B6D891",
+          "AAD3CDBE1D0DCB4482CF11A872DFDEC7FEB8832B189030668BBF5CC7BDA0137A"
+        ]
+      },
+      "full_snapshots": [
+        {
+          "native_exit": 0,
+          "native_process_sha256": "6CDC7A313BB205B56DC515D68010452F61421334B2F5AA3AEE1966C779DD3EDC",
+          "sha256": "AAD3CDBE1D0DCB4482CF11A872DFDEC7FEB8832B189030668BBF5CC7BDA0137A",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c13restorelease-post-pi_restore_s9_gc2_c13restorelease_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "81744279E13B300B8E306ED59AFB5AD00CF9A84F543817ACF8317623FDBCEB1B",
+          "sha256": "6CCA61BC35B96FE649715D187DA39498FE3558D361D07FBE1E596C1825B6D891",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c13restorelease-post-pi_restore_s9_gc2_c13restorelease_s.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "C16858CB760A20BE2B2460C2CF6EA18EAD47BD409D02B911E2CE780945569A3B",
+          "sha256": "AAD3CDBE1D0DCB4482CF11A872DFDEC7FEB8832B189030668BBF5CC7BDA0137A",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c13restorelease-pre-pi_restore_s9_gc2_c13restorelease_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "9E7A75887EDE2E469ACA2E80AC37201AD256E7CD03C4EFC0A80BC2AF1A5EF6E9",
+          "sha256": "6CCA61BC35B96FE649715D187DA39498FE3558D361D07FBE1E596C1825B6D891",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c13restorelease-pre-pi_restore_s9_gc2_c13restorelease_s.stdout"
+        }
+      ],
+      "case": "c13restorelease",
+      "supplemental": false,
+      "controlled_holder": {
+        "start_utc": "2026-10-11T12:47:45.6037752Z",
+        "stdout_sha": "7EB70257593DA06F682A3DDDA54A9D260D4FC514F645237F5CA74B08F8DA61A6",
+        "creation_utc": "2026-10-11T12:47:45.6054071Z",
+        "end_utc": "2026-10-11T12:47:49.8401001Z",
+        "pid": 47184,
+        "native_exit": 1,
+        "backend_pid": 46100,
+        "stderr_sha": "F128AA8451B4B0F91B1AA18C91E4B333E27B4CDEE34D473EA8306233EA9F08FC",
+        "path": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\cluster01\\process-intelligence-rs-0.6.1-windows-x86_64\\runtime\\postgresql\\pgsql\\bin\\psql.exe"
+      }
+    },
+    {
+      "actual_boundary": null,
+      "native_products": [
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c13writer-apply.stdout",
+          "label": "c13writer-apply",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c13writer-apply.stderr",
+          "process_sha256": "66CC8A3D8AA0780AA5F454AAEF4160891655DE21A56D9BDFDB0393333DCFF9BE",
+          "native_process": {
+            "start_utc": "2026-10-11T12:48:02.0997092Z",
+            "stderr_sha256": "3420F5DA9FEEDEC0FF5F1ABB67D4F2C215119BC9C10F2C7BED406413674125A6",
+            "label": "c13writer-apply",
+            "creation_utc": "2026-10-11T12:48:02.1018189Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:48:05.2626981Z",
+            "pid": 49284,
+            "native_exit": 1,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+          }
+        },
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c13writer-verify.stdout",
+          "label": "c13writer-verify",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c13writer-verify.stderr",
+          "process_sha256": "18ED02127D938BE2865385FA1ECF01BD8AFC0F8D4B176DEC9919A0E4E7D50BAA",
+          "native_process": {
+            "start_utc": "2026-10-11T12:47:56.95082Z",
+            "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "label": "c13writer-verify",
+            "creation_utc": "2026-10-11T12:47:56.9525637Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:48:01.1422169Z",
+            "pid": 22244,
+            "native_exit": 0,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "1445E011797C7B1FF095C209605B055B792AC4BD18FB0FD54F95821B878217AC"
+          }
+        }
+      ],
+      "result_sha256": "DAE6982E82D14FB0D706A90B4FD98741FF63723C42ADCF336827EEC47D455677",
+      "status": "PASS_ON_EXACT_C2",
+      "result": {
+        "expected_outcome": "cleanup_busy",
+        "matches": true,
+        "source_conserved": true,
+        "expected_exit": 1,
+        "pass": true,
+        "restore_conserved": true,
+        "pre": [
+          "17E958668045CA87313ADB3E33D6E33A2200C3CB4E76A61046B1A72E45BEE0D1",
+          "4AD3A0584DB669441F83E05F4D1D95D067423F6F607C389F53431EAED1C9A8B9"
+        ],
+        "case": "c13writer",
+        "native_exit": 1,
+        "post": [
+          "17E958668045CA87313ADB3E33D6E33A2200C3CB4E76A61046B1A72E45BEE0D1",
+          "4AD3A0584DB669441F83E05F4D1D95D067423F6F607C389F53431EAED1C9A8B9"
+        ]
+      },
+      "full_snapshots": [
+        {
+          "native_exit": 0,
+          "native_process_sha256": "31B25F9DDBACC1C65629B0D654E3FA5001D77219BBF6327586D2DA0ABE0FCD12",
+          "sha256": "4AD3A0584DB669441F83E05F4D1D95D067423F6F607C389F53431EAED1C9A8B9",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c13writer-post-pi_restore_s9_gc2_c13writer_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "00798D333D834F6685387227E072A9FC05A5519C69F0EEFD2830DBE67409F470",
+          "sha256": "17E958668045CA87313ADB3E33D6E33A2200C3CB4E76A61046B1A72E45BEE0D1",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c13writer-post-pi_restore_s9_gc2_c13writer_s.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "1D8F60571DF20730280AC581E45B3F1F0F6AF936E8CA35F57452685E2336121D",
+          "sha256": "4AD3A0584DB669441F83E05F4D1D95D067423F6F607C389F53431EAED1C9A8B9",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c13writer-pre-pi_restore_s9_gc2_c13writer_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "57ECEE7D9417D4844665541DAD530BEFFF0488AE9DD1497D7515D7ABA4733965",
+          "sha256": "17E958668045CA87313ADB3E33D6E33A2200C3CB4E76A61046B1A72E45BEE0D1",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c13writer-pre-pi_restore_s9_gc2_c13writer_s.stdout"
+        }
+      ],
+      "case": "c13writer",
+      "supplemental": false,
+      "controlled_holder": {
+        "start_utc": "2026-10-11T12:48:01.3342396Z",
+        "stdout_sha": "E16B0560CD916E0C4C27E2FC007C5B4BCCCFFF3C8DAC04C85B31C72A218A2AA3",
+        "creation_utc": "2026-10-11T12:48:01.3360747Z",
+        "end_utc": "2026-10-11T12:48:06.0094381Z",
+        "pid": 32912,
+        "native_exit": 1,
+        "backend_pid": 18572,
+        "stderr_sha": "F128AA8451B4B0F91B1AA18C91E4B333E27B4CDEE34D473EA8306233EA9F08FC",
+        "path": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\cluster01\\process-intelligence-rs-0.6.1-windows-x86_64\\runtime\\postgresql\\pgsql\\bin\\psql.exe"
+      }
+    },
+    {
+      "actual_boundary": null,
+      "native_products": [
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c13table-apply.stdout",
+          "label": "c13table-apply",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c13table-apply.stderr",
+          "process_sha256": "7C0407EECF0186A88F836688E585BB5FE36254431CBD7CF455F3452EAE5F864D",
+          "native_process": {
+            "start_utc": "2026-10-11T12:48:18.8044186Z",
+            "stderr_sha256": "3420F5DA9FEEDEC0FF5F1ABB67D4F2C215119BC9C10F2C7BED406413674125A6",
+            "label": "c13table-apply",
+            "creation_utc": "2026-10-11T12:48:18.8061512Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:48:21.8759737Z",
+            "pid": 22760,
+            "native_exit": 1,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+          }
+        },
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c13table-verify.stdout",
+          "label": "c13table-verify",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c13table-verify.stderr",
+          "process_sha256": "F46F1285FCF97356DD08602E957C6F2FB08C130FFD920DB39D48C0FFE6DC4AAB",
+          "native_process": {
+            "start_utc": "2026-10-11T12:48:13.8378199Z",
+            "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "label": "c13table-verify",
+            "creation_utc": "2026-10-11T12:48:13.8397178Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:48:17.9104762Z",
+            "pid": 29104,
+            "native_exit": 0,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "2386FB5B0603289289E15555B93017D6FC3D2DD83A2CF47C756E2C12E384E12C"
+          }
+        }
+      ],
+      "result_sha256": "799403BB8F85697B0F524491B489CADA166A90E8229ADD2EAC8D22B90EF9A836",
+      "status": "PASS_ON_EXACT_C2",
+      "result": {
+        "expected_outcome": "cleanup_busy",
+        "matches": true,
+        "source_conserved": true,
+        "expected_exit": 1,
+        "pass": true,
+        "restore_conserved": true,
+        "pre": [
+          "7C7E414247F2268B57EBBB597BA9D95D3D05D5EDE99E9D98962B866E5E1D3FAC",
+          "025C4A3D141027DB7E04615A292210030EA474415595B4B7E00581B2834BD148"
+        ],
+        "case": "c13table",
+        "native_exit": 1,
+        "post": [
+          "7C7E414247F2268B57EBBB597BA9D95D3D05D5EDE99E9D98962B866E5E1D3FAC",
+          "025C4A3D141027DB7E04615A292210030EA474415595B4B7E00581B2834BD148"
+        ]
+      },
+      "full_snapshots": [
+        {
+          "native_exit": 0,
+          "native_process_sha256": "8B39E4CE5E7BCAC1F82433D04E5BC57E38CC4F5439284A98D2C4D8584AAAAF70",
+          "sha256": "025C4A3D141027DB7E04615A292210030EA474415595B4B7E00581B2834BD148",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c13table-post-pi_restore_s9_gc2_c13table_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "CC846607C236732CD9EB1ED061EA3161F475C57E20D7C7200E5111B4F95E01D1",
+          "sha256": "7C7E414247F2268B57EBBB597BA9D95D3D05D5EDE99E9D98962B866E5E1D3FAC",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c13table-post-pi_restore_s9_gc2_c13table_s.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "E51B802F0B781E24A2CF79D7B13275920FA17207C3C46F054C8BCCB887BAE757",
+          "sha256": "025C4A3D141027DB7E04615A292210030EA474415595B4B7E00581B2834BD148",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c13table-pre-pi_restore_s9_gc2_c13table_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "3375E9847F0A266A16E0294683474154DBCCBC4693B52D71858789F4776FA043",
+          "sha256": "7C7E414247F2268B57EBBB597BA9D95D3D05D5EDE99E9D98962B866E5E1D3FAC",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c13table-pre-pi_restore_s9_gc2_c13table_s.stdout"
+        }
+      ],
+      "case": "c13table",
+      "supplemental": false,
+      "controlled_holder": {
+        "start_utc": "2026-10-11T12:48:18.0958673Z",
+        "stdout_sha": "092FB8834CB5DFA93B130A591D53580E04E50EC5C5F8FEEADB330AF091E7FC08",
+        "creation_utc": "2026-10-11T12:48:18.0977867Z",
+        "end_utc": "2026-10-11T12:48:22.536431Z",
+        "pid": 34368,
+        "native_exit": 1,
+        "backend_pid": 7408,
+        "stderr_sha": "F128AA8451B4B0F91B1AA18C91E4B333E27B4CDEE34D473EA8306233EA9F08FC",
+        "path": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\cluster01\\process-intelligence-rs-0.6.1-windows-x86_64\\runtime\\postgresql\\pgsql\\bin\\psql.exe"
+      }
+    },
+    {
+      "actual_boundary": null,
+      "native_products": [
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c14oldplan-first-apply.stdout",
+          "label": "c14oldplan-first-apply",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c14oldplan-first-apply.stderr",
+          "process_sha256": "4778A7F98F1C661B7B0342BE9B1BA81F11A39F340E128582FC3A6DB6A641319D",
+          "native_process": {
+            "start_utc": "2026-10-11T12:48:34.4181877Z",
+            "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "label": "c14oldplan-first-apply",
+            "creation_utc": "2026-10-11T12:48:34.4197837Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:48:42.1579282Z",
+            "pid": 51592,
+            "native_exit": 0,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "C98AABDA31675E6C437851CDECD9C62BEA40407CE81B6C6859645D9553A6CD7D"
+          }
+        },
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c14oldplan-repeat.stdout",
+          "label": "c14oldplan-repeat",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c14oldplan-repeat.stderr",
+          "process_sha256": "56815F50CB2F0C54953495FAC45A599F04287CFC33D90141C3742A7E1B44F749",
+          "native_process": {
+            "start_utc": "2026-10-11T12:48:42.6356001Z",
+            "stderr_sha256": "56A9433E337EA5138E333802E35FA2D65CAB9228600CAEE59348F8E3E16EE429",
+            "label": "c14oldplan-repeat",
+            "creation_utc": "2026-10-11T12:48:42.6376126Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:48:45.9730382Z",
+            "pid": 10512,
+            "native_exit": 1,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+          }
+        },
+        {
+          "stdout_private_file": ".local/sprint09/qa/guards-c2-01/c14oldplan-verify.stdout",
+          "label": "c14oldplan-verify",
+          "stderr_private_file": ".local/sprint09/qa/guards-c2-01/c14oldplan-verify.stderr",
+          "process_sha256": "C2D54A3AA45E504BDDF75BD2DBC4B20A5AB258CC799803F7CE8407EF84F37DA4",
+          "native_process": {
+            "start_utc": "2026-10-11T12:48:29.6808533Z",
+            "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "label": "c14oldplan-verify",
+            "creation_utc": "2026-10-11T12:48:29.6822498Z",
+            "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+            "end_utc": "2026-10-11T12:48:33.9506182Z",
+            "pid": 34588,
+            "native_exit": 0,
+            "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+            "stdout_sha256": "8DD0F8B9F840764E50D81189DDCEF144BE14387606048A5D5E1957700D99F7C6"
+          }
+        }
+      ],
+      "result_sha256": "561A9DD7539C1F4014017F4B31820E8EF998CD28FDFA2FCD1E945D02790FA80D",
+      "status": "PASS_ON_EXACT_C2",
+      "result": {
+        "expected_outcome": "cleanup_changed",
+        "matches": true,
+        "source_conserved": true,
+        "expected_exit": 1,
+        "pass": true,
+        "restore_conserved": true,
+        "pre": [
+          "6390280F0E137757FED87774013117CD96F145291C476168A8DCA2F7545DF44D",
+          "3A2E61E907586F5CBCB76CD414C6E369B743B00C6B6305F7F792DAC43EE4CFCD"
+        ],
+        "case": "c14oldplan",
+        "native_exit": 1,
+        "post": [
+          "6390280F0E137757FED87774013117CD96F145291C476168A8DCA2F7545DF44D",
+          "3A2E61E907586F5CBCB76CD414C6E369B743B00C6B6305F7F792DAC43EE4CFCD"
+        ]
+      },
+      "full_snapshots": [
+        {
+          "native_exit": 0,
+          "native_process_sha256": "F709A450BB36EAFC2D9C4680F87E3DCB6F518578C8E4D3F8D6A416CAA14DC8D6",
+          "sha256": "3A2E61E907586F5CBCB76CD414C6E369B743B00C6B6305F7F792DAC43EE4CFCD",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c14oldplan-first-post-pi_restore_s9_gc2_c14oldplan_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "105DF9CCEB8BB535B2BD400B9BD7EE9F29CC66FB451FA0BFFA4DF14D0939E9AE",
+          "sha256": "6390280F0E137757FED87774013117CD96F145291C476168A8DCA2F7545DF44D",
+          "rows": 140,
+          "bytes": 72081,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c14oldplan-first-post-pi_restore_s9_gc2_c14oldplan_s.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "A6D190E8128BF71A3E24AAF9587961F7214F49E7A5A3E980AF05E1A85DFFEDE4",
+          "sha256": "3A2E61E907586F5CBCB76CD414C6E369B743B00C6B6305F7F792DAC43EE4CFCD",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c14oldplan-first-pre-pi_restore_s9_gc2_c14oldplan_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "4CCFCBA94ED738E8E0729B1A12BFF1F24A32EB426A6D461EC878679B1FB1447C",
+          "sha256": "E5EB6EF0A56ABADB179286F6CF14D972A479BF18C8793383F9DE4558AC67B8F8",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c14oldplan-first-pre-pi_restore_s9_gc2_c14oldplan_s.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "41015FD21F298274DE2169A2831B6DF2214825A38474423F6AC6BC993F2AFB2E",
+          "sha256": "3A2E61E907586F5CBCB76CD414C6E369B743B00C6B6305F7F792DAC43EE4CFCD",
+          "rows": 142,
+          "bytes": 80171,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c14oldplan-repeat-post-pi_restore_s9_gc2_c14oldplan_r.stdout"
+        },
+        {
+          "native_exit": 0,
+          "native_process_sha256": "F462C9EF6C89D08DD50BD5838659973FA1ACBAE8DD8DE529B0AB3DDC1428318B",
+          "sha256": "6390280F0E137757FED87774013117CD96F145291C476168A8DCA2F7545DF44D",
+          "rows": 140,
+          "bytes": 72081,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c14oldplan-repeat-post-pi_restore_s9_gc2_c14oldplan_s.stdout"
+        }
+      ],
+      "case": "c14oldplan",
+      "supplemental": false,
+      "controlled_holder": null
+    }
+  ],
+  "c14_no_dml_scope": "Observed complete conservation and cleanup_empty/native0/database_writes0; source-bound empty branch inference. Helper wire trace NOT-IN-RUN; primary independent protocol observer separate.",
+  "remaining_clients": 0,
+  "c1_pass_transferred": false,
+  "utc": "2026-10-11T12:49:52.3761759Z",
+  "helper_sha256": "5BFAD1B0E40DEDF26176359C4296543D9AC968511898806EFBFE4ED468539C4F",
+  "timed_budget_claim": false
+}

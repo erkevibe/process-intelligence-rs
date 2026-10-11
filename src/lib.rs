@@ -2,6 +2,7 @@ pub mod audit;
 pub mod auth;
 pub mod bpmn;
 pub mod calendar;
+pub mod cleanup;
 pub mod csv_io;
 pub mod discovery;
 pub mod domain;

@@ -1,0 +1,27 @@
+{
+  "observed_utc": "2026-10-11T12:03:38.4688576Z",
+  "candidate": "C2; preparation only; no acceptance transfer",
+  "source_commit": "b4edef34b083d1cb7737cf648f1c051eeb94127a",
+  "version": "0.7.1",
+  "build_proof_sha256": "872055E82E0D00882452791C42190847A3728C866E50E5885F3D13D807FD38BB",
+  "source_archive_sha256": "858EFE55642813631416DE9F5EC1170735AB23B2077A2F552C113E39267AED0A",
+  "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+  "cargo_lock_sha256": "89E33F599B8FBBDD58E71728AAE8B681CE814512F1402A3595C8D72DF217FC8B",
+  "source_files": 805,
+  "build_exit": 0,
+  "test_exit": 0,
+  "ordinary_passed": 102,
+  "ordinary_ignored": 14,
+  "native_parent_exit": 0,
+  "completed_utc": "2026-10-11T12:02:30.0905881Z",
+  "criteria": {
+    "R3-02": "OPEN",
+    "R3-01": "OPEN",
+    "R3-04": "OPEN"
+  },
+  "limits": [
+    "Ignored PostgreSQL tests do not prove integration",
+    "Package and cold runtime checks pending",
+    "No runtime C2 regression or STOP closure yet"
+  ]
+}

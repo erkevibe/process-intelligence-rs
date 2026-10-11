@@ -1,0 +1,17 @@
+{
+  "utc": "2026-10-11T13:40:04.9980609Z",
+  "scope": "Prospective receipt15 known-COMMIT receipt-write failure instrument",
+  "observer_sha256": "9EE4553F5DBEF8B9260201CBF89580F457E614BB31A4FE50EAD0826A232A7275",
+  "harness_sha256": "F49D6AFD403B169D8FD3823554DE822F05239126953258FFAFAAADFF47D7BC2B",
+  "prep_sha256": "7CBD582C23F00F26A8D8D5AFD75E6656118740249AC5806C67F7BC15D58A4AE3",
+  "full_sources_read": true,
+  "decision": "Conditional GO fresh Observe only, no receipt fault approval until exact actual compatibility review",
+  "mechanism": "Fixed new owned receipt path changed into directory only after armed actual serverCOMMIT with exactRETURNING2; successful ACK then forwarded. No network loss/runtime budget change.",
+  "conditions": [
+    "Root QuietGo/current7FC/full candidate+stock helper hash and owned5450 PID creation/datadir/listener preflight; privateSID output/config/path safeguards before child.",
+    "Explicit receiptobserve preparation mode/new absent DBs and captures, all originals preserved.",
+    "Fault separately requires actualObserve/full sourcePOST2/restorePRE then directory-before-forward event/native4 cleanup_committed_receipt_failed/automatic_retryfalse.",
+    "Source private receiptGuard rejects absent-parent/symlink but not WindowsACL itself; external currentSID protected preflight is required."
+  ],
+  "no_td_execution": true
+}
