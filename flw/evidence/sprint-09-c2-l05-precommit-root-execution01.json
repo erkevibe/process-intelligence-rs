@@ -1,0 +1,51 @@
+{
+  "format": 1,
+  "execution_owner": "Root",
+  "independent_acceptance": "PENDING",
+  "scope": "NEW application-only copy; target-only BEFORE DELETE fixture after actual startup; Auth UPDATE before DELETE source contract; exact full managed+catalog+fixture-function rollback; no original target changed",
+  "utc": "2026-10-11T14:10:15.3242303Z",
+  "source_commit": "b4edef34b083d1cb7737cf648f1c051eeb94127a",
+  "exe_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+  "result_sha256": "F294AFF1A1B8BA3AC2D80D651124EEC9A4A0A945488A62E7383677D71B2D6391",
+  "inventory_sha256": "51E49A3D7A8B28652D1D9CFB5002F372827D6E3E93A79F910CBF9B2D43F1D87D",
+  "inventory_files": 56,
+  "actual_backend": 8380,
+  "http_status": 503,
+  "code": "storage_unavailable",
+  "full_pre": {
+    "bytes": 790182,
+    "sha256": "A06E024E2A3DB0DA30B433BDB7937031ABB95EF889FAE4C338301DB43AB1AE2E"
+  },
+  "full_post": {
+    "bytes": 790182,
+    "sha256": "A06E024E2A3DB0DA30B433BDB7937031ABB95EF889FAE4C338301DB43AB1AE2E"
+  },
+  "failed_closed_full": {
+    "bytes": 790182,
+    "sha256": "A06E024E2A3DB0DA30B433BDB7937031ABB95EF889FAE4C338301DB43AB1AE2E"
+  },
+  "no_fixture_pre": {
+    "bytes": 788567,
+    "sha256": "099220DA2534A15CBE819DED74154364214BF7C5C6CC3DC7FB66318D7A0D2018"
+  },
+  "explicit_fixture_removed_full": {
+    "bytes": 788567,
+    "sha256": "099220DA2534A15CBE819DED74154364214BF7C5C6CC3DC7FB66318D7A0D2018"
+  },
+  "restart_full": {
+    "bytes": 788567,
+    "sha256": "099220DA2534A15CBE819DED74154364214BF7C5C6CC3DC7FB66318D7A0D2018"
+  },
+  "parent_native_exit": 0,
+  "owned_app_native_exits": [
+    -1,
+    -1
+  ],
+  "intentional_owned_stops": true,
+  "limits": [
+    "Source contract establishes Auth UPDATE precedes target record DELETE; same-backend target-only trigger exception and whole-state rollback are actual",
+    "Installed test trigger is explicitly removed only after rollback/failclosed checks; exact no-fixture baseline restored before restart",
+    "No original or verified database used; no production changes; independent final acceptance pending",
+    "Historical prospective draft STOPs preserved; named native capture is not all-descendant attestation"
+  ]
+}

@@ -1,0 +1,23 @@
+# Customer Sprint09 C2 prefinal position
+
+UTC 2026-10-11T14:06:07.0266171Z. Independent report reading, NOT vote/criterion PASS/release acceptance. Exact candidate b4edef34b083d1cb7737cf648f1c051eeb94127a /0.7.1/EXE7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195/ZIPEDACC3B836B5660439FFAA684A3D92451512731ADD9AAE89F0703A6E400C975A. No own runtime/SQL/old-installation actions.
+
+Полностью прочитаны public reports sprint-09-qa-business-c2-{direct-delete-cache01,nonterminal-observe01,real-login-cleanup01,recovery-stock-downgrade01,small01}.md, sprint-09-c2-cold-root-execution01.md, sprint-09-pm-prefinal-position01.md и TD whole JSON receipt4-actual-review01/c2-finite-c05-review01/c2-causal-review01. Это семантическое чтение именованных reports, не собственный rehash всех raw streams/2020файлов/wholemachine. Старые open sections ранних reports сохраняют историческое состояние; более новые точные assertions учитываются отдельно.
+
+## Пользовательская ценность фактически поддержана reports
+
+Новая business история различает server committed/legacy unknown/client imported unverified, genuine policy digests, full512/513 exports и owner isolation. Archive Viewer-only refusal/writable replacement/restore/create/currentrole revocation закрывают понятный риск lockout. Full stock verified copy остаётся untouched; отдельная app recovery сохраняет histories/models, real LOGIN добавляет только разрешённую session. Strict oldbinary отказ на NEW copy не меняет protected installation. Настоящий supported LOGIN делает stale cleanup plan cleanup_changed без source/restore изменения — важнее fabricated Auth delta.
+
+Direct deletion303 имеет independently reconstructed permitted wholePOST и один точный minimal owner witness. Fresh XES/CSV tokens (~60s, не expired setup tokens) отвергнуты422; warmed log/graph после удаления404, cache charge0, repeat/open403, refusal fullstateunchanged. Separate restart сохраняет отсутствие target и отдельно объясняет interrupted job recovery mutation. Nonterminal running/parsing job действительно блокирует delete422 без изменения wholestate. Direct target не имел marker/legacy и captured worker не был alive: эти обещания нельзя расширять на genuine migrated deletion/unknownACK memory состояния.
+
+Causal шестёрка C2 cleanup_busy/full12pair conservation поддержана TD;32 finite и C05 exactidentity/privilege имеют bounded source/current evidence. Receipt4 actual serverCOMMIT→directory blocker→Apply4 cleanup_committed_receipt_failed подтверждает понятное distinction «база уже изменена, receipt не записан». Это не F03 unknownACK. Cold native5/newemptybrowser smoke полезен, но missing deliberately-stopped app/parent exit не превращать в native0 или безупречный full capture.
+
+## Что ещё обязательно до окончательного предложения
+
+SQL5 Observe-active gate пока OPEN по сообщению Root; нельзя зачесть исходныйtimeout по только константе/source или lock2/TX10. Primary L05 unknownACK фактически503/serverCOMMIT/singlewitness wholePOST сообщён Root, но final restart/manual recovery пока pending, итоговый immutable aggregate не прочитан Customer. Precommit methodological STOP corrected beforeexecution не является rollback proof сам по себе. Нужны точные независимые actual postAuthUPDATE rollback/unknownACK restart и genuine migrated marker+legacy deletion/current fullhistorical C02/C18/F01–03 mapping, без C1transfer. Broad cleanup completion, attributed Root status, не моя независимая fullaggregate validation.
+
+Также нужны actual Customer readable UI on exact candidate/controlledprivatefixture window, full original R3-01/02/04 crosswalk, finalQA/TD semantic conclusion, precise final proposal/newvotes, exact finalCI/publicsourceZIPreceipt/protectedcomparison/newhumanemptyinstall. Старое browse0.6/Rootcold smoke не подменяют мой current operator acceptance. No automatic fullR3/enterprise closure.
+
+## Практическое решение
+
+Продолжить только оставшиеся обязательные доказательства на frozen candidate и готовить bounded readable UI review. Не добавлять late runtime changes для косметики; guide должен прямо показать writable archive prerequisite, exactID/destructive phrase, no verified-userbackup claim, unverified import history, count/dropped, no physical erasure/shrink, knowncommit receiptfailed vs unknowncommit/manualreconcile/newDBrestore. Не добавлять новых гипотетических критериев сверх согласованных originals, но не компенсировать оставшийся обязательный OPEN другими PASS. Ceiling14:40/deadline16:55:38/≥90min reserve остаются binding; если соответствующий критерий не доказан, отдельный partial release или defer с truthful status вместо full acceptance.

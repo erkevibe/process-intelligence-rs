@@ -1,0 +1,41 @@
+{
+  "utc": "2026-10-11T12:55:20.6439625Z",
+  "scope": "Independent bounded exact C2 finite32 and C05 alias/privilege evidence review; no runtime execution",
+  "source_commit": "b4edef34b083d1cb7737cf648f1c051eeb94127a",
+  "exe_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+  "finite_report_sha256": "D8E35431CFF959805CCA84653298541C8119A1D7E1BD1D3AEF704CC44DEDD388",
+  "finite_inventory_sha256": "65075FE3B798899EEED8E96E90C25D8F93ED6BAABEE73C3D7EFCEE7E0A403865",
+  "checks": {
+    "c05_full_byte_pairs_equal": 4,
+    "native_product_stream_pairs": 61,
+    "parsed_full_snapshots": 130,
+    "hash_length_mismatches": 0,
+    "selected_inventory_files": 2020,
+    "finite_cases": 32,
+    "fully_read_selected_files": 2020,
+    "c05_selected_inputs": 62
+  },
+  "verdict": "Supports the 32 named finite outcomes on exact C2 and bounded C05 identity/privilege refusal with complete captured conservation. No overall criterion or release acceptance.",
+  "boundaries": "10000 rows /512 UTF8 bytes /4194304 plan bytes accepted; corresponding +1 refused. C14 first deliberate two-row removal is distinct from unchanged repeat. C08 synthetic session is not real login. C14 no-DML is source inference plus conservation, not independent wire trace.",
+  "c05": {
+    "control_shutdown_text_verified": true,
+    "database_oid": "16385",
+    "copy_inventory_sha256": "8D4DCEF34402B191F3790EBB2840B80E9A40F992864799B162289F6B4CA0E804",
+    "review_sha256": "3CA56DEB23B525F994FFC6C766C614BF6ABCDC3A1D0836F5C87F0D655339860E",
+    "alias_error": "cleanup_identity",
+    "system_identifier": "7695386433917935308",
+    "privilege_error": "cleanup_storage_unavailable",
+    "copy_unique_relative_entries": 1296,
+    "unsafe_relative_entries": 0,
+    "privilege_native_exit": 1,
+    "control_native_exit": 0,
+    "alias_native_exit": 1
+  },
+  "limits": [
+    "Initial oversized output was truncated; complete local JSON parsing and all selected inventory byte/hash reads subsequently completed. Full byte reading is not a claim that every setup stream is semantically defect-free.",
+    "Physical-copy inventory contains one per-file hash/length list, not two independently persisted source/destination lists. Its original equality attribution remains the reviewed copy helper and recorded execution; restarted cluster bytes are not rehashed as historical closed-copy bytes.",
+    "Two inherited-ACL prelaunch failures and delayed parent pipe capture remain historical, not product failures or successful launches. Named process captures do not prove all transient descendants.",
+    "Four scoped sleep holders ended with user-requested cancellation native1; six separate causal clients graceful native0. No timed SQL5/lock2/TX10 claim from finite32.",
+    "C1 results not transferred; full current faults/C18/business/real-login/overall acceptance remain separate gates. No SQL or protected installation actions by TD."
+  ]
+}

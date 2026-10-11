@@ -1,0 +1,140 @@
+{
+  "utc": "2026-10-11T13:53:46.8641940Z",
+  "source_commit": "b4edef34b083d1cb7737cf648f1c051eeb94127a",
+  "exe_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+  "result_sha256": "BA04EDCB1E139B3D7A720365D9F15778BDDF9F945AEEE0E18E418FDB3BC672D4",
+  "trace_sha256": "9DEE15AAA007133869E955A89DC9B0C4E754BA8F8353FA7FE3A67D5F7097939F",
+  "verdict": "Supports bounded actual known COMMIT receipt-write failure native4; no overall acceptance",
+  "actual": "RealCOMMIT13:51:53.772 then fixed receipt-directory blocker13:51:53.779 before ACKforward. Verify0/Apply4/observer0/parent0; cleanup_committed_receipt_failed and automatic_retryfalse. Receipt path observed directory. Independently raw19→17 only2candidateKV removed/all other complete raw lines retained, restorefullSHAequal.",
+  "inventory": [
+    {
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "name": "apply.launcher.stderr.log"
+    },
+    {
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "name": "apply.launcher.stdout.log"
+    },
+    {
+      "bytes": 688,
+      "sha256": "B18EA7E8F7A3A75EDAC9BE6A92E13A0CD5A21F52769B84C5618376EFCA1D3930",
+      "name": "apply.process.json"
+    },
+    {
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "name": "apply.stderr.log"
+    },
+    {
+      "bytes": 134,
+      "sha256": "7CAA2326B1E95DF9E8B3025A5FDEA3BD48ED9C5E96333EFAFB71E1E51DD8D554",
+      "name": "apply.stdout.log"
+    },
+    {
+      "bytes": 637,
+      "sha256": "0249023AD6F9466AD4A07AB73D3930322AE6E7E42DD1F881F37713ECF1ABDE6C",
+      "name": "observer-config.json"
+    },
+    {
+      "bytes": 529119,
+      "sha256": "9DEE15AAA007133869E955A89DC9B0C4E754BA8F8353FA7FE3A67D5F7097939F",
+      "name": "observer-events.json"
+    },
+    {
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "name": "observer.stderr.log"
+    },
+    {
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "name": "observer.stdout.log"
+    },
+    {
+      "bytes": 5076,
+      "sha256": "2C8F24FD5022D33150785F26654DD9645731BF62BE99D3EBBE88234BD550C5AB",
+      "name": "plan.json"
+    },
+    {
+      "bytes": 19661,
+      "sha256": "6A2656D0FFFBCB66919CDFF66C4671E9635C18AFB13F776852EAE58FD1CC5C1E",
+      "name": "restore-post.jsonl"
+    },
+    {
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "name": "restore-post.stderr.log"
+    },
+    {
+      "bytes": 19661,
+      "sha256": "6A2656D0FFFBCB66919CDFF66C4671E9635C18AFB13F776852EAE58FD1CC5C1E",
+      "name": "restore-pre.jsonl"
+    },
+    {
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "name": "restore-pre.stderr.log"
+    },
+    {
+      "bytes": 819,
+      "sha256": "BA04EDCB1E139B3D7A720365D9F15778BDDF9F945AEEE0E18E418FDB3BC672D4",
+      "name": "result.json"
+    },
+    {
+      "bytes": 11571,
+      "sha256": "F7BA2E90BCF97FCB153E963380BE4E01F03D27333DF85F71A330DDD36E933DB2",
+      "name": "source-post.jsonl"
+    },
+    {
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "name": "source-post.stderr.log"
+    },
+    {
+      "bytes": 19661,
+      "sha256": "6A2656D0FFFBCB66919CDFF66C4671E9635C18AFB13F776852EAE58FD1CC5C1E",
+      "name": "source-pre.jsonl"
+    },
+    {
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "name": "source-pre.stderr.log"
+    },
+    {
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "name": "verify.launcher.stderr.log"
+    },
+    {
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "name": "verify.launcher.stdout.log"
+    },
+    {
+      "bytes": 689,
+      "sha256": "A9AACE4C4A3C6BA4D11842CB79A0353FD38914CFF31FFDCA272074014FEADCFA",
+      "name": "verify.process.json"
+    },
+    {
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "name": "verify.stderr.log"
+    },
+    {
+      "bytes": 202,
+      "sha256": "CEFBF557F303E1DCB67FF1E0659A85F6A72D398EC16CA6F00B6F7B0DF9B08FE1",
+      "name": "verify.stdout.log"
+    }
+  ],
+  "limits": [
+    "No networkloss/globalexactlyonce/runtime changes; named native captures not all transient descendants.",
+    "Source observer event records before ACKforward; successful client knowncommit outcome/native4 supports received acknowledgement.",
+    "Original source and protected installations not accessed by TD."
+  ],
+  "unknown_ack_additive_contract": {
+    "sha256": "760FB0C049C3A862575EE6CBAFE3A0C709C0293920197F055273DE524067075F",
+    "decision": "Conditional prospective GO owned new appcopy3081/5450/15451 currentB100/RootQuietGo, actual503 literal and fullPOST/restartmanual obligations; original pending/cache separate; no outcome credit"
+  }
+}

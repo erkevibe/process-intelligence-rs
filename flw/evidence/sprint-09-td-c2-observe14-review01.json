@@ -1,0 +1,163 @@
+{
+  "utc": "2026-10-11T13:08:52.7558874Z",
+  "source_commit": "b4edef34b083d1cb7737cf648f1c051eeb94127a",
+  "exe_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+  "observer_sha256": "23BD39273CB39BB7F4684F663A10EB635A3ABE9DA33DE8875A95A2A82ACCA5BE",
+  "result_sha256": "694089AAEDE995C336246F6A4FE11065313290CD95F8DF61BBE9E925ABFE31BD",
+  "trace_sha256": "7E30AE99AAE4FB983BB1E00B89E18FD073DF985219C48A7DE352AF572A1F5D62",
+  "actual": {
+    "returned_rows": 2,
+    "restore_full_hash_equal": true,
+    "parent_native": 0,
+    "literal_four_SET_batches": 4,
+    "exact_source_only_two_candidate_kv_removed": true,
+    "observer_native": 0,
+    "source_after_rows": 17,
+    "source_before_rows": 19,
+    "apply_native": 0,
+    "trace_events": 2709,
+    "verify_native": 0,
+    "intentional_fault": false
+  },
+  "decision": "Conditional GO fresh C2 F01/F02/F03 only exact reviewed Observer14 boundaries under Root QuietGo and targeted decision; no fault PASS or final acceptance",
+  "requirements": [
+    "F01 before DELETE forwarding requires exact backend PID/database/active transaction and five actual granted table locks external witness.",
+    "F02 actual exact typed RETURNING+DELETE complete, then COMMIT withheld before forwarding; full source/restore PRE conservation.",
+    "F03 real COMMIT CommandComplete withheld after forwarding; source exact deleted POST and verification restore PRE; no automatic retry.",
+    "Fresh owned pairs/configs expectedReturned, full native identities/streams and fixed360s unchanged product5/2/10 required.",
+    "C17 observer02 separate actual Observe compatibility remains required before C17LOCK/TX; this trace uses Observer14 only."
+  ],
+  "inventory": [
+    {
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "bytes": 0,
+      "name": "apply.launcher.stderr.log"
+    },
+    {
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "bytes": 0,
+      "name": "apply.launcher.stdout.log"
+    },
+    {
+      "sha256": "6E777CBA0A184788119D2CDE3C7DC45C76184856FAC3E79B28E2E26219542F0A",
+      "bytes": 688,
+      "name": "apply.process.json"
+    },
+    {
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "bytes": 0,
+      "name": "apply.stderr.log"
+    },
+    {
+      "sha256": "8C1B45FCB20DC6897718FF698830896844D8F06BCD22458EA01737872A949900",
+      "bytes": 179,
+      "name": "apply.stdout.log"
+    },
+    {
+      "sha256": "E5DFF26AD0AC506A5FA69B4AA37305B87D304EF82766882736C68378F1808505",
+      "bytes": 501,
+      "name": "observer-config.json"
+    },
+    {
+      "sha256": "7E30AE99AAE4FB983BB1E00B89E18FD073DF985219C48A7DE352AF572A1F5D62",
+      "bytes": 528885,
+      "name": "observer-events.json"
+    },
+    {
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "bytes": 0,
+      "name": "observer.stderr.log"
+    },
+    {
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "bytes": 0,
+      "name": "observer.stdout.log"
+    },
+    {
+      "sha256": "798A129040434DAC11E0970523A95718B014EA0F8FABFBE801489B87C0368229",
+      "bytes": 5061,
+      "name": "plan.json"
+    },
+    {
+      "sha256": "92086778A1775F298E33E0C619CCB8FA8BB980F2B0932C9D6A9983CE4B3CF476",
+      "bytes": 810,
+      "name": "receipt.json"
+    },
+    {
+      "sha256": "6A2656D0FFFBCB66919CDFF66C4671E9635C18AFB13F776852EAE58FD1CC5C1E",
+      "bytes": 19661,
+      "name": "restore-post.jsonl"
+    },
+    {
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "bytes": 0,
+      "name": "restore-post.stderr.log"
+    },
+    {
+      "sha256": "6A2656D0FFFBCB66919CDFF66C4671E9635C18AFB13F776852EAE58FD1CC5C1E",
+      "bytes": 19661,
+      "name": "restore-pre.jsonl"
+    },
+    {
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "bytes": 0,
+      "name": "restore-pre.stderr.log"
+    },
+    {
+      "sha256": "694089AAEDE995C336246F6A4FE11065313290CD95F8DF61BBE9E925ABFE31BD",
+      "bytes": 803,
+      "name": "result.json"
+    },
+    {
+      "sha256": "F7BA2E90BCF97FCB153E963380BE4E01F03D27333DF85F71A330DDD36E933DB2",
+      "bytes": 11571,
+      "name": "source-post.jsonl"
+    },
+    {
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "bytes": 0,
+      "name": "source-post.stderr.log"
+    },
+    {
+      "sha256": "6A2656D0FFFBCB66919CDFF66C4671E9635C18AFB13F776852EAE58FD1CC5C1E",
+      "bytes": 19661,
+      "name": "source-pre.jsonl"
+    },
+    {
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "bytes": 0,
+      "name": "source-pre.stderr.log"
+    },
+    {
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "bytes": 0,
+      "name": "verify.launcher.stderr.log"
+    },
+    {
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "bytes": 0,
+      "name": "verify.launcher.stdout.log"
+    },
+    {
+      "sha256": "41645E40BFDB96D17F8082503A659C8DF874D6F169BDA8DBED94D0D691CD54FE",
+      "bytes": 689,
+      "name": "verify.process.json"
+    },
+    {
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "bytes": 0,
+      "name": "verify.stderr.log"
+    },
+    {
+      "sha256": "99E3B535E0A01CAC22689BDF2D08B18DEEF2126AA801F32E5C7763BF6BFC6E0D",
+      "bytes": 202,
+      "name": "verify.stdout.log"
+    }
+  ],
+  "limits": [
+    "Named process capture is not exhaustive descendant coverage.",
+    "Result scope contains inherited phase-fault wording, qualified explicitly by false intentional_fault and Observe-only actual trace.",
+    "One audit tool output accidentally printed synthetic fixture auth row; no values reproduced in this public evidence. Subsequent full-state checks parsed privately and emitted only counts/digests.",
+    "No protected resources or SQL/process actions performed by TD."
+  ]
+}

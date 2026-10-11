@@ -1,0 +1,13 @@
+# Sprint09 C2: actual restored LOGIN cleanup refusal
+
+Exact source `b4edef34b083d1cb7737cf648f1c051eeb94127a`; image SHA256 `7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195`. This is an independent finite C08 subcase, not whole-criterion acceptance.
+
+Unmodified retained stock archive restored into NEW source `pi_restore_s9_business_c2_c08_s01`; that source was backed up by the byte-bound packaged stock tool and restored into NEW application copy `pi_restore_s9_business_c2_c08_r01`. Neither is the untouched stock verification database. Native baseline Verify exited0 and froze a plan before any application login. Empty candidate eligibility is legitimate: maintained cleanup compares full source/restored fingerprints before its empty-candidate branch.
+
+Exact C2 application started on newly granted free3082 using only the application copy. The maintained `/login` request used the existing private synthetic credentials. Complete baseline versus stopped current-state oracle shows exactly one new session, Auth version2130→2131, old sessions unchanged and every nonAuth managed row/semantic sequence unchanged. Source remained fully unchanged. No second LOGIN was attempted.
+
+Initial harness native1 is preserved. PowerShell redirect handling ended before its HTTP response artifact, and finally's stop guard compared Process.StartTime to CIM creation at different precision (one tick). A first supplement also refused that cross-reopened native representation comparison. Distinct guarded close02 used the exact previously recorded CIM creation/path/image SHA plus retained native handle, with no tolerance and no tree kill. The3082 listener stopped; original3073 and held deletion target were untouched. Missing HTTP response capture is an explicit limitation; actual supported request invocation and persisted one-session delta are retained.
+
+Original Verify plan was then supplied unchanged to actual C2 Apply. Native Apply exited1 with `cleanup_changed`. Full complete managed source PRE=POST and application-restored PRE=POST raw byte hashes match. No receipt appeared. Supplement harness exited0. The initial failures and all streams remain; no fresh copies or repeated LOGIN were used to hide them.
+
+Private files: `.local/sprint09/qa/business01/c2/c08real01-*`, including original native process/streams, source/archive bindings, login-delta01, exact stop02, original plan and Apply-supplement01 native process/full streams/result. This proves changed restored Auth refusal after an actual supported LOGIN for this case; it does not assert arbitrary authentication/session behavior.

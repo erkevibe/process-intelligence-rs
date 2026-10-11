@@ -1,0 +1,60 @@
+{
+  "utc": "2026-10-11T11:38:14.335990+00:00",
+  "finding": "S9-QA-OFFLINE-VISIBILITY01",
+  "verdict": "STOP C1 cleanup acceptance; initial conditional support for independently proven C2 targeted continuation, no vote yet",
+  "source_commit": "03f0ffd604651e0a0b6d29832f23cbb57ee6a3ea",
+  "source_cleanup_git_blob_sha256": "7A5424DD00C3087878F2E5F0C752482D9110E0B659EA1D90321231EFD54AF1C1",
+  "exe_sha256": "0DBC999D85A3196F820CBF870D26C38C99A16A1F68B1F75D9336D98F2FA7C362",
+  "actual_C13_outcome": "native1 cleanup_storage_unavailable instead of frozen cleanup_busy; no deletion and complete source/restore conservation",
+  "same_backend": 24516,
+  "admin_role_observation": {
+    "backend_type": "client backend",
+    "state": "active",
+    "predicate": true
+  },
+  "app_role_observation": {
+    "backend_type": null,
+    "state": null,
+    "predicate": null
+  },
+  "mechanism": "C1 SQL filters hidden NULL backend_type out, so mandatory offline admission is incomplete for another role. This is a product counterexample; expectedguard is not relabelled.",
+  "PG_version": "18.6/180006",
+  "preservation": "all complete diagnostic source/restore PRE/POST bytes independently equal; native role query proof/executable/stream hashes recomputed; no protected actions",
+  "historical_C1_only": [
+    "full original10project/94record migration mapping and exact10legacy cleanup delta proved, not full acceptance",
+    "C18 all20log/14model semantic exports and restart conservation bounded capture clarification retained",
+    "F01 actual transaction/five-lock witness before withheldDELETE, Apply1/fullPRE preserved; scoped actual fault proof",
+    "final F02/F03 were not executed; automatic review refusal retained, no fault credit"
+  ],
+  "C2_requirements": [
+    "exact new source/EXE/package/manifest and native cold identity",
+    "new scoped role-hidden active-backend regression proving cleanup_busy before deletion and full conservation",
+    "actual Council targeted resume vote on exact proposal after independent positions; no destructive C2 run before decision",
+    "all C01-C18 finite cases with exact limits/fullunreduced old0.3 fixture; separate legitimate current-model C02 and app-recovery C18",
+    "all F01-F03 real boundaries plus SQL5/lock2/TX10 and knownCOMMIT receipt-write failure under unchanged budgets",
+    "new independent lifecycle/audit/512retention/owner-isolation/delete error/unknownACK/backuprestore/protected/public/CI evidence; no blanket oldPASS transfer"
+  ],
+  "inputs": {
+    ".local\\sprint09\\qa\\guards-extra01\\visibility01-pre-pi_restore_s9_guard_visibility01_s.stdout": "3C46890D07C6C83A8BDCA69926992BB650ADACAC442F521AA4ABEA9B548E1D44",
+    ".local\\sprint09\\qa\\guards-extra01\\visibility01-post-pi_restore_s9_guard_visibility01_s.stdout": "3C46890D07C6C83A8BDCA69926992BB650ADACAC442F521AA4ABEA9B548E1D44",
+    ".local\\sprint09\\qa\\guards-extra01\\visibility01-pre-pi_restore_s9_guard_visibility01_r.stdout": "ED71C535A5A9A5D17433286F7E9E12BF3C934E8E1DAC90D6555BD17B91441A3F",
+    ".local\\sprint09\\qa\\guards-extra01\\visibility01-post-pi_restore_s9_guard_visibility01_r.stdout": "ED71C535A5A9A5D17433286F7E9E12BF3C934E8E1DAC90D6555BD17B91441A3F",
+    ".local\\sprint09\\qa\\guards-extra01\\visibility01-admin-view.process.json": "6C21CDC99E3F8F8EFD7A0EA0106E59C9292ECE4D30B10FCDA468AE147C55CD30",
+    ".local\\sprint09\\qa\\guards-extra01\\visibility01-admin-view.stdout": "A8C52D540C74F9463402F9F4C42DD5AB5366C016A10A90892F9832A7F725F1BD",
+    ".local\\sprint09\\qa\\guards-extra01\\visibility01-admin-view.stderr": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+    ".local\\sprint09\\qa\\guards-extra01\\visibility01-app-view.process.json": "43CCEB590EEA28AD4E03D718187AC63F2C7B10C94A86DB3DA9ABEB0D5D4A5843",
+    ".local\\sprint09\\qa\\guards-extra01\\visibility01-app-view.stdout": "1C2E2E1FD130ED8038006B1CC71DFE243CC74A424395FF6F55A320938B89E027",
+    ".local\\sprint09\\qa\\guards-extra01\\visibility01-app-view.stderr": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+    ".local\\sprint09\\qa\\guards-extra01\\visibility01.result.json": "9605230DF2E6690AE4DB386AF51604F68493403979B3F53CC3534EB64F25E84A",
+    ".local\\sprint09\\qa\\guards-extra01\\c13writer.result.json": "AABB8BF0E93725CBB0F268665B42F0390946E821F288917CB720FFCB3B6AD6D8",
+    ".local\\sprint09\\qa\\rust-fault-f01c2\\result.json": "EF2A721129436B967BF22D95C320F422F86471474DAB6F9D353BD64B0B11CF38",
+    ".local\\sprint09\\qa\\rust-fault-f01c2\\observer-events.json": "D5548DA629E69C990916C0B57DEBA24E644A5C3CD0430BAB61D3D2D218004817",
+    ".local\\sprint09\\qa\\c1-full-mapping01.json": "E894CD51AA210194233619962C7D9A336066D2FAD22AD3DE52181DA1ABEB89F6",
+    ".local\\sprint09\\qa\\full-post-compare-c1-01.json": "C78BDC3E52014F60880D4E128F06803BA1B431F1A46D0A454747A75CF7A1CAE5"
+  },
+  "coverage_limits": [
+    "original broad diagnostic tool listing/output truncation retained; proof reads complete private files internally",
+    "no all-process/raw-stream or continuous antirace claim",
+    "no zero-failure history: observer incompatibilities, mode preflight, native filename capture, locale/read preparation and automatic-review refusals retained"
+  ]
+}
