@@ -1,0 +1,9 @@
+# Sprint06 TD actual final vote
+
+FOR exact S6-F1 rawSHA256 DB408476869CC63D1DBDBA0204D4333BBADDBC0B93B7D284F2881EF9E1BE3D92. Proposal fully read and independently hashed. New actual vote of TechnicalDebt/SkillManager; no earlier plan/draft vote transferred. Withdrawn A1EF draft receives no vote.
+
+Basis: fixed TD B57BCEC988C881C4E0606B7336E9C6FE5F0B291943EB6B7C8EDC0398BA14DC5C accepts selected C2 source/replay and cause-specific verification closure. Independently read/hash final CI MD8F323DD0C5C6F2BAAB66385923EA3D169B2FF0A2FE4CB45E4E7B7CF2D70251F2 / JSON090C487675210B2C95F85C558638163461DB659DB213AE9902109F7512C7483F and preservation0638E5A7D9E0FC5A167BD47B2529C0DA28B88B8D18336EF0271B0AECD86D7607: checked H push and synthetic PR success, ordinary70/PG13ignored, provenance5 guards, five accepted installs healthy/same process identities/artifact hashes. No actual Java/PG CI credit inferred; local exact oracle proof is separate.
+
+Scope: guarded PR6 promotion only head2fde54866d1e15be17b8486fdcdb83658ba46348/base35f0e783ad68d815f32977e3094088d42b28858e, no new STOP. Mandatory postmerge immutable source/archive/fullGitblob projection and independent read-only preservation checks remain unsatisfied until actual evidence; this vote does not waive them or claim completed delivery. Runtime0.5, existing ZIP/assets/installations/DB unchanged. Completion K may contain evidence/docs only under guarded source equivalence.
+
+Residuals deliberately retained: wrong-type/duplicate/precision divergences and upstream invalid-date exception; reference source order versus manual Rust sorting; service/Portal/XXE/calendars/DST/miner/full parity excluded; DISK01 OPEN/native5backup UNVERIFIED and active-memory limits. Historical missing/truncated/unreadable streams and CI Node child in-memory-only coverage remain explicit. Human final acceptance separate. No production/package/userdata changes by voter.

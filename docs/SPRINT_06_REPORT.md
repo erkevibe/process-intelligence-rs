@@ -1,6 +1,6 @@
 # Sprint06 — XES reference
 
-Лимит четыре часа: 2026-10-11 02:04:15–06:04:15 UTC. S6-P1 принят пятью независимыми голосами. Независимая техническая приёмка ограниченного oracle подтверждена на C2; финальные голоса, checked-head CI и публичная доставка фиксируются отдельными доказательствами.
+Лимит четыре часа: 2026-10-11 02:04:15–06:04:15 UTC. S6-P1 принят пятью независимыми голосами. Независимая техническая приёмка ограниченного oracle подтверждена на C2. Пять фактических голосов приняли точное предложение S6-F1; итоговый CI проверен, PR6 объединён. Независимая проверка публичной доставки описана ниже.
 
 Настоящие неизменённые OpenXES parser и LogParser XLog overload ApromoreCore запускаются без заглушек. Feasibility подтверждён до02:48:15; холодная сборка также воспроизведена. 134 upstream OpenXES исходника закреплены Git blob/SHA256, selective genuine closure129 классов. Public lock/standalone build helper получает primary source/dependency bytes, проверяет size/SHA/blob, выполняет compile/version/probe и сохраняет manifest.
 
@@ -18,8 +18,8 @@ Production src/Cargo/Windows helpers не изменены; новая Windows-�
 | A02 immutable corpus | SHA8ebdb55f3a6a8c585865014c206d92be3d11e314925c52c1e7c6665ed9d14ac4; QA pre-run literal review |
 | A03 actual outputs/Rust | Независимые16 genuine Java executions (15exit0/invaliddate1),20Rust modes и принятый0.5 six replay: scoped PASS |
 | A04 time/lifecycle/negative | literal expectations + separate source/time/error policies, actual upstream exception and three divergences |
-| A05 independent QA/auditors | ExactC2 QA/replay, public safe export и TD scoped ACCEPT; финальные голоса фиксируются отдельно |
-| A06 public PR/CI | ожидаются exact final revision и публикация |
+| A05 independent QA/auditors | ExactC2 QA/replay, public safe export, TD scoped ACCEPT и пять отдельных финальных FOR |
+| A06 public PR/CI | Итоговый H CI успешен; PR6 merged, полный публичный архив и сохранность прежних установок независимо проверены |
 
 ## Ход и ограничения аудита
 
@@ -36,3 +36,19 @@ C1 source `b0dcf126f076714d8571f65c759fa39591b4aebd`, Git archive SHA15478C32584
 Фактические безопасные результаты: [10 XES reference](../fixtures/oracle-xes/reference-results.json), [20 Rust modes](../fixtures/oracle-xes/rust-comparison.json), [шесть прежних регрессий](../fixtures/oracle-xes/original-six-results.json). Полные upstream source/jars/raw stderr остаются приватными; original raw report SHA указаны в projections. Local clippy0 и обычные Rust tests0;13PostgreSQL scenarios ignored/not-in-run для evidence-only sprint. Provenance guards5PASS; final CI проверяет тот же скрипт.
 
 [Независимый TD](../flw/evidence/sprint-06-td-final.md), SHAB57BCEC988C881C4E0606B7336E9C6FE5F0B291943EB6B7C8EDC0398BA14DC5C, подтверждает закрытие verification причин в выбранном контракте. [Source equivalence](../flw/evidence/sprint-06-source-equivalence.json): production diff0 от compiled55e8 через принятую35f0 доC2,70ordinary tests PASS/13ignored. Raw-хешированные Sprint06 evidence сохраняют исходные байты через `.gitattributes -text`; line-ending normalization не меняет доказательства при публикации.
+
+## Публичная доставка и завершение
+
+Техническая приёмка завершена 2026-10-11T02:47:17.158138+00:00; фактическая длительность до фиксации отчёта 43 минут при лимите четыре часа. Итоговое решение человека остаётся отдельным.
+
+[Совет S6-F1](../flw/evidence/sprint-06-council-final.json): пять фактических FOR по SHA256 DB408476869CC63D1DBDBA0204D4333BBADDBC0B93B7D284F2881EF9E1BE3D92. Ранний проект A1EF5327 отозван до внешних голосов; учитывается только окончательный документ. Root проверяет хеш своего предложения и явный FOR, остальные голоса — также привязку к точному SHA; самохеш не требуется внутри собственного файла.
+
+[PR6](https://github.com/erkevibe/process-intelligence-rs/pull/6) объединён из проверенного H `2fde54866d1e15be17b8486fdcdb83658ba46348` в M `5404a62a48b9169dce4d815cdfcefa024bb637b4` при неизменном base `35f0e783ad68d815f32977e3094088d42b28858e`. [Независимый итоговый CI](../flw/evidence/sprint-06-qa-final-ci.md): два успешных прогона, push checkout H и отдельный PR synthetic merge. Полностью прочитаны 26 доступных файлов/321361 байт; 70 обычных тестов, пять provenance guards, fmt/clippy/release/health прошли. 13 PostgreSQL сценариев пропущены; Java oracle исполнен отдельно локально.
+
+[Независимая проверка доставки](../flw/evidence/sprint-06-qa-delivery.md): анонимный исходный архив по M, SHA256 C8F21B9251CCE4272C27B5BB8884948E536449E81BCEE37133959C77876FBD2F; все 430 файлов и Git blobs совпадают, безопасные результаты совпадают. Прежние пять установок проверены только чтением, EXE/PID/04–05 ZIP сохранены. Новая версия Windows не выпущена; действующая 0.5 остаётся прежней.
+
+Первый локальный вызов verifier остановился до Python из-за неверных разделителей пути executable; путь исправлен, уже анонимно скачанный архив сохранён, второй вызов прошёл. Проверка голосов ранее отказала до merge из-за требования самохеша внутри Root proposal; исправлена только эта логически невозможная проверка, обязательные файловые хеши сохранены. Эти ошибки не выдаются за успешные первые попытки. Финальная фиксация меняет только документы и доказательства, исполняемый исходник соответствует проверенному H.
+
+Следующий предметный шаг — настоящий контракт service-import `validateLog` на малом заранее замороженном корпусе: фильтрация отсутствующих имени/времени, lifecycle и пустых трасс. До изменения Rust политика различий должна быть определена. Управляемая очистка legacy-копии остаётся отдельным эксплуатационным спринтом с новым restore/rollback и проверкой прерывания.
+
+[Независимый аудит после доставки](../flw/evidence/sprint-06-td-delivery.md): scoped ACCEPT, SHA256 A9744BFF754331D8D2B3385FD7FA44CC4127C3978D29A0FB194C244FE8DC0F74. История исправлений и границы доказательств сохранены.

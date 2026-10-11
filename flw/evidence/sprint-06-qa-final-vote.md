@@ -1,0 +1,11 @@
+# QA / ProcessLogAuditor — actual S6-F1 vote
+
+Vote: **FOR** the exact proposal `flw/evidence/sprint-06-final-proposal.md`, independently read in full and SHA256 verified as `DB408476869CC63D1DBDBA0204D4333BBADDBC0B93B7D284F2881EF9E1BE3D92`.
+
+This is a new final vote, not a transferred plan vote or a vote on withdrawn draft A1EF. It accepts the bounded C2 genuine XES parser/XLog oracle tooling and permits the exact checked H promotion under the proposal's conditions. It does not accept a new application release, broad Apromore compatibility, or completed public delivery.
+
+Independent basis: fixed QA C2 position JSON466999F2B3C34385BB80A7EAD5D8BC3A8BA39FB3D3CCC1D955737EDC023C5FC4 / MD CAB9FBC5EB9B2CD18FDA07AE5F719901CECBFF160F58950B766FEC1C03AB2FAC; genuine cold-build verification, 16 real XES executions, 20 Rust source/timestamp mode checks, accepted 0.5 six-example replay; safe public projection audit CAD97CFE36AE81AAA1B11BFCD496FD50AAEE0B502C885A271B09F92ABD2F546B. QA-S6-01/02 closed only on actual C2 verification. Final H CI audit JSON090C487675210B2C95F85C558638163461DB659DB213AE9902109F7512C7483F / MD8F323DD0C5C6F2BAAB66385923EA3D169B2FF0A2FE4CB45E4E7B7CF2D70251F2 covers all 26 available files, with push H and synthetic PR merge distinguished. The 13 ignored PG tests and individual guard-child raw streams were not executed/persisted as full CI process coverage. Read-only prepromotion proof0638E5A7D9E0FC5A167BD47B2529C0DA28B88B8D18336EF0271B0AECD86D7607 confirms five protected installations and accepted 0.4/0.5 artifacts.
+
+Nonwaivable remaining gate: after the guarded exact H/base merge, independently verify actual PR/main/M lineage, anonymous complete immutable-M source archive against all Git blob bytes, safe public outputs, archive exclusions, and actual protected postpromotion read-only preservation. A06 delivery remains pending until these checks pass. A new mandatory failure or STOP blocks completion regardless of Council majority. Existing unreadable/truncated historical streams, three validation/precision divergences, upstream invalid-date exception, narrow parser/consumer scope, DISK01 and native PS5 backup uncertainty remain explicit.
+
+No production, database, protected process, package, or fixed referenced report was changed for this vote.

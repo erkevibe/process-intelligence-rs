@@ -1,0 +1,336 @@
+{
+  "utc": "2026-10-11T07:36:19.567192+05:00",
+  "verdict": "PASS exact H final CI scoped gate",
+  "head": "2fde54866d1e15be17b8486fdcdb83658ba46348",
+  "candidate": "d0665a40f5389ce901100e2a20a7aed32f791c67",
+  "observer_source": "b0dcf126f076714d8571f65c759fa39591b4aebd",
+  "source_equivalence": {
+    "head": "2fde54866d1e15be17b8486fdcdb83658ba46348",
+    "candidate": "d0665a40f5389ce901100e2a20a7aed32f791c67",
+    "runtime_observer_tooling_workflow_unchanged": true,
+    "attribute_delta_scope": "Sprint06 plan/evidence raw-text/CR whitespace preservation only, no runtime behavior",
+    "raw_git_checks": [
+      {
+        "path": "fixtures/oracle-xes/reference-results.json",
+        "git_blob_raw_sha256": "DF5826B418E968AC1B8DF9DB8CEDC7F90FF115A96AD99290B23F5EEE21B6757E",
+        "raw_equals_git_blob": true
+      },
+      {
+        "path": "fixtures/oracle-xes/rust-comparison.json",
+        "git_blob_raw_sha256": "2ACF404C95C0282C76C6B0F1E1AA14CD265AD3EEB3ECC36B33920624575491F3",
+        "raw_equals_git_blob": true
+      },
+      {
+        "path": "fixtures/oracle-xes/original-six-results.json",
+        "git_blob_raw_sha256": "86F69560D5AF90CF49C35AF9CE7C3AD4E4EE82E18B4D8064B4D7D0DF8B61FDB1",
+        "raw_equals_git_blob": true
+      },
+      {
+        "path": "docs/SPRINT_06_PLAN.md",
+        "git_blob_raw_sha256": "D0E6F787F6DB4D6D443BFA0009A6C62ECC36B8790C81DA3D668009F512DA9FBF",
+        "raw_equals_git_blob": true
+      },
+      {
+        "path": "flw/evidence/sprint-06-qa-c2-position.json",
+        "git_blob_raw_sha256": "466999F2B3C34385BB80A7EAD5D8BC3A8BA39FB3D3CCC1D955737EDC023C5FC4",
+        "raw_equals_git_blob": true
+      },
+      {
+        "path": "flw/evidence/sprint-06-qa-c2-position.md",
+        "git_blob_raw_sha256": "CAB9FBC5EB9B2CD18FDA07AE5F719901CECBFF160F58950B766FEC1C03AB2FAC",
+        "raw_equals_git_blob": true
+      },
+      {
+        "path": "flw/evidence/sprint-06-qa-c2-coverage.json",
+        "git_blob_raw_sha256": "95C187191DF9BC4912334FCE3696A2B20C007DCA37CAC62E2CAA5B03DF40CDAF",
+        "raw_equals_git_blob": true
+      }
+    ],
+    "CI": "pending; no acceptance yet"
+  },
+  "runs": [
+    {
+      "run": 38105446741,
+      "event": "push",
+      "head": "2fde54866d1e15be17b8486fdcdb83658ba46348",
+      "actual_checkout": "2fde54866d1e15be17b8486fdcdb83658ba46348",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Pinned toolchain",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run cargo fmt --all -- --check",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run cargo clippy --locked --all-targets -- -D warnings",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run cargo test --locked --all-targets",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "XES oracle provenance guards",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Build release and local health smoke",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ],
+      "ordinary_pass": 70,
+      "explicit_PG_ignored": 13,
+      "provenance_guard_checks": 5,
+      "archive_sha256": "E81E9A81127CD65676E23470ABA02630718CFCD94FA2DF54EBD09C1082F292F4",
+      "archive_bytes": 42387,
+      "full_files": [
+        {
+          "path": ".local\\sprint06\\ci-push-final-h01\\0_linux.txt",
+          "bytes": 79696,
+          "sha256": "26D8E57B8DA800AB63456B9C80A4C27645284E2085408DAE409776867FCFD4B3"
+        },
+        {
+          "path": ".local\\sprint06\\ci-push-final-h01\\linux\\18_Post Run actions_checkout@3d3c42e5aac5ba805825da76410c181273ba90b1.txt",
+          "bytes": 1773,
+          "sha256": "9BFAD4B6F0E341956EDE50758FFEBDA4A23F048309E1E95982C2D174B86A105A"
+        },
+        {
+          "path": ".local\\sprint06\\ci-push-final-h01\\linux\\19_Complete job.txt",
+          "bytes": 61,
+          "sha256": "A4C29CB13B8BD71BDC69C41B601AF77541344D31FDB21092B307AD264DBA4A04"
+        },
+        {
+          "path": ".local\\sprint06\\ci-push-final-h01\\linux\\1_Set up job.txt",
+          "bytes": 2099,
+          "sha256": "5A30B1125069706F2A43ECB797F2F94AF3464700E6136C1E966AD7DFDE2BDC01"
+        },
+        {
+          "path": ".local\\sprint06\\ci-push-final-h01\\linux\\2_Run actions_checkout@3d3c42e5aac5ba805825da76410c181273ba90b1.txt",
+          "bytes": 11555,
+          "sha256": "62880B1438D42D7083F0A6BC87CBF9EC7121253AE8ACF57E22DD68045C98F246"
+        },
+        {
+          "path": ".local\\sprint06\\ci-push-final-h01\\linux\\3_Pinned toolchain.txt",
+          "bytes": 769,
+          "sha256": "9C34694E69278931BAC0B762015B0DF9C440B32E2678291C503C36D7A9E61759"
+        },
+        {
+          "path": ".local\\sprint06\\ci-push-final-h01\\linux\\4_Run cargo fmt --all -- --check.txt",
+          "bytes": 238,
+          "sha256": "C80F808416554DAB4E4C68473C8374426B39B101362DF6D3B14C2FFEBD3F463A"
+        },
+        {
+          "path": ".local\\sprint06\\ci-push-final-h01\\linux\\5_Run cargo clippy --locked --all-targets -- -D warnings.txt",
+          "bytes": 23557,
+          "sha256": "3AD60112AD5BE6CE91A010ABE07FCB87201E1FD2400AEE157B43BEAB6FB31A0B"
+        },
+        {
+          "path": ".local\\sprint06\\ci-push-final-h01\\linux\\6_Run cargo test --locked --all-targets.txt",
+          "bytes": 25231,
+          "sha256": "8E65EDF2CD70348DAD19EABAB1D9E02DE336CE29BDD6B594AF17E7869DF5976E"
+        },
+        {
+          "path": ".local\\sprint06\\ci-push-final-h01\\linux\\7_XES oracle provenance guards.txt",
+          "bytes": 397,
+          "sha256": "C78A39A3A450DF00655CA1140B28A8BFD5AD265C8C77A96308F6299DDC29ADE3"
+        },
+        {
+          "path": ".local\\sprint06\\ci-push-final-h01\\linux\\8_Build release and local health smoke.txt",
+          "bytes": 12302,
+          "sha256": "B72487599C2806614A22540BC116580D64E0AA2398AB5662460200BB9858A648"
+        },
+        {
+          "path": ".local\\sprint06\\ci-push-final-h01\\linux\\9_Run actions_upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9.txt",
+          "bytes": 1744,
+          "sha256": "CDED7F86541E7DFC981BC3152C0E55CFBF96A2A1A681AA28B8AFFFBD4DF1E2B0"
+        },
+        {
+          "path": ".local\\sprint06\\ci-push-final-h01\\linux\\system.txt",
+          "bytes": 592,
+          "sha256": "5AF5D8C7E69D58A800FB7BF75C1E726BAE5A808C5FF4696467BB217AC372D551"
+        }
+      ],
+      "full_available_bytes": 160014
+    },
+    {
+      "run": 38105449698,
+      "event": "pull_request",
+      "head": "2fde54866d1e15be17b8486fdcdb83658ba46348",
+      "actual_checkout": "ecf8f4331f4e3deeca78106894c62db70d76e570",
+      "conclusion": "success",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Pinned toolchain",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run cargo fmt --all -- --check",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run cargo clippy --locked --all-targets -- -D warnings",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run cargo test --locked --all-targets",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "XES oracle provenance guards",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Build release and local health smoke",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ],
+      "ordinary_pass": 70,
+      "explicit_PG_ignored": 13,
+      "provenance_guard_checks": 5,
+      "archive_sha256": "9E4370D3675947F549EB1B78699C0054028129635A634D1A7087099578820819",
+      "archive_bytes": 42862,
+      "full_files": [
+        {
+          "path": ".local\\sprint06\\ci-pr-final-h01\\0_linux.txt",
+          "bytes": 80367,
+          "sha256": "227C00717D8F6219280FA544B5317B6E44A4CE04E8A1B1201EB0519C9BD7F441"
+        },
+        {
+          "path": ".local\\sprint06\\ci-pr-final-h01\\linux\\18_Post Run actions_checkout@3d3c42e5aac5ba805825da76410c181273ba90b1.txt",
+          "bytes": 1773,
+          "sha256": "54184FD6DC6385E3E53F72B9C2F47C62862FCA5142EA13857F87D048199322CB"
+        },
+        {
+          "path": ".local\\sprint06\\ci-pr-final-h01\\linux\\19_Complete job.txt",
+          "bytes": 61,
+          "sha256": "642676732D5A2C8FC24CD379C7B203317994FD30A4937E689607BEBE317B8743"
+        },
+        {
+          "path": ".local\\sprint06\\ci-pr-final-h01\\linux\\1_Set up job.txt",
+          "bytes": 2102,
+          "sha256": "FFD7D11303B12A71C479C540C372500C25E5D1289443E7631CA9F3E8E8059C82"
+        },
+        {
+          "path": ".local\\sprint06\\ci-pr-final-h01\\linux\\2_Run actions_checkout@3d3c42e5aac5ba805825da76410c181273ba90b1.txt",
+          "bytes": 12223,
+          "sha256": "58007547512CBF5460F7A8E46473EDC20510460AFF35BEEA1FFF8E22AEA630DD"
+        },
+        {
+          "path": ".local\\sprint06\\ci-pr-final-h01\\linux\\3_Pinned toolchain.txt",
+          "bytes": 769,
+          "sha256": "DCE434A27F86D175B4BA40B59CCB7C0EB703E5F83A56E43937E000345B8ACF2C"
+        },
+        {
+          "path": ".local\\sprint06\\ci-pr-final-h01\\linux\\4_Run cargo fmt --all -- --check.txt",
+          "bytes": 238,
+          "sha256": "83449E1C7E317E86A05A4B28F90C893C5DB083820547F167AD237B8334DC60B1"
+        },
+        {
+          "path": ".local\\sprint06\\ci-pr-final-h01\\linux\\5_Run cargo clippy --locked --all-targets -- -D warnings.txt",
+          "bytes": 23557,
+          "sha256": "E015E04D03AF37CE165353163B2D3BDC259D704C907DE6A362F8EC9A07363F62"
+        },
+        {
+          "path": ".local\\sprint06\\ci-pr-final-h01\\linux\\6_Run cargo test --locked --all-targets.txt",
+          "bytes": 25231,
+          "sha256": "EA6D1EAE011FE3D40FAD6204DEB44C5A43C3540ABCBEC140AEF7459488281F52"
+        },
+        {
+          "path": ".local\\sprint06\\ci-pr-final-h01\\linux\\7_XES oracle provenance guards.txt",
+          "bytes": 397,
+          "sha256": "878822C445BE2940D97EBAA87C6EF5A58C51EC2723B861A210ECD1A88016AD9F"
+        },
+        {
+          "path": ".local\\sprint06\\ci-pr-final-h01\\linux\\8_Build release and local health smoke.txt",
+          "bytes": 12302,
+          "sha256": "34649329293DEF0033366EAA763B8DAE4B8D98CF5AB66BAA62F75E956F68D55B"
+        },
+        {
+          "path": ".local\\sprint06\\ci-pr-final-h01\\linux\\9_Run actions_upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9.txt",
+          "bytes": 1744,
+          "sha256": "E2D2567BA0CF04591E73BFC99ECD5D8967707672AFE85A7A506F72319694602B"
+        },
+        {
+          "path": ".local\\sprint06\\ci-pr-final-h01\\linux\\system.txt",
+          "bytes": 583,
+          "sha256": "E8A648EC39E249B41FDBC9621B643DDADCC169BE41CCD8F66C06BCE8F40EE459"
+        }
+      ],
+      "full_available_bytes": 161347
+    }
+  ],
+  "scope": [
+    "Full available13+13 files entirely loaded/hash/bytes snapshot; full and step duplicate logs counted separately, not unique machine executions.",
+    "Actual public API allsteps success; fmt/clippy-Dwarnings/ordinary70/ignored13/release/ephemeral health/Linux artifact verified.",
+    "Node provenance guards actual5 pass: changed hashed class, missing manifest class, escaped root, generator nonoverwrite, literal fixture expectations/hash. These do not execute Java reference or real PostgreSQL in CI.",
+    "Local independent genuine16Java/cold313/JDK504+20Rust+accepted05six are separate fixed evidence; no CI legacy/OpenXES/time/parity/PG credit.",
+    "Push checkout H2fde, PR synthetic ecf8f4331f4e3deeca78106894c62db70d76e570 distinctly. No Windows rebuild/repack or new version claim.",
+    "Final Council and public source merge/anonymous projection plus protected preservation still pending; CI alone does not deliver.",
+    "Node guard child stdout/stderr captured in-memory by spawnSync/assertions only; individual per-child raw files not persisted, so no full subprocess stream coverage claimed. Runner step output and actual guard assertions available."
+  ]
+}
