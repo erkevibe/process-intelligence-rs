@@ -1,0 +1,40 @@
+{
+  "utc": "2026-10-11T02:28:25.497949+00:00",
+  "verdict": "PASS selected safe projections and actual byte identities",
+  "results": [
+    {
+      "path": "fixtures\\oracle-xes\\reference-results.json",
+      "bytes": 15910,
+      "sha256": "DF5826B418E968AC1B8DF9DB8CEDC7F90FF115A96AD99290B23F5EEE21B6757E",
+      "semantic_checks": [
+        "exact full results projection including actual exceptions/attribute type/value",
+        "original report byte SHA identity"
+      ],
+      "absolute_private_path_or_secret_pattern_matches": 0
+    },
+    {
+      "path": "fixtures\\oracle-xes\\rust-comparison.json",
+      "bytes": 30386,
+      "sha256": "2ACF404C95C0282C76C6B0F1E1AA14CD265AD3EEB3ECC36B33920624575491F3",
+      "semantic_checks": [
+        "exact complete modes/manualchecks/legacyobservations/differences projection",
+        "original report byte SHA identity"
+      ],
+      "absolute_private_path_or_secret_pattern_matches": 0
+    },
+    {
+      "path": "fixtures\\oracle-xes\\original-six-results.json",
+      "bytes": 17080,
+      "sha256": "86F69560D5AF90CF49C35AF9CE7C3AD4E4EE82E18B4D8064B4D7D0DF8B61FDB1",
+      "semantic_checks": [
+        "genuine six actual observed/errors/inputsha exactly match",
+        "accepted05 six Rust/manual/legacy selected fields exactly match",
+        "both original report byte SHA identities"
+      ],
+      "absolute_private_path_or_secret_pattern_matches": 0
+    }
+  ],
+  "scope": "Exact original report SHA checks plus JSON selected-field equality; public bytes intentionally differ from private reports by documented projection. Recursive private path/credential patterns absent; synthetic event values examined. Not proof that arbitrary future exports are secret-free.",
+  "no_shared_files_modified": true,
+  "upstream_scope": "parser/consumer only; no Portal/time-normalization parity implied"
+}

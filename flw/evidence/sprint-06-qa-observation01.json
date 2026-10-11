@@ -1,0 +1,131 @@
+{
+  "utc": "2026-10-11T02:16:22.483720+00:00",
+  "scope": "Independent actual10 genuine reference replay +20Rust mode runs/manual/cardinality/attribute/consumer review; early mutable tools, not final frozen acceptance",
+  "reference_build_sha256": "1685A7227AA0E0CCBD90C510C66E92CA8A30D3B3C16AB4CC2EFE8774B0587D54",
+  "verified_build_file_hashes": 310,
+  "verified_upstream_git_blob_files": 134,
+  "missing_build_hashes": [
+    "acl.stderr.log",
+    "acl.stdout.log"
+  ],
+  "actual_java_version_exit": 0,
+  "actual_java_version_sha256": "93A80478C2444D8D17E804A85B170290C6FAF38E314CC6D0D6DFFDDCCD40F5D7",
+  "corpus_sha256": "8EBDB55F3A6A8C585865014C206D92BE3D11E314925C52C1E7C6665ED9D14AC4",
+  "reference_sha256": "2F9C9B771257469CBD2F3BAE6402D2E3DE668707262634B4993A0F75ABB33B67",
+  "comparison_sha256": "F1D3E3D50E0635456A7A28B46AFF1801013D5809127BF32BA81EA68C89703241",
+  "observer_exe_sha256": "FC3D5B8698E7A88D9B22204055C6EDAE86E80B31C816D115A5008F869DEE1D06",
+  "checks": [
+    {
+      "id": "reverse-ties",
+      "manual_rust_contract": true,
+      "actual_legacy_exit": 0,
+      "legacy_case_event_variant_cardinality_checked": true,
+      "differences": []
+    },
+    {
+      "id": "offset-equal",
+      "manual_rust_contract": true,
+      "actual_legacy_exit": 0,
+      "legacy_case_event_variant_cardinality_checked": true,
+      "differences": []
+    },
+    {
+      "id": "lifecycle",
+      "manual_rust_contract": true,
+      "actual_legacy_exit": 0,
+      "legacy_case_event_variant_cardinality_checked": true,
+      "differences": []
+    },
+    {
+      "id": "missing-time",
+      "manual_rust_contract": true,
+      "actual_legacy_exit": 0,
+      "legacy_case_event_variant_cardinality_checked": true,
+      "differences": []
+    },
+    {
+      "id": "invalid-time",
+      "manual_rust_contract": true,
+      "actual_legacy_exit": 1,
+      "legacy_case_event_variant_cardinality_checked": false,
+      "differences": []
+    },
+    {
+      "id": "wrong-time-type",
+      "manual_rust_contract": true,
+      "actual_legacy_exit": 0,
+      "legacy_case_event_variant_cardinality_checked": true,
+      "differences": [
+        {
+          "field": "acceptance",
+          "rust": "rejected",
+          "legacy": "ok"
+        }
+      ]
+    },
+    {
+      "id": "duplicate-name",
+      "manual_rust_contract": true,
+      "actual_legacy_exit": 0,
+      "legacy_case_event_variant_cardinality_checked": true,
+      "differences": [
+        {
+          "field": "acceptance",
+          "rust": "rejected",
+          "legacy": "ok"
+        }
+      ]
+    },
+    {
+      "id": "empty-trace",
+      "manual_rust_contract": true,
+      "actual_legacy_exit": 0,
+      "legacy_case_event_variant_cardinality_checked": true,
+      "differences": []
+    },
+    {
+      "id": "unicode",
+      "manual_rust_contract": true,
+      "actual_legacy_exit": 0,
+      "legacy_case_event_variant_cardinality_checked": true,
+      "differences": []
+    },
+    {
+      "id": "submillisecond",
+      "manual_rust_contract": true,
+      "actual_legacy_exit": 0,
+      "legacy_case_event_variant_cardinality_checked": true,
+      "differences": [
+        {
+          "field": "cases[0].events[0].timestamp_precision",
+          "rust": "2026-01-01T10:00:00.123456Z",
+          "legacy_millis": 1767261600123,
+          "reason": "Rust retains submillisecond precision; java.util.Date observation is milliseconds"
+        }
+      ]
+    }
+  ],
+  "rust_only_negatives": [
+    {
+      "id": "doctype-internal",
+      "actual_process_exit": 0,
+      "actual_error": "doctype",
+      "scope": "Rust only; no upstream entity/network probe"
+    },
+    {
+      "id": "missing-name",
+      "actual_process_exit": 0,
+      "actual_error": "missing_activity",
+      "scope": "Rust only; no upstream entity/network probe"
+    }
+  ],
+  "verdict": "PASS narrow actual oracle observation/manual Rust contracts; differences explicit, not full parity",
+  "limits": [
+    "Portal/manager validateLog/calendar/miner excluded; source order legacy, timestamp Rust manual only.",
+    "Wrong time type legacy accepts string attribute but typed timestamp null; Rust rejects invalid_timestamp. Duplicate name legacy last-wins B; Rust rejects duplicate_key. Java milliseconds vs Rust exact .123456 precision difference.",
+    "Invalid-time upstream genuine parser throws EmptyStackException, not safe controlled legacy validation.",
+    "Harness currently only exposes typed time; wrong-type raw value retained by upstream is not serialized into observed field, so attribute coverage partial.",
+    "Build02 original2ACLhashes missing; current sources/classes/deps captured hashes independently match, no stubs. Fresh cold proof later required.",
+    "Reference run helper current class/JDK/deps guard initially incomplete; independent hash closure and actual JDK version now checked, final tooling guard required."
+  ]
+}

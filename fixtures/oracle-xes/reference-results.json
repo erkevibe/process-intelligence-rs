@@ -1,0 +1,500 @@
+{
+  "schema_version": 1,
+  "provenance": "Independent QA cold genuine reference replay; safe projection of original raw report",
+  "source_candidate": "d0665a40f5389ce901100e2a20a7aed32f791c67",
+  "original_report_sha256": "c9433fbfb9f4fc98d36b8f194be92e8182883b41581b1419bde81b0d35ea8ff9",
+  "corpus_sha256": "8ebdb55f3a6a8c585865014c206d92be3d11e314925c52c1e7c6665ed9d14ac4",
+  "build_proof_sha256": "275e44e15c97a0565d090581993e1e134a9ded3d6ba47358238cfb047ad3b44b",
+  "lock_sha256": "4845ed15e0b2eae47f82fefffffd416b56a9f254cdee6e3917a74fbb1baef6cd",
+  "upstream_commit": "bbf24dfd43e72d6992392465f875a4367cbe792b",
+  "upstream_tree": "c9f89200ad1170a4aed9711b5174234e7ec2dc18",
+  "parser": "org.deckfour.xes.in.XesXmlParser",
+  "factory": "org.deckfour.xes.factory.XFactoryNaiveImpl",
+  "consumer": "org.apromore.splitminer.log.LogParser.getSimpleLog(XLog,XEventNameClassifier)",
+  "compiled_classes": 129,
+  "verified_executable_inputs": 140,
+  "java_executable_sha256": "9fcc7d5d43918e389df240d44601c98a4d3aa9e7d0cbbd6d208304e0b574c7e2",
+  "javac_executable_sha256": "9a54effe7088d627a433a61da65d71fb420b5a67d163577c6c4f0ec3dfc3dbd6",
+  "parameters": {
+    "legacy_factory": "XFactoryNaiveImpl",
+    "classifier": "XEventNameClassifier",
+    "legacy_order": "XML source; no adapter sorting",
+    "manager_validateLog": "excluded",
+    "legacy_time": "java.util.Date milliseconds",
+    "rust_order": [
+      "source",
+      "timestamp"
+    ]
+  },
+  "results": [
+    {
+      "id": "reverse-ties",
+      "input_sha256": "a8eeb66979966c266aa5b455e43d430e7c46045075d85791cdf91352f4411c65",
+      "started_at": "2026-10-11T02:21:36.670Z",
+      "ended_at": "2026-10-11T02:21:37.955Z",
+      "exit_code": 0,
+      "signal": null,
+      "launch_error": null,
+      "status": "ok",
+      "failure_kind": null,
+      "exception_class": null,
+      "observed": {
+        "name": "reverse-ties",
+        "cases": [
+          {
+            "name": "case-1",
+            "events": [
+              {
+                "ordinal": 0,
+                "activity": "B",
+                "timestamp_millis": 1767261602000,
+                "lifecycle": null,
+                "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                "timestamp_attribute_value": "2026-01-01T10:00:02Z"
+              },
+              {
+                "ordinal": 1,
+                "activity": "A",
+                "timestamp_millis": 1767261601000,
+                "lifecycle": null,
+                "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                "timestamp_attribute_value": "2026-01-01T10:00:01Z"
+              },
+              {
+                "ordinal": 2,
+                "activity": "C",
+                "timestamp_millis": 1767261601000,
+                "lifecycle": null,
+                "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                "timestamp_attribute_value": "2026-01-01T10:00:01Z"
+              }
+            ]
+          }
+        ],
+        "consumer": {
+          "variants": [
+            {
+              "count": 1,
+              "sequence": [
+                "B",
+                "A",
+                "C"
+              ]
+            }
+          ],
+          "cases": 1,
+          "activities": 3,
+          "events": 3
+        }
+      },
+      "stdout_sha256": "bbfbc3b50d041b919ca8f97f7c90967012ff6aded046eb3dc5daa4367a1088f3",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "offset-equal",
+      "input_sha256": "b7d78d5d89bf3c858e33427408ff95377c50979d3a08cc38fc34dda261b1f13a",
+      "started_at": "2026-10-11T02:21:37.955Z",
+      "ended_at": "2026-10-11T02:21:39.285Z",
+      "exit_code": 0,
+      "signal": null,
+      "launch_error": null,
+      "status": "ok",
+      "failure_kind": null,
+      "exception_class": null,
+      "observed": {
+        "name": "offset-equal",
+        "cases": [
+          {
+            "name": "case-1",
+            "events": [
+              {
+                "ordinal": 0,
+                "activity": "B",
+                "timestamp_millis": 1767261600000,
+                "lifecycle": null,
+                "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                "timestamp_attribute_value": "2026-01-01T10:00:00Z"
+              },
+              {
+                "ordinal": 1,
+                "activity": "A",
+                "timestamp_millis": 1767261600000,
+                "lifecycle": null,
+                "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                "timestamp_attribute_value": "2026-01-01T10:00:00Z"
+              }
+            ]
+          }
+        ],
+        "consumer": {
+          "variants": [
+            {
+              "count": 1,
+              "sequence": [
+                "B",
+                "A"
+              ]
+            }
+          ],
+          "cases": 1,
+          "activities": 2,
+          "events": 2
+        }
+      },
+      "stdout_sha256": "f469802672eb677639ec704a5b69fca544dbec45abfc5849623ac7e803b910a3",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "lifecycle",
+      "input_sha256": "d9dd15d81c74a7eedcbd7694184391f2a7d578293804f9b4d5cf0e781a061b41",
+      "started_at": "2026-10-11T02:21:39.286Z",
+      "ended_at": "2026-10-11T02:21:40.539Z",
+      "exit_code": 0,
+      "signal": null,
+      "launch_error": null,
+      "status": "ok",
+      "failure_kind": null,
+      "exception_class": null,
+      "observed": {
+        "name": "lifecycle",
+        "cases": [
+          {
+            "name": "case-1",
+            "events": [
+              {
+                "ordinal": 0,
+                "activity": "A",
+                "timestamp_millis": 1767261600000,
+                "lifecycle": "start",
+                "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                "timestamp_attribute_value": "2026-01-01T10:00:00Z"
+              },
+              {
+                "ordinal": 1,
+                "activity": "A",
+                "timestamp_millis": 1767261601000,
+                "lifecycle": "complete",
+                "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                "timestamp_attribute_value": "2026-01-01T10:00:01Z"
+              }
+            ]
+          }
+        ],
+        "consumer": {
+          "variants": [
+            {
+              "count": 1,
+              "sequence": [
+                "A",
+                "A"
+              ]
+            }
+          ],
+          "cases": 1,
+          "activities": 1,
+          "events": 2
+        }
+      },
+      "stdout_sha256": "f39350242241ba37592f0c9fd0ed80a8c8ba7a396895b21ab291e8dc242431af",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "missing-time",
+      "input_sha256": "bcba5093813ccb04b1bfafe3a142a0511f2fb09cca46501b5370749df3c8880e",
+      "started_at": "2026-10-11T02:21:40.540Z",
+      "ended_at": "2026-10-11T02:21:41.838Z",
+      "exit_code": 0,
+      "signal": null,
+      "launch_error": null,
+      "status": "ok",
+      "failure_kind": null,
+      "exception_class": null,
+      "observed": {
+        "name": "missing-time",
+        "cases": [
+          {
+            "name": "case-1",
+            "events": [
+              {
+                "ordinal": 0,
+                "activity": "A",
+                "timestamp_millis": null,
+                "lifecycle": null,
+                "timestamp_attribute_type": null,
+                "timestamp_attribute_value": null
+              },
+              {
+                "ordinal": 1,
+                "activity": "B",
+                "timestamp_millis": 1767261600000,
+                "lifecycle": null,
+                "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                "timestamp_attribute_value": "2026-01-01T10:00:00Z"
+              }
+            ]
+          }
+        ],
+        "consumer": {
+          "variants": [
+            {
+              "count": 1,
+              "sequence": [
+                "A",
+                "B"
+              ]
+            }
+          ],
+          "cases": 1,
+          "activities": 2,
+          "events": 2
+        }
+      },
+      "stdout_sha256": "5c2ea457351e4836db70c2e774d3490fddda3dfe54877347aa20da3da51560d9",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "invalid-time",
+      "input_sha256": "2737f1536e37392df6d2c902ceaa42281b9b3eafd5ad8f3c5be56c169e3ec88a",
+      "started_at": "2026-10-11T02:21:41.838Z",
+      "ended_at": "2026-10-11T02:21:43.090Z",
+      "exit_code": 1,
+      "signal": null,
+      "launch_error": null,
+      "status": "rejected",
+      "failure_kind": "upstream_exception",
+      "exception_class": "java.util.EmptyStackException",
+      "observed": {
+        "name": null,
+        "cases": [],
+        "consumer": {
+          "variants": []
+        }
+      },
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "3d1644d4fa6852d15e8d73f79dce8b5ad9d4b7a5f1194b7d6d1e85baaf2146c0"
+    },
+    {
+      "id": "wrong-time-type",
+      "input_sha256": "322d1e4cdb8b3d2ec4eed7eb57f32c4b5eab29bb322e5fccf5673ff7404373f5",
+      "started_at": "2026-10-11T02:21:43.091Z",
+      "ended_at": "2026-10-11T02:21:44.395Z",
+      "exit_code": 0,
+      "signal": null,
+      "launch_error": null,
+      "status": "ok",
+      "failure_kind": null,
+      "exception_class": null,
+      "observed": {
+        "name": "wrong-time-type",
+        "cases": [
+          {
+            "name": "case-1",
+            "events": [
+              {
+                "ordinal": 0,
+                "activity": "A",
+                "timestamp_millis": null,
+                "lifecycle": null,
+                "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl",
+                "timestamp_attribute_value": "2026-01-01T10:00:00Z"
+              }
+            ]
+          }
+        ],
+        "consumer": {
+          "variants": [
+            {
+              "count": 1,
+              "sequence": [
+                "A"
+              ]
+            }
+          ],
+          "cases": 1,
+          "activities": 1,
+          "events": 1
+        }
+      },
+      "stdout_sha256": "104df1fea59e4ccc0d3b09af195ebc18e8bfdae492f54bc98188a3aab2794117",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "duplicate-name",
+      "input_sha256": "d66428531d5dc4afd6d3f2abcc825ebab1253a9168927cc94faec3a0860cc22f",
+      "started_at": "2026-10-11T02:21:44.395Z",
+      "ended_at": "2026-10-11T02:21:45.757Z",
+      "exit_code": 0,
+      "signal": null,
+      "launch_error": null,
+      "status": "ok",
+      "failure_kind": null,
+      "exception_class": null,
+      "observed": {
+        "name": "duplicate-name",
+        "cases": [
+          {
+            "name": "case-1",
+            "events": [
+              {
+                "ordinal": 0,
+                "activity": "B",
+                "timestamp_millis": null,
+                "lifecycle": null,
+                "timestamp_attribute_type": null,
+                "timestamp_attribute_value": null
+              }
+            ]
+          }
+        ],
+        "consumer": {
+          "variants": [
+            {
+              "count": 1,
+              "sequence": [
+                "B"
+              ]
+            }
+          ],
+          "cases": 1,
+          "activities": 1,
+          "events": 1
+        }
+      },
+      "stdout_sha256": "a71a3b12402ddebd8e955a6e622216d0d34b72c3232bb499e672a8acfd591d88",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "empty-trace",
+      "input_sha256": "2c33b99c359d3a8538d1456d9b0314fb87b68a4a3713ca9f10e84f42e87d979e",
+      "started_at": "2026-10-11T02:21:45.758Z",
+      "ended_at": "2026-10-11T02:21:47.074Z",
+      "exit_code": 0,
+      "signal": null,
+      "launch_error": null,
+      "status": "ok",
+      "failure_kind": null,
+      "exception_class": null,
+      "observed": {
+        "name": "empty-trace",
+        "cases": [
+          {
+            "name": "case-1",
+            "events": []
+          }
+        ],
+        "consumer": {
+          "variants": [
+            {
+              "count": 1,
+              "sequence": []
+            }
+          ],
+          "cases": 1,
+          "activities": 0,
+          "events": 0
+        }
+      },
+      "stdout_sha256": "aebb2d765e8ef41053c31a52da13677312a7cb0fe315b7d32ff23374824281af",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "unicode",
+      "input_sha256": "dd412c1a96ae514f937bf3d844e3bf9dcaff210a9c5c6b1b423588758223b07e",
+      "started_at": "2026-10-11T02:21:47.075Z",
+      "ended_at": "2026-10-11T02:21:48.419Z",
+      "exit_code": 0,
+      "signal": null,
+      "launch_error": null,
+      "status": "ok",
+      "failure_kind": null,
+      "exception_class": null,
+      "observed": {
+        "name": "unicode",
+        "cases": [
+          {
+            "name": "case-1",
+            "events": [
+              {
+                "ordinal": 0,
+                "activity": "审批\nمرحبا",
+                "timestamp_millis": null,
+                "lifecycle": null,
+                "timestamp_attribute_type": null,
+                "timestamp_attribute_value": null
+              },
+              {
+                "ordinal": 1,
+                "activity": "終わり",
+                "timestamp_millis": null,
+                "lifecycle": null,
+                "timestamp_attribute_type": null,
+                "timestamp_attribute_value": null
+              }
+            ]
+          }
+        ],
+        "consumer": {
+          "variants": [
+            {
+              "count": 1,
+              "sequence": [
+                "审批\nمرحبا",
+                "終わり"
+              ]
+            }
+          ],
+          "cases": 1,
+          "activities": 2,
+          "events": 2
+        }
+      },
+      "stdout_sha256": "c17ad08ab6ad0d3248f714f23545e234ef88784194ec62821238748be6d324dc",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "submillisecond",
+      "input_sha256": "21bf86ad1f722fba7b9fe852558a533622851f5599f618c50f032871114140ac",
+      "started_at": "2026-10-11T02:21:48.419Z",
+      "ended_at": "2026-10-11T02:21:49.751Z",
+      "exit_code": 0,
+      "signal": null,
+      "launch_error": null,
+      "status": "ok",
+      "failure_kind": null,
+      "exception_class": null,
+      "observed": {
+        "name": "submillisecond",
+        "cases": [
+          {
+            "name": "case-1",
+            "events": [
+              {
+                "ordinal": 0,
+                "activity": "A",
+                "timestamp_millis": 1767261600123,
+                "lifecycle": null,
+                "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                "timestamp_attribute_value": "2026-01-01T10:00:00.123Z"
+              }
+            ]
+          }
+        ],
+        "consumer": {
+          "variants": [
+            {
+              "count": 1,
+              "sequence": [
+                "A"
+              ]
+            }
+          ],
+          "cases": 1,
+          "activities": 1,
+          "events": 1
+        }
+      },
+      "stdout_sha256": "edc1630498616b3272d99b7b6ff38d57b1f4998f9b152428d0ec6c7eaa1f8dd5",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}
