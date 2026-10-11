@@ -74,6 +74,14 @@ struct AuthData {
 pub(crate) fn validate_stored(value: &serde_json::Value) -> Result<(), ImportError> {
     let data: AuthData = serde_json::from_value(value.clone()).map_err(|_| denied())?;
     data.audit.validate()?;
+    if data
+        .audit
+        .0
+        .keys()
+        .any(|project| !data.projects.contains_key(project))
+    {
+        return Err(denied());
+    }
     if serde_json::to_value(&data).map_err(|_| denied())? != *value {
         return Err(denied());
     }

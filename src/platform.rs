@@ -127,7 +127,22 @@ impl Platform {
                     "Неполный набор записей проекта.",
                 ));
             }
+            let interrupted = header
+                .durable_jobs
+                .values()
+                .filter(|job| !job.is_terminal())
+                .map(|job| job.id.clone())
+                .collect();
             if header.recover() {
+                header.audit.append(
+                    "system",
+                    id,
+                    "jobs_interrupted_after_restart",
+                    interrupted,
+                    revision
+                        .checked_add(1)
+                        .ok_or_else(|| failure("storage_conflict", "Счётчик проекта исчерпан."))?,
+                )?;
                 self.database
                     .write_project(crate::normalized::ProjectWrite {
                         project: id.into(),
@@ -142,8 +157,24 @@ impl Platform {
     }
     fn recover_repository(&self, id: &str, repository: &mut Repository) -> Result<(), ImportError> {
         let mut header = crate::repository_v2::header(repository);
+        let interrupted = header
+            .durable_jobs
+            .values()
+            .filter(|job| !job.is_terminal())
+            .map(|job| job.id.clone())
+            .collect();
         if header.recover() {
             repository.durable_jobs = header.durable_jobs;
+            repository.audit.append(
+                "system",
+                id,
+                "jobs_interrupted_after_restart",
+                interrupted,
+                repository
+                    .storage_revision
+                    .checked_add(1)
+                    .ok_or_else(|| failure("storage_conflict", "Счётчик проекта исчерпан."))?,
+            )?;
             let write = crate::repository_v2::prepare(id, repository, false)?;
             repository.storage_revision = self.database.write_project(write)?;
             crate::repository_v2::mark_persisted(repository);

@@ -59,7 +59,7 @@ pub(crate) fn projects(actor: &Actor, projects: &[Project]) -> String {
         }
         html.push_str(&format!("<tr><td>{} {}</td><td>{}</td><td><form method=\"post\" action=\"/projects/{id}/open\"><button class=\"small-button\" type=\"submit\">{}</button></form></td></tr>", html_escape(&project.name), if current { "<span class=\"platform-badge\">Текущий</span>" } else { "" }, role_label(role), if current { "Открыть текущий" } else { "Открыть" }));
         if role == Role::Owner && actor.role.can_write() {
-            html.push_str(&format!("<tr><td colspan=\"3\"><details><summary>Название и архив</summary><form class=\"platform-form\" method=\"post\" action=\"/projects/{id}/rename\"><input type=\"hidden\" name=\"revision\" value=\"{}\"><label>Название проекта<input name=\"name\" value=\"{}\" required maxlength=\"200\"></label><button class=\"button\">Переименовать</button></form><form method=\"post\" action=\"/projects/{id}/archive\"><input type=\"hidden\" name=\"revision\" value=\"{}\"><p>Архив закрывает доступ к изменению проекта и сохраняет данные. Для текущего проекта нужен другой доступный проект.</p><button class=\"button\">Архивировать проект</button></form></details></td></tr>", project.revision, html_escape(&project.name), project.revision));
+            html.push_str(&format!("<tr><td colspan=\"3\"><details><summary>Название и архив</summary><form class=\"platform-form\" method=\"post\" action=\"/projects/{id}/rename\"><input type=\"hidden\" name=\"revision\" value=\"{}\"><label>Название проекта<input name=\"name\" value=\"{}\" required maxlength=\"200\"></label><button class=\"button\">Переименовать</button></form><form method=\"post\" action=\"/projects/{id}/archive\"><input type=\"hidden\" name=\"revision\" value=\"{}\"><p>Архив закрывает доступ к проекту до восстановления и сохраняет данные. Для текущего проекта нужен другой доступный проект.</p><button class=\"button\">Архивировать проект</button></form></details></td></tr>", project.revision, html_escape(&project.name), project.revision));
             html.push_str(&format!("<tr><td colspan=\"3\"><details><summary>Дать доступ к проекту «{}»</summary><form class=\"platform-form\" method=\"post\" action=\"/projects/{id}/members\"><label>Имя пользователя<input name=\"username\" required maxlength=\"80\" autocomplete=\"off\"></label><label>Права<select name=\"role\"><option value=\"viewer\">Наблюдатель — просмотр и экспорт</option><option value=\"editor\">Редактор — просмотр и изменение</option></select></label><button class=\"button\" type=\"submit\">Предоставить доступ</button><small>Пользователь должен уже иметь учётную запись. Эта операция изменяет его права в выбранном проекте.</small></form></details></td></tr>", html_escape(&project.name)));
         }
     }
@@ -95,6 +95,14 @@ pub(crate) fn audit(trail: &crate::audit::AuditTrail, auth: &serde_json::Value) 
             "model_saved" => "Сохранение модели",
             "model_created" => "Создание модели",
             "folder_changed" => "Изменение папок",
+            "folder_created" => "Создание папки",
+            "folder_renamed" => "Переименование папки",
+            "folder_moved" => "Перемещение папки",
+            "folder_deleted" => "Удаление пустой папки",
+            "resource_moved" => "Перемещение ресурса в папку",
+            "view_changed" => "Сохранение представления",
+            "job_updated" => "Изменение задачи",
+            "jobs_interrupted_after_restart" => "Прерывание задач после перезапуска",
             "repository_updated" => "Обновление проекта",
             other => other,
         };
@@ -120,9 +128,33 @@ pub(crate) fn folders(
     resources: &[(String, String)],
     writable: bool,
 ) -> String {
+    let path = |id: &str| {
+        let mut parts = Vec::new();
+        let mut current = Some(id);
+        // Organization is validated before rendering; retain a bounded fallback.
+        for _ in 0..128 {
+            let Some(folder) = current.and_then(|id| org.folders.get(id)) else {
+                break;
+            };
+            parts.push(folder.name.as_str());
+            current = folder.parent.as_deref();
+        }
+        parts.reverse();
+        let mut label = parts.join(" / ");
+        if label.len() > 512 {
+            let leaf = parts.last().copied().unwrap_or_default();
+            let mut boundary = 256.min(label.len());
+            while !label.is_char_boundary(boundary) {
+                boundary -= 1;
+            }
+            label = format!("{} … / {leaf}", &label[..boundary]);
+        }
+        // IDs distinguish literal slash-containing names and truncated paths too.
+        format!("{label} [{id}]")
+    };
     let options = |selected: Option<&str>| {
         let mut html = "<option value=\"\">Корень проекта</option>".to_owned();
-        for (id, folder) in &org.folders {
+        for id in org.folders.keys() {
             html.push_str(&format!(
                 "<option value=\"{}\" {}>{}</option>",
                 html_escape(id),
@@ -131,7 +163,7 @@ pub(crate) fn folders(
                 } else {
                     ""
                 },
-                html_escape(&folder.name)
+                html_escape(&path(id))
             ));
         }
         html
@@ -145,13 +177,12 @@ pub(crate) fn folders(
     for (id, folder) in &org.folders {
         let parent = folder
             .parent
-            .as_ref()
-            .and_then(|id| org.folders.get(id))
-            .map_or("Корень проекта", |p| p.name.as_str());
+            .as_deref()
+            .map_or_else(|| "Корень проекта".into(), path);
         html.push_str(&format!(
             "<tr><td>{}</td><td>{}</td><td>",
-            html_escape(&folder.name),
-            html_escape(parent)
+            html_escape(&path(id)),
+            html_escape(&parent)
         ));
         if writable {
             html.push_str(&format!("<details><summary>Название, перенос и удаление</summary><form method=\"post\" action=\"/folders/{id}/rename\">{hidden}<input name=\"name\" value=\"{}\" required maxlength=\"200\"><button>Переименовать</button></form><form method=\"post\" action=\"/folders/{id}/move\">{hidden}<select name=\"parent\">{}</select><button>Переместить</button></form><form method=\"post\" action=\"/folders/{id}/delete\">{hidden}<button>Удалить пустую папку</button></form></details>",html_escape(&folder.name),options(folder.parent.as_deref())));
@@ -161,9 +192,7 @@ pub(crate) fn folders(
     html.push_str("</tbody></table><h2>Журналы и модели</h2><table class=\"platform-table\"><thead><tr><th>Ресурс</th><th>Папка</th><th>Переместить</th></tr></thead><tbody>");
     for (id, name) in resources {
         let folder_id = org.assignments.get(id);
-        let folder_name = folder_id
-            .and_then(|id| org.folders.get(id))
-            .map_or("Корень проекта", |f| f.name.as_str());
+        let folder_name = folder_id.map_or_else(|| "Корень проекта".into(), |id| path(id));
         let route = if id.starts_with("log-") {
             "logs"
         } else {
@@ -173,7 +202,7 @@ pub(crate) fn folders(
             "<tr><td><a href=\"/{route}/{}\">{}</a></td><td>{}</td><td>",
             route_id(id),
             html_escape(name),
-            html_escape(folder_name)
+            html_escape(&folder_name)
         ));
         if writable {
             html.push_str(&format!("<form method=\"post\" action=\"/folders/assign\">{hidden}<input type=\"hidden\" name=\"resource\" value=\"{}\"><select name=\"folder\">{}</select><button>Переместить</button></form>",html_escape(id),options(folder_id.map(String::as_str))));
@@ -218,14 +247,28 @@ pub(crate) fn xes_preview(
             change.case_index,
             change.event_index.map_or("—".into(), |i| i.to_string()),
             html_escape(label),
-            html_escape(&change.reasons.join(", "))
+            html_escape(
+                &change
+                    .reasons
+                    .iter()
+                    .map(|reason| match *reason {
+                        "missing_lifecycle" => "Не указан этап lifecycle",
+                        "missing_activity" => "Нет имени действия",
+                        "missing_timestamp" => "Нет времени события",
+                        "unsupported_lifecycle" => "Поддерживаются только start и complete",
+                        "empty_case" => "В трассе не осталось событий",
+                        other => other,
+                    })
+                    .collect::<Vec<_>>()
+                    .join(", ")
+            )
         ));
     }
     html.push_str(&format!("</tbody></table><p>Показано {} из {} действий. <a href=\"/xes/previews/{token}/report\">Скачать полный отчёт JSON</a></p>", preview.changes.len().min(200), preview.changes.len()));
     if preview.fully_filtered {
         html.push_str("<p role=\"alert\"><strong>После фильтрации журнал пуст. Подтверждение недоступно.</strong> Исправьте исходный файл или выберите строгий импорт.</p>");
     } else {
-        html.push_str(&format!("<form class=\"platform-form\" method=\"post\" action=\"/xes/import\"><input type=\"hidden\" name=\"token\" value=\"{token}\"><label><input type=\"checkbox\" name=\"consent\" value=\"yes\" required> Сохранить новый журнал с показанными изменениями, исходным файлом и историей импорта</label><button class=\"button primary\" type=\"submit\">Подтвердить импорт</button></form><p>После начала подтверждения отмена не принимается. Не закрывайте страницу до ответа. Повтор того же подтверждения открывает тот же журнал.</p>"));
+        html.push_str(&format!("<form class=\"platform-form\" method=\"post\" action=\"/xes/import\"><input type=\"hidden\" name=\"token\" value=\"{token}\"><label><input type=\"checkbox\" name=\"consent\" value=\"yes\" required> Сохранить новый журнал с показанными изменениями, исходным файлом и историей импорта</label><button class=\"button primary\" type=\"submit\">Подтвердить импорт</button></form><p>После начала подтверждения отмена не принимается. Не закрывайте страницу до ответа. Повтор того же подтверждения открывает тот же журнал в течение пяти минут, пока приложение не перезапущено.</p>"));
     }
     html.push_str(&format!("<form method=\"post\" action=\"/xes/cancel\"><input type=\"hidden\" name=\"token\" value=\"{token}\"><button class=\"button\" type=\"submit\">Отменить просмотр</button></form></section>"));
     html

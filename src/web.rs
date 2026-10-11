@@ -277,13 +277,6 @@ impl AppState {
     ) -> Result<(), crate::domain::ImportError> {
         self.commit_with_action(next, true, action, resources)
     }
-    fn commit_with_capacity(
-        &self,
-        next: &mut Repository,
-        importing: bool,
-    ) -> Result<(), crate::domain::ImportError> {
-        self.commit_with_action(next, importing, "job_updated", vec![])
-    }
     fn commit_with_action(
         &self,
         next: &mut Repository,
@@ -1003,7 +996,7 @@ pub(crate) fn persist_job(
         next.durable_jobs.remove(id);
     }
     // Terminal/cancel persistence uses the headroom reserved by payload writes.
-    state.commit_with_capacity(&mut next, new_job)?;
+    state.commit_with_action(&mut next, new_job, "job_updated", vec![snapshot.id.clone()])?;
     *repository = next;
     Ok(())
 }
