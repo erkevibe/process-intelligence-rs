@@ -1,0 +1,93 @@
+{
+  "utc": "2026-10-11T07:44:40.606Z",
+  "head": "68e31a9fc4438cd7e429c01b9421daf6a0b8c4aa",
+  "source": "3ba4cbbd6ffdc00c1185eb726dd01445eba86a9e",
+  "run_id": 38122185500,
+  "conclusion": "success",
+  "pass": true,
+  "all14_fullbytes_read_and_sha_verified": [
+    {
+      "path": "0_linux.txt",
+      "bytes": 86534,
+      "sha256": "522385e03cb0667f6e4c903d83dbd596a7c3d4bbc0926bd6df895d4c05c03a48"
+    },
+    {
+      "path": "linux/1_Set up job.txt",
+      "bytes": 2102,
+      "sha256": "c9c9d31d23799b8411d32a87fd2994c38963d2f906044843bb58bce72f2177b6"
+    },
+    {
+      "path": "linux/10_Run actions_upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9.txt",
+      "bytes": 1744,
+      "sha256": "42b9905581b394199fb60d170d25abd08e529db1e3c19f87949c86e735953508"
+    },
+    {
+      "path": "linux/2_Run actions_checkout@3d3c42e5aac5ba805825da76410c181273ba90b1.txt",
+      "bytes": 11445,
+      "sha256": "c0d100070bc87fcadb637da446b628c6a07cdb79b6993ce93387e97222d3fc54"
+    },
+    {
+      "path": "linux/20_Post Run actions_checkout@3d3c42e5aac5ba805825da76410c181273ba90b1.txt",
+      "bytes": 1773,
+      "sha256": "eee6e04b04a69539518f6007887c764e849d6506af4649daa04e48578b0ba426"
+    },
+    {
+      "path": "linux/21_Complete job.txt",
+      "bytes": 61,
+      "sha256": "493a53a23d4e45ed481d5e9e6ff96dab29505f5c24b83bc4f130c22955497413"
+    },
+    {
+      "path": "linux/3_Pinned toolchain.txt",
+      "bytes": 769,
+      "sha256": "31bd710aa87e0bfc6868d37bc574b3b963ad4f6c99c500fbdf7dca1343054c1e"
+    },
+    {
+      "path": "linux/4_Run cargo fmt --all -- --check.txt",
+      "bytes": 238,
+      "sha256": "5178da3161c4fecdeae83be03cba3ce9dee660665d1b84720425f985fd614348"
+    },
+    {
+      "path": "linux/5_Run cargo clippy --locked --all-targets -- -D warnings.txt",
+      "bytes": 23907,
+      "sha256": "39ce914bf1d77c2b26c54bfd007f9132682136f6e2b61993974fd0e7f1d8a592"
+    },
+    {
+      "path": "linux/6_Run cargo test --locked --all-targets.txt",
+      "bytes": 31187,
+      "sha256": "30ee1f28c2bbcc59a2c38576537d42b872cee157974f7a97aaab5ebd8fad6494"
+    },
+    {
+      "path": "linux/7_XES oracle provenance guards.txt",
+      "bytes": 397,
+      "sha256": "19442607c4674f8a0c2cb72ab0ffa1565470922f2a97463a190762b4cc0a50a5"
+    },
+    {
+      "path": "linux/8_Service method provenance guards.txt",
+      "bytes": 467,
+      "sha256": "626d774736a425001468b67e71e26f186728339da96e73a888d295a673cee348"
+    },
+    {
+      "path": "linux/9_Build release and local health smoke.txt",
+      "bytes": 12477,
+      "sha256": "f03a422afdc2d234d051c3d30ac0aef6a495a9ee3e90d6a7fb4226d067166e94"
+    },
+    {
+      "path": "linux/system.txt",
+      "bytes": 581,
+      "sha256": "a89d4dff6388814bc2e6a29a8f4f3978fb15231bf4613141709cbe0c14913479"
+    }
+  ],
+  "ordinary_passed": 97,
+  "ignored_pg": 14,
+  "guards": [
+    5,
+    7
+  ],
+  "toolchain": "1.99.0",
+  "fmt_clippy_release_ephemeral_health": true,
+  "runtime_workflow_diff_empty": true,
+  "scope": "Independent full available Linux job byte/semantic audit; actualPG/Java/nativeWindows not executed byCI. Child guard stdout/assertions not individuallypersisted rawstreams. No new runtime tests.",
+  "rootproof_sha256": "7d82a2de6f2f4ed1f03d413ee882c6a7b50dd54734741ab3fc495bd72215dc84",
+  "delivery_fixed_sha256": "c006a6814dd9c2279bcc05226adff782b2ed55c2dc85231f2d8379c928ee80af",
+  "external_receipt": "Pending Root actual publication/review; this audit alone not A08 receipt completion."
+}

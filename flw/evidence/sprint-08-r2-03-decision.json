@@ -1,0 +1,47 @@
+{
+  "proposal_sha256": "13B145F0493FB2EFE5E1A42A7942C1D17F98F26B0028264FC81AEDBA2F772720",
+  "decision_utc": "2026-10-11T08:13:18.7374694Z",
+  "definition_sha256": "CA6E7470FF31FA3493E00578B4C12755AE28AD9681C47701DD7C8CF70C4364B0",
+  "fixed_voters": 5,
+  "actual_for": 5,
+  "actual_against": 0,
+  "pending": [],
+  "verdict": "ACCEPT original finite R2-03 on exact0.6.1; final factual evidence publication/CI/source checks remain mandatory",
+  "source": "3ba4cbbd6ffdc00c1185eb726dd01445eba86a9e",
+  "exe_sha256": "D0EDFFD23AAA33EB5D31EB0A4B7917D33519AD36E6F32E949B5F551C170F20F5",
+  "zip_sha256": "8442298B31F0E4AD749EDB9D981109AEB360A0989038D46E92E35719BE2025DB",
+  "full_R2_R5": "NOT CLOSED; R2-01 BLOCKED/R2-02 OPEN, R3-03 separate exact0.6",
+  "votes": [
+    {
+      "role": "Root",
+      "path": "flw/evidence/sprint-08-root-r2-03-vote.json",
+      "sha256": "AB1A0C07BE2ABCFBDFF1E5F21DAE00551DDA353584EB552B3813DA9137F76ABF",
+      "vote": "FOR"
+    },
+    {
+      "role": "PM",
+      "path": "flw/evidence/sprint-08-pm-r2-03-vote.md",
+      "sha256": "E355FCCC0F7520B73D39E08C446DF504689640F0D0BFF829E2369B702A7B0BA6",
+      "vote": "FOR"
+    },
+    {
+      "role": "Customer",
+      "path": "flw/evidence/sprint-08-customer-r2-03-vote.md",
+      "sha256": "51521B8B48F806198D0BBDC1DF32D0D998087A94321A03D2A545B74C746E291F",
+      "vote": "FOR"
+    },
+    {
+      "role": "QA",
+      "path": "flw/evidence/sprint-08-qa-r2-03-vote.md",
+      "sha256": "F1F7064B41484A7344DC564E47664EC4F24A307F6DEEE3AADCC98B3D6165E644",
+      "vote": "FOR"
+    },
+    {
+      "role": "TechnicalDebt",
+      "path": "flw/evidence/sprint-08-td-r2-03-vote.md",
+      "sha256": "BFA1F75F2303E037703B4AF525A51279CA3080D855233951974034EE30942F76",
+      "vote": "FOR"
+    }
+  ],
+  "scope": "Original finite operatorpreview only; exactsource-bound history plus currentactualHTTPresponse-loss/repeat/restart/manualrecovery. Save reportANDURLUUID/fullSHA essential; no PGCOMMITACK/globalexactlyonce/dedup/R3transfer/fullstage credit. No runtime/package/tag/protected mutation."
+}

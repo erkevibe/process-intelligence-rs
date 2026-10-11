@@ -1,0 +1,229 @@
+{
+  "utc": "2026-10-11T08:04:36.983Z",
+  "role": "Independent QA / ProcessLogAuditor",
+  "source_commit": "3ba4cbbd6ffdc00c1185eb726dd01445eba86a9e",
+  "exe_sha256": "D0EDFFD23AAA33EB5D31EB0A4B7917D33519AD36E6F32E949B5F551C170F20F5",
+  "position": "Supported finite HTTP-response-loss branch and source-bound minimum-proof crosswalk; full R2-03 requires separate exact Council decision.",
+  "fault": {
+    "started_utc": "2026-10-11T07:53:47.798Z",
+    "node_pid": 49460,
+    "upstream_requests": 1,
+    "downstream_status_seen": false,
+    "scope": "One-shot HTTP303 response loss AFTER observed completed upstream; no PostgreSQL COMMITACK/exactlyonce claim.",
+    "first_fault_utc": "2026-10-11T07:53:47.841Z",
+    "completed_upstream_utc": "2026-10-11T07:53:47.854Z",
+    "upstream": {
+      "status": 303,
+      "location": "/logs/log-13",
+      "entity_bytes": 0,
+      "entity_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "complete": true,
+      "headers": [
+        "location",
+        "/logs/log-13",
+        "x-request-id",
+        "0ebf6699-9814-4f07-aed4-ce8368fe6795",
+        "x-content-type-options",
+        "nosniff",
+        "referrer-policy",
+        "same-origin",
+        "cache-control",
+        "no-store",
+        "transfer-encoding",
+        "chunked",
+        "date",
+        "Sun, 11 Oct 2026 07:53:47 GMT"
+      ]
+    },
+    "intentional_downstream_eof_utc": "2026-10-11T07:53:47.856Z",
+    "client_error": {
+      "code": "ECONNRESET",
+      "message": "socket hang up"
+    },
+    "finished_utc": "2026-10-11T07:53:47.857Z",
+    "pass": true
+  },
+  "live": {
+    "pass": true,
+    "completed_utc": "2026-10-11T07:54:48.677Z",
+    "id": "/logs/log-13",
+    "token_uuid": "a86fc578-623c-496a-a8b7-e7390a3e0fc7",
+    "project_id": "project-5e27b45adf2a4a63a76f363a425f2bfd",
+    "old_heavy_records_preserved": 60,
+    "new_normalized_records": 4,
+    "one_success_audit": true,
+    "live_repeat_same_id_no_SQL_or_audit_changes": true,
+    "export_sha256": "1981f4b2a1eb0373b453971d10dd341f9ce7adcdc202ebcd53f267a4bee8c667",
+    "original_sha256": "6643664a01a640544f7d3b49d931bc3bab2c82336ae4132e5e036450ae8ceec6",
+    "history_sha256": "254b2939d06e3cfcb4b1e90d72930ac186d6fbacb5b48e8f949ea2fdbbc36752",
+    "created_at": "2026-10-11T07:53:47.846867900Z",
+    "scope": "Actual observedHTTPresponse-loss branch only; no DBACK/exactlyonce/globalduplicate claim. Metadataheader/audit changed by successful import, oldheavyrecords unchanged."
+  },
+  "restart": {
+    "pass": true,
+    "finished_utc": "2026-10-11T07:56:21.448Z",
+    "old_token_422_preview_expired": true,
+    "saved_result_id": "/logs/log-13",
+    "saved_report_url": "/xes/previews/a86fc578-623c-496a-a8b7-e7390a3e0fc7/report",
+    "saved_uuid": "a86fc578-623c-496a-a8b7-e7390a3e0fc7",
+    "manual_uuid_history_source_sha_reconciled": true,
+    "full_export_date_analysis_sha256": "1981f4b2a1eb0373b453971d10dd341f9ce7adcdc202ebcd53f267a4bee8c667",
+    "full_raw_sha256": "6643664a01a640544f7d3b49d931bc3bab2c82336ae4132e5e036450ae8ceec6",
+    "full_history_sha256": "254b2939d06e3cfcb4b1e90d72930ac186d6fbacb5b48e8f949ea2fdbbc36752",
+    "old60heavyrows_preserved": true,
+    "one_import_audit_after_restart": true,
+    "all_SQL_before_after_refusal_and_reconciliation_same": true,
+    "limits": [
+      "Report itself lacks UUID: preserve URL+report, UUID appears in durable history.",
+      "Manual result lookup uses observed liveLocation plus savedUUID/history; not automatic dedup or token restoration.",
+      "No lostPGCOMMITACK/generalexactlyonce/fullR2-03 claim."
+    ]
+  },
+  "manual_scan": {
+    "pass": true,
+    "finished_utc": "2026-10-11T07:56:53.369Z",
+    "candidate_count": 1,
+    "matched_by_saved_report_URL_uuid_and_fullsourceSHA": [
+      "/logs/log-13"
+    ],
+    "selected_full_export_sha256": "1981f4b2a1eb0373b453971d10dd341f9ce7adcdc202ebcd53f267a4bee8c667",
+    "scope": "Actual list→read each history→match saved URLUUID+sourceSHA→open exactresult. Does not consume proxy303Location/liveID in selection; no reupload. ReportJSONalone lacksUUID."
+  },
+  "full_binding": {
+    "utc": "2026-10-11T08:03:53.553Z",
+    "pass": true,
+    "source_commit": "3ba4cbbd6ffdc00c1185eb726dd01445eba86a9e",
+    "operation_uuid": "a86fc578-623c-496a-a8b7-e7390a3e0fc7",
+    "policy": "apromore-validateLog-bbf24df-preview-v1",
+    "actions": [],
+    "source_cases": 2,
+    "source_events": 4,
+    "source_sha256": "6643664a01a640544f7d3b49d931bc3bab2c82336ae4132e5e036450ae8ceec6",
+    "created_at": "2026-10-11T07:53:47.846867900Z",
+    "full_raw_byte_equality_before_after_restart": true,
+    "full_history_byte_equality": true,
+    "full_export_including_date_analysis_byte_equality": true,
+    "export_sha256": "1981f4b2a1eb0373b453971d10dd341f9ce7adcdc202ebcd53f267a4bee8c667",
+    "scope": "Existing preserved bytes only; no new HTTP request, login, SQL, fault or import. Current zero-action input does not replace historical seven-action default/removal evidence."
+  },
+  "restart_identity": {
+    "utc": "2026-10-11T07:56:58.2428460Z",
+    "pid": 14320,
+    "creation_utc": "2026-10-11T07:55:46.2466340Z",
+    "path": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint08\\qa\\c06-native01\\process-intelligence-rs-0.6.1-windows-x86_64\\process-intelligence-rs.exe",
+    "exe_sha256": "D0EDFFD23AAA33EB5D31EB0A4B7917D33519AD36E6F32E949B5F551C170F20F5"
+  },
+  "forced_exit": {
+    "utc": "2026-10-11T07:55:39.1375368Z",
+    "pid": 38692,
+    "creation_utc": "2026-10-11T07:11:20.1042560Z",
+    "path": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint08\\qa\\c06-native01\\process-intelligence-rs-0.6.1-windows-x86_64\\process-intelligence-rs.exe",
+    "exe_sha256": "D0EDFFD23AAA33EB5D31EB0A4B7917D33519AD36E6F32E949B5F551C170F20F5",
+    "forced_child_exit": -1,
+    "handle_acquired_before_kill": true
+  },
+  "raw_inventory": {
+    "path": ".local/sprint08/qa/p5-response-loss01/inventory-final11.json",
+    "sha256": "7209df7a5ace59e38be21c9b0014f4cc939256cee7ea1f27bf4df2e2a0937c99",
+    "count": 114,
+    "bytes": 209763,
+    "unreadable": 0
+  },
+  "inputs": [
+    {
+      "path": "flw/evidence/sprint-08-customer-http-response-loss-review.md",
+      "bytes": 6471,
+      "sha256": "b0a29c41865ad24925728a1f9a13017aeb2460027de9fee6c5aaca034c614dc8"
+    },
+    {
+      "path": "flw/evidence/sprint-08-td-r2-03-reuse-inventory.json",
+      "bytes": 14478,
+      "sha256": "1eb34722baa2ed0151f08b92d7b0bb8c5fe5b9b6722be3a085696443e8ede4ba"
+    },
+    {
+      "path": "flw/evidence/sprint-08-qa-frozen-final.json",
+      "bytes": 8098,
+      "sha256": "6f6f925e96c661a1ca2757de71f38a5c5c0349b4b22a79a64aa79297319ca226"
+    },
+    {
+      "path": "flw/evidence/sprint-08-qa-runtime-binding-supplement.json",
+      "bytes": 14157,
+      "sha256": "f8e773d77fe6bb0b5602da73bd3164d62b53703ce0517a2e85d7903debe54a17"
+    },
+    {
+      "path": "flw/evidence/sprint-08-qa-c06-local.json",
+      "bytes": 25387,
+      "sha256": "87bbf08e108a67630b9d8de060aa7338302e993f48a23e19bd5ae1f8cf31bf68"
+    },
+    {
+      "path": "flw/evidence/sprint-08-qa-c06-binding-supplement.json",
+      "bytes": 7607,
+      "sha256": "4dccbc5fc23acdae5b21e6fdbb9dca15026e9f9b147b38914f4d7521c338d488"
+    },
+    {
+      "path": "flw/evidence/sprint-08-qa-c06-delivery.json",
+      "bytes": 13077,
+      "sha256": "c006a6814dd9c2279bcc05226adff782b2ed55c2dc85231f2d8379c928ee80af"
+    },
+    {
+      "path": ".local/sprint08/qa/frozen-live01/report.json",
+      "bytes": 621,
+      "sha256": "395efaeb34dff871b3ffdbaba3acd567bac6a1de7aa1fa6b81eabd3dd8e5e0c9"
+    },
+    {
+      "path": ".local/sprint08/qa/frozen-preview-limits01/report.json",
+      "bytes": 495,
+      "sha256": "e6a50f6a7daf79cd92e33b8add4bef8632ca23425108ccb18c03660359583f4a"
+    },
+    {
+      "path": ".local/sprint08/qa/frozen-action-cap01/report.json",
+      "bytes": 511,
+      "sha256": "0d8c790e94b98d20b0f70273454350c937546dbdb18ef0c7002513e609d50c01"
+    },
+    {
+      "path": ".local/sprint08/qa/frozen-archive03/report.json",
+      "bytes": 572,
+      "sha256": "344f544121254f2bdb4da7c3da627e7d9fe29a19467c0745053f9835128f89b0"
+    }
+  ],
+  "crosswalk": [
+    {
+      "criterion": "Before-write source counts and manual default/removal actions",
+      "proof": "Historical frozen-live01 exact 95D/281d: source2/5 and seven exact actions, no visible saved log before confirm; unchanged parser/preview/provenance bound by independently verified37 Git blobs. Current P5 source2/4/actions0 does not replace seven-action coverage."
+    },
+    {
+      "criterion": "Consent, refusals, original bytes, policy/actions/UUID",
+      "proof": "Historical frozen-live01 foreign report/confirm and no-consent refusal, fully-removed refusal; current full-binding10 compares whole raw bytes, policy/actions/UUID/schema/counts and complete history/export before and after restart. Created_at affected publisher re-executed on D0ED."
+    },
+    {
+      "criterion": "Capacity, expiry and raw/action limits",
+      "proof": "Named frozen-preview-limits01 actual two-ready/third refusal and real305s expiry, full SQL conservation; frozen-action-cap01 actual220000 actions refused at200000 with SQL conservation. Stale scope label retained and resolved only by F8E runtime binding; preview/parser limits unchanged in37-path inventory."
+    },
+    {
+      "criterion": "RBAC/session/archive/current rights",
+      "proof": "Frozen token-owner foreign denial and current C06 viewer/foreign/current rights; frozen-archive03 specific archive denial. Auth and preview binding unchanged. No blanket transfer of ignored PG suites."
+    },
+    {
+      "criterion": "Repeat/cancel/restart/reconciliation",
+      "proof": "Historical cancel-before-confirm; current one complete upstream303 followed by client EOF, live repeat sameID/fullSQL+singleaudit unchanged; exact guarded kill exit-1 and newD0ED restart; oldtoken/report422; whole export/raw/history preserved. Blind Customer5PASS independently selected via visible list/history UUID+fullSHA without Location."
+    },
+    {
+      "criterion": "Strict default parser remains strict",
+      "proof": "Current frozen ordinary97 tests,14PG explicitlyignored; four service_preview tests verify strict missingactivity/type/duplicate/DTD refusal and preview stability. Unit scope, no invented new HTTP negative run."
+    }
+  ],
+  "failures": [
+    "First free-port guard had nonterminating typo; corrected explicit count0 before fault.",
+    "Initial live verifier expected five normalized records; source has four log kinds. Exit1 preserved, prospective count addendum then continuation0.",
+    "Customer p5-01 relative URL parsing failed before browser; p5-02 base-aware parsing PASS5 exit0.",
+    "Default exec setup-refresh error occurred before process creation; escalated authorized evidence reads worked."
+  ],
+  "limits": [
+    "No PostgreSQL COMMIT-ACK-loss, global exactly-once, durable token restore or automatic dedup claim.",
+    "Preview report JSON lacks UUID; operator must save report and URL before confirm; manual list/history reconciliation after restart.",
+    "Current project had one candidate; no many-similar-result discrimination proof.",
+    "Historical proofs reused only named unchanged mechanisms, changed publication/date paths checked currently; no wholefile/whole14ignored transfer.",
+    "Long-lived native launcher lifetime exit pending; restart logs live origins with bounded immutable snapshots, no full-machine/all-process capture.",
+    "No protected user data/SQL/login/process mutation; Customer synthetic login/open occurred after conservation snapshots closed."
+  ]
+}

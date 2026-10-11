@@ -1,0 +1,48 @@
+{
+  "review_utc": "2026-10-11T08:15:35.2162123Z",
+  "role": "Independent TechnicalDebt",
+  "verdict": "NEEDS narrow documentation correction before final metadata commit; no runtime blocker",
+  "inputs": [
+    {
+      "path": "docs/ROADMAP.md",
+      "sha256": "8813F90E7C1A66883F4E44FD73E9F1E61E2F154560AAC659A85173CFAC1F8675",
+      "read": "full; first combined output truncated, remainder separately read"
+    },
+    {
+      "path": "docs/SPRINT_08_REPORT.md",
+      "sha256": "20ACE15C46A3F80486103E1CC1931046CC76434D74ADE1FDA8668D1A96F02EF1",
+      "read": "full separate output"
+    },
+    {
+      "path": "docs/SPRINT_08_C06_RUNTIME.md",
+      "sha256": "9EE423EB36BAD651DAA0642224CF5F95736DD48AB82FE5B41B6C2BFCAEF42D75",
+      "read": "full"
+    },
+    {
+      "path": "flw/evidence/sprint-08-r2-03-decision.json",
+      "sha256": "12B7BD48AFE77F74DC17FFAF35C8C2049F2080E7878E805CDF0F6F0D3C0F498A",
+      "read": "full"
+    }
+  ],
+  "accepted_scope": "Three of fifteen finite original criteria: R3-03 exact0.6; R2-03 and R2-04 exact0.6.1. Twelve remain OPEN/BLOCKED; full stages NOT CLOSED.",
+  "source_scope": "git diff --name-only for src/static/templates/tools/tests/examples/Cargo/.github returned empty. This is working-tree metadata review, not future H7/public-source/CI acceptance.",
+  "finding": {
+    "id": "S8-TD-META01",
+    "evidence": "SPRINT_08_REPORT paragraph beginning После принятия0.6 Совет: two unqualified claims that A08/final metadataCI still awaits, although current A08 COMPLETE07:47 is established elsewhere",
+    "impact": "Ambiguous current delivery status; does not affect runtime or accepted criterion evidence",
+    "owner": "Root documentation",
+    "closure": "Label the paragraph explicitly as historical07:39UTC or update its A08 statements; independently re-read and hash revised report"
+  },
+  "controls": [
+    "Historical pending labels elsewhere explicitly time-bound; current new metadata publication/CI/receipt gates remain pending",
+    "No DB COMMIT-ACK/global exactly-once/fullservice/new R3 acceptance transfer",
+    "Manual URL UUID plus report/fullSHA, one-candidate and zero-action/current versus seven-action/historical scopes preserved",
+    "E1 four-log backup versus E2 seven exports/sixty rows separated; not full current stock PostgreSQL backup",
+    "DISK01 and native5 full backup remain unverified/open"
+  ],
+  "not_claimed": [
+    "New H7 CI/public source/receipt completion",
+    "Secret-free audit of every newly untracked evidence file",
+    "New functional tests, user SQL/login/process stops, runtime or package mutation"
+  ]
+}

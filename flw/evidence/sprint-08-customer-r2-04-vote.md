@@ -1,0 +1,11 @@
+# Sprint08 — Customer exact F5/R2-04 vote
+
+Customer customer_s6: **FOR** exact sprint-08-r2-04-proposal.md SHA25630ECD6F5C24D14B6B9B10F2051EB74E50037E10803A4BD1A58A04C0A3AE7ACD9. Full proposal/original eight definitions read and independently hashed; actual vote UTC2026-10-11T07:53:15.4817793Z captured after read/hash. Also read complete PM C06 acceptance ledger and concise independent QA/TD delivery positions. No F4 or other prior vote transferred.
+
+Accept only original finite R2-04 eight/eight scenarios on C3ba4cbbd6ffdc00c1185eb726dd01445eba86a9e / EXED0EDFFD23AAA33EB5D31EB0A4B7917D33519AD36E6F32E949B5F551C170F20F5 / publicZIP8442298B31F0E4AD749EDB9D981109AEB360A0989038D46E92E35719BE2025DB. Customer's actual82903DB61E4430B2EA9F14260495E9D47C4E242AD39979E2BFC3A8763F8BC79C browser evidence covers date/state/duplicate/legacy/viewer presentation; other rows rely on named nonauthor QA/TD mechanisms/executions/bindings, not Customer reruns.
+
+C02 is an honest degree-of-compatibility report from genuine extracted methods/eleven fixed examples, five supported/six divergences, with full service unverified. It does not claim canonical service parity. C03/C04 use declared semantic projection only across different imports; same-run preservation keeps full dates. C05 explicitly reuses the independently identical transaction spans for historical interruption proof, not a new0.6.1 SQL fault or R3-03 transfer. C07 four-log full restore and later seven-export conservation/oversize refusal remain distinct. C08 actual Running/parsing cancellation/responsiveness/restart is not inferred from crash or aggregate tests.
+
+F5 names completed immutable public/native/user/protected/final-CI/receipt gates and their independent review, so prior pending delivery positions remain historical. No allattemptzero/childexit/physicaluserDB or unboundedbackup claim. Original definitions remain unchanged and finite scenario success is not permission to hide remaining import/service limits.
+
+R2-01 BLOCKED; R2-02/03 and full R2–R5 remain open to their own decisions. R3-03 remains accepted separately on0.6, not automatically on0.6.1. P5 receives no credit or activation from this vote. No runtime/package/tag/user mutation authorised; factual metadata-only decision/receipt with actual CI permitted. Human final acceptance separate.

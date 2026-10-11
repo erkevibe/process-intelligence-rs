@@ -1,0 +1,29 @@
+# Sprint08 F5 — original finite R2-04 acceptance proposal
+
+Accept original R2-04 on immutable runtime 3ba4cbbd6ffdc00c1185eb726dd01445eba86a9e, EXE D0EDFFD23AAA33EB5D31EB0A4B7917D33519AD36E6F32E949B5F551C170F20F5, public ZIP 8442298B31F0E4AD749EDB9D981109AEB360A0989038D46E92E35719BE2025DB. This proposal changes status only; original scope CA6E7470FF31FA3493E00578B4C12755AE28AD9681C47701DD7C8CF70C4364B0 and eight definitions in docs/R2_SCENARIOS.md remain unchanged. Five NEW actual fixed votes Root/PM/Customer/QA/TechnicalDebt must read/hash this proposal and its named evidence. No borrowing F4 votes. Mandatory independent objections remain binding.
+
+## Eight original scenarios and exact evidence boundaries
+
+C01: anonymous public ZIP, fresh isolated native launch and actual browser import/export reproduce counts2cases/4events/3activities, variants and DFG, export schema/source SHA. QA delivery C006A6814DD9C2279BCC05226ADFF782B2ED55C2DC85231F2D8379C928EE80AF plus binding supplement 4DCCBC5FC23ACDAE5B21E6FDBB9DCA15026E9F9B147B38914F4D7521C338D488 name exact export and native attempts.
+
+C02: degree of compatibility is explicitly bounded, not full service parity. Genuine pinned Core bbf24dfd43e72d6992392465f875a4367cbe792b, two extracted unchanged validateLog/isInvalidEvent methods running real OpenXES, 11 cases with 5 supported and 6 divergent outcomes, fixed corpus49AF9FB9C981BA77A49190211A1DA1FBE1D9F9C4A595FC616754A2813F607B89 and comparison9A9D78E55329F8A53BA6ABC3527DB057EAFA03B7D852256205592C8BA1461CB8. Exact41-file/source-path equivalence reviewed by TD598CD45E025EE35DC2B6D8CA8C4CAAB98FF90A4D679D95D70701C9A302229EC2 and QA. No new Java/full class/full service execution. Original C02 asks matched/divergent table, so this bounded real oracle satisfies that finite scenario; R2-01 remains BLOCKED.
+
+C03: current CSV mapping/preview and equivalent XES, physical invalid row3 refusal422 and full SQL conservation. C04: source BAC versus timestamp ACB, equal-time Z/+01 stable BAC, explicit each-event lifecycle policy and export contract. Cross-input comparison excludes created_at only under declared semantic projection; same-run conservation keeps full dates.
+
+C05: current multiple IDs/results/policies survive actual restart and job cancellation, seven full exports and60 SQL values/versions conserved. Historical actual accepted0.6 interrupted SQL write/WAL evidence reused ONLY for identical transaction mechanism, exact source spans428bytes0FA9D139 and1368bytes5507BB27 named and independently matched in binding supplement. New date JSON is inside that same atomic transaction. Not a new current EXE SQL-fault run, not COMMIT-ACK loss or transfer of R3-03 acceptance.
+
+C06: four actual producer dates/UTC, legacy unknown/omitted date, duplicate escaped same names with distinct IDs and saved-analysis state; exact Customer eight browser groups82903DB61E4430B2EA9F14260495E9D47C4E242AD39979E2BFC3A8763F8BC79C. Metadata state does not assert heavy envelope integrity; integrity checked on open, jobs shown separately.
+
+C07: E1 full four-log backup/new restore retains hashes/counts/full StoredLogs/dates except explicit project remap; current/user_views intentionally rebound. Exact digest-valid null/number/bad-date restore refusals422backup_format and identical complete SQL before/after in supplement. E2 later seven-export/60-record conservation is separate; seven-log HTTP backup exceeds limit and correctly refuses422backup_limit. No seven-log restore, unbounded backup, genuine old-schema migration or stockPS5 full-backup claim.
+
+C08: actual100k input, Running/parsing observed, responsive health2008.3213ms single observation, honest Cancelled revision2/nullresult/no ready row, actual restart and malformed-job terminal failure. No indefinite Running, not performance SLA or all possible fault modes.
+
+Full current QA local JSON87BBF08E108A67630B9D8DE060AA7338302E993F48A23E19BD5AE1F8CF31BF68, binding supplement4DCCBC5FC23ACDAE5B21E6FDBB9DCA15026E9F9B147B38914F4D7521C338D488, TD local input reviewE65B6DC33B96080CB8E219842E1A5A1B18AF618A31B384A1F7BC16141A992BF3 and public delivery review3834C75E7C50A1FF481781C73F73B529A2CD268613A953940EBC66D09CD38D6E support these named rows. Full574 local files/37 delivery inputs separately reviewed; failed verifier attempts preserved and excluded where invalid. No all-attempts-zero or missing child-exit claim.
+
+## Actual delivery gate and scope
+
+A08 COMPLETE07:47:11.6905062Z, Root completion E38E73E326146CA35F037A000799AB57CEF5179D780E5712BDD1191878BFC342. Exact checked H6 68e31a9fc4438cd7e429c01b9421daf6a0b8c4aa, CI38122185500 actual success, full14 logs independently QA77F928B0B1DF5769B246915BAD3B7B8E916E4A084DA0C531F3D2DCF215689789 and TD67501A02897E34BF938941874C77E47FADCF68499B2039BEDFED30A4658B389D, 97PASS14ignored/guards5+7/fmt/clippy/Linuxhealth. Not PG/Java/native Windows CI.
+
+Public v0.6.1 tag targets runtime C, immutable package manifest1729files/1730entries; complete anonymous receipt18992bytes4EBFA97D8F6BA555B69BFC3C84194E3CE3B43EC2CC7308629AD320EF0509AF38 asset630129905 independently QA4864EC1FB2EBE648F4656A58F28017935E3C9C49E95CCF84DB346B5589F0D503 and TDAF906851560BCBB295E03D89BEE6B905B5997AFB51BBE61205D6180F06882A5D. New human setup3066/5445 no account created by agents; protected six earlier apps/seven PG identities and old archives readonly conserved. No automatic user upgrade/mutation.
+
+If accepted, R2-04 PASS eight/eight finite original scenarios on exact0.6.1. R2-01 BLOCKED; R2-02/03 OPEN until their own decisions. R3-03 remains separately accepted exact0.6 only. Full R2-R5 NOT CLOSED. P5 HTTP response loss receives no credit here and requires its own prospective gates/results. No runtime/package/tag edits authorized; factual metadata/report/receipt additions allowed with exact final CI/source-identity verification.

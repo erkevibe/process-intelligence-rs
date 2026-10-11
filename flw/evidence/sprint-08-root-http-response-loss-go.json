@@ -1,0 +1,10 @@
+{
+  "utc": "2026-10-11T07:53:15.3145881Z",
+  "verdict": "GO conditional on all prospective preflight guards passing before08:00; otherwise DEFER",
+  "instrument_sha256": "606F2F38E372EC281A03858A0179E700B3CE0DA6F7461AC340A733B23413375A",
+  "contract_sha256": "771D787D86A341723036866C02720A12A1CDA292FE001D0F9954BAD24D39E7A3",
+  "td_review_sha256": "D52F8BF734AEB1F9C2422A076478BB613F16CAE710C690D5CAD2731CD859842C",
+  "root_review": "Exact full instrument/contract/TDreview read and hashes matched beforeauthorization.",
+  "guards": "Own3067/5446 currentD0ED identity, privateACL, free3070, frozenfixturehash, fulloldSQL values+versions baseline, savedreportURLUUID/fullinputSHA/rights. Firstfault08:00/proof08:40/>=45min review.",
+  "scope": "One actual authorized confirm HTTP response loss only. No runtime/package/protected mutation, PGCOMMITACK/globalexactlyonce/criterion credit."
+}
