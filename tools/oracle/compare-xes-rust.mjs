@@ -3,6 +3,7 @@ import fs from 'node:fs';import path from 'node:path';import crypto from 'node:c
 const [executable,corpusDir,referenceFile,outDir]=process.argv.slice(2);
 if(!outDir||fs.existsSync(outDir))throw Error('Usage: OBSERVER_EXE CORPUS REFERENCE_JSON NEW_OUTPUT');
 const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
+const instantNs=s=>BigInt(Date.parse(s))*1000000n+BigInt((s.match(/\.(\d+)/)?.[1]??'').padEnd(9,'0').slice(3)||'0');
 const corpusBytes=fs.readFileSync(path.join(corpusDir,'corpus.json'));const corpus=JSON.parse(corpusBytes);const ref=JSON.parse(fs.readFileSync(referenceFile,'utf8'));
 if(ref.corpus_sha256!==sha(corpusBytes))throw Error('Reference corpus mismatch');
 fs.mkdirSync(outDir,{recursive:true});
@@ -58,9 +59,14 @@ for(const f of corpus.fixtures){
   for(const [field,pass]of Object.entries(legacyChecks))if(field.startsWith('consumer_')&&!pass)differences.push({field,reason:'consumer differs from genuine parser observation'});
  }
  const manualCardinalityOk=expectedError?true:modes.source.status==='ok'&&modes.source.log.name===f.id&&modes.source.log.cases.length===1&&modes.source.log.cases[0].name==='case-1'&&modes.source.log.cases[0].events.length===f.events.length;
- const attributeOk=expectedError?true:manualCardinalityOk&&modes.source.log.cases[0].events.every((e,i)=>e.ordinal===i&&e.lifecycle===f.events[i].lifecycle&&(e.timestamp?Date.parse(e.timestamp):null)===(f.events[i].timestamp?Date.parse(f.events[i].timestamp):null));
+ const attributeOk=expectedError?true:manualCardinalityOk&&modes.source.log.cases[0].events.every((e,i)=>e.ordinal===i&&e.lifecycle===f.events[i].lifecycle&&(e.timestamp?instantNs(e.timestamp):null)===(f.events[i].timestamp?instantNs(f.events[i].timestamp):null));
+ const timestampStructureOk=timestampExpectedError?modes.timestamp.status==='rejected'&&modes.timestamp.error.code===timestampExpectedError:modes.timestamp.status==='ok'&&modes.timestamp.log.name===f.id&&modes.timestamp.log.cases.length===1&&modes.timestamp.log.cases[0].name==='case-1'&&modes.timestamp.log.cases[0].events.length===f.events.length&&new Set(modes.timestamp.log.cases[0].events.map(e=>e.ordinal)).size===f.events.length&&modes.timestamp.log.cases[0].events.every((e,i,all)=>{
+  const original=f.events[e.ordinal];
+  if(!original||e.activity!==original.activity||e.lifecycle!==original.lifecycle||!e.timestamp||instantNs(e.timestamp)!==instantNs(original.timestamp))return false;
+  return i===0||instantNs(all[i-1].timestamp)<instantNs(e.timestamp)||(instantNs(all[i-1].timestamp)===instantNs(e.timestamp)&&all[i-1].ordinal<e.ordinal);
+ });
  const precisionOk=f.rust_timestamp?modes.source.status==='ok'&&modes.source.log.cases[0].events[0].timestamp===f.rust_timestamp:true;
- results.push({id:f.id,input_sha256:f.sha256,rust:modes,legacy_status:legacy.status,legacy_observed:legacy.observed,legacy_checks:legacyChecks,manual_checks:{source_order_or_error:sourceOk,timestamp_order_or_error:timestampOk,cardinality_names:manualCardinalityOk,attributes:attributeOk,exact_precision:precisionOk},differences});
+ results.push({id:f.id,input_sha256:f.sha256,rust:modes,legacy_status:legacy.status,legacy_observed:legacy.observed,legacy_checks:legacyChecks,manual_checks:{source_order_or_error:sourceOk,timestamp_order_or_error:timestampOk,cardinality_names:manualCardinalityOk,attributes:attributeOk,timestamp_structure_attributes:timestampStructureOk,exact_precision:precisionOk},differences});
 }
 const manualPassed=results.every(x=>Object.values(x.manual_checks).every(Boolean));
 const consumerPassed=results.every(x=>Object.entries(x.legacy_checks).filter(([k])=>k.startsWith('consumer_')).every(([,v])=>v));

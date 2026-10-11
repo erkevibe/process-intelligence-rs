@@ -40,7 +40,7 @@ Sprint06 расширяет oracle до **OpenXES parser и SplitMiner LogParser
 | lifecycle | start/complete — два отдельных события A | То же, без объединения интервалов |
 | missing-time | Событие без времени сохраняется | source допускает; timestamp mode `missing_timestamp` |
 | invalid-time | Исключение `java.util.EmptyStackException`, exit1 | Контролируемый `invalid_timestamp` |
-| wrong-time-type | Строковый timestamp принят, typed timestamp отсутствует; raw type/value сохранены | `invalid_timestamp` |
+| wrong-time-type | Строковый timestamp принят, typed timestamp отсутствует; тип и представление разобранного атрибута сохранены | `invalid_timestamp` |
 | duplicate-name | Последнее имя B заменяет A | `duplicate_key` |
 | submillisecond | `.123` миллисекунды | `.123456` сохраняется |
 
