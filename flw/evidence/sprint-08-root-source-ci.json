@@ -1,0 +1,130 @@
+{
+  "run_id": 38114287121,
+  "source": "281d13ddc8bb1813545c9ffe7fa92e8f49aaa6e0",
+  "event": "push",
+  "conclusion": "success",
+  "archive_sha256": "FD53CCE986E212F4A7445936DD65EB4EC43D5A46331D183EE7D9BB49580A9322",
+  "archive_bytes": 46480,
+  "full_available_files_read": 14,
+  "files": [
+    {
+      "bytes": 86149,
+      "sha256": "2A174C561E830A280005B554A52C4B5B0A6907FCCB5AA52365456A86518D6057",
+      "path": "0_linux.txt"
+    },
+    {
+      "bytes": 2099,
+      "sha256": "22E5E42EDD07B7D02FE0F08E58623C7D208C130452D78F69AE2A343494A3B277",
+      "path": "linux/1_Set up job.txt"
+    },
+    {
+      "bytes": 1744,
+      "sha256": "CB2B5EFFF2D53E9FDFF86D9C8DF05F1E5402DD11C6CAE87C7AAA11F07775EDEF",
+      "path": "linux/10_Run actions_upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9.txt"
+    },
+    {
+      "bytes": 11555,
+      "sha256": "336358EE0EC9604146CB913B0F83F26B3B329871EC0C47DC4C71012FC18609C1",
+      "path": "linux/2_Run actions_checkout@3d3c42e5aac5ba805825da76410c181273ba90b1.txt"
+    },
+    {
+      "bytes": 1773,
+      "sha256": "08D935234E279065D32CAE83DA76617098B714B4CEDCD290B712363C175F991A",
+      "path": "linux/20_Post Run actions_checkout@3d3c42e5aac5ba805825da76410c181273ba90b1.txt"
+    },
+    {
+      "bytes": 61,
+      "sha256": "0048398168EA9E202164408D169056E7EC273AC336009302191089932BA91BCD",
+      "path": "linux/21_Complete job.txt"
+    },
+    {
+      "bytes": 769,
+      "sha256": "369DBD1918B22EAC7ADD72A9CE9341B4E07991311347F769B6C40FE1268548FD",
+      "path": "linux/3_Pinned toolchain.txt"
+    },
+    {
+      "bytes": 238,
+      "sha256": "1B0C13BAF1EEAA11B9306A79A576B51D298F6B69E00EC3B08E067D8825FED874",
+      "path": "linux/4_Run cargo fmt --all -- --check.txt"
+    },
+    {
+      "bytes": 23907,
+      "sha256": "BC994B502DD70C0F98CF5250EEEF09D9481B55619A72B0F5AED6B01742A76491",
+      "path": "linux/5_Run cargo clippy --locked --all-targets -- -D warnings.txt"
+    },
+    {
+      "bytes": 30695,
+      "sha256": "0F583167D591B28835D5D0836B291B34C5BC6C41956F4D0604F329E54E7E0D1B",
+      "path": "linux/6_Run cargo test --locked --all-targets.txt"
+    },
+    {
+      "bytes": 397,
+      "sha256": "37A6C46E8B9F2450301A00310ECEE44B9D5270D761F7BC3AA6ADFD46F3569DAF",
+      "path": "linux/7_XES oracle provenance guards.txt"
+    },
+    {
+      "bytes": 467,
+      "sha256": "B2F79A8430C20E733C1A2F179FB6AF1E698806F059C994727ECA2B913F550876",
+      "path": "linux/8_Service method provenance guards.txt"
+    },
+    {
+      "bytes": 12477,
+      "sha256": "D8AD43D992830EBD795BDDA30D2BBF9FA35059AD06BC19C8C19EC78E13F29821",
+      "path": "linux/9_Build release and local health smoke.txt"
+    },
+    {
+      "bytes": 592,
+      "sha256": "CA04C31F7256B43AABBA2EC3423D4E1A016C3A3249243562B8D7489C7C449041",
+      "path": "linux/system.txt"
+    }
+  ],
+  "test_result_lines": [
+    "test result: ok. 18 passed; 0 failed; 2 ignored; 0 measured; 0 filtered out; finished in 0.07s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.10s",
+    "test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s",
+    "test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 0 passed; 0 failed; 2 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 0 passed; 0 failed; 8 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 0 passed; 0 failed; 2 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s",
+    "test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s",
+    "test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 18 passed; 0 failed; 2 ignored; 0 measured; 0 filtered out; finished in 0.07s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.10s",
+    "test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s",
+    "test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 0 passed; 0 failed; 2 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 0 passed; 0 failed; 8 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 0 passed; 0 failed; 2 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s",
+    "test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s",
+    "test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s",
+    "test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s"
+  ],
+  "scope": "Complete available GitHub job log files read; duplicated combined/per-step lines preserved; actual local PG tests separate, no original Java in CI"
+}

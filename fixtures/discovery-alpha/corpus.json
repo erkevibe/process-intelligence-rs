@@ -1,0 +1,8 @@
+{
+  "contract": "alpha+++ developer selected behavior; not quality or SplitMiner",
+  "fixtures": [
+    {"id":"sequential","variants":[{"count":20,"sequence":["A","B","C"]}],"cases":20,"events":60,"activities":["A","B","C"],"accepted":[["A","B","C"]],"rejected":[["B","A","C"],["A","B"]]},
+    {"id":"choice","variants":[{"count":20,"sequence":["A","B","D"]},{"count":20,"sequence":["A","C","D"]}],"cases":40,"events":120,"activities":["A","B","C","D"],"accepted":[["A","B","D"],["A","C","D"]],"rejected":[["A","B","C","D"],["A","D"]]},
+    {"id":"concurrent","variants":[{"count":20,"sequence":["A","B","C","D"]},{"count":20,"sequence":["A","C","B","D"]}],"cases":40,"events":160,"activities":["A","B","C","D"],"accepted":[["A","B","C","D"],["A","C","B","D"]],"rejected":[["A","D","C","B"]]}
+  ]
+}

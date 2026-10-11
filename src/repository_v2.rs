@@ -25,10 +25,18 @@ struct LogToken {
     data: Weak<crate::domain::EventLog>,
     source: Weak<crate::domain::EventLog>,
     analysis: Weak<crate::domain::Analysis>,
+    provenance: Option<Weak<crate::import_provenance::ImportProvenance>>,
 }
 #[derive(Default, Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
 pub(crate) struct Header {
+    #[serde(
+        default,
+        skip_serializing_if = "crate::folders::Organization::is_empty"
+    )]
+    pub(crate) organization: crate::folders::Organization,
+    #[serde(default, skip_serializing_if = "crate::audit::AuditTrail::is_empty")]
+    pub(crate) audit: crate::audit::AuditTrail,
     pub(crate) current: BTreeMap<String, String>,
     pub(crate) sequence: u64,
     pub(crate) user_views: BTreeMap<String, BTreeMap<String, UserView>>,
@@ -49,6 +57,17 @@ impl Header {
         Ok(header)
     }
     pub(crate) fn validate(&self) -> Result<(), ImportError> {
+        self.audit.validate().map_err(|_| corrupt())?;
+        self.organization
+            .validate(
+                &self
+                    .log_ids
+                    .iter()
+                    .chain(&self.model_ids)
+                    .cloned()
+                    .collect(),
+            )
+            .map_err(|_| corrupt())?;
         let logs: BTreeSet<_> = self.log_ids.iter().collect();
         let models: BTreeSet<_> = self.model_ids.iter().collect();
         if logs.len() != self.log_ids.len()
@@ -101,6 +120,8 @@ fn valid_id(id: &str, prefix: &str) -> bool {
 }
 pub(crate) fn header(repo: &Repository) -> Header {
     Header {
+        organization: repo.organization.clone(),
+        audit: repo.audit.clone(),
         current: repo.current.clone(),
         sequence: repo.sequence,
         user_views: repo.user_views.clone(),
@@ -158,11 +179,17 @@ pub(crate) fn prepare(
                 serde_json::to_value(log.data.as_ref()).map_err(|_| corrupt())?,
             ));
         }
-        if old.is_none_or(|old| !Weak::ptr_eq(&old.source, &Arc::downgrade(&log.source))) {
+        if old.is_none_or(|old| {
+            !Weak::ptr_eq(&old.source, &Arc::downgrade(&log.source))
+                || !same_provenance(&old.provenance, &log.provenance)
+        }) {
             puts.push((
                 "log_source".into(),
                 id.clone(),
-                serde_json::to_value(log.source.as_ref()).map_err(|_| corrupt())?,
+                match &log.provenance {
+                    Some(provenance) => json!({"source_envelope_version":1,"source":log.source.as_ref(),"provenance":provenance.as_ref()}),
+                    None => serde_json::to_value(log.source.as_ref()).map_err(|_| corrupt())?,
+                },
             ));
         }
         if old.is_none_or(|old| !Weak::ptr_eq(&old.analysis, &Arc::downgrade(&log.analysis))) {
@@ -238,6 +265,17 @@ fn token(log: &StoredLog) -> LogToken {
         data: Arc::downgrade(&log.data),
         source: Arc::downgrade(&log.source),
         analysis: Arc::downgrade(&log.analysis),
+        provenance: log.provenance.as_ref().map(Arc::downgrade),
+    }
+}
+fn same_provenance(
+    old: &Option<Weak<crate::import_provenance::ImportProvenance>>,
+    next: &Option<Arc<crate::import_provenance::ImportProvenance>>,
+) -> bool {
+    match (old, next) {
+        (None, None) => true,
+        (Some(old), Some(next)) => Weak::ptr_eq(old, &Arc::downgrade(next)),
+        _ => false,
     }
 }
 pub(crate) fn track_log(repo: &mut Repository, log: &StoredLog) {
@@ -276,6 +314,8 @@ pub(crate) fn load_metadata(database: &Database, project: &str) -> Result<Reposi
         return Err(corrupt());
     }
     Ok(Repository {
+        organization: h.organization,
+        audit: h.audit,
         current: h.current,
         sequence: h.sequence,
         user_views: h.user_views,
@@ -318,6 +358,27 @@ pub(crate) fn decode_log(
     let Value::Object(mut state) = pieces.remove("log_state").ok_or_else(corrupt)? else {
         return Err(corrupt());
     };
+    let source = pieces.get_mut("log_source").ok_or_else(corrupt)?;
+    if source.get("source_envelope_version").is_some() {
+        #[derive(Deserialize)]
+        #[serde(deny_unknown_fields)]
+        struct Envelope {
+            source_envelope_version: u32,
+            source: crate::domain::EventLog,
+            provenance: crate::import_provenance::ImportProvenance,
+        }
+        let envelope: Envelope = serde_json::from_value(source.clone()).map_err(|_| corrupt())?;
+        if envelope.source_envelope_version != 1 || state.contains_key("provenance") {
+            return Err(corrupt());
+        }
+        state.insert(
+            "provenance".into(),
+            serde_json::to_value(envelope.provenance).map_err(|_| corrupt())?,
+        );
+        *source = serde_json::to_value(envelope.source).map_err(|_| corrupt())?;
+    } else if state.contains_key("provenance") {
+        return Err(corrupt());
+    }
     for (field, kind) in [
         ("data", "log_data"),
         ("source", "log_source"),
@@ -420,6 +481,14 @@ pub(crate) fn validate_view(
     Ok(())
 }
 fn validate_log(log: &StoredLog) -> Result<(), ImportError> {
+    if let Some(provenance) = &log.provenance {
+        provenance
+            .validate(&log.source, &log.source_sha256)
+            .map_err(|_| corrupt())?;
+        if log.order != crate::csv_io::NormalizationOrder::Source {
+            return Err(corrupt());
+        }
+    }
     validate_view(
         log,
         log.threshold,
@@ -453,6 +522,127 @@ fn validate_log(log: &StoredLog) -> Result<(), ImportError> {
 #[cfg(test)]
 mod lazy_tests {
     use super::*;
+    #[test]
+    fn restored_provenance_uses_same_immutable_encoding_as_new_import() {
+        let raw = include_str!("../fixtures/oracle-service/mixed.xes");
+        let preview = crate::service_preview::preview_xes(raw.as_bytes()).unwrap();
+        let provenance = Arc::new(
+            crate::import_provenance::ImportProvenance::capture(
+                raw.into(),
+                &preview,
+                "historical-user".into(),
+                "historical-project".into(),
+                uuid::Uuid::new_v4().to_string(),
+            )
+            .unwrap(),
+        );
+        let mut base = log();
+        base.source = Arc::new(preview.log.clone());
+        base.data = base.source.clone();
+        base.analysis = Arc::new(crate::mining::analyze(&base.data));
+        base.source_sha256 = provenance.source_sha256.clone();
+        base.provenance = Some(provenance);
+        base.project_id = Some("restored-project".into());
+        let mut repo = Repository::default();
+        repo.logs.insert(base.id.clone(), base);
+        let expected = prepare("restored-project", &repo, false).unwrap();
+        let (metadata, records) = crate::normalized::split_repository(
+            "restored-project",
+            serde_json::to_value(&repo).unwrap(),
+        )
+        .unwrap();
+        assert_eq!(metadata, expected.metadata);
+        let actual_source = records
+            .iter()
+            .find(|(kind, _, _)| kind == "log_source")
+            .unwrap();
+        let expected_source = expected
+            .puts
+            .iter()
+            .find(|(kind, _, _)| kind == "log_source")
+            .unwrap();
+        assert_eq!(
+            actual_source, expected_source,
+            "restore must use exactly the confirmed-import immutable source envelope"
+        );
+        assert!(
+            records
+                .iter()
+                .find(|(kind, _, _)| kind == "log_state")
+                .unwrap()
+                .2
+                .get("provenance")
+                .is_none()
+        );
+        let pieces = records
+            .into_iter()
+            .filter(|(_, id, _)| id == "log-1")
+            .map(|(kind, _, value)| (kind, 1, value))
+            .collect();
+        let (loaded, _) = decode_log("restored-project", "log-1", pieces).unwrap();
+        let history = loaded.provenance.unwrap();
+        assert_eq!(history.original_utf8, raw);
+        assert_eq!(history.origin_project_id, "historical-project");
+    }
+    #[test]
+    fn immutable_provenance_envelope_changes_no_heavy_records_on_view_edit() {
+        let raw = include_str!("../fixtures/oracle-service/mixed.xes");
+        let preview = crate::service_preview::preview_xes(raw.as_bytes()).unwrap();
+        let provenance = Arc::new(
+            crate::import_provenance::ImportProvenance::capture(
+                raw.into(),
+                &preview,
+                "u".into(),
+                "p".into(),
+                uuid::Uuid::new_v4().to_string(),
+            )
+            .unwrap(),
+        );
+        let mut base = log();
+        base.source = Arc::new(preview.log.clone());
+        base.data = base.source.clone();
+        base.analysis = Arc::new(crate::mining::analyze(&base.data));
+        base.provenance = Some(provenance.clone());
+        base.source_sha256 = provenance.source_sha256.clone();
+        let mut repo = Repository::default();
+        repo.logs.insert(base.id.clone(), base.clone());
+        let initial = prepare("p", &repo, true).unwrap();
+        let source_record = initial
+            .puts
+            .iter()
+            .find(|(kind, _, _)| kind == "log_source")
+            .unwrap();
+        assert_eq!(source_record.2["source_envelope_version"], 1);
+        assert!(
+            initial
+                .puts
+                .iter()
+                .find(|(k, _, _)| k == "log_state")
+                .unwrap()
+                .2
+                .get("provenance")
+                .is_none()
+        );
+        let records = initial
+            .puts
+            .iter()
+            .map(|(k, _, v)| (k.clone(), 1, v.clone()))
+            .collect();
+        let (loaded, _) = decode_log("p", "log-1", records).unwrap();
+        assert_eq!(loaded.provenance.as_ref().unwrap().original_utf8, raw);
+        track_log(&mut repo, &base);
+        repo.logs.get_mut("log-1").unwrap().view_revision += 1;
+        let delta = prepare("p", &repo, false).unwrap();
+        assert_eq!(delta.puts.len(), 1);
+        assert_eq!(delta.puts[0].0, "log_state");
+        assert!(delta.puts[0].2.get("original_utf8").is_none());
+        let weak = Arc::downgrade(&provenance);
+        drop(loaded);
+        drop(provenance);
+        drop(base);
+        repo.logs.clear();
+        assert!(weak.upgrade().is_none());
+    }
     fn log() -> StoredLog {
         let data = Arc::new(crate::domain::EventLog {
             name: None,
@@ -476,6 +666,7 @@ mod lazy_tests {
             filters: Default::default(),
             calendar: Default::default(),
             project_id: Some("p".into()),
+            provenance: None,
         }
     }
     #[test]

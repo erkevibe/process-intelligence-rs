@@ -1,0 +1,13 @@
+# Sprint08 PM — initial S8-AUDIT-PID01 position
+
+Independent initial position before common resume proposal; no vote.
+
+Facts: I read the complete private frozen-build01 observer and process proof and independently verified inventory SHA256 `E0B49E24F64C146A01099EFD59C2E789E84DB8FDC226789F163EDA0D33729DC4`. The observer retains historical integer PID membership across snapshots and discovers descendants from that membership. Windows PID reuse can therefore admit unrelated processes or their children. Root reports actual reused compiler PIDs30528/18572 and erroneous QA psql/Cua_Node attribution. The code supports this failure mechanism. I have not independently classified every inventory entry or rerun a compiler.
+
+The preserved proof records native main-child exit0 for source `281d13ddc8bb1813545c9ffe7fa92e8f49aaa6e0`, with separate stdout/stderr hashes. This identity bug invalidates descendant attribution; it does not by itself invalidate the actual main-child exit, erase independent source/artifact checks, or establish a product/database failure. It also must not be hidden by deleting or rewriting the initial inventory.
+
+Risk: promotion of an artifact with false observational coverage would overstate provenance and undermine final evidence. Broadly stopping unrelated D5 PostgreSQL/browser checks would consume acceptance time without addressing the cause. A replacement observer can still miss children born and terminated between300ms snapshots, and cannot safely prove historical parentage from an absent parent.
+
+Proposal: maintain the bounded STOP on observer acceptance, frozen package acceptance and public promotion. Continue independent unaffected D5 product checks. Preserve the invalid first inventory and publish a clear scoped finding. Bind the root to PID plus creation time and executable identity; traverse only the current live snapshot with compatible creation times and current parentage, never seed descendants from historical PIDs. Treat absent/ambiguous ancestry as unobserved rather than fill it using stale membership. Require a regression reproducing both false-parent reuse and false-child reuse, a fresh isolated same-source build with corrected bounded inventory, and nonauthor QA/TD review before an immutable targeted Council resume vote.
+
+Basis: correcting evidence attribution is necessary, while the scope of a stop should follow the affected mechanism. All-process coverage and per-child exits remain unclaimed. The fresh build's exit/artifact identity and inventory limitations must be reported separately. Resume would not equal release acceptance, full R2–R5 closure or permission for cleanup; freeze08:12 UTC and deadline09:42 UTC remain unchanged.

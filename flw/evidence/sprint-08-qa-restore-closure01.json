@@ -1,0 +1,85 @@
+{
+  "finding": "S8-QA-RESTORE01",
+  "verdict": "INDEPENDENT_TARGETED_REPAIR_ACCEPTED",
+  "source_commit": "d29b623d70179d6dab2863464f70aef5c97f0d47",
+  "exe_sha256": "03F418A04E7BF6893959F095CB66506B439C63DC6D7E185122AC577622C7AE51",
+  "actual_utc": "2026-10-11T04:38:47.8107094Z",
+  "checks": [
+    "Fresh restore preserves immutable exact raw bytes and history, folders, historical audit; original source records unchanged",
+    "Hash-valid cycle/provenance corruption and digest corruption reject with no SQL hash/version changes",
+    "Real owned app restart 38384 -> 1796 preserves full raw/history/export/folders/audit SHA",
+    "Plain provenance-free demo backup restores full export with ownership retarget only; original/history remain explicitly unavailable"
+  ],
+  "actual_native_exit": {
+    "fresh_restore": 0,
+    "plain_continuation": 0,
+    "restart_after": 0,
+    "restart_before": 0
+  },
+  "preserved_failures": [
+    "D2 bad restored project retained, no in-place repair",
+    "D4 launcher full commit guessed wrongly; original metadata preserved with explicit authoritative correction",
+    "Plain test01 expected redirect303 but actual demo HTML200; continuation02 reused existing log3 and actual HTML export ID, no repeated import",
+    "One diagnostic Get-Content positional typo produced tool-only failure"
+  ],
+  "limitations": [
+    "Draft D4 only, not frozen package/release/full R2-R5 acceptance",
+    "Plain coverage is real provenance-free legacy-format demo backup, not full external 0.5 dataset",
+    "Native long-lived process exits not captured; owned forced stop guarded, no fabricated exit0",
+    "D3 active-worker interruption audit and other features not accepted by this repair report",
+    "No Windows transport/kernel/full-machine log coverage claim"
+  ],
+  "evidence": [
+    {
+      "bytes": 395,
+      "name": "d4-source-correction01.json",
+      "sha256": "6321C3C3EF88766B6D6B2734029184BAE85F18FA214512FFA1175F1ECCADD887"
+    },
+    {
+      "bytes": 784,
+      "name": "d4-backup01/report.json",
+      "sha256": "E14C618E41770CB27D462948670E8F95C3B4A0F3185C3809EEC4F4B81B104898"
+    },
+    {
+      "bytes": 26,
+      "name": "d4-backup01.wrapper.log",
+      "sha256": "40C2061F7E9688614CF9CD51F9D1754AF3AE6C19E93669E028AB6D699AA9BD82"
+    },
+    {
+      "bytes": 479,
+      "name": "d4-restart-before/report.json",
+      "sha256": "503691CA45FF3439CAAA314540BCE1CCC44CD04462ECE7646C44A2B847B064D2"
+    },
+    {
+      "bytes": 478,
+      "name": "d4-restart-after/report.json",
+      "sha256": "5CD32C99CEB87E10F3DA1D5506AC362D86657BF2555887C8F3CB46F046171D16"
+    },
+    {
+      "bytes": 41,
+      "name": "d4-restart-after.wrapper.log",
+      "sha256": "EC3006F3054181FE8725C5CDAE54BA4EE6B0BD5732BFA63272996CACD6CF720B"
+    },
+    {
+      "bytes": 437,
+      "name": "d4-app-restart01.process.json",
+      "sha256": "A0CE94D87E7A41D0D0A32ABAA1F653F4FE3FDCBC68717A0325B5173BC6C14AE3"
+    },
+    {
+      "bytes": 284,
+      "name": "d4-plain-restore01.wrapper.log",
+      "sha256": "5AE25F1AFD8D72BD836587E532D91ED8B2F5636C8C46A9F2C387AE7AA6BBE4E0"
+    },
+    {
+      "bytes": 402,
+      "name": "d4-plain-restore02/report.json",
+      "sha256": "5762E119B30B268DF7A7D6AC465B03AE70091DD48E23D9CAF4B5B830E6B37812"
+    },
+    {
+      "bytes": 26,
+      "name": "d4-plain-restore02.wrapper.log",
+      "sha256": "E53967281EC9BE53A92A9EC640EF03BAF82FE61972B554C748AB28C11DEA8076"
+    }
+  ],
+  "recommendation": "Eligible for exact targeted Council resume; no vote until immutable proposal"
+}

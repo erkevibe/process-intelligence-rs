@@ -41,6 +41,13 @@ pub struct AppState {
 #[derive(Default, Clone, Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
 pub(crate) struct Repository {
+    #[serde(
+        default,
+        skip_serializing_if = "crate::folders::Organization::is_empty"
+    )]
+    pub(crate) organization: crate::folders::Organization,
+    #[serde(default, skip_serializing_if = "crate::audit::AuditTrail::is_empty")]
+    pub(crate) audit: crate::audit::AuditTrail,
     pub(crate) logs: BTreeMap<String, StoredLog>,
     pub(crate) current: BTreeMap<String, String>,
     pub(crate) sequence: u64,
@@ -82,6 +89,8 @@ pub(crate) struct StoredLog {
     pub(crate) filters: crate::filters::FilterSpec,
     pub(crate) calendar: crate::calendar::CalendarSpec,
     pub(crate) project_id: Option<String>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub(crate) provenance: Option<Arc<crate::import_provenance::ImportProvenance>>,
 }
 #[derive(Default, Clone, Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
@@ -92,6 +101,20 @@ pub(crate) struct UserView {
     pub(crate) revision: u64,
 }
 impl Repository {
+    pub(crate) fn resource_catalog(&self) -> BTreeSet<String> {
+        self.log_ids
+            .iter()
+            .chain(self.logs.keys())
+            .filter(|id| !self.deleted_log_ids.contains(*id))
+            .chain(
+                self.model_ids
+                    .iter()
+                    .chain(self.models.keys())
+                    .filter(|id| !self.deleted_model_ids.contains(*id)),
+            )
+            .cloned()
+            .collect()
+    }
     pub(crate) fn get_log_base(
         &mut self,
         state: &AppState,
@@ -196,7 +219,7 @@ impl Repository {
 }
 
 impl AppState {
-    fn validate_resource_actor(&self) -> Result<(), crate::domain::ImportError> {
+    pub(crate) fn validate_resource_actor(&self) -> Result<(), crate::domain::ImportError> {
         if let (Some(p), Some(expected)) = (&self.platform, &self.actor) {
             let actual = p.auth.actor(self.session.as_deref().ok_or_else(|| {
                 crate::domain::ImportError::new("access_denied", "Войдите в проект.")
@@ -237,15 +260,58 @@ impl AppState {
         self.actor.as_ref().map_or("local", |a| a.id.as_str())
     }
     pub(crate) fn commit(&self, next: &mut Repository) -> Result<(), crate::domain::ImportError> {
-        self.commit_with_capacity(next, true)
+        self.commit_action(next, "view_changed")
     }
-    fn commit_with_capacity(
+    pub(crate) fn commit_action(
+        &self,
+        next: &mut Repository,
+        action: &str,
+    ) -> Result<(), crate::domain::ImportError> {
+        self.commit_action_resources(next, action, vec![])
+    }
+    pub(crate) fn commit_action_resources(
+        &self,
+        next: &mut Repository,
+        action: &str,
+        resources: Vec<String>,
+    ) -> Result<(), crate::domain::ImportError> {
+        self.commit_with_action(next, true, action, resources)
+    }
+    fn commit_with_action(
         &self,
         next: &mut Repository,
         importing: bool,
+        action: &str,
+        explicit_resources: Vec<String>,
     ) -> Result<(), crate::domain::ImportError> {
         if let (Some(platform), Some(actor)) = (&self.platform, &self.actor) {
-            let write = crate::repository_v2::prepare(&actor.project_id, next, importing)?;
+            let mut write = crate::repository_v2::prepare(&actor.project_id, next, importing)?;
+            if action == "view_changed" && (!write.puts.is_empty() || !write.deletes.is_empty()) {
+                return Err(crate::domain::ImportError::new(
+                    "access_denied",
+                    "Представление не может изменять ресурсы.",
+                ));
+            }
+            let resources = write
+                .puts
+                .iter()
+                .map(|(kind, id, _)| format!("{kind}/{id}"))
+                .chain(
+                    write
+                        .deletes
+                        .iter()
+                        .map(|(kind, id)| format!("{kind}/{id}")),
+                )
+                .chain(explicit_resources)
+                .collect::<BTreeSet<_>>()
+                .into_iter()
+                .collect();
+            let revision = next.storage_revision.checked_add(1).ok_or_else(|| {
+                crate::domain::ImportError::new("storage_conflict", "Счётчик проекта исчерпан.")
+            })?;
+            next.audit
+                .append(&actor.id, &actor.project_id, action, resources, revision)?;
+            write.metadata = crate::repository_v2::header(next).value()?;
             let logs = write
                 .puts
                 .iter()
@@ -260,7 +326,18 @@ impl AppState {
                 .map(|(_, id, _)| id.clone())
                 .chain(next.deleted_model_ids.iter().cloned())
                 .collect::<Vec<_>>();
-            next.storage_revision = platform.database.write_project(write)?;
+            let session = self.session.as_deref().ok_or_else(|| {
+                crate::domain::ImportError::new("access_denied", "Войдите в проект.")
+            })?;
+            next.storage_revision = if action == "view_changed" {
+                platform
+                    .auth
+                    .with_view_access(session, actor, || platform.database.write_project(write))?
+            } else {
+                platform
+                    .auth
+                    .with_write_access(session, actor, || platform.database.write_project(write))?
+            };
             platform
                 .resources
                 .invalidate(&actor.project_id, &logs, &models);
@@ -466,6 +543,7 @@ async fn guard_inner(State(state): State<AppState>, mut request: Request, next: 
             }
             let method = request.method();
             let heavy = path == "/"
+                || path.starts_with("/xes")
                 || path == "/logs" && method != axum::http::Method::GET
                 || path.starts_with("/logs/")
                 || path.starts_with("/models/")
@@ -781,6 +859,37 @@ pub(crate) fn store_log(
     order: crate::csv_io::NormalizationOrder,
     completed: Option<&JobSnapshot>,
 ) -> Result<StoredLog, crate::domain::ImportError> {
+    store_log_with_provenance(
+        state,
+        data,
+        analysis,
+        filename,
+        elapsed_ms,
+        source_sha256,
+        order,
+        completed,
+        None,
+    )
+}
+#[allow(clippy::too_many_arguments)]
+pub(crate) fn store_log_with_provenance(
+    state: &AppState,
+    data: EventLog,
+    analysis: Analysis,
+    filename: String,
+    elapsed_ms: u128,
+    source_sha256: String,
+    order: crate::csv_io::NormalizationOrder,
+    completed: Option<&JobSnapshot>,
+    provenance: Option<Arc<crate::import_provenance::ImportProvenance>>,
+) -> Result<StoredLog, crate::domain::ImportError> {
+    state.validate_resource_actor()?;
+    if state.actor.as_ref().is_some_and(|a| !a.role.can_write()) {
+        return Err(crate::domain::ImportError::new(
+            "access_denied",
+            "Требуются права редактора.",
+        ));
+    }
     let mut repository = state.repository.lock().expect("repository mutex");
     if state.platform.is_some() && repository.log_count() >= MAX_LOGS {
         return Err(crate::domain::ImportError::new(
@@ -816,6 +925,7 @@ pub(crate) fn store_log(
         filters: Default::default(),
         calendar: Default::default(),
         project_id: state.actor.as_ref().map(|a| a.project_id.clone()),
+        provenance,
     };
     if next.logs.len() >= MAX_LOGS
         && let Some(oldest) = next
@@ -842,7 +952,16 @@ pub(crate) fn store_log(
         terminal.result_id = Some(id);
         next.durable_jobs.insert(terminal.id.clone(), terminal);
     }
-    state.commit_with_capacity(&mut next, true)?;
+    state.commit_with_action(
+        &mut next,
+        true,
+        if log.provenance.is_some() {
+            "xes_import_confirmed"
+        } else {
+            "log_imported"
+        },
+        vec![],
+    )?;
     *repository = next;
     Ok(log)
 }
@@ -877,7 +996,7 @@ pub(crate) fn persist_job(
         next.durable_jobs.remove(id);
     }
     // Terminal/cancel persistence uses the headroom reserved by payload writes.
-    state.commit_with_capacity(&mut next, new_job)?;
+    state.commit_with_action(&mut next, new_job, "job_updated", vec![snapshot.id.clone()])?;
     *repository = next;
     Ok(())
 }
@@ -1512,6 +1631,7 @@ async fn export(Workspace(state): Workspace, Path(id): Path<String>) -> Response
         "schema_version":1,"log_id":log.id,"name":log.filename,"analysis_version":log.analysis_version,"view_revision":log.view_revision,
         "parameters":{"min_edge_frequency":log.threshold,"order":log.order,"lifecycle":"each-event","filters":log.filters,"calendar":log.calendar},
         "source_sha256":log.source_sha256,"project_id":state.actor.as_ref().map(|a|&a.project_id),
+        "import_history":log.provenance.as_ref().map(|p| json!({"schema_version":p.schema_version,"policy":p.policy,"operation_id":p.operation_id,"actor_id":p.actor_id,"origin_project_id":p.origin_project_id,"confirmed_at":p.confirmed_at,"source_cases":p.source_cases,"source_events":p.source_events,"actions":p.actions,"source_sha256":p.source_sha256})),
         "business_durations":crate::platform::calendar_results(&log),
         "analysis":log.analysis.as_ref(),"view":view(&log),"warnings":log.data.warnings,"elapsed_ms":log.elapsed_ms,
         "selected_case":log.selected_case.as_ref().and_then(|id| log.data.cases.iter().find(|case| &case.id == id)),

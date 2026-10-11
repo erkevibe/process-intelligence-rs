@@ -1,0 +1,7 @@
+# S8-P3 — исходные позиции и созыв
+
+Все пять фиксированных ролей приглашены к исходной позиции до общего предложения: Root, PM, Customer, QA/ProcessAuditor, TD. Фактические приглашения сохранены в collaboration. Developer design docs/SPRINT_08_CLEANUP_PROPOSAL.md SHA4EF42EF64F1A05D059C18EB6FD23E0BFB2B0972214BA2E069220CCBA3B8A3A0A был предварительным материалом, не принятым общим предложением.
+
+Root исходная позиция: полезно убрать инертные полные legacy-копии, но canonical migration binding и полное фактическое recoverability/atomicity важнее простого DELETE. Авторская реализация не закрывает DISK01. Новый разрушительный контур требует отдельного afterDELETE/preCOMMIT interruption и uncertainACK, fullvalues snapshot under locks, actualnewrestore и package acceptance. Текущее окно имеет ещё значимый объём обязательной P1/P2 приёмки; предпочитаю сохранение reviewed design и полный будущий corpus без runtimecleanup, а оставшееся время направить на доказательства и поставку текущего принятого объёма. Это исходная позиция, не голос.
+
+Получены независимые исходные позиции PM3298621B, Customer72C1B50B, QA9E2044EC, TD38CCA3AE (полные SHA в самих файлах/сообщениях). Все рекомендуют приоритет текущего кандидата и сохранение всех разрушительных критериев. QA допускает только optional early feasibility при отдельной полной проверке, не ослабление. Общая cleanupоперация не выполнялась; STOP восстановления уже снят отдельным точным решением, не разрешением cleanup.

@@ -1,0 +1,11 @@
+# S8-P3 — предложение о границе этой итерации
+
+Фиксированный Совет из пяти, все исходные позиции приглашены/получены до этого общего предложения. Для решения требуется более половины фактических голосов; молчание не голос.
+
+Предлагается НЕ включать destructive legacycleanup в Sprint08 runtimeкандидат. docs/SPRINT_08_CLEANUP_PROPOSAL.md остаётся reviewed design, не operatorfeature и не разрешение execute. DISK01/R3-04 OPEN. Все его исходные критерии сохраняются: действительная полная backup/newrestore, actual identity/offlineleases/fullvaluecomparison, exactdelete, observable afterDELETEbeforeCOMMIT, uncertainACK/reconciliation, rollback/conservation, unchangedlimits/budgets, independentQA/TD/frozenpackage. Никакая read-only/source/unit проверка не заменяет их. Preview с созданием restoreDB не называется операцией без побочных эффектов.
+
+Допустимый ограниченный результат P3 — standalone будущий manualcorpus/gate checklist без новых cleanup runtimeфайлов/операций и без изменений защищённых установок. Разработчик документа может уточнить literal expectations/ownership/точки наблюдения и оставшиеся feasibilityвопросы, НЕ написать cleanupкод и НЕ исполнить cleanup/restore. Root интегрирует reviewed design в честный остаточный roadmap.
+
+Оставшееся окно используется для текущего принятого P1/P2: preview/source/history/RBAC/limits/uncertainty, папки/lifecycle/audit/rights ordering, rawweakcache/conservation, jobcrashrestart, независимые IANA и realAlpha developercontracts; полный backup/newrestore/migrate на новых ресурсах, exact frozenbuild/CI/package/coldbrowser/public delivery/protectedpreservation. Не позднее08:12UTC фиксируется кандидат, минимум90мин окончательной независимой приёмки до09:42UTC. Непрошедшая обязательная функция не поставляется как принятая.
+
+Исходная15строчная матрица R2–R5 НЕ меняется. Недоступные original fullservice/SplitMiner, broadquality/legacyfilters/conversions/model/calendarpairing остаются явно OPEN/BLOCKED. Точный финальный отчёт имеет статус каждой строки, доказательство, владельца, зависимость и следующий gate. Это предложение определяет текущий объём работы, НЕ финальную приёмку/релиз. Окончательные голоса отдельно после точного кандидата.

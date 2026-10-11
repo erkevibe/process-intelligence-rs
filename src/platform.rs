@@ -48,6 +48,20 @@ struct PendingCsv {
     project: String,
     expires: i64,
 }
+struct PendingXes {
+    raw: Option<Arc<String>>,
+    filename: String,
+    user: String,
+    project: String,
+    expires: i64,
+    status: PreviewStatus,
+}
+enum PreviewStatus {
+    Ready,
+    Confirming,
+    Completed(String),
+    Uncertain,
+}
 pub(crate) struct Platform {
     pub database: Database,
     pub auth: Auth,
@@ -56,6 +70,7 @@ pub(crate) struct Platform {
     pub(crate) resources: crate::resource_cache::ResourceCache,
     pub(crate) payload_slots: Arc<Semaphore>,
     pending: Mutex<BTreeMap<String, PendingCsv>>,
+    pending_xes: Mutex<BTreeMap<String, PendingXes>>,
 }
 impl Platform {
     pub fn open(url: String) -> Result<Self, ImportError> {
@@ -70,6 +85,7 @@ impl Platform {
             resources: crate::resource_cache::ResourceCache::new(),
             payload_slots: Arc::new(Semaphore::new(2)),
             pending: Mutex::new(BTreeMap::new()),
+            pending_xes: Mutex::new(BTreeMap::new()),
         };
         let projects = platform.auth.all_projects();
         for (id, _, value) in platform.database.project_headers()? {
@@ -111,7 +127,22 @@ impl Platform {
                     "Неполный набор записей проекта.",
                 ));
             }
+            let interrupted = header
+                .durable_jobs
+                .values()
+                .filter(|job| !job.is_terminal())
+                .map(|job| job.id.clone())
+                .collect();
             if header.recover() {
+                header.audit.append(
+                    "system",
+                    id,
+                    "jobs_interrupted_after_restart",
+                    interrupted,
+                    revision
+                        .checked_add(1)
+                        .ok_or_else(|| failure("storage_conflict", "Счётчик проекта исчерпан."))?,
+                )?;
                 self.database
                     .write_project(crate::normalized::ProjectWrite {
                         project: id.into(),
@@ -126,8 +157,24 @@ impl Platform {
     }
     fn recover_repository(&self, id: &str, repository: &mut Repository) -> Result<(), ImportError> {
         let mut header = crate::repository_v2::header(repository);
+        let interrupted = header
+            .durable_jobs
+            .values()
+            .filter(|job| !job.is_terminal())
+            .map(|job| job.id.clone())
+            .collect();
         if header.recover() {
             repository.durable_jobs = header.durable_jobs;
+            repository.audit.append(
+                "system",
+                id,
+                "jobs_interrupted_after_restart",
+                interrupted,
+                repository
+                    .storage_revision
+                    .checked_add(1)
+                    .ok_or_else(|| failure("storage_conflict", "Счётчик проекта исчерпан."))?,
+            )?;
             let write = crate::repository_v2::prepare(id, repository, false)?;
             repository.storage_revision = self.database.write_project(write)?;
             crate::repository_v2::mark_persisted(repository);
@@ -176,6 +223,12 @@ impl Platform {
 fn failure(code: &str, message: &str) -> ImportError {
     ImportError::new(code, message)
 }
+#[path = "xes_workflow.inc.rs"]
+mod xes_workflow;
+use xes_workflow::*;
+#[path = "folder_workflow.rs"]
+mod folder_workflow;
+use folder_workflow::*;
 pub(crate) fn session_cookie(headers: &HeaderMap) -> Option<String> {
     headers
         .get(header::COOKIE)?
@@ -193,6 +246,12 @@ fn platform(state: &AppState) -> Result<Arc<Platform>, ImportError> {
         )
     })
 }
+fn current_session(state: &AppState) -> Result<&str, ImportError> {
+    state
+        .session
+        .as_deref()
+        .ok_or_else(|| failure("access_denied", "Войдите в проект."))
+}
 fn actor(state: &AppState) -> Result<Actor, ImportError> {
     state
         .actor
@@ -204,8 +263,12 @@ fn response_error(error: ImportError) -> Response {
         "access_denied" => StatusCode::FORBIDDEN,
         "not_found" => StatusCode::NOT_FOUND,
         "project_capacity" => StatusCode::PAYLOAD_TOO_LARGE,
-        "storage_conflict" | "model_conflict" => StatusCode::CONFLICT,
-        "storage_unavailable" | "storage_busy" => StatusCode::SERVICE_UNAVAILABLE,
+        "storage_conflict" | "model_conflict" | "preview_conflict" | "project_conflict" => {
+            StatusCode::CONFLICT
+        }
+        "storage_unavailable" | "storage_busy" | "confirmation_uncertain" => {
+            StatusCode::SERVICE_UNAVAILABLE
+        }
         _ => StatusCode::UNPROCESSABLE_ENTITY,
     };
     (
@@ -226,7 +289,7 @@ async fn blocking<T: Send + 'static>(
 }
 fn page(title: &str, body: String) -> Response {
     let nonce = uuid::Uuid::new_v4().simple().to_string();
-    let nav = "<nav><a href=\"/\">Анализ</a> · <a href=\"/projects\">Проекты</a> · <a href=\"/logs\">Журналы</a> · <a href=\"/csv\">CSV</a> · <a href=\"/models\">BPMN</a> · <a href=\"/backup\">Резервная копия</a><form method=\"post\" action=\"/logout\"><button>Выйти</button></form></nav>";
+    let nav = "<nav><a href=\"/\">Анализ</a> · <a href=\"/projects\">Проекты</a> · <a href=\"/folders\">Папки</a> · <a href=\"/audit\">История</a> · <a href=\"/logs\">Журналы</a> · <a href=\"/csv\">CSV</a> · <a href=\"/models\">BPMN</a> · <a href=\"/backup\">Резервная копия</a><form method=\"post\" action=\"/logout\"><button>Выйти</button></form></nav>";
     let html = include_str!("../templates/platform.html")
         .replace("{{NONCE}}", &nonce)
         .replace("{{TITLE}}", &render::html_escape(title))
@@ -267,6 +330,17 @@ pub(crate) fn routes() -> Router<AppState> {
         .route("/projects", get(projects).post(create_project))
         .route("/projects/{id}/open", post(open_project))
         .route("/projects/{id}/members", post(membership))
+        .route("/projects/{id}/rename", post(rename_project))
+        .route("/projects/{id}/archive", post(archive_project))
+        .route("/projects/{id}/unarchive", post(unarchive_project))
+        .route("/audit", get(audit_page))
+        .route("/audit/export", get(audit_export))
+        .route("/folders", get(folders_page).post(folder_create))
+        .route("/folders/json", get(folders_json))
+        .route("/folders/assign", post(folder_assign))
+        .route("/folders/{id}/rename", post(folder_rename))
+        .route("/folders/{id}/move", post(folder_move))
+        .route("/folders/{id}/delete", post(folder_delete))
         .route(
             "/users",
             post(create_user).layer(DefaultBodyLimit::max(4096)),
@@ -275,6 +349,14 @@ pub(crate) fn routes() -> Router<AppState> {
         .route("/csv", get(csv_form))
         .route("/csv/preview", post(csv_preview))
         .route("/csv/import", post(csv_import))
+        .route("/xes", get(xes_form))
+        .route("/xes/preview", post(xes_preview))
+        .route("/xes/previews/{token}/report", get(xes_report))
+        .route("/xes/import", post(xes_import))
+        .route("/xes/cancel", post(xes_cancel))
+        .route("/logs/{id}/original", get(original_xes))
+        .route("/logs/{id}/import-history", get(import_history))
+        .route("/logs/{id}/import-history/view", get(import_history_view))
         .route("/logs/{id}/tools", get(log_tools))
         .route("/logs/{id}/activities", get(activity_options))
         .route("/logs/{id}/filter", post(filter_log))
@@ -375,11 +457,104 @@ async fn create_project(Workspace(state): Workspace, Form(form): Form<NameForm>)
     match blocking(move || {
         platform(&state)?
             .auth
-            .create_project(&actor(&state)?, &form.name)
+            .create_project(&actor(&state)?, current_session(&state)?, &form.name)
     })
     .await
     {
         Ok(_) => redirect("/projects"),
+        Err(e) => response_error(e),
+    }
+}
+#[derive(Deserialize)]
+#[serde(deny_unknown_fields)]
+struct RenameProjectForm {
+    name: String,
+    revision: u64,
+}
+#[derive(Deserialize)]
+#[serde(deny_unknown_fields)]
+struct ProjectRevisionForm {
+    revision: u64,
+}
+async fn rename_project(
+    Workspace(state): Workspace,
+    Path(id): Path<String>,
+    Form(form): Form<RenameProjectForm>,
+) -> Response {
+    match blocking(move || {
+        platform(&state)?.auth.rename_project(
+            &actor(&state)?,
+            state
+                .session
+                .as_deref()
+                .ok_or_else(|| failure("access_denied", "Войдите в проект."))?,
+            &id,
+            &form.name,
+            form.revision,
+        )
+    })
+    .await
+    {
+        Ok(()) => redirect("/projects"),
+        Err(e) => response_error(e),
+    }
+}
+async fn archive_project(
+    Workspace(state): Workspace,
+    Path(id): Path<String>,
+    Form(form): Form<ProjectRevisionForm>,
+) -> Response {
+    change_archive(state, id, true, form.revision).await
+}
+async fn unarchive_project(
+    Workspace(state): Workspace,
+    Path(id): Path<String>,
+    Form(form): Form<ProjectRevisionForm>,
+) -> Response {
+    change_archive(state, id, false, form.revision).await
+}
+async fn change_archive(
+    state: AppState,
+    id: String,
+    archived: bool,
+    expected_revision: u64,
+) -> Response {
+    match blocking(move || {
+        platform(&state)?.auth.set_archived(
+            &actor(&state)?,
+            state
+                .session
+                .as_deref()
+                .ok_or_else(|| failure("access_denied", "Войдите в проект."))?,
+            &id,
+            archived,
+            expected_revision,
+        )
+    })
+    .await
+    {
+        Ok(()) => redirect("/projects"),
+        Err(e) => response_error(e),
+    }
+}
+async fn audit_export(Workspace(state): Workspace) -> Response {
+    match blocking(move || {
+        state.validate_resource_actor()?; let a = actor(&state)?; let p = platform(&state)?;
+        let repo = state.repository.lock().expect("repository");
+        Ok(json!({"schema_version":1,"scope":"successful project commits; retained last512 plus owner-visible auth projection","project_id":a.project_id,"project_total":repo.audit.total,"project_dropped":repo.audit.total.saturating_sub(repo.audit.entries.len() as u64),"project_entries":repo.audit.entries,"auth_owner_projection":p.auth.audit(&a)}))
+    }).await { Ok(report) => Json(report).into_response(), Err(e) => response_error(e) }
+}
+async fn audit_page(Workspace(state): Workspace) -> Response {
+    match blocking(move || {
+        state.validate_resource_actor()?;
+        let a = actor(&state)?;
+        let p = platform(&state)?;
+        let repo = state.repository.lock().expect("repository");
+        Ok(render::audit(&repo.audit, &p.auth.audit(&a)))
+    })
+    .await
+    {
+        Ok(body) => page("История действий", body),
         Err(e) => response_error(e),
     }
 }
@@ -405,9 +580,13 @@ async fn membership(
     Form(form): Form<MemberForm>,
 ) -> Response {
     match blocking(move || {
-        platform(&state)?
-            .auth
-            .grant(&actor(&state)?, &id, &form.username, form.role)
+        platform(&state)?.auth.grant(
+            &actor(&state)?,
+            current_session(&state)?,
+            &id,
+            &form.username,
+            form.role,
+        )
     })
     .await
     {
@@ -417,9 +596,12 @@ async fn membership(
 }
 async fn create_user(Workspace(state): Workspace, Form(form): Form<Credentials>) -> Response {
     match blocking(move || {
-        platform(&state)?
-            .auth
-            .add_user(&actor(&state)?, &form.username, &form.password)
+        platform(&state)?.auth.add_user(
+            &actor(&state)?,
+            current_session(&state)?,
+            &form.username,
+            &form.password,
+        )
     })
     .await
     {
@@ -747,7 +929,7 @@ async fn filter_log(
         for views in next.user_views.values_mut() {
             views.remove(&id);
         }
-        state.commit(&mut next)?;
+        state.commit_action_resources(&mut next, "filter_applied", vec![id.clone()])?;
         *repo = next;
         Ok(id)
     })
@@ -759,6 +941,8 @@ async fn filter_log(
 }
 #[derive(Deserialize)]
 struct CalendarForm {
+    #[serde(default)]
+    timezone: String,
     offset_minutes: i32,
     weekdays: String,
     start_minute: u32,
@@ -788,6 +972,7 @@ async fn set_calendar(
                 .map_err(|_| failure("calendar", "Праздники: даты YYYY-MM-DD через запятую."))?
         };
         let spec = CalendarSpec {
+            timezone: (!form.timezone.trim().is_empty()).then_some(form.timezone),
             offset_minutes: form.offset_minutes,
             weekdays,
             start_minute: form.start_minute,
@@ -803,7 +988,7 @@ async fn set_calendar(
         let mut next = repo.clone();
         log.calendar = spec;
         next.logs.insert(id.clone(), log);
-        state.commit(&mut next)?;
+        state.commit_action_resources(&mut next, "calendar_changed", vec![id.clone()])?;
         *repo = next;
         Ok(id)
     })
@@ -847,7 +1032,7 @@ fn insert_model(
             source_log,
         }),
     );
-    state.commit(&mut next)?;
+    state.commit_action_resources(&mut next, "model_created", vec![id.clone()])?;
     *repo = next;
     Ok(id)
 }
@@ -972,7 +1157,7 @@ async fn save_model(
         saved_mut.model = model;
         saved_mut.revision += 1;
         next.models.insert(id.clone(), saved);
-        state.commit(&mut next)?;
+        state.commit_action_resources(&mut next, "model_saved", vec![id.clone()])?;
         *repo = next;
         Ok(id)
     })
@@ -1090,10 +1275,21 @@ async fn backup(Workspace(state): Workspace) -> Response {
     }).await.unwrap_or_else(|_|response_error(failure("worker_failed","Не удалось подготовить результат.")))
 }
 fn validate_backup(repo: &Repository) -> Result<(), ImportError> {
+    repo.audit.validate()?;
+    repo.organization.validate(&repo.resource_catalog())?;
     if repo.logs.len() > 8 || repo.models.len() > 64 || repo.durable_jobs.len() > 10 {
         return Err(failure("backup_limit", "В копии превышены лимиты проекта."));
     }
     for (id, log) in &repo.logs {
+        if let Some(provenance) = &log.provenance {
+            provenance.validate(&log.source, &log.source_sha256)?;
+            if log.order != NormalizationOrder::Source {
+                return Err(failure(
+                    "backup_invalid",
+                    "Политика импорта не соответствует исходнику.",
+                ));
+            }
+        }
         if id != &log.id
             || !valid_id(id, "log-")
             || log.source_sha256.len() != 64
@@ -1258,6 +1454,7 @@ async fn restore(Workspace(state): Workspace, multipart: Multipart) -> Response 
                 .map_or("Восстановленный проект", String::as_str);
             p.auth.restore_project(
                 &a,
+                current_session(&state)?,
                 name,
                 serde_json::to_value(repo).map_err(|_| {
                     failure("backup_format", "Не удалось подготовить восстановление.")

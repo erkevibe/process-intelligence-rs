@@ -1,0 +1,79 @@
+{
+  "source": "281d13ddc8bb1813545c9ffe7fa92e8f49aaa6e0",
+  "exe": "95D1340D2C8C5B4BCFD835F4A53BEE7A67CE98242685AC973F775BD6747DD778",
+  "scope": "Independent read-only TD reconciliation of original retained stale report labels, no functional rerun",
+  "observations": [
+    "Cold nativePS5 parent50616 creation05:19:26.1767703Z cwd exact package,3062/5442; app39072 creation05:19:37.3799000Z SHA95D; stdout app_started05:19:37.555912Z",
+    "Backup cjs actual3062; stdout GETbackup20005:23:18.646367Z, restore422 three then20005:23:18.952329Z; semantic project backup only, not fullPGbackup",
+    "Actioncap cjs actual3062; request metadata05:23:37.555Z-806Z status422; matching server request05:23:37.796661Z status422; original D4 scope retained stale",
+    "Uncertain cjs actual3062/5442/package-cold01; restart parent40300 creation05:36:50.9458007Z source281d; app_started05:36:57.490221Z, preview05:37:53.501316Z, failclosed05:37:54.591107Z, imports50305:37:54.593058Z and611504Z; original d29 source label retained stale",
+    "Stopped app11792 forced-1; next native parent38976 creation05:38:29.4436462Z source281d; restart reconciliation separate, no lost successfulCOMMITACK evidence"
+  ],
+  "files": [
+    {
+      "path": ".local/sprint08/qa/package-cold01-start.process.json",
+      "bytes": 496,
+      "sha256": "FA21FBC178AA8C10ABB5AF18202663238544AFFC9ED80F184DC800D1217E96E1"
+    },
+    {
+      "path": ".local/sprint08/qa/package-cold01-live-identity.json",
+      "bytes": 1060,
+      "sha256": "6FC5E757EDA8FFA079E0847A346B1D25B5026353BFE1310925AD5FA166C345FE"
+    },
+    {
+      "path": ".local/sprint08/qa/package-cold01-start.stdout.log",
+      "bytes": 688670,
+      "sha256": "30F1B296CC9B25C90C3147620E1A3BA23C08BC5D774C81BE2DC45598AA9ED08D"
+    },
+    {
+      "path": ".local/sprint08/qa/frozen-action-cap01.cjs",
+      "bytes": 1577,
+      "sha256": "3BE44C186BD8A021C6C4DD85F2867FBBBB79C53736B1CB6C730B6B3C7018B2B2"
+    },
+    {
+      "path": ".local/sprint08/qa/frozen-action-cap01/preview-refusal.json",
+      "bytes": 276,
+      "sha256": "1015AC5CB83B330D85BC4236AA5A24A633651C8DCE97AC9699CC7E3C1792EF8A"
+    },
+    {
+      "path": ".local/sprint08/qa/frozen-backup03.cjs",
+      "bytes": 6104,
+      "sha256": "64824DE41EBA08E311074FF0E5523AB1D6A49AB47B46E851E3292D5BCAEAE6B6"
+    },
+    {
+      "path": ".local/sprint08/qa/frozen-uncertain01.cjs",
+      "bytes": 4367,
+      "sha256": "F9AC4FEE043FC321EB26A91B252A0F6367A1C74277AF33F0BF8E45F425CF29BA"
+    },
+    {
+      "path": ".local/sprint08/qa/package-restart01.process.json",
+      "bytes": 226,
+      "sha256": "91297E932E29E37F23C19D84EA1D15C790AFEB3E31D71A25F41528955E08D11E"
+    },
+    {
+      "path": ".local/sprint08/qa/package-restart01-stopped.stdout.log",
+      "bytes": 4245,
+      "sha256": "97C19CBAAEEF7962E11952318D62F1AA5EB064EF3F37B1F48BDABB773088D10F"
+    },
+    {
+      "path": ".local/sprint08/qa/package-restart01-stop.process.json",
+      "bytes": 171,
+      "sha256": "F6E633D7072174E203491B8A4198EDAC458C0964F845266E8236091537B180EA"
+    },
+    {
+      "path": ".local/sprint08/qa/package-restart02.process.json",
+      "bytes": 216,
+      "sha256": "DFF1910F5FEA4A7FD729975B33A0C507BDB63E254EFE19CD313A67FFAC25B69F"
+    },
+    {
+      "path": ".local/sprint08/qa/post-wal-live-identity01.json",
+      "bytes": 442,
+      "sha256": "8F0D2F31076B26508AACB086BEF008302C0A7B5F9020C01E88EAA5DEE09009F7"
+    }
+  ],
+  "limits": [
+    "CIM/captured identities and recorded logs, not kerneltrace or all child exits",
+    "No original report rewriting; no generic full service or fullR2-R5 acceptance",
+    "No private configuration, cookies, credentials or payload bodies exported"
+  ]
+}

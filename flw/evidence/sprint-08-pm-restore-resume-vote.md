@@ -1,0 +1,9 @@
+# Sprint08 PM — actual targeted RESTORE01 resume vote
+
+Vote: **FOR**, only the exact S8-RESTORE01 proposal in `flw/evidence/sprint-08-restore-resume-proposal.md`, independently fully read and hashed SHA256 `525C6B1459EDDB9021FBBD06B475AFEABEF9D711DDA80ADA7FEFA33772FABE3D`.
+
+The tested source is `d29b623d70179d6dab2863464f70aef5c97f0d47`; DEBUG executable SHA256 `03F418A04E7BF6893959F095CB66506B439C63DC6D7E185122AC577622C7AE51`. My prior independent position remains `sprint-08-pm-restore-position.md` SHA256 `EE87641D6C2793D2A784317FD2CA6866C7848BA6BEDD2FDDAB3DF61D62168FE3`.
+
+I fully read and independently hashed the actual QA closure `391B40F87CB5696CC4D7F635FB76C7E701EE3AE14A29314F98364D12B12DF227` and TD closure position `40B92EF4EA648CDEFC16AA06F4FF5B27C87E3386243EB7AFC73BD7F8D8A02BF3`. The canonical production encoder repair, preserved pre-fix failure and post-fix author checks now have independent runtime evidence: fresh semantic restore preserves exact raw source/history/folders/audit; corruption rejects without SQL hash/version changes; real owned restart preserves full compared hashes; provenance-free demo restore succeeds with provenance explicitly unavailable. TD separately checked the corrective diff and the ten cited evidence files. This supports removing the identified duplicated-encoder stop and resuming affected development/testing.
+
+This vote does not independently reexecute QA or assert final acceptance. It does not approve DISK01, destructive cleanup, release, frozen installation/package, full PostgreSQL dump recovery, external0.5 corpus, other interruption/auth paths, every new feature or full R2–R5 closure. Preserved D2 corruption and disclosed metadata/verifier/tool failures remain evidence. Subsequent candidate changes need their own appropriate checks and independent final acceptance; a new STOP again halts the affected path. Deadline09:42 UTC and freeze no later than08:12 UTC remain unchanged.

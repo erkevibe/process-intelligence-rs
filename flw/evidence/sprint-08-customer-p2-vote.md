@@ -1,0 +1,11 @@
+# Sprint08 — Customer independent P2 position and exact vote
+
+Full read and independent SHA256 confirmed docs/SPRINT_08_PLATFORM_EXTENSION.md 7DD08524006BB34E0A5ACC80BAC868B78112C8E2E79428361588854B9F129C34. Customer customer_s6: **FOR** this exact bounded S8-P2 supplement, after the following independent position. This is not final acceptance.
+
+Value: users can organise existing journals/models without copying heavy data, recover logically archived projects and inspect who changed working data. Stable IDs, no cross-project movement and empty-only deletion protect source/result traceability. Original S8-C01–04 preservation priorities remain ahead of breadth.
+
+Risks: archive/session switching may bypass permissions or strand the user; dangling folder assignments or cyclic trees can corrupt navigation; audit may be incomplete or falsely imply permanent security logging; broad changes consume independent acceptance capacity. The proposal addresses these with owner-only project lifecycle, controlled refusal without an alternate accessible active project, full snapshot validation/CAS and atomic audit. Its explicit bounded512/total/dropped history and separation of successful business actions from denied/security tracing are essential visible limitations.
+
+Acceptance conditions already in the exact supplement: genuine viewer/foreign/stale/cycle/nonempty-delete/archived-write refusals, real restart and backup/new restore preservation, atomic mutation-plus-audit, metadata-only startup, source-envelope preservation and independent QA/TD. Freeze08:12 and final90-minute reserve remain binding. If optional extension cannot receive full checks, exclude it with OPEN rather than claim R3 completion. Original fifteen criteria and unverified full service/SplitMiner work remain unchanged.
+
+Customer additionally interprets audit readability as requiring understandable action/resource/time/actor fields and explicit truncation counters in the supported export; no secrets/raw input. This follows the existing nine-perspective advisory without inventing new presumed user feelings or another Council seat. No actual extension execution or implementation by Customer; human final acceptance separate.

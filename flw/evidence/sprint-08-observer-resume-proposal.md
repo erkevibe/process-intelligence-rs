@@ -1,0 +1,13 @@
+# S8-AUDIT-PID01 — точное предложение о возобновлении
+
+STOP открыт при внесении. Совет: Root, PM, Customer, QA/ProcessAuditor, TechnicalDebt; исходные позиции приглашены и получены до общего предложения. Молчание не голос; требуется более половины пяти голосов. Root как автор голосует FOR только этому ограниченному предложению.
+
+Закрыть причину stale PID ancestry и возобновить проверку frozen candidate и упаковку. Source 281d13ddc8bb1813545c9ffe7fa92e8f49aaa6e0, release EXE SHA256 95D1340D2C8C5B4BCFD835F4A53BEE7A67CE98242685AC973F775BD6747DD778. Исправленный observer SHA256 02CE6FE8D2E016AE8B6A9165440E04E07F0796BEFAAA9E3D9625027F5BB4F0A9, wrapper03 SHA256 ADFDE5EF355CFC835EA0B65DF075B620A7601A1865BF799A18876417E935D599: только текущий live snapshot, exact root PID+creation+normalized path, parent temporal ordering, без historical PID seeds и без termination.
+
+Fresh03 actual main nativeexit0/build0/test0; 93 ordinary PASS, 14 PostgreSQL ignored. Build proof SHA256 C2A42DFBBD6EED4AAE180EF0D9EDD4A58F48D4F995B11BBE42BE669439A49CBB; archive SHA256 37CB6CED7C446F1C613908729E6EF5E672DCE1DA671BCEA96DEA9C10DB5D8781. Все568 source files/lengths проверены независимо QA и TD. Inventory SHA256 B5A11CA64A630768472CBCEF3895CFF13EB45D3E586B663F7489F0C33AE8CA2B,430 уникальных PID+creation,71 unavailable paths.
+
+Независимое QA заключение sprint-08-qa-observer-closure01.json SHA256 0CB547507E8A387D63866D7CD14F5F92C8ED230C3F3E71E2229ED23CCCC686CA: девять регрессий PASS и полная проверка fresh03. Независимое TD заключение sprint-08-td-pid-closure-position.md SHA256 2E9474AD6F59330AEB911B1A2771976EC6387ACCAA70E7563CBF9BFD2F1E1AAE: семь регрессий PASS и полная проверка source/output identity. Root полностью прочитал оба заключения и рассматривает сохранённые замечания аудитора.
+
+Исходная contaminated01 inventory E0B49E24F64C146A01099EFD59C2E789E84DB8FDC226789F163EDA0D33729DC4 отвергнута, EXE28CF не принимается. Run02 separator guard exit1 сохранён; child продолжил сборку без captured main exit — PASS ему не присваивается. Исправление03 выполнено новым запуском. Ошибки QA null-path grouping/timezone cast и TD truncated diagnostic/missing guessed file сохранены с исправленными проверками. Различие двух release EXE при одинаковом archive не доказывает bit reproducibility.
+
+Ограничения:300ms non-atomic CIM polling пропускает short-lived/exited-parent descendants;71 paths missing; только main native exit, не все child exits/ancestry/kernel/whole-machine coverage. Решение не принимает пакет, релиз, весь R2–R5, DISK01, original Apromore/SplitMiner или ignored PG tests. Дальше нужны cold package, frozen application QA, migration/recovery, CI и отдельное окончательное решение. Deadline09:42 UTC, freeze<=08:12 UTC неизменны.
