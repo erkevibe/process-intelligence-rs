@@ -1,0 +1,9 @@
+# Sprint08 PM — actual conditional P5 plan vote
+
+**FOR** exact conditional plan `flw/evidence/sprint-08-http-response-loss-plan.md` SHA256 `730D0C0ACBE151568C70EDD7946029E2F054239C8CA6E67A0AC05EB956E6BA4B`, fully read and independently verified. Actual clock during review **2026-10-11 07:11:31 UTC**. New actual vote, no previous votes reused.
+
+Independent opinion: this is the concrete finite HTTP-success-response-loss branch described in my EBA0B51F… assessment. One upstream303 observed before downstreamEOF, same live token→same durableID, then actual restart and manualUUID+fullSHA/policy/history reconciliation can supply meaningful bounded operator evidence without runtime changes. It cannot prove PostgreSQL commit-ack loss, global exactly-once or automatic postrestart deduplication; URL-only UUID and manual-only recovery remain explicit. The original CA6E7470… definition is unchanged, and eventual R2-03 decision requires the entire finite original evidence set rather than this branch alone.
+
+FOR is conditional plan adoption only. No fault test authorization becomes active before complete C06 local/independent/public/newuser/CI/exact acceptance. Current source3ba4cbbd6ffdc00c1185eb726dd01445eba86a9e/EXED0EDFFD23AAA33EB5D31EB0A4B7917D33519AD36E6F32E949B5F551C170F20F5/ZIP8442298B31F0E4AD749EDB9D981109AEB360A0989038D46E92E35719BE2025DB remain immutable; all user installations protected. QA owns a new isolated resource; TD checks tool before fault, full SQLconservation and credentials remain private.
+
+First actual fault<=08:00, proof<=08:40, at least45minutes independent review, final09:42 are hard gates. Missing window/tool readiness/unclear conservation/STOP→DEFER without speculative retry and without borrowing C06 reserve. No new0.6.2/code/schema, no automatic activation, no R2-03 PASS or fullstage claim follows from this vote. The fixed five actual new votes and mandatory independent controls remain required.

@@ -1,0 +1,635 @@
+{
+  "completed_utc": "2026-10-11T07:20:16.886Z",
+  "source_commit": "3ba4cbbd6ffdc00c1185eb726dd01445eba86a9e",
+  "exe_sha256": "D0EDFFD23AAA33EB5D31EB0A4B7917D33519AD36E6F32E949B5F551C170F20F5",
+  "zip_sha256": "8442298B31F0E4AD749EDB9D981109AEB360A0989038D46E92E35719BE2025DB",
+  "zip_bytes": 57128757,
+  "manifest_files": 1729,
+  "frozen_source_files_verified": 677,
+  "ordinary_tests": 97,
+  "explicitly_ignored_pg_tests": 14,
+  "rows": [
+    {
+      "criterion": "C01",
+      "status": "LOCAL_FINITE_SUPPORTED",
+      "evidence": "Current strict XES literal2cases/4events/3activities; four producer source/date/IDs checked.",
+      "input": "continuation02"
+    },
+    {
+      "criterion": "C02",
+      "status": "LOCAL_FINITE_SUPPORTED",
+      "evidence": "Historical genuine exact extracted TWO Java methods: 11 examples,5 supported/6 divergent. Current41-file identity confirmed; no full service/class parity.",
+      "input": "historical+598CD45E"
+    },
+    {
+      "criterion": "C03",
+      "status": "LOCAL_FINITE_SUPPORTED",
+      "evidence": "Current CSV mapping semantic equivalence to strict XES; physical row3 invalid timestamp422 and complete SQL/prior exports conserved.",
+      "input": "r210"
+    },
+    {
+      "criterion": "C04",
+      "status": "LOCAL_FINITE_SUPPORTED",
+      "evidence": "Source BAC vs timestamp ACB; equal UTC instants stable BAC; policies/source hashes preserved.",
+      "input": "r210"
+    },
+    {
+      "criterion": "C05",
+      "status": "LOCAL_FINITE_SUPPORTED",
+      "evidence": "Real restart preserves seven complete export byte hashes including dates and60 record values/versions; failed/cancelled terminal jobs durable.",
+      "input": "restart17"
+    },
+    {
+      "criterion": "C06",
+      "status": "LOCAL_FINITE_SUPPORTED",
+      "evidence": "Four producer UTC bounds; metadata list/state/escaping; unknown absence; null/number/bad/long/Unicode refusal; RBAC; edit/restore/restart; exact backend SQL metadata projection.",
+      "input": "metadata05/query07/edit09/unicode15/integrity20/Customer8"
+    },
+    {
+      "criterion": "C07",
+      "status": "LOCAL_FINITE_SUPPORTED",
+      "evidence": "EpochE1 complete four-log backup at06:59 BEFORE extra CSV/heavy: full StoredLog fields equal except project remap, raw/history/models/org/audit/jobs/sequence conserved. EpochE2 current seven full exports and60 records conserved separately; whole7 backup422 backup_limit.",
+      "input": "backup18/restore04/limit21-continuation22"
+    },
+    {
+      "criterion": "C08",
+      "status": "LOCAL_FINITE_SUPPORTED",
+      "evidence": "Unchanged18137791-byte100k input; actual Running/parsing cancel accepted, health200 single8.3213ms, Cancelled/nullresult/no row; seven exports/60records and later restart conserved.",
+      "input": "cancel12/restart17"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "backup18/report.json",
+      "bytes": 1402,
+      "sha256": "d7eb688192cc11d1577c1cab034b2d2f421f41a0313763d2059c7e21b9994564",
+      "result": {
+        "pass": true,
+        "original_backup_sha": "53f8be2c8ca0e6e32908a5a1635610d3dca000703ced5391fbcf4022eaafc683",
+        "restored_backup_sha": "7d3916a187a26912fe0aa93c3bb018b3352ef478a7a32ded68972473ad8006f0",
+        "comparisons": [
+          {
+            "id": "log-1",
+            "created_at": "2026-10-11T06:59:35.980906200Z",
+            "cases": 2,
+            "events": 4,
+            "activities": 3,
+            "full_storedlog_equal_except_project_id": true
+          },
+          {
+            "id": "log-2",
+            "created_at": "2026-10-11T06:59:36.045807500Z",
+            "cases": 2,
+            "events": 4,
+            "activities": 3,
+            "full_storedlog_equal_except_project_id": true
+          },
+          {
+            "id": "log-3",
+            "created_at": "2026-10-11T06:59:36.090477500Z",
+            "cases": 2,
+            "events": 4,
+            "activities": 3,
+            "full_storedlog_equal_except_project_id": true
+          },
+          {
+            "id": "log-5",
+            "created_at": "2026-10-11T06:59:36.123139700Z",
+            "cases": 2,
+            "events": 4,
+            "activities": 3,
+            "full_storedlog_equal_except_project_id": true
+          }
+        ],
+        "whole_models_organization_audit_jobs_sequence_equal": true,
+        "source_raw_history_exact": true,
+        "scope": "Actual complete current0.6.1 HTTPbackup/newrestore after realrestart, four full StoredLogs deeply equal except explicit ownershipprojectID remap; current/user_views intentional restore rebinding not compared. Not fullPostgreSQLbackup or newR3-03 acceptance."
+      }
+    },
+    {
+      "path": "before06/report.json",
+      "bytes": 234,
+      "sha256": "1c82600479dabde962380177c5971d78813865f63355cab56699b85be6690b0d",
+      "result": {
+        "pass": true,
+        "logs": 4,
+        "raw_history": [
+          {
+            "id": "/logs/log-3",
+            "raw_sha": "6643664a01a640544f7d3b49d931bc3bab2c82336ae4132e5e036450ae8ceec6",
+            "history_sha": "589ccb67db0e9e189e9d968121527ae955f8f9d63ad539fffc9a41f7c4ca48e3"
+          }
+        ],
+        "record_rows": 48
+      }
+    },
+    {
+      "path": "cancel12/report.json",
+      "bytes": 2535,
+      "sha256": "22c53cf4f175437cf00b39d414fd4c07f8fc1588722bfac5e7262133151b836a",
+      "result": {
+        "pass": true,
+        "source": "3ba4cbbd6ffdc00c1185eb726dd01445eba86a9e",
+        "input_sha": "596419998875d6524c7b6fb0baac32f19979de7aeda630760989cff1a45a36b4",
+        "bytes": 18137791,
+        "heavy": {
+          "id": "/logs/log-10",
+          "sha": "547e81d5a30fc532d2414a21d81682df042a61b6e9a57a809f97c41523cc0700",
+          "created_at": "2026-10-11T07:08:20.462352Z",
+          "source_sha": "596419998875d6524c7b6fb0baac32f19979de7aeda630760989cff1a45a36b4",
+          "cases": 20000,
+          "events": 100000
+        },
+        "running": {
+          "id": "job-11",
+          "state": "running",
+          "stage": "parsing",
+          "job_revision": 1,
+          "cancel_requested": false,
+          "result_id": null,
+          "error": null
+        },
+        "health_ms": 8.32129999999961,
+        "accepted": {
+          "id": "job-11",
+          "state": "cancelled",
+          "stage": "cancelled",
+          "job_revision": 2,
+          "cancel_requested": true,
+          "result_id": null,
+          "error": null
+        },
+        "terminal": {
+          "id": "job-11",
+          "state": "cancelled",
+          "stage": "cancelled",
+          "job_revision": 2,
+          "cancel_requested": true,
+          "result_id": null,
+          "error": null
+        },
+        "export_hashes": [
+          {
+            "id": "/logs/log-1",
+            "sha": "fcbee2ef91b88a1a88da30de113c49586501ffa8eafd3fa54d12e007de1218ef",
+            "created_at": "2026-10-11T06:59:35.980906200Z"
+          },
+          {
+            "id": "/logs/log-2",
+            "sha": "3cc30854f96c5e719b1517c1350d93f1cde025184de78a7c7b5b07c9ccf20de9",
+            "created_at": "2026-10-11T06:59:36.045807500Z"
+          },
+          {
+            "id": "/logs/log-3",
+            "sha": "d1c4d64ddacb04c0fdedef69b9b41b13d2802473d480456f301b96c9536a72f8",
+            "created_at": "2026-10-11T06:59:36.090477500Z"
+          },
+          {
+            "id": "/logs/log-5",
+            "sha": "84c904dc2441496ca05c5a023334e3190203ecc79550498002c75e6c558cdb3f",
+            "created_at": "2026-10-11T06:59:36.123139700Z"
+          },
+          {
+            "id": "/logs/log-8",
+            "sha": "bff7091edaa28672569d5a4472eaff3f226c843adb47fd6b8cdedc8e314a7291",
+            "created_at": "2026-10-11T07:07:46.573327Z"
+          },
+          {
+            "id": "/logs/log-9",
+            "sha": "6a4c21db3326e1154788056939cd51fb29342ee5de7c4e2d3db75c50e5224c69",
+            "created_at": "2026-10-11T07:07:46.616541100Z"
+          },
+          {
+            "id": "/logs/log-10",
+            "sha": "547e81d5a30fc532d2414a21d81682df042a61b6e9a57a809f97c41523cc0700",
+            "created_at": "2026-10-11T07:08:20.462352Z"
+          }
+        ],
+        "records": 60,
+        "record_values_versions_same": true,
+        "scope": "Actual same full100k payload admitted/published once then separately genuineRunning/parsing cancellation. No row/date forcancel; no browser/SSE/performanceSLA."
+      }
+    },
+    {
+      "path": "continuation02/report.json",
+      "bytes": 3840,
+      "sha256": "7eb5c2dd56b916b73c3228650c97a3cb227eec7d985a77f99f629434887d5134",
+      "result": {
+        "pass": true,
+        "logs": [
+          {
+            "id": "/logs/log-1",
+            "kind": "xes",
+            "created_at": "2026-10-11T06:59:35.980906200Z",
+            "sha": "7ecfbf8f494c6a2455af2ae0645e850ebdfe781293d2e678a32ae5ee82d7aba8",
+            "source_sha": "6643664a01a640544f7d3b49d931bc3bab2c82336ae4132e5e036450ae8ceec6",
+            "parameters": {
+              "calendar": {
+                "end_minute": 1080,
+                "holidays": [],
+                "offset_minutes": 0,
+                "start_minute": 540,
+                "weekdays": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5
+                ]
+              },
+              "filters": {
+                "case_activity": null,
+                "max_events": null,
+                "min_events": null,
+                "remove_activities": [],
+                "retain_activities": []
+              },
+              "lifecycle": "each-event",
+              "min_edge_frequency": 1,
+              "order": "source"
+            }
+          },
+          {
+            "id": "/logs/log-2",
+            "kind": "csv",
+            "created_at": "2026-10-11T06:59:36.045807500Z",
+            "sha": "3cc30854f96c5e719b1517c1350d93f1cde025184de78a7c7b5b07c9ccf20de9",
+            "source_sha": "cd97f761febc062ff9ed416d8f60b4a68be7e69af4a82e332f65c7295d683e16",
+            "parameters": {
+              "calendar": {
+                "end_minute": 1080,
+                "holidays": [],
+                "offset_minutes": 0,
+                "start_minute": 540,
+                "weekdays": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5
+                ]
+              },
+              "filters": {
+                "case_activity": null,
+                "max_events": null,
+                "min_events": null,
+                "remove_activities": [],
+                "retain_activities": []
+              },
+              "lifecycle": "each-event",
+              "min_edge_frequency": 1,
+              "order": "timestamp"
+            }
+          },
+          {
+            "id": "/logs/log-3",
+            "kind": "preview",
+            "created_at": "2026-10-11T06:59:36.090477500Z",
+            "sha": "d1c4d64ddacb04c0fdedef69b9b41b13d2802473d480456f301b96c9536a72f8",
+            "source_sha": "6643664a01a640544f7d3b49d931bc3bab2c82336ae4132e5e036450ae8ceec6",
+            "parameters": {
+              "calendar": {
+                "end_minute": 1080,
+                "holidays": [],
+                "offset_minutes": 0,
+                "start_minute": 540,
+                "weekdays": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5
+                ]
+              },
+              "filters": {
+                "case_activity": null,
+                "max_events": null,
+                "min_events": null,
+                "remove_activities": [],
+                "retain_activities": []
+              },
+              "lifecycle": "each-event",
+              "min_edge_frequency": 1,
+              "order": "source"
+            }
+          },
+          {
+            "id": "/logs/log-5",
+            "kind": "job",
+            "created_at": "2026-10-11T06:59:36.123139700Z",
+            "sha": "84c904dc2441496ca05c5a023334e3190203ecc79550498002c75e6c558cdb3f",
+            "source_sha": "6643664a01a640544f7d3b49d931bc3bab2c82336ae4132e5e036450ae8ceec6",
+            "parameters": {
+              "calendar": {
+                "end_minute": 1080,
+                "holidays": [],
+                "offset_minutes": 0,
+                "start_minute": 540,
+                "weekdays": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5
+                ]
+              },
+              "filters": {
+                "case_activity": null,
+                "max_events": null,
+                "min_events": null,
+                "remove_activities": [],
+                "retain_activities": []
+              },
+              "lifecycle": "each-event",
+              "min_edge_frequency": 1,
+              "order": "source"
+            }
+          }
+        ],
+        "backup_sha": "53f8be2c8ca0e6e32908a5a1635610d3dca000703ced5391fbcf4022eaafc683",
+        "cause": "Initial helper used nonexistent /backup/export after four completed producer/date/list assertions. Correct registered GET /backup continuation; no producer rerun.",
+        "scope": "All4 original date/export evidence conserved and proper backup captured"
+      }
+    },
+    {
+      "path": "edit09/report.json",
+      "bytes": 400,
+      "sha256": "1181a695535af43857ec357684a1ea857b1d212fd2e2513c30f4d358733ee787",
+      "result": {
+        "pass": true,
+        "checks": [
+          "view edit timestamp immutable/allheavywholevaluesversionsunchanged",
+          "filter/reset preservesdate/rawsource/event semantics",
+          "viewerreads/403writes/currentprojects; foreign403open/404knownlog"
+        ],
+        "scope": "Own synthetic accounts/currentproject RBAC and logical edits. Export bytes legitimately view/analysis revisions differ; date/source preserved."
+      }
+    },
+    {
+      "path": "integrity20/report.json",
+      "bytes": 392,
+      "sha256": "1e05c18d52479dadb25aca047aeb1da41349b93dde94cbca7d84506d2c9a7203",
+      "result": {
+        "pass": true,
+        "list_saved_analysis_200": true,
+        "open_corrupt_payload422": true,
+        "code": "repository_corrupt",
+        "allSQLread_conserved": true,
+        "fixture_original_restored": true,
+        "scope": "Own direct source_envelope2/version+1 corruption fixture ensures cache sees change; state claims publication only, not integrityverified. Source original value/version restored explicitly."
+      }
+    },
+    {
+      "path": "limit21/continuation22.json",
+      "bytes": 403,
+      "sha256": "87f45a305171ea496f8223b4b6f86e56ee762f35076cf4bdc2ba231eff09693a",
+      "result": {
+        "pass": true,
+        "status": 422,
+        "code": "backup_limit",
+        "allSQLunchanged": true,
+        "correction": "Initial verifier guessed413. Source platform::response_error default422 confirmed before this continuation. Existing actual response consumed; no repeated backup request.",
+        "scope": "Current seven-log whole HTTP backup controlled refusal; four-log earlier complete snapshot backup is separate."
+      }
+    },
+    {
+      "path": "metadata05/report.json",
+      "bytes": 551,
+      "sha256": "6629a319972acae2b349684925b0dda5c3203a9a0b50c1dce63a23f18919667b",
+      "result": {
+        "pass": true,
+        "checks": [
+          "null422schema_unsupported/read-onlyfullSQLconservation",
+          "number422schema_unsupported/read-onlyfullSQLconservation",
+          "badstr422schema_unsupported/read-onlyfullSQLconservation",
+          "oversized422schema_unsupported/read-onlyfullSQLconservation",
+          "absent oneunknown"
+        ],
+        "source": "3ba4cbbd6ffdc00c1185eb726dd01445eba86a9e",
+        "scope": "Test-owned direct log_state fixtures only, explicit restoration of original value; GET metadata refusal never writes any SQL. No corrupted user data repair claim."
+      }
+    },
+    {
+      "path": "query07/report.json",
+      "bytes": 1158,
+      "sha256": "e3d1fc790b39dd348d03e84dc4cfcbb0bce4ec794ba42339f4f33e9d103b7704",
+      "result": {
+        "pass": true,
+        "start_utc": "2026-10-11T07:04:14.980Z",
+        "end_utc": "2026-10-11T07:04:15.042Z",
+        "backend": [
+          {
+            "pid": 48908,
+            "backend_start": "2026-10-11T12:03:47.738959+05:00",
+            "state": "idle"
+          }
+        ],
+        "sql_trace_sha": "5f46427807b8416f6dfb92f4169f28d9f7297e5a8a3278560a93e333db50f241",
+        "sql_trace_bytes": 1537,
+        "app_backend_statement_count": 4,
+        "metadata_projection_observed": true,
+        "no_whole_heavy_document_select_in_complete_captured_window": true,
+        "scalar_log_analysis_events_allowed": true,
+        "all48records_before_after_same": true,
+        "dates": [
+          {
+            "id": "/logs/log-1",
+            "created_at": "2026-10-11T06:59:35.980906200Z"
+          },
+          {
+            "id": "/logs/log-2",
+            "created_at": "2026-10-11T06:59:36.045807500Z"
+          },
+          {
+            "id": "/logs/log-3",
+            "created_at": "2026-10-11T06:59:36.090477500Z"
+          },
+          {
+            "id": "/logs/log-5",
+            "created_at": "2026-10-11T06:59:36.123139700Z"
+          }
+        ],
+        "scope": "Cold exact app restart before GETlist; complete own5446 app backend log_statement window. SQLtext/privateauth remains private. No physical RAM or general allSQL assurance."
+      }
+    },
+    {
+      "path": "r210/report.json",
+      "bytes": 806,
+      "sha256": "6ba42333d8bca5befa02e2581313a78654d1251316155b9c45fc4ee92c10f280",
+      "result": {
+        "pass": true,
+        "source_xes_csv_equal": true,
+        "stable_equaloffset_tie_BAC": true,
+        "invalid_csv_row3_controlled422_allSQLunchanged": true,
+        "duplicates": [
+          {
+            "id": "/logs/log-8",
+            "created_at": "2026-10-11T07:07:46.573327Z",
+            "sha": "bff7091edaa28672569d5a4472eaff3f226c843adb47fd6b8cdedc8e314a7291",
+            "source_sha": "cd97f761febc062ff9ed416d8f60b4a68be7e69af4a82e332f65c7295d683e16"
+          },
+          {
+            "id": "/logs/log-9",
+            "created_at": "2026-10-11T07:07:46.616541100Z",
+            "sha": "6a4c21db3326e1154788056939cd51fb29342ee5de7c4e2d3db75c50e5224c69",
+            "source_sha": "9113f25a6c2e2ef27e169bbc2f07b2e3377224edcf33388eb4f36426256fab2d"
+          }
+        ],
+        "scope": "Current native0.6.1 independent actual C01/C03/C04/C06 probes. Reference fullclass parity not implied."
+      }
+    },
+    {
+      "path": "restart17/report.json",
+      "bytes": 2087,
+      "sha256": "e657c185a52c9b738c1af53c4af283c5435d573655927b386c5f6e4e12034acf",
+      "result": {
+        "pass": true,
+        "cancelled": {
+          "id": "job-11",
+          "state": "cancelled",
+          "stage": "cancelled",
+          "job_revision": 2,
+          "cancel_requested": true,
+          "result_id": null,
+          "error": null
+        },
+        "failed": {
+          "id": "job-12",
+          "state": "failed",
+          "stage": "failed",
+          "job_revision": 2,
+          "cancel_requested": false,
+          "result_id": null,
+          "error": {
+            "code": "malformed_xml",
+            "message": "Неподдерживаемая структура XES: ожидаются log, trace и event."
+          }
+        },
+        "exports": [
+          {
+            "id": "/logs/log-1",
+            "sha": "fcbee2ef91b88a1a88da30de113c49586501ffa8eafd3fa54d12e007de1218ef",
+            "created_at": "2026-10-11T06:59:35.980906200Z"
+          },
+          {
+            "id": "/logs/log-2",
+            "sha": "3cc30854f96c5e719b1517c1350d93f1cde025184de78a7c7b5b07c9ccf20de9",
+            "created_at": "2026-10-11T06:59:36.045807500Z"
+          },
+          {
+            "id": "/logs/log-3",
+            "sha": "d1c4d64ddacb04c0fdedef69b9b41b13d2802473d480456f301b96c9536a72f8",
+            "created_at": "2026-10-11T06:59:36.090477500Z"
+          },
+          {
+            "id": "/logs/log-5",
+            "sha": "84c904dc2441496ca05c5a023334e3190203ecc79550498002c75e6c558cdb3f",
+            "created_at": "2026-10-11T06:59:36.123139700Z"
+          },
+          {
+            "id": "/logs/log-8",
+            "sha": "bff7091edaa28672569d5a4472eaff3f226c843adb47fd6b8cdedc8e314a7291",
+            "created_at": "2026-10-11T07:07:46.573327Z"
+          },
+          {
+            "id": "/logs/log-9",
+            "sha": "6a4c21db3326e1154788056939cd51fb29342ee5de7c4e2d3db75c50e5224c69",
+            "created_at": "2026-10-11T07:07:46.616541100Z"
+          },
+          {
+            "id": "/logs/log-10",
+            "sha": "547e81d5a30fc532d2414a21d81682df042a61b6e9a57a809f97c41523cc0700",
+            "created_at": "2026-10-11T07:08:20.462352Z"
+          }
+        ],
+        "whole_record_count": 60,
+        "whole_records_values_versions_unchanged": true,
+        "raw_history_unchanged": true,
+        "no_cancelled_failed_rows": true,
+        "scope": "Actual second own native restart, exact0.6.1; full exports including created_at byte-identical, no lingeringRunning. Forced oldprocess exit is not graceful."
+      }
+    },
+    {
+      "path": "restore04/report.json",
+      "bytes": 830,
+      "sha256": "42170225568c0c475f3059d19f5a90c888325f0c7bd34be7affa1fa946013e75",
+      "result": {
+        "pass": true,
+        "projects": {
+          "valid": "project-eb33a55024c1495c85bbe276b34e4ac6",
+          "legacy": "project-c64da10833aa4e51b4bdb30b04d91464"
+        },
+        "logs": 4,
+        "cause": "restore03 assumed restore auto-switches current project; source returns explicit open form. Failed legacy assertion preserved. This continuation opens actual existing restored projects and checks their own project IDs and all4 exports, no new restore.",
+        "original_dates": [
+          {
+            "id": "/logs/log-1",
+            "created_at": "2026-10-11T06:59:35.980906200Z"
+          },
+          {
+            "id": "/logs/log-2",
+            "created_at": "2026-10-11T06:59:36.045807500Z"
+          },
+          {
+            "id": "/logs/log-3",
+            "created_at": "2026-10-11T06:59:36.090477500Z"
+          },
+          {
+            "id": "/logs/log-5",
+            "created_at": "2026-10-11T06:59:36.123139700Z"
+          }
+        ]
+      }
+    },
+    {
+      "path": "unicode15/report.json",
+      "bytes": 703,
+      "sha256": "aa57b9614700c606074a6b5ff20196d8daa6e29ee11038c39209882bc698765f",
+      "result": {
+        "pass": true,
+        "unicode64_codepoints_utf8bytes128_rejected422": true,
+        "sql_reads_scalar_max64characters_not64bytes": true,
+        "valid_offset_displayUTC": true,
+        "failed_job": {
+          "id": "job-12",
+          "state": "failed",
+          "stage": "failed",
+          "job_revision": 2,
+          "cancel_requested": false,
+          "result_id": null,
+          "error": {
+            "code": "malformed_xml",
+            "message": "Неподдерживаемая структура XES: ожидаются log, trace и event."
+          }
+        },
+        "no_failed_log_row": true,
+        "scope": "Test-owned scalar mutation fixture restoredexactoriginal; SQL projection invalid Unicode may transfer128bytes before Rust refusal, no physicaldisk/noTOASTclaim."
+      }
+    }
+  ],
+  "inventory": {
+    "path": ".local/sprint08/qa/c06-native01/inventory23.json",
+    "sha256": "40abccc249352ec0bb662011ba2ced11dd47777e4c72d4b162b9fb67ea453446",
+    "files": 574,
+    "bytes": 221670713,
+    "missing": []
+  },
+  "limitations": [
+    "Local candidate position only; final checked-head CI/public anonymous download/new human install/protected postdelivery and exact new Council decision remain mandatory pending.",
+    "Synthetic legacy missing dates tested through real new restore; genuine old0.3 schema migration and fourteen ignored PG suites NOT-IN-RUN at0.6.1. Old0.6 R3-03 acceptance not transferred.",
+    "Native parent lifetime exits uncaptured; guarded forced app exit receipt null is MISSING, never zero.",
+    "SQL query trace proves application scalar transfer/no whole heavy payload retrieval in named backend window, not PostgreSQL physical TOAST no-read or RAM claim.",
+    "E1 four-log full backup is not E2 current-seven-log backup. Restore current/user_views rebinding intentionally excluded from equality.",
+    "No full R2-R5, full Java service, HA, exactly-once or immediate parser interruption claim."
+  ],
+  "history": [
+    "Producer guessed backup/export404 after four checks; continuation correctGET/backup.",
+    "Restore verifier assumed automatic project switching; explicit existing-project open corrected without rerestore.",
+    "Edit guessed/view404; registered logs/id/view correction.",
+    "Unicode13 and integrity19 Windows SQL argv UTF8 errors occurred before mutation; standard ASCII JSON escaping corrected. Unicode14 JS parse error before execution.",
+    "Reserved $PID invalid identity01 excluded; exact listener identity02 used.",
+    "Backup-limit21 guessed413 failed native1; source422 backup_limit continuation22 native0 confirms all SQL unchanged.",
+    "PowerShell audit parse-only failure retained. No all-attempt-zero claim."
+  ],
+  "verdict": "Independent finite local C01–08 evidence supports proceeding to exact scoped Council review and mandatory public/final-CI delivery gates; no release acceptance yet."
+}
