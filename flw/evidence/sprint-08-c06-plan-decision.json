@@ -1,0 +1,48 @@
+{
+  "proposal_sha256": "ED631BDA2A86C78574B06A1FF3AC654152CA522B31F9FDA354307342D9FF22D2",
+  "utc": "2026-10-11T06:33:42.3912670Z",
+  "fixed_voters": 5,
+  "actual_for": 5,
+  "actual_against": 0,
+  "votes": [
+    {
+      "role": "Root",
+      "path": "flw/evidence/sprint-08-root-c06-plan-vote.json",
+      "sha256": "E6BC64D82AC9E191B83B50A001B47229AC8340BC46E5A9164C39D4B8D25EFF17",
+      "vote": "FOR"
+    },
+    {
+      "role": "PM",
+      "path": "flw/evidence/sprint-08-pm-c06-plan-vote.md",
+      "sha256": "26D9884C6421E356D531891F46E95779A7C72A7D088E07100A1091A117F560A6",
+      "vote": "FOR"
+    },
+    {
+      "role": "Customer",
+      "path": "flw/evidence/sprint-08-customer-c06-plan-vote.md",
+      "sha256": "6EAD42C50C44F67AE271B246E1A7B08E8FE62AE6ADA2CFBF9B35418BD78DAB23",
+      "vote": "FOR"
+    },
+    {
+      "role": "QA",
+      "path": "flw/evidence/sprint-08-qa-c06-plan-vote.md",
+      "sha256": "F3C7D118FF4E25925AFC500213DCA77601EB0B3729D22A6FBF2519FAA60EA480",
+      "vote": "FOR"
+    },
+    {
+      "role": "TechnicalDebt",
+      "path": "flw/evidence/sprint-08-td-c06-plan-vote.md",
+      "sha256": "0F941EC6386D86E4740CFB69500AC6044B069F8218D7B9D57895B84B005C7A86",
+      "vote": "FOR"
+    }
+  ],
+  "verdict": "AUTHORIZE only bounded P4 C06 implementation/newcandidate under hardtimegates",
+  "scope": "Not product/release/R2-04/fullstageacceptance. Accepted0.6unchanged, olduserdata protected.",
+  "hard_gates": [
+    "Implementationfreeze<=07:15UTC",
+    "Frozenpackage<=07:40UTC",
+    "Atleast90min independentacceptance remains",
+    "Slip/STOP DEFER0.6.1; keepaccepted0.6",
+    "NewactualQA/TD/publicdelivery/exactvotes/CI required"
+  ]
+}

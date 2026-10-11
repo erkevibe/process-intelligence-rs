@@ -1,0 +1,9 @@
+# Sprint08 PM — actual new P4 plan vote
+
+**FOR** exact `docs/SPRINT_08_C06_PLAN.md` SHA256 `ED631BDA2A86C78574B06A1FF3AC654152CA522B31F9FDA354307342D9FF22D2`, fully read and independently verified. Actual clock during review: **2026-10-11 06:31:53 UTC**. New actual vote, not transferred F1/F2.
+
+The finite contract matches my conditional feasibility: new application publication UTC persisted atomically at shared insertion for all four producer paths; optional legacy absence remains honestly unknown; edits/restart/restore conserve the field; malformed values refuse. Stable IDs already exist. Metadata-only listing states “Сохранённый анализ”, explicitly separating publication from integrity checked on opening and pending jobs. No invented historical dates, healthy-payload guarantee, lost-ACK protocol or generic dummy audit fields.
+
+New isolated0.6.1 must have its own exact candidate/build/package/independent nativePG/browser/public/newinstall/CI/protected proof and Council acceptance. Existing0.6/source281d/tag/ZIP/user3061/5441 remain untouched. Deadline06:45 for plan, freeze<=07:15, package<=07:40 and at least90minutes independent acceptance are hard scope gates, with slip/STOP requiring defer and retention of accepted0.6.0 rather than weakened checks.
+
+This FOR authorizes only the plan after actual majority and required independent QA/TD controls, not code before adoption, release or full R2-04. Original eight scenario definitions remain; each needs exact independent evidence including genuine bounded reference identity and actual cancellation distinct from crash. Full stages remain unpromised. Proper audit business context and blocked fullservice/SplitMiner remain separate. PM performs criterion review, not independent acceptance of developer code or reuse of own historical producer checks.

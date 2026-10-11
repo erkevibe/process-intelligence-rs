@@ -1,0 +1,86 @@
+{
+  "role": "Independent QA / ProcessLogAuditor additive developer-evidence review; no new criterion vote",
+  "created_utc": "2026-10-11T06:31:03.9823919+00:00",
+  "developer_report_sha256": "5C9E83C49D1D2E1A52B9F8D40FB66F7E5C95C72027651A4F574E5C6E1E80B9D6",
+  "source": "281d13ddc8bb1813545c9ffe7fa92e8f49aaa6e0",
+  "exe_sha256": "95D1340D2C8C5B4BCFD835F4A53BEE7A67CE98242685AC973F775BD6747DD778",
+  "zip_sha256": "4AE712B07E58B23F3A3FB53D8CAF5EED83BB9E9AE5EC49A5CFAA19C85B5A2759",
+  "coverage": {
+    "files": 149,
+    "raw_inventory_sha256": "2E8A78DB2A54D1857C9A9E68D28EC38C4D5FF3F0093843F86707BA952C0ACB80",
+    "bytes": 16756353,
+    "all_full_bytes_hashes_match": true,
+    "independent_inventory_sha256": "C379E3699C1DBDC4150779940BF5C6F45BC1F2D0BF912FD4052A62D306DA2734",
+    "scope": "All inventoried files fully read as bytes and fingerprinted. Literal expectations, reports, selected assertions, native identities/exits and record snapshots semantically reviewed; not every HTTP byte semantically interpreted and not full machine process coverage."
+  },
+  "prospective": {
+    "finite": "8DF2A81C457583CF2BB8825BC8E8078656531D6667B8B152F2CA84DE5A453D9B",
+    "heavy": "9B477992421697FA7A6519DBD40A435AED828BBCBB4C37E67DBC3DE73D4D6878",
+    "manual": "Independently checked x=BAC/y=A gives weighted nodes A2 B1 C1 and BA/AC edges; timestamp ACB/A gives AC/CB; equal Z/+01 instants preserve B before A source tie. 100 traces of 1000 periodic A0..A9 events gives each node10000, startA0/endA9=100, adjacent edge10000 and A9→A0=9900."
+  },
+  "assessment": {
+    "C07": "Existing independent exact-C E3 report759FB655D930ABC1EC3BA85D9428DA5C0B69C91926B99B7D093A03080FA5D527 and fingerprint92515C97D1FC8293563F1675438AA096AC7DC10BCEDE94FFC6EF953B0A022CCF support historical restored analysis/data/source full values+versions equality and manual1/2/2 counts; log_state legitimately remaps project. Not a new restore/export run or full PG backup proof.",
+    "C08": "Actual Running/parsing snapshot before cancel, ready health8.2194ms, accepted terminal cancelled/nullresult and durable restart preservation supported.16 complete log records value SHA plus versions unchanged. This health sample is not a general SLA; no SSE/browser or immediate interrupt claim.",
+    "C06": "Date/state actually absent; OPEN. No full R2-04/full eight-scenario acceptance.",
+    "C02": "Historical genuine unchanged extracted validateLog/isInvalidEvent boundary only:11 examples,5 supported/6 divergent, no whole class/service claim. Upstream bbf24dfd43e72d6992392465f875a4367cbe792b is Apromore commit, not local Rust Git object. Available Rust e890d84c95c892fa25f465e30ca215c803c49b71→C relevant service_preview/event_io/runner/comparator/corpus diff empty. Current corpus49AF9FB9C981BA77A49190211A1DA1FBE1D9F9C4A595FC616754A2813F607B89 and comparison9A9D78E55329F8A53BA6ABC3527DB057EAFA03B7D852256205592C8BA1461CB8 match historical verified outputs. Original full upstream sourceB1F81927EEB5C020D7260EB75C7A7E4B4182B9DFD6CA3E26EC4AC34F57843527, extracted methodsC6180BDB3A5C1F58E781350ED063DDF636759CA002923D6FADF9839C1409C75C and comparator351FE43BABE9B65E5D6D1640C4C36FCE241325B855AC3B5CFE096E5DD4E6C9C1 bound to previous independent real execution. No new Java execution or diagnostic credit.",
+    "C04": "Finite timestamp reorder/equal-offset stable tie and each-event policy supported; no broad timezone/calendar/legacy parity inference.",
+    "C01": "Finite protocol arithmetic and explicit source policy supported by independent review.",
+    "C05": "Three complete small export hashes preserved across actual owned forced restart; fourth 100k full export also preserved after second restart. Force-stop exits -1 are not graceful shutdown."
+  },
+  "helper_exits": [
+    {
+      "attempt": "install",
+      "exit": 0
+    },
+    {
+      "attempt": "finite01",
+      "exit": 0
+    },
+    {
+      "attempt": "heavy01",
+      "exit": 0
+    },
+    {
+      "attempt": "cancel01",
+      "exit": 0
+    },
+    {
+      "attempt": "after-restart01",
+      "exit": 0
+    },
+    {
+      "attempt": "after-restart02",
+      "exit": 0
+    },
+    {
+      "attempt": "restart01",
+      "exit": 0
+    },
+    {
+      "attempt": "restart02",
+      "exit": 0
+    },
+    {
+      "attempt": "cleanup01",
+      "exit": 0
+    }
+  ],
+  "identity": {
+    "manifest_files": 1726,
+    "own_ports": "3065/5444",
+    "first_app": "49604/2026-10-11T06:21:51.3389890Z",
+    "after_restart_app": "25072/2026-10-11T06:25:34.0235870Z",
+    "zip_files": 1727,
+    "pg": "49044/2026-10-11T06:21:50.1971410Z",
+    "cleanup": "Exact guarded owned app/launcher forced exits -1/-1, pg_ctl0, ports closed; no protected resources touched.",
+    "final_manifest_changes": 0
+  },
+  "limitations": [
+    "Developer remains author of these replay scripts; this is independent evidence/assertion review, not independent runtime rerun or new Council acceptance.",
+    "Original supplement preserved. C03 not rerun; only previous evidence scope.",
+    "Read-only QA git diff against upstream commit failed bad object; corrected interpretation upstream versus available Rust e890, no repeated runtime. Guessed c07-mapping.json absent read preserved; actual existing E3 proof used.",
+    "149-file inventory excludes private credentials; preparatory reads/tool-only/truncated display gaps retained. Fingerprints do not establish every machine child exit.",
+    "All other criterion statuses unchanged; future UI/date/state requires a new authorized plan/candidate."
+  ],
+  "verdict": "Finite C01/C04/C05/C08 evidence supported at stated scope. C06 MISSING; no R2-04/full R2 acceptance."
+}

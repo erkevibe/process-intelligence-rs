@@ -1,0 +1,659 @@
+{
+  "role": "Developer proof supplement; independent QA/TD acceptance required; no self acceptance",
+  "created_utc": "2026-10-11T06:28:52.966Z",
+  "source": "281d13ddc8bb1813545c9ffe7fa92e8f49aaa6e0",
+  "exe_sha256": "95D1340D2C8C5B4BCFD835F4A53BEE7A67CE98242685AC973F775BD6747DD778",
+  "zip_sha256": "4AE712B07E58B23F3A3FB53D8CAF5EED83BB9E9AE5EC49A5CFAA19C85B5A2759",
+  "prospective_expectations": [
+    {
+      "path": ".local/sprint08/r2-developer/expectations.json",
+      "sha256": "8df2a81c457583cf2bb8825bc8e8078656531d6667b8b152f2ca84de5a453d9b"
+    },
+    {
+      "path": ".local/sprint08/r2-developer/heavy-expectations.json",
+      "sha256": "9b477992421697fa7a6519dbd40a435aed828bbcbb4c37e67dbc3de73d4d6878"
+    }
+  ],
+  "installation": {
+    "manifest": {
+      "manifest_files": 1726,
+      "zip_files": 1727,
+      "extra_names": [],
+      "private_names": [],
+      "changed_manifest_files": [],
+      "exe_sha256": "95D1340D2C8C5B4BCFD835F4A53BEE7A67CE98242685AC973F775BD6747DD778"
+    },
+    "port_http": 3065,
+    "port_postgres": 5444,
+    "initial_native_identities": {
+      "source": "281d13ddc8bb1813545c9ffe7fa92e8f49aaa6e0",
+      "manifest_files": 1726,
+      "health": {
+        "status": "ready",
+        "version": "0.6.0"
+      },
+      "launcher_pid": 50004,
+      "launcher_creation": "2026-10-11T06:21:40.6434171Z",
+      "app": {
+        "pid": 49604,
+        "creation": "2026-10-11T06:21:51.3389890Z",
+        "path": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint08\\r2-developer\\extract\\process-intelligence-rs-0.6.0-windows-x86_64\\process-intelligence-rs.exe"
+      },
+      "postgres": {
+        "pid": 49044,
+        "creation": "2026-10-11T06:21:50.1971410Z",
+        "path": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint08\\r2-developer\\extract\\process-intelligence-rs-0.6.0-windows-x86_64\\runtime\\postgresql\\pgsql\\bin\\postgres.exe"
+      },
+      "root": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint08\\r2-developer\\extract\\process-intelligence-rs-0.6.0-windows-x86_64"
+    },
+    "actual_install_wrapper_exit": 0,
+    "interpreter_scope": "Native Windows PowerShell5 documented NoProfile per-process ExecutionPolicy Bypass with stock child modulepath; no global policy/security changes"
+  },
+  "scenarios": {
+    "C01": {
+      "status": "developer evidence PASS finite",
+      "logs": [
+        {
+          "id": "/logs/log-1",
+          "export_sha256": "a42656403459497c0938d01d4a37b8f441603e2b29102760032c7fb2bf3b3371",
+          "input_sha256": "cd97f761febc062ff9ed416d8f60b4a68be7e69af4a82e332f65c7295d683e16",
+          "semantic": {
+            "cases": 2,
+            "events": 4,
+            "activities": 3,
+            "nodes": [
+              [
+                "A",
+                2,
+                1,
+                1
+              ],
+              [
+                "B",
+                1,
+                1,
+                0
+              ],
+              [
+                "C",
+                1,
+                0,
+                1
+              ]
+            ],
+            "edges": [
+              [
+                "A",
+                "C",
+                1
+              ],
+              [
+                "B",
+                "A",
+                1
+              ]
+            ],
+            "variants": [
+              [
+                [
+                  "A"
+                ],
+                1
+              ],
+              [
+                [
+                  "B",
+                  "A",
+                  "C"
+                ],
+                1
+              ]
+            ]
+          },
+          "schema_version": 1,
+          "analysis_version": 1,
+          "parameters": {
+            "calendar": {
+              "end_minute": 1080,
+              "holidays": [],
+              "offset_minutes": 0,
+              "start_minute": 540,
+              "weekdays": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ]
+            },
+            "filters": {
+              "case_activity": null,
+              "max_events": null,
+              "min_events": null,
+              "remove_activities": [],
+              "retain_activities": []
+            },
+            "lifecycle": "each-event",
+            "min_edge_frequency": 1,
+            "order": "source"
+          }
+        },
+        {
+          "id": "/logs/log-2",
+          "export_sha256": "718dcddee434a08f1a6eefca8cf9dfa117bf69b13e6bc415a62f72f57cba753e",
+          "input_sha256": "cd97f761febc062ff9ed416d8f60b4a68be7e69af4a82e332f65c7295d683e16",
+          "semantic": {
+            "cases": 2,
+            "events": 4,
+            "activities": 3,
+            "nodes": [
+              [
+                "A",
+                2,
+                2,
+                1
+              ],
+              [
+                "B",
+                1,
+                0,
+                1
+              ],
+              [
+                "C",
+                1,
+                0,
+                0
+              ]
+            ],
+            "edges": [
+              [
+                "A",
+                "C",
+                1
+              ],
+              [
+                "C",
+                "B",
+                1
+              ]
+            ],
+            "variants": [
+              [
+                [
+                  "A"
+                ],
+                1
+              ],
+              [
+                [
+                  "A",
+                  "C",
+                  "B"
+                ],
+                1
+              ]
+            ]
+          },
+          "schema_version": 1,
+          "analysis_version": 2,
+          "parameters": {
+            "calendar": {
+              "end_minute": 1080,
+              "holidays": [],
+              "offset_minutes": 0,
+              "start_minute": 540,
+              "weekdays": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ]
+            },
+            "filters": {
+              "case_activity": null,
+              "max_events": null,
+              "min_events": null,
+              "remove_activities": [],
+              "retain_activities": []
+            },
+            "lifecycle": "each-event",
+            "min_edge_frequency": 1,
+            "order": "timestamp"
+          }
+        }
+      ]
+    },
+    "C02": {
+      "status": "historical extracted-method evidence only, not rerun/not self accepted",
+      "core": "bbf24dfd43e72d6992392465f875a4367cbe792b",
+      "corpus_sha256": "49af9fb9c981ba77a49190211a1da1fbe1d9f9c4a595fc616754a2813f607b89",
+      "comparison_sha256": "9a9d78e55329f8a53ba6abc3527db057eafa03b7d852256205592c8ba1461cb8",
+      "scope": "genuine extracted validateLog/isInvalidEvent method boundary,11 fixtures,5 supported/6 divergent; no fullclass/fullservice compatibility or javac diagnostic credit; current export still declares Apromore unverified"
+    },
+    "C03": {
+      "status": "not rerun; existing E1 independent evidence only"
+    },
+    "C04": {
+      "status": "developer evidence PASS finite",
+      "equal_timestamp_offset_equivalence": {
+        "id": "/logs/log-3",
+        "export_sha256": "d15bade8b63ee79ffc7e1c35d1a6b8504b7a276705c4c23249749456502cd776",
+        "input_sha256": "9113f25a6c2e2ef27e169bbc2f07b2e3377224edcf33388eb4f36426256fab2d",
+        "semantic": {
+          "cases": 2,
+          "events": 4,
+          "activities": 3,
+          "nodes": [
+            [
+              "A",
+              2,
+              1,
+              1
+            ],
+            [
+              "B",
+              1,
+              1,
+              0
+            ],
+            [
+              "C",
+              1,
+              0,
+              1
+            ]
+          ],
+          "edges": [
+            [
+              "A",
+              "C",
+              1
+            ],
+            [
+              "B",
+              "A",
+              1
+            ]
+          ],
+          "variants": [
+            [
+              [
+                "A"
+              ],
+              1
+            ],
+            [
+              [
+                "B",
+                "A",
+                "C"
+              ],
+              1
+            ]
+          ]
+        },
+        "schema_version": 1,
+        "analysis_version": 3,
+        "parameters": {
+          "calendar": {
+            "end_minute": 1080,
+            "holidays": [],
+            "offset_minutes": 0,
+            "start_minute": 540,
+            "weekdays": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          "filters": {
+            "case_activity": null,
+            "max_events": null,
+            "min_events": null,
+            "remove_activities": [],
+            "retain_activities": []
+          },
+          "lifecycle": "each-event",
+          "min_edge_frequency": 1,
+          "order": "timestamp"
+        }
+      },
+      "semantics": "Z and +01:00 equivalent instant, B before A stable source tie; each-event lifecycle; explicit timestamp/source policy in full exports"
+    },
+    "C05": {
+      "status": "developer finite actual restart supplement PASS",
+      "exports": [
+        {
+          "id": "/logs/log-1",
+          "sha256": "a42656403459497c0938d01d4a37b8f441603e2b29102760032c7fb2bf3b3371",
+          "cases": 2,
+          "events": 4,
+          "parameters": {
+            "calendar": {
+              "end_minute": 1080,
+              "holidays": [],
+              "offset_minutes": 0,
+              "start_minute": 540,
+              "weekdays": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ]
+            },
+            "filters": {
+              "case_activity": null,
+              "max_events": null,
+              "min_events": null,
+              "remove_activities": [],
+              "retain_activities": []
+            },
+            "lifecycle": "each-event",
+            "min_edge_frequency": 1,
+            "order": "source"
+          }
+        },
+        {
+          "id": "/logs/log-2",
+          "sha256": "718dcddee434a08f1a6eefca8cf9dfa117bf69b13e6bc415a62f72f57cba753e",
+          "cases": 2,
+          "events": 4,
+          "parameters": {
+            "calendar": {
+              "end_minute": 1080,
+              "holidays": [],
+              "offset_minutes": 0,
+              "start_minute": 540,
+              "weekdays": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ]
+            },
+            "filters": {
+              "case_activity": null,
+              "max_events": null,
+              "min_events": null,
+              "remove_activities": [],
+              "retain_activities": []
+            },
+            "lifecycle": "each-event",
+            "min_edge_frequency": 1,
+            "order": "timestamp"
+          }
+        },
+        {
+          "id": "/logs/log-3",
+          "sha256": "d15bade8b63ee79ffc7e1c35d1a6b8504b7a276705c4c23249749456502cd776",
+          "cases": 2,
+          "events": 4,
+          "parameters": {
+            "calendar": {
+              "end_minute": 1080,
+              "holidays": [],
+              "offset_minutes": 0,
+              "start_minute": 540,
+              "weekdays": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ]
+            },
+            "filters": {
+              "case_activity": null,
+              "max_events": null,
+              "min_events": null,
+              "remove_activities": [],
+              "retain_activities": []
+            },
+            "lifecycle": "each-event",
+            "min_edge_frequency": 1,
+            "order": "timestamp"
+          }
+        }
+      ],
+      "scope": "two duplicate names plus third full export byte-identical; actual owned force-stop/restart; precommit interrupted-write condition relies separately on existing identity-bound E4, not this replay"
+    },
+    "C06": {
+      "status": "MISSING date/state, remains OPEN",
+      "actual": {
+        "duplicate_ids_distinct": true,
+        "names": true,
+        "event_count": 4,
+        "date_present": false,
+        "state_present": false,
+        "actual_row_sha256": [
+          "1035f2f156280bc733d99c196eba2ef9e8863db2bb1d6fd914a37ca9edfd83ed",
+          "f07148d3db5291dd588b8776242b77665bfac118040166448a67e8ecd10a4ea2"
+        ]
+      },
+      "scope": "actual rendered HTTP list duplicate IDs/names/eventcount present; no browser claim; analysis links are not state"
+    },
+    "C07": {
+      "status": "read-only existing exact-C evidence mapping, no new restore",
+      "existing_report_sha256": "759fb655d930abc1ec3ba85d9428da5c0b69c91926b99b7d093a03080fa5d527",
+      "existing_fingerprint_sha256": "92515c97d1fc8293563f1675438aa096ac7dc10bcede94ffc6ef953b0a022ccf",
+      "backup_body_sha256": "342eccb7f6737e42046e30f86a03dd58ecf19339d05f1d5e61396dd977ac27e8",
+      "counts_from_full_backup": [
+        {
+          "id": "log-1",
+          "cases": 1,
+          "events": 2,
+          "activities": 2
+        }
+      ],
+      "restored_equal_full_records": [
+        {
+          "kind": "log_analysis",
+          "resource_id": "log-1",
+          "version": 1,
+          "sha256": "315cc2fbe6f82ebecba7e9793711201b460f6251d7c7463c4a0e21a4a094c02c"
+        },
+        {
+          "kind": "log_data",
+          "resource_id": "log-1",
+          "version": 1,
+          "sha256": "456e584c11d9e8349486f2784d38087b70616d86affa42786445b3b7e96621f4"
+        },
+        {
+          "kind": "log_source",
+          "resource_id": "log-1",
+          "version": 1,
+          "sha256": "ad0bf0130edc5030fbe77e623472f5c06e7569e2a6252e6806dd012881134426"
+        }
+      ],
+      "corrupt_digest_actual_status": 422,
+      "corrupt_digest_response_meta_sha256": "f574a423e25c764dd1cb5b893b921b129ff09bc401b314e29e97b99ad557c91d",
+      "scope": "HTTP project backup into distinct new project; original and restored complete analysis/data/source server JSONB hashes+versions equal; log_state differs after project ID remapping; not a new full export comparison and not stock full PostgreSQL backup proof"
+    },
+    "C08": {
+      "status": "developer evidence PASS finite actual cancellation",
+      "heavy": {
+        "pass": true,
+        "id": "/logs/log-4",
+        "input_sha256": "ae45b86021a5e051bc13e3431893ddff2244dde97ddae49f194bafe3665baaad",
+        "bytes": 16405501,
+        "export_sha256": "28022b5747b4e6e68cf708dc6406bc7d43994a6a7702d3431606ca1826e7259e",
+        "cases": 100,
+        "events": 100000,
+        "activities": 10,
+        "variants": 1,
+        "variant_weight": 100,
+        "expectations_sha256": "9b477992421697fa7a6519dbd40a435aed828bbcbb4c37e67dbc3de73d4d6878"
+      },
+      "cancel": {
+        "pass": true,
+        "input_sha256": "ae45b86021a5e051bc13e3431893ddff2244dde97ddae49f194bafe3665baaad",
+        "events": 100000,
+        "job": "job-5",
+        "running": {
+          "id": "job-5",
+          "state": "running",
+          "stage": "parsing",
+          "job_revision": 1,
+          "cancel_requested": false,
+          "result_id": null,
+          "error": null
+        },
+        "health_response_ms": 8.219400000000007,
+        "accepted": {
+          "id": "job-5",
+          "state": "cancelled",
+          "stage": "cancelled",
+          "job_revision": 2,
+          "cancel_requested": true,
+          "result_id": null,
+          "error": null
+        },
+        "terminal": {
+          "id": "job-5",
+          "state": "cancelled",
+          "stage": "cancelled",
+          "job_revision": 2,
+          "cancel_requested": true,
+          "result_id": null,
+          "error": null
+        },
+        "conserved_export_sha256": [
+          {
+            "id": "/logs/log-1",
+            "sha256": "a42656403459497c0938d01d4a37b8f441603e2b29102760032c7fb2bf3b3371"
+          },
+          {
+            "id": "/logs/log-2",
+            "sha256": "718dcddee434a08f1a6eefca8cf9dfa117bf69b13e6bc415a62f72f57cba753e"
+          },
+          {
+            "id": "/logs/log-3",
+            "sha256": "d15bade8b63ee79ffc7e1c35d1a6b8504b7a276705c4c23249749456502cd776"
+          },
+          {
+            "id": "/logs/log-4",
+            "sha256": "28022b5747b4e6e68cf708dc6406bc7d43994a6a7702d3431606ca1826e7259e"
+          }
+        ],
+        "scope": "actual protocol job cancellation and stage/health, no SSE/browser claim"
+      },
+      "after_actual_restart": {
+        "pass": true,
+        "job": {
+          "id": "job-5",
+          "state": "cancelled",
+          "stage": "cancelled",
+          "job_revision": 2,
+          "cancel_requested": true,
+          "result_id": null,
+          "error": null
+        },
+        "conservedExports": [
+          {
+            "id": "/logs/log-1",
+            "sha256": "a42656403459497c0938d01d4a37b8f441603e2b29102760032c7fb2bf3b3371",
+            "events": 4,
+            "cases": 2
+          },
+          {
+            "id": "/logs/log-2",
+            "sha256": "718dcddee434a08f1a6eefca8cf9dfa117bf69b13e6bc415a62f72f57cba753e",
+            "events": 4,
+            "cases": 2
+          },
+          {
+            "id": "/logs/log-3",
+            "sha256": "d15bade8b63ee79ffc7e1c35d1a6b8504b7a276705c4c23249749456502cd776",
+            "events": 4,
+            "cases": 2
+          },
+          {
+            "id": "/logs/log-4",
+            "sha256": "28022b5747b4e6e68cf708dc6406bc7d43994a6a7702d3431606ca1826e7259e",
+            "events": 100000,
+            "cases": 100
+          }
+        ],
+        "no_cancel_result": true,
+        "list_sha256": "5429b2a69a931270af60637e4eb118ac4673f5667fab59d46c6a15b826e5af3c"
+      },
+      "complete_record_fingerprints": [
+        {
+          "stage": "before-cancel",
+          "path": ".local/sprint08/r2-developer/before-cancel-records.jsonl",
+          "sha256": "c2a750faee4d68b8550f9b0f3d4b5caa08831d815e05d3e357ec02fc45ed56de",
+          "rows": 16,
+          "actual_psql_exit": 0
+        },
+        {
+          "stage": "after-cancel",
+          "path": ".local/sprint08/r2-developer/after-cancel-records.jsonl",
+          "sha256": "c2a750faee4d68b8550f9b0f3d4b5caa08831d815e05d3e357ec02fc45ed56de",
+          "rows": 16,
+          "actual_psql_exit": 0
+        },
+        {
+          "stage": "after-restart",
+          "path": ".local/sprint08/r2-developer/after-restart-records.jsonl",
+          "sha256": "c2a750faee4d68b8550f9b0f3d4b5caa08831d815e05d3e357ec02fc45ed56de",
+          "rows": 16,
+          "actual_psql_exit": 0
+        }
+      ],
+      "scope": "genuine100k Running/parsing; health ready8.2194ms before accepted cancellation; cancelled/nullresult; old100k and3small full export hashes/16whole records versions+full value digests preserved; durable job remains cancelled after actual restart; no browser/SSE frame proof"
+    }
+  },
+  "cleanup": {
+    "app_pid": 25072,
+    "app_creation": "2026-10-11T06:25:34.0235870Z",
+    "app_path": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint08\\r2-developer\\extract\\process-intelligence-rs-0.6.0-windows-x86_64\\process-intelligence-rs.exe",
+    "app_actual_exit": -1,
+    "launcher_pid": 25712,
+    "launcher_done": true,
+    "launcher_actual_exit": -1,
+    "postgres_pid": 49044,
+    "postgres_creation": "2026-10-11T06:21:50.1971410Z",
+    "postgres_path": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint08\\r2-developer\\extract\\process-intelligence-rs-0.6.0-windows-x86_64\\runtime\\postgresql\\pgsql\\bin\\postgres.exe",
+    "pg_ctl_actual_exit": 0,
+    "ports_closed": true,
+    "reason": "owned isolated test cleanup"
+  },
+  "raw_evidence": {
+    "directory": ".local/sprint08/r2-developer",
+    "inventory_path": ".local/sprint08/r2-developer/raw-inventory.json",
+    "files": 149,
+    "inventory_sha256": "2e8a78db2a54d1857c9a9e68d28ec38c4d5ff3f0093843f86707ba952c0acb80",
+    "private_credentials_excluded": true,
+    "full_http_bodies_and_safe_response_metadata": true,
+    "full_native_stdout_stderr_and_actual_app_launcher_exit": true
+  },
+  "attempts": {
+    "runtime_failures": [],
+    "verifier_failures": [],
+    "read_only_tool_failures": [
+      "rg src/render.rs and src/render returned path-not-found because actual file is src/platform_render.rs; preserved tool results, no runtime impact"
+    ],
+    "tool_only_gaps": [
+      "Preparatory batched source reads and final ZIP integrity collector stdout were tool-only; one render/source read display truncated. Exact final-integrity JSON retained. No claim of complete private raw transcript for these reads.",
+      "Initial Start readiness wrapper exit0 is separate from long-lived native app/launcher lifetime: actual lifetime exits -1 recorded at owned forced stops."
+    ]
+  },
+  "limits": [
+    "No runtime/tools/tests/package tracked file changes",
+    "C06 date/state missing prevents full eight-scenario PASS; R2-04/fullR2 not closed",
+    "No author QA/TD acceptance; Council separate",
+    "Existing C02/C03/C07 evidence reused only at stated scope; no new foreign DB/credentials/HTTP requests",
+    "Actual app force-stop exit -1 is not graceful shutdown"
+  ],
+  "artifacts": {
+    "finite_report": ".local/sprint08/r2-developer/finite01/report.json",
+    "cancel_report": ".local/sprint08/r2-developer/cancel01/report.json",
+    "restart_report": ".local/sprint08/r2-developer/after-restart02/report.json"
+  }
+}

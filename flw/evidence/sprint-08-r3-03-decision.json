@@ -1,0 +1,46 @@
+{
+  "proposal_sha256": "583A706CEC2BC3C82FE7624D6BD9D88428095C69E05C9BBAFECF2BF6B645A150",
+  "decision_utc": "2026-10-11T06:29:02.9796570Z",
+  "fixed_voters": 5,
+  "actual_for": 5,
+  "actual_against": 0,
+  "pending": [],
+  "verdict": "ACCEPT original finite R3-03; additive status PASS on exact runtimeC95D4AE",
+  "definition_sha256": "CA6E7470FF31FA3493E00578B4C12755AE28AD9681C47701DD7C8CF70C4364B0",
+  "full_R3": "OPEN: R3-01/02/04 remainOPEN",
+  "full_R2_R5": "NOT CLOSED: other14 unchangedOPEN/BLOCKED",
+  "a07": "All mandatoryselecteddelivery gates actualcomplete onH2, independentQA/TD",
+  "votes": [
+    {
+      "role": "Root",
+      "path": "flw/evidence/sprint-08-root-r3-03-vote.json",
+      "sha256": "B32B24DAEE47C215C66579FF0CBED3FF7F81D0576C1FAB6DB23BA63D8F66A53F",
+      "vote": "FOR"
+    },
+    {
+      "role": "PM",
+      "path": "flw/evidence/sprint-08-pm-r3-03-vote.md",
+      "sha256": "87DA6E9D13EA6A8E2F07209C998654BA8289A64EE42F9F95E6B2FE5A384A13C5",
+      "vote": "FOR"
+    },
+    {
+      "role": "Customer",
+      "path": "flw/evidence/sprint-08-customer-r3-03-vote.md",
+      "sha256": "86B0D19DE2A9E7386E06F6C0664FD6B007C257A8C5EC10C3B6B400E2F32B13E4",
+      "vote": "FOR"
+    },
+    {
+      "role": "QA",
+      "path": "flw/evidence/sprint-08-qa-r3-03-vote.md",
+      "sha256": "3B1EB881E31984046A363F6E9DC60498B20644D9F2F1F52A9E3A8C5B4255F0A8",
+      "vote": "FOR"
+    },
+    {
+      "role": "TechnicalDebt",
+      "path": "flw/evidence/sprint-08-td-r3-03-vote.md",
+      "sha256": "90361DFE0503A62311569F4043B83449713550671EF0D4EE0391166D3C9F773A",
+      "vote": "FOR"
+    }
+  ],
+  "scope": "No runtime/tool/test/package/tag mutation. Factual metadata-onlydocuments/receipt and separateactualCI allowed; original F1 history unchanged."
+}

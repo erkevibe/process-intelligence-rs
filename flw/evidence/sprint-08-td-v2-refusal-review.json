@@ -1,0 +1,73 @@
+{
+  "utc": "2026-10-11T06:23:02.0309431+00:00",
+  "verdict": "PASS three finite exact current-v2 refusal executions; eligible evidence for separate R3-03 decision after completionCI, no vote/automaticcriterionclosure",
+  "qa_json_sha256": "F7D3AB958BE31ADA572F0734E51603FB2DAB2F54D4D51683EDD72B6DD55ABE8C",
+  "qa_md_sha256": "44995AB73D0F12890DE196A2304D0FA432740F4F195A3B7F055AC7A9678C4886",
+  "source": "281d13ddc8bb1813545c9ffe7fa92e8f49aaa6e0",
+  "exe": "95D1340D2C8C5B4BCFD835F4A53BEE7A67CE98242685AC973F775BD6747DD778",
+  "named_inputs_all_hash_bytes_match": 84,
+  "input_bytes": 205356,
+  "extra_inputs": [
+    {
+      "path": ".local/sprint08/qa/r3-03-refusal-contract01.md",
+      "bytes": 1737,
+      "sha256": "589A9676F877226B05D372882EE3D9A05970CFDE1B451ED876423043F8D714CF"
+    },
+    {
+      "path": ".local/sprint08/qa/r3-03-refusal01.cjs",
+      "bytes": 7770,
+      "sha256": "BE0D5F49F9CB9D48B6EA2DE1092C5977A9756899F3CF08F0FB837590FA33F664"
+    },
+    {
+      "path": ".local/sprint08/qa/r3-03-refusal02.cjs",
+      "bytes": 5562,
+      "sha256": "F6623556B4F6850C7B878B0E9BA8269A4B84189BF8A4177CD4F9018EF72A75BB"
+    },
+    {
+      "path": ".local/sprint08/qa/r3-03-refusal02/source-after-continuation.json",
+      "bytes": 11011,
+      "sha256": "4F5FFBED5135E149ADBB841F7B1E2CD82872D092A91A4348406EEE0529C50196"
+    },
+    {
+      "path": ".local/sprint08/qa/r3-03-refusal02/source-after-continuation.process.json",
+      "bytes": 324,
+      "sha256": "6B5C5E419DA3904DDC0D3C52812D841EA39FF688161DC3C9D3A8AFFBF43079A7"
+    }
+  ],
+  "prospective_contract": "589A9676F877226B05D372882EE3D9A05970CFDE1B451ED876423043F8D714CF",
+  "contract_creation_utc": "2026-10-11T06:18:37.1467838Z",
+  "first_start_utc": "2026-10-11T06:19:34.099Z",
+  "sql_capture_fields": [
+    "kv",
+    "projects",
+    "records",
+    "ledger",
+    "markers",
+    "sequence",
+    "columns",
+    "constraints",
+    "indexes"
+  ],
+  "full_before_after_exact": [
+    "version",
+    "checksum",
+    "envelope"
+  ],
+  "source_before_after_sha256": "4F5FFBED5135E149ADBB841F7B1E2CD82872D092A91A4348406EEE0529C50196",
+  "actual": [
+    "public-delivery01 exact95D binary hash asserted before native spawn, own5443 three pg_dump/pg_restore copies",
+    "ledger2to3 PID47428 native1 controlled unsupported-schema stderr, noSQLchanges",
+    "ledger2checksum64zero PID16496 native1 controlled unsupported-schema/data stderr, noSQLchanges",
+    "envelope1to2 metadata200 app49996 creation06:19:37.904899, authenticated beforebaseline, original/history422repository_corrupt06:19:38.456-474 no raw disclosure/noSQLchanges",
+    "84availablebytes independently read/fullhashmatched, snapshotvalues+versionsSHA/catalog equality not PGphysicaldisk",
+    "Nodehelper1after3assertions due guessedmissingpwsh cleanup, failurecompleted3 retained; exactownedcleanup0 separately, continuation source-read native0; no refusal rerun"
+  ],
+  "limits": [
+    "Firsttwo direct short-lived nativePID/startend/programSHA captured, independent creation/complete descendantinventory NOTcaptured; do not claim fullPIDcreationproof for everyprocess",
+    "Authlogin intentionally beforeenvelopebaseline; sourceconservation checked separately, no user/protectedSQL",
+    "No oldbinary downgrade run, no requirement to corrupt/upgrade protecteduserdata",
+    "No new productrepair or sourcechange; these execute previously unrun currentv2 guards, not oldv1ignored test credit",
+    "CompletionCI and exactseparateCouncilF2 still required before changing R3-03/full15table; R3overall remainsincomplete",
+    "Knowncleanup pathguess is verifier fault, not native schema refusal productfailure or successfulhelperexit"
+  ]
+}

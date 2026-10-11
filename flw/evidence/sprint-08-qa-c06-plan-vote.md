@@ -1,0 +1,13 @@
+# Sprint08 P4 — независимый голос QA по плану C06
+
+UTC: 2026-10-11T06:33:09.6729169+00:00
+
+**FOR** точного плана docs/SPRINT_08_C06_PLAN.md, RAW SHA256 **ED631BDA2A86C78574B06A1FF3AC654152CA522B31F9FDA354307342D9FF22D2**. Полный текст прочитан, хеш независимо вычислен и совпал. Это новый плановый голос, не перенос прежних голосов и не приёмка продукта.
+
+Узкий контракт проверяем: дата успешного сохранения в приложении задаётся сервером в общей atomic insertion точке всех четырёх producer paths; legacy unknown остаётся unknown; state обозначает опубликованный сохранённый анализ с явным пояснением о проверке при открытии. Поддерживаю отдельный кандидат0.6.1 с новыми source/EXE/ZIP и независимой поставкой. Принятый0.6.0 и все защищённые установки сохраняются.
+
+Обязательная QA проверка после разрешения разработки: ручные ожидания и input hashes до исполнения; UTC before/after bounds четырёх успешных producer публикаций, точное неизменное created_at через restart/view edit/backup-newrestore; duplicate-name IDs/results/order/escaping; legacy отсутствие и malformed date controlled refusal с полной SQL conservation; viewer/foreign denial; failed/cancelled job без новой строки. Metadata-only listing проверяется SQL whole heavy-row values/versions и доказательством отсутствия lazy heavy-load, а не только временем ответа. State не означает проверенную целостность: corrupted payload должен fail-closed при открытии. Все фактические exits и первоначальные ошибки сохраняются, ignored PG tests не превращаются в PASS.
+
+Риск сосредоточен в расширении строгого persistent DTO и всех publication/restore paths. Одного renderer/unit PASS недостаточно: exact frozen candidate binding, native cold package, current relevant PG/API/browser, anonymous fullZIP/manifest/new install/protected postchecks и CI остаются обязательны. Исторические C01–08 доказательства применимы лишь с точным unchanged-source/contract доказательством; отдельное полное R2-04 решение не дано этим голосом. Narrow extracted-method oracle не заменяет fullservice. Downgrade нового поля не обещан; новая установка не должна автоматически затронуть старую.
+
+План допускаю при сохранении собственных фиксированных cutoff: решение до06:45, freeze≤07:15, frozen package≤07:40 UTC, не менее90 минут независимой приёмки и окончательная поставка≤09:42 UTC. Slip/STOP/неоднозначное состояние или потеря резерва означает DEFER расширения и сохранение0.6.0; majority не отменяет обязательную QA/TD ошибку. До явного majority и mandatory QA/TD плановых позиций нового runtime исполнения или реализации с моей стороны нет. Full R2–R5/R3-02/DISK01 не закрываются.
