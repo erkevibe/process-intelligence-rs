@@ -1,0 +1,7 @@
+# Sprint08 TD actual vote — S8-AUDIT-PID01
+
+FOR exact flw/evidence/sprint-08-observer-resume-proposal.md SHA2564EAEC80F295980E0CA4757F189340DB13F66C9AF68DC8A75AE955045D5A32D9C, fully read and independently hashed. New actual independent TechnicalDebt vote, not transferred from any earlier position.
+
+Cause-specific scope: stale PID ancestry closure and resumption of frozen candidate/package verification only. Exact source281d13ddc8bb1813545c9ffe7fa92e8f49aaa6e0/release95D1340D2C8C5B4BCFD835F4A53BEE7A67CE98242685AC973F775BD6747DD778. Fixed observer02CE6FE8/wrapperADFDE5EF and actual fresh03 native/build/test0 checked in my position2E9474AD; own seven pure cases, full430-record inventory bounds and all568 source fingerprints independently reviewed. QA fixedclosure0CB547507E8A387D63866D7CD14F5F92C8ED230C3F3E71E2229ED23CCCC686CA fully read/hash verified, corroborates bounded mechanism with nine cases.
+
+Historical contaminated01 and failed02 remain rejected/not relabelled. 300ms non-atomic sampling,71 unavailablepaths, omitted exited ancestors/short-lived children and only main nativeexit remain explicit. No kernel/allmachine/allchild proof, bit reproducibility, release/package/fullR2–R5/ignoredPG/SplitMiner/DISK01 acceptance. Independent final frozen matrix, coldpackage/recovery/CI/public protected preservation and finalCouncil remain mandatory; freeze08:12/deadline09:42UTC unchanged. Auditor authored no runtime repair and performed no protected process/data mutation.

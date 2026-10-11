@@ -1,0 +1,39 @@
+{
+  "finding": "S8-AUDIT-PID01",
+  "verdict": "CLOSED for bounded observer mechanism; recommend targeted resume only, no release acceptance",
+  "source_commit": "281d13ddc8bb1813545c9ffe7fa92e8f49aaa6e0",
+  "observer_sha256": "02CE6FE8D2E016AE8B6A9165440E04E07F0796BEFAAA9E3D9625027F5BB4F0A9",
+  "regression_cases_passed": 9,
+  "fresh_build_native_exit": 0,
+  "build_exit": 0,
+  "test_exit": 0,
+  "ordinary_passed": 93,
+  "pg_ignored": 14,
+  "source_files_verified": 568,
+  "source_mismatches": 0,
+  "archive_sha256": "37CB6CED7C446F1C613908729E6EF5E672DCE1DA671BCEA96DEA9C10DB5D8781",
+  "executable_sha256": "95D1340D2C8C5B4BCFD835F4A53BEE7A67CE98242685AC973F775BD6747DD778",
+  "inventory_records": 430,
+  "missing_executable_path": 71,
+  "duplicate_pid_creation_identities": 0,
+  "creation_before_root": 0,
+  "known_psql_browser_node_python_paths": 0,
+  "inventory_sha256": "B5A11CA64A630768472CBCEF3895CFF13EB45D3E586B663F7489F0C33AE8CA2B",
+  "coverage": [
+    "Full available build/test logs read; source files hashes and lengths checked",
+    "300ms live snapshot sampling only; short-lived descendants may be missing",
+    "71 missing paths are missing identities, not verified executable attribution",
+    "Only main native exit captured; per-child exits not captured",
+    "Snapshots/parent edges not all persisted, no independent full historical ancestry or machine coverage claim"
+  ],
+  "history": [
+    "Original persistent PID seed attribution rejected; first EXE28CF not accepted",
+    "Build02 identity guard attempt retained; no process proof, no PASS",
+    "QA grouping diagnostic nonterminating null path errors retained; explicit missing count corrected",
+    "QA initial datetime cast misclassified timezone; DateKind String plus DateTimeOffset UTC corrected with zero entries before root"
+  ],
+  "remaining": [
+    "Exact Council resume vote still required",
+    "Frozen application/native package/PG migration and full acceptance remain pending"
+  ]
+}

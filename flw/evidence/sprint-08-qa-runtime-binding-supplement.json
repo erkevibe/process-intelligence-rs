@@ -1,0 +1,374 @@
+{
+  "created_utc": "2026-10-11T05:53:35.341Z",
+  "purpose": "Supplement preserved stale/verifier scope labels with retained runtime and request capture attribution; no rerun or original report edit",
+  "source_commit": "281d13ddc8bb1813545c9ffe7fa92e8f49aaa6e0",
+  "exe_sha256": "95D1340D2C8C5B4BCFD835F4A53BEE7A67CE98242685AC973F775BD6747DD778",
+  "zip_sha256": "4AE712B07E58B23F3A3FB53D8CAF5EED83BB9E9AE5EC49A5CFAA19C85B5A2759",
+  "original_reports_unchanged": [
+    {
+      "path": ".local/sprint08/qa/frozen-uncertain01/report.json",
+      "bytes": 686,
+      "sha256": "17799FAD5E8280AA715D16C14EE65CC2FA2AC2359D18DBC9E758F86F1022AF82"
+    },
+    {
+      "path": ".local/sprint08/qa/frozen-action-cap01/report.json",
+      "bytes": 511,
+      "sha256": "0D8C790E94B98D20B0F70273454350C937546DBDB18EF0C7002513E609D50C01"
+    },
+    {
+      "path": ".local/sprint08/qa/frozen-backup03/report.json",
+      "bytes": 785,
+      "sha256": "759FB655D930ABC1EC3BA85D9428DA5C0B69C91926B99B7D093A03080FA5D527"
+    }
+  ],
+  "cold_launch": {
+    "parent_pid": 50616,
+    "parent_created_utc": "2026-10-11T05:19:26.1767703Z",
+    "http_port": 3062,
+    "pg_port": 5442,
+    "working_directory_relative": ".local/sprint08/qa/package-cold01/process-intelligence-rs-0.6.0-windows-x86_64",
+    "app_pid": 39072,
+    "app_creation_utc": "2026-10-11T05:19:37.3799000Z",
+    "app_path_relative": ".local/sprint08/qa/package-cold01/process-intelligence-rs-0.6.0-windows-x86_64/process-intelligence-rs.exe",
+    "app_sha256": "95D1340D2C8C5B4BCFD835F4A53BEE7A67CE98242685AC973F775BD6747DD778",
+    "pg_pid": 48844,
+    "scope": "Actual preserved CIM/listener/path/hash capture, not inferred from report label"
+  },
+  "binding_inputs": [
+    {
+      "path": ".local/sprint08/qa/package-cold01-start.process.json",
+      "bytes": 496,
+      "sha256": "FA21FBC178AA8C10ABB5AF18202663238544AFFC9ED80F184DC800D1217E96E1"
+    },
+    {
+      "path": ".local/sprint08/qa/package-cold01-live-identity.json",
+      "bytes": 1060,
+      "sha256": "6FC5E757EDA8FFA079E0847A346B1D25B5026353BFE1310925AD5FA166C345FE"
+    },
+    {
+      "path": ".local/sprint08/qa/frozen-app01.process.json",
+      "bytes": 409,
+      "sha256": "8CB2FCA6AC0C5AD7BD89548F80F6CA6E5F51330288128F6F4FDBE8D9CD39BDE6"
+    },
+    {
+      "path": ".local/sprint08/qa/package-cold01-manifest.json",
+      "bytes": 344,
+      "sha256": "19B058A3676C360C3AFAD753CC5A6714D3080C5A263C6D0A99C46ADA79FEAE5F"
+    },
+    {
+      "path": ".local/sprint08/qa/package-cold01-start.stdout.log",
+      "bytes": 688670,
+      "sha256": "30F1B296CC9B25C90C3147620E1A3BA23C08BC5D774C81BE2DC45598AA9ED08D"
+    },
+    {
+      "path": ".local/sprint08/qa/package-cold01-start.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": ".local/sprint08/qa/package-restart01.process.json",
+      "bytes": 226,
+      "sha256": "91297E932E29E37F23C19D84EA1D15C790AFEB3E31D71A25F41528955E08D11E"
+    },
+    {
+      "path": ".local/sprint08/qa/package-restart01.stdout.log",
+      "bytes": 4245,
+      "sha256": "97C19CBAAEEF7962E11952318D62F1AA5EB064EF3F37B1F48BDABB773088D10F"
+    },
+    {
+      "path": ".local/sprint08/qa/package-restart01.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": ".local/sprint08/qa/package-restart01-stop.process.json",
+      "bytes": 171,
+      "sha256": "F6E633D7072174E203491B8A4198EDAC458C0964F845266E8236091537B180EA"
+    },
+    {
+      "path": ".local/sprint08/qa/frozen-action-cap01.cjs",
+      "bytes": 1577,
+      "sha256": "3BE44C186BD8A021C6C4DD85F2867FBBBB79C53736B1CB6C730B6B3C7018B2B2"
+    },
+    {
+      "path": ".local/sprint08/qa/frozen-backup03.cjs",
+      "bytes": 6104,
+      "sha256": "64824DE41EBA08E311074FF0E5523AB1D6A49AB47B46E851E3292D5BCAEAE6B6"
+    },
+    {
+      "path": ".local/sprint08/qa/frozen-uncertain01.cjs",
+      "bytes": 4367,
+      "sha256": "F9AC4FEE043FC321EB26A91B252A0F6367A1C74277AF33F0BF8E45F425CF29BA"
+    }
+  ],
+  "cases": [
+    {
+      "report": {
+        "path": ".local/sprint08/qa/frozen-action-cap01/report.json",
+        "bytes": 511,
+        "sha256": "0D8C790E94B98D20B0F70273454350C937546DBDB18EF0C7002513E609D50C01"
+      },
+      "label_correction": "D4 draft scope is copied verifier text; actual constrained actioncap request ran on cold95D3062",
+      "requests": [
+        {
+          "capture": {
+            "path": ".local/sprint08/qa/frozen-action-cap01/preview-refusal.json",
+            "bytes": 276,
+            "sha256": "1015AC5CB83B330D85BC4236AA5A24A633651C8DCE97AC9699CC7E3C1792EF8A"
+          },
+          "method": "POST",
+          "route": "/xes/preview",
+          "port": 3062,
+          "started_utc": "2026-10-11T05:23:37.555Z",
+          "ended_utc": "2026-10-11T05:23:37.806Z",
+          "status": 422,
+          "body_bytes": 207,
+          "body_sha256": "50ed449d051d91d51957839d04729f10e4f6f45891ae72030b82c792273841f9"
+        }
+      ],
+      "server_events": [
+        {
+          "timestamp": "2026-10-11T05:19:37.555912Z",
+          "message": "app_started",
+          "port": 3062,
+          "version": "0.6.0"
+        },
+        {
+          "timestamp": "2026-10-11T05:23:37.796661Z",
+          "message": "request_completed",
+          "method": "POST",
+          "path": "/xes/preview",
+          "status": 422
+        }
+      ]
+    },
+    {
+      "report": {
+        "path": ".local/sprint08/qa/frozen-backup03/report.json",
+        "bytes": 785,
+        "sha256": "759FB655D930ABC1EC3BA85D9428DA5C0B69C91926B99B7D093A03080FA5D527"
+      },
+      "label_correction": "no-nativepackage means this HTTP backup scenario itself did not prove fullPG dump/cold/public delivery. Runtime request attribution IS cold native95D3062; fullPG backup remains separately evidenced",
+      "requests": [
+        {
+          "capture": {
+            "path": ".local/sprint08/qa/frozen-backup03/owner/backup.json",
+            "bytes": 279,
+            "sha256": "6C2CABBB6BEE918DCE7A80D3A77FB5ADEDDDF59D7CABB37889532C7BB4CB29AE"
+          },
+          "method": "GET",
+          "route": "/backup",
+          "port": 3062,
+          "started_utc": "2026-10-11T05:23:18.623Z",
+          "ended_utc": "2026-10-11T05:23:18.650Z",
+          "status": 200,
+          "body_bytes": 135724,
+          "body_sha256": "342eccb7f6737e42046e30f86a03dd58ecf19339d05f1d5e61396dd977ac27e8"
+        },
+        {
+          "capture": {
+            "path": ".local/sprint08/qa/frozen-backup03/owner/corrupt-digest.json",
+            "bytes": 275,
+            "sha256": "F574A423E25C764DD1CB5B893B921B129FF09BC401B314E29E97B99AD557C91D"
+          },
+          "method": "POST",
+          "route": "/restore",
+          "port": 3062,
+          "started_utc": "2026-10-11T05:23:18.788Z",
+          "ended_utc": "2026-10-11T05:23:18.800Z",
+          "status": 422,
+          "body_bytes": 98,
+          "body_sha256": "0d60d86b555e78082998e4953b55d5ffc92085c6e6349b37a97afc45f5a09477"
+        },
+        {
+          "capture": {
+            "path": ".local/sprint08/qa/frozen-backup03/owner/cycle-hash-valid.json",
+            "bytes": 276,
+            "sha256": "00ACB2BFC9C380BA6599921A0B534503FC33D62D348B2E288E145B67B1854C4B"
+          },
+          "method": "POST",
+          "route": "/restore",
+          "port": 3062,
+          "started_utc": "2026-10-11T05:23:18.762Z",
+          "ended_utc": "2026-10-11T05:23:18.774Z",
+          "status": 422,
+          "body_bytes": 159,
+          "body_sha256": "57d2c3277657d7f6b87e5c58fbb724fb7e428aba72f40a8ef8abae0cda150b3d"
+        },
+        {
+          "capture": {
+            "path": ".local/sprint08/qa/frozen-backup03/owner/provenance-hash-valid.json",
+            "bytes": 276,
+            "sha256": "7D0C8ACDC75A39219AF7A63443400C7C2CD18D7F7FD15EC6AD8093293ECBC20C"
+          },
+          "method": "POST",
+          "route": "/restore",
+          "port": 3062,
+          "started_utc": "2026-10-11T05:23:18.778Z",
+          "ended_utc": "2026-10-11T05:23:18.786Z",
+          "status": 422,
+          "body_bytes": 160,
+          "body_sha256": "28d7b6f3a15160230c27e07a33e8a70eda0e4d4180371321164c517298bfd65c"
+        },
+        {
+          "capture": {
+            "path": ".local/sprint08/qa/frozen-backup03/owner/valid-new-project.json",
+            "bytes": 517,
+            "sha256": "332D9E5D614BE801F0CD7A74B792C326403321A5CAF2465F67CA312B6B374C48"
+          },
+          "method": "POST",
+          "route": "/restore",
+          "port": 3062,
+          "started_utc": "2026-10-11T05:23:18.902Z",
+          "ended_utc": "2026-10-11T05:23:18.954Z",
+          "status": 200,
+          "body_bytes": 2360,
+          "body_sha256": "9d7308788d40de154217d6098522cd042f76ca1df4b47844cb101d020598909e"
+        }
+      ],
+      "server_events": [
+        {
+          "timestamp": "2026-10-11T05:19:37.555912Z",
+          "message": "app_started",
+          "port": 3062,
+          "version": "0.6.0"
+        },
+        {
+          "timestamp": "2026-10-11T05:23:18.646367Z",
+          "message": "request_completed",
+          "method": "GET",
+          "path": "/backup",
+          "status": 200
+        },
+        {
+          "timestamp": "2026-10-11T05:23:18.772484Z",
+          "message": "request_completed",
+          "method": "POST",
+          "path": "/restore",
+          "status": 422
+        },
+        {
+          "timestamp": "2026-10-11T05:23:18.784639Z",
+          "message": "request_completed",
+          "method": "POST",
+          "path": "/restore",
+          "status": 422
+        },
+        {
+          "timestamp": "2026-10-11T05:23:18.797772Z",
+          "message": "request_completed",
+          "method": "POST",
+          "path": "/restore",
+          "status": 422
+        },
+        {
+          "timestamp": "2026-10-11T05:23:18.952329Z",
+          "message": "request_completed",
+          "method": "POST",
+          "path": "/restore",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "report": {
+        "path": ".local/sprint08/qa/frozen-uncertain01/report.json",
+        "bytes": 686,
+        "sha256": "17799FAD5E8280AA715D16C14EE65CC2FA2AC2359D18DBC9E758F86F1022AF82"
+      },
+      "label_correction": "d29 source_commit is stale literal in copied verifier only; actual source281d native restart of SAME cold95D installed binary on3062/5442",
+      "restart_parent_pid": 40300,
+      "restart_parent_creation_utc": "2026-10-11T05:36:50.9458007Z",
+      "stopped_app_pid": 11792,
+      "requests": [
+        {
+          "capture": {
+            "path": ".local/sprint08/qa/frozen-uncertain01/owner/preview.json",
+            "bytes": 517,
+            "sha256": "7329585C22BB6F8AC2633F3508BA587D9AFB4B5FCA4FADAAA49DC7A4A230F997"
+          },
+          "method": "POST",
+          "route": "/xes/preview",
+          "port": 3062,
+          "started_utc": "2026-10-11T05:37:53.486Z",
+          "ended_utc": "2026-10-11T05:37:53.504Z",
+          "status": 200,
+          "body_bytes": 5030,
+          "body_sha256": "d2c1c97cb900f0385747d8f336de31a9fd504414b65430fe14ed3324d81095bf"
+        },
+        {
+          "capture": {
+            "path": ".local/sprint08/qa/frozen-uncertain01/owner/confirm-interrupted.json",
+            "bytes": 276,
+            "sha256": "87CC41E9786EF4BC83E21A111F4C2CDD60FB0F9AAF794243CF8D0E23A447D613"
+          },
+          "method": "POST",
+          "route": "/xes/import",
+          "port": 3062,
+          "started_utc": "2026-10-11T05:37:54.274Z",
+          "ended_utc": "2026-10-11T05:37:54.595Z",
+          "status": 503,
+          "body_bytes": 123,
+          "body_sha256": "3aa25b03d6d077c4fd1b280ce5a176aaeb43bd7a88d44fd1becab754c4dd0ada"
+        },
+        {
+          "capture": {
+            "path": ".local/sprint08/qa/frozen-uncertain01/owner/repeat-denied.json",
+            "bytes": 275,
+            "sha256": "97CBB03BC88EFB7EC3020CD4B284FCFD092EB5C3BFFCB0C8019C060583D5F010"
+          },
+          "method": "POST",
+          "route": "/xes/import",
+          "port": 3062,
+          "started_utc": "2026-10-11T05:37:54.596Z",
+          "ended_utc": "2026-10-11T05:37:54.614Z",
+          "status": 503,
+          "body_bytes": 91,
+          "body_sha256": "c91eba87feb5b5bc8be7a17840bcacf47b9afef75a93cdf18fee01c7e7ec6288"
+        }
+      ],
+      "server_events": [
+        {
+          "timestamp": "2026-10-11T05:36:57.490221Z",
+          "message": "app_started",
+          "port": 3062,
+          "version": "0.6.0"
+        },
+        {
+          "timestamp": "2026-10-11T05:37:53.501316Z",
+          "message": "request_completed",
+          "method": "POST",
+          "path": "/xes/preview",
+          "status": 200
+        },
+        {
+          "timestamp": "2026-10-11T05:37:54.593058Z",
+          "message": "request_completed",
+          "method": "POST",
+          "path": "/xes/import",
+          "status": 503
+        },
+        {
+          "timestamp": "2026-10-11T05:37:54.611504Z",
+          "message": "request_completed",
+          "method": "POST",
+          "path": "/xes/import",
+          "status": 503
+        }
+      ],
+      "limits": [
+        "Restart01 child11792 creation timestamp and independent instantaneous restart child EXE hash not persisted; no invented value. Binding uses public restart parent source/continuous same installed immutable path, firstcold app95D capture, actualversion/port/log chronology, guarded stop record and current retained binary hash",
+        "No lost successfulCOMMITACK proof; repeated503 may fail outerhealth before token branch"
+      ]
+    }
+  ],
+  "limits": [
+    "No exhaustive kernel process ancestry/child native exits claim",
+    "Cold/restart stdout content fingerprint is captured available bytes; original long-lived launcher lifetime exit initially uncaptured",
+    "This corrects attribution only; conservative scenario limitations and finalCI/publicdelivery pending unchanged"
+  ],
+  "current_same_installed_exe_rehash": {
+    "sha256": "95D1340D2C8C5B4BCFD835F4A53BEE7A67CE98242685AC973F775BD6747DD778",
+    "bytes": 8894464
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "scope": "independent exact-source draft API observer, not package",
+  "source": "d29b623d70179d6dab2863464f70aef5c97f0d47",
+  "module_equivalent_frozen_source": "281d13ddc8bb1813545c9ffe7fa92e8f49aaa6e0",
+  "unchanged_modules": [
+    "src/calendar.rs",
+    "src/discovery.rs",
+    "src/domain.rs",
+    "Cargo.toml",
+    "Cargo.lock"
+  ],
+  "contract_sha": "7D7828F3D045EE0F148C4968512145882C00CB191B3AEC2A286A0A980C5C8962",
+  "literal_discovery_checks": 16,
+  "literal_calendar_checks": 9,
+  "legacy_json_semantic_roundtrip": true,
+  "legacy_duration_ms": 3600000,
+  "verifier_mutations_refused": 7,
+  "atcap_upstream": [
+    {
+      "activities": 6,
+      "arcs": 12,
+      "cases": 1,
+      "code": "OK",
+      "events": 6,
+      "id": "activities6",
+      "places": 7,
+      "transitions": 6,
+      "variants": 1
+    },
+    {
+      "activities": 1,
+      "arcs": 0,
+      "cases": 1,
+      "code": "OK",
+      "events": 500,
+      "id": "events500",
+      "places": 0,
+      "transitions": 1,
+      "variants": 1
+    },
+    {
+      "activities": 1,
+      "arcs": 2,
+      "cases": 64,
+      "code": "OK",
+      "events": 64,
+      "id": "cases64",
+      "places": 2,
+      "transitions": 1,
+      "variants": 1
+    },
+    {
+      "activities": 2,
+      "arcs": 0,
+      "cases": 32,
+      "code": "OK",
+      "events": 192,
+      "id": "variants32",
+      "places": 0,
+      "transitions": 2,
+      "variants": 32
+    },
+    {
+      "activities": 1,
+      "arcs": 2,
+      "cases": 1,
+      "code": "OK",
+      "events": 1,
+      "id": "label200utf8",
+      "places": 2,
+      "transitions": 1,
+      "variants": 1
+    }
+  ],
+  "observer_process": {
+    "start_utc": "2026-10-11T04:59:48.8971262Z",
+    "end_utc": "2026-10-11T04:59:49.8060732Z",
+    "pid": 43504,
+    "creation_utc": "2026-10-11T04:59:49.6300649Z",
+    "exe_sha": "897A27163E7B71CA0B3EC8D6D5CFD6F38C9B9C946E88D315BC3B94EB823524EA",
+    "exe_sha_after": "897A27163E7B71CA0B3EC8D6D5CFD6F38C9B9C946E88D315BC3B94EB823524EA",
+    "native_exit": 0
+  },
+  "private_report_sha": "BE8DDB0DE890BDF960B2CCF26B58C5E914B55F8D68C3CD6731FE316CC054A618",
+  "preserved_failures": [
+    "private observer build01 String versus str compiler error exit101; build02 source repair exit0",
+    "verifier01 object key order false failure exit1; verifier02 semantic field/type comparison exit0, no observer rerun"
+  ],
+  "remaining_limits": [
+    "atcap events500 and variants32 output0places0arcs, not model-quality or language acceptance",
+    "no midalgorithm cancellation",
+    "not compiled application or frozen executable/package acceptance",
+    "bounded private capture, compiler descendants not independently inventoried",
+    "PID attribution STOP separately pending"
+  ]
+}
