@@ -345,7 +345,9 @@ fn offline(client: &mut Client) -> Result<(), ImportError> {
     {
         return Err(fail("cleanup_busy"));
     }
-    let busy: bool = client.query_one("SELECT EXISTS(SELECT 1 FROM pg_stat_activity WHERE datid=(SELECT oid FROM pg_database WHERE datname=current_database()) AND pid<>pg_backend_pid() AND backend_type='client backend')", &[]).map_err(unavailable)?.get(0);
+    // Other roles' activity details can be hidden. A visible connection with an
+    // unknown backend type must not pass the offline ownership gate.
+    let busy: bool = client.query_one("SELECT EXISTS(SELECT 1 FROM pg_stat_activity WHERE datid=(SELECT oid FROM pg_database WHERE datname=current_database()) AND pid<>pg_backend_pid() AND (backend_type='client backend' OR backend_type IS NULL))", &[]).map_err(unavailable)?.get(0);
     if busy {
         return Err(fail("cleanup_busy"));
     }
