@@ -1,0 +1,13 @@
+# Customer — initial visibility STOP/resume position
+
+UTC 2026-10-11T11:39:15.8481986Z. Independent position BEFORE exact Root proposal; no vote/closure/runtime actions.
+
+Полностью прочитаны TD visibility resume position, QA C13 STOP JSON и draft SPRINT_09_RUN_GUIDE. Факты из независимых доказательств: C1 app-role не видит backend_type чужого admin, NULL исключается predicate; ожидаемый cleanup_busy не достигнут, actual cleanup_storage_unavailable, complete PRE/POST conserved. Customer не повторяла SQL/cleanup; source причинность предоставлена TD. Сохранность диагностического состояния не компенсирует нарушенную offline предпосылку.
+
+Поддерживаю вынесение narrow C2 policy на точное предложение: неизвестный backend_type считать busy, без добавления privileges/ослабления deadlines. Оператор должен получать безопасный понятный отказ «невозможно подтвердить отсутствие других подключений», а не требование расширить права или убеждение, что база offline. Ложный консервативный отказ допустимее пропущенного writer. Snapshot visibility не обещает отсутствие всех будущих admin подключений; leases/locks/final rechecks отдельны.
+
+Начальная рекомендация: только conditional targeted resume после нового действительного Совета. Не публиковать C1 как принятый cleanup и не переносить PASS на C2. Новый exact source/EXE/ZIP/coldidentity и все исходные C01–18/F01–03/full historical/latestnormalizedupdates/C18 плюс затронутые audit/delete business replays обязательны. Отдельный regression source И restore с idle/active foreign admin должен показать NULL→busy и complete nochange. Неудачи исходного C13 и отказанные попытки observer сохраняются. Если полные proof/recovery/public gates не укладываются в16:55:38, Apply исключается/criterion OPEN, не deadline waiver.
+
+Run guide полезно честно говорит candidate-only/PS7.6.5 fullbackup prerequisite/nativePS5cold не backupcredit/unknownACKnoautoretry/newDBrestore/noimmediatephysicalshrink. Две уточняющие Customer priority для final guide: archived current owner должен заранее иметь другой writable active проект (не просто «доступный» Viewer); PRE/POST recovery описать как конкретный результат maintained read-only reconciliation/receipt, без требования пользователю угадать hashes самостоятельно. При недоступной сверке STOP, не blind retry. Пока guide/source чтение не actual usable recovery acceptance.
+
+User authorization для owned copies/faults уже есть; дополнительных общих разрешений не требуется. Protected user installations неизменны. Эта позиция не утверждает выпуск0.7.1 принятым, полную enterprise готовность или полное R3/R2–R5. Следующее решение должно иметь exact proposal SHA и новый мой голос.

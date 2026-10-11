@@ -3,6 +3,7 @@ use process_intelligence_rs::web::{AppState, router};
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     tracing_subscriber::fmt()
+        .with_writer(std::io::stderr)
         .with_env_filter(
             tracing_subscriber::EnvFilter::try_from_default_env().unwrap_or_else(|_| "info".into()),
         )
@@ -11,7 +12,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let args: Vec<String> = std::env::args().skip(1).collect();
     if !args.is_empty() {
         if args != ["--migrate-storage"] {
-            return Err(std::io::Error::other("Supported option: --migrate-storage").into());
+            return Err(std::io::Error::other("Supported options: --migrate-storage").into());
         }
         let url = std::env::var("PI_DATABASE_URL").map_err(|_| {
             std::io::Error::other("Private PI_DATABASE_URL is required for offline migration.")

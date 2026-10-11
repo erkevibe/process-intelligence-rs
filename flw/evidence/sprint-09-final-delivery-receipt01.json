@@ -1,0 +1,67 @@
+{
+  "format": 1,
+  "utc": "2026-10-11T14:45:31.5451273Z",
+  "scope": "Public source and finite evidence transfer only; not an accepted Windows product release",
+  "audit_head": "32bb5b585ec94f7b0c43b9915e490230d9196d93",
+  "runtime_source": "b4edef34b083d1cb7737cf648f1c051eeb94127a",
+  "report_sha256": "771C7FEEE23C4E9FE1628A3B20A5880786D2E403192825AF84264652BE469B15",
+  "proposal_sha256": "7C2DF80F82514DD0844C159C8070B4BFA6615F31DE30C7BBDEB8CCAB8134E652",
+  "decision_sha256": "5A01F2311F524A5D24069C2E7FB29EEF8EE73C717850AFA3B96F8F415C2F3CED",
+  "index_sha256": "80DF40CBABA1D56B4D3EECC1EE0347329EA9D33878A69917B35CC6FE6C6E6750",
+  "criteria": {
+    "R3-04": "OPEN",
+    "DISK01": "OPEN",
+    "R3-01": "OPEN",
+    "R3-02": "OPEN"
+  },
+  "sql5": "INCONCLUSIVE_NOT_PASS",
+  "ci": [
+    {
+      "id": 38148251405,
+      "head_sha": "32bb5b585ec94f7b0c43b9915e490230d9196d93",
+      "event": "pull_request",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/erkevibe/process-intelligence-rs/actions/runs/38148251405"
+    },
+    {
+      "id": 38148247378,
+      "head_sha": "32bb5b585ec94f7b0c43b9915e490230d9196d93",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/erkevibe/process-intelligence-rs/actions/runs/38148247378"
+    }
+  ],
+  "independent_delivery_reviews": [
+    {
+      "role": "QA",
+      "sha256": "5F6C225CFDB14DE29E638E1FE524151D229048A45D51C301810EDEFC44B65C69",
+      "scope": "108 complete files and Git blobs; 5 votes; docs-only diff; actual draft PR"
+    },
+    {
+      "role": "TechnicalDebt",
+      "sha256": "536E7970080F50E808E757FE9EA223D3EC30DF47F76E277702159AD0D9F60B61",
+      "scope": "108 complete files; 5 votes; docs-only diff; actual draft PR"
+    }
+  ],
+  "public_source_proof": "flw/evidence/sprint-09-root-public-source-comparison01.json",
+  "public_source_complete_files": 805,
+  "windows_exe_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+  "local_unreleased_windows_zip_sha256": "EDACC3B836B5660439FFAA684A3D92451512731ADD9AAE89F0703A6E400C975A",
+  "source_archive_sha256": "858EFE55642813631416DE9F5EC1170735AB23B2077A2F552C113E39267AED0A",
+  "pr": "https://github.com/erkevibe/process-intelligence-rs/pull/10",
+  "draft": true,
+  "official_release": false,
+  "tag": false,
+  "merge": false,
+  "human_071_install": false,
+  "accepted_human_version": "0.6.1",
+  "receipt_commit_scope": "This later metadata-only receipt is not part of the indexed audit head. Its exact-head CI result is recorded after completion in the live PR description, avoiding a self-referential Git commit receipt.",
+  "limitations": [
+    "Named finite checks only; no general exactly-once or physical disk-erasure guarantee",
+    "Ignored PG tests and missing native exit captures are not PASS",
+    "Independent transfer reviews preceded CI; actual CI success is separately read by Root",
+    "Existing protected installation proof covers 15 named processes and 3 ZIPs, not every machine file"
+  ]
+}

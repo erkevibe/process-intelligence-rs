@@ -1,0 +1,11 @@
+# QA actual targeted C2 continuation vote
+
+UTC: 2026-10-11T12:05:18.9380706Z.
+
+Vote: **FOR** exact proposal `flw/evidence/sprint-09-c2-targeted-resume-proposal01.md`, independently fully read and SHA256 verified **90C32341B2F7CEB30BC9C3192E6253000A54F2E7DABBBD63632453FED592106D**. This is a new vote; no earlier position or vote is transferred.
+
+The proposed conservative NULL-backend admission rule directly addresses the independently confirmed cross-role visibility defect while preserving the frozen corpus and budgets. C1 remains rejected for cleanup acceptance. Actual C2 source b4edef34b083d1cb7737cf648f1c051eeb94127a/EXE7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195 and complete package were independently checked: all805 frozen source hashes/bytes and file set, archive/lock/EXE bindings, full available logs102 ordinary passed/14 ignored; ZIP EDACC3B836B5660439FFAA684A3D92451512731ADD9AAE89F0703A6E400C975A/57315848 bytes and all1736 manifest files plus manifest itself1737 exact files, no extra files/reparse/ZIP symlinks.
+
+Independent private build review SHA D21BF2F543C6D80F5330EE1E00881D3404127556B33CCFB5F308A6DE700B6452; package review SHA6A05FA412DF0326168668C9960AB29B89F5FFC6FD04246181346E009D5AB8D27. Initial large direct proof output was truncated; complete JSON inventory was subsequently independently parsed and recomputed. No PostgreSQL ignored-test execution or exhaustive descendant capture is claimed.
+
+This vote permits only the proposal's corrective sequence. Actual decision and Root scope GO remain required before runtime/SQL. Six causal source/restore regressions with actual cleanup_busy/native1, complete conservation and holder closure require independent QA/TD review before broad destructive checks. C2 Observe-FIRST, fresh fault bindings and separate phase approval remain mandatory. All original finite cases, full historical mapping/C02/C18, genuine session changes, server timeout boundaries, receipt failure, business atomicity/backup/retention and final public/CI/human/protected gates remain OPEN until actual evidence completes them. Unexpected results stop affected work. No release, finding closure, R3 closure, exactly-once, continuous exclusion, physical shrink or enterprise HA acceptance is implied. Deadline/freeze/reserve remain unchanged.

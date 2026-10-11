@@ -134,7 +134,7 @@ impl Platform {
                 .map(|job| job.id.clone())
                 .collect();
             if header.recover() {
-                header.audit.append(
+                header.audit.append_business(
                     "system",
                     id,
                     "jobs_interrupted_after_restart",
@@ -142,6 +142,7 @@ impl Platform {
                     revision
                         .checked_add(1)
                         .ok_or_else(|| failure("storage_conflict", "Счётчик проекта исчерпан."))?,
+                    &json!({"policy":"nonterminal_to_failed_after_restart","jobs":header.durable_jobs}),
                 )?;
                 self.database
                     .write_project(crate::normalized::ProjectWrite {
@@ -165,7 +166,7 @@ impl Platform {
             .collect();
         if header.recover() {
             repository.durable_jobs = header.durable_jobs;
-            repository.audit.append(
+            repository.audit.append_business(
                 "system",
                 id,
                 "jobs_interrupted_after_restart",
@@ -174,6 +175,7 @@ impl Platform {
                     .storage_revision
                     .checked_add(1)
                     .ok_or_else(|| failure("storage_conflict", "Счётчик проекта исчерпан."))?,
+                &json!({"policy":"nonterminal_to_failed_after_restart","jobs":repository.durable_jobs}),
             )?;
             let write = crate::repository_v2::prepare(id, repository, false)?;
             repository.storage_revision = self.database.write_project(write)?;
@@ -333,6 +335,12 @@ pub(crate) fn routes() -> Router<AppState> {
         .route("/projects/{id}/rename", post(rename_project))
         .route("/projects/{id}/archive", post(archive_project))
         .route("/projects/{id}/unarchive", post(unarchive_project))
+        .route(
+            "/projects/{id}/delete",
+            get(project_delete_preview)
+                .post(project_delete)
+                .layer(DefaultBodyLimit::max(4096)),
+        )
         .route("/audit", get(audit_page))
         .route("/audit/export", get(audit_export))
         .route("/folders", get(folders_page).post(folder_create))
@@ -541,8 +549,69 @@ async fn audit_export(Workspace(state): Workspace) -> Response {
     match blocking(move || {
         state.validate_resource_actor()?; let a = actor(&state)?; let p = platform(&state)?;
         let repo = state.repository.lock().expect("repository");
-        Ok(json!({"schema_version":1,"scope":"successful project commits; retained last512 plus owner-visible auth projection","project_id":a.project_id,"project_total":repo.audit.total,"project_dropped":repo.audit.total.saturating_sub(repo.audit.entries.len() as u64),"project_entries":repo.audit.entries,"auth_owner_projection":p.auth.audit(&a)}))
+        Ok(json!({"schema_version":2,"scope":"server business mutations committed; legacy policy/outcome unknown; client project-backup history explicitly unverified; retained last512 per scope","project_id":a.project_id,"project_total":repo.audit.total,"project_dropped":repo.audit.total.saturating_sub(repo.audit.entries.len() as u64),"project_entries":repo.audit.entries,"auth_owner_projection":p.auth.audit(&a),"deletion_owner_projection":p.auth.deletion_audit(&a,current_session(&state)?)?}))
     }).await { Ok(report) => Json(report).into_response(), Err(e) => response_error(e) }
+}
+#[derive(Deserialize)]
+#[serde(deny_unknown_fields)]
+struct ProjectDeleteForm {
+    confirmation_id: String,
+    phrase: String,
+    revision: u64,
+    digest: String,
+}
+async fn project_delete_preview(Workspace(state): Workspace, Path(id): Path<String>) -> Response {
+    match blocking(move || {
+        let preview = platform(&state)?.auth.deletion_preview(
+            &actor(&state)?,
+            current_session(&state)?,
+            &id,
+        )?;
+        Ok(render::project_delete(&preview))
+    })
+    .await
+    {
+        Ok(body) => page("Постоянное удаление проекта", body),
+        Err(error) => response_error(error),
+    }
+}
+async fn project_delete(
+    Workspace(state): Workspace,
+    Path(id): Path<String>,
+    Form(form): Form<ProjectDeleteForm>,
+) -> Response {
+    match blocking(move || {
+        let p = platform(&state)?;
+        p.auth.delete_project(
+            &actor(&state)?,
+            current_session(&state)?,
+            &id,
+            crate::auth::ProjectDeletionConfirmation {
+                id: &form.confirmation_id,
+                phrase: &form.phrase,
+                revision: form.revision,
+                digest: &form.digest,
+            },
+        )?;
+        // These maps are retired only after the atomic commit was acknowledged.
+        // Captured requests still recheck current Auth before any publication.
+        p.workspaces.lock().expect("workspace mutex").remove(&id);
+        p.pending
+            .lock()
+            .expect("pending CSV mutex")
+            .retain(|_, pending| pending.project != id);
+        p.pending_xes
+            .lock()
+            .expect("pending XES mutex")
+            .retain(|_, pending| pending.project != id);
+        p.resources.invalidate_project(&id);
+        Ok(())
+    })
+    .await
+    {
+        Ok(()) => redirect("/projects"),
+        Err(error) => response_error(error),
+    }
 }
 async fn audit_page(Workspace(state): Workspace) -> Response {
     match blocking(move || {
@@ -550,7 +619,11 @@ async fn audit_page(Workspace(state): Workspace) -> Response {
         let a = actor(&state)?;
         let p = platform(&state)?;
         let repo = state.repository.lock().expect("repository");
-        Ok(render::audit(&repo.audit, &p.auth.audit(&a)))
+        Ok(render::audit(
+            &repo.audit,
+            &json!({"project_auth":p.auth.audit(&a),
+            "deleted_projects":p.auth.deletion_audit(&a,current_session(&state)?)?}),
+        ))
     })
     .await
     {
@@ -791,7 +864,7 @@ async fn csv_import(Workspace(state): Workspace, Form(form): Form<CsvForm>) -> R
         let start = Instant::now();
         let data = csv_io::parse_csv(&bytes, &mapping)?;
         let analysis = analyze(&data);
-        let log = crate::web::store_log(
+        let log = crate::web::store_log_with_policy(
             &state,
             data,
             analysis,
@@ -800,6 +873,8 @@ async fn csv_import(Workspace(state): Workspace, Form(form): Form<CsvForm>) -> R
             sha256(&bytes),
             form.order,
             None,
+            None,
+            Some(serde_json::json!({"format":"csv","mapping":mapping})),
         )?;
         p.pending.lock().expect("CSV mutex").remove(&form.token);
         Ok(log.id)

@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "role": "TechnicalDebt /root/technical_debt",
+  "utc": "2026-10-11T17:18:14.3055838Z",
+  "type": "INITIAL_POSITION_NOT_VOTE",
+  "proposal_sha256": "C4AAC93C19864C6D818B810C6EBBF4D594D2AD74FAB9C577C3888E6A0F77DF58",
+  "patch_sha256": "ED488D8BECE3D8AA4813669155CEEB5DFA418B38AE52712E9B3F460C7B0098D3",
+  "bindings_sha256": "7F818C062FF249079F0D9222C551C2FEE3D316723D4AAE4EC7BB038F05344C73",
+  "verdict": "SUITABLE_FOR_EXACT_IMPLEMENTATION_COUNCIL_ONLY",
+  "review": [
+    "Full proposal, seven current/proposed hashes, proposed main/lib/packager/current guide and complete public patch read; independent git apply --check exit0 without application.",
+    "Only current main and lib reference compiled cleanup outside historical cleanup.rs; proposed removals cut both entry points. Packager explicitly copies four supported wrappers and oracle subtree, not cleanup wrapper.",
+    "Unknown or extra CLI arguments reject before reading database URL; normal web startup and exact migration remain. Own package version only changes; dependency graph unchanged.",
+    "README preserves old body and guide marks historical instructions and current candidate unaccepted."
+  ],
+  "limitations": [
+    "No implementation, compilation, runtime test, package inspection or acceptance performed.",
+    "Removing compiled cleanup changes public API intentionally; historical source and wrappers remain available in source archive and must not be described as physical source deletion.",
+    "Fresh exact candidate graph, native dispatch refusal, full package set and independent lifecycle/audit crosswalk required; historical C2 proofs transfer only individually verified equivalence.",
+    "SQL5/R3-04/DISK01 and R3-01/R3-02 remain OPEN. Resource and 21:38/23:08 deadlines unchanged. No release/tag/merge/human installation authorization."
+  ],
+  "finding": "No blocking source-level defect found in this exact seven-file implementation proposal. Initial position only, no vote."
+}

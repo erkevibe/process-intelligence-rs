@@ -1,0 +1,313 @@
+{
+  "utc": "2026-10-11T13:34:51.7298757Z",
+  "source_commit": "b4edef34b083d1cb7737cf648f1c051eeb94127a",
+  "exe_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+  "verdict": "Supports actual bounded product TX10 and lock2 timeout observations on fresh C2; no full C17/SQL5 or release acceptance",
+  "tx": "Backend51612 finalBEGIN13:29:41.860, actual PG FATAL transaction timeout13:29:51.859, wire25P04; COMMIT held after exactDELETE2; Apply3/outcome_unconfirmed/no retry. Trace actual observer exit1 later than immutable result null.",
+  "lock": "Backend24496 held final five-table LOCK until holder52328 AccessExclusive granted13:33:19.947; actual PG ERROR lock timeout13:33:21.956/query exact five tables, wire55P03. Apply1/observer1, holder native0 with creation/path/SHA; parent native1 parsing empty CLI stdout is verifier failure, preserved.",
+  "conservation": "Independently whole-byte equal source and restore PREPOST for both phases, all JSON rows parsed privately.",
+  "history": [
+    "TX guessed first server log origin yielded empty snapshot; corrected02 full actual log matched, original retained.",
+    "LOCK original summary/nativeparent failed parsing empty stdout; raw controlled native1 and server proof support bounded timeout observation, not successful helper exit.",
+    "Named native holder creation/path/SHA stored; full process-machine coverage not claimed.",
+    "SQL5 remains separate and OPEN until actual server statement_timeout proof."
+  ],
+  "records": [
+    {
+      "server_backend_pid": 51612,
+      "full_source_restore_pairs_equal": true,
+      "server_log_sha256": "DACE17D60A6D06E03108B40FBF291E727A0BC8A86460E6BA54ABCF2EBDBA7861",
+      "phase": "tx",
+      "inventory": [
+        {
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "name": "apply.launcher.stderr.log",
+          "bytes": 0
+        },
+        {
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "name": "apply.launcher.stdout.log",
+          "bytes": 0
+        },
+        {
+          "sha256": "A4D77C819A02A01EEE4D60DAD40CA63520D9B6F160E6C63D3815A51070D88BE6",
+          "name": "apply.process.json",
+          "bytes": 688
+        },
+        {
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "name": "apply.stderr.log",
+          "bytes": 0
+        },
+        {
+          "sha256": "4BC23799B270F054E167E1E9952AF2DABC46972665501A209CB539EBE627F046",
+          "name": "apply.stdout.log",
+          "bytes": 148
+        },
+        {
+          "sha256": "2B5D0C482C5FAAFEBA7FDE9498DE8909426288706E9E204CE880261F7DE59BC6",
+          "name": "observer-config.json",
+          "bytes": 492
+        },
+        {
+          "sha256": "12185DBC86F3DA352B0E3ED7E6D07018BDC7723D8E141BB1AE322FFD628977EC",
+          "name": "observer-events.json",
+          "bytes": 527586
+        },
+        {
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "name": "observer.stderr.log",
+          "bytes": 0
+        },
+        {
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "name": "observer.stdout.log",
+          "bytes": 0
+        },
+        {
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "name": "pg-server-cutoff01.log",
+          "bytes": 0
+        },
+        {
+          "sha256": "DACE17D60A6D06E03108B40FBF291E727A0BC8A86460E6BA54ABCF2EBDBA7861",
+          "name": "pg-server-cutoff02.log",
+          "bytes": 20480
+        },
+        {
+          "sha256": "29EAD62EF581A81D535B384DAD7E6FFBA269AB97F43B9369F5F570826240F872",
+          "name": "pg-timeout-binding01.json",
+          "bytes": 560
+        },
+        {
+          "sha256": "C748A70763A0B65A2C7B36D236A41FE4887C1E8C5F64BF315E140263F53A35BC",
+          "name": "pg-timeout-binding02.json",
+          "bytes": 798
+        },
+        {
+          "sha256": "A61EFD367A2AB44C7DBD4B6A00DFD4E7A000593A7F51C1505D93B6DB5417FDAC",
+          "name": "plan.json",
+          "bytes": 5055
+        },
+        {
+          "sha256": "6A2656D0FFFBCB66919CDFF66C4671E9635C18AFB13F776852EAE58FD1CC5C1E",
+          "name": "restore-post.jsonl",
+          "bytes": 19661
+        },
+        {
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "name": "restore-post.stderr.log",
+          "bytes": 0
+        },
+        {
+          "sha256": "6A2656D0FFFBCB66919CDFF66C4671E9635C18AFB13F776852EAE58FD1CC5C1E",
+          "name": "restore-pre.jsonl",
+          "bytes": 19661
+        },
+        {
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "name": "restore-pre.stderr.log",
+          "bytes": 0
+        },
+        {
+          "sha256": "6231183291839211C3261CDFD25FFE22AD295E9DA825C115A8EE27684D78600C",
+          "name": "result.json",
+          "bytes": 827
+        },
+        {
+          "sha256": "6A2656D0FFFBCB66919CDFF66C4671E9635C18AFB13F776852EAE58FD1CC5C1E",
+          "name": "source-post.jsonl",
+          "bytes": 19661
+        },
+        {
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "name": "source-post.stderr.log",
+          "bytes": 0
+        },
+        {
+          "sha256": "6A2656D0FFFBCB66919CDFF66C4671E9635C18AFB13F776852EAE58FD1CC5C1E",
+          "name": "source-pre.jsonl",
+          "bytes": 19661
+        },
+        {
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "name": "source-pre.stderr.log",
+          "bytes": 0
+        },
+        {
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "name": "verify.launcher.stderr.log",
+          "bytes": 0
+        },
+        {
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "name": "verify.launcher.stdout.log",
+          "bytes": 0
+        },
+        {
+          "sha256": "13C4FFA777AD7B216C2451502B7B7BDEDF459E11C65ED18FD0F24590F9C7A3FF",
+          "name": "verify.process.json",
+          "bytes": 689
+        },
+        {
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "name": "verify.stderr.log",
+          "bytes": 0
+        },
+        {
+          "sha256": "B1FF13293D0F66944DC1C00E19E1E52034E6127B23FAB29B4B893BDCBC7B4205",
+          "name": "verify.stdout.log",
+          "bytes": 202
+        }
+      ]
+    },
+    {
+      "server_backend_pid": 24496,
+      "full_source_restore_pairs_equal": true,
+      "server_log_sha256": "187F75D05A11123F6E428B4EF715DBEB6371A3B826DA3E9FB50983861B1700E9",
+      "phase": "lock",
+      "inventory": [
+        {
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "name": "apply.launcher.stderr.log",
+          "bytes": 0
+        },
+        {
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "name": "apply.launcher.stdout.log",
+          "bytes": 0
+        },
+        {
+          "sha256": "D44406E64CCFE7DF53084DCCA9C8DBB7CCB554BA46E0CEA6635367FC8A560104",
+          "name": "apply.process.json",
+          "bytes": 688
+        },
+        {
+          "sha256": "4BB1B024680B232C2633E51BF105F6460ACD2F5849BA6BF7D7063C0AEA49580D",
+          "name": "apply.stderr.log",
+          "bytes": 260
+        },
+        {
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "name": "apply.stdout.log",
+          "bytes": 0
+        },
+        {
+          "sha256": "10A73322A66F3C28C28A8A725025FB55DA789A8703139A4CBC3592F9313B246B",
+          "name": "failure.json",
+          "bytes": 73
+        },
+        {
+          "sha256": "0263BF8A5154E5BE9C300E9581C2C2DBA89FD9E87FB39C7DCEA2E6E7854A1AA9",
+          "name": "observer-config.json",
+          "bytes": 841
+        },
+        {
+          "sha256": "ACD625DABA01BC3916AF3828F06A5A5419A811BC061AAED43F0F2D0580AF91BA",
+          "name": "observer-events.json",
+          "bytes": 402013
+        },
+        {
+          "sha256": "877B7F79013CFA1633325262C797515B6DE24D217473033CA0804FD12DCAA9AB",
+          "name": "observer-events.json.holder.stdout.log",
+          "bytes": 47
+        },
+        {
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "name": "observer.stderr.log",
+          "bytes": 0
+        },
+        {
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "name": "observer.stdout.log",
+          "bytes": 0
+        },
+        {
+          "sha256": "187F75D05A11123F6E428B4EF715DBEB6371A3B826DA3E9FB50983861B1700E9",
+          "name": "pg-server-cutoff01.log",
+          "bytes": 20968
+        },
+        {
+          "sha256": "29769A0BD19E47A9A37DD7DBDF98E58D587C75D6EDE50E6D6B178C0291EC0BB6",
+          "name": "pg-timeout-binding01.json",
+          "bytes": 526
+        },
+        {
+          "sha256": "0F428CE3E9AA46B0718AB018648D4C5D3C8F976B25BF9A43472D259C8DE3230C",
+          "name": "plan.json",
+          "bytes": 5061
+        },
+        {
+          "sha256": "6A2656D0FFFBCB66919CDFF66C4671E9635C18AFB13F776852EAE58FD1CC5C1E",
+          "name": "restore-post.jsonl",
+          "bytes": 19661
+        },
+        {
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "name": "restore-post.stderr.log",
+          "bytes": 0
+        },
+        {
+          "sha256": "6A2656D0FFFBCB66919CDFF66C4671E9635C18AFB13F776852EAE58FD1CC5C1E",
+          "name": "restore-pre.jsonl",
+          "bytes": 19661
+        },
+        {
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "name": "restore-pre.stderr.log",
+          "bytes": 0
+        },
+        {
+          "sha256": "2AD033BE72D87FA726A47B1C10177D6C71E41F779D929852F949B36E0730B553",
+          "name": "result.json",
+          "bytes": 717
+        },
+        {
+          "sha256": "6A2656D0FFFBCB66919CDFF66C4671E9635C18AFB13F776852EAE58FD1CC5C1E",
+          "name": "source-post.jsonl",
+          "bytes": 19661
+        },
+        {
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "name": "source-post.stderr.log",
+          "bytes": 0
+        },
+        {
+          "sha256": "6A2656D0FFFBCB66919CDFF66C4671E9635C18AFB13F776852EAE58FD1CC5C1E",
+          "name": "source-pre.jsonl",
+          "bytes": 19661
+        },
+        {
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "name": "source-pre.stderr.log",
+          "bytes": 0
+        },
+        {
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "name": "verify.launcher.stderr.log",
+          "bytes": 0
+        },
+        {
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "name": "verify.launcher.stdout.log",
+          "bytes": 0
+        },
+        {
+          "sha256": "FE334703715CABA1480AC71AA1E43490568D4D72106AE4B17B66B8ECCE19A04A",
+          "name": "verify.process.json",
+          "bytes": 688
+        },
+        {
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "name": "verify.stderr.log",
+          "bytes": 0
+        },
+        {
+          "sha256": "75B8900850F8F2D2B94397B956579BF4642B47D37FAB467A2ACD541C6E7E09F8",
+          "name": "verify.stdout.log",
+          "bytes": 202
+        }
+      ]
+    }
+  ]
+}

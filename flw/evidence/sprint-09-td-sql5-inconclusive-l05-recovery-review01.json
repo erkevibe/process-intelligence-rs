@@ -1,0 +1,42 @@
+{
+  "utc": "2026-10-11T14:19:23.8255402Z",
+  "source": "b4edef34b083d1cb7737cf648f1c051eeb94127a",
+  "exe": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+  "sql5": {
+    "restore_post": "Collector still open at independent review; locked-file hash refusal preserved, no stale buffer or invented equality",
+    "cli_native_exit": 0,
+    "server_cutoff_target_lines": 0,
+    "observed_protocol_server_errors": 0,
+    "server_cutoff_bytes": 24321,
+    "backend": 52488,
+    "verdict": "INCONCLUSIVE_NOT_PASS",
+    "observer_exit": 0,
+    "acceptance": "Mandatory SQL5 remains OPEN and blocks cleanup acceptance; no retry or instrument escalation authorized",
+    "resume_utc": "2026-10-11T14:15:16.124Z",
+    "actual_datarow_bytes": 204728359,
+    "required_server_sqlstate": "57014",
+    "pause_utc": "2026-10-11T14:15:08.109Z",
+    "server_cutoff_sha256": "DE08E6C2B45E26160485CBCB35809C8865530010198E4964DC787AD89C582182",
+    "cause_limits": "Receiver pause did not produce required server timeout. No claim about kernel buffering, server completion time or hidden timeout from empty log attribution",
+    "expected_native_exit": 1,
+    "source_post_full_sha256": "9959D3E9E746460C0C52853D139DCBCCFF37EE230907537AB437FCFE33933DA1",
+    "commandcomplete_utc": "2026-10-11T14:15:16.569Z",
+    "source_post_bytes": 614304123
+  },
+  "business_unknown_ack": {
+    "limits": "Whole committed POST unchanged and no extra witness evidence supports scoped manual recovery. No login/fault repeat; not global exactly-once or complete R3 acceptance. Native restart lifecycle attribution retained in original process proof, not continuous machine coverage",
+    "postrestart_old_uuid_preview_delete_open": [
+      403,
+      403,
+      403
+    ],
+    "independently_rehashed_and_full_json_parsed": true,
+    "five_complete_state_bytes": 715838,
+    "code": "storage_unavailable",
+    "five_complete_state_sha256": "F9F6B6FE565B1BE6BCCC1F811AF4FA739DB9B4DDA27ED14542BD4926B69BE7A8",
+    "wire": "Actual UPDATE1 then DELETE4/0/0/1; COMMIT forwarded14:02:40.043, real server COMMIT completed.046, response withheld.047",
+    "live_mutator": 503,
+    "http_status": 503
+  },
+  "review": "Actual result/trace/cutoff/recovery inputs fully read privately; no runtime/data mutations; original pending and planning labels remain historical"
+}

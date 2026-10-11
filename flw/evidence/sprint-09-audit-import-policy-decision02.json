@@ -1,0 +1,46 @@
+{
+  "decision_utc": "2026-10-11T10:13:13.5130632Z",
+  "proposal": "docs/SPRINT_09_AUDIT_IMPORT_POLICY.md",
+  "proposal_sha256": "47B40B17E5F554807C3DA97F9CC4B552730837D53DC7324D70AC41D04D6D5250",
+  "fixed_voters": 5,
+  "actual_for": 5,
+  "actual_against": 0,
+  "pending": [],
+  "verdict": "ACCEPT exact additive import trust policy by actual strict majority; independent changed-runtime acceptance remains required",
+  "counterexample": {
+    "path": ".local/sprint09/qa/business01/backup02-spoof-result.json",
+    "sha256": "2DA98D88833499BECC91873D52AC3A2FCC476F3546A0440CE52568C852925A7B",
+    "scope": "Independent ordinary Writer forged committed backup accepted on draft04; Root read full small result, not independently replayed"
+  },
+  "votes": [
+    {
+      "voter": "Root",
+      "vote": "FOR",
+      "reason": "Actual ordinary client backup injection bypasses server-owned audit trust; preserve history explicitly unverified and retain authentic atomic restore event."
+    },
+    {
+      "voter": "PM",
+      "vote": "FOR",
+      "path": "flw/evidence/sprint-09-audit-import-policy-pm.md",
+      "sha256": "5706C143A1DFDD8A5185B4E9F29A95FE92E3E473F33AFD930807CA7DD7811D79"
+    },
+    {
+      "voter": "QA",
+      "vote": "FOR",
+      "path": "flw/evidence/sprint-09-qa-audit-import-policy-vote.md",
+      "sha256": "54DE5D168A0F5C92398939C2FC7627043458738BED5CF651696602BA97DB7AC0"
+    },
+    {
+      "voter": "Customer",
+      "vote": "FOR",
+      "path": "flw/evidence/sprint-09-audit-import-policy-customer.md",
+      "sha256": "D371DEAA37030C620B55B07F385BBD90482F77F29892ED754EE453773042FD81"
+    },
+    {
+      "voter": "TD",
+      "vote": "FOR",
+      "path": "flw/evidence/sprint-09-td-audit-import-policy-vote.md",
+      "sha256": "45390682D3FEA5EC410BD3F82C923E824DAF893ADD434EDE38698EFC6E3A1684"
+    }
+  ]
+}

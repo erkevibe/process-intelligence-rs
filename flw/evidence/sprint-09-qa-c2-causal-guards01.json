@@ -1,0 +1,590 @@
+{
+  "helper_sha256": "5BFAD1B0E40DEDF26176359C4296543D9AC968511898806EFBFE4ED468539C4F",
+  "all_six_native_gate_passed": true,
+  "launcher": {
+    "path": "C:\\Users\\alikh\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+    "executable_sha256": "362A356CE7F0940EC74F73A8FC2C990A2CC24A38A11C90BBD8ECA947110AD139",
+    "native_exit": 0,
+    "end_utc": "2026-10-11T12:10:20.0298394Z",
+    "pid": 34316,
+    "creation_utc": "2026-10-11T12:08:56.9768466Z",
+    "start_utc": "2026-10-11T12:08:57.4364782Z",
+    "cases": [
+      "c13adminidle_s",
+      "c13adminidle_r",
+      "c13adminwriter_s",
+      "c13adminwriter_r",
+      "c13appidles",
+      "c13appidler"
+    ],
+    "helper_sha256": "5BFAD1B0E40DEDF26176359C4296543D9AC968511898806EFBFE4ED468539C4F"
+  },
+  "criteria_accepted": [],
+  "binding_sha256": "815793029C1A9E2EE3FA2C22B48E552306458DCF33287BBCC7F044C0263498AF",
+  "zip_sha256": "EDACC3B836B5660439FFAA684A3D92451512731ADD9AAE89F0703A6E400C975A",
+  "broader_guard_cases_executed": false,
+  "source_commit": "b4edef34b083d1cb7737cf648f1c051eeb94127a",
+  "protected_installations_mutated": false,
+  "exe_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+  "package_verification_sha256": "6A05FA412DF0326168668C9960AB29B89F5FFC6FD04246181346E009D5AB8D27",
+  "c1_pass_transferred": false,
+  "remaining_clients": 0,
+  "utc": "2026-10-11T12:12:25.4774208Z",
+  "format": 1,
+  "council_targeted_resume_sha256": "23EA2F593BA61D00EECE5EF4ABFB0ED77EBA018BC9910A40355C5FDAB996565F",
+  "complete_oracle": "All managed row values/versions, every marker/ledger, exact string sequence definition/last/is_called, full attributes/defaults/indexes/constraints/triggers/RLS catalog; native full streams retained privately",
+  "closure_capture_sha256": "1CF61112687CD06E59F1E5E8CF1907F20CB1CE15E3CB3B5A6989089AA11A6808",
+  "product_budgets_seconds": [
+    5,
+    2,
+    10,
+    300
+  ],
+  "manifest_sha256": "B446949B4453345292BEABBE3E0B8BF64195AA902E09BD8C498302835491B856",
+  "closure_native_process_sha256": "065FCC375774A1CEA405A14CB741003D96A42EFE93D277C2E47C5B427019A7A2",
+  "rows": [
+    {
+      "verify_native_exit": 0,
+      "apply_native_exit": 1,
+      "case": "c13adminidle_s",
+      "client_process": {
+        "side": "source",
+        "stdout_sha256": "CE585F858F69A69711AD96B309D0EA082653C706E9C925C18A4D71B8617BF988",
+        "path": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\cluster01\\process-intelligence-rs-0.6.1-windows-x86_64\\runtime\\postgresql\\pgsql\\bin\\psql.exe",
+        "executable_sha256": "FDE952534F520909C02DB04675588ECB1DA8D618B6E5C93E106F42A752DAF720",
+        "writer": false,
+        "native_exit": 0,
+        "end_utc": "2026-10-11T12:09:12.1473754Z",
+        "pid": 40396,
+        "creation_utc": "2026-10-11T12:09:08.4445313Z",
+        "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+        "start_utc": "2026-10-11T12:09:08.4427103Z",
+        "role": "pi_admin",
+        "backend_pid": 25296
+      },
+      "result_sha256": "2555A0E38F2A24E6F2D266D441F8BA68C5DFBFD50B3B58215A5CDA37B3D7ACC5",
+      "expected_guard": "cleanup_busy",
+      "client_process_sha256": "DBAD14ACDEE3D3616E43CC22AC305D20407A8E23DA36F68E999A3FA3959BBFB9",
+      "passed": true,
+      "actual_app_view": {
+        "pid": 25296,
+        "state": null,
+        "datname": "pi_restore_s9_gc2_c13adminidle_s_s",
+        "usename": "pi_admin",
+        "observer": "pi_app",
+        "backend_type": null,
+        "new_offline_match": true
+      },
+      "source_complete_equal": true,
+      "app_view_capture_sha256": "1C0EB00A9C27275443358472A3B76A140E017DEA3140DE2C46EF4ECC2234E29F",
+      "snapshots": [
+        {
+          "native_exit": 0,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c13adminidle_s-pre-pi_restore_s9_gc2_c13adminidle_s_s.stdout",
+          "phase": "pre",
+          "sha256": "4FCE5A251D61AD2EC9233595FC366B0F62D5FC799D5A1C97EA5C8F80CA5D39C8",
+          "bytes": 80171,
+          "side": "s",
+          "rows": 142,
+          "native_process_sha256": "2C82E3AF268CF99522F0205EBA558A4A767A83E343656DDD63FC53542F1B9291"
+        },
+        {
+          "native_exit": 0,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c13adminidle_s-pre-pi_restore_s9_gc2_c13adminidle_s_r.stdout",
+          "phase": "pre",
+          "sha256": "03D929551E50A5F2B75659AF6ED649777C97C43AEE8FB09DD83447AF6C354083",
+          "bytes": 80171,
+          "side": "r",
+          "rows": 142,
+          "native_process_sha256": "E6AF31137E4CA8BC474EE3B2FA38C3465FECD54B14048AADA2C67A1994FA24B5"
+        },
+        {
+          "native_exit": 0,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c13adminidle_s-post-pi_restore_s9_gc2_c13adminidle_s_s.stdout",
+          "phase": "post",
+          "sha256": "4FCE5A251D61AD2EC9233595FC366B0F62D5FC799D5A1C97EA5C8F80CA5D39C8",
+          "bytes": 80171,
+          "side": "s",
+          "rows": 142,
+          "native_process_sha256": "EC505588DC8905B8465C709E02F27FCDA927FA4660B9C57CFA173E3D718DA0AF"
+        },
+        {
+          "native_exit": 0,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c13adminidle_s-post-pi_restore_s9_gc2_c13adminidle_s_r.stdout",
+          "phase": "post",
+          "sha256": "03D929551E50A5F2B75659AF6ED649777C97C43AEE8FB09DD83447AF6C354083",
+          "bytes": 80171,
+          "side": "r",
+          "rows": 142,
+          "native_process_sha256": "6146044F0A673A9CD1AB8790A44DB88AB3F76328596F7F0D79A62DE0D5E1E223"
+        }
+      ],
+      "apply_process": {
+        "creation_utc": "2026-10-11T12:09:09.1182141Z",
+        "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+        "stderr_sha256": "3420F5DA9FEEDEC0FF5F1ABB67D4F2C215119BC9C10F2C7BED406413674125A6",
+        "end_utc": "2026-10-11T12:09:11.8062986Z",
+        "start_utc": "2026-10-11T12:09:09.1164393Z",
+        "pid": 47644,
+        "label": "c13adminidle_s-apply",
+        "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+        "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+        "native_exit": 1
+      },
+      "restore_complete_equal": true
+    },
+    {
+      "verify_native_exit": 0,
+      "apply_native_exit": 1,
+      "case": "c13adminidle_r",
+      "client_process": {
+        "side": "restore",
+        "stdout_sha256": "5A403368BE7286952ED5EB2B85039B009DCD0A2083C34895B61D9412F715387A",
+        "path": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\cluster01\\process-intelligence-rs-0.6.1-windows-x86_64\\runtime\\postgresql\\pgsql\\bin\\psql.exe",
+        "executable_sha256": "FDE952534F520909C02DB04675588ECB1DA8D618B6E5C93E106F42A752DAF720",
+        "writer": false,
+        "native_exit": 0,
+        "end_utc": "2026-10-11T12:09:26.5243761Z",
+        "pid": 48172,
+        "creation_utc": "2026-10-11T12:09:22.9188575Z",
+        "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+        "start_utc": "2026-10-11T12:09:22.9170058Z",
+        "role": "pi_admin",
+        "backend_pid": 45868
+      },
+      "result_sha256": "8D0F4AA655D734555AB6D4FD28E1D4128BEBFCDE451C956EE58D10FFDD269C2B",
+      "expected_guard": "cleanup_busy",
+      "client_process_sha256": "98E6859D0033E5EA3319DBE6D71898938B2742F8E1CBF621EBE7EAE3659CE6A6",
+      "passed": true,
+      "actual_app_view": {
+        "pid": 45868,
+        "state": null,
+        "datname": "pi_restore_s9_gc2_c13adminidle_r_r",
+        "usename": "pi_admin",
+        "observer": "pi_app",
+        "backend_type": null,
+        "new_offline_match": true
+      },
+      "source_complete_equal": true,
+      "app_view_capture_sha256": "33F21DBCBD65E19B2153EFD1C7DB4B3B275E7242E85F724192B57A12CC5D3E65",
+      "snapshots": [
+        {
+          "native_exit": 0,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c13adminidle_r-pre-pi_restore_s9_gc2_c13adminidle_r_s.stdout",
+          "phase": "pre",
+          "sha256": "942DC37A113406AEFCB17CFFD301C69CE728C9AC2E84C903931C219803ECDD46",
+          "bytes": 80171,
+          "side": "s",
+          "rows": 142,
+          "native_process_sha256": "A7D1771B3EB57E27641C04E33E253AB6F550A211C6B982998967BAE6977EE553"
+        },
+        {
+          "native_exit": 0,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c13adminidle_r-pre-pi_restore_s9_gc2_c13adminidle_r_r.stdout",
+          "phase": "pre",
+          "sha256": "49A5C22BCD9E6B2FF7043D67F404D2CB30F1646D2E1C3BE4D424BE45D7D788CA",
+          "bytes": 80171,
+          "side": "r",
+          "rows": 142,
+          "native_process_sha256": "74687755E1A94E38F4BC9EC959039290B4740529444D17A31D97F171FA095598"
+        },
+        {
+          "native_exit": 0,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c13adminidle_r-post-pi_restore_s9_gc2_c13adminidle_r_s.stdout",
+          "phase": "post",
+          "sha256": "942DC37A113406AEFCB17CFFD301C69CE728C9AC2E84C903931C219803ECDD46",
+          "bytes": 80171,
+          "side": "s",
+          "rows": 142,
+          "native_process_sha256": "ED4B5333517F1067AEA056A1049CAA5AFA450D0E3BB9D1B19F05E44FCA957D8D"
+        },
+        {
+          "native_exit": 0,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c13adminidle_r-post-pi_restore_s9_gc2_c13adminidle_r_r.stdout",
+          "phase": "post",
+          "sha256": "49A5C22BCD9E6B2FF7043D67F404D2CB30F1646D2E1C3BE4D424BE45D7D788CA",
+          "bytes": 80171,
+          "side": "r",
+          "rows": 142,
+          "native_process_sha256": "DE8F53F66DC3D3E1D6D0C07AA5FFBD58A1933E5457B5308BE939D004C79DF463"
+        }
+      ],
+      "apply_process": {
+        "creation_utc": "2026-10-11T12:09:23.5596178Z",
+        "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+        "stderr_sha256": "3420F5DA9FEEDEC0FF5F1ABB67D4F2C215119BC9C10F2C7BED406413674125A6",
+        "end_utc": "2026-10-11T12:09:26.1979114Z",
+        "start_utc": "2026-10-11T12:09:23.5583359Z",
+        "pid": 49628,
+        "label": "c13adminidle_r-apply",
+        "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+        "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+        "native_exit": 1
+      },
+      "restore_complete_equal": true
+    },
+    {
+      "verify_native_exit": 0,
+      "apply_native_exit": 1,
+      "case": "c13adminwriter_s",
+      "client_process": {
+        "side": "source",
+        "stdout_sha256": "D74F30128C201E55569D6E14E7172D0E38A80F2624DD3585BC821D67DC6B8D8A",
+        "path": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\cluster01\\process-intelligence-rs-0.6.1-windows-x86_64\\runtime\\postgresql\\pgsql\\bin\\psql.exe",
+        "executable_sha256": "FDE952534F520909C02DB04675588ECB1DA8D618B6E5C93E106F42A752DAF720",
+        "writer": true,
+        "native_exit": 0,
+        "end_utc": "2026-10-11T12:09:38.7517885Z",
+        "pid": 30984,
+        "creation_utc": "2026-10-11T12:09:35.1794592Z",
+        "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+        "start_utc": "2026-10-11T12:09:35.1777213Z",
+        "role": "pi_admin",
+        "backend_pid": 48384
+      },
+      "result_sha256": "717906341C7A655473359E266380DCF3D257CED8A3F9690B1F4BE26C646F8FF1",
+      "expected_guard": "cleanup_busy",
+      "client_process_sha256": "D105C467874B65CFBB41EF4936A3CDE982BA4F550D59A6EF2D665AB256393A18",
+      "passed": true,
+      "actual_app_view": {
+        "pid": 48384,
+        "state": null,
+        "datname": "pi_restore_s9_gc2_c13adminwriter_s_s",
+        "usename": "pi_admin",
+        "observer": "pi_app",
+        "backend_type": null,
+        "new_offline_match": true
+      },
+      "source_complete_equal": true,
+      "app_view_capture_sha256": "143BBEFE88FF078386F9D337535072BAE34A6536AE45515289959FB391A042FD",
+      "snapshots": [
+        {
+          "native_exit": 0,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c13adminwriter_s-pre-pi_restore_s9_gc2_c13adminwriter_s_s.stdout",
+          "phase": "pre",
+          "sha256": "63F8A6FB1E06508C9A2642D78CA0A21D5CF0874A5638D6818C0FFAFB204AA468",
+          "bytes": 80171,
+          "side": "s",
+          "rows": 142,
+          "native_process_sha256": "4D62DC7CAB182EFE377F608D470A83A4EFFE2BB00B9CF460EA01BFC66750E77A"
+        },
+        {
+          "native_exit": 0,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c13adminwriter_s-pre-pi_restore_s9_gc2_c13adminwriter_s_r.stdout",
+          "phase": "pre",
+          "sha256": "939EE7B4FCE47FCACF700ADE3BE3B9DDE1C3F64F16E11DE923BEF80FE3FE0C57",
+          "bytes": 80171,
+          "side": "r",
+          "rows": 142,
+          "native_process_sha256": "54C07ED8734939B38739933CFC2C50395EE0858AAE8E32CEB84097557D193403"
+        },
+        {
+          "native_exit": 0,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c13adminwriter_s-post-pi_restore_s9_gc2_c13adminwriter_s_s.stdout",
+          "phase": "post",
+          "sha256": "63F8A6FB1E06508C9A2642D78CA0A21D5CF0874A5638D6818C0FFAFB204AA468",
+          "bytes": 80171,
+          "side": "s",
+          "rows": 142,
+          "native_process_sha256": "FAF831E0053212BED419D800DD3A2EA2569775E00607D1279428D095CBC6458F"
+        },
+        {
+          "native_exit": 0,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c13adminwriter_s-post-pi_restore_s9_gc2_c13adminwriter_s_r.stdout",
+          "phase": "post",
+          "sha256": "939EE7B4FCE47FCACF700ADE3BE3B9DDE1C3F64F16E11DE923BEF80FE3FE0C57",
+          "bytes": 80171,
+          "side": "r",
+          "rows": 142,
+          "native_process_sha256": "C8D02FCDCA2E1130EB137CD02417CB5DB29086E84EA35AEDF0B0082680204C29"
+        }
+      ],
+      "apply_process": {
+        "creation_utc": "2026-10-11T12:09:35.8018077Z",
+        "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+        "stderr_sha256": "3420F5DA9FEEDEC0FF5F1ABB67D4F2C215119BC9C10F2C7BED406413674125A6",
+        "end_utc": "2026-10-11T12:09:38.4081194Z",
+        "start_utc": "2026-10-11T12:09:35.8005529Z",
+        "pid": 37116,
+        "label": "c13adminwriter_s-apply",
+        "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+        "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+        "native_exit": 1
+      },
+      "restore_complete_equal": true
+    },
+    {
+      "verify_native_exit": 0,
+      "apply_native_exit": 1,
+      "case": "c13adminwriter_r",
+      "client_process": {
+        "side": "restore",
+        "stdout_sha256": "8034795429E32C43FD6A736697AC76E695BF82CE983654161091ACB7E41CB594",
+        "path": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\cluster01\\process-intelligence-rs-0.6.1-windows-x86_64\\runtime\\postgresql\\pgsql\\bin\\psql.exe",
+        "executable_sha256": "FDE952534F520909C02DB04675588ECB1DA8D618B6E5C93E106F42A752DAF720",
+        "writer": true,
+        "native_exit": 0,
+        "end_utc": "2026-10-11T12:09:53.2305873Z",
+        "pid": 12068,
+        "creation_utc": "2026-10-11T12:09:49.6244349Z",
+        "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+        "start_utc": "2026-10-11T12:09:49.6226273Z",
+        "role": "pi_admin",
+        "backend_pid": 49688
+      },
+      "result_sha256": "F1DDBBEAD440A2E33BCA2239F5D5CEA71CE615544AD723D36005B055DC34F837",
+      "expected_guard": "cleanup_busy",
+      "client_process_sha256": "89FD7DC50BE82CF2A12B8D010E92FB538E51C7901748B15E82867192803A683C",
+      "passed": true,
+      "actual_app_view": {
+        "pid": 49688,
+        "state": null,
+        "datname": "pi_restore_s9_gc2_c13adminwriter_r_r",
+        "usename": "pi_admin",
+        "observer": "pi_app",
+        "backend_type": null,
+        "new_offline_match": true
+      },
+      "source_complete_equal": true,
+      "app_view_capture_sha256": "0517785DB417BE66AA3058752CB374BB8D21525540B1BA45F7A630BEAC53F0EC",
+      "snapshots": [
+        {
+          "native_exit": 0,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c13adminwriter_r-pre-pi_restore_s9_gc2_c13adminwriter_r_s.stdout",
+          "phase": "pre",
+          "sha256": "E907EAC8EA1F6677AE19DAE605AC4D477D08E0ACBBBA8E5F881C64CFD796B707",
+          "bytes": 80171,
+          "side": "s",
+          "rows": 142,
+          "native_process_sha256": "956CCCB217CB44EB144E2DD593FC12EE83AA2018BDDB37D191AEC0999DB9920F"
+        },
+        {
+          "native_exit": 0,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c13adminwriter_r-pre-pi_restore_s9_gc2_c13adminwriter_r_r.stdout",
+          "phase": "pre",
+          "sha256": "125B785DE93219812F22CA812EE7544BA4CDAB2068B4FFE24ED3150359DBC0A7",
+          "bytes": 80171,
+          "side": "r",
+          "rows": 142,
+          "native_process_sha256": "199ACE9913F34A427FF356BC96DC805071546838A1DBE44178EA1F06977F4106"
+        },
+        {
+          "native_exit": 0,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c13adminwriter_r-post-pi_restore_s9_gc2_c13adminwriter_r_s.stdout",
+          "phase": "post",
+          "sha256": "E907EAC8EA1F6677AE19DAE605AC4D477D08E0ACBBBA8E5F881C64CFD796B707",
+          "bytes": 80171,
+          "side": "s",
+          "rows": 142,
+          "native_process_sha256": "1BBC74978AC552EE8256329C92EB11ED4BF91336E0378BEEF259ABEE705527D0"
+        },
+        {
+          "native_exit": 0,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c13adminwriter_r-post-pi_restore_s9_gc2_c13adminwriter_r_r.stdout",
+          "phase": "post",
+          "sha256": "125B785DE93219812F22CA812EE7544BA4CDAB2068B4FFE24ED3150359DBC0A7",
+          "bytes": 80171,
+          "side": "r",
+          "rows": 142,
+          "native_process_sha256": "81A1F0571D47444B1F819C6467D805CBA77299329006C3479502C1CD72BECEAD"
+        }
+      ],
+      "apply_process": {
+        "creation_utc": "2026-10-11T12:09:50.2496283Z",
+        "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+        "stderr_sha256": "3420F5DA9FEEDEC0FF5F1ABB67D4F2C215119BC9C10F2C7BED406413674125A6",
+        "end_utc": "2026-10-11T12:09:52.9064851Z",
+        "start_utc": "2026-10-11T12:09:50.2484194Z",
+        "pid": 36664,
+        "label": "c13adminwriter_r-apply",
+        "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+        "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+        "native_exit": 1
+      },
+      "restore_complete_equal": true
+    },
+    {
+      "verify_native_exit": 0,
+      "apply_native_exit": 1,
+      "case": "c13appidles",
+      "client_process": {
+        "side": "source",
+        "stdout_sha256": "3ED222F1BFD2E4FD165F7EA14280F41AB45CB16E1601617E5297838B59DC8D66",
+        "path": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\cluster01\\process-intelligence-rs-0.6.1-windows-x86_64\\runtime\\postgresql\\pgsql\\bin\\psql.exe",
+        "executable_sha256": "FDE952534F520909C02DB04675588ECB1DA8D618B6E5C93E106F42A752DAF720",
+        "writer": false,
+        "native_exit": 0,
+        "end_utc": "2026-10-11T12:10:05.4256904Z",
+        "pid": 53056,
+        "creation_utc": "2026-10-11T12:10:01.8699984Z",
+        "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+        "start_utc": "2026-10-11T12:10:01.8680945Z",
+        "role": "pi_app",
+        "backend_pid": 50928
+      },
+      "result_sha256": "613CB2855E4F726AC1FAE8650ABEDC2CE3041E67F2B8F71D67BAB98153086B94",
+      "expected_guard": "cleanup_busy",
+      "client_process_sha256": "797D0695649FDAF8F1B2E59E4A60E544CBFBC75FB2D9D9F54BD04FBC6FC62E4D",
+      "passed": true,
+      "actual_app_view": {
+        "pid": 50928,
+        "state": "idle",
+        "datname": "pi_restore_s9_gc2_c13appidles_s",
+        "usename": "pi_app",
+        "observer": "pi_app",
+        "backend_type": "client backend",
+        "new_offline_match": true
+      },
+      "source_complete_equal": true,
+      "app_view_capture_sha256": "4D69B9D166800FBC4F7E2B5A87B3E155BD9F84282AA6DD3F4FAD0FC2CC8187B1",
+      "snapshots": [
+        {
+          "native_exit": 0,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c13appidles-pre-pi_restore_s9_gc2_c13appidles_s.stdout",
+          "phase": "pre",
+          "sha256": "FB03725497409944C85B70EFFFBC5BC269D6B298E3F1ADE4F4CE7E179ECFA6EF",
+          "bytes": 80171,
+          "side": "s",
+          "rows": 142,
+          "native_process_sha256": "969A5026C338DB60D4274F1F0E9E08157BD92777EF9A642FAB5369760C12EF38"
+        },
+        {
+          "native_exit": 0,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c13appidles-pre-pi_restore_s9_gc2_c13appidles_r.stdout",
+          "phase": "pre",
+          "sha256": "099D8569B8309C567FD61728B2FAD07181FB7D8F4DA28C96ECCB458DA8467A45",
+          "bytes": 80171,
+          "side": "r",
+          "rows": 142,
+          "native_process_sha256": "5B44AF0974D6A8CCB7A9E4FBC535839031BF15037334C5E98555F458F3479686"
+        },
+        {
+          "native_exit": 0,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c13appidles-post-pi_restore_s9_gc2_c13appidles_s.stdout",
+          "phase": "post",
+          "sha256": "FB03725497409944C85B70EFFFBC5BC269D6B298E3F1ADE4F4CE7E179ECFA6EF",
+          "bytes": 80171,
+          "side": "s",
+          "rows": 142,
+          "native_process_sha256": "93D28F8895FB32C337026C41F258D38145E03203818DA0FC8E0EC22ED57AB51A"
+        },
+        {
+          "native_exit": 0,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c13appidles-post-pi_restore_s9_gc2_c13appidles_r.stdout",
+          "phase": "post",
+          "sha256": "099D8569B8309C567FD61728B2FAD07181FB7D8F4DA28C96ECCB458DA8467A45",
+          "bytes": 80171,
+          "side": "r",
+          "rows": 142,
+          "native_process_sha256": "6BD9D9EB723C19D9D701EE5D1093021DF89AD97159B4FA46AA9CB08D4C81599E"
+        }
+      ],
+      "apply_process": {
+        "creation_utc": "2026-10-11T12:10:02.4854391Z",
+        "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+        "stderr_sha256": "3420F5DA9FEEDEC0FF5F1ABB67D4F2C215119BC9C10F2C7BED406413674125A6",
+        "end_utc": "2026-10-11T12:10:05.0905451Z",
+        "start_utc": "2026-10-11T12:10:02.4840789Z",
+        "pid": 48960,
+        "label": "c13appidles-apply",
+        "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+        "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+        "native_exit": 1
+      },
+      "restore_complete_equal": true
+    },
+    {
+      "verify_native_exit": 0,
+      "apply_native_exit": 1,
+      "case": "c13appidler",
+      "client_process": {
+        "side": "restore",
+        "stdout_sha256": "FC8A145306825F440E4E9BECB4495D2694EA15FEC45F367E2E4720DD63FBB6AA",
+        "path": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\cluster01\\process-intelligence-rs-0.6.1-windows-x86_64\\runtime\\postgresql\\pgsql\\bin\\psql.exe",
+        "executable_sha256": "FDE952534F520909C02DB04675588ECB1DA8D618B6E5C93E106F42A752DAF720",
+        "writer": false,
+        "native_exit": 0,
+        "end_utc": "2026-10-11T12:10:20.020413Z",
+        "pid": 48684,
+        "creation_utc": "2026-10-11T12:10:14.446251Z",
+        "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+        "start_utc": "2026-10-11T12:10:14.4448141Z",
+        "role": "pi_app",
+        "backend_pid": 45304
+      },
+      "result_sha256": "75FE220F897808EE0CED7E5D92418B588D721CE746FC9C6902D11A4975FF52EB",
+      "expected_guard": "cleanup_busy",
+      "client_process_sha256": "66032C23A757AD732348BB009E77A35857880F10973F76DEC559903054A7CF37",
+      "passed": true,
+      "actual_app_view": {
+        "pid": 45304,
+        "state": "idle",
+        "datname": "pi_restore_s9_gc2_c13appidler_r",
+        "usename": "pi_app",
+        "observer": "pi_app",
+        "backend_type": "client backend",
+        "new_offline_match": true
+      },
+      "source_complete_equal": true,
+      "app_view_capture_sha256": "35FE6D6E611A775E1BF43A106B42F70D31B7A59E87ADFF6B279CF54D4F2604E1",
+      "snapshots": [
+        {
+          "native_exit": 0,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c13appidler-pre-pi_restore_s9_gc2_c13appidler_s.stdout",
+          "phase": "pre",
+          "sha256": "693918181F8F6E6829015C2140EFE7411B7722838E0CE82E93240A2FF7D87D5E",
+          "bytes": 80171,
+          "side": "s",
+          "rows": 142,
+          "native_process_sha256": "268B875A21315314B31A52BE53761DF611279006C57B0EA81A880CEADE192C4E"
+        },
+        {
+          "native_exit": 0,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c13appidler-pre-pi_restore_s9_gc2_c13appidler_r.stdout",
+          "phase": "pre",
+          "sha256": "77550894401DC0B84C6B963E06F5E9179A6D0C68133546BCC4DBA92EC449C14F",
+          "bytes": 80171,
+          "side": "r",
+          "rows": 142,
+          "native_process_sha256": "2C1C3F1B36DDA2D4CC3227CC6D560D822F7D08EA073447BA150E9493B92D3370"
+        },
+        {
+          "native_exit": 0,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c13appidler-post-pi_restore_s9_gc2_c13appidler_s.stdout",
+          "phase": "post",
+          "sha256": "693918181F8F6E6829015C2140EFE7411B7722838E0CE82E93240A2FF7D87D5E",
+          "bytes": 80171,
+          "side": "s",
+          "rows": 142,
+          "native_process_sha256": "0A3473607989D73E11DEA1F1706D4CC7FDB0E339B54BF2B5F1264C7B50B815E9"
+        },
+        {
+          "native_exit": 0,
+          "private_file": ".local/sprint09/qa/guards-c2-01/c13appidler-post-pi_restore_s9_gc2_c13appidler_r.stdout",
+          "phase": "post",
+          "sha256": "77550894401DC0B84C6B963E06F5E9179A6D0C68133546BCC4DBA92EC449C14F",
+          "bytes": 80171,
+          "side": "r",
+          "rows": 142,
+          "native_process_sha256": "B0E2C162F397D3CE67D8547E832546C7F38B49126DCC1093EDD068DCFB65851D"
+        }
+      ],
+      "apply_process": {
+        "creation_utc": "2026-10-11T12:10:15.0539494Z",
+        "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+        "stderr_sha256": "3420F5DA9FEEDEC0FF5F1ABB67D4F2C215119BC9C10F2C7BED406413674125A6",
+        "end_utc": "2026-10-11T12:10:19.69562Z",
+        "start_utc": "2026-10-11T12:10:15.0523523Z",
+        "pid": 50004,
+        "label": "c13appidler-apply",
+        "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+        "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+        "native_exit": 1
+      },
+      "restore_complete_equal": true
+    }
+  ],
+  "scope": "Independent first-gate six causal regressions only; no broad finite acceptance or STOP closure",
+  "author": "/root/qa_cleanup_guards_s9",
+  "version": "0.7.1"
+}

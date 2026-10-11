@@ -1,0 +1,14 @@
+# Root: final review initial position
+
+Received actual final-review invitation SHA25623278B4CEDE01F831B9CC6A05EE2AB841430A282BA30C87957899EF11581BDBC before this position. Chair/integrator and author of shared runtime; not independent QA accepting my own implementation. This is an INITIAL position, not a vote or release acceptance.
+
+Frozen C2 source b4edef34b083d1cb7737cf648f1c051eeb94127a, EXE7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195, packageEDACC3B836B5660439FFAA684A3D92451512731ADD9AAE89F0703A6E400C975A unchanged. C1 rejected, no automatic credit transfer. Root has read the named public current business reports, causal/finite/C05/timeout/F01–03 TD reports, actual receipt/precommit/unknownACK reports, PM02 and CustomerUI report. Individual current reports and exact inputs, not a blanket machine attestation, define scope.
+
+Substantial audit, rollback, direct deletion/cache/restart, unknown acknowledgement/manual recovery, historical migration/cleanup/restore, refusal guard and server lock/transaction timeout evidence is now independently supported. Root source delivery was anonymously downloaded200 and all805 files compared by full length/SHA to frozen build source; named15 protected process bindings/health and three old ZIP hashes equal PRE. Genuine migrated target deletion was actually303 at14:23:28; full post-state independent oracle remains pending at this position.
+
+The mandatory SQL5 experiment returned real SELECT completion/native0, not required57014. This is INCONCLUSIVE_NOT_PASS. Complete state conservation does not prove that missing timeout. No retry or new critical instrument is authorized. R3-04 remains OPEN and unproved Apply cannot enter an accepted release. Public audit/delete functionality cannot compensate for cleanup safety. Final originalR3-01/02 assessment must preserve public-delivery dependencies; all three remain unclosed in this proposed evidence-only outcome.
+
+I support completing independent full mappings and accepting only the finite verification/source-review record: keep PR10 draft; no official0.7.1 release/tag/merge/new human installation. Preserve previously accepted0.6.1. No late third binary or cosmetic edit. Final proposal will freeze statuses and safe evidence hashes after all independent initial positions, then ask for five actual new votes.
+
+Missing intentionally-stopped cold app/native5 parent exits remain UNKNOWN; proxy precise OS creation coverage remains limited; Customer saw explanatory trust text and an empty preview, not live three-origin rows/nonempty counts. Source/archive hash domains, receipt failure versus unknown commit, and logical deletion versus physical erasure remain distinct. Next attempt must prospectively establish a real SQL5 boundary before completing candidate acceptance/delivery, with full corpus and unchanged timeout budgets.
+Actual UTC: 2026-10-11T14:25:19.3643646Z

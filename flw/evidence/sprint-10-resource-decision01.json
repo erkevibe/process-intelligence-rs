@@ -1,0 +1,45 @@
+{
+  "utc": "2026-10-11T15:39:07.7827539Z",
+  "proposal": "flw/evidence/sprint-10-resource-proposal01.md",
+  "proposal_sha256": "7537D8DE2009D08A38686417145E925C9F5F563CDDAE6FA32597914690F9529F",
+  "actual_for": 5,
+  "actual_against": 0,
+  "decision": "ACCEPT_CONDITIONAL_RESOURCE_STAGE",
+  "votes": [
+    {
+      "vote": "FOR",
+      "path": "flw/evidence/sprint-10-resource-root-vote01.json",
+      "role": "Root",
+      "sha256": "3A56A22E490C7EB2C5E9385DB16A294321AECEC92C4DCB84666A4D63646FFF94"
+    },
+    {
+      "vote": "FOR",
+      "path": "flw/evidence/sprint-10-resource-pm-vote01.json",
+      "role": "PM",
+      "sha256": "EFF9311B15EA2D5DB99B8940691947BFD703DED7BBFA7B5DAB69B29F21CD476C"
+    },
+    {
+      "vote": "FOR",
+      "path": "flw/evidence/sprint-10-resource-customer-vote01.json",
+      "role": "Customer",
+      "sha256": "BDCF77434876401AA4154EB563E16FBBADD774BDB37028DA7DBAD0E9C0B84439"
+    },
+    {
+      "vote": "FOR",
+      "path": "flw/evidence/sprint-10-resource-qa-vote01.json",
+      "role": "QA_ProcessLogAuditor",
+      "sha256": "25DD41F855D0579F88FB8F72F68A1DF494FE89617864FFD13DA291192D9B2E9D"
+    },
+    {
+      "vote": "FOR",
+      "path": "flw/evidence/sprint-10-resource-td-vote01.json",
+      "role": "TechnicalDebt",
+      "sha256": "1B0F7C267E9D2C08CD21D609197CFA6F94F32DF8671BB8B01D7B842ABF21D0B6"
+    }
+  ],
+  "scope": "Resource placement only, not criterion/release/helper-unlink acceptance",
+  "mandatory": "Every frozen proposal gate remains mandatory; no private FAT32 data; no unlink before independent all archives/source actual joins and separately reviewed helper",
+  "criteria": "R3-01/R3-02/R3-04/DISK01 OPEN",
+  "deadline": "2026-10-11T23:08:00Z",
+  "assembly_note": "First aggregation stopped on heterogeneous voter/role schema before decision creation; original votes and earlier exact copies retained"
+}

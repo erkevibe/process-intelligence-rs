@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "recorded_utc": "2026-10-11T11:00:32.0810045Z",
+  "owner": "Root",
+  "claim_scope": "Observed frozen build/package binding; not independent final acceptance or criterion PASS",
+  "source_commit": "03f0ffd604651e0a0b6d29832f23cbb57ee6a3ea",
+  "package_version": "0.7.0",
+  "source_archive_sha256": "CD696D107EB3D3A27DB0B1A6DA88AFA97A30C2C6A9A5C68047C6D7337B9C2A1E",
+  "source_files": 804,
+  "cargo_lock_sha256": "49BD184F6C5BB8D66F28904AC8742654C02177E73140F75C93AA30B8427583EC",
+  "release_executable_sha256": "0DBC999D85A3196F820CBF870D26C38C99A16A1F68B1F75D9336D98F2FA7C362",
+  "build_exit": 0,
+  "test_exit": 0,
+  "ordinary_tests_passed": 102,
+  "database_integration_tests_ignored": 14,
+  "build_jobs": 1,
+  "failed_parallel_test_attempt_preserved": true,
+  "package_exit": 0,
+  "package_zip_sha256": "53E768B056D10A2479BE7487F6DC9032DF42D3E666400BB6AD2EEEB191454908",
+  "package_zip_bytes": 57313115,
+  "package_manifest_sha256": "0584E9FF488AEDA5321ACE5390AAA9C337D75C1C9863AEDA4F520A3A76D020B1",
+  "package_manifest_files": 1735,
+  "offline_cleanup_operator_in_package": true,
+  "criteria": {
+    "R3-04": "OPEN",
+    "R3-01": "OPEN",
+    "R3-02": "OPEN"
+  },
+  "notes": [
+    "Fresh source and build directories; source inventory unchanged after compilation.",
+    "Ordinary tests and GitHub CI do not replace complete PostgreSQL and fault acceptance.",
+    "No source, archive, executable or package was overwritten after freeze.",
+    "A new source change requires a separately identified candidate and affected reruns."
+  ]
+}
