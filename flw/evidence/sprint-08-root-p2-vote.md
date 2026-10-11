@@ -1,0 +1,3 @@
+# Actual Root S8-P2 vote and adoption
+
+Root FOR exact docs/SPRINT_08_PLATFORM_EXTENSION.md SHA2567DD08524006BB34E0A5ACC80BAC868B78112C8E2E79428361588854B9F129C34. Fixed five-seat invitations preceded exact external votes; independent positions accompany separate PM, Customer and TD votes. ActualRoot+PM+Customer establishes3/5majority; TD actualFOR also received, QA invited and pending here, not assumedFOR. Initial file was explicitly a draft, no implementation before majority. Additional nativeR3 does not waive full15gates/primarydurability/reserve. Archive/revoke and worker commit use shared Auth lock with explicit lock order; no request-only permission assumption. No global atomicity claim across independent Auth and Repository stores.

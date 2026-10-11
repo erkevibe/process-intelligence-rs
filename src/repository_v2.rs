@@ -30,6 +30,13 @@ struct LogToken {
 #[derive(Default, Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
 pub(crate) struct Header {
+    #[serde(
+        default,
+        skip_serializing_if = "crate::folders::Organization::is_empty"
+    )]
+    pub(crate) organization: crate::folders::Organization,
+    #[serde(default, skip_serializing_if = "crate::audit::AuditTrail::is_empty")]
+    pub(crate) audit: crate::audit::AuditTrail,
     pub(crate) current: BTreeMap<String, String>,
     pub(crate) sequence: u64,
     pub(crate) user_views: BTreeMap<String, BTreeMap<String, UserView>>,
@@ -50,6 +57,17 @@ impl Header {
         Ok(header)
     }
     pub(crate) fn validate(&self) -> Result<(), ImportError> {
+        self.audit.validate().map_err(|_| corrupt())?;
+        self.organization
+            .validate(
+                &self
+                    .log_ids
+                    .iter()
+                    .chain(&self.model_ids)
+                    .cloned()
+                    .collect(),
+            )
+            .map_err(|_| corrupt())?;
         let logs: BTreeSet<_> = self.log_ids.iter().collect();
         let models: BTreeSet<_> = self.model_ids.iter().collect();
         if logs.len() != self.log_ids.len()
@@ -102,6 +120,8 @@ fn valid_id(id: &str, prefix: &str) -> bool {
 }
 pub(crate) fn header(repo: &Repository) -> Header {
     Header {
+        organization: repo.organization.clone(),
+        audit: repo.audit.clone(),
         current: repo.current.clone(),
         sequence: repo.sequence,
         user_views: repo.user_views.clone(),
@@ -294,6 +314,8 @@ pub(crate) fn load_metadata(database: &Database, project: &str) -> Result<Reposi
         return Err(corrupt());
     }
     Ok(Repository {
+        organization: h.organization,
+        audit: h.audit,
         current: h.current,
         sequence: h.sequence,
         user_views: h.user_views,

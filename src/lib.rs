@@ -1,3 +1,4 @@
+pub mod audit;
 pub mod auth;
 pub mod bpmn;
 pub mod calendar;
@@ -6,6 +7,7 @@ pub mod discovery;
 pub mod domain;
 pub mod event_io;
 pub mod filters;
+pub mod folders;
 pub mod import_provenance;
 pub mod jobs;
 mod migrations;

@@ -45,8 +45,21 @@ pub(crate) fn projects(actor: &Actor, projects: &[Project]) -> String {
         };
         let id = route_id(&project.id);
         let current = project.id == actor.project_id;
+        if project.archived {
+            html.push_str(&format!(
+                "<tr><td>{} <span class=\"platform-badge\">Архив</span></td><td>{}</td><td>",
+                html_escape(&project.name),
+                role_label(role)
+            ));
+            if role == Role::Owner && actor.role.can_write() {
+                html.push_str(&format!("<form method=\"post\" action=\"/projects/{id}/unarchive\"><input type=\"hidden\" name=\"revision\" value=\"{}\"><button class=\"small-button\">Вернуть из архива</button></form>", project.revision));
+            }
+            html.push_str("</td></tr>");
+            continue;
+        }
         html.push_str(&format!("<tr><td>{} {}</td><td>{}</td><td><form method=\"post\" action=\"/projects/{id}/open\"><button class=\"small-button\" type=\"submit\">{}</button></form></td></tr>", html_escape(&project.name), if current { "<span class=\"platform-badge\">Текущий</span>" } else { "" }, role_label(role), if current { "Открыть текущий" } else { "Открыть" }));
         if role == Role::Owner && actor.role.can_write() {
+            html.push_str(&format!("<tr><td colspan=\"3\"><details><summary>Название и архив</summary><form class=\"platform-form\" method=\"post\" action=\"/projects/{id}/rename\"><input type=\"hidden\" name=\"revision\" value=\"{}\"><label>Название проекта<input name=\"name\" value=\"{}\" required maxlength=\"200\"></label><button class=\"button\">Переименовать</button></form><form method=\"post\" action=\"/projects/{id}/archive\"><input type=\"hidden\" name=\"revision\" value=\"{}\"><p>Архив закрывает доступ к изменению проекта и сохраняет данные. Для текущего проекта нужен другой доступный проект.</p><button class=\"button\">Архивировать проект</button></form></details></td></tr>", project.revision, html_escape(&project.name), project.revision));
             html.push_str(&format!("<tr><td colspan=\"3\"><details><summary>Дать доступ к проекту «{}»</summary><form class=\"platform-form\" method=\"post\" action=\"/projects/{id}/members\"><label>Имя пользователя<input name=\"username\" required maxlength=\"80\" autocomplete=\"off\"></label><label>Права<select name=\"role\"><option value=\"viewer\">Наблюдатель — просмотр и экспорт</option><option value=\"editor\">Редактор — просмотр и изменение</option></select></label><button class=\"button\" type=\"submit\">Предоставить доступ</button><small>Пользователь должен уже иметь учётную запись. Эта операция изменяет его права в выбранном проекте.</small></form></details></td></tr>", html_escape(&project.name)));
         }
     }
@@ -65,6 +78,110 @@ pub(crate) fn projects(actor: &Actor, projects: &[Project]) -> String {
 
 pub(crate) fn csv_upload() -> String {
     "<section class=\"platform-heading\"><div class=\"eyebrow\">ИМПОРТ ЖУРНАЛА</div><h1>Загрузить таблицу CSV</h1><p>Сначала проверьте строки и выберите колонки. Анализ начнётся после подтверждения.</p></section><section class=\"platform-card\"><form class=\"platform-form\" method=\"post\" action=\"/csv/preview\" enctype=\"multipart/form-data\"><label>Файл CSV<input type=\"file\" name=\"file\" accept=\".csv,text/csv\" required></label><label>Разделитель<select name=\"delimiter\"><option value=\"comma\">Запятая</option><option value=\"semicolon\">Точка с запятой</option><option value=\"tab\">Табуляция</option></select></label><small>UTF-8, первая строка — названия колонок. До 20 MiB и 100 000 событий. Значения с разделителем внутри должны быть заключены в кавычки.</small><button class=\"button primary\" type=\"submit\">Проверить таблицу</button></form></section>".to_owned()
+}
+pub(crate) fn audit(trail: &crate::audit::AuditTrail, auth: &serde_json::Value) -> String {
+    let mut html = format!(
+        "<section class=\"platform-card\"><h1>История успешных действий</h1><p>В проекте зарегистрировано {} изменений. Сохранены последние {} записей; более ранних вне этого журнала: {}. Подтверждённые исходники и подробные изменения импорта хранятся отдельно у журнала.</p><p><a href=\"/audit/export\">Скачать историю JSON</a></p><table class=\"platform-table\"><thead><tr><th>№</th><th>Время UTC</th><th>Действие</th><th>Кто</th><th>Ресурсы</th></tr></thead><tbody>",
+        trail.total,
+        trail.entries.len(),
+        trail.total.saturating_sub(trail.entries.len() as u64)
+    );
+    for e in trail.entries.iter().rev().take(200) {
+        let label = match e.action.as_str() {
+            "log_imported" => "Импорт журнала",
+            "xes_import_confirmed" => "Подтверждение импорта XES",
+            "filter_applied" => "Изменение фильтров",
+            "calendar_changed" => "Изменение календаря",
+            "model_saved" => "Сохранение модели",
+            "model_created" => "Создание модели",
+            "folder_changed" => "Изменение папок",
+            "repository_updated" => "Обновление проекта",
+            other => other,
+        };
+        html.push_str(&format!(
+            "<tr><td>{}</td><td>{}</td><td>{}</td><td>{}</td><td>{}</td></tr>",
+            e.sequence,
+            e.at,
+            html_escape(label),
+            html_escape(&e.actor),
+            html_escape(&e.resources.join(", "))
+        ));
+    }
+    html.push_str("</tbody></table><p>На странице показаны до 200 последних записей. Экспорт содержит все удерживаемые записи. Отказы и ошибки не считаются успешными изменениями.</p><details><summary>События учётных записей текущего проекта</summary><p>Владельцу доступны последние 512 событий учётных записей этого проекта. История других проектов хранится отдельно.</p><pre>");
+    html.push_str(&html_escape(
+        &serde_json::to_string_pretty(auth).unwrap_or_default(),
+    ));
+    html.push_str("</pre></details></section>");
+    html
+}
+pub(crate) fn folders(
+    org: &crate::folders::Organization,
+    revision: u64,
+    resources: &[(String, String)],
+    writable: bool,
+) -> String {
+    let options = |selected: Option<&str>| {
+        let mut html = "<option value=\"\">Корень проекта</option>".to_owned();
+        for (id, folder) in &org.folders {
+            html.push_str(&format!(
+                "<option value=\"{}\" {}>{}</option>",
+                html_escape(id),
+                if selected == Some(id.as_str()) {
+                    "selected"
+                } else {
+                    ""
+                },
+                html_escape(&folder.name)
+            ));
+        }
+        html
+    };
+    let hidden = format!("<input type=\"hidden\" name=\"revision\" value=\"{revision}\">");
+    let mut html = "<section class=\"platform-card\"><h1>Папки проекта</h1><p>Папки меняют расположение журналов и моделей в этом проекте; исходники и идентификаторы сохраняются. Перенос между проектами запрещён. Удалить можно только пустую папку без вложенных папок.</p>".to_owned();
+    if writable {
+        html.push_str(&format!("<h2>Новая папка</h2><form class=\"platform-form\" method=\"post\" action=\"/folders\">{hidden}<label>Название<input name=\"name\" required maxlength=\"200\"></label><label>Родитель<select name=\"parent\">{}</select></label><button class=\"button\">Создать папку</button></form>",options(None)));
+    }
+    html.push_str("<h2>Папки</h2><table class=\"platform-table\"><thead><tr><th>Название</th><th>Родитель</th><th>Изменить</th></tr></thead><tbody>");
+    for (id, folder) in &org.folders {
+        let parent = folder
+            .parent
+            .as_ref()
+            .and_then(|id| org.folders.get(id))
+            .map_or("Корень проекта", |p| p.name.as_str());
+        html.push_str(&format!(
+            "<tr><td>{}</td><td>{}</td><td>",
+            html_escape(&folder.name),
+            html_escape(parent)
+        ));
+        if writable {
+            html.push_str(&format!("<details><summary>Название, перенос и удаление</summary><form method=\"post\" action=\"/folders/{id}/rename\">{hidden}<input name=\"name\" value=\"{}\" required maxlength=\"200\"><button>Переименовать</button></form><form method=\"post\" action=\"/folders/{id}/move\">{hidden}<select name=\"parent\">{}</select><button>Переместить</button></form><form method=\"post\" action=\"/folders/{id}/delete\">{hidden}<button>Удалить пустую папку</button></form></details>",html_escape(&folder.name),options(folder.parent.as_deref())));
+        }
+        html.push_str("</td></tr>");
+    }
+    html.push_str("</tbody></table><h2>Журналы и модели</h2><table class=\"platform-table\"><thead><tr><th>Ресурс</th><th>Папка</th><th>Переместить</th></tr></thead><tbody>");
+    for (id, name) in resources {
+        let folder_id = org.assignments.get(id);
+        let folder_name = folder_id
+            .and_then(|id| org.folders.get(id))
+            .map_or("Корень проекта", |f| f.name.as_str());
+        let route = if id.starts_with("log-") {
+            "logs"
+        } else {
+            "models"
+        };
+        html.push_str(&format!(
+            "<tr><td><a href=\"/{route}/{}\">{}</a></td><td>{}</td><td>",
+            route_id(id),
+            html_escape(name),
+            html_escape(folder_name)
+        ));
+        if writable {
+            html.push_str(&format!("<form method=\"post\" action=\"/folders/assign\">{hidden}<input type=\"hidden\" name=\"resource\" value=\"{}\"><select name=\"folder\">{}</select><button>Переместить</button></form>",html_escape(id),options(folder_id.map(String::as_str))));
+        }
+        html.push_str("</td></tr>");
+    }
+    html.push_str("</tbody></table><p>До 128 папок. После изменения обновите страницу перед следующей командой.</p></section>");
+    html
 }
 pub(crate) fn xes_upload() -> String {
     "<section class=\"platform-card\"><h1>Проверить XES перед импортом</h1><p>До подтверждения журнал не сохраняется. Правила предварительного импорта добавляют отсутствующий lifecycle=complete и удаляют события без имени или времени, события с неподдержанным lifecycle и пустые трассы. Некорректные типы, даты и дубликаты отклоняются.</p><form class=\"platform-form\" method=\"post\" action=\"/xes/preview\" enctype=\"multipart/form-data\"><label>Исходный XES<input type=\"file\" name=\"file\" accept=\".xes,application/xml\" required></label><small>До 20 MiB, 100 000 событий, 20 000 трасс. Просмотр доступен пять минут.</small><button class=\"button primary\" type=\"submit\">Показать изменения</button></form><p><a href=\"/logs\">Строгий импорт без удаления событий</a></p></section>".into()
