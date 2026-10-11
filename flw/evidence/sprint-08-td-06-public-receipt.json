@@ -1,0 +1,318 @@
+{
+  "utc": "2026-10-11T06:48:27.2277290Z",
+  "scope": "Independent anonymous receipt and release metadata read; no runtime action",
+  "receipt_url": "https://github.com/erkevibe/process-intelligence-rs/releases/download/v0.6.0/DELIVERY_VERIFICATION_0.6.0.json",
+  "receipt_bytes": 12065,
+  "receipt_sha256": "6248A0D7665D3B656BC53226287B9FA9852D88B2D834F3727727FE51E4ED1618",
+  "receipt": {
+    "schema_version": 1,
+    "captured_utc": "2026-10-11T06:46:47.8717507Z",
+    "version": "0.6.0",
+    "runtime_source": "281d13ddc8bb1813545c9ffe7fa92e8f49aaa6e0",
+    "audit_head": "0e76518ff1b71a8df9e299f34bf27cee42595672",
+    "exe_sha256": "95D1340D2C8C5B4BCFD835F4A53BEE7A67CE98242685AC973F775BD6747DD778",
+    "zip_sha256": "4AE712B07E58B23F3A3FB53D8CAF5EED83BB9E9AE5EC49A5CFAA19C85B5A2759",
+    "zip_bytes": 57100032,
+    "release_url": "https://github.com/erkevibe/process-intelligence-rs/releases/tag/v0.6.0",
+    "ci": {
+      "utc": "2026-10-11T06:37:03.143665Z",
+      "head": "0e76518ff1b71a8df9e299f34bf27cee42595672",
+      "runtime_source": "281d13ddc8bb1813545c9ffe7fa92e8f49aaa6e0",
+      "run_id": 38118494509,
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/erkevibe/process-intelligence-rs/actions/runs/38118494509",
+      "archive_sha256": "30EE6D5A05AABEB3A8677AF79447C5EDF79831239CB2E34C929C2D7252AEC240",
+      "archive_bytes": 46328,
+      "full_available_files_read": 14,
+      "files": [
+        {
+          "path": "0_linux.txt",
+          "bytes": 86040,
+          "sha256": "4F0EE27F57C3CDCD338B56FD033178432A0EF5BE010C3F04CFECF1E9E5A99B74"
+        },
+        {
+          "path": "linux/1_Set up job.txt",
+          "bytes": 2100,
+          "sha256": "BC89FE02B87A3E1A808C67FA533CB9EF06F2D0D356560E20CA888B2FA7B09C7A"
+        },
+        {
+          "path": "linux/10_Run actions_upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9.txt",
+          "bytes": 1744,
+          "sha256": "FE199339BD3AC8728D9C0A71A971DEC7B0CE499A9664F30B40A98714885B8ABE"
+        },
+        {
+          "path": "linux/2_Run actions_checkout@3d3c42e5aac5ba805825da76410c181273ba90b1.txt",
+          "bytes": 11445,
+          "sha256": "822FDB18B58D57A69D8C6E30BDC6FEA0E38BE40514B8B3ACA53303557C86EDB6"
+        },
+        {
+          "path": "linux/20_Post Run actions_checkout@3d3c42e5aac5ba805825da76410c181273ba90b1.txt",
+          "bytes": 1773,
+          "sha256": "FAEAC1FBCE0626396A9118BD82375ECD1D3C857D6B5A59BAAB7208D9398AB44E"
+        },
+        {
+          "path": "linux/21_Complete job.txt",
+          "bytes": 61,
+          "sha256": "13893CCEBC6B2ACCB8EAD329EBFD5B5312719F8ABEAEFD231815877A436B9276"
+        },
+        {
+          "path": "linux/3_Pinned toolchain.txt",
+          "bytes": 769,
+          "sha256": "D1E69B649CC9B1CCFCBEA8669FF428A3E20AB9246C776CFCDDB67D4070EEA624"
+        },
+        {
+          "path": "linux/4_Run cargo fmt --all -- --check.txt",
+          "bytes": 238,
+          "sha256": "AB3A2A938DF3D3AE08200CF9274DE69381558723BD271758C9D4FE00851B8C74"
+        },
+        {
+          "path": "linux/5_Run cargo clippy --locked --all-targets -- -D warnings.txt",
+          "bytes": 23907,
+          "sha256": "C249D816ECFD032AB2DAF09DE88476E223C637B081DBF408DE81BB60822CA2AB"
+        },
+        {
+          "path": "linux/6_Run cargo test --locked --all-targets.txt",
+          "bytes": 30695,
+          "sha256": "915822CEDDFBF75BEA09CC659B95815197D4DC2470674279268855FFA093054A"
+        },
+        {
+          "path": "linux/7_XES oracle provenance guards.txt",
+          "bytes": 397,
+          "sha256": "32978B27865753B33C17F43C08EF32207DADF1A37E45DF21D9856BA6DC75722C"
+        },
+        {
+          "path": "linux/8_Service method provenance guards.txt",
+          "bytes": 467,
+          "sha256": "58733A6E491366AF477E33C20E0C0EA44A981EA482119E245711FF7B256981A9"
+        },
+        {
+          "path": "linux/9_Build release and local health smoke.txt",
+          "bytes": 12477,
+          "sha256": "0BFBE8FCA6BE8B89A4D88E286739108B9E1AC62F53B1BAB3FC909E1301D65C77"
+        },
+        {
+          "path": "linux/system.txt",
+          "bytes": 581,
+          "sha256": "894E13A4E0020FBA993F4BD80E4E222527654335BA5712101A935600D3DF750B"
+        }
+      ],
+      "perstep_actual_passed": 93,
+      "perstep_actual_ignored": 14,
+      "runtime_diff": [],
+      "scope": "Full available job bytes fingerprinted; independent semantic log review still required. Linux CI distinct from Windows/PostgreSQL/Java proofs."
+    },
+    "independent_ci": {
+      "utc": "2026-10-11T11:37:45.987717+05:00",
+      "verdict": "PASS final0.6 H3 technicaldelivery receipt; no0.6.1 acceptance",
+      "head": "0e76518ff1b71a8df9e299f34bf27cee42595672",
+      "compiled_source": "281d13ddc8bb1813545c9ffe7fa92e8f49aaa6e0",
+      "actual_api": {
+        "id": 38118494509,
+        "event": "push",
+        "status": "completed",
+        "conclusion": "success",
+        "head_sha": "0e76518ff1b71a8df9e299f34bf27cee42595672"
+      },
+      "root_report_sha256": "63F0C0F2C3CAD87A36CCAA3E6987A34F7EACCDCD04EE5CF9D8736A7DCFBEEC8E",
+      "archive_sha256": "30EE6D5A05AABEB3A8677AF79447C5EDF79831239CB2E34C929C2D7252AEC240",
+      "archive_bytes": 46328,
+      "full_available_files": 14,
+      "total_bytes": 172694,
+      "all_file_hashbytes_match": true,
+      "files": [
+        {
+          "path": "0_linux.txt",
+          "bytes": 86040,
+          "sha256": "4F0EE27F57C3CDCD338B56FD033178432A0EF5BE010C3F04CFECF1E9E5A99B74"
+        },
+        {
+          "path": "linux/1_Set up job.txt",
+          "bytes": 2100,
+          "sha256": "BC89FE02B87A3E1A808C67FA533CB9EF06F2D0D356560E20CA888B2FA7B09C7A"
+        },
+        {
+          "path": "linux/10_Run actions_upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9.txt",
+          "bytes": 1744,
+          "sha256": "FE199339BD3AC8728D9C0A71A971DEC7B0CE499A9664F30B40A98714885B8ABE"
+        },
+        {
+          "path": "linux/2_Run actions_checkout@3d3c42e5aac5ba805825da76410c181273ba90b1.txt",
+          "bytes": 11445,
+          "sha256": "822FDB18B58D57A69D8C6E30BDC6FEA0E38BE40514B8B3ACA53303557C86EDB6"
+        },
+        {
+          "path": "linux/20_Post Run actions_checkout@3d3c42e5aac5ba805825da76410c181273ba90b1.txt",
+          "bytes": 1773,
+          "sha256": "FAEAC1FBCE0626396A9118BD82375ECD1D3C857D6B5A59BAAB7208D9398AB44E"
+        },
+        {
+          "path": "linux/21_Complete job.txt",
+          "bytes": 61,
+          "sha256": "13893CCEBC6B2ACCB8EAD329EBFD5B5312719F8ABEAEFD231815877A436B9276"
+        },
+        {
+          "path": "linux/3_Pinned toolchain.txt",
+          "bytes": 769,
+          "sha256": "D1E69B649CC9B1CCFCBEA8669FF428A3E20AB9246C776CFCDDB67D4070EEA624"
+        },
+        {
+          "path": "linux/4_Run cargo fmt --all -- --check.txt",
+          "bytes": 238,
+          "sha256": "AB3A2A938DF3D3AE08200CF9274DE69381558723BD271758C9D4FE00851B8C74"
+        },
+        {
+          "path": "linux/5_Run cargo clippy --locked --all-targets -- -D warnings.txt",
+          "bytes": 23907,
+          "sha256": "C249D816ECFD032AB2DAF09DE88476E223C637B081DBF408DE81BB60822CA2AB"
+        },
+        {
+          "path": "linux/6_Run cargo test --locked --all-targets.txt",
+          "bytes": 30695,
+          "sha256": "915822CEDDFBF75BEA09CC659B95815197D4DC2470674279268855FFA093054A"
+        },
+        {
+          "path": "linux/7_XES oracle provenance guards.txt",
+          "bytes": 397,
+          "sha256": "32978B27865753B33C17F43C08EF32207DADF1A37E45DF21D9856BA6DC75722C"
+        },
+        {
+          "path": "linux/8_Service method provenance guards.txt",
+          "bytes": 467,
+          "sha256": "58733A6E491366AF477E33C20E0C0EA44A981EA482119E245711FF7B256981A9"
+        },
+        {
+          "path": "linux/9_Build release and local health smoke.txt",
+          "bytes": 12477,
+          "sha256": "0BFBE8FCA6BE8B89A4D88E286739108B9E1AC62F53B1BAB3FC909E1301D65C77"
+        },
+        {
+          "path": "linux/system.txt",
+          "bytes": 581,
+          "sha256": "894E13A4E0020FBA993F4BD80E4E222527654335BA5712101A935600D3DF750B"
+        }
+      ],
+      "passed": 93,
+      "ignored": 14,
+      "guards": [
+        5,
+        7
+      ],
+      "diagnosticflags": [],
+      "explicit_C_to_H3_runtime_diff": [],
+      "publicH3source_proof_sha256": "84CD816DC795F8E60FD10A37EBDC13799D0AE8C8D78E2A8C094D38C3CCB961C7",
+      "semanticsteps": [
+        "checkoutactualH3",
+        "pinned1.99Linux",
+        "fmt/clippy-Dwarnings completed",
+        "test93ordinary14ignored perstep only, combinedduplicatesnotdoublecounted",
+        "guardsXES5/service7synthetic provenance",
+        "releaseactualbash-e PI_EPHEMERAL1 curlfail grepready reachedartifactupload"
+      ],
+      "scope": [
+        "Allavailable14fullpushjobfiles read/hash notallmachine/children",
+        "Linuxhealth notPG/genuineJava/nativeWindows proof; existing independentexactproofs separatelyaccepted",
+        "Final0.6 C281d/95D/4AE remainsunchanged; explicitcommits excludeactive0.6.1workingtree",
+        "R3-03 accepted0.6 F2 only; other14criteria/fullR3OPEN; noautomaticnewcandidateprooftransfer",
+        "Receipt may be externalreleaseasset without recursiveauditcommits; no runtime/userdata changes"
+      ]
+    },
+    "public_source": {
+      "head": "0e76518ff1b71a8df9e299f34bf27cee42595672",
+      "compiled_source": "281d13ddc8bb1813545c9ffe7fa92e8f49aaa6e0",
+      "curl_exit": 0,
+      "native_pid": 38432,
+      "native_creation_utc": "2026-10-11T06:35:35.1813799Z",
+      "started_utc": "2026-10-11T11:35:35.1623176+05:00",
+      "ended_utc": "2026-10-11T11:35:37.8480557+05:00",
+      "http_status": "200",
+      "curl_exe_sha256": "73D24149FF289AFC49EC41F08918EF9FAA727D39AD993E929757DC2DDAFAB805",
+      "acl_before_sha256": "40B15194957530C461737F8CD9322B8698EC7B1E199B5477841B91511FB3313D",
+      "stdout_sha256": "27BADC983DF1780B60C2B3FA9D3A19A00E46AAC798451F0FEBDCA52920FAADDF",
+      "stderr_sha256": "F431FA1F5CE0ABBFB11D629C187ADC168C715FA2E58CFCB4C5D4BB84D551E051",
+      "zip_bytes": 1816767,
+      "zip_sha256": "6F152EB2689E42870658B126ADA6089CFC5E3E67D8E65EC774FC44FE0D9725B3",
+      "files_all_gitblob_match": 666,
+      "directories": 26,
+      "all_entries": 692,
+      "expanded_bytes": 4782030,
+      "safe_exclusions": true,
+      "explicit_commit_runtime_diff": [],
+      "scope": "PublicH3 accepted0.6 metadata receipt only; workingtree0.6.1 changes excluded, no newcandidateacceptance"
+    },
+    "r3_03": {
+      "proposal_sha256": "583A706CEC2BC3C82FE7624D6BD9D88428095C69E05C9BBAFECF2BF6B645A150",
+      "decision_utc": "2026-10-11T06:29:02.979657Z",
+      "fixed_voters": 5,
+      "actual_for": 5,
+      "actual_against": 0,
+      "pending": [],
+      "verdict": "ACCEPT original finite R3-03; additive status PASS on exact runtimeC95D4AE",
+      "definition_sha256": "CA6E7470FF31FA3493E00578B4C12755AE28AD9681C47701DD7C8CF70C4364B0",
+      "full_R3": "OPEN: R3-01/02/04 remainOPEN",
+      "full_R2_R5": "NOT CLOSED: other14 unchangedOPEN/BLOCKED",
+      "a07": "All mandatoryselecteddelivery gates actualcomplete onH2, independentQA/TD",
+      "votes": [
+        {
+          "role": "Root",
+          "path": "flw/evidence/sprint-08-root-r3-03-vote.json",
+          "sha256": "B32B24DAEE47C215C66579FF0CBED3FF7F81D0576C1FAB6DB23BA63D8F66A53F",
+          "vote": "FOR"
+        },
+        {
+          "role": "PM",
+          "path": "flw/evidence/sprint-08-pm-r3-03-vote.md",
+          "sha256": "87DA6E9D13EA6A8E2F07209C998654BA8289A64EE42F9F95E6B2FE5A384A13C5",
+          "vote": "FOR"
+        },
+        {
+          "role": "Customer",
+          "path": "flw/evidence/sprint-08-customer-r3-03-vote.md",
+          "sha256": "86B0D19DE2A9E7386E06F6C0664FD6B007C257A8C5EC10C3B6B400E2F32B13E4",
+          "vote": "FOR"
+        },
+        {
+          "role": "QA",
+          "path": "flw/evidence/sprint-08-qa-r3-03-vote.md",
+          "sha256": "3B1EB881E31984046A363F6E9DC60498B20644D9F2F1F52A9E3A8C5B4255F0A8",
+          "vote": "FOR"
+        },
+        {
+          "role": "TechnicalDebt",
+          "path": "flw/evidence/sprint-08-td-r3-03-vote.md",
+          "sha256": "90361DFE0503A62311569F4043B83449713550671EF0D4EE0391166D3C9F773A",
+          "vote": "FOR"
+        }
+      ],
+      "scope": "No runtime/tool/test/package/tag mutation. Factual metadata-onlydocuments/receipt and separateactualCI allowed; original F1 history unchanged."
+    },
+    "scope": "Accepted immutable 0.6 delivery only. Original finite R3-03 PASS, other14 criteria OPEN/BLOCKED; complete R2-R5 not closed. Linux CI separate from independently accepted native Windows/PostgreSQL proofs. No acceptance of 0.6.1."
+  },
+  "release_id": 409458445,
+  "tag": "v0.6.0",
+  "body": "Версия 0.6 добавляет подтверждаемый импорт XES с предварительным просмотром, точным оригиналом и историей изменений; папки, переименование/архивирование/восстановление проектов; ограниченную долговечную историю действий; календарь IANA/DST. Настоящий Alpha+++ из Rust4PM доступен как отдельный developer API с PetriNet/PNML.\n\nПолные R2–R5 и enterprise readiness **не закрыты**. Полный Apromore service и Split Miner ещё не собраны; расширенный BPMN, loops/noise, fitness/precision/simplicity, legacy Calendar/lifecycle и conversions остаются открытыми. Cleanup старых данных не выполняется.\n\nИсходный коммит пакета: `281d13ddc8bb1813545c9ffe7fa92e8f49aaa6e0`.\n\nWindows ZIP: `process-intelligence-rs-0.6.0-windows-x86_64.zip`, 57 100 032 байта.\nSHA256: `4AE712B07E58B23F3A3FB53D8CAF5EED83BB9E9AE5EC49A5CFAA19C85B5A2759`.\nEXE SHA256: `95D1340D2C8C5B4BCFD835F4A53BEE7A67CE98242685AC973F775BD6747DD778`.\nManifest SHA256: `4BBB8EFC53ADCDC0A38B380CA8ACA627E9C64A573B6947BE803899E1EA2E5C05`.\n\nДокументы внутри неизменного ZIP отражают момент сборки. Актуальные [контракт](https://github.com/erkevibe/process-intelligence-rs/blob/0e76518ff1b71a8df9e299f34bf27cee42595672/docs/SPRINT_08_RUNTIME.md), [итоговый отчёт](https://github.com/erkevibe/process-intelligence-rs/blob/0e76518ff1b71a8df9e299f34bf27cee42595672/docs/SPRINT_08_REPORT.md), [независимая QA-матрица](https://github.com/erkevibe/process-intelligence-rs/blob/0e76518ff1b71a8df9e299f34bf27cee42595672/flw/evidence/sprint-08-qa-frozen-final.json) и [заключение TechnicalDebt](https://github.com/erkevibe/process-intelligence-rs/blob/0e76518ff1b71a8df9e299f34bf27cee42595672/flw/evidence/sprint-08-td-final.md) закреплены audit-only коммитом `0e76518ff1b71a8df9e299f34bf27cee42595672`. Публичная поставка проверена независимо. Итоговый CI успешен на точном audit head; [свидетельство поставки](https://github.com/erkevibe/process-intelligence-rs/releases/download/v0.6.0/DELIVERY_VERIFICATION_0.6.0.json) добавлено отдельным файлом. [Решением Совета](https://github.com/erkevibe/process-intelligence-rs/blob/0e76518ff1b71a8df9e299f34bf27cee42595672/flw/evidence/sprint-08-r3-03-decision.json) пятью голосами закрыт исходный конечный критерий R3-03; остальные 14 критериев остаются открытыми или заблокированными. Это не повторная сборка runtime и не заявление побитовой воспроизводимости разных сборок.\n\nЧистая Windows-сборка и финальный Linux CI: 93 обычных теста прошли, 14 явно пропущены. Семь применимых PostgreSQL-тестов выполнены отдельно. Независимые проверки точного Windows-пакета включают холодный запуск и браузер, права/CAS/retention, подтверждаемый импорт, полный stock backup/new restore, миграцию и фактические аварии приложения/PostgreSQL с полным сохранением корпуса. Области и пропуски перечислены в QA-матрице. Потеря успешного commit acknowledgement не проверена.\n\nЗапуск: распаковать в новый каталог, использовать `Start.ps1` и свободные HTTP/PostgreSQL порты. Rust не требуется; PostgreSQL включён. Пользователь создаёт первый аккаунт сам. Старые установки не обновляются автоматически. Проверенный полный backup/restore/offline migration требует PowerShell 7.6.5; Windows PowerShell 5.1 Start проверен отдельно, полный backup5.1 не заявляется. Downgrade данных нового envelope не поддерживается: перед сменой версии нужна полная копия и восстановление в новую базу.\n\nPreview живёт пять минут и исчезает после restart. Перед подтверждением сохраните полный отчёт **и ссылку на него**: UUID операции находится между `/xes/previews/` и `/report`, но отсутствует в самом JSON. При неопределённом результате не подтверждайте и не загружайте файл повторно; после restart сверяйте UUID, полный SHA256, имя и время по истории. Автоматической дедупликации после restart нет. Потеря ответа после успешного commit отдельно не проверена.\n\nПостоянное удаление проектов и перенос между проектами не реализованы. Архив закрывает доступ и сохраняет данные. История удерживает последние 512 событий отдельно по проекту/области, не является внешним неизменяемым юридическим аудитом. Календарь отказывает при неоднозначных/несуществующих границах и не поддерживает overnight; разность местных дат ограничена 3660 днями. Alpha не подключён к BPMN UI/jobs и не заменяет Split Miner.\n",
+  "assets": [
+    {
+      "id": 630022201,
+      "name": "DELIVERY_VERIFICATION_0.6.0.json",
+      "size": 12065,
+      "digest": "sha256:6248a0d7665d3b656bc53226287b9fa9852d88b2d834f3727727fe51e4ed1618",
+      "browser_download_url": "https://github.com/erkevibe/process-intelligence-rs/releases/download/v0.6.0/DELIVERY_VERIFICATION_0.6.0.json"
+    },
+    {
+      "id": 629945406,
+      "name": "process-intelligence-rs-0.6.0-windows-x86_64.zip",
+      "size": 57100032,
+      "digest": "sha256:4ae712b07e58b23f3a3fb53d8caf5eed83bb9e9ae5ec49a5cfaa19c85b5a2759",
+      "browser_download_url": "https://github.com/erkevibe/process-intelligence-rs/releases/download/v0.6.0/process-intelligence-rs-0.6.0-windows-x86_64.zip"
+    },
+    {
+      "id": 629945653,
+      "name": "SHA256SUMS.txt",
+      "size": 115,
+      "digest": "sha256:2430c7aaddea7db6683da0e3939be937c6330970ff581792e0b5e05501f18480",
+      "browser_download_url": "https://github.com/erkevibe/process-intelligence-rs/releases/download/v0.6.0/SHA256SUMS.txt"
+    }
+  ]
+}

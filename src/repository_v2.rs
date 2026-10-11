@@ -147,7 +147,11 @@ pub(crate) fn header(repo: &Repository) -> Header {
     }
 }
 fn log_state(log: &StoredLog) -> Value {
-    json!({"id":log.id,"filename":log.filename,"analysis_version":log.analysis_version,"view_revision":log.view_revision,"threshold":log.threshold,"selected":log.selected,"selected_case":log.selected_case,"elapsed_ms":log.elapsed_ms,"source_sha256":log.source_sha256,"order":log.order,"filters":log.filters,"calendar":log.calendar,"project_id":log.project_id})
+    let mut state = json!({"id":log.id,"filename":log.filename,"analysis_version":log.analysis_version,"view_revision":log.view_revision,"threshold":log.threshold,"selected":log.selected,"selected_case":log.selected_case,"elapsed_ms":log.elapsed_ms,"source_sha256":log.source_sha256,"order":log.order,"filters":log.filters,"calendar":log.calendar,"project_id":log.project_id});
+    if let Some(created_at) = log.created_at {
+        state["created_at"] = json!(created_at);
+    }
+    state
 }
 pub(crate) fn prepare(
     project: &str,
@@ -652,6 +656,7 @@ mod lazy_tests {
         StoredLog {
             id: "log-1".into(),
             filename: "empty.xes".into(),
+            created_at: None,
             analysis_version: 1,
             view_revision: 1,
             threshold: 1,
@@ -708,5 +713,22 @@ mod lazy_tests {
         drop(base);
         assert!(weak.upgrade().is_none());
         assert!(repo.persisted.logs["log-1"].data.upgrade().is_none());
+    }
+    #[test]
+    fn c06_saved_date_survives_state_delta_without_heavy_rewrite() {
+        let mut base = log();
+        assert!(log_state(&base).get("created_at").is_none());
+        let date = chrono::DateTime::parse_from_rfc3339("2025-01-02T03:04:05.123Z")
+            .unwrap()
+            .with_timezone(&chrono::Utc);
+        base.created_at = Some(date);
+        let mut repo = Repository::default();
+        track_log(&mut repo, &base);
+        base.view_revision += 1;
+        repo.logs.insert(base.id.clone(), base);
+        let write = prepare("p", &repo, false).unwrap();
+        assert_eq!(write.puts.len(), 1);
+        assert_eq!(write.puts[0].0, "log_state");
+        assert_eq!(write.puts[0].2["created_at"], "2025-01-02T03:04:05.123Z");
     }
 }

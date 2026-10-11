@@ -1,0 +1,8 @@
+{
+  "utc": "2026-10-11T07:07:39.1607526Z",
+  "source": "3ba4cbbd6ffdc00c1185eb726dd01445eba86a9e",
+  "path": "src/storage.rs",
+  "fact": "PostgreSQL length(text)<=64 counts characters. Decoded UTF8 malformed string content is bounded up to256bytes; JSON framing/escaping and protocol overhead are additionally bounded. Shared Rust string.len<=64 is the byte bound and strict RFC3339 parser refuses non-ASCII dates. Valid date outputs are ASCII and at most64bytes.",
+  "historical_report": "sprint-08-c06-developer-handoff.json remains immutable. Its memory date64-bytecap wording is precise for valid dates/decoder, not every malformed intermediate SQL string.",
+  "scope": "Source clarification only; no runtime/package or acceptance mutation. SQLtrace proves selected projection/application transfer shape, not PostgreSQL physicalTOAST/disk reads. Independent TD and prospective Unicode negative requested before fixture mutation."
+}

@@ -75,6 +75,12 @@ pub(crate) struct Repository {
 pub(crate) struct StoredLog {
     pub(crate) id: String,
     pub(crate) filename: String,
+    #[serde(
+        default,
+        skip_serializing_if = "Option::is_none",
+        deserialize_with = "deserialize_created_at"
+    )]
+    pub(crate) created_at: Option<chrono::DateTime<chrono::Utc>>,
     pub(crate) analysis_version: u64,
     pub(crate) view_revision: u64,
     pub(crate) threshold: u64,
@@ -91,6 +97,22 @@ pub(crate) struct StoredLog {
     pub(crate) project_id: Option<String>,
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub(crate) provenance: Option<Arc<crate::import_provenance::ImportProvenance>>,
+}
+// Absence is historical unknown. An explicitly supplied value must be a date,
+// including on restore; JSON null must not silently become historical absence.
+pub(crate) fn deserialize_created_at<'de, D>(
+    deserializer: D,
+) -> Result<Option<chrono::DateTime<chrono::Utc>>, D::Error>
+where
+    D: serde::Deserializer<'de>,
+{
+    let text = String::deserialize(deserializer)?;
+    if text.len() > 64 {
+        return Err(serde::de::Error::custom("Invalid saved date"));
+    }
+    chrono::DateTime::parse_from_rfc3339(&text)
+        .map(|date| Some(date.with_timezone(&chrono::Utc)))
+        .map_err(|_| serde::de::Error::custom("Invalid saved date"))
 }
 #[derive(Default, Clone, Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
@@ -911,6 +933,7 @@ pub(crate) fn store_log_with_provenance(
     let log = StoredLog {
         id: id.clone(),
         filename,
+        created_at: Some(chrono::Utc::now()),
         analysis_version: number,
         view_revision: 0,
         threshold: 1,
@@ -1627,7 +1650,7 @@ async fn export(Workspace(state): Workspace, Path(id): Path<String>) -> Response
     let log = match repository.get_log(&state, &id) {
         Ok(Some(log))=>log, Ok(None)=>return not_found(), Err(e)=>return resource_error(e),
     };
-    let mut response = Json(json!({
+    let mut exported = json!({
         "schema_version":1,"log_id":log.id,"name":log.filename,"analysis_version":log.analysis_version,"view_revision":log.view_revision,
         "parameters":{"min_edge_frequency":log.threshold,"order":log.order,"lifecycle":"each-event","filters":log.filters,"calendar":log.calendar},
         "source_sha256":log.source_sha256,"project_id":state.actor.as_ref().map(|a|&a.project_id),
@@ -1636,7 +1659,11 @@ async fn export(Workspace(state): Workspace, Path(id): Path<String>) -> Response
         "analysis":log.analysis.as_ref(),"view":view(&log),"warnings":log.data.warnings,"elapsed_ms":log.elapsed_ms,
         "selected_case":log.selected_case.as_ref().and_then(|id| log.data.cases.iter().find(|case| &case.id == id)),
         "compatibility":{"apromore":"unverified"}
-    })).into_response();
+    });
+    if let Some(created_at) = log.created_at {
+        exported["created_at"] = json!(created_at);
+    }
+    let mut response = Json(exported).into_response();
     response.headers_mut().insert(
         header::CONTENT_DISPOSITION,
         HeaderValue::from_str(&format!("attachment; filename=\"{id}.json\""))
@@ -1910,6 +1937,59 @@ fn patch(html: String) -> Response {
 #[cfg(test)]
 mod admission_tests {
     use super::*;
+    #[test]
+    fn c06_publication_sets_server_time_and_restore_is_strict() {
+        let state = AppState::new(0);
+        let data = parse_xes(b"<log><trace><string key=\"concept:name\" value=\"case\"/><event><string key=\"concept:name\" value=\"A\"/></event></trace></log>").unwrap();
+        let before = chrono::Utc::now();
+        let log = store_log(
+            &state,
+            data.clone(),
+            analyze(&data),
+            "same.xes".into(),
+            1,
+            "0".repeat(64),
+            crate::csv_io::NormalizationOrder::Source,
+            None,
+        )
+        .unwrap();
+        let after = chrono::Utc::now();
+        assert!(
+            log.created_at
+                .is_some_and(|date| date >= before && date <= after)
+        );
+        let value = serde_json::to_value(&log).unwrap();
+        let decoded: StoredLog = serde_json::from_value(value.clone()).unwrap();
+        assert_eq!(decoded.created_at, log.created_at);
+        for malformed in [
+            json!(null),
+            json!(12),
+            json!("invalid"),
+            json!("2025-02-30T00:00:00Z"),
+            json!({"date":"2025-01-01T00:00:00Z"}),
+        ] {
+            let mut corrupt = value.clone();
+            corrupt["created_at"] = malformed;
+            assert!(serde_json::from_value::<StoredLog>(corrupt).is_err());
+        }
+        let mut legacy = value;
+        legacy.as_object_mut().unwrap().remove("created_at");
+        let unknown: StoredLog = serde_json::from_value(legacy.clone()).unwrap();
+        assert!(unknown.created_at.is_none());
+        assert_eq!(serde_json::to_value(unknown).unwrap(), legacy);
+    }
+    #[test]
+    fn c06_metadata_date_uses_the_same_strict_utc_decoder() {
+        let date = deserialize_created_at(json!("2025-01-02T04:04:05.123+01:00"))
+            .unwrap()
+            .unwrap();
+        assert_eq!(
+            serde_json::to_value(date).unwrap(),
+            "2025-01-02T03:04:05.123Z"
+        );
+        assert!(deserialize_created_at(json!(null)).is_err());
+        assert!(deserialize_created_at(json!("2025-01-02")).is_err());
+    }
     #[tokio::test]
     async fn large_output_is_incremental_and_unyielded_tail_keeps_admission() {
         use futures_util::StreamExt;

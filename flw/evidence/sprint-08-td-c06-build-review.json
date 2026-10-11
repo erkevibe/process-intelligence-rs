@@ -1,0 +1,47 @@
+{
+  "utc": "2026-10-11T06:56:07.3736416Z",
+  "source": "3ba4cbbd6ffdc00c1185eb726dd01445eba86a9e",
+  "proof_sha256": "10610045B772DBE16E4E51A112A26E397E3AFCC4BE1C8A528E6B750A191CDC15",
+  "source_files_fullhash_verified": 677,
+  "source_archive_hash_matches": true,
+  "exe_hash_matches": true,
+  "exe_sha256": "D0EDFFD23AAA33EB5D31EB0A4B7917D33519AD36E6F32E949B5F551C170F20F5",
+  "build_exit": 0,
+  "test_exit": 0,
+  "native": {
+    "source_commit": "3ba4cbbd6ffdc00c1185eb726dd01445eba86a9e",
+    "started_utc": "2026-10-11T06:50:51.7761833Z",
+    "ended_utc": "2026-10-11T06:54:22.4943498Z",
+    "wrapper_pid": 46216,
+    "child_pid": 50792,
+    "child_created_utc": "2026-10-11T06:50:51.8014730Z",
+    "child_path": "C:\\Users\\alikh\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe",
+    "child_exe_sha256": "362A356CE7F0940EC74F73A8FC2C990A2CC24A38A11C90BBD8ECA947110AD139",
+    "native_exit": 0,
+    "stdout_sha256": "A63563606E34080A0521437FB18C08335BACB2998F1F01561DCAC0CE98F72212",
+    "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+    "inventory_sha256": "23AD1B28735CD1061ECE2EF688B49FD56D4E1497DE8A70AD2070A8DFF65381C9",
+    "observer_sha256": "02CE6FE8D2E016AE8B6A9165440E04E07F0796BEFAAA9E3D9625027F5BB4F0A9",
+    "inventory_scope": "300ms live-snapshot descendant observation; PID+creation identities, no historical PID seed; short-lived/exited-parent children may be missed; CIM snapshots are not kernel event tracing; only main native exit captured; observer never terminates any process"
+  },
+  "logs": [
+    {
+      "path": "build-7b38045b35844af39e6689b0398996cd.log",
+      "sha256": "155087F05B53A27B487FA894C01E68E00EE508BC82F631BF0643D16CFAB53214",
+      "bytes": 5978
+    },
+    {
+      "path": "build-7b38045b35844af39e6689b0398996cd-tests.log",
+      "sha256": "1893083D0A46C1BF41ED17BFBED221FD9BA789BC207900B71E5E35180B5D066A",
+      "bytes": 21531
+    }
+  ],
+  "actual_passed": 97,
+  "actual_ignored": 14,
+  "build_finished_marker": true,
+  "ref_e890_to_C06_diff": [
+    "fixtures/oracle-service/reference-results.json",
+    "fixtures/oracle-service/rust-comparison.json"
+  ],
+  "scope": "Full available build/test logs read and hashed, main native exit captured. Reference result public projections added after e890, executable helper/preview/corpus unchanged where shown. Not full service/Java proof nor package/PG acceptance."
+}

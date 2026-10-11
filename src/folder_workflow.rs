@@ -23,7 +23,7 @@ pub(super) async fn folders_page(Workspace(state): Workspace) -> Response {
             .resource_summaries(&a.project_id)?;
         let resources: Vec<_> = summaries
             .into_iter()
-            .map(|(_, id, name, _)| (id, name))
+            .map(|item| (item.id, item.name))
             .collect();
         Ok(render::folders(
             &repo.organization,

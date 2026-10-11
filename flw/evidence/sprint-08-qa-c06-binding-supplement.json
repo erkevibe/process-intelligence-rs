@@ -1,0 +1,197 @@
+{
+  "completed_utc": "2026-10-11T07:23:20.265Z",
+  "source_commit": "3ba4cbbd6ffdc00c1185eb726dd01445eba86a9e",
+  "purpose": "Named additive binding; original local87BB and all prior inputs unchanged. No rerun.",
+  "C01": {
+    "export": {
+      "path": "C:/Users/alikh/OneDrive/Documents/ChatGPT/ProcessMining/.local/sprint08/qa/c06-native01/producers01/xes-export.body",
+      "bytes": 2347,
+      "sha256": "7ecfbf8f494c6a2455af2ae0645e850ebdfe781293d2e678a32ae5ee82d7aba8"
+    },
+    "schema_version": 1,
+    "log_id": "log-1",
+    "source_sha256": "6643664a01a640544f7d3b49d931bc3bab2c82336ae4132e5e036450ae8ceec6",
+    "cases": 2,
+    "events": 4,
+    "activities": 3,
+    "nodes": [
+      {
+        "count": 2,
+        "end_count": 1,
+        "id": "activity-0",
+        "label": "A",
+        "start_count": 1
+      },
+      {
+        "count": 1,
+        "end_count": 0,
+        "id": "activity-1",
+        "label": "B",
+        "start_count": 1
+      },
+      {
+        "count": 1,
+        "end_count": 1,
+        "id": "activity-2",
+        "label": "C",
+        "start_count": 0
+      }
+    ],
+    "weighted_label_edges": [
+      [
+        "AC",
+        1
+      ],
+      [
+        "BA",
+        1
+      ]
+    ],
+    "variants": [
+      {
+        "case_ids": [
+          "case-1"
+        ],
+        "count": 1,
+        "id": "variant-0",
+        "sequence": [
+          "A"
+        ]
+      },
+      {
+        "case_ids": [
+          "case-0"
+        ],
+        "count": 1,
+        "id": "variant-1",
+        "sequence": [
+          "B",
+          "A",
+          "C"
+        ]
+      }
+    ]
+  },
+  "C05": {
+    "kind": "Historical actual interruption reused only exact unchanged normalized transaction mechanism, not new current interrupted-write execution.",
+    "historical_source": "281d13ddc8bb1813545c9ffe7fa92e8f49aaa6e0",
+    "historical_exe": "95D1340D2C8C5B4BCFD835F4A53BEE7A67CE98242685AC973F775BD6747DD778",
+    "mechanisms": [
+      {
+        "path": "src/storage.rs",
+        "start": "Command::ProjectWrite(write)=>",
+        "end": "Command::Lease=>",
+        "bytes": 428,
+        "sha256": "0fa9d139cc9aa03b7918bf008b4bc5e78ec3dcc60bf41bb9bf4df8930bb414a5",
+        "exact_equal": true
+      },
+      {
+        "path": "src/normalized.rs",
+        "start": "pub(crate) fn write(tx:",
+        "end": "pub(crate) fn ",
+        "bytes": 1368,
+        "sha256": "5507bb27e552befe2c5caa9ee8cd59aae214636127d0a64696c1843f9e1fd437",
+        "exact_equal": true
+      }
+    ],
+    "actual_report": {
+      "path": ".local/sprint08/qa/frozen-uncertain01/report.json",
+      "bytes": 686,
+      "sha256": "17799fad5e8280aa715d16c14ee65cc2fa2ac2359d18dbc9e758f86f1022af82"
+    },
+    "runtime_attribution": {
+      "path": "flw/evidence/sprint-08-qa-runtime-binding-supplement.json",
+      "bytes": 14157,
+      "sha256": "f8e773d77fe6bb0b5602da73bd3164d62b53703ce0517a2e85d7903debe54a17"
+    },
+    "wal_report": {
+      "path": ".local/sprint08/qa/frozen-wal-after04/report.json",
+      "bytes": 699,
+      "sha256": "58801c9fa1aeaa2d466aaa17512d57238b8e58edb02383fc2fd347c488230c86"
+    },
+    "limits": [
+      "Old report stale d29 label explicitly resolved by retained original runtime-binding supplement.",
+      "C06 preparation adds created_at state field; exact unchanged SQL transaction code applies generic JSON atomically. No claim of new0.6.1 lost ACK or current forced SQL interruption.",
+      "Actual current Cancelled/Failed/restart checks separate from interruption reuse."
+    ]
+  },
+  "C07": {
+    "invalid_backup_fixture_generator": {
+      "path": "C:/Users/alikh/OneDrive/Documents/ChatGPT/ProcessMining/.local/sprint08/qa/c06-native01/restore03.cjs",
+      "bytes": 3365,
+      "sha256": "bf314d207fc89ed57c3259006f4835559323f870154bf60ff51d136840d60651"
+    },
+    "original_bundle": {
+      "path": "C:/Users/alikh/OneDrive/Documents/ChatGPT/ProcessMining/.local/sprint08/qa/c06-native01/backup-before.json",
+      "bytes": 13115,
+      "sha256": "53f8be2c8ca0e6e32908a5a1635610d3dca000703ced5391fbcf4022eaafc683"
+    },
+    "digest_method": "Exact lexical payload bytes SHA256, compared original digest, modified payload digest recomputed before POST/restore.",
+    "before_sql": {
+      "path": "C:/Users/alikh/OneDrive/Documents/ChatGPT/ProcessMining/.local/sprint08/qa/c06-native01/sql/before-invalid-backup.stdout",
+      "bytes": 3311,
+      "sha256": "0972229d0636a5fb45435d180c551f384f149698d3a65aab5f98d9cef2c0422e"
+    },
+    "negatives": [
+      {
+        "case": "null",
+        "response": {
+          "path": "C:/Users/alikh/OneDrive/Documents/ChatGPT/ProcessMining/.local/sprint08/qa/c06-native01/restore03/invalid-null.body",
+          "bytes": 95,
+          "sha256": "d90f206890d7f400a2b91a6dc68d1574f95e2d03dec2384fabc370a451a9f0cf"
+        },
+        "request": {
+          "path": "C:/Users/alikh/OneDrive/Documents/ChatGPT/ProcessMining/.local/sprint08/qa/c06-native01/restore03/invalid-null.json",
+          "bytes": 275,
+          "sha256": "5305370000881d304f5dbc813ad3c4665cca739687e3e38d7d1d710675fca5ac"
+        },
+        "after_sql": {
+          "path": "C:/Users/alikh/OneDrive/Documents/ChatGPT/ProcessMining/.local/sprint08/qa/c06-native01/sql/after-invalid-null.stdout",
+          "bytes": 3311,
+          "sha256": "0972229d0636a5fb45435d180c551f384f149698d3a65aab5f98d9cef2c0422e"
+        },
+        "full_sql_equal": true
+      },
+      {
+        "case": "number",
+        "response": {
+          "path": "C:/Users/alikh/OneDrive/Documents/ChatGPT/ProcessMining/.local/sprint08/qa/c06-native01/restore03/invalid-number.body",
+          "bytes": 95,
+          "sha256": "d90f206890d7f400a2b91a6dc68d1574f95e2d03dec2384fabc370a451a9f0cf"
+        },
+        "request": {
+          "path": "C:/Users/alikh/OneDrive/Documents/ChatGPT/ProcessMining/.local/sprint08/qa/c06-native01/restore03/invalid-number.json",
+          "bytes": 275,
+          "sha256": "122951b5a653fdc12639e78b7d0e4de15f13e0ced20052b9d9600113121f9df5"
+        },
+        "after_sql": {
+          "path": "C:/Users/alikh/OneDrive/Documents/ChatGPT/ProcessMining/.local/sprint08/qa/c06-native01/sql/after-invalid-number.stdout",
+          "bytes": 3311,
+          "sha256": "0972229d0636a5fb45435d180c551f384f149698d3a65aab5f98d9cef2c0422e"
+        },
+        "full_sql_equal": true
+      },
+      {
+        "case": "badstr",
+        "response": {
+          "path": "C:/Users/alikh/OneDrive/Documents/ChatGPT/ProcessMining/.local/sprint08/qa/c06-native01/restore03/invalid-badstr.body",
+          "bytes": 95,
+          "sha256": "d90f206890d7f400a2b91a6dc68d1574f95e2d03dec2384fabc370a451a9f0cf"
+        },
+        "request": {
+          "path": "C:/Users/alikh/OneDrive/Documents/ChatGPT/ProcessMining/.local/sprint08/qa/c06-native01/restore03/invalid-badstr.json",
+          "bytes": 275,
+          "sha256": "c321e179395c85f3d0b0b1ea2521169fd7fafc5f3b0e508f9dfe4d44162d3ac3"
+        },
+        "after_sql": {
+          "path": "C:/Users/alikh/OneDrive/Documents/ChatGPT/ProcessMining/.local/sprint08/qa/c06-native01/sql/after-invalid-badstr.stdout",
+          "bytes": 3311,
+          "sha256": "0972229d0636a5fb45435d180c551f384f149698d3a65aab5f98d9cef2c0422e"
+        },
+        "full_sql_equal": true
+      }
+    ],
+    "history": "Overall restore03 later failed guessed automatic project switching; these three negative assertions and full SQL comparisons occurred earlier and passed. Explicit open continuation04 separately proved actual restored targets.",
+    "distinct_from": "metadata05 GET/logs corruption tests; not used as restore substitute."
+  }
+}

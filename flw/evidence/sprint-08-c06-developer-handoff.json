@@ -1,0 +1,225 @@
+{
+  "role": "Developer implementation handoff; not independent QA/TD acceptance",
+  "created_utc": "2026-10-11T06:49:03.524Z",
+  "approved_plan": {
+    "path": "docs/SPRINT_08_C06_PLAN.md",
+    "sha256": "ED631BDA2A86C78574B06A1FF3AC654152CA522B31F9FDA354307342D9FF22D2",
+    "decision_utc": "2026-10-11T06:33:42Z",
+    "votes": "Root confirms5/5 including mandatory QA/TD"
+  },
+  "base_metadata_head": "0e76518ff1b71a8df9e299f34bf27cee42595672",
+  "historical_runtime_source": "281d13ddc8bb1813545c9ffe7fa92e8f49aaa6e0",
+  "new_version": "0.6.1",
+  "source_files": [
+    {
+      "path": "Cargo.toml",
+      "bytes": 1142,
+      "sha256": "7f8a6191bd5f59746d5b2e926e227916ba83a8bd9d88424b10220f4b90e4e762"
+    },
+    {
+      "path": "Cargo.lock",
+      "bytes": 58040,
+      "sha256": "685cf97715a1bf9b6a8f0f40fc646f0806974ff9f03e8a13ffb13f8b597a6754"
+    },
+    {
+      "path": "src/web.rs",
+      "bytes": 78403,
+      "sha256": "0bdec8ec051ae74439c4fe0482f83416ce5f7b9eb624a533fb41fbe7d936be34"
+    },
+    {
+      "path": "src/repository_v2.rs",
+      "bytes": 26801,
+      "sha256": "843f1ade94b8bdd7b5b0c365188601561e0581b293144732f68341e1df5428fe"
+    },
+    {
+      "path": "src/storage.rs",
+      "bytes": 22971,
+      "sha256": "d75e87366bf294a75d882a7035460e2e5ae58721f3cc26e14929766217a6000e"
+    },
+    {
+      "path": "src/platform.rs",
+      "bytes": 56598,
+      "sha256": "d18a58cdff40bab017c21fbc3b1d8f021362f46a6060daeba4fc60d025714cf1"
+    },
+    {
+      "path": "src/platform_render.rs",
+      "bytes": 55897,
+      "sha256": "0f015a090ddf34f5b0b75b2d08ee960af60d47dcf7bc3b1c27a30ae0bcd6cad6"
+    },
+    {
+      "path": "src/folder_workflow.rs",
+      "bytes": 4913,
+      "sha256": "9f2cf01668642f45fc66948a597368d643249418d4216074aa8fd2ea6644af14"
+    }
+  ],
+  "contract": {
+    "date": "StoredLog.created_at Option<DateTime<Utc>>; server Utc::now only at shared publication preparation; atomic with persisted result",
+    "absence": "serde defaultNone; legacy log_state/fullStoredLog/export omit field; explicitnull/type/malformed/oversize date refuses",
+    "canonical": "strict RFC3339 input date, equivalent offset normalizedUTC; output RFC3339UTC",
+    "preservation": "existing edits clone StoredLog; restore date retained; shared current decoder/header state encoder persists date; no synthetic historical timestamp",
+    "metadata": "typed ResourceSummary extends existing scalar query with SQLNULL absent, JSONstring≤64 date, JSONnull malformed then shared strict decoder refusal; no resource_records/materialization for list",
+    "list": "escaped names and stable IDs, eventcount, UTC date or Date not saved, Saved analysis state plus integrity-on-open/jobs-separate note; not payload integrity claim",
+    "memory": "existing resource_cache.rs resource_charge size_of<StoredLog> includes inline Option<DateTime<Utc>>; date allocates no heap. generic document capacity counts additional serialized field automatically. Summary bounded by existing project resource count and date64-byte cap."
+  },
+  "producer_path_inspection": [
+    {
+      "producer": "ordinaryXES",
+      "path": "src/web.rs upload -> store_log -> store_log_with_provenance"
+    },
+    {
+      "producer": "CSV",
+      "path": "src/platform.rs import -> crate::web::store_log -> store_log_with_provenance"
+    },
+    {
+      "producer": "previewconfirmation",
+      "path": "src/xes_workflow.inc.rs confirm -> crate::web::store_log_with_provenance"
+    },
+    {
+      "producer": "backgroundjob",
+      "path": "src/web.rs upload_job -> job publish_result closure -> store_log -> store_log_with_provenance"
+    }
+  ],
+  "scope_proof": "Only six source files changed, plus Cargo version/lock. No auth/audit/provenance/job-state/transaction-lock/cache-policy/mining/import normalization changes. Shared storage/date representation changed: historical0.6 cancel/backup proof is not silently current0.6.1 package acceptance.",
+  "tests": {
+    "meaningful_regressions": [
+      "actual shared publication date between captured before/after server times; fullStoredLog serialization/restoration preserves",
+      "missing historical date roundtrips without introduced field; explicitnull/number/badstring/nonexistentdate/object reject",
+      "metadata decoder uses identical strict date parser and UTC offset canonicalization",
+      "saved date survives view metadata delta with only one log_state write, no heavy rewrite",
+      "duplicate escaped names show distinct IDs/counts/UTC or unknown/state note and viewer cannot restore"
+    ],
+    "targeted_actual_passed": 4,
+    "final_all_targets": {
+      "passed": 97,
+      "failed": 0,
+      "ignored": 14,
+      "actual_exit": 0
+    },
+    "ignored_names": [
+      "test auth::sprint08_contracts::actual_archive_publication_gate_serializes_and_refuses_late_worker ... ignored, requires fresh isolated S8_QA_AUTH_DATABASE_URL; controlled actual database archive/publication ordering",
+      "test resource_cache::tests::postgres_oversize_concurrent_singleflight_uses_one_actual_load ... ignored, requires an explicitly owned pi_s5_* database and an existing oversized valid log",
+      "test actual_sessions_cross_user_restart_corrupt_restore_and_logout ... ignored, requires fresh isolated PostgreSQL QA_DATABASE_URL; no production DB allowed",
+      "test database_compare_and_swap_batch_rollback ... ignored, requires isolated PostgreSQL QA_DATABASE_URL; must run for sprint acceptance",
+      "test actual_server_deadlines_abort_no_late_mutation_and_fail_closed ... ignored, actual isolated pi_s3_fresh; server lock/statement/transaction bounds and no late commit",
+      "test capacity_batch_refusal_is_atomic_and_does_not_poison_worker ... ignored, actual isolated pi_s3_fresh only; capacity pre-SQL acceptance",
+      "test extra_check_rls_and_trigger_refused_without_ledger ... ignored, actual isolated pi_s3_fault; unknown structural state never adopted",
+      "test future_version_and_checksum_rejected_without_document_change ... ignored, actual isolated pi_s3_future; supported adoption then corrupt ledger refusal",
+      "test migration_ddl_failure_rolls_back_ledger_and_constraint ... ignored, actual isolated pi_s3_fault; admin test-owned transactional DDL error trigger",
+      "test nested_unknown_repository_field_refused_without_rewrite ... ignored, actual isolated pi_s3_fault; nested unrecognized field must remain untouched after rejection",
+      "test old_documents_unchanged_migration_and_reopen_ledger_idempotent ... ignored, actual isolated pi_s3_upgrade only; explicit migration acceptance",
+      "test real_migration_lock_timeout_preserves_old_state ... ignored, actual isolated pi_s3_fault; lock bound no production sleeps/flags",
+      "test normalized_project_creation_rolls_back_when_generic_batch_conflicts ... ignored, actual isolated fresh pi_s4_* database only; normalized restore transaction",
+      "test reserved_legacy_is_unwritable_and_generic_batch_conflict_is_atomic ... ignored, actual isolated fresh pi_s4_* database only; independent reserved/CAS atomicity"
+    ],
+    "final_fmt_check_actual_exit": 0,
+    "final_clippy_all_targets_Dwarnings_actual_exit": 0,
+    "attempts": [
+      {
+        "name": "fmt01",
+        "actual_exit": 0,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "fmt02",
+        "actual_exit": 0,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "fmt03",
+        "actual_exit": 0,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "fmt-check01",
+        "actual_exit": 0,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "fmt-check02",
+        "actual_exit": 0,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "targeted01",
+        "actual_exit": 1,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "7c1f691cfe1956feaa0eebc73fc63cc651701f111bc9ccc680f02fc32da120e5"
+      },
+      {
+        "name": "targeted02",
+        "actual_exit": 0,
+        "stdout_sha256": "45129b7ef617bc87d5f6fccc5c9b862b45e925e74e3e5edf460a65fb525199c0",
+        "stderr_sha256": "6ee37cccb2ec12f3fef3bb409be47ccee83ed87ec32047da902f545cd37c95ed"
+      },
+      {
+        "name": "clippy01",
+        "actual_exit": 101,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "61736cec737dbcb2ca4f292b4e96f5d7cbcb6f4849e21a3b6f61ea365a83df6c"
+      },
+      {
+        "name": "clippy02",
+        "actual_exit": 0,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "8bec11fdc0dda104bb03250d1adf23a0ec5d35a0d03e4dbc7d996e8a24b688a6"
+      },
+      {
+        "name": "clippy03",
+        "actual_exit": 0,
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "57267cfda4f06c1ccaf6001b6f4f2692b9f31c7ff7a92d913f2098a8ef26cfe0"
+      },
+      {
+        "name": "full01",
+        "actual_exit": 0,
+        "stdout_sha256": "cbd4ed9107e41e9d6aab6d5ab8cbc693ee75b8393971946a4cfa18a6a8ce9132",
+        "stderr_sha256": "8b6c2632314d921fbe0f533f8e8660ebf8b6da6850d224e7beda652283485c2a"
+      },
+      {
+        "name": "full02",
+        "actual_exit": 0,
+        "stdout_sha256": "f0810922e126c453972db467c001b7d9c83a88ee6a5bc3a1f69a175f54046df2",
+        "stderr_sha256": "147221d22597e3ff6e4f82dcd27937e336184509bb8ca7ad9d2bb7cb5a1186d7"
+      }
+    ]
+  },
+  "failure_history": [
+    {
+      "attempt": "targeted01",
+      "actual_exit": 1,
+      "scope": "cargo argument parser before compile; PowerShell invocation lost separator for nocapture; corrected explicit argument array without unnecessary nocapture"
+    },
+    {
+      "attempt": "clippy01",
+      "actual_exit": 101,
+      "scope": "items_after_test_module; renderer regression module relocated toEOF; corrected clippy02 and finalclippy03 passed"
+    },
+    {
+      "attempt": "static review before compile",
+      "scope": "new regression initially used named fields on existing Record tuple; corrected before compiler, not a runtime failure"
+    }
+  ],
+  "raw": {
+    "directory": ".local/sprint08/c06-developer",
+    "inventory_sha256": "97d23fa70b40d54c6437bf3f56a0fae46ac51176b14df9b316a8010e091a35bf",
+    "full_stdout_stderr_actual_exit_retained": true,
+    "source_inspection_tool_transcripts": "some read-only combined displays truncated/tool-only, no full raw private source-read claim",
+    "test_child_process_identity": "cargo completion and complete per-binary outcomes captured; test child CIM PID/creation identities not captured; no claim of complete machine process inventory"
+  },
+  "pending_independent_gates": [
+    "All four actual producer routes timestamp bounds on exact frozen native package",
+    "Actual metadata-only SQL trace/counter, duplicate list browser/value links, viewer/foreign isolation",
+    "Restart/view edits/full backup NEWrestore preserve dates/fullcounts/hashes/provenance; malformedarchive refusal all SQL unchanged",
+    "Fullhistorical0.3 unknown date/no invented value and actual PG tests",
+    "Current0.6.1 genuine cancel/noresult/recovery or independently established complete touched-path equivalence",
+    "Root freeze source/build/EXE/ZIP, actual CI/public delivery, exact Council votes"
+  ],
+  "developer_runtime_operations": "none on0.6.1 database/nativepackage; ordinary tests only; no protected resource actions",
+  "ownership": "Root shared documentation/build/package/commit/push; author made no stage/commit/push and does not accept own work",
+  "files_excluded_from_author": "docs/SPRINT_08_REPORT.md is parallel Root change, not this author"
+}

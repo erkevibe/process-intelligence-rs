@@ -1,0 +1,145 @@
+{
+  "utc": "2026-10-11T06:37:28.9737499Z",
+  "pass": true,
+  "installs": [
+    {
+      "created_utc": "2026-10-10T06:23:15.2051390Z",
+      "pid": 18104,
+      "port": 3000,
+      "health": {
+        "status": "ready",
+        "version": "0.1.0"
+      },
+      "exe_sha256": "1B675C467767A351C271E5071B79C376E3362A79296C3FD5C82D928315F4F070",
+      "identity_matches_prior": true
+    },
+    {
+      "created_utc": "2026-10-10T08:46:23.2518130Z",
+      "pid": 35684,
+      "port": 3010,
+      "health": {
+        "status": "ready",
+        "version": "0.2.0"
+      },
+      "exe_sha256": "E2189EA8C463E7E3E146EF7983608A95F474B2FFA35FA02555F8A0CF3E47986E",
+      "identity_matches_prior": true
+    },
+    {
+      "created_utc": "2026-10-10T13:16:54.0586110Z",
+      "pid": 40560,
+      "port": 3030,
+      "health": {
+        "status": "ready",
+        "version": "0.3.0"
+      },
+      "exe_sha256": "B38A6193EB6C3D7BCE6F1F4E75F6BE619AE626FD8CBB8F9BB23CD3E08D190A3A",
+      "identity_matches_prior": true
+    },
+    {
+      "created_utc": "2026-10-10T15:40:13.2206870Z",
+      "pid": 42072,
+      "port": 3040,
+      "health": {
+        "status": "ready",
+        "version": "0.4.0"
+      },
+      "exe_sha256": "B4EA51E5264646709A1DDDB5686132D2662BB5275B271F4473A7B7592D58AAB8",
+      "identity_matches_prior": true
+    },
+    {
+      "created_utc": "2026-10-10T23:36:33.3918720Z",
+      "pid": 47492,
+      "port": 3050,
+      "health": {
+        "status": "ready",
+        "version": "0.5.0"
+      },
+      "exe_sha256": "4DA47C60DA169B2B0D659E4583A72EA5E17DBCE18B83E28B8923B2DF1CDAF98A",
+      "identity_matches_prior": true
+    },
+    {
+      "created_utc": "2026-10-11T06:09:35.5466100Z",
+      "pid": 49356,
+      "port": 3061,
+      "health": {
+        "status": "ready",
+        "version": "0.6.0"
+      },
+      "exe_sha256": "95D1340D2C8C5B4BCFD835F4A53BEE7A67CE98242685AC973F775BD6747DD778",
+      "identity_matches_prior": true
+    }
+  ],
+  "postgres_observations": [
+    {
+      "exe_sha256": "8B8BF5D400487159E3E117053D3F5A89FAD0C740B310A3AC69E5720CE4F818E1",
+      "port": 5433,
+      "pid": 6644,
+      "created_utc": "2026-10-10T06:53:51.9926130Z",
+      "scope": "listener and process observation only; no SQL or previous full datadir snapshot attestation"
+    },
+    {
+      "status": "no listener observed",
+      "port": 5434
+    },
+    {
+      "exe_sha256": "8B8BF5D400487159E3E117053D3F5A89FAD0C740B310A3AC69E5720CE4F818E1",
+      "port": 5435,
+      "pid": 26596,
+      "created_utc": "2026-10-10T08:46:21.6295150Z",
+      "scope": "listener and process observation only; no SQL or previous full datadir snapshot attestation"
+    },
+    {
+      "exe_sha256": "8B8BF5D400487159E3E117053D3F5A89FAD0C740B310A3AC69E5720CE4F818E1",
+      "port": 5436,
+      "pid": 17896,
+      "created_utc": "2026-10-10T12:44:20.7974380Z",
+      "scope": "listener and process observation only; no SQL or previous full datadir snapshot attestation"
+    },
+    {
+      "exe_sha256": "8B8BF5D400487159E3E117053D3F5A89FAD0C740B310A3AC69E5720CE4F818E1",
+      "port": 5437,
+      "pid": 42580,
+      "created_utc": "2026-10-10T13:16:52.5849120Z",
+      "scope": "listener and process observation only; no SQL or previous full datadir snapshot attestation"
+    },
+    {
+      "exe_sha256": "8B8BF5D400487159E3E117053D3F5A89FAD0C740B310A3AC69E5720CE4F818E1",
+      "port": 5438,
+      "pid": 37996,
+      "created_utc": "2026-10-10T15:40:11.4283150Z",
+      "scope": "listener and process observation only; no SQL or previous full datadir snapshot attestation"
+    },
+    {
+      "exe_sha256": "8B8BF5D400487159E3E117053D3F5A89FAD0C740B310A3AC69E5720CE4F818E1",
+      "port": 5439,
+      "pid": 46176,
+      "created_utc": "2026-10-10T23:36:31.7415330Z",
+      "scope": "listener and process observation only; no SQL or previous full datadir snapshot attestation"
+    },
+    {
+      "exe_sha256": "8B8BF5D400487159E3E117053D3F5A89FAD0C740B310A3AC69E5720CE4F818E1",
+      "port": 5441,
+      "pid": 32424,
+      "created_utc": "2026-10-11T06:09:34.4183730Z",
+      "scope": "listener and process observation only; no SQL or previous full datadir snapshot attestation"
+    }
+  ],
+  "archives": [
+    {
+      "version": "0.4.0",
+      "bytes": 56521463,
+      "sha256": "85C23B2E69D67D442067180C124E55958C64F6D1C73BDF1708C4CEF4AAB3BD1D"
+    },
+    {
+      "version": "0.5.0",
+      "bytes": 56611093,
+      "sha256": "BF900C88EC8B5E8ABFFC292C5C9704B152C053725D1DA7B15EE3E930285B4EFB"
+    },
+    {
+      "version": "0.6.0",
+      "bytes": 57100032,
+      "sha256": "4AE712B07E58B23F3A3FB53D8CAF5EED83BB9E9AE5EC49A5CFAA19C85B5A2759"
+    }
+  ],
+  "scope": "Read-only health GET/listener/CIM/exe/creation and archive hashing. Six accepted app identities compared to priorSprint07 and exact0.6userproof; PG observations only. No login/config/SQL/migration/stop; no user-data byte or whole-machine attestation."
+}
