@@ -1,0 +1,47 @@
+{
+  "id": "S8-QA-RESTORE01",
+  "observed_utc": "2026-10-11T04:29:56.7634479Z",
+  "status": "STOP_OPEN",
+  "severity": "mandatory_valid_restore_failure",
+  "owner": "Root runtime/normalized restore",
+  "draft_source": "4a19adcb676912b4b0a8e5bd9c1ab463cba03dd9",
+  "exe_sha256": "9840BCC99583858D4A1E3C14250A5E5E7E5DC74949A2E6B0EF7AD8E1C8D43EBD",
+  "scope": "Owned synthetic HTTP3060/PG5440/pi_s8_qa_live01 only; protected installations untouched",
+  "expected": "Valid project backup restores immutable original/provenance into fresh ownership; original endpoint200 exact source bytes",
+  "actual": {
+    "original_project": "project-3e37786810044d1c861c176abf302abb",
+    "error_code": "repository_corrupt",
+    "restored_original": 422,
+    "valid_restore": 200,
+    "backup": 200,
+    "folders_catalog": 200,
+    "resource": "log-1",
+    "restored_project": "project-9c848ff4e1ff4d4e986eaa5a5937d0b4"
+  },
+  "source_binding": {
+    "data_analysis": "same full canonical hashes and version1",
+    "normalized_order": "source both",
+    "original_source_record": "envelope1 with provenance; log_state has no provenance",
+    "input_sha256": "d59d4c5655676b4afbd727face7b50e57fb6b60e79f66376c68c43c0d3b33322",
+    "restored_source_record": "plain EventLog; log_state has provenance"
+  },
+  "diagnosis": "decode_log rejects plain source with log_state.provenance. Reserved repository restore splitter normalized::from_legacy must produce canonical new envelope; no evidence origin-project mismatch caused rejection.",
+  "evidence": {
+    "diagnostic_sha256": "A2D2494A5DD1040864D5714E0EF6AF347FA8DC7E19F13D3F824C085C9DBF7A67",
+    "script_sha256": "7B29A21438A535C6F706D5B035897053F3D2CFB080F37865B294601F879A9720",
+    "failure_sha256": "27083892AEABA6324B93A4B2F0317BD733FA49279C4946D364E551C0A031EB80",
+    "response_sha256": "8C706FEACF155AEE1ECB20E18F833A86AEA9A365BB35D3140299D2939B2CA693"
+  },
+  "closure_required": [
+    "Repair canonical restore split without weakening lazy integrity",
+    "Actual fresh valid restore exact original/history/export/folders/audit + real restart",
+    "Same hash-valid tamper negatives remain controlled refusal/no partial SQL",
+    "Final exact frozen regression, no D2 acceptance transfer"
+  ],
+  "limits": [
+    "No repeat restore or data reset after failure",
+    "D2 original/restored data retained read-only for diagnosis",
+    "No claim full0.5 upgrade or nativepackage acceptance",
+    "Affected restore/release gate STOP; unrelated observations remain historical"
+  ]
+}

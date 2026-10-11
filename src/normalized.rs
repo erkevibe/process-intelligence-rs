@@ -1,7 +1,9 @@
 //! Independently bounded project records, with one atomic project revision.
 use crate::{domain::ImportError, storage::validate_document_capacity};
 use postgres::{Client, Transaction};
-use serde_json::{Value, json};
+use serde_json::Value;
+#[cfg(test)]
+use serde_json::json;
 use std::collections::BTreeSet;
 
 pub(crate) const VERSION: i32 = 2;
@@ -264,48 +266,13 @@ pub(crate) fn split_repository(
             return Err(invalid());
         }
     }
-    drop(repository);
-    let Value::Object(mut root) = value else {
-        return Err(invalid());
-    };
-    let logs = root.remove("logs").ok_or_else(invalid)?;
-    let models = root.remove("models").ok_or_else(invalid)?;
-    let Value::Object(logs) = logs else {
-        return Err(invalid());
-    };
-    let Value::Object(models) = models else {
-        return Err(invalid());
-    };
-    root.insert("log_ids".into(), json!(logs.keys().collect::<Vec<_>>()));
-    root.insert("model_ids".into(), json!(models.keys().collect::<Vec<_>>()));
-    let mut records = Vec::new();
-    for (id, log) in logs {
-        let Value::Object(mut state) = log else {
-            return Err(invalid());
-        };
-        for (field, kind) in [
-            ("data", "log_data"),
-            ("source", "log_source"),
-            ("analysis", "log_analysis"),
-        ] {
-            records.push((
-                kind.into(),
-                id.clone(),
-                state.remove(field).ok_or_else(invalid)?,
-            ));
-        }
-        records.push(("log_state".into(), id.clone(), Value::Object(state)));
-    }
-    for (id, model) in models {
-        records.push(("model".into(), id, model));
-    }
-    let metadata = Value::Object(root);
-    crate::repository_v2::Header::parse(metadata.clone()).map_err(|_| invalid())?;
-    validate_document_capacity(&metadata, false)?;
-    for (_, _, value) in &records {
-        validate_document_capacity(value, false)?;
-    }
-    Ok((metadata, records))
+    drop(value);
+    // Restore and migration use the same immutable payload encoder as new writes.
+    // A separate field splitter placed provenance in mutable log_state and made
+    // otherwise valid restored logs unreadable by the strict lazy decoder.
+    let write =
+        crate::repository_v2::prepare(project, &repository, false).map_err(|_| invalid())?;
+    Ok((write.metadata, write.puts))
 }
 #[cfg(test)]
 pub(crate) fn join_repository(
@@ -327,30 +294,22 @@ pub(crate) fn join_repository(
     }
     let mut logs = serde_json::Map::new();
     for id in log_ids {
-        let mut state = entries
-            .remove(&("log_state".into(), id.clone()))
-            .ok_or_else(invalid)?
-            .as_object()
-            .cloned()
-            .ok_or_else(invalid)?;
-        for (field, kind) in [
-            ("data", "log_data"),
-            ("source", "log_source"),
-            ("analysis", "log_analysis"),
-        ] {
-            if state
-                .insert(
-                    field.into(),
-                    entries
-                        .remove(&(kind.into(), id.clone()))
-                        .ok_or_else(invalid)?,
-                )
-                .is_some()
-            {
-                return Err(invalid());
-            }
+        let mut pieces = Vec::new();
+        for kind in crate::repository_v2::LOG_KINDS {
+            pieces.push((
+                kind.into(),
+                1,
+                entries
+                    .remove(&(kind.into(), id.clone()))
+                    .ok_or_else(invalid)?,
+            ));
         }
-        if logs.insert(id, Value::Object(state)).is_some() {
+        let (log, _) =
+            crate::repository_v2::decode_log(project, &id, pieces).map_err(|_| invalid())?;
+        if logs
+            .insert(id, serde_json::to_value(log).map_err(|_| invalid())?)
+            .is_some()
+        {
             return Err(invalid());
         }
     }

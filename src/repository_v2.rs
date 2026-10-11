@@ -523,6 +523,68 @@ fn validate_log(log: &StoredLog) -> Result<(), ImportError> {
 mod lazy_tests {
     use super::*;
     #[test]
+    fn restored_provenance_uses_same_immutable_encoding_as_new_import() {
+        let raw = include_str!("../fixtures/oracle-service/mixed.xes");
+        let preview = crate::service_preview::preview_xes(raw.as_bytes()).unwrap();
+        let provenance = Arc::new(
+            crate::import_provenance::ImportProvenance::capture(
+                raw.into(),
+                &preview,
+                "historical-user".into(),
+                "historical-project".into(),
+                uuid::Uuid::new_v4().to_string(),
+            )
+            .unwrap(),
+        );
+        let mut base = log();
+        base.source = Arc::new(preview.log.clone());
+        base.data = base.source.clone();
+        base.analysis = Arc::new(crate::mining::analyze(&base.data));
+        base.source_sha256 = provenance.source_sha256.clone();
+        base.provenance = Some(provenance);
+        base.project_id = Some("restored-project".into());
+        let mut repo = Repository::default();
+        repo.logs.insert(base.id.clone(), base);
+        let expected = prepare("restored-project", &repo, false).unwrap();
+        let (metadata, records) = crate::normalized::split_repository(
+            "restored-project",
+            serde_json::to_value(&repo).unwrap(),
+        )
+        .unwrap();
+        assert_eq!(metadata, expected.metadata);
+        let actual_source = records
+            .iter()
+            .find(|(kind, _, _)| kind == "log_source")
+            .unwrap();
+        let expected_source = expected
+            .puts
+            .iter()
+            .find(|(kind, _, _)| kind == "log_source")
+            .unwrap();
+        assert_eq!(
+            actual_source, expected_source,
+            "restore must use exactly the confirmed-import immutable source envelope"
+        );
+        assert!(
+            records
+                .iter()
+                .find(|(kind, _, _)| kind == "log_state")
+                .unwrap()
+                .2
+                .get("provenance")
+                .is_none()
+        );
+        let pieces = records
+            .into_iter()
+            .filter(|(_, id, _)| id == "log-1")
+            .map(|(kind, _, value)| (kind, 1, value))
+            .collect();
+        let (loaded, _) = decode_log("restored-project", "log-1", pieces).unwrap();
+        let history = loaded.provenance.unwrap();
+        assert_eq!(history.original_utf8, raw);
+        assert_eq!(history.origin_project_id, "historical-project");
+    }
+    #[test]
     fn immutable_provenance_envelope_changes_no_heavy_records_on_view_edit() {
         let raw = include_str!("../fixtures/oracle-service/mixed.xes");
         let preview = crate::service_preview::preview_xes(raw.as_bytes()).unwrap();
