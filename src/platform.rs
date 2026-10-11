@@ -619,8 +619,7 @@ async fn logs(Workspace(state): Workspace) -> Response {
             .map(|items| {
                 items
                     .into_iter()
-                    .filter(|(kind, _, _, _)| kind == "log_state")
-                    .map(|(_, id, name, events)| (id, name, events as usize))
+                    .filter(|item| item.kind == "log_state")
                     .collect::<Vec<_>>()
             })
     })
@@ -1046,8 +1045,8 @@ async fn models(Workspace(state): Workspace) -> Response {
             .map(|items| {
                 items
                     .into_iter()
-                    .filter(|(kind, _, _, _)| kind == "model")
-                    .map(|(_, id, name, revision)| (id, name, revision))
+                    .filter(|item| item.kind == "model")
+                    .map(|item| (item.id, item.name, item.number))
                     .collect::<Vec<_>>()
             })
     })

@@ -1,0 +1,23 @@
+{
+  "utc": "2026-10-11T06:48:37.3359059Z",
+  "verdict": "Root prefreeze source review PASS; candidate acceptance pending",
+  "version": "0.6.1",
+  "plan_sha256": "ED631BDA2A86C78574B06A1FF3AC654152CA522B31F9FDA354307342D9FF22D2",
+  "tests_passed": 97,
+  "tests_ignored": 14,
+  "tests_failed": 0,
+  "actual_native_test_exit": 0,
+  "fmt_exit": 0,
+  "clippy_exit": 0,
+  "full_test_stdout_sha256": "F0810922E126C453972DB467C001B7D9C83A88EE6A5BC3A1F69A175F54046DF2",
+  "independent_td_prefreeze_sha256": "E5D504CA06361AEC0FD90881B7C95DAF54B3D4F61F44F99A7B3815A9BF8B9555",
+  "qa_prospective_addendum_sha256": "686053AC717EAECF63A86C2D2CF3E42ADA3D34C618AC05142A56402928DED3FF",
+  "review": [
+    "Six source-file diff read; shared four-producer publication assigns UTC before commit and publishes memory after success",
+    "Strict present date parser; missing historical absence omitted in canonical state/export; edits preserve field",
+    "Metadata-only SQL projection includes event scalar from analysis and <=64 string date guard; malformed values fail closed",
+    "Safe duplicate-name/ID/date rendering and honest saved-state disclaimer",
+    "Existing auth/audit/jobs/admission/atomic gates unchanged; cache fixed-size field charged through size_of"
+  ],
+  "scope": "No frozen binary/package acceptance; PostgreSQL ignored tests not executed; current QA runtime/restore/RBAC/metadata SQL trace/public/CI gates pending. No inherited R3-03 credit."
+}

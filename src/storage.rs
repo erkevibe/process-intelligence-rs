@@ -65,6 +65,13 @@ pub(crate) fn validate_document_capacity(
 }
 
 type Answer = Result<Reply, ImportError>;
+pub(crate) struct ResourceSummary {
+    pub(crate) kind: String,
+    pub(crate) id: String,
+    pub(crate) name: String,
+    pub(crate) number: u64,
+    pub(crate) created_at: Option<chrono::DateTime<chrono::Utc>>,
+}
 enum Command {
     Lease,
     Health,
@@ -90,7 +97,7 @@ enum Reply {
     Headers(Vec<(String, u64, Value)>),
     Records(Vec<(String, u64, Value)>),
     RecordVersions(Vec<(String, u64)>),
-    Summaries(Vec<(String, String, String, u64)>),
+    Summaries(Vec<ResourceSummary>),
 }
 #[derive(Clone)]
 pub struct Database {
@@ -140,12 +147,13 @@ impl Database {
                     Command::ResourceSummaries(project)=>{
                         // Only bounded scalar metadata crosses the worker boundary. A list
                         // never deserializes log data/source/analysis or model documents.
-                        let rows=client.query("SELECT kind,resource_id,CASE WHEN kind='log_state' THEN document->>'filename' ELSE document->>'name' END,CASE WHEN kind='model' THEN document->>'revision' ELSE (SELECT a.document->>'events' FROM public.pi_records a WHERE a.project_id=r.project_id AND a.resource_id=r.resource_id AND a.kind='log_analysis') END FROM public.pi_records r WHERE project_id=$1 AND kind IN ('log_state','model') ORDER BY kind,resource_id",&[&project]).map_err(|_|unavailable())?;
+                        let rows=client.query("SELECT kind,resource_id,CASE WHEN kind='log_state' THEN document->>'filename' ELSE document->>'name' END,CASE WHEN kind='model' THEN document->>'revision' ELSE (SELECT a.document->>'events' FROM public.pi_records a WHERE a.project_id=r.project_id AND a.resource_id=r.resource_id AND a.kind='log_analysis') END,CASE WHEN kind='log_state' AND document ? 'created_at' THEN CASE WHEN jsonb_typeof(document->'created_at')='string' AND length(document->>'created_at')<=64 THEN document->'created_at' ELSE 'null'::jsonb END ELSE NULL END FROM public.pi_records r WHERE project_id=$1 AND kind IN ('log_state','model') ORDER BY kind,resource_id",&[&project]).map_err(|_|unavailable())?;
                         let mut summaries=Vec::new();
                         for row in rows {
                             let name=row.get::<_,Option<String>>(2).filter(|s|s.len()<=65536).ok_or_else(crate::normalized::invalid)?;
                             let number=row.get::<_,Option<String>>(3).and_then(|s|s.parse::<u64>().ok()).ok_or_else(crate::normalized::invalid)?;
-                            summaries.push((row.get(0),row.get(1),name,number));
+                            let created_at = row.get::<_,Option<Value>>(4).map(|value| crate::web::deserialize_created_at(value).map_err(|_|crate::normalized::invalid())).transpose()?.flatten();
+                            summaries.push(ResourceSummary { kind: row.get(0), id: row.get(1), name, number, created_at });
                         }
                         tracing::info!(%project,records=summaries.len(),"resource_summary_read");
                         Ok(Reply::Summaries(summaries))
@@ -370,7 +378,7 @@ impl Database {
     pub(crate) fn resource_summaries(
         &self,
         project: &str,
-    ) -> Result<Vec<(String, String, String, u64)>, ImportError> {
+    ) -> Result<Vec<ResourceSummary>, ImportError> {
         match self.request(Command::ResourceSummaries(project.into()))? {
             Reply::Summaries(v) => Ok(v),
             _ => unreachable!(),

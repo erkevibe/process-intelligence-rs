@@ -328,19 +328,24 @@ pub(crate) fn import_history(
     html
 }
 
-pub(crate) fn logs_list(items: &[(String, String, usize)], writable: bool) -> String {
+pub(crate) fn logs_list(items: &[crate::storage::ResourceSummary], writable: bool) -> String {
     let mut html = "<section class=\"platform-heading\"><div class=\"eyebrow\">ЖУРНАЛЫ ПРОЕКТА</div><h1>Сохранённые журналы</h1><p>Журналы сохраняются после перезапуска. В проекте можно хранить восемь журналов: если место занято, новый импорт отклоняется, прежние данные остаются доступны. Одинаковые названия не объединяют результаты.</p></section><section class=\"platform-card\">".to_owned();
     if items.is_empty() {
         html.push_str("<div class=\"platform-empty\">В этом проекте пока нет журналов.</div>");
     } else {
-        html.push_str("<div class=\"platform-table-wrap\"><table class=\"platform-table\"><thead><tr><th>Журнал</th><th>Событий</th><th>Анализ</th></tr></thead><tbody>");
-        for (id, name, events) in items {
-            let route = route_id(id);
-            html.push_str(&format!("<tr><td><a href=\"/logs/{route}\">{}</a><br><small>{}</small></td><td>{events}</td><td><a href=\"/logs/{route}/tools\">Фильтры и календарь</a> · <a href=\"/logs/{route}/export\">Экспорт</a> · <a href=\"/logs/{route}/original\">Исходный XES</a> · <a href=\"/logs/{route}/import-history/view\">История импорта</a></td></tr>", html_escape(name), html_escape(id)));
+        html.push_str("<div class=\"platform-table-wrap\"><table class=\"platform-table\"><thead><tr><th>Журнал</th><th>Событий</th><th>Дата сохранения (UTC)</th><th>Состояние</th><th>Анализ</th></tr></thead><tbody>");
+        for item in items {
+            let route = route_id(&item.id);
+            let date = item
+                .created_at
+                .map(|date| date.to_rfc3339_opts(chrono::SecondsFormat::AutoSi, true))
+                .unwrap_or_else(|| "Дата не сохранена".into());
+            html.push_str(&format!("<tr><td><a href=\"/logs/{route}\">{}</a><br><small>{}</small></td><td>{}</td><td>{}</td><td>Сохранённый анализ</td><td><a href=\"/logs/{route}/tools\">Фильтры и календарь</a> · <a href=\"/logs/{route}/export\">Экспорт</a> · <a href=\"/logs/{route}/original\">Исходный XES</a> · <a href=\"/logs/{route}/import-history/view\">История импорта</a></td></tr>", html_escape(&item.name), html_escape(&item.id), item.number, html_escape(&date)));
         }
         html.push_str("</tbody></table></div>");
     }
     html.push_str("</section>");
+    html.push_str("<p class=\"platform-note\">Целостность данных проверяется при открытии; незавершённые обработки находятся в задачах. Дата сохранения — время публикации результата в приложении, а не время событий или файла.</p>");
     html.push_str("<p class=\"platform-note\">Скачанную резервную копию сохраняйте без изменений. Чтобы восстановить проект, загрузите исходный файл: правка или повторное сохранение его содержимого может нарушить проверку копии.</p>");
     if writable {
         html.push_str("<section class=\"platform-card\"><h2>Загрузить журнал</h2><form class=\"platform-form\" method=\"post\" action=\"/logs\" enctype=\"multipart/form-data\"><label>Файл XES<input type=\"file\" name=\"file\" accept=\".xes,application/xml,text/xml\" required></label><small>До 20 MiB, 100 000 событий и 20 000 трасс.</small><button class=\"button primary\" type=\"submit\">Загрузить и анализировать</button></form><hr class=\"platform-divider\"><a class=\"button\" href=\"/xes\">XES: сначала показать изменения</a> · <a class=\"button\" href=\"/csv\">Загрузить CSV с выбором колонок</a></section><section class=\"platform-card\"><h2>Восстановить резервную копию</h2><form class=\"platform-form\" method=\"post\" action=\"/restore\" enctype=\"multipart/form-data\"><label>Название нового проекта<input name=\"name\" required maxlength=\"200\" placeholder=\"Восстановленный проект\"></label><label>Файл резервной копии<input type=\"file\" name=\"file\" accept=\".json,application/json\" required></label><small>Копия восстанавливается в отдельный проект. Текущий проект не перезаписывается. Повреждённая или несовместимая копия отклоняется.</small><button class=\"button\" type=\"submit\">Восстановить в новый проект</button></form></section>");
@@ -677,4 +682,42 @@ pub(crate) fn model_editor(
     }
     html.push_str("<p class=\"platform-note\">Поддерживается один неисполняемый процесс с обычными задачами, началом, концом, шлюзами и последовательными переходами. Условия, расширения и другие элементы отклоняются при импорте.</p>");
     html
+}
+
+#[cfg(test)]
+mod c06_tests {
+    use super::*;
+    #[test]
+    fn duplicate_names_show_distinct_ids_utc_or_unknown_and_saved_state() {
+        let date = chrono::DateTime::parse_from_rfc3339("2025-01-02T03:04:05.123Z")
+            .unwrap()
+            .with_timezone(&chrono::Utc);
+        let items = [
+            crate::storage::ResourceSummary {
+                kind: "log_state".into(),
+                id: "log-1".into(),
+                name: "<script>&same.xes".into(),
+                number: 4,
+                created_at: Some(date),
+            },
+            crate::storage::ResourceSummary {
+                kind: "log_state".into(),
+                id: "log-2".into(),
+                name: "<script>&same.xes".into(),
+                number: 4,
+                created_at: None,
+            },
+        ];
+        let html = logs_list(&items, false);
+        assert!(html.contains("href=\"/logs/log-1\""));
+        assert!(html.contains("href=\"/logs/log-2\""));
+        assert_eq!(html.matches("&lt;script&gt;&amp;same.xes").count(), 2);
+        assert!(!html.contains("<script>"));
+        assert_eq!(html.matches("<td>4</td>").count(), 2);
+        assert!(html.contains("2025-01-02T03:04:05.123Z"));
+        assert!(html.contains("Дата не сохранена"));
+        assert_eq!(html.matches("<td>Сохранённый анализ</td>").count(), 2);
+        assert!(html.contains("Целостность данных проверяется при открытии; незавершённые обработки находятся в задачах"));
+        assert!(!html.contains("action=\"/restore\""));
+    }
 }
