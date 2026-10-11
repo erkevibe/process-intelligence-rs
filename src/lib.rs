@@ -10,6 +10,7 @@ mod migrations;
 pub mod mining;
 mod platform;
 mod platform_render;
+pub mod service_preview;
 pub mod storage;
 pub mod web;
 

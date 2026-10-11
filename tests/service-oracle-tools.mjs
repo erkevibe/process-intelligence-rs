@@ -1,0 +1,27 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import {extractMethods,sha,verifyBuild,verifyFreshClasses,parseObservation} from '../tools/oracle/service-reference.mjs';
+
+const temp=fs.mkdtempSync(path.join(os.tmpdir(),'service-oracle-guards-'));
+const methods=Buffer.from('    public static XLog validateLog(XLog log) {return log;}\n    private static boolean isInvalidEvent(XEvent event) {return false;}\n');
+const source=Buffer.concat([Buffer.from('HEADER\n'),methods,Buffer.from('    @Override\n')]);
+const lock={bytes:source.length,sha256:sha(source),git_blob:crypto.createHash('sha1').update(Buffer.from('blob '+source.length+'\0')).update(source).digest('hex'),methods_offset:7,methods_bytes:methods.length,methods_sha256:sha(methods)};
+assert.deepEqual(extractMethods(source,lock).methods,methods);
+assert.throws(()=>extractMethods(Buffer.concat([source,Buffer.from('tampered')]),lock),/source identity/);
+assert.throws(()=>extractMethods(source,{...lock,methods_offset:8}),/boundary/);
+assert.throws(()=>extractMethods(source,{...lock,methods_sha256:'0'.repeat(64)}),/byte identity/);
+const build=path.join(temp,'base');fs.mkdirSync(path.join(build,'classes'),{recursive:true});fs.mkdirSync(path.join(build,'deps'));
+fs.writeFileSync(path.join(build,'classes','real.class'),'captured');
+fs.writeFileSync(path.join(build,'build-proof.json'),JSON.stringify({files:[{path:'classes/real.class',bytes:8,sha256:sha(Buffer.from('captured'))}]}));
+assert.equal(verifyBuild(build).executable_inputs,1);
+fs.writeFileSync(path.join(build,'classes','extra.class'),'unlisted');assert.throws(()=>verifyBuild(build),/lacks captured/);
+const fresh=path.join(temp,'fresh');fs.mkdirSync(fresh);fs.writeFileSync(path.join(fresh,'Expected.class'),'compiled');
+const classes=[{path:'Expected.class',sha256:sha(Buffer.from('compiled'))}];verifyFreshClasses(fresh,classes);
+fs.writeFileSync(path.join(fresh,'Extra.class'),'unlisted');assert.throws(()=>verifyFreshClasses(fresh,classes),/identity mismatch/);
+const h=s=>Buffer.from(s).toString('hex');
+const lines=['log\tbefore\t-','trace\tbefore\t3\t'+h('T'),'event\tbefore\t3\t5\t'+h('A')+'\t-\t-\t-\t-\tliteral\t-','log\tafter\t-','log\tsecond\t-','same_log\ttrue'];
+const obs=parseObservation(lines.join('\n'));assert.deepEqual(obs.actions.defaulted_lifecycle,[{trace_index:3,event_index:5}]);assert.deepEqual(obs.actions.removed_events,[{trace_index:3,event_index:5,reasons:['missing_timestamp']}]);assert.equal(obs.idempotent,true);
+console.log('7 service oracle guard assertions passed (source tamper, boundaries, method hash, base extras, fresh extras, source ordinals/reasons, idempotence). Synthetic temp evidence retained.');

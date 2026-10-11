@@ -157,6 +157,17 @@ fn preflight(
     limits: Limits,
     cancelled: &dyn Fn() -> bool,
 ) -> Result<Vec<u8>, ImportError> {
+    preflight_profile(input, limits, cancelled, false)
+}
+
+// Only the separately named service preview may admit an absent activity.
+// All original type, duplicate, structural and input limits remain in force.
+pub(crate) fn preflight_profile(
+    input: &[u8],
+    limits: Limits,
+    cancelled: &dyn Fn() -> bool,
+    allow_missing_activity: bool,
+) -> Result<Vec<u8>, ImportError> {
     if input.len() > limits.max_bytes {
         return Err(ImportError::new(
             "byte_limit",
@@ -272,7 +283,7 @@ fn preflight(
                     attributes(tag, &reader)?;
                 }
                 if empty {
-                    finish_element(&name, &state)?;
+                    finish_element(&name, &state, allow_missing_activity)?;
                 } else {
                     state.stack.push(name);
                 }
@@ -284,7 +295,7 @@ fn preflight(
                 if state.stack.pop().as_deref() != Some(name.as_str()) {
                     return Err(malformed("Нарушена вложенность XML-тегов."));
                 }
-                finish_element(&name, &state)?;
+                finish_element(&name, &state, allow_missing_activity)?;
             }
             XmlEvent::Text(ref text) => {
                 let content = text
@@ -334,8 +345,12 @@ fn preflight(
     Ok(normalized.into_inner())
 }
 
-fn finish_element(name: &str, state: &Validation) -> Result<(), ImportError> {
-    if name == "event" && !state.activity_seen {
+fn finish_element(
+    name: &str,
+    state: &Validation,
+    allow_missing_activity: bool,
+) -> Result<(), ImportError> {
+    if name == "event" && !state.activity_seen && !allow_missing_activity {
         let mut error = ImportError::new(
             "missing_activity",
             "У каждого события должно быть непустое concept:name.",
