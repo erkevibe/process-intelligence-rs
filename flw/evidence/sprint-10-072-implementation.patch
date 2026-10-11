@@ -1,0 +1,134 @@
+diff --git a/src/main.rs b/src/main.rs
+index e64f13e..f85ae56 100644
+--- a/src/main.rs
++++ b/src/main.rs
+@@ -11,26 +11,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
+         .init();
+     let args: Vec<String> = std::env::args().skip(1).collect();
+     if !args.is_empty() {
+-        if args == ["--cleanup-storage-verify"] || args == ["--cleanup-storage-apply"] {
+-            let mode = if args[0] == "--cleanup-storage-verify" {
+-                "verify"
+-            } else {
+-                "apply"
+-            };
+-            let report =
+-                tokio::task::spawn_blocking(move || process_intelligence_rs::cleanup::run(mode))
+-                    .await?
+-                    .map_err(|e| std::io::Error::other(format!("{}: {}", e.code, e.message)))?;
+-            println!("{}", serde_json::to_string_pretty(&report)?);
+-            match report.get("outcome").and_then(serde_json::Value::as_str) {
+-                Some("cleanup_outcome_unconfirmed") => std::process::exit(3),
+-                Some("cleanup_committed_receipt_failed") => std::process::exit(4),
+-                _ => {}
+-            }
+-            return Ok(());
+-        }
+         if args != ["--migrate-storage"] {
+-            return Err(std::io::Error::other("Supported options: --migrate-storage, --cleanup-storage-verify, --cleanup-storage-apply").into());
++            return Err(std::io::Error::other("Supported options: --migrate-storage").into());
+         }
+         let url = std::env::var("PI_DATABASE_URL").map_err(|_| {
+             std::io::Error::other("Private PI_DATABASE_URL is required for offline migration.")
+diff --git a/src/lib.rs b/src/lib.rs
+index 2b1fe29..d3c1eb9 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -2,7 +2,6 @@ pub mod audit;
+ pub mod auth;
+ pub mod bpmn;
+ pub mod calendar;
+-pub mod cleanup;
+ pub mod csv_io;
+ pub mod discovery;
+ pub mod domain;
+diff --git a/Cargo.toml b/Cargo.toml
+index 691c03d..98a75ab 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -1,6 +1,6 @@
+ [package]
+ name = "process-intelligence-rs"
+-version = "0.7.1"
++version = "0.7.2"
+ edition = "2024"
+ rust-version = "1.88"
+ description = "A validated Rust process intelligence core with server-driven UI"
+diff --git a/Cargo.lock b/Cargo.lock
+index 4bd2e40..ee3b11d 100644
+--- a/Cargo.lock
++++ b/Cargo.lock
+@@ -1291,7 +1291,7 @@ dependencies = [
+ 
+ [[package]]
+ name = "process-intelligence-rs"
+-version = "0.7.1"
++version = "0.7.2"
+ dependencies = [
+  "argon2",
+  "axum",
+diff --git a/tools/package-windows.ps1 b/tools/package-windows.ps1
+index bdc80e8..be6c289 100644
+--- a/tools/package-windows.ps1
++++ b/tools/package-windows.ps1
+@@ -30,7 +30,7 @@ foreach($taskFile in $taskProof.source_files){
+     if((Get-FileHash -LiteralPath $taskPath).Hash -cne $taskFile.sha256 -or (Get-Item -LiteralPath $taskPath).Length -ne $taskFile.bytes){throw "Frozen source changed: $($taskFile.path)"}
+ }
+ $taskPgSource=Join-Path $taskRoot '.local/postgres18/pgsql'
+-foreach($taskRequired in @('static','docs','fixtures','README.md','LICENSE','NOTICE','Cargo.lock','tools/setup-postgres.ps1','tools/start-packaged.ps1','tools/database-backup.ps1','tools/migrate-storage.ps1','tools/cleanup-legacy.ps1','tools/oracle')){if(-not (Test-Path -LiteralPath (Join-Path $taskFrozen $taskRequired))){throw "Missing frozen packaging input: $taskRequired"}}
++foreach($taskRequired in @('static','docs','fixtures','README.md','LICENSE','NOTICE','Cargo.lock','tools/setup-postgres.ps1','tools/start-packaged.ps1','tools/database-backup.ps1','tools/migrate-storage.ps1','tools/oracle')){if(-not (Test-Path -LiteralPath (Join-Path $taskFrozen $taskRequired))){throw "Missing frozen packaging input: $taskRequired"}}
+ foreach($taskRequired in @('bin','lib','share','server_license.txt','commandlinetools_3rd_party_licenses.txt')){if(-not (Test-Path -LiteralPath (Join-Path $taskPgSource $taskRequired))){throw "Missing PostgreSQL runtime input: $taskRequired"}}
+ $taskCargoText=Get-Content -LiteralPath (Join-Path $taskFrozen 'Cargo.toml') -Raw
+ $taskPackageSection=[regex]::Match($taskCargoText,'(?ms)^\[package\]\s*\r?\n(?<body>.*?)(?=^\[|\z)')
+@@ -47,7 +47,7 @@ Copy-Item -LiteralPath $taskExecutable -Destination (Join-Path $taskPackage 'pro
+ foreach($taskDirectory in @('static','docs','fixtures')){Copy-Item -LiteralPath (Join-Path $taskFrozen $taskDirectory) -Destination (Join-Path $taskPackage $taskDirectory) -Recurse}
+ foreach($taskFile in @('README.md','LICENSE','NOTICE','Cargo.lock')){if(Test-Path -LiteralPath (Join-Path $taskFrozen $taskFile)){Copy-Item -LiteralPath (Join-Path $taskFrozen $taskFile) -Destination $taskPackage}}
+ New-Item -ItemType Directory -Path (Join-Path $taskPackage 'tools') -Force|Out-Null
+-foreach($taskFile in @('setup-postgres.ps1','start-packaged.ps1','database-backup.ps1','migrate-storage.ps1','cleanup-legacy.ps1')){Copy-Item -LiteralPath (Join-Path $taskFrozen ('tools/'+$taskFile)) -Destination (Join-Path $taskPackage 'tools')}
++foreach($taskFile in @('setup-postgres.ps1','start-packaged.ps1','database-backup.ps1','migrate-storage.ps1')){Copy-Item -LiteralPath (Join-Path $taskFrozen ('tools/'+$taskFile)) -Destination (Join-Path $taskPackage 'tools')}
+ Copy-Item -LiteralPath (Join-Path $taskFrozen 'tools/oracle') -Destination (Join-Path $taskPackage 'tools/oracle') -Recurse
+ [IO.File]::WriteAllText((Join-Path $taskPackage 'Start.ps1'),"param([int]`$Port=3000,[int]`$PostgresPort=5433,[string]`$Database='process_intelligence')`r`n& (Join-Path `$PSScriptRoot 'tools/start-packaged.ps1') -Port `$Port -PostgresPort `$PostgresPort -Database `$Database`r`nexit `$LASTEXITCODE`r`n")
+ $taskPgSource=Join-Path $taskRoot '.local/postgres18/pgsql'
+diff --git a/README.md b/README.md
+index 9ec0e75..e7eec0a 100644
+--- a/README.md
++++ b/README.md
+@@ -1,3 +1,7 @@
++> **Текущий кандидат0.7.2 ещё НЕ ПРИНЯТ и НЕ ВЫПУЩЕН.** Предлагаемый объём — lifecycle проектов/папок, постоянное удаление и business-success audit. R3-01/R3-02 остаются OPEN до независимой приёмки и поставки; R3-04/DISK01 OPEN. Retained legacy cleanup отсутствует в compiled API/CLI и Windows tools. Принятая версия пока0.6.1. [Текущее руководство кандидата](docs/SPRINT_10_RUN_GUIDE.md).
++>
++> Ниже сохранена историческая информация прежних спринтов и версий без изменения её текста. Старые команды, статусы, порты и руководства относятся к соответствующим прошлым версиям и не являются текущими инструкциями0.7.2. В частности SPRINT_09 cleanup-инструкции не поддерживаются и не одобряются для этого кандидата. Текущий статус не означает полногоR3/R2–R5 или enterprise readiness.
++
+ # Process Intelligence Core на Rust
+ 
+ Версия0.6.0 опубликована в Sprint08: подтверждаемый XES с точным исходником и историей, папки, архивирование проектов, ограниченная история действий, IANA/DST и отдельный настоящий Alpha+++ из Rust4PM. Независимые QA/TechnicalDebt завершили публичную поставку и итоговый CI. Совет отдельным новым решением5/5 принял исходный R3-03 о миграциях, восстановлении и развёртывании. [Скачать выпуск](https://github.com/erkevibe/process-intelligence-rs/releases/tag/v0.6.0), [отчёт и все15 статусов](docs/SPRINT_08_REPORT.md), [контракт приложения](docs/SPRINT_08_RUNTIME.md), [исходные условия R2–R5](docs/SPRINT_08_SCOPE.md), [дорожная карта](docs/ROADMAP.md). Новая локальная установка: http://127.0.0.1:3061/setup; первый аккаунт создаёт пользователь. Остальные14 критериев и полные R2–R5 остаются открытыми.
+diff --git a/docs/SPRINT_10_RUN_GUIDE.md b/docs/SPRINT_10_RUN_GUIDE.md
+new file mode 100644
+index 0000000..6909d32
+--- /dev/null
++++ b/docs/SPRINT_10_RUN_GUIDE.md
+@@ -0,0 +1,25 @@
++# Sprint10: руководство кандидата0.7.2
++
++**КАНДИДАТ НЕ ПРИНЯТ. Реализация, независимая приёмка и поставка ещё не завершены.** Этот документ описывает предполагаемый объём0.7.2; наличие файла не разрешает выпуск, установку или объявление критериев PASS. Принятая версия пока0.6.1.
++
++## Что входит в кандидат
++
++Проекты и папки, обратимое архивирование проектов, постоянное удаление по политике владельца и ограниченная история успешных бизнес-действий. R3-01/R3-02 остаются OPEN до полного исходного crosswalk, независимой приёмки и принятой публичной поставки. ПолноеR3/R2–R5/enterprise readiness не объявляются.
++
++Для архивирования текущего проекта нужен другой активный проект с правом записи Owner или Editor. Viewer-only проект не подходит. Постоянное удаление разрешается владельцу заранее архивированного проекта: проверьте состав и точный ID в предпросмотре, затем укажите этот ID и фразу УДАЛИТЬ. Подтверждение связано с актуальной версией и digest; изменившиеся права/данные требуют нового предпросмотра. Незавершённая фоновая работа блокирует удаление.
++
++Удаление необратимо без заранее сохранённой копии. Приложение не утверждает, что ваша копия существует или проверена. Данные проекта удаляются атомарно с изменением прав/сессий и минимальным свидетельством для бывших владельцев. Backup и PostgreSQL MVCC могут хранить прежние данные; операция не обещает физического стирания носителя или немедленного уменьшения файлов.
++
++История различает серверные подтверждённые изменения, старые события с неизвестной политикой/результатом и непроверенную историю из пользовательской копии проекта. Каждый журнал сохраняет последние512 событий, total/dropped и порядок экспорта. Это конечный business-success ledger: login/logout/смена текущего проекта являются функциональными session операциями, но не событиями этого журнала. Не заявляется полный security audit всех действий или криптографическая защита от администратора базы.
++
++## Очистка старых копий не входит
++
++Retained legacy cleanup Preview и Apply отсутствуют в скомпилированном API/CLI этого кандидата; cleanup-legacy.ps1 не входит в Windows tools. R3-04/DISK01 остаются OPEN, настоящий SQL5 полного corpus не доказан. Не используйте старый cleanup wrapper или инструкции предыдущего кандидата с этой версией. Обе cleanup CLI-команды неподдерживаемы и должны отказать до подключения к базе.
++
++Миграция --migrate-storage остаётся отдельной поддержанной операцией, проверяемой независимо; она не является разрешением cleanup. Резервное копирование/восстановление выполняются штатными инструментами этой установки в новые базы. Полный операторский backup/newrestore контракт заявляется только по фактической приёмке PS7; PS5 startup subset не означает полную PS5 recovery поддержку.
++
++## Исторические документы в пакете
++
++Все прочие документы предыдущих спринтов, особенно SPRINT_09_RUN_GUIDE.md и cleanup proposal/corpus, сохранены как неизменные исторические материалы соответствующих версий. Их команды и заявления не являются текущим руководством0.7.2. Пользуйтесь этим current-version guide; прошлые cleanup-инструкции не поддерживаются и не одобряются для0.7.2. Старые выпуски/ZIP/доказательства остаются неизменными.
++
++Окончательный статус кандидата будет зафиксирован отдельным фактическим решением, CI точного source head и независимым свидетельством поставки. До этого отсутствие cleanup не делает остальные критерии автоматически принятыми.
