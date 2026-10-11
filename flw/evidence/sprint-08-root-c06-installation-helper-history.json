@@ -1,0 +1,11 @@
+{
+  "utc": "2026-10-11T07:35:18.4733891Z",
+  "kind": "Root private verifier history, not product repair",
+  "first_guard": "Readiness was already200; exact textual PG data path comparison refused due forward slash versus Windows backslash. No process/config/SQL/data mutation.",
+  "preserved_helper": ".local/sprint08/c06-user-readiness01-before-path-normalization.ps1",
+  "preserved_helper_sha256": "4BC99087EBA2F5E2F2C75338E6C41D60BCD80E499165E0198A05F4CC7190F942",
+  "corrected_helper_sha256": "5FD65C7CA39B4AE765D007D0D95809DCC7873E1606FAA4136205DDAFDAA0E2B9",
+  "correction": "Extract own -D argument, normalize both via GetFullPath, compare ordinal-ignore-case. Current listener PID/creation/EXE/ownpath/data-path verified; same running installation, no restart.",
+  "corrected_proof_sha256": "6CF61F5493D184F21F3C7048E217BFA9534123DF429771D0B8674FA35CE3037D",
+  "scope": "Do not claim all verifier attempts native0; firstguardexit1 retained in tool transcript. Corrected successful readiness native0 separate."
+}

@@ -1,0 +1,92 @@
+{
+  "utc": "2026-10-11T07:28:50.3282367Z",
+  "actual_api": {
+    "id": 38121354627,
+    "event": "push",
+    "status": "completed",
+    "conclusion": "success",
+    "head_sha": "10428362c908223024147fcb9f6b44d947184292"
+  },
+  "root_report_sha256": "43F7FEF2ED624FF905C3A1BCA02DDCCB531369CC6F526738DBB64532922C5479",
+  "archive_sha256": "1B26E233412E36FBDF1C010CE4CD88AD1F46608057B16FC7A76C0BD415AB8C9F",
+  "archive_bytes": 46478,
+  "full_available_files": 14,
+  "files": [
+    {
+      "path": "0_linux.txt",
+      "sha256": "B3A5225C2731D496A42EA66CCD6C8939B0A5062AEC49705C90F50FA723CF592E",
+      "bytes": 86644
+    },
+    {
+      "path": "linux/1_Set up job.txt",
+      "sha256": "3E5E9E4C58026B1D5A6C0A7C7E14ABC1B12B8D8BA2298C82435B91CB661C3ED8",
+      "bytes": 2102
+    },
+    {
+      "path": "linux/10_Run actions_upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9.txt",
+      "sha256": "82F13F960DADE5AECDA30949930C16F679862CD69C9AFFFCCBF6697E7045E0F4",
+      "bytes": 1744
+    },
+    {
+      "path": "linux/2_Run actions_checkout@3d3c42e5aac5ba805825da76410c181273ba90b1.txt",
+      "sha256": "54C464F02CA06842B72441769998ABEA6B78E3D0049C26664768475590A1C0C5",
+      "bytes": 11555
+    },
+    {
+      "path": "linux/20_Post Run actions_checkout@3d3c42e5aac5ba805825da76410c181273ba90b1.txt",
+      "sha256": "F55817E98F528F28FE2D87FB82301E41F655A92276D9E75909606536C1BFA31B",
+      "bytes": 1773
+    },
+    {
+      "path": "linux/21_Complete job.txt",
+      "sha256": "4081BF1BFC216694E08DA8B16F9CC4C408021A8584B747BE2B1D6983ED4B2BEC",
+      "bytes": 61
+    },
+    {
+      "path": "linux/3_Pinned toolchain.txt",
+      "sha256": "C1E882BF6AA9D14D83D2DA4B70A1DAF5DEE49E7074CEC5F9F1D3612C3FC14F20",
+      "bytes": 769
+    },
+    {
+      "path": "linux/4_Run cargo fmt --all -- --check.txt",
+      "sha256": "28EAF5A0447CB0D975A4DDF5944B6341C40512B743116E1FB7C3E1CFEAEDA1DD",
+      "bytes": 238
+    },
+    {
+      "path": "linux/5_Run cargo clippy --locked --all-targets -- -D warnings.txt",
+      "sha256": "8E1861748F1150BF9D9169CCEECAF7A0CC74E927B704CE234D9C138CFEEE3E5E",
+      "bytes": 23907
+    },
+    {
+      "path": "linux/6_Run cargo test --locked --all-targets.txt",
+      "sha256": "E963F18F2B57FD9D10D36CE631899792508F0219295B9CEAA7D0D997BB8EE93B",
+      "bytes": 31187
+    },
+    {
+      "path": "linux/7_XES oracle provenance guards.txt",
+      "sha256": "5E48E7361324E882C873BE24ADAD9517EBE3D29BE6E5DA5AE0F1ED320E2CD443",
+      "bytes": 397
+    },
+    {
+      "path": "linux/8_Service method provenance guards.txt",
+      "sha256": "7BDCC96A1DB16EE525758C144A8CBA8C9ED62BF7669A0244847A95CDA532497C",
+      "bytes": 467
+    },
+    {
+      "path": "linux/9_Build release and local health smoke.txt",
+      "sha256": "D0B76E3772254F1E4FACC73C56B18A0AAA72CB3BA6039BF37419AE9D1928F467",
+      "bytes": 12477
+    },
+    {
+      "path": "linux/system.txt",
+      "sha256": "5FC22FA3F80D1AD9BE15A449DB3B0128738F2396A1360D93DEE9A86D6FF423B8",
+      "bytes": 592
+    }
+  ],
+  "actual_passed": 97,
+  "actual_ignored": 14,
+  "diagnostic_flags": [],
+  "Cnew_to_H5_runtime_diff": [],
+  "semantic_steps": "Full perstepfilesread:pinned1.99Linux,fmt,clippy-Dwarnings,97passed14ignored,guardsXES5/service7,actualbash-e PI_EPHEMERAL health curlfail grepready thenupload",
+  "scope": "Exact H5 push checked-head proof only; PRstatus separate, noPG/nativeWindows/JavaCI or publicA08completion. No runtime/test/DB action."
+}

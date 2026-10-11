@@ -1,0 +1,89 @@
+{
+  "utc": "2026-10-11T07:33:54.8178447Z",
+  "head": "a79bbc57eed1981c73cb23338af62c6907921e5a",
+  "runtime_source": "3ba4cbbd6ffdc00c1185eb726dd01445eba86a9e",
+  "run_id": 38121558404,
+  "event": "push",
+  "status": "completed",
+  "conclusion": "success",
+  "url": "https://github.com/erkevibe/process-intelligence-rs/actions/runs/38121558404",
+  "archive_sha256": "5D196611DC85A209352594DEA527C6810F26B33E21FF9D9CB4839C3AA5B1654B",
+  "archive_bytes": 46590,
+  "full_available_files_read": 14,
+  "files": [
+    {
+      "path": "0_linux.txt",
+      "bytes": 86539,
+      "sha256": "D6298BCDF020309B5D6B64099384D9845AFF754DE757D7FCEEC8943F98938EE6"
+    },
+    {
+      "path": "linux/1_Set up job.txt",
+      "bytes": 2107,
+      "sha256": "BDD6AAF70814871598D34618CCDD30E1D77F98AC0024142E5A77F20F2154652A"
+    },
+    {
+      "path": "linux/10_Run actions_upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9.txt",
+      "bytes": 1744,
+      "sha256": "A99B29EC44CA387198DAAD24A870176CE42C64576785CD5431553FF17AC90055"
+    },
+    {
+      "path": "linux/2_Run actions_checkout@3d3c42e5aac5ba805825da76410c181273ba90b1.txt",
+      "bytes": 11445,
+      "sha256": "81797E35DC397A9BC1BA497FEF9394BAEFDA183B7BAF4F2197C303F9D97C478B"
+    },
+    {
+      "path": "linux/20_Post Run actions_checkout@3d3c42e5aac5ba805825da76410c181273ba90b1.txt",
+      "bytes": 1773,
+      "sha256": "F274EED321AE3D928A704BD30D9779C381729D3396F8A075D8E7AF6B902E2E45"
+    },
+    {
+      "path": "linux/21_Complete job.txt",
+      "bytes": 61,
+      "sha256": "2DCBCEF8658BC59CD232A83B920A3EF209D4901938A8F3AA6AC3021C9BB5DB67"
+    },
+    {
+      "path": "linux/3_Pinned toolchain.txt",
+      "bytes": 769,
+      "sha256": "F823D9C81349CC51006820BF896F6AD6703B35DF78AF6D6585D21BC8C39C8400"
+    },
+    {
+      "path": "linux/4_Run cargo fmt --all -- --check.txt",
+      "bytes": 238,
+      "sha256": "0DD6D2FC189C449CBCBAA28C54629FC94AC4DDD9E500D98BFA6B1D1041E567E1"
+    },
+    {
+      "path": "linux/5_Run cargo clippy --locked --all-targets -- -D warnings.txt",
+      "bytes": 23907,
+      "sha256": "342CA65ECA195155FCDEDCC4042BF84258A0363D57D7598FA02BA168DC09F437"
+    },
+    {
+      "path": "linux/6_Run cargo test --locked --all-targets.txt",
+      "bytes": 31187,
+      "sha256": "05C1359E85488C4BA16169D2DAD37D202487433CFAFC338B2D04A4A56632E660"
+    },
+    {
+      "path": "linux/7_XES oracle provenance guards.txt",
+      "bytes": 397,
+      "sha256": "3AC7BCAA41AEBB1450ADC80DA36F345BC806366AF0DC8279E3C51267EF4049DF"
+    },
+    {
+      "path": "linux/8_Service method provenance guards.txt",
+      "bytes": 467,
+      "sha256": "2A0F365D0618F889990D401308145017EAAE85B46614C5C5858BB890687B4387"
+    },
+    {
+      "path": "linux/9_Build release and local health smoke.txt",
+      "bytes": 12477,
+      "sha256": "DD4868BAE2416B97383E94D5B463215B26E89EAEDEE4078B120892D38B3F8E62"
+    },
+    {
+      "path": "linux/system.txt",
+      "bytes": 581,
+      "sha256": "231DCF7022C3B5281A459C69C8E78280AEB0CF9D1A49F123E0FDB677D426EFF4"
+    }
+  ],
+  "perstep_actual_passed": 97,
+  "perstep_actual_ignored": 14,
+  "runtime_diff": [],
+  "scope": "Full available job bytes fingerprinted; independent semantic log review still required. Linux CI distinct from Windows/PostgreSQL/Java proofs."
+}

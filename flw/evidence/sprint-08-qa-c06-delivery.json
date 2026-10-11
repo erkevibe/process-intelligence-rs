@@ -1,0 +1,275 @@
+{
+  "completed_utc": "2026-10-11T07:38:24.771Z",
+  "source_commit": "3ba4cbbd6ffdc00c1185eb726dd01445eba86a9e",
+  "merge_commit": "a79bbc57eed1981c73cb23338af62c6907921e5a",
+  "tag": "v0.6.1",
+  "tag_targets_runtime_C": true,
+  "release_id": 409503676,
+  "zip_asset": 630100465,
+  "zip_sha256": "8442298B31F0E4AD749EDB9D981109AEB360A0989038D46E92E35719BE2025DB",
+  "exe_sha256": "D0EDFFD23AAA33EB5D31EB0A4B7917D33519AD36E6F32E949B5F551C170F20F5",
+  "anonymous_whole_download_native0": true,
+  "full1729manifest_and1730ZIPverified": true,
+  "ci": [
+    {
+      "label": "H5",
+      "head": "10428362c908223024147fcb9f6b44d947184292",
+      "run_id": 38121354627,
+      "status": "success",
+      "files": [
+        {
+          "path": ".local/sprint08/ci-c06-h5-01/0_linux.txt",
+          "bytes": 86644,
+          "sha256": "b3a5225c2731d496a42ea66ccd6c8939b0a5062aec49705c90f50fa723cf592e"
+        },
+        {
+          "path": ".local/sprint08/ci-c06-h5-01/linux/1_Set up job.txt",
+          "bytes": 2102,
+          "sha256": "3e5e9e4c58026b1d5a6c0a7c7e14abc1b12b8d8ba2298c82435b91cb661c3ed8"
+        },
+        {
+          "path": ".local/sprint08/ci-c06-h5-01/linux/10_Run actions_upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9.txt",
+          "bytes": 1744,
+          "sha256": "82f13f960dade5aecda30949930c16f679862cd69c9afffccbf6697e7045e0f4"
+        },
+        {
+          "path": ".local/sprint08/ci-c06-h5-01/linux/2_Run actions_checkout@3d3c42e5aac5ba805825da76410c181273ba90b1.txt",
+          "bytes": 11555,
+          "sha256": "54c464f02ca06842b72441769998abea6b78e3d0049c26664768475590a1c0c5"
+        },
+        {
+          "path": ".local/sprint08/ci-c06-h5-01/linux/20_Post Run actions_checkout@3d3c42e5aac5ba805825da76410c181273ba90b1.txt",
+          "bytes": 1773,
+          "sha256": "f55817e98f528f28fe2d87fb82301e41f655a92276d9e75909606536c1bfa31b"
+        },
+        {
+          "path": ".local/sprint08/ci-c06-h5-01/linux/21_Complete job.txt",
+          "bytes": 61,
+          "sha256": "4081bf1bfc216694e08da8b16f9cc4c408021a8584b747be2b1d6983ed4b2bec"
+        },
+        {
+          "path": ".local/sprint08/ci-c06-h5-01/linux/3_Pinned toolchain.txt",
+          "bytes": 769,
+          "sha256": "c1e882bf6aa9d14d83d2da4b70a1daf5dee49e7074cec5f9f1d3612c3fc14f20"
+        },
+        {
+          "path": ".local/sprint08/ci-c06-h5-01/linux/4_Run cargo fmt --all -- --check.txt",
+          "bytes": 238,
+          "sha256": "28eaf5a0447cb0d975a4ddf5944b6341c40512b743116e1fb7c3e1cfeaeda1dd"
+        },
+        {
+          "path": ".local/sprint08/ci-c06-h5-01/linux/5_Run cargo clippy --locked --all-targets -- -D warnings.txt",
+          "bytes": 23907,
+          "sha256": "8e1861748f1150bf9d9169cceecaf7a0cc74e927b704ce234d9c138cfeee3e5e"
+        },
+        {
+          "path": ".local/sprint08/ci-c06-h5-01/linux/6_Run cargo test --locked --all-targets.txt",
+          "bytes": 31187,
+          "sha256": "e963f18f2b57fd9d10d36ce631899792508f0219295b9ceaa7d0d997bb8ee93b"
+        },
+        {
+          "path": ".local/sprint08/ci-c06-h5-01/linux/7_XES oracle provenance guards.txt",
+          "bytes": 397,
+          "sha256": "5e48e7361324e882c873be24adad9517ebe3d29be6e5da5ae0f1ed320e2cd443"
+        },
+        {
+          "path": ".local/sprint08/ci-c06-h5-01/linux/8_Service method provenance guards.txt",
+          "bytes": 467,
+          "sha256": "7bdcc96a1db16ee525758c144a8cba8c9ed62bf7669a0244847a95cda532497c"
+        },
+        {
+          "path": ".local/sprint08/ci-c06-h5-01/linux/9_Build release and local health smoke.txt",
+          "bytes": 12477,
+          "sha256": "d0b76e3772254f1e4facc73c56b18a0aaa72cb3ba6039bf37419ae9d1928f467"
+        },
+        {
+          "path": ".local/sprint08/ci-c06-h5-01/linux/system.txt",
+          "bytes": 592,
+          "sha256": "5fc22fa3f80d1ad9be15a449db3b0128738f2396a1360d93dee9a86d6ff423b8"
+        }
+      ],
+      "ordinary97": true,
+      "ignored14": true,
+      "guards5and7": true,
+      "scope": "Full14available files read/hashed; actual Linuxfmt/clippy/release/ephemeralhealth. Not actualPG/Java/nativeWindows. PR run separately TDreview, not independently downloaded by this QA."
+    },
+    {
+      "label": "merge",
+      "head": "a79bbc57eed1981c73cb23338af62c6907921e5a",
+      "run_id": 38121558404,
+      "status": "success",
+      "files": [
+        {
+          "path": ".local/sprint08/ci-c06-merge01/0_linux.txt",
+          "bytes": 86539,
+          "sha256": "d6298bcdf020309b5d6b64099384d9845aff754de757d7fceec8943f98938ee6"
+        },
+        {
+          "path": ".local/sprint08/ci-c06-merge01/linux/1_Set up job.txt",
+          "bytes": 2107,
+          "sha256": "bdd6aaf70814871598d34618ccdd30e1d77f98ac0024142e5a77f20f2154652a"
+        },
+        {
+          "path": ".local/sprint08/ci-c06-merge01/linux/10_Run actions_upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9.txt",
+          "bytes": 1744,
+          "sha256": "a99b29ec44ca387198daad24a870176ce42c64576785cd5431553ff17ac90055"
+        },
+        {
+          "path": ".local/sprint08/ci-c06-merge01/linux/2_Run actions_checkout@3d3c42e5aac5ba805825da76410c181273ba90b1.txt",
+          "bytes": 11445,
+          "sha256": "81797e35dc397a9bc1ba497fef9394baefda183b7baf4f2197c303f9d97c478b"
+        },
+        {
+          "path": ".local/sprint08/ci-c06-merge01/linux/20_Post Run actions_checkout@3d3c42e5aac5ba805825da76410c181273ba90b1.txt",
+          "bytes": 1773,
+          "sha256": "f274eed321ae3d928a704bd30d9779c381729d3396f8a075d8e7af6b902e2e45"
+        },
+        {
+          "path": ".local/sprint08/ci-c06-merge01/linux/21_Complete job.txt",
+          "bytes": 61,
+          "sha256": "2dcbcef8658bc59cd232a83b920a3ef209d4901938a8f3aa6ac3021c9bb5db67"
+        },
+        {
+          "path": ".local/sprint08/ci-c06-merge01/linux/3_Pinned toolchain.txt",
+          "bytes": 769,
+          "sha256": "f823d9c81349cc51006820bf896f6ad6703b35df78af6d6585d21bc8c39c8400"
+        },
+        {
+          "path": ".local/sprint08/ci-c06-merge01/linux/4_Run cargo fmt --all -- --check.txt",
+          "bytes": 238,
+          "sha256": "0dd6d2fc189c449cbcbaa28c54629fc94ac4ddd9e500d98bfa6b1d1041e567e1"
+        },
+        {
+          "path": ".local/sprint08/ci-c06-merge01/linux/5_Run cargo clippy --locked --all-targets -- -D warnings.txt",
+          "bytes": 23907,
+          "sha256": "342ca65eca195155fcdedcc4042bf84258a0363d57d7598fa02ba168dc09f437"
+        },
+        {
+          "path": ".local/sprint08/ci-c06-merge01/linux/6_Run cargo test --locked --all-targets.txt",
+          "bytes": 31187,
+          "sha256": "05c1359e85488c4ba16169d2dad37d202487433cfafc338b2d04a4a56632e660"
+        },
+        {
+          "path": ".local/sprint08/ci-c06-merge01/linux/7_XES oracle provenance guards.txt",
+          "bytes": 397,
+          "sha256": "3ac7bcaa41aebb1450adc80da36f345bc806366af0dc8279e3c51267ef4049df"
+        },
+        {
+          "path": ".local/sprint08/ci-c06-merge01/linux/8_Service method provenance guards.txt",
+          "bytes": 467,
+          "sha256": "2a0f365d0618f889990d401308145017eaae85b46614c5c5858bb890687b4387"
+        },
+        {
+          "path": ".local/sprint08/ci-c06-merge01/linux/9_Build release and local health smoke.txt",
+          "bytes": 12477,
+          "sha256": "dd4868bae2416b97383e94d5b463215b26e89eaedee4078b120892d38b3f8e62"
+        },
+        {
+          "path": ".local/sprint08/ci-c06-merge01/linux/system.txt",
+          "bytes": 581,
+          "sha256": "231dcf7022c3b5281a459c69c8e78280aeb0cf9d1a49f123e0fdb677d426eff4"
+        }
+      ],
+      "ordinary97": true,
+      "ignored14": true,
+      "guards5and7": true,
+      "scope": "Full14available files read/hashed; actual Linuxfmt/clippy/release/ephemeralhealth. Not actualPG/Java/nativeWindows. PR run separately TDreview, not independently downloaded by this QA."
+    }
+  ],
+  "inputs": [
+    {
+      "path": "C:/Users/alikh/OneDrive/Documents/ChatGPT/ProcessMining/.local/sprint08/qa/c06-public01/archive-proof.json",
+      "bytes": 450,
+      "sha256": "fcf9c8d5a613b4408c3df860cc6d461dc0107b568dcf87c5d2af12abc1436b70"
+    },
+    {
+      "path": "C:/Users/alikh/OneDrive/Documents/ChatGPT/ProcessMining/.local/sprint08/qa/c06-public01/zip-entry-proof.json",
+      "bytes": 94,
+      "sha256": "686bce02b29ae377780bee48ef1d293ed9db45a36d88cd0131f41278671e7fee"
+    },
+    {
+      "path": "C:/Users/alikh/OneDrive/Documents/ChatGPT/ProcessMining/.local/sprint08/qa/c06-public01/browser03-report.json",
+      "bytes": 532,
+      "sha256": "821c27a41ca6911ce1de1e6279cafa28056eca691555297916715085958c8064"
+    },
+    {
+      "path": "C:/Users/alikh/OneDrive/Documents/ChatGPT/ProcessMining/.local/sprint08/qa/c06-public01/browser03-export.json",
+      "bytes": 2347,
+      "sha256": "1aec758b4649d3af80880fcc586353bc54d7ee150ef0a4d8ecaf4263b8ec024e"
+    },
+    {
+      "path": "C:/Users/alikh/OneDrive/Documents/ChatGPT/ProcessMining/.local/sprint08/qa/c06-public01/human-readonly02.json",
+      "bytes": 1265,
+      "sha256": "be587f49b2967dd69d962ceaa018d7471bdadd6cf56b94b2a2b7fe26b56e8b63"
+    },
+    {
+      "path": "C:/Users/alikh/OneDrive/Documents/ChatGPT/ProcessMining/.local/sprint08/qa/c06-public01/protected-readonly03.json",
+      "bytes": 2177,
+      "sha256": "014d4457280175275db1f16ed163dc7089c5300dc8b5e981094bd1e55ff9b4a4"
+    },
+    {
+      "path": "C:/Users/alikh/OneDrive/Documents/ChatGPT/ProcessMining/.local/sprint08/qa/c06-public01/protected-pg04.json",
+      "bytes": 405,
+      "sha256": "c646c3716cf513d2daa947a09599b86a923ab6158b023cd14aac49a86ba7032a"
+    },
+    {
+      "path": "C:/Users/alikh/OneDrive/Documents/ChatGPT/ProcessMining/.local/sprint08/qa/c06-public01/identity-3068.json",
+      "bytes": 362,
+      "sha256": "d1b8ed480cd7afaf4d196cf26f521b25fec4829a71d319ed560646a58c5f87e5"
+    },
+    {
+      "path": "C:/Users/alikh/OneDrive/Documents/ChatGPT/ProcessMining/.local/sprint08/qa/c06-public01/identity-5447.json",
+      "bytes": 380,
+      "sha256": "f9405e36af7bede5b1d6debfa870a33210ec604f7fb813d1f999638157365e7e"
+    },
+    {
+      "path": "C:/Users/alikh/OneDrive/Documents/ChatGPT/ProcessMining/.local/sprint08/qa/c06-public01/checksum.txt",
+      "bytes": 115,
+      "sha256": "6a9a4a6da846a6babebca04094b7fb980d81e1f815cb7cd30e0d30d3efcf7648"
+    },
+    {
+      "path": "C:/Users/alikh/OneDrive/Documents/ChatGPT/ProcessMining/.local/sprint08/qa/c06-public01/public-release.json",
+      "bytes": 11850,
+      "sha256": "8206eb9f5df70cd039f0111e7a0d1f55d0d6ed84d20cf4835cf73f6a01ffbc6b"
+    },
+    {
+      "path": "C:/Users/alikh/OneDrive/Documents/ChatGPT/ProcessMining/.local/sprint08/qa/c06-public01/start.process.json",
+      "bytes": 245,
+      "sha256": "d0c2d535efe1bfc0041be21a76db67470a1ca1754752416deb0dd27480c1031e"
+    }
+  ],
+  "actual_browser": {
+    "started_utc": "2026-10-11T07:35:28.577Z",
+    "checks": [
+      "existing synthetic QA login after actual browser03 setup303",
+      "native browser upload exact counts variants/sourceSHA/UTCdate",
+      "actual metadata date/state visible"
+    ],
+    "errors": [],
+    "external": [],
+    "browser_version": "155.0.8059.27",
+    "export_sha256": "1aec758b4649d3af80880fcc586353bc54d7ee150ef0a4d8ecaf4263b8ec024e",
+    "created_at": "2026-10-11T07:35:29.988643700Z",
+    "log_id": "log-1",
+    "pass": true,
+    "ended_utc": "2026-10-11T07:35:30.581Z"
+  },
+  "local_binding": {
+    "path": "flw/evidence/sprint-08-qa-c06-binding-supplement.json",
+    "bytes": 7607,
+    "sha256": "4dccbc5fc23acdae5b21e6fdbb9dca15026e9f9b147b38914f4d7521c338d488"
+  },
+  "history": [
+    "Browser01 guessed button explicit type; timeout beforePOST. Browser02 source-correct setup submitted303 then upload assumption on projects page timed out; account creation actual succeeded. Browser03 existing account login→rootupload actualPASS3; inherited check label mentions03setup but setup was02, this supplement binds explicitly.",
+    "PowerShell selector-repair quoting parse error occurred before execution, corrected privateNode substitution.",
+    "Initial human-readonly verifier used automaticJSONdate conversion causing false UTCticks mismatch; refused without mutation. DateKindString exact ticks correction02PASS.",
+    "protected-readonly03 PG loop used nonexistent postgres field; PGclaim excluded. Actual postgres_observations field/count7/currentCIM checked in protected-pg04. Sixactualappchecks03 remainvalid."
+  ],
+  "limitations": [
+    "Native5long-lived parent lifetime exit pending; health is not exit0.",
+    "No human login/setupPOST/SQL and no protected data mutations. Named PID/UTC/exehash/health/archive proof is not full datadir/userdata byte conservation.",
+    "Independent H5push/mergepush full28available CIlogs; PRcompleted success relies on named independentTDreview, not ownPRraw replay.",
+    "A08 selected delivery observed gates supported; final metadata completion CI still pending. R2-04 requires separate criterion decision, full R2–R5 remain OPEN/BLOCKED.",
+    "P5 unactivated and no HTTP-response-loss test performed."
+  ]
+}
