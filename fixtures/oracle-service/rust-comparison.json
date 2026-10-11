@@ -1,0 +1,1527 @@
+{
+  "projection": "Selected synthetic fixed-corpus observations; source/jars/classes/private streams excluded",
+  "original_raw_sha256": "fd1083d2f45710be35c996fa7671870879e3e19190982aaa61bfd424bbf82506",
+  "schema": 1,
+  "scope": "Extracted unchanged methods only; strict Rust admission divergences; no whole service parity",
+  "comparator_sha256": "351fe43babe9b65e5d6d1640c4c36fce241325b855ac3b5cfe096e5dd4e6c9c1",
+  "corpus_sha256": "49af9fb9c981ba77a49190211a1da1fbe1d9f9c4a595fc616754a2813f607b89",
+  "reference_sha256": "25152fdb82247a03ed03a503be751d80ec99c6526b95d7cbfe0a32ba77cbad7b",
+  "observer_exe_sha256": "ed86c6fc5644a3b083094f8f1eebfb2e81ebc301e28c37eb2696f04dc5789086",
+  "results": [
+    {
+      "id": "mixed",
+      "manual_pass": true,
+      "compatibility": "supported-policy-equality",
+      "rust": {
+        "preview": {
+          "changes": [
+            {
+              "action": "default_lifecycle",
+              "case_index": 0,
+              "event_index": 0,
+              "reasons": [
+                "missing_lifecycle"
+              ]
+            },
+            {
+              "action": "default_lifecycle",
+              "case_index": 0,
+              "event_index": 1,
+              "reasons": [
+                "missing_lifecycle"
+              ]
+            },
+            {
+              "action": "remove_event",
+              "case_index": 0,
+              "event_index": 1,
+              "reasons": [
+                "missing_activity"
+              ]
+            },
+            {
+              "action": "default_lifecycle",
+              "case_index": 0,
+              "event_index": 2,
+              "reasons": [
+                "missing_lifecycle"
+              ]
+            },
+            {
+              "action": "remove_event",
+              "case_index": 0,
+              "event_index": 2,
+              "reasons": [
+                "missing_timestamp"
+              ]
+            },
+            {
+              "action": "remove_event",
+              "case_index": 0,
+              "event_index": 3,
+              "reasons": [
+                "unsupported_lifecycle"
+              ]
+            },
+            {
+              "action": "remove_case",
+              "case_index": 1,
+              "event_index": null,
+              "reasons": [
+                "empty_case"
+              ]
+            }
+          ],
+          "fully_filtered": false,
+          "log": {
+            "cases": [
+              {
+                "events": [
+                  {
+                    "activity": "A",
+                    "lifecycle": "complete",
+                    "ordinal": 0,
+                    "timestamp": "2026-01-01T10:00:00Z"
+                  },
+                  {
+                    "activity": "D",
+                    "lifecycle": "START",
+                    "ordinal": 4,
+                    "timestamp": "2026-01-01T10:00:00Z"
+                  }
+                ],
+                "id": "case-0",
+                "name": "T"
+              }
+            ],
+            "name": "Service corpus",
+            "warnings": [
+              "Предварительный просмотр: исходные данные не изменены. Это не полный сервис Apromore."
+            ]
+          },
+          "policy": "apromore-validateLog-bbf24df-preview-v1",
+          "source_cases": 2,
+          "source_events": 5
+        },
+        "status": "ok"
+      },
+      "legacy": {
+        "id": "mixed",
+        "input_sha256": "d59d4c5655676b4afbd727face7b50e57fb6b60e79f66376c68c43c0d3b33322",
+        "status": "ok",
+        "exit_code": 0,
+        "launch_error": null,
+        "exception_class": null,
+        "before": {
+          "name": "Service corpus",
+          "cases": [
+            {
+              "trace_index": 0,
+              "name": "T",
+              "events": [
+                {
+                  "event_index": 0,
+                  "activity": "A",
+                  "lifecycle": null,
+                  "timestamp_millis": 1767261600000,
+                  "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                  "timestamp_attribute_value": "2026-01-01T10:00:00Z",
+                  "activity_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl",
+                  "lifecycle_attribute_type": null
+                },
+                {
+                  "event_index": 1,
+                  "activity": null,
+                  "lifecycle": null,
+                  "timestamp_millis": 1767261600000,
+                  "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                  "timestamp_attribute_value": "2026-01-01T10:00:00Z",
+                  "activity_attribute_type": null,
+                  "lifecycle_attribute_type": null
+                },
+                {
+                  "event_index": 2,
+                  "activity": "B",
+                  "lifecycle": null,
+                  "timestamp_millis": null,
+                  "timestamp_attribute_type": null,
+                  "timestamp_attribute_value": null,
+                  "activity_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl",
+                  "lifecycle_attribute_type": null
+                },
+                {
+                  "event_index": 3,
+                  "activity": "C",
+                  "lifecycle": "suspend",
+                  "timestamp_millis": 1767261600000,
+                  "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                  "timestamp_attribute_value": "2026-01-01T10:00:00Z",
+                  "activity_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl",
+                  "lifecycle_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl"
+                },
+                {
+                  "event_index": 4,
+                  "activity": "D",
+                  "lifecycle": "START",
+                  "timestamp_millis": 1767261600000,
+                  "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                  "timestamp_attribute_value": "2026-01-01T10:00:00Z",
+                  "activity_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl",
+                  "lifecycle_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl"
+                }
+              ]
+            },
+            {
+              "trace_index": 1,
+              "name": "Empty",
+              "events": []
+            }
+          ]
+        },
+        "after": {
+          "name": "Service corpus",
+          "cases": [
+            {
+              "trace_index": 0,
+              "name": "T",
+              "events": [
+                {
+                  "event_index": 0,
+                  "activity": "A",
+                  "lifecycle": "complete",
+                  "timestamp_millis": 1767261600000,
+                  "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                  "timestamp_attribute_value": "2026-01-01T10:00:00Z",
+                  "activity_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl",
+                  "lifecycle_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl"
+                },
+                {
+                  "event_index": 4,
+                  "activity": "D",
+                  "lifecycle": "START",
+                  "timestamp_millis": 1767261600000,
+                  "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                  "timestamp_attribute_value": "2026-01-01T10:00:00Z",
+                  "activity_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl",
+                  "lifecycle_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl"
+                }
+              ]
+            }
+          ]
+        },
+        "second": {
+          "name": "Service corpus",
+          "cases": [
+            {
+              "trace_index": 0,
+              "name": "T",
+              "events": [
+                {
+                  "event_index": 0,
+                  "activity": "A",
+                  "lifecycle": "complete",
+                  "timestamp_millis": 1767261600000,
+                  "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                  "timestamp_attribute_value": "2026-01-01T10:00:00Z",
+                  "activity_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl",
+                  "lifecycle_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl"
+                },
+                {
+                  "event_index": 4,
+                  "activity": "D",
+                  "lifecycle": "START",
+                  "timestamp_millis": 1767261600000,
+                  "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                  "timestamp_attribute_value": "2026-01-01T10:00:00Z",
+                  "activity_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl",
+                  "lifecycle_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl"
+                }
+              ]
+            }
+          ]
+        },
+        "actions": {
+          "defaulted_lifecycle": [
+            {
+              "trace_index": 0,
+              "event_index": 0
+            },
+            {
+              "trace_index": 0,
+              "event_index": 1
+            },
+            {
+              "trace_index": 0,
+              "event_index": 2
+            }
+          ],
+          "removed_events": [
+            {
+              "trace_index": 0,
+              "event_index": 1,
+              "reasons": [
+                "missing_name"
+              ]
+            },
+            {
+              "trace_index": 0,
+              "event_index": 2,
+              "reasons": [
+                "missing_timestamp"
+              ]
+            },
+            {
+              "trace_index": 0,
+              "event_index": 3,
+              "reasons": [
+                "unsupported_lifecycle"
+              ]
+            }
+          ],
+          "removed_traces": [
+            {
+              "trace_index": 1,
+              "reason": "empty_trace"
+            }
+          ]
+        },
+        "counts": {
+          "before": {
+            "traces": 2,
+            "events": 5
+          },
+          "after": {
+            "traces": 1,
+            "events": 2
+          },
+          "second": {
+            "traces": 1,
+            "events": 2
+          }
+        },
+        "same_log": true,
+        "idempotent": true,
+        "stdout_sha256": "b5d32ba79dcf364864c26c9e9613efc9b28065696d86f7b3cbfab73cf214c2a1",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "id": "case-lifecycle",
+      "manual_pass": true,
+      "compatibility": "supported-policy-equality",
+      "rust": {
+        "preview": {
+          "changes": [],
+          "fully_filtered": false,
+          "log": {
+            "cases": [
+              {
+                "events": [
+                  {
+                    "activity": "A",
+                    "lifecycle": "CoMpLeTe",
+                    "ordinal": 0,
+                    "timestamp": "2026-01-01T10:00:00Z"
+                  },
+                  {
+                    "activity": "B",
+                    "lifecycle": "sTaRt",
+                    "ordinal": 1,
+                    "timestamp": "2026-01-01T10:00:00Z"
+                  }
+                ],
+                "id": "case-0",
+                "name": "T"
+              }
+            ],
+            "name": "Service corpus",
+            "warnings": [
+              "Предварительный просмотр: исходные данные не изменены. Это не полный сервис Apromore."
+            ]
+          },
+          "policy": "apromore-validateLog-bbf24df-preview-v1",
+          "source_cases": 1,
+          "source_events": 2
+        },
+        "status": "ok"
+      },
+      "legacy": {
+        "id": "case-lifecycle",
+        "input_sha256": "9eddb56bb84a58906db2feeaa006dfb429459964f63d78e19a81561511ae13d8",
+        "status": "ok",
+        "exit_code": 0,
+        "launch_error": null,
+        "exception_class": null,
+        "before": {
+          "name": "Service corpus",
+          "cases": [
+            {
+              "trace_index": 0,
+              "name": "T",
+              "events": [
+                {
+                  "event_index": 0,
+                  "activity": "A",
+                  "lifecycle": "CoMpLeTe",
+                  "timestamp_millis": 1767261600000,
+                  "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                  "timestamp_attribute_value": "2026-01-01T10:00:00Z",
+                  "activity_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl",
+                  "lifecycle_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl"
+                },
+                {
+                  "event_index": 1,
+                  "activity": "B",
+                  "lifecycle": "sTaRt",
+                  "timestamp_millis": 1767261600000,
+                  "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                  "timestamp_attribute_value": "2026-01-01T10:00:00Z",
+                  "activity_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl",
+                  "lifecycle_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl"
+                }
+              ]
+            }
+          ]
+        },
+        "after": {
+          "name": "Service corpus",
+          "cases": [
+            {
+              "trace_index": 0,
+              "name": "T",
+              "events": [
+                {
+                  "event_index": 0,
+                  "activity": "A",
+                  "lifecycle": "CoMpLeTe",
+                  "timestamp_millis": 1767261600000,
+                  "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                  "timestamp_attribute_value": "2026-01-01T10:00:00Z",
+                  "activity_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl",
+                  "lifecycle_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl"
+                },
+                {
+                  "event_index": 1,
+                  "activity": "B",
+                  "lifecycle": "sTaRt",
+                  "timestamp_millis": 1767261600000,
+                  "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                  "timestamp_attribute_value": "2026-01-01T10:00:00Z",
+                  "activity_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl",
+                  "lifecycle_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl"
+                }
+              ]
+            }
+          ]
+        },
+        "second": {
+          "name": "Service corpus",
+          "cases": [
+            {
+              "trace_index": 0,
+              "name": "T",
+              "events": [
+                {
+                  "event_index": 0,
+                  "activity": "A",
+                  "lifecycle": "CoMpLeTe",
+                  "timestamp_millis": 1767261600000,
+                  "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                  "timestamp_attribute_value": "2026-01-01T10:00:00Z",
+                  "activity_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl",
+                  "lifecycle_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl"
+                },
+                {
+                  "event_index": 1,
+                  "activity": "B",
+                  "lifecycle": "sTaRt",
+                  "timestamp_millis": 1767261600000,
+                  "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                  "timestamp_attribute_value": "2026-01-01T10:00:00Z",
+                  "activity_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl",
+                  "lifecycle_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl"
+                }
+              ]
+            }
+          ]
+        },
+        "actions": {
+          "defaulted_lifecycle": [],
+          "removed_events": [],
+          "removed_traces": []
+        },
+        "counts": {
+          "before": {
+            "traces": 1,
+            "events": 2
+          },
+          "after": {
+            "traces": 1,
+            "events": 2
+          },
+          "second": {
+            "traces": 1,
+            "events": 2
+          }
+        },
+        "same_log": true,
+        "idempotent": true,
+        "stdout_sha256": "dfc25a0d2adc05bfd4d7b96ae05f51d1d04eaa5c7ac92ae6bdf6599d5dbf53d9",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "id": "whitespace-lifecycle",
+      "manual_pass": true,
+      "compatibility": "supported-policy-equality",
+      "rust": {
+        "preview": {
+          "changes": [
+            {
+              "action": "remove_event",
+              "case_index": 0,
+              "event_index": 0,
+              "reasons": [
+                "unsupported_lifecycle"
+              ]
+            },
+            {
+              "action": "remove_event",
+              "case_index": 0,
+              "event_index": 1,
+              "reasons": [
+                "unsupported_lifecycle"
+              ]
+            },
+            {
+              "action": "remove_case",
+              "case_index": 0,
+              "event_index": null,
+              "reasons": [
+                "empty_case"
+              ]
+            }
+          ],
+          "fully_filtered": true,
+          "log": {
+            "cases": [],
+            "name": "Service corpus",
+            "warnings": [
+              "Предварительный просмотр: исходные данные не изменены. Это не полный сервис Apromore."
+            ]
+          },
+          "policy": "apromore-validateLog-bbf24df-preview-v1",
+          "source_cases": 1,
+          "source_events": 2
+        },
+        "status": "ok"
+      },
+      "legacy": {
+        "id": "whitespace-lifecycle",
+        "input_sha256": "8e217e238dfa015aab524c25db805151a3011c7f185131e70b98da5b0c4b1bbf",
+        "status": "ok",
+        "exit_code": 0,
+        "launch_error": null,
+        "exception_class": null,
+        "before": {
+          "name": "Service corpus",
+          "cases": [
+            {
+              "trace_index": 0,
+              "name": "T",
+              "events": [
+                {
+                  "event_index": 0,
+                  "activity": "A",
+                  "lifecycle": " complete ",
+                  "timestamp_millis": 1767261600000,
+                  "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                  "timestamp_attribute_value": "2026-01-01T10:00:00Z",
+                  "activity_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl",
+                  "lifecycle_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl"
+                },
+                {
+                  "event_index": 1,
+                  "activity": "B",
+                  "lifecycle": "",
+                  "timestamp_millis": 1767261600000,
+                  "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                  "timestamp_attribute_value": "2026-01-01T10:00:00Z",
+                  "activity_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl",
+                  "lifecycle_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl"
+                }
+              ]
+            }
+          ]
+        },
+        "after": {
+          "name": "Service corpus",
+          "cases": []
+        },
+        "second": {
+          "name": "Service corpus",
+          "cases": []
+        },
+        "actions": {
+          "defaulted_lifecycle": [],
+          "removed_events": [
+            {
+              "trace_index": 0,
+              "event_index": 0,
+              "reasons": [
+                "unsupported_lifecycle"
+              ]
+            },
+            {
+              "trace_index": 0,
+              "event_index": 1,
+              "reasons": [
+                "unsupported_lifecycle"
+              ]
+            }
+          ],
+          "removed_traces": [
+            {
+              "trace_index": 0,
+              "reason": "empty_trace"
+            }
+          ]
+        },
+        "counts": {
+          "before": {
+            "traces": 1,
+            "events": 2
+          },
+          "after": {
+            "traces": 0,
+            "events": 0
+          },
+          "second": {
+            "traces": 0,
+            "events": 0
+          }
+        },
+        "same_log": true,
+        "idempotent": true,
+        "stdout_sha256": "61e8c04bfa6e7568b03561db1e179179b62bd36c0166ce443ed084955dab78ca",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "id": "all-removed",
+      "manual_pass": true,
+      "compatibility": "supported-policy-equality",
+      "rust": {
+        "preview": {
+          "changes": [
+            {
+              "action": "default_lifecycle",
+              "case_index": 0,
+              "event_index": 0,
+              "reasons": [
+                "missing_lifecycle"
+              ]
+            },
+            {
+              "action": "remove_event",
+              "case_index": 0,
+              "event_index": 0,
+              "reasons": [
+                "missing_activity",
+                "missing_timestamp"
+              ]
+            },
+            {
+              "action": "remove_case",
+              "case_index": 0,
+              "event_index": null,
+              "reasons": [
+                "empty_case"
+              ]
+            },
+            {
+              "action": "remove_case",
+              "case_index": 1,
+              "event_index": null,
+              "reasons": [
+                "empty_case"
+              ]
+            }
+          ],
+          "fully_filtered": true,
+          "log": {
+            "cases": [],
+            "name": "Service corpus",
+            "warnings": [
+              "Предварительный просмотр: исходные данные не изменены. Это не полный сервис Apromore."
+            ]
+          },
+          "policy": "apromore-validateLog-bbf24df-preview-v1",
+          "source_cases": 2,
+          "source_events": 1
+        },
+        "status": "ok"
+      },
+      "legacy": {
+        "id": "all-removed",
+        "input_sha256": "db7bda0413e4e45f4470a39e9afae58c25beda7bb199afaa123b949bf855ff2c",
+        "status": "ok",
+        "exit_code": 0,
+        "launch_error": null,
+        "exception_class": null,
+        "before": {
+          "name": "Service corpus",
+          "cases": [
+            {
+              "trace_index": 0,
+              "name": "T",
+              "events": [
+                {
+                  "event_index": 0,
+                  "activity": null,
+                  "lifecycle": null,
+                  "timestamp_millis": null,
+                  "timestamp_attribute_type": null,
+                  "timestamp_attribute_value": null,
+                  "activity_attribute_type": null,
+                  "lifecycle_attribute_type": null
+                }
+              ]
+            },
+            {
+              "trace_index": 1,
+              "name": "Empty",
+              "events": []
+            }
+          ]
+        },
+        "after": {
+          "name": "Service corpus",
+          "cases": []
+        },
+        "second": {
+          "name": "Service corpus",
+          "cases": []
+        },
+        "actions": {
+          "defaulted_lifecycle": [
+            {
+              "trace_index": 0,
+              "event_index": 0
+            }
+          ],
+          "removed_events": [
+            {
+              "trace_index": 0,
+              "event_index": 0,
+              "reasons": [
+                "missing_name",
+                "missing_timestamp"
+              ]
+            }
+          ],
+          "removed_traces": [
+            {
+              "trace_index": 0,
+              "reason": "empty_trace"
+            },
+            {
+              "trace_index": 1,
+              "reason": "empty_trace"
+            }
+          ]
+        },
+        "counts": {
+          "before": {
+            "traces": 2,
+            "events": 1
+          },
+          "after": {
+            "traces": 0,
+            "events": 0
+          },
+          "second": {
+            "traces": 0,
+            "events": 0
+          }
+        },
+        "same_log": true,
+        "idempotent": true,
+        "stdout_sha256": "49c017b4e6b1fd8987d36bb34e79c01867c8028f1219695929d424ab3c7f2cda",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "id": "source-order",
+      "manual_pass": true,
+      "compatibility": "supported-policy-equality",
+      "rust": {
+        "preview": {
+          "changes": [
+            {
+              "action": "remove_case",
+              "case_index": 0,
+              "event_index": null,
+              "reasons": [
+                "empty_case"
+              ]
+            },
+            {
+              "action": "default_lifecycle",
+              "case_index": 1,
+              "event_index": 0,
+              "reasons": [
+                "missing_lifecycle"
+              ]
+            },
+            {
+              "action": "default_lifecycle",
+              "case_index": 1,
+              "event_index": 1,
+              "reasons": [
+                "missing_lifecycle"
+              ]
+            }
+          ],
+          "fully_filtered": false,
+          "log": {
+            "cases": [
+              {
+                "events": [
+                  {
+                    "activity": "B",
+                    "lifecycle": "complete",
+                    "ordinal": 0,
+                    "timestamp": "2026-01-01T10:00:02Z"
+                  },
+                  {
+                    "activity": "A",
+                    "lifecycle": "complete",
+                    "ordinal": 1,
+                    "timestamp": "2026-01-01T10:00:00Z"
+                  }
+                ],
+                "id": "case-1",
+                "name": "Kept"
+              }
+            ],
+            "name": "Service corpus",
+            "warnings": [
+              "Предварительный просмотр: исходные данные не изменены. Это не полный сервис Apromore."
+            ]
+          },
+          "policy": "apromore-validateLog-bbf24df-preview-v1",
+          "source_cases": 2,
+          "source_events": 2
+        },
+        "status": "ok"
+      },
+      "legacy": {
+        "id": "source-order",
+        "input_sha256": "db3656562af7381b980e54405208df65ec4645d67846997e639b91ec0e8ba7f6",
+        "status": "ok",
+        "exit_code": 0,
+        "launch_error": null,
+        "exception_class": null,
+        "before": {
+          "name": "Service corpus",
+          "cases": [
+            {
+              "trace_index": 0,
+              "name": "Empty",
+              "events": []
+            },
+            {
+              "trace_index": 1,
+              "name": "Kept",
+              "events": [
+                {
+                  "event_index": 0,
+                  "activity": "B",
+                  "lifecycle": null,
+                  "timestamp_millis": 1767261602000,
+                  "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                  "timestamp_attribute_value": "2026-01-01T10:00:02Z",
+                  "activity_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl",
+                  "lifecycle_attribute_type": null
+                },
+                {
+                  "event_index": 1,
+                  "activity": "A",
+                  "lifecycle": null,
+                  "timestamp_millis": 1767261600000,
+                  "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                  "timestamp_attribute_value": "2026-01-01T10:00:00Z",
+                  "activity_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl",
+                  "lifecycle_attribute_type": null
+                }
+              ]
+            }
+          ]
+        },
+        "after": {
+          "name": "Service corpus",
+          "cases": [
+            {
+              "trace_index": 1,
+              "name": "Kept",
+              "events": [
+                {
+                  "event_index": 0,
+                  "activity": "B",
+                  "lifecycle": "complete",
+                  "timestamp_millis": 1767261602000,
+                  "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                  "timestamp_attribute_value": "2026-01-01T10:00:02Z",
+                  "activity_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl",
+                  "lifecycle_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl"
+                },
+                {
+                  "event_index": 1,
+                  "activity": "A",
+                  "lifecycle": "complete",
+                  "timestamp_millis": 1767261600000,
+                  "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                  "timestamp_attribute_value": "2026-01-01T10:00:00Z",
+                  "activity_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl",
+                  "lifecycle_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl"
+                }
+              ]
+            }
+          ]
+        },
+        "second": {
+          "name": "Service corpus",
+          "cases": [
+            {
+              "trace_index": 1,
+              "name": "Kept",
+              "events": [
+                {
+                  "event_index": 0,
+                  "activity": "B",
+                  "lifecycle": "complete",
+                  "timestamp_millis": 1767261602000,
+                  "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                  "timestamp_attribute_value": "2026-01-01T10:00:02Z",
+                  "activity_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl",
+                  "lifecycle_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl"
+                },
+                {
+                  "event_index": 1,
+                  "activity": "A",
+                  "lifecycle": "complete",
+                  "timestamp_millis": 1767261600000,
+                  "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                  "timestamp_attribute_value": "2026-01-01T10:00:00Z",
+                  "activity_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl",
+                  "lifecycle_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl"
+                }
+              ]
+            }
+          ]
+        },
+        "actions": {
+          "defaulted_lifecycle": [
+            {
+              "trace_index": 1,
+              "event_index": 0
+            },
+            {
+              "trace_index": 1,
+              "event_index": 1
+            }
+          ],
+          "removed_events": [],
+          "removed_traces": [
+            {
+              "trace_index": 0,
+              "reason": "empty_trace"
+            }
+          ]
+        },
+        "counts": {
+          "before": {
+            "traces": 2,
+            "events": 2
+          },
+          "after": {
+            "traces": 1,
+            "events": 2
+          },
+          "second": {
+            "traces": 1,
+            "events": 2
+          }
+        },
+        "same_log": true,
+        "idempotent": true,
+        "stdout_sha256": "282cb07a189d52d65c544470c8b21e708d33433b8ba36c6f604763eb10cad241",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "id": "empty-name",
+      "manual_pass": true,
+      "compatibility": "explicit-admission-divergence",
+      "rust": {
+        "error": {
+          "case_index": 0,
+          "code": "empty_activity",
+          "event_index": 0,
+          "message": "Activity должна быть непустой строкой."
+        },
+        "status": "rejected"
+      },
+      "legacy": {
+        "id": "empty-name",
+        "input_sha256": "d1f49d013745efc39656bc5d9f3233204dbca185bc7a78cdaa4d1e104ba1fd05",
+        "status": "ok",
+        "exit_code": 0,
+        "launch_error": null,
+        "exception_class": null,
+        "before": {
+          "name": "Service corpus",
+          "cases": [
+            {
+              "trace_index": 0,
+              "name": "T",
+              "events": [
+                {
+                  "event_index": 0,
+                  "activity": "",
+                  "lifecycle": null,
+                  "timestamp_millis": 1767261600000,
+                  "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                  "timestamp_attribute_value": "2026-01-01T10:00:00Z",
+                  "activity_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl",
+                  "lifecycle_attribute_type": null
+                }
+              ]
+            }
+          ]
+        },
+        "after": {
+          "name": "Service corpus",
+          "cases": [
+            {
+              "trace_index": 0,
+              "name": "T",
+              "events": [
+                {
+                  "event_index": 0,
+                  "activity": "",
+                  "lifecycle": "complete",
+                  "timestamp_millis": 1767261600000,
+                  "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                  "timestamp_attribute_value": "2026-01-01T10:00:00Z",
+                  "activity_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl",
+                  "lifecycle_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl"
+                }
+              ]
+            }
+          ]
+        },
+        "second": {
+          "name": "Service corpus",
+          "cases": [
+            {
+              "trace_index": 0,
+              "name": "T",
+              "events": [
+                {
+                  "event_index": 0,
+                  "activity": "",
+                  "lifecycle": "complete",
+                  "timestamp_millis": 1767261600000,
+                  "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                  "timestamp_attribute_value": "2026-01-01T10:00:00Z",
+                  "activity_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl",
+                  "lifecycle_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl"
+                }
+              ]
+            }
+          ]
+        },
+        "actions": {
+          "defaulted_lifecycle": [
+            {
+              "trace_index": 0,
+              "event_index": 0
+            }
+          ],
+          "removed_events": [],
+          "removed_traces": []
+        },
+        "counts": {
+          "before": {
+            "traces": 1,
+            "events": 1
+          },
+          "after": {
+            "traces": 1,
+            "events": 1
+          },
+          "second": {
+            "traces": 1,
+            "events": 1
+          }
+        },
+        "same_log": true,
+        "idempotent": true,
+        "stdout_sha256": "49ef7ce614d67ba4ae4ba6a5abcc428ed41b8882453f082919b9d9eac59affef",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "id": "wrong-time-type",
+      "manual_pass": true,
+      "compatibility": "explicit-admission-divergence",
+      "rust": {
+        "error": {
+          "case_index": 0,
+          "code": "invalid_timestamp",
+          "event_index": 0,
+          "message": "Timestamp должен быть ISO 8601 с явно указанным часовым поясом."
+        },
+        "status": "rejected"
+      },
+      "legacy": {
+        "id": "wrong-time-type",
+        "input_sha256": "a4cd102612a9a54189bc74fa8c377d0c09b57eaf0f733003e6044ae6c86181eb",
+        "status": "ok",
+        "exit_code": 0,
+        "launch_error": null,
+        "exception_class": null,
+        "before": {
+          "name": "Service corpus",
+          "cases": [
+            {
+              "trace_index": 0,
+              "name": "T",
+              "events": [
+                {
+                  "event_index": 0,
+                  "activity": "A",
+                  "lifecycle": null,
+                  "timestamp_millis": null,
+                  "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl",
+                  "timestamp_attribute_value": "2026-01-01T10:00:00Z",
+                  "activity_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl",
+                  "lifecycle_attribute_type": null
+                }
+              ]
+            }
+          ]
+        },
+        "after": {
+          "name": "Service corpus",
+          "cases": [
+            {
+              "trace_index": 0,
+              "name": "T",
+              "events": [
+                {
+                  "event_index": 0,
+                  "activity": "A",
+                  "lifecycle": "complete",
+                  "timestamp_millis": null,
+                  "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl",
+                  "timestamp_attribute_value": "2026-01-01T10:00:00Z",
+                  "activity_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl",
+                  "lifecycle_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl"
+                }
+              ]
+            }
+          ]
+        },
+        "second": {
+          "name": "Service corpus",
+          "cases": [
+            {
+              "trace_index": 0,
+              "name": "T",
+              "events": [
+                {
+                  "event_index": 0,
+                  "activity": "A",
+                  "lifecycle": "complete",
+                  "timestamp_millis": null,
+                  "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl",
+                  "timestamp_attribute_value": "2026-01-01T10:00:00Z",
+                  "activity_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl",
+                  "lifecycle_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl"
+                }
+              ]
+            }
+          ]
+        },
+        "actions": {
+          "defaulted_lifecycle": [
+            {
+              "trace_index": 0,
+              "event_index": 0
+            }
+          ],
+          "removed_events": [],
+          "removed_traces": []
+        },
+        "counts": {
+          "before": {
+            "traces": 1,
+            "events": 1
+          },
+          "after": {
+            "traces": 1,
+            "events": 1
+          },
+          "second": {
+            "traces": 1,
+            "events": 1
+          }
+        },
+        "same_log": true,
+        "idempotent": true,
+        "stdout_sha256": "ef738124326647f3be16ec1088c0b64d2950b5aca2ffa75b093a55c96ba6131d",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "id": "wrong-name-type",
+      "manual_pass": true,
+      "compatibility": "explicit-admission-divergence",
+      "rust": {
+        "error": {
+          "case_index": 0,
+          "code": "empty_activity",
+          "event_index": 0,
+          "message": "Activity должна быть непустой строкой."
+        },
+        "status": "rejected"
+      },
+      "legacy": {
+        "id": "wrong-name-type",
+        "input_sha256": "c605771a99359b08feeff15673f8cbf0ca1b97cc29c3815fecc893c97df73236",
+        "status": "ok",
+        "exit_code": 0,
+        "launch_error": null,
+        "exception_class": null,
+        "before": {
+          "name": "Service corpus",
+          "cases": [
+            {
+              "trace_index": 0,
+              "name": "T",
+              "events": [
+                {
+                  "event_index": 0,
+                  "activity": "7",
+                  "lifecycle": null,
+                  "timestamp_millis": 1767261600000,
+                  "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                  "timestamp_attribute_value": "2026-01-01T10:00:00Z",
+                  "activity_attribute_type": "org.deckfour.xes.model.impl.XAttributeDiscreteImpl",
+                  "lifecycle_attribute_type": null
+                }
+              ]
+            }
+          ]
+        },
+        "after": {
+          "name": "Service corpus",
+          "cases": [
+            {
+              "trace_index": 0,
+              "name": "T",
+              "events": [
+                {
+                  "event_index": 0,
+                  "activity": "7",
+                  "lifecycle": "complete",
+                  "timestamp_millis": 1767261600000,
+                  "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                  "timestamp_attribute_value": "2026-01-01T10:00:00Z",
+                  "activity_attribute_type": "org.deckfour.xes.model.impl.XAttributeDiscreteImpl",
+                  "lifecycle_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl"
+                }
+              ]
+            }
+          ]
+        },
+        "second": {
+          "name": "Service corpus",
+          "cases": [
+            {
+              "trace_index": 0,
+              "name": "T",
+              "events": [
+                {
+                  "event_index": 0,
+                  "activity": "7",
+                  "lifecycle": "complete",
+                  "timestamp_millis": 1767261600000,
+                  "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                  "timestamp_attribute_value": "2026-01-01T10:00:00Z",
+                  "activity_attribute_type": "org.deckfour.xes.model.impl.XAttributeDiscreteImpl",
+                  "lifecycle_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl"
+                }
+              ]
+            }
+          ]
+        },
+        "actions": {
+          "defaulted_lifecycle": [
+            {
+              "trace_index": 0,
+              "event_index": 0
+            }
+          ],
+          "removed_events": [],
+          "removed_traces": []
+        },
+        "counts": {
+          "before": {
+            "traces": 1,
+            "events": 1
+          },
+          "after": {
+            "traces": 1,
+            "events": 1
+          },
+          "second": {
+            "traces": 1,
+            "events": 1
+          }
+        },
+        "same_log": true,
+        "idempotent": true,
+        "stdout_sha256": "eb966d0c6331505ca79fd703bb1e05cf763066a32e5475e5570696573ba6e7b5",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "id": "invalid-date",
+      "manual_pass": true,
+      "compatibility": "explicit-admission-divergence",
+      "rust": {
+        "error": {
+          "case_index": 0,
+          "code": "invalid_timestamp",
+          "event_index": 0,
+          "message": "Timestamp должен быть ISO 8601 с явно указанным часовым поясом."
+        },
+        "status": "rejected"
+      },
+      "legacy": {
+        "id": "invalid-date",
+        "input_sha256": "b84e5207c271528ed5a9648220e5dc78cdaba8a47151bd7ed0364b8020d9bc61",
+        "status": "rejected",
+        "exit_code": 1,
+        "launch_error": null,
+        "exception_class": "java.util.EmptyStackException",
+        "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderr_sha256": "0698605259efe31d5ccd9cc327fa458789eb7e3adc9a195da2ffaf1e8d89091e"
+      }
+    },
+    {
+      "id": "duplicate-name",
+      "manual_pass": true,
+      "compatibility": "explicit-admission-divergence",
+      "rust": {
+        "error": {
+          "case_index": 0,
+          "code": "duplicate_key",
+          "event_index": 0,
+          "message": "Повторное concept:name у события."
+        },
+        "status": "rejected"
+      },
+      "legacy": {
+        "id": "duplicate-name",
+        "input_sha256": "e8a018f9f8fb09d399bcc2940495741cbd07bf3fb6e5eae5e60c2fd7838c244d",
+        "status": "ok",
+        "exit_code": 0,
+        "launch_error": null,
+        "exception_class": null,
+        "before": {
+          "name": "Service corpus",
+          "cases": [
+            {
+              "trace_index": 0,
+              "name": "T",
+              "events": [
+                {
+                  "event_index": 0,
+                  "activity": "B",
+                  "lifecycle": null,
+                  "timestamp_millis": 1767261600000,
+                  "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                  "timestamp_attribute_value": "2026-01-01T10:00:00Z",
+                  "activity_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl",
+                  "lifecycle_attribute_type": null
+                }
+              ]
+            }
+          ]
+        },
+        "after": {
+          "name": "Service corpus",
+          "cases": [
+            {
+              "trace_index": 0,
+              "name": "T",
+              "events": [
+                {
+                  "event_index": 0,
+                  "activity": "B",
+                  "lifecycle": "complete",
+                  "timestamp_millis": 1767261600000,
+                  "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                  "timestamp_attribute_value": "2026-01-01T10:00:00Z",
+                  "activity_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl",
+                  "lifecycle_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl"
+                }
+              ]
+            }
+          ]
+        },
+        "second": {
+          "name": "Service corpus",
+          "cases": [
+            {
+              "trace_index": 0,
+              "name": "T",
+              "events": [
+                {
+                  "event_index": 0,
+                  "activity": "B",
+                  "lifecycle": "complete",
+                  "timestamp_millis": 1767261600000,
+                  "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                  "timestamp_attribute_value": "2026-01-01T10:00:00Z",
+                  "activity_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl",
+                  "lifecycle_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl"
+                }
+              ]
+            }
+          ]
+        },
+        "actions": {
+          "defaulted_lifecycle": [
+            {
+              "trace_index": 0,
+              "event_index": 0
+            }
+          ],
+          "removed_events": [],
+          "removed_traces": []
+        },
+        "counts": {
+          "before": {
+            "traces": 1,
+            "events": 1
+          },
+          "after": {
+            "traces": 1,
+            "events": 1
+          },
+          "second": {
+            "traces": 1,
+            "events": 1
+          }
+        },
+        "same_log": true,
+        "idempotent": true,
+        "stdout_sha256": "b89d82ce5b3c8189b75c90337a75d5baa078460098128fb75211d0e2976c13c1",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "id": "wrong-lifecycle-type",
+      "manual_pass": true,
+      "compatibility": "explicit-admission-divergence",
+      "rust": {
+        "error": {
+          "case_index": 0,
+          "code": "invalid_lifecycle",
+          "event_index": 0,
+          "message": "Lifecycle должен быть строкой."
+        },
+        "status": "rejected"
+      },
+      "legacy": {
+        "id": "wrong-lifecycle-type",
+        "input_sha256": "46f273f9b3f04138450dec8196dc6dc9961c4dee5c3e895fa23af6ba4ad2ed2d",
+        "status": "ok",
+        "exit_code": 0,
+        "launch_error": null,
+        "exception_class": null,
+        "before": {
+          "name": "Service corpus",
+          "cases": [
+            {
+              "trace_index": 0,
+              "name": "T",
+              "events": [
+                {
+                  "event_index": 0,
+                  "activity": "A",
+                  "lifecycle": "true",
+                  "timestamp_millis": 1767261600000,
+                  "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                  "timestamp_attribute_value": "2026-01-01T10:00:00Z",
+                  "activity_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl",
+                  "lifecycle_attribute_type": "org.deckfour.xes.model.impl.XAttributeBooleanImpl"
+                }
+              ]
+            }
+          ]
+        },
+        "after": {
+          "name": "Service corpus",
+          "cases": []
+        },
+        "second": {
+          "name": "Service corpus",
+          "cases": []
+        },
+        "actions": {
+          "defaulted_lifecycle": [],
+          "removed_events": [
+            {
+              "trace_index": 0,
+              "event_index": 0,
+              "reasons": [
+                "unsupported_lifecycle"
+              ]
+            }
+          ],
+          "removed_traces": [
+            {
+              "trace_index": 0,
+              "reason": "empty_trace"
+            }
+          ]
+        },
+        "counts": {
+          "before": {
+            "traces": 1,
+            "events": 1
+          },
+          "after": {
+            "traces": 0,
+            "events": 0
+          },
+          "second": {
+            "traces": 0,
+            "events": 0
+          }
+        },
+        "same_log": true,
+        "idempotent": true,
+        "stdout_sha256": "90f3f47758322ed54b249a289b0d506d15b7625ebe29059ddb074051cf71d5d7",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  ]
+}

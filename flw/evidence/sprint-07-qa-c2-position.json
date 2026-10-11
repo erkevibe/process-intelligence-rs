@@ -1,0 +1,142 @@
+{
+  "verdict": "ACCEPT bounded C2 A01-A05; A06 final-head CI/public delivery pending nonwaivable",
+  "utc": "2026-10-11T03:11:28.641372+00:00",
+  "candidate": "e890d84c95c892fa25f465e30ca215c803c49b71",
+  "observer_source": "9a396bca34a3b383f1af567282e16616cc01ddf4",
+  "observer_sha256": "ed86c6fc5644a3b083094f8f1eebfb2e81ebc301e28c37eb2696f04dc5789086",
+  "comparator_sha256": "351fe43babe9b65e5d6d1640c4c36fce241325b855ac3b5cfe096e5dd4e6c9c1",
+  "corpus_sha256": "49af9fb9c981ba77a49190211a1da1fbe1d9f9c4a595fc616754a2813f607b89",
+  "acceptance": [
+    {
+      "id": "A01",
+      "status": "PASS scoped",
+      "evidence": "Own full478 source Gitblobs, fullcurrent504 JDK/noextras, original28508B source SHA/Gitblob and exact1167B two-method slices/envelope checked; genuine OpenXES base manifest revalidated each reference invocation; twofresh generated classes captured/noextras. Only extracted unchanged method bodies, not original fullclass/service."
+    },
+    {
+      "id": "A02",
+      "status": "PASS",
+      "evidence": "11 pre-frozen fixtures; independent XML-derived original names/cardinality/keypresence/concrete attrtypes/sourceindices/default-before-removal/order/typedtime assertions. Actual reference02 10exit0, invaliddate1 before extracted method. Comparator supported5/divergent6, exact source counters reconstructed."
+    },
+    {
+      "id": "A03",
+      "status": "PASS scoped",
+      "evidence": "Own exact C2 comparator replay03 exit0 and full results byte-identical independently completed comparison02. Actions default_lifecycle missing_lifecycle; remove_case null index/empty_case; fullyfiltered explicit. Java same_log mutation and actual second-call equality; Rust repeated normalized input stability/untouched bytes tested, not full arbitrary attribute projection roundtrip."
+    },
+    {
+      "id": "A04",
+      "status": "PASS scoped",
+      "evidence": "74 ordinary/13PG explicitly ignored own tests exit0; fourpreview tests including pre-removal byte/event/case/activity limits, immediate callbackcancel, strict datatype/duplicates/date/DTD/global. Old10 fixtures20 strict source/time modes PASS with3known divergences; old6 exactC1strict source sequences/manual cardinality/counts/variants/derivedDFG PASS. HTTP wiring src/web unchanged; ordinary HTTP contracts PASS. No actual userDB or current HTTP preview integration."
+    },
+    {
+      "id": "A05",
+      "status": "PASS technical position; final Council vote pending",
+      "evidence": "Independent author-separated replay/arithmetic, exactsafeprojection whitelist, private bounded inventory and transparent failed-verifier history. Own seven synthetic Nodeguard groups exit0; changed counter and corrupted default-reason response separately exit1/no publication. TD/Council decisions separate."
+    },
+    {
+      "id": "A06",
+      "status": "PENDING nonwaivable",
+      "evidence": "Requires exact finalH CI audit, proposal-bound new votes, anonymous public merge archive allGitblob bytes/lineage and protected readonly preservation. Prior Sprint06 delivery/CI not transferred."
+    }
+  ],
+  "reference_sha256": "25152fdb82247a03ed03a503be751d80ec99c6526b95d7cbfe0a32ba77cbad7b",
+  "comparison_sha256": "fd1083d2f45710be35c996fa7671870879e3e19190982aaa61bfd424bbf82506",
+  "strict_six_sha256": "e573e8bec3fa716f10c2d82c437ee8657aac3a5dc7ce07bedabb99d3771c08f9",
+  "source_jdk_proof_sha256": "f999f5995b19f7b7b45d9119bc5b151cdba827dc4b0d4a85761210e85bd6d608",
+  "public_export_audit": {
+    "utc": "2026-10-11T03:10:25.297493+00:00",
+    "pass": true,
+    "public_files": [
+      {
+        "path": "fixtures/oracle-service/reference-results.json",
+        "bytes": 38446,
+        "sha256": "ce686375aad6f92b458d556add466c768f272e218dea2274cf5f45cd95313065",
+        "original_sha256": "25152fdb82247a03ed03a503be751d80ec99c6526b95d7cbfe0a32ba77cbad7b",
+        "exact_whitelist": true
+      },
+      {
+        "path": "fixtures/oracle-service/rust-comparison.json",
+        "bytes": 51122,
+        "sha256": "9a9d78e55329f8a53ba6abc3527db057eafa03b7d852256205592c8ba1461cb8",
+        "original_sha256": "fd1083d2f45710be35c996fa7671870879e3e19190982aaa61bfd424bbf82506",
+        "exact_whitelist": true
+      }
+    ],
+    "c2_source_equivalence": true,
+    "c2_comparison_sha256": "fd1083d2f45710be35c996fa7671870879e3e19190982aaa61bfd424bbf82506",
+    "scope": "Full exact whitelist semantic/bytes identity against independent raw results; recursive selected synthetic payload reviewed and absolute private path/credential patterns absent; no generic future secrecy guarantee."
+  },
+  "coverage": {
+    "private_inventory_sha256": "a6169ff13f0848918e6d0695ca4045d556e282a1686467d03b740d42585b19cd",
+    "available_selected_files": 449,
+    "available_bytes": 922549,
+    "unreadable": 0,
+    "scope": "Fullselected log/json bytes loaded/fingerprinted; excludes copied source/compiler-targetmetadata, includes proof/result/syntheticfixture JSON, NOT all process raw streams. Root files may grow aftersnapshot. Semantic reviewed own source/build/reference/Rust/negative/test outputs plus selected Root/PM drafts; no allmachinecoverage claim."
+  },
+  "process_outcomes": {
+    "source_archive_build": {
+      "exit": 0,
+      "capture": "build log plus tool completion exit; no separate wrapper exitfile"
+    },
+    "reference01": {
+      "wrapper_exit": 0,
+      "scope": "historical own draft-reference before completedcurrentJDK check; not finalcredit"
+    },
+    "reference02": {
+      "wrapper_exit": 0,
+      "java_children": 11,
+      "success": 10,
+      "parser_exception": 1
+    },
+    "rust_tests": {
+      "exit": 0,
+      "pass": 74,
+      "ignored": 13
+    },
+    "node_guard_groups": {
+      "exit": 0,
+      "groups": 7,
+      "scope": "synthetic temp fixtures/assertions, not genuine source invocation; temp evidence retained"
+    },
+    "counter_negative": {
+      "exit": 1,
+      "expected_rejection": true
+    },
+    "reason_negative": {
+      "exit": 1,
+      "expected_rejection": true,
+      "scope": "transparent synthetic Python response emits corrupted actual observer JSON, not XES compatibility"
+    },
+    "c2_comparator": {
+      "exit": 0,
+      "manual": 11,
+      "supported": 5,
+      "divergent": 6
+    },
+    "strict20": {
+      "exit": 0
+    },
+    "strict_six": {
+      "children_exit0": 6
+    }
+  },
+  "acl": {
+    "prospective_control": "Requested before execution; Parent reported currentSID-only private parent established before download/logs. Independent current corroboration protected=true/rules1/currentSIDonly=true; not fabricated earlier measurement. Own outputs inherit private parent.",
+    "actual_proof_sha256": "8701d12afa51161825e0158456f548ff43e7ce036a11459acbc36a20d4ddb7c6"
+  },
+  "negative_history": [
+    "Parent prefreeze illegal inline here-string syntax failed before execution; corrected frozen corpus serialization once, parent-reported/tool-only scope.",
+    "Own guessed comparator filename and later guessed guard filename nonexistent reads before execution, actual filenames inventoried/read; not product errors.",
+    "Combined source reads and one raw metadata display truncated; full bytes independently read/hash and targeted source reviewed afterward.",
+    "Own verifier missing boolean concrete attribute type mapping KeyError before finalproof; corrected XAttributeBooleanImpl from actual booleanfixture, no source/policy change.",
+    "First inventory639 included copiedpublicsource/targetJSON; excluded as raw count, final selected449 JSON/logfiles explicitly qualified.",
+    "First own reference started before currentfullJDK check completed; final newreference02 after check preserves first history."
+  ],
+  "limitations": [
+    "No original fullclass/service/Portal/importFromStream/defaultfactory execution; genuine OpenXES + exact extracted methods only.",
+    "Legacy presence-only acceptance differs from Rust empty/wrongtype/duplicate/date controls; Java invaliddate actual exception occurs before extractedmethod. ASCII lifecycle fold only; no Java Unicode casefold parity claim.",
+    "Preview callback cancellation is cooperative; no immediate interruption guarantee during noninterruptible Rust4PM parse.",
+    "No HTTP/UI/DB/package preview integration, no new0.6 runtime, no protected login/config/data/process mutation.",
+    "No wholeattribute serialization roundtrip, arbitraryXES/XXE safety, calendars/DST/miner/BPMN/enterprise parity. DISK01/nativePS5backup uncertainty persists.",
+    "Final source/CI/publicdelivery and independent humanacceptance are separate pending gates."
+  ]
+}
