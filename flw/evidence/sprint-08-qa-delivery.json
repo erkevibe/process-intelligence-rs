@@ -1,0 +1,376 @@
+{
+  "utc": "2026-10-11T06:12:56.943Z",
+  "verdict": "PUBLIC ARTIFACT/NEW INSTALL/PROTECTED DELIVERY PASS; A07 COMPLETION CI STILL PENDING",
+  "source_commit": "281d13ddc8bb1813545c9ffe7fa92e8f49aaa6e0",
+  "audit_head": "ae612373c95a4179ffd94ccbfbc4004db600edea",
+  "merge_commit": "05743a1cc9abda6d0943dc3e91bd6a67bbbd0285",
+  "merge_parents": [
+    "82bd92bd43717310dec71ac2a054252b8d14c4f7",
+    "ae612373c95a4179ffd94ccbfbc4004db600edea"
+  ],
+  "tag": "v0.6.0",
+  "tag_target": "281d13ddc8bb1813545c9ffe7fa92e8f49aaa6e0",
+  "release": {
+    "assets": [
+      {
+        "size": 57100032,
+        "name": "process-intelligence-rs-0.6.0-windows-x86_64.zip",
+        "digest": "sha256:4ae712b07e58b23f3a3fb53d8caf5eed83bb9e9ae5ec49a5cfaa19c85b5a2759",
+        "url": "https://github.com/erkevibe/process-intelligence-rs/releases/download/v0.6.0/process-intelligence-rs-0.6.0-windows-x86_64.zip",
+        "id": 629945406
+      },
+      {
+        "size": 115,
+        "name": "SHA256SUMS.txt",
+        "digest": "sha256:2430c7aaddea7db6683da0e3939be937c6330970ff581792e0b5e05501f18480",
+        "url": "https://github.com/erkevibe/process-intelligence-rs/releases/download/v0.6.0/SHA256SUMS.txt",
+        "id": 629945653
+      }
+    ],
+    "published_at": "2026-10-11T06:04:57Z",
+    "target_commitish": "281d13ddc8bb1813545c9ffe7fa92e8f49aaa6e0",
+    "native_exit": 0,
+    "draft": false,
+    "release_id": 409458445,
+    "tag": "v0.6.0"
+  },
+  "download": {
+    "native_creation_utc": "2026-10-11T06:05:44.8635396Z",
+    "start_utc": "2026-10-11T06:05:44.8443425Z",
+    "native_pid": 44724,
+    "anonymous": true,
+    "private_acl_before_download": true,
+    "curl_exe_sha256": "73D24149FF289AFC49EC41F08918EF9FAA727D39AD993E929757DC2DDAFAB805",
+    "end_utc": "2026-10-11T06:05:52.3229693Z",
+    "native_exit": 0,
+    "https_only": true,
+    "bytes": 57100032,
+    "sha256": "4AE712B07E58B23F3A3FB53D8CAF5EED83BB9E9AE5EC49A5CFAA19C85B5A2759"
+  },
+  "manifest": {
+    "no_private_before_start": true,
+    "manifest_sha256": "4BBB8EFC53ADCDC0A38B380CA8ACA627E9C64A573B6947BE803899E1EA2E5C05",
+    "all_sha_and_bytes_match": true,
+    "manifest_files": 1726,
+    "source_commit": "281d13ddc8bb1813545c9ffe7fa92e8f49aaa6e0",
+    "no_reparse": true,
+    "exe_sha256": "95D1340D2C8C5B4BCFD835F4A53BEE7A67CE98242685AC973F775BD6747DD778",
+    "all_files": 1727,
+    "captured_utc": "2026-10-11T06:06:33.6707765Z"
+  },
+  "fresh_public_qa_install": {
+    "pg_sha256": "8B8BF5D400487159E3E117053D3F5A89FAD0C740B310A3AC69E5720CE4F818E1",
+    "pg_creation_utc": "2026-10-11T06:06:46.7807030Z",
+    "app_sha256": "95D1340D2C8C5B4BCFD835F4A53BEE7A67CE98242685AC973F775BD6747DD778",
+    "app_pid": 33500,
+    "own_datadir_path_verified": true,
+    "scope": "Own public downloaded fresh installation with synthetic QA account; not Root human installation",
+    "pg_pid": 46684,
+    "utc": "2026-10-11T06:09:29.2024772Z",
+    "app_creation_utc": "2026-10-11T06:06:47.9358370Z",
+    "private_acl_protected": true,
+    "health": "{\"status\":\"ready\",\"version\":\"0.6.0\"}",
+    "current_sid_only": true
+  },
+  "native_start": {
+    "parent_pid": 52084,
+    "source": "281d13ddc8bb1813545c9ffe7fa92e8f49aaa6e0",
+    "http_port": 3063,
+    "pg_port": 5443,
+    "scope": "Fresh public anonymous ZIP nativePS5 cold Start; parent lifetime exit pending",
+    "parent_created_utc": "2026-10-11T06:06:37.3244737Z"
+  },
+  "browser_final": {
+    "started_utc": "2026-10-11T06:08:51.268Z",
+    "node_pid": 47200,
+    "checks": [
+      "continuation existing synthetic account login303; initial setup succeeded before verifier failure",
+      "continuation previously browser-confirmed actual log1; no second import",
+      "native confirmation then actual graph2 nodes",
+      "original exact768 bytes/hash and actual7 human history rows"
+    ],
+    "errors": [],
+    "external": [],
+    "browser_version": "155.0.8059.27",
+    "pass": true,
+    "raw_sha256": "d59d4c5655676b4afbd727face7b50e57fb6b60e79f66376c68c43c0d3b33322",
+    "log_path": "/logs/log-1",
+    "completed_utc": "2026-10-11T06:08:52.607Z"
+  },
+  "browser_chronology": {
+    "initial01": "freshsetup200 withusername/password form, syntheticownsetup/login303; failedglobaltoken2vs1 becauseconfirm+cancelforms",
+    "continuation02": "actualbrowserpreview/consent/confirm producedlog1; failedgraphnodes.length oracle, realcontractnumericnodes",
+    "diagnostic03": "existinglog actualnumericnodes2 edges1 corroborated staticapp.js196, noimport",
+    "continuation04": "existingconfirmedlog raw768bytes SHA/7historyrows+actualgraph PASS4/nativeNode0; browserclosed; noJSerror/externalrequests",
+    "guard": "PS stringescape correctivecommand failedbeforeexecution; retainedtooloutputonly; noapp/sourcechange"
+  },
+  "human_readonly": {
+    "private_acl_protected_current_sid_only": true,
+    "scope": "Independent actual readonly GET health/setup + listener/CIM/path/creation/hash/ACL; no login/setupPOST/config/SQL/stop; firstaccount form not fullauthDBbyte attestation",
+    "rootproof_sha256": "E689A0C4DE8BFCC5420C59CC4622FE1A75E3F85D863A7306D1EEB96C87F5F7DE",
+    "pass": true,
+    "processes": [
+      {
+        "path_verified": true,
+        "pg_datadir_verified": false,
+        "pid": 49356,
+        "port": 3061,
+        "creation_utc": "2026-10-11T06:09:35.5466100Z",
+        "exe_sha256": "95D1340D2C8C5B4BCFD835F4A53BEE7A67CE98242685AC973F775BD6747DD778"
+      },
+      {
+        "path_verified": true,
+        "pg_datadir_verified": true,
+        "pid": 32424,
+        "port": 5441,
+        "creation_utc": "2026-10-11T06:09:34.4183730Z",
+        "exe_sha256": "8B8BF5D400487159E3E117053D3F5A89FAD0C740B310A3AC69E5720CE4F818E1"
+      }
+    ],
+    "setup_username_password_form": true,
+    "setup_status": 200,
+    "utc": "2026-10-11T06:11:07.1015138Z",
+    "setup_body_sha256": "A77713AB18D921F34CE9B1267DDA58903CB34EF95E2212437D5644326681B44D",
+    "health": {
+      "status": "ready",
+      "version": "0.6.0"
+    }
+  },
+  "root_protected_snapshot": {
+    "proof": {
+      "path": "flw/evidence/sprint-08-root-protected-postdelivery01.json",
+      "bytes": 4242,
+      "sha256": "DE3888F4CB7DEC07C0915CC9AC1DFB80FF7A29E6BBA8019B419A057856ABA729"
+    },
+    "private_input_fingerprint": {
+      "path": ".local/sprint08/protected-postdelivery01.private.json",
+      "bytes": 5642,
+      "sha256": "56C3E5FBD7574A1C55A38CC31BFB3B19FCF765D1A9D0CE5A005C39459ACC6A2A"
+    },
+    "comparison_with_finalpre": "Independentexplicitnamedfields5apps+6PGmatch; objectorderignored; noSQL",
+    "scope": "Rootactualpostcapture independentlyfullread/compared; separate ownactualpostcapture completed native0 with sameidentity/hash/health/archives"
+  },
+  "inventory": {
+    "path": ".local/sprint08/qa/public-delivery01/delivery-inventory01.json",
+    "sha256": "7D72D74C0400C915007378A4470F171F37BB5B6599386B3A453AEF37D0044C46",
+    "files": 34,
+    "bytes": 58201933
+  },
+  "inputs": [
+    {
+      "path": ".local/sprint08/qa/public-delivery01/download.process.json",
+      "bytes": 480,
+      "sha256": "3A85CA70DC867C8AF36D5DF42B391EE27DEEA9DFE8F162150BB70406C8CCC36B"
+    },
+    {
+      "path": ".local/sprint08/qa/public-delivery01/manifest-verified.json",
+      "bytes": 439,
+      "sha256": "BBA00AD600EBA797FDCB0E536C82A05D54574AB5A46FF6315596D95843CADC1C"
+    },
+    {
+      "path": ".local/sprint08/qa/public-delivery01/start.process.json",
+      "bytes": 278,
+      "sha256": "9782CABCF841D46F9A20C40D1ED5B2F47C084D9CD2E346FDA654912AE20C5B3D"
+    },
+    {
+      "path": ".local/sprint08/qa/public-delivery01/start.stdout.log",
+      "bytes": 24746,
+      "sha256": "2B852475D9183F31630DF0FBB3FA248CAF684B18BAE56E3FD4F36F98D015A8BF"
+    },
+    {
+      "path": ".local/sprint08/qa/public-delivery01/start.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "path": ".local/sprint08/qa/public-delivery01/live-identity01.json",
+      "bytes": 639,
+      "sha256": "458F51D9C2F3F90973B3514438837A66132565D3CA6773C6DF302F58010155A9"
+    },
+    {
+      "path": ".local/sprint08/qa/public-delivery01/release-safe-current.json",
+      "bytes": 880,
+      "sha256": "D7300C98C04CF6B45767EFACCB88F2892A9A5A4BFE90693EC5CDFB7FB44B5B27"
+    },
+    {
+      "path": ".local/sprint08/qa/public-delivery01/tag-ref-current.json",
+      "bytes": 404,
+      "sha256": "ADA849AB8D615EC65E3AC9C44CCFF81B1B9D8D7ED59637088F55BF52792A4DE0"
+    },
+    {
+      "path": ".local/sprint08/qa/public-delivery01/merge-current.json",
+      "bytes": 719814,
+      "sha256": "D03E4A03B30A94200A7C0E37AC00264E807F88E2DEAC0BE59A742A5D61D0025F"
+    },
+    {
+      "path": ".local/sprint08/qa/public-delivery01/pr8-current.json",
+      "bytes": 22530,
+      "sha256": "CB65E2DFF7874A89EFA9B09EB577E64039B86A94EEDE48D1F44450AF4B3A9DAA"
+    },
+    {
+      "path": ".local/sprint08/qa/public-delivery01/SHA256SUMS.txt",
+      "bytes": 115,
+      "sha256": "2430C7AADDEA7DB6683DA0E3939BE937C6330970FF581792E0B5E05501F18480"
+    },
+    {
+      "path": ".local/sprint08/qa/public-delivery01/human-readonly01.json",
+      "bytes": 1172,
+      "sha256": "FC901E43202C003CA230F8B8EEA2D5E1FDAEF979D559F49F1824D31A59D7C2C9"
+    },
+    {
+      "path": ".local/sprint08/qa/public-delivery01/browser-result.json",
+      "bytes": 557,
+      "sha256": "C9A9D9EF1E11FB18AC6DFF78A548B3DD4FAC9326CCA209C118F45E9C8A98EF69"
+    },
+    {
+      "path": ".local/sprint08/qa/public-delivery01/browser02/browser-result.json",
+      "bytes": 583,
+      "sha256": "93DA5800C4B2F9A0E5A7F9249D2159A388960536DFB9BF59144D9D2A09E9782A"
+    },
+    {
+      "path": ".local/sprint08/qa/public-delivery01/browser04/browser-result.json",
+      "bytes": 637,
+      "sha256": "A5E15EBEADC9138FDF5C7E874EABC8C8A433690C335E0D2162D8D412BBF3B91B"
+    },
+    {
+      "path": ".local/sprint08/qa/public-delivery01/graph-diagnostic03.json",
+      "bytes": 3720,
+      "sha256": "7E464B6A8BF10F290A89D604592A74FA74615D9FA76BF1A985ECA2A1820FDBA3"
+    }
+  ],
+  "limitations": [
+    "Completionmetadata-only CI not yetexecuted/accepted: mandatorypending, no finalA07completionclaim",
+    "No fullR2-R5 parity/fullservice/SplitMiner/modelquality/generalRAM accepted",
+    "NativePS5coldlaunch long-livedparent exituncaptured; curl0 andbrowsernative0 distinctactualobservations",
+    "Own publicQA syntheticaccount exists only3063/5443; Rootuser3061/5441 read-onlysetup noaccount/login/SQL fromQA",
+    "Protectedsnapshot processidentity/health/archive only, notdatabase/datadirbyte conservation",
+    "Fullavailablecapturefiles/hash doesnot mean allmachine/allchildexit semanticcoverage",
+    "SourceC→M runtime/tools/tests/Cargo/workflow read-onlygitdiff empty; publictagC notmergeM"
+  ],
+  "independent_actual_protected_postpublication": {
+    "actual_postpublication_snapshot": true,
+    "pass": true,
+    "archives": [
+      {
+        "version": "0.4.0",
+        "bytes": 56521463,
+        "sha256": "85C23B2E69D67D442067180C124E55958C64F6D1C73BDF1708C4CEF4AAB3BD1D"
+      },
+      {
+        "version": "0.5.0",
+        "bytes": 56611093,
+        "sha256": "BF900C88EC8B5E8ABFFC292C5C9704B152C053725D1DA7B15EE3E930285B4EFB"
+      }
+    ],
+    "port5434": "no listener",
+    "scope": "Independent actual readonly GET5health/listener/CIM/path/UTCcreation/EXE and sixPG commandline equality; no login/setup/config/SQL/stop/no data-byte conservation claim",
+    "utc": "2026-10-11T06:12:29.0232827Z",
+    "processes": [
+      {
+        "port": 3000,
+        "exe_sha256": "1B675C467767A351C271E5071B79C376E3362A79296C3FD5C82D928315F4F070",
+        "health": {
+          "status": "ready",
+          "version": "0.1.0"
+        },
+        "created_utc": "2026-10-10T06:23:15.2051390Z",
+        "named_identity_fields_match_prior": true,
+        "pid": 18104
+      },
+      {
+        "port": 3010,
+        "exe_sha256": "E2189EA8C463E7E3E146EF7983608A95F474B2FFA35FA02555F8A0CF3E47986E",
+        "health": {
+          "status": "ready",
+          "version": "0.2.0"
+        },
+        "created_utc": "2026-10-10T08:46:23.2518130Z",
+        "named_identity_fields_match_prior": true,
+        "pid": 35684
+      },
+      {
+        "port": 3030,
+        "exe_sha256": "B38A6193EB6C3D7BCE6F1F4E75F6BE619AE626FD8CBB8F9BB23CD3E08D190A3A",
+        "health": {
+          "status": "ready",
+          "version": "0.3.0"
+        },
+        "created_utc": "2026-10-10T13:16:54.0586110Z",
+        "named_identity_fields_match_prior": true,
+        "pid": 40560
+      },
+      {
+        "port": 3040,
+        "exe_sha256": "B4EA51E5264646709A1DDDB5686132D2662BB5275B271F4473A7B7592D58AAB8",
+        "health": {
+          "status": "ready",
+          "version": "0.4.0"
+        },
+        "created_utc": "2026-10-10T15:40:13.2206870Z",
+        "named_identity_fields_match_prior": true,
+        "pid": 42072
+      },
+      {
+        "port": 3050,
+        "exe_sha256": "4DA47C60DA169B2B0D659E4583A72EA5E17DBCE18B83E28B8923B2DF1CDAF98A",
+        "health": {
+          "status": "ready",
+          "version": "0.5.0"
+        },
+        "created_utc": "2026-10-10T23:36:33.3918720Z",
+        "named_identity_fields_match_prior": true,
+        "pid": 47492
+      },
+      {
+        "port": 5433,
+        "exe_sha256": "8B8BF5D400487159E3E117053D3F5A89FAD0C740B310A3AC69E5720CE4F818E1",
+        "health": null,
+        "created_utc": "2026-10-10T06:53:51.9926130Z",
+        "named_identity_fields_match_prior": true,
+        "pid": 6644
+      },
+      {
+        "port": 5435,
+        "exe_sha256": "8B8BF5D400487159E3E117053D3F5A89FAD0C740B310A3AC69E5720CE4F818E1",
+        "health": null,
+        "created_utc": "2026-10-10T08:46:21.6295150Z",
+        "named_identity_fields_match_prior": true,
+        "pid": 26596
+      },
+      {
+        "port": 5436,
+        "exe_sha256": "8B8BF5D400487159E3E117053D3F5A89FAD0C740B310A3AC69E5720CE4F818E1",
+        "health": null,
+        "created_utc": "2026-10-10T12:44:20.7974380Z",
+        "named_identity_fields_match_prior": true,
+        "pid": 17896
+      },
+      {
+        "port": 5437,
+        "exe_sha256": "8B8BF5D400487159E3E117053D3F5A89FAD0C740B310A3AC69E5720CE4F818E1",
+        "health": null,
+        "created_utc": "2026-10-10T13:16:52.5849120Z",
+        "named_identity_fields_match_prior": true,
+        "pid": 42580
+      },
+      {
+        "port": 5438,
+        "exe_sha256": "8B8BF5D400487159E3E117053D3F5A89FAD0C740B310A3AC69E5720CE4F818E1",
+        "health": null,
+        "created_utc": "2026-10-10T15:40:11.4283150Z",
+        "named_identity_fields_match_prior": true,
+        "pid": 37996
+      },
+      {
+        "port": 5439,
+        "exe_sha256": "8B8BF5D400487159E3E117053D3F5A89FAD0C740B310A3AC69E5720CE4F818E1",
+        "health": null,
+        "created_utc": "2026-10-10T23:36:31.7415330Z",
+        "named_identity_fields_match_prior": true,
+        "pid": 46176
+      }
+    ]
+  },
+  "independent_protected_capture_sha256": "CDFA9D4778CC51F1C847B51F32277B5B5A7A5AC22DB7CB2FDB86F4E6E32A2B2A",
+  "independent_protected_capture_native_exit": 0
+}

@@ -1,0 +1,13 @@
+# Sprint08 — Customer exact final F1 vote
+
+Customer customer_s6: **FOR** exact sprint-08-final-proposal.md SHA2568E60E2CACA308A3FF1E0D36DBAFA93594ABE49A17119568FD6E0AEBE071F4F2E. Full proposal read and independently hashed; actual vote UTC2026-10-11T06:02:24.9563183Z (tool clock captured immediately after full read/hash). This is a new final vote, not transferred from P1/P2/P3 or targeted STOP resumes.
+
+Accept the selected operator increment bound to C281d13ddc8bb1813545c9ffe7fa92e8f49aaa6e0 / Hae612373c95a4179ffd94ccbfbc4004db600edea / EXE95D1340D2C8C5B4BCFD835F4A53BEE7A67CE98242685AC973F775BD6747DD778 / ZIP4AE712B07E58B23F3A3FB53D8CAF5EED83BB9E9AE5EC49A5CFAA19C85B5A2759, only within exact F1 proofs/limitations. Independent Customer exact Chrome acceptance8996E4E4FFE60960A6B4D54DA8A3813587AECD1BD593043B279967EE8A4C5CFB supports seven actual UI observations; independent QA/TD named by F1 cover distinct server/durability/fault/package boundaries, not Customer's own execution.
+
+Useful value is real: explained consent-based import with source/history, distinguishable hierarchy, reversible project archive and bounded audit; IANA and standalone Alpha remain separately limited contracts. Strict import and historical identity limitations are preserved. Final emotional advisory1786FE9F13B49B19798DE2A06B7529FC1EF97334B6C542C8E13B648100C77752 was read before this vote and supports clear recovery/full-stage disclosures, not another vote.
+
+Customer recovery clarity000F068E0B668EEB93CA244769E4E4DC625227FEB65406BA1BC2BD8418F763D4 remains binding: save preview report plus URL UUID before confirm; uncertain outcome requires manual restart/history/full-SHA reconciliation, no blind reupload and no post-restart automatic deduplication promise. R2-03 durable visible preconfirm identification/lost-successful-ACK and all15 full criteria remain OPEN/BLOCKED as stated. No claim that original requested complete R2–R5 has been achieved.
+
+Authorise only guarded merge and public delivery with exact source/base/tag/package bindings and named successful CI. Mandatory anonymous full ZIP/manifest verification, fresh separate install/first-user setup, postpublication protected preservation and actual lineage/assets/completion proof remain pending and cannot be waived. A failed mandatory gate prevents completion and triggers the stated STOP procedure. Old user installations/databases stay untouched.
+
+No approval of destructive cleanup, full service/SplitMiner, generic enterprise audit, broad BPMN/discovery quality or unexecuted tests is given. Late docs/evidence-only supplements may record actual delivery; runtime/tools/tests/Cargo changes require new candidate acceptance. Human final acceptance remains separate.

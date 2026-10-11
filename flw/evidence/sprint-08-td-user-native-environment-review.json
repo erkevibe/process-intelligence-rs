@@ -1,0 +1,50 @@
+{
+  "verdict": "PASS known cause scoped environment repair; not arbitrary inherited environment support or full A07 closure",
+  "files": [
+    {
+      "path": "flw/evidence/sprint-08-root-user-installation.json",
+      "bytes": 2023,
+      "sha256": "E689A0C4DE8BFCC5420C59CC4622FE1A75E3F85D863A7306D1EEB96C87F5F7DE"
+    },
+    {
+      "path": ".local/sprint08/user-native5-stock02.ps1",
+      "bytes": 1072,
+      "sha256": "2F4DCDC757D3442CA515C49ADF9C2C1E9D11480FD9F99A3AF14D1737B41638FE"
+    },
+    {
+      "path": ".local/installed/sprint-08-281d13d/start.process.json",
+      "bytes": 758,
+      "sha256": "36D2B635997DC4B7053B86973562052B94882C8CA4BB252F1386FC1FD319F16B"
+    },
+    {
+      "path": ".local/installed/sprint-08-281d13d/start.stderr.log",
+      "bytes": 733,
+      "sha256": "B553EF7266987A01D399C94F5910E44D11EB6974C64DC5A09BC3A81D7338E98E"
+    },
+    {
+      "path": ".local/installed/sprint-08-281d13d/start-stock02.process.json",
+      "bytes": 829,
+      "sha256": "2E30E89AF05E964CF0E378758C33E64FB89A3AE26F5B2263484127599273B3DE"
+    },
+    {
+      "path": ".local/installed/sprint-08-281d13d/native5-stock-environment02.json",
+      "bytes": 594,
+      "sha256": "9F6684255340B1869B4C8AAF81E4FB58F96926888608DFAC2758D467BBBC8ABE"
+    }
+  ],
+  "facts": [
+    "Initial nativePS5 inheritedPS7ModulePath GetFileHash unavailable before data init, stderr733B preserved",
+    "Private helper changes only nativechild PSModulePath to currentUser/ProgramFiles/nativePSHOME WindowsPowerShell module roots",
+    "ActualGetFileHash Microsoft.PowerShell.Utility in native5.1.26100.9444 captured; calls unchanged package Start ports3061/5441",
+    "Root reports actualapp49356/creation06:09:35.546610Z/95D andownPG32424/creation06:09:34.418373Z/setup200 no account",
+    "No prodlauncher/module/global/parent/code/package changes; liveprocess/PG/SQL not touched by TD"
+  ],
+  "limits": [
+    "Helper/source scope reviewed; no independent setupPOST/login/runtime rerun byTD",
+    "Native long-lived launcher full lifetime exit uncaptured; readiness not full childexit",
+    "NativePS5stock Start support separate from arbitrary inheritedPS7environment and nativePS5fullbackupUNVERIFIED",
+    "IndependentQA newinstall/protected compare and metadata completionCI stillpending",
+    "Retained first stderr encoding renders replacementglyphs in UTF8 toolreader; exactrawhash preserved, CommandNotFoundException/GetFileHash cause visible"
+  ],
+  "recommendation": "Add concise operator/release note using stock nativePS5 module environment; do not claim source bug fixed or repackage ZIP. Existing package skill already documents this known cause; no duplicate/newskill required."
+}

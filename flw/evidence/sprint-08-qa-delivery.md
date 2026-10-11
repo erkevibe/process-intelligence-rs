@@ -1,0 +1,15 @@
+# Sprint08 — независимое доказательство публичной поставки
+
+Публичный артефакт и новая установка приняты в выбранных пределах. Единственный завершающий gate — metadata-only completion CI — ещё PENDING. Полная15-матрица R2–R5 остаётся OPEN/BLOCKED; этот отчёт её не закрывает.
+
+Независимый curl44724 с native exit0 анонимно скачал весь ZIP57100032 bytes поHTTPS: SHA2564AE712B07E58B23F3A3FB53D8CAF5EED83BB9E9AE5EC49A5CFAA19C85B5A2759. Публичный checksum совпал. Fresh extraction проверила все1726 manifest entries/1727 files, каждый полный hash и размер, no reparse/no private.local beforestart. EXE95D1340D… связан с source281d13dd…; тегv0.6.0 actualtargetC, release409458445/assets629945406+629945653 опубликованы. Actual PR8merge05743a1… имеет родителей base82bd92b…/Hae61237…; runtime/tools/tests/Cargo/workflow C→M пустой.
+
+Новый собственный public ZIP nativePS5 cold запуск3063/5443 готов0.6: app33500creation06:06:47.935837/EXE95D, PG46684creation06:06:46.780703. Проверены path/datadir/currentSID-only privateACL. Это новая установка из независимого публичного download, не перенос privatecold результата. Только здесь создан syntheticQA account.
+
+Реальный Chrome155 прошёл signup/login, file preview и consentconfirm доlog1. Первое ошибочное ожидание одного globaltoken нашло два legitimate confirm/cancel tokens; второе ошибочное nodes.length ожидало массив, тогда actualpiGraphSnapshot.nodes — число2. Оба failed verifiers сохранены. Diagnostic показал2nodes/1edge, новый read-only continuation существующего log1 прошёл4 проверки/nativeNode0, точные768rawbytes/SHA и7humanhistoryrows. Нет JSerrors/externalrequests; browserclosed. Скриншот истории визуально прочитан. Повторного импорта для обхода ошибки не было.
+
+Root human3061/5441 отдельно независимо проверен GETsetup/health+CIM/path/creation/EXE/ACL: app49356creation06:09:35.546610, PG32424creation06:09:34.418373, firstusername/password form200. QA не создавал аккаунт, не входил и не выполнял SQL. Root initial inheritedCodexPS7 modulepath failure/Get-FileHash сохранён; исправлена только stock nativePS5 child environment, пакет не менялся.
+
+Root postpublication snapshots полностью прочитаны/хешированы; explicitnamedfields pre→post5apps+6PG совпали, keyorder игнорируется. Дополнительно собственный actual postpublication read-only snapshot завершился native0: те же PID/UTCcreation/path/EXE/PGcommandline, пятьhealthready и04/05ZIP.5434listener отсутствует. Никаких login/setup/config/SQL/process mutations; это process/artifact conservation, не побайтовая аттестация пользовательских БД.
+
+Все текущие пределы frozenQA остаются: nofullservice/SplitMiner/generalquality/lost-successfulACK/nativePS5fullbackup/generalRAM/allchildexits. Long-lived launcher exit не подменён readiness; actualcurl0/browser0 отдельно. Частный selecteddelivery inventory34files/58201933bytes fingerprinted; он не равен всей машине или semantic чтению каждого процесса. Полные безопасные SHA/времена/идентичности/источники в sprint-08-qa-delivery.json. Завершающий CI и finaldocs metadata необходимо сверить отдельно; до этого A07 не объявлен полностью завершённым.

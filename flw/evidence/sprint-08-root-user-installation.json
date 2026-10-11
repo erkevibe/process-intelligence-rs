@@ -1,0 +1,42 @@
+{
+  "utc": "2026-10-11T06:10:19.1207596Z",
+  "source": "281d13ddc8bb1813545c9ffe7fa92e8f49aaa6e0",
+  "zip_sha256": "4AE712B07E58B23F3A3FB53D8CAF5EED83BB9E9AE5EC49A5CFAA19C85B5A2759",
+  "download_proof_sha256": "2C419F93892C2E81F47944126E1415A89C463B7B6FD13D8F9D4EA31E0BC035EA",
+  "initial_manifest_proof_sha256": "36D2B635997DC4B7053B86973562052B94882C8CA4BB252F1386FC1FD319F16B",
+  "actual_start_stock02_proof_sha256": "2E30E89AF05E964CF0E378758C33E64FB89A3AE26F5B2263484127599273B3DE",
+  "stock_module_environment_proof_sha256": "9F6684255340B1869B4C8AAF81E4FB58F96926888608DFAC2758D467BBBC8ABE",
+  "all1726_manifest_hashes_lengths_verified": true,
+  "setup_url": "http://127.0.0.1:3061/setup",
+  "setup_status": 200,
+  "setup_body_sha256": "89B3897637CC34E7774D4E75C5E674081F53DDD5CB238A615845D7CC4911A8B5",
+  "health": {
+    "status": "ready",
+    "version": "0.6.0"
+  },
+  "processes": [
+    {
+      "port": 3061,
+      "exe_sha256": "95D1340D2C8C5B4BCFD835F4A53BEE7A67CE98242685AC973F775BD6747DD778",
+      "pid": 49356,
+      "creation_utc": "2026-10-11T06:09:35.5466100Z",
+      "own_pg_datadir_verified": false,
+      "own_path_verified": true
+    },
+    {
+      "port": 5441,
+      "exe_sha256": "8B8BF5D400487159E3E117053D3F5A89FAD0C740B310A3AC69E5720CE4F818E1",
+      "pid": 32424,
+      "creation_utc": "2026-10-11T06:09:34.4183730Z",
+      "own_pg_datadir_verified": true,
+      "own_path_verified": true
+    }
+  ],
+  "private_current_sid_only_acl": true,
+  "account_created_by_agent": false,
+  "preserved_failure": {
+    "stderr_sha256": "B553EF7266987A01D399C94F5910E44D11EB6974C64DC5A09BC3A81D7338E98E",
+    "initial_native_ps5_inherited_ps7_modulepath": "Get-FileHash unavailable; readiness failed, no data directory created"
+  },
+  "scope": "New own anonymous-public installation/nativePS5 stock child environment/readiness/setup; no login/setup POST or protected mutations. Native launcher lifetime exit remains uncaptured; original failed launch preserved."
+}

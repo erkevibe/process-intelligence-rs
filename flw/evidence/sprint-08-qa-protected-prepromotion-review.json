@@ -1,0 +1,205 @@
+{
+  "created_utc": "2026-10-11T05:59:56.682Z",
+  "verdict": "PASS bounded independent review of retained read-only snapshots",
+  "capture_utc": "2026-10-11T05:58:25.5813416Z",
+  "inputs": [
+    {
+      "path": ".local/sprint08/protected-prepromotion01.private.json",
+      "bytes": 5642,
+      "sha256": "13023B92434FD0CF62ACE603A49E096A0D5316AE0D519EF696D1AAAA80CBB78A"
+    },
+    {
+      "path": ".local/sprint08/protected-finalpre01.private.json",
+      "bytes": 5642,
+      "sha256": "E47C3669E739F2BE01071F7DC4F55AC8E580E6F1A5A8E7571727A818367928C3"
+    },
+    {
+      "path": "flw/evidence/sprint-08-root-protected-finalpre01.json",
+      "bytes": 4242,
+      "sha256": "6C257832E89C3A059423C6B1F67B3C2F351C47B26066ACB773EC27E22CBE4A6C"
+    },
+    {
+      "path": "flw/evidence/sprint-08-root-protected-pg-comparison01.json",
+      "bytes": 281,
+      "sha256": "E4025B5B3BC68069680F628CF4D68F77764901B6C3DE0FE58FF8ED646280B430"
+    },
+    {
+      "path": "flw/evidence/sprint-07-qa-protected-prepromotion.json",
+      "bytes": 1878,
+      "sha256": "CF89BA0899A4799D4CBAEA2880D1B18426CAFE37537B3E9F41052BFAEFD58BA6"
+    },
+    {
+      "path": ".local/sprint08/protected-readonly01.ps1",
+      "bytes": 3586,
+      "sha256": "DAB004412114375AD21B608EB21D23F5A8ADAFE594F0DED65109B7A93859FD21"
+    }
+  ],
+  "comparisons": [
+    {
+      "port": 3000,
+      "kind": "app",
+      "named_fields": [
+        "port",
+        "pid",
+        "created_utc",
+        "path",
+        "health"
+      ],
+      "matched": true,
+      "pid": 18104,
+      "created_utc": "2026-10-10T06:23:15.2051390Z"
+    },
+    {
+      "port": 3010,
+      "kind": "app",
+      "named_fields": [
+        "port",
+        "pid",
+        "created_utc",
+        "path",
+        "health"
+      ],
+      "matched": true,
+      "pid": 35684,
+      "created_utc": "2026-10-10T08:46:23.2518130Z"
+    },
+    {
+      "port": 3030,
+      "kind": "app",
+      "named_fields": [
+        "port",
+        "pid",
+        "created_utc",
+        "path",
+        "health"
+      ],
+      "matched": true,
+      "pid": 40560,
+      "created_utc": "2026-10-10T13:16:54.0586110Z"
+    },
+    {
+      "port": 3040,
+      "kind": "app",
+      "named_fields": [
+        "port",
+        "pid",
+        "created_utc",
+        "path",
+        "health"
+      ],
+      "matched": true,
+      "pid": 42072,
+      "created_utc": "2026-10-10T15:40:13.2206870Z"
+    },
+    {
+      "port": 3050,
+      "kind": "app",
+      "named_fields": [
+        "port",
+        "pid",
+        "created_utc",
+        "path",
+        "health"
+      ],
+      "matched": true,
+      "pid": 47492,
+      "created_utc": "2026-10-10T23:36:33.3918720Z"
+    },
+    {
+      "port": 5433,
+      "kind": "postgres",
+      "named_fields": [
+        "pg_port",
+        "pid",
+        "created_utc",
+        "path",
+        "command_line"
+      ],
+      "matched": true,
+      "pid": 6644,
+      "created_utc": "2026-10-10T06:53:51.9926130Z"
+    },
+    {
+      "port": 5435,
+      "kind": "postgres",
+      "named_fields": [
+        "pg_port",
+        "pid",
+        "created_utc",
+        "path",
+        "command_line"
+      ],
+      "matched": true,
+      "pid": 26596,
+      "created_utc": "2026-10-10T08:46:21.6295150Z"
+    },
+    {
+      "port": 5436,
+      "kind": "postgres",
+      "named_fields": [
+        "pg_port",
+        "pid",
+        "created_utc",
+        "path",
+        "command_line"
+      ],
+      "matched": true,
+      "pid": 17896,
+      "created_utc": "2026-10-10T12:44:20.7974380Z"
+    },
+    {
+      "port": 5437,
+      "kind": "postgres",
+      "named_fields": [
+        "pg_port",
+        "pid",
+        "created_utc",
+        "path",
+        "command_line"
+      ],
+      "matched": true,
+      "pid": 42580,
+      "created_utc": "2026-10-10T13:16:52.5849120Z"
+    },
+    {
+      "port": 5438,
+      "kind": "postgres",
+      "named_fields": [
+        "pg_port",
+        "pid",
+        "created_utc",
+        "path",
+        "command_line"
+      ],
+      "matched": true,
+      "pid": 37996,
+      "created_utc": "2026-10-10T15:40:11.4283150Z"
+    },
+    {
+      "port": 5439,
+      "kind": "postgres",
+      "named_fields": [
+        "pg_port",
+        "pid",
+        "created_utc",
+        "path",
+        "command_line"
+      ],
+      "matched": true,
+      "pid": 46176,
+      "created_utc": "2026-10-10T23:36:31.7415330Z"
+    }
+  ],
+  "checks": [
+    "five accepted apps exact PID/creation/EXE hashes/health match priorSprint07",
+    "six PostgreSQL PID/time/path/command_line equal pre vsfinalpre by explicit field names, object order ignored",
+    "5434 absent at captured observation",
+    "04/05 ZIP hashes unchanged in retained rootcapture"
+  ],
+  "limitations": [
+    "Audited existing Root captures; no new live health/CIM/hash/SQL call in this task",
+    "No full database/datadir byte conservation or whole-machine coverage attestation",
+    "JSON-keyorder false-different initial collector comparison is measurement failure, preserved; direct named-field comparison independently passes",
+    "Final public delivery/postpublication live snapshot remains mandatory"
+  ]
+}

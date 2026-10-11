@@ -1,0 +1,117 @@
+{
+  "head": "ae612373c95a4179ffd94ccbfbc4004db600edea",
+  "compiled_source": "281d13ddc8bb1813545c9ffe7fa92e8f49aaa6e0",
+  "root_report_sha256": "80349834CEF7640EDA73B4C1DB2A384F1B1D8E5259BC0FD56680CF019D5652A1",
+  "archive_sha256": "0581BF3FFA12F6A6196B7574347B82835F326AD9ED2BA8C37FD281C81B21DF06",
+  "archive_bytes": 46592,
+  "full_available_files_read": 14,
+  "total_bytes": 172929,
+  "all_file_hashes_sizes_match": true,
+  "files": [
+    {
+      "path": "0_linux.txt",
+      "bytes": 86152,
+      "sha256": "B43415BBD3EF6A2DE9AA1E51AB35F42F697A212DE11D6235AA587FB4C0903A63"
+    },
+    {
+      "path": "linux/1_Set up job.txt",
+      "bytes": 2102,
+      "sha256": "B972E61083AEA98EC9947B5467FBF2E4156D2F4768B5EDFBA84E6A65C8C6264E"
+    },
+    {
+      "path": "linux/10_Run actions_upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9.txt",
+      "bytes": 1744,
+      "sha256": "C5F378F2F1C081D0CE0EE1A9A6B5A3ECB3CB6CD171AE80B77CF7A0DBCC4F3C79"
+    },
+    {
+      "path": "linux/2_Run actions_checkout@3d3c42e5aac5ba805825da76410c181273ba90b1.txt",
+      "bytes": 11555,
+      "sha256": "93A8BE9D9C34DFF2E0CC69F81DCE3A2BA7B90F3FC786F449DF30031ED733C82D"
+    },
+    {
+      "path": "linux/20_Post Run actions_checkout@3d3c42e5aac5ba805825da76410c181273ba90b1.txt",
+      "bytes": 1773,
+      "sha256": "9BB48CFD6F6203AEB39255A7D4173DCBACEC2C7B48773AF430725110EB295918"
+    },
+    {
+      "path": "linux/21_Complete job.txt",
+      "bytes": 61,
+      "sha256": "8228AB8C899F62388BE32593830D11D38C80A6ABA0746659AC85B6F1F4735824"
+    },
+    {
+      "path": "linux/3_Pinned toolchain.txt",
+      "bytes": 769,
+      "sha256": "619FA984A4442B42A26F1E85B3B34493F1AEAFACE5F5D32F8C1690E3B5CCA95C"
+    },
+    {
+      "path": "linux/4_Run cargo fmt --all -- --check.txt",
+      "bytes": 238,
+      "sha256": "F2C1CA8B7EB31113E65643923C2748FC09B8068FCAA18759525CD59E34D2AD48"
+    },
+    {
+      "path": "linux/5_Run cargo clippy --locked --all-targets -- -D warnings.txt",
+      "bytes": 23907,
+      "sha256": "0E114F0F69D77F8A140C431713E900A8E42170B1EED27A8AAF4715D7361EFD84"
+    },
+    {
+      "path": "linux/6_Run cargo test --locked --all-targets.txt",
+      "bytes": 30695,
+      "sha256": "820E9DD13B78A0351A21AC774E1C9F02279D08974EE707165F55463F0C0BF55E"
+    },
+    {
+      "path": "linux/7_XES oracle provenance guards.txt",
+      "bytes": 397,
+      "sha256": "369384551D3AA1B5B801C7757278679C895225BBB63B02EE0D5F0605500F7687"
+    },
+    {
+      "path": "linux/8_Service method provenance guards.txt",
+      "bytes": 467,
+      "sha256": "7E6147D94E27C0B51E39B5AAB7CF151FCE06B35F19005E68257FFA32C9AEC07E"
+    },
+    {
+      "path": "linux/9_Build release and local health smoke.txt",
+      "bytes": 12477,
+      "sha256": "A25452088BA42E62482016F3AB5F3EEAA2A6DB69C3E19D83B405AF98C01C244F"
+    },
+    {
+      "path": "linux/system.txt",
+      "bytes": 592,
+      "sha256": "A5EEE03BB5F3BADEA4A881B5E7BCAC2ADE48BD20FD5056D8A85FDB71519F4F36"
+    }
+  ],
+  "public_api_runs": [
+    {
+      "id": 38116367384,
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "ae612373c95a4179ffd94ccbfbc4004db600edea",
+      "head_branch": "codex/sprint-08"
+    },
+    {
+      "id": 38116369614,
+      "event": "pull_request",
+      "status": "completed",
+      "conclusion": "success",
+      "head_sha": "ae612373c95a4179ffd94ccbfbc4004db600edea",
+      "head_branch": "codex/sprint-08"
+    }
+  ],
+  "public_api_capture_sha256": "BCA2E89B666C2C9869BD06904AA0300D3918C4C3A460F24AA22AECABF33936C2",
+  "perstep_passed": 93,
+  "perstep_ignored": 14,
+  "guards_xes": 5,
+  "guards_service": 7,
+  "toolchain": "1.99.0-x86_64-unknown-linux-gnu",
+  "fmt_clippy_release_smoke": "completed successful actual run",
+  "health": "actual bash-e command PI_EPHEMERAL=1, curl fail + grep status ready reached artifact upload; health body not separately downloaded",
+  "diagnostic_failure_matches": [],
+  "production_diff_c_to_h": [],
+  "limits": [
+    "Full logs push run only; PR success/head independently publicAPI confirmed, separate PR logs not audited",
+    "Combined0_linux repeats step bytes; totals taken exclusively test step, no duplicate credit",
+    "Cloud ephemeral smoke not PostgreSQL, native Windows package, genuineJava service or fulloracle execution",
+    "Initial gh command unavailable; anonymous API success used instead, no hidden CLI success",
+    "No runtime/package/protected data mutations; public runtime delivery stillpending; not Council vote"
+  ]
+}
