@@ -356,6 +356,7 @@ pub(crate) fn routes() -> Router<AppState> {
         .route("/xes/cancel", post(xes_cancel))
         .route("/logs/{id}/original", get(original_xes))
         .route("/logs/{id}/import-history", get(import_history))
+        .route("/logs/{id}/import-history/view", get(import_history_view))
         .route("/logs/{id}/tools", get(log_tools))
         .route("/logs/{id}/activities", get(activity_options))
         .route("/logs/{id}/filter", post(filter_log))

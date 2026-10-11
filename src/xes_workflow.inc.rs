@@ -187,3 +187,29 @@ pub(super) async fn import_history(
         Ok(json!({"schema_version":p.schema_version,"operation_id":p.operation_id,"actor_id":p.actor_id,"origin_project_id":p.origin_project_id,"confirmed_at":p.confirmed_at,"policy":p.policy,"source_sha256":p.source_sha256,"source_cases":p.source_cases,"source_events":p.source_events,"actions":p.actions}))
     }).await { Ok(value) => Json(value).into_response(), Err(e) => response_error(e) }
 }
+pub(super) async fn import_history_view(
+    Workspace(state): Workspace,
+    Path(id): Path<String>,
+) -> Response {
+    match blocking(move || {
+        let current_project = actor(&state)?.project_id;
+        let log = state
+            .repository
+            .lock()
+            .expect("repository")
+            .get_log(&state, &id)?
+            .ok_or_else(|| failure("not_found", "Журнал не найден."))?;
+        let provenance = log.provenance.ok_or_else(|| {
+            failure(
+                "history_unavailable",
+                "Для прежнего импорта подробная история не сохранялась.",
+            )
+        })?;
+        Ok(render::import_history(&id, &current_project, &provenance))
+    })
+    .await
+    {
+        Ok(html) => page("История импорта", html),
+        Err(e) => response_error(e),
+    }
+}

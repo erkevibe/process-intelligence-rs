@@ -274,6 +274,60 @@ pub(crate) fn xes_preview(
     html
 }
 
+pub(crate) fn import_history(
+    id: &str,
+    current_project: &str,
+    provenance: &crate::import_provenance::ImportProvenance,
+) -> String {
+    let route = route_id(id);
+    let mut html = format!(
+        "<section class=\"platform-card\"><h1>История импорта</h1><p>Здесь сохранены действия при подтверждении исходного файла. Последующие фильтры и настройки журнала смотрите в истории проекта.</p><dl><dt>Подтверждено, UTC</dt><dd>{}</dd><dt>Автор исходного импорта</dt><dd>{}</dd><dt>Исходный проект</dt><dd>{}</dd><dt>Текущий проект</dt><dd>{}</dd><dt>Операция</dt><dd>{}</dd><dt>Политика</dt><dd>{}</dd><dt>SHA256 исходника</dt><dd><code>{}</code></dd><dt>Трасс / событий в исходнике</dt><dd>{} / {}</dd></dl>",
+        provenance.confirmed_at,
+        html_escape(&provenance.actor_id),
+        html_escape(&provenance.origin_project_id),
+        html_escape(current_project),
+        html_escape(&provenance.operation_id),
+        html_escape(&provenance.policy),
+        html_escape(&provenance.source_sha256),
+        provenance.source_cases,
+        provenance.source_events,
+    );
+    if provenance.origin_project_id != current_project {
+        html.push_str("<p role=\"note\"><strong>Журнал восстановлен в другой проект.</strong> Автор и исходный проект относятся к прежнему импорту; они не предоставляют доступ к текущему проекту.</p>");
+    }
+    html.push_str("<p>Индексы трасс и событий начинаются с нуля и относятся к исходному файлу.</p><table class=\"platform-table\"><thead><tr><th>Трасса</th><th>Событие</th><th>Действие</th><th>Причины</th></tr></thead><tbody>");
+    for change in provenance.actions.iter().take(200) {
+        let label = match change.action.as_str() {
+            "default_lifecycle" => "Добавлен lifecycle=complete",
+            "remove_event" => "Удалено событие",
+            "remove_case" => "Удалена пустая трасса",
+            other => other,
+        };
+        let reasons = change
+            .reasons
+            .iter()
+            .map(|reason| match reason.as_str() {
+                "missing_lifecycle" => "Не указан этап lifecycle",
+                "missing_activity" => "Нет имени действия",
+                "missing_timestamp" => "Нет времени события",
+                "unsupported_lifecycle" => "Поддерживаются только start и complete",
+                "empty_case" => "В трассе не осталось событий",
+                other => other,
+            })
+            .collect::<Vec<_>>()
+            .join(", ");
+        html.push_str(&format!(
+            "<tr><td>{}</td><td>{}</td><td>{}</td><td>{}</td></tr>",
+            change.case_index,
+            change.event_index.map_or("—".into(), |n| n.to_string()),
+            html_escape(label),
+            html_escape(&reasons)
+        ));
+    }
+    html.push_str(&format!("</tbody></table><p>Показано {} из {} действий.</p><p><a href=\"/logs/{route}/original\">Скачать исходный XES</a> · <a href=\"/logs/{route}/import-history\">Скачать полную историю JSON</a> · <a href=\"/logs\">К журналам</a></p></section>", provenance.actions.len().min(200), provenance.actions.len()));
+    html
+}
+
 pub(crate) fn logs_list(items: &[(String, String, usize)], writable: bool) -> String {
     let mut html = "<section class=\"platform-heading\"><div class=\"eyebrow\">ЖУРНАЛЫ ПРОЕКТА</div><h1>Сохранённые журналы</h1><p>Журналы сохраняются после перезапуска. В проекте можно хранить восемь журналов: если место занято, новый импорт отклоняется, прежние данные остаются доступны. Одинаковые названия не объединяют результаты.</p></section><section class=\"platform-card\">".to_owned();
     if items.is_empty() {
@@ -282,7 +336,7 @@ pub(crate) fn logs_list(items: &[(String, String, usize)], writable: bool) -> St
         html.push_str("<div class=\"platform-table-wrap\"><table class=\"platform-table\"><thead><tr><th>Журнал</th><th>Событий</th><th>Анализ</th></tr></thead><tbody>");
         for (id, name, events) in items {
             let route = route_id(id);
-            html.push_str(&format!("<tr><td><a href=\"/logs/{route}\">{}</a><br><small>{}</small></td><td>{events}</td><td><a href=\"/logs/{route}/tools\">Фильтры и календарь</a> · <a href=\"/logs/{route}/export\">Экспорт</a> · <a href=\"/logs/{route}/original\">Исходный XES</a> · <a href=\"/logs/{route}/import-history\">История импорта</a></td></tr>", html_escape(name), html_escape(id)));
+            html.push_str(&format!("<tr><td><a href=\"/logs/{route}\">{}</a><br><small>{}</small></td><td>{events}</td><td><a href=\"/logs/{route}/tools\">Фильтры и календарь</a> · <a href=\"/logs/{route}/export\">Экспорт</a> · <a href=\"/logs/{route}/original\">Исходный XES</a> · <a href=\"/logs/{route}/import-history/view\">История импорта</a></td></tr>", html_escape(name), html_escape(id)));
         }
         html.push_str("</tbody></table></div>");
     }
