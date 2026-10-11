@@ -1,0 +1,13 @@
+# PM independent P2 position and actual vote
+
+PM /root/pm_s7, continuing fixed Council seat. Fully read docs/SPRINT_08_PLATFORM_EXTENSION.md and independently calculated SHA256 7DD08524006BB34E0A5ACC80BAC868B78112C8E2E79428361588854B9F129C34 after invitation and before this vote.
+
+Fact: R3 currently has project membership/CAS and separate heavy records, but lacks the proposed folder/assignment/project lifecycle and durable business audit contract. Fullservice/SplitMiner feasibility is blocked by actual dependencies, so additional genuine operator value is more attainable through native project organization. Existing source/action provenance remains an immutable separate payload, not a substitute for repository business audit.
+
+Risk: new fields must decode old records without loading/re-writing heavy payloads; folder assignments can otherwise create dangling references or cross-project disclosure. Archive races with already authorized writes/jobs/import confirmations may defeat readonly intent unless commit-time current authorization/project state is coordinated. Auth and repository transactions are separate stores: mutation+audit must be atomic in each authoritative store, not claimed one global transaction without proof. Retention512 must expose total/dropped/sequence and preserve source provenance separately.
+
+Proposal: accept this bounded native extension with pure validated snapshots, explicit empty-only folder deletion, owner-only logical archive/restore, bounded durable successful audit and independent PG/UI/restart/CAS tests. Treat concurrent archive/revoke versus confirmation/job/edit, orphan assignment and unchanged heavy-record versions as required derived negative/conservation scenarios of the stated contract. If these cannot be verified within the reserved acceptance window, keep affected criteria OPEN and exclude unfinished extension rather than weakening acceptance. No cleanup or protected-data mutation.
+
+Basis: isolated metadata changes reuse established project/CAS/storage boundaries and can deliver customer-visible progress without the missing Manager/SplitMiner closure. Pure folder ownership separates code from independent QA/TD. This closes R3-01/02 only under the actual agreed finite contract and completed evidence; R3-03/04 and all fifteen full criteria remain independently assessed.
+
+Actual PM vote: FOR exact S8-P2 SHA256 7DD08524006BB34E0A5ACC80BAC868B78112C8E2E79428361588854B9F129C34. This is extension plan approval, not independent acceptance of authored code, final candidate or public delivery. Freeze08:12UTC/90-minute reserve and protected installations policy remain in force.

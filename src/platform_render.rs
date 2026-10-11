@@ -66,6 +66,53 @@ pub(crate) fn projects(actor: &Actor, projects: &[Project]) -> String {
 pub(crate) fn csv_upload() -> String {
     "<section class=\"platform-heading\"><div class=\"eyebrow\">ИМПОРТ ЖУРНАЛА</div><h1>Загрузить таблицу CSV</h1><p>Сначала проверьте строки и выберите колонки. Анализ начнётся после подтверждения.</p></section><section class=\"platform-card\"><form class=\"platform-form\" method=\"post\" action=\"/csv/preview\" enctype=\"multipart/form-data\"><label>Файл CSV<input type=\"file\" name=\"file\" accept=\".csv,text/csv\" required></label><label>Разделитель<select name=\"delimiter\"><option value=\"comma\">Запятая</option><option value=\"semicolon\">Точка с запятой</option><option value=\"tab\">Табуляция</option></select></label><small>UTF-8, первая строка — названия колонок. До 20 MiB и 100 000 событий. Значения с разделителем внутри должны быть заключены в кавычки.</small><button class=\"button primary\" type=\"submit\">Проверить таблицу</button></form></section>".to_owned()
 }
+pub(crate) fn xes_upload() -> String {
+    "<section class=\"platform-card\"><h1>Проверить XES перед импортом</h1><p>До подтверждения журнал не сохраняется. Правила предварительного импорта добавляют отсутствующий lifecycle=complete и удаляют события без имени или времени, события с неподдержанным lifecycle и пустые трассы. Некорректные типы, даты и дубликаты отклоняются.</p><form class=\"platform-form\" method=\"post\" action=\"/xes/preview\" enctype=\"multipart/form-data\"><label>Исходный XES<input type=\"file\" name=\"file\" accept=\".xes,application/xml\" required></label><small>До 20 MiB, 100 000 событий, 20 000 трасс. Просмотр доступен пять минут.</small><button class=\"button primary\" type=\"submit\">Показать изменения</button></form><p><a href=\"/logs\">Строгий импорт без удаления событий</a></p></section>".into()
+}
+pub(crate) fn xes_preview(
+    token: &str,
+    preview: &crate::service_preview::Preview,
+    digest: &str,
+    filename: &str,
+) -> String {
+    let remaining: usize = preview.log.cases.iter().map(|c| c.events.len()).sum();
+    let defaults = preview
+        .changes
+        .iter()
+        .filter(|c| c.action == "default_lifecycle")
+        .count();
+    let mut html = format!(
+        "<section class=\"platform-card\"><h1>Изменения перед импортом</h1><p>Файл: <strong>{}</strong>. Пока ничего не сохранено.</p><dl><dt>Трассы</dt><dd>{} → {}</dd><dt>События</dt><dd>{} → {remaining}</dd><dt>Добавлен lifecycle=complete</dt><dd>{defaults}</dd><dt>SHA256 исходника</dt><dd><code>{digest}</code></dd><dt>Политика</dt><dd>{}</dd></dl><p>Исходные индексы начинаются с нуля и сохраняются после удаления. Изменения относятся к исходным событиям.</p><table class=\"platform-table\"><thead><tr><th>Трасса</th><th>Событие</th><th>Действие</th><th>Причины</th></tr></thead><tbody>",
+        html_escape(filename),
+        preview.source_cases,
+        preview.log.cases.len(),
+        preview.source_events,
+        html_escape(preview.policy)
+    );
+    for change in preview.changes.iter().take(200) {
+        let label = match change.action {
+            "default_lifecycle" => "Добавлен lifecycle=complete",
+            "remove_event" => "Удалено событие",
+            "remove_case" => "Удалена пустая трасса",
+            other => other,
+        };
+        html.push_str(&format!(
+            "<tr><td>{}</td><td>{}</td><td>{}</td><td>{}</td></tr>",
+            change.case_index,
+            change.event_index.map_or("—".into(), |i| i.to_string()),
+            html_escape(label),
+            html_escape(&change.reasons.join(", "))
+        ));
+    }
+    html.push_str(&format!("</tbody></table><p>Показано {} из {} действий. <a href=\"/xes/previews/{token}/report\">Скачать полный отчёт JSON</a></p>", preview.changes.len().min(200), preview.changes.len()));
+    if preview.fully_filtered {
+        html.push_str("<p role=\"alert\"><strong>После фильтрации журнал пуст. Подтверждение недоступно.</strong> Исправьте исходный файл или выберите строгий импорт.</p>");
+    } else {
+        html.push_str(&format!("<form class=\"platform-form\" method=\"post\" action=\"/xes/import\"><input type=\"hidden\" name=\"token\" value=\"{token}\"><label><input type=\"checkbox\" name=\"consent\" value=\"yes\" required> Сохранить новый журнал с показанными изменениями, исходным файлом и историей импорта</label><button class=\"button primary\" type=\"submit\">Подтвердить импорт</button></form><p>После начала подтверждения отмена не принимается. Не закрывайте страницу до ответа. Повтор того же подтверждения открывает тот же журнал.</p>"));
+    }
+    html.push_str(&format!("<form method=\"post\" action=\"/xes/cancel\"><input type=\"hidden\" name=\"token\" value=\"{token}\"><button class=\"button\" type=\"submit\">Отменить просмотр</button></form></section>"));
+    html
+}
 
 pub(crate) fn logs_list(items: &[(String, String, usize)], writable: bool) -> String {
     let mut html = "<section class=\"platform-heading\"><div class=\"eyebrow\">ЖУРНАЛЫ ПРОЕКТА</div><h1>Сохранённые журналы</h1><p>Журналы сохраняются после перезапуска. В проекте можно хранить восемь журналов: если место занято, новый импорт отклоняется, прежние данные остаются доступны. Одинаковые названия не объединяют результаты.</p></section><section class=\"platform-card\">".to_owned();
@@ -75,14 +122,14 @@ pub(crate) fn logs_list(items: &[(String, String, usize)], writable: bool) -> St
         html.push_str("<div class=\"platform-table-wrap\"><table class=\"platform-table\"><thead><tr><th>Журнал</th><th>Событий</th><th>Анализ</th></tr></thead><tbody>");
         for (id, name, events) in items {
             let route = route_id(id);
-            html.push_str(&format!("<tr><td><a href=\"/logs/{route}\">{}</a><br><small>{}</small></td><td>{events}</td><td><a href=\"/logs/{route}/tools\">Фильтры и календарь</a> · <a href=\"/logs/{route}/export\">Экспорт</a></td></tr>", html_escape(name), html_escape(id)));
+            html.push_str(&format!("<tr><td><a href=\"/logs/{route}\">{}</a><br><small>{}</small></td><td>{events}</td><td><a href=\"/logs/{route}/tools\">Фильтры и календарь</a> · <a href=\"/logs/{route}/export\">Экспорт</a> · <a href=\"/logs/{route}/original\">Исходный XES</a> · <a href=\"/logs/{route}/import-history\">История импорта</a></td></tr>", html_escape(name), html_escape(id)));
         }
         html.push_str("</tbody></table></div>");
     }
     html.push_str("</section>");
     html.push_str("<p class=\"platform-note\">Скачанную резервную копию сохраняйте без изменений. Чтобы восстановить проект, загрузите исходный файл: правка или повторное сохранение его содержимого может нарушить проверку копии.</p>");
     if writable {
-        html.push_str("<section class=\"platform-card\"><h2>Загрузить журнал</h2><form class=\"platform-form\" method=\"post\" action=\"/logs\" enctype=\"multipart/form-data\"><label>Файл XES<input type=\"file\" name=\"file\" accept=\".xes,application/xml,text/xml\" required></label><small>До 20 MiB, 100 000 событий и 20 000 трасс.</small><button class=\"button primary\" type=\"submit\">Загрузить и анализировать</button></form><hr class=\"platform-divider\"><a class=\"button\" href=\"/csv\">Загрузить CSV с выбором колонок</a></section><section class=\"platform-card\"><h2>Восстановить резервную копию</h2><form class=\"platform-form\" method=\"post\" action=\"/restore\" enctype=\"multipart/form-data\"><label>Название нового проекта<input name=\"name\" required maxlength=\"200\" placeholder=\"Восстановленный проект\"></label><label>Файл резервной копии<input type=\"file\" name=\"file\" accept=\".json,application/json\" required></label><small>Копия восстанавливается в отдельный проект. Текущий проект не перезаписывается. Повреждённая или несовместимая копия отклоняется.</small><button class=\"button\" type=\"submit\">Восстановить в новый проект</button></form></section>");
+        html.push_str("<section class=\"platform-card\"><h2>Загрузить журнал</h2><form class=\"platform-form\" method=\"post\" action=\"/logs\" enctype=\"multipart/form-data\"><label>Файл XES<input type=\"file\" name=\"file\" accept=\".xes,application/xml,text/xml\" required></label><small>До 20 MiB, 100 000 событий и 20 000 трасс.</small><button class=\"button primary\" type=\"submit\">Загрузить и анализировать</button></form><hr class=\"platform-divider\"><a class=\"button\" href=\"/xes\">XES: сначала показать изменения</a> · <a class=\"button\" href=\"/csv\">Загрузить CSV с выбором колонок</a></section><section class=\"platform-card\"><h2>Восстановить резервную копию</h2><form class=\"platform-form\" method=\"post\" action=\"/restore\" enctype=\"multipart/form-data\"><label>Название нового проекта<input name=\"name\" required maxlength=\"200\" placeholder=\"Восстановленный проект\"></label><label>Файл резервной копии<input type=\"file\" name=\"file\" accept=\".json,application/json\" required></label><small>Копия восстанавливается в отдельный проект. Текущий проект не перезаписывается. Повреждённая или несовместимая копия отклоняется.</small><button class=\"button\" type=\"submit\">Восстановить в новый проект</button></form></section>");
     } else {
         html.push_str("<p class=\"platform-note\">У вас права наблюдателя: журналы можно открывать и экспортировать. Загрузку и восстановление выполняет редактор проекта.</p>");
     }
@@ -345,7 +392,8 @@ pub(crate) fn log_tools(
         .map(ToString::to_string)
         .collect::<Vec<_>>()
         .join(",");
-    html.push_str(&format!("<section class=\"platform-card\"><h2>Рабочее время</h2><form class=\"platform-form\" method=\"post\" action=\"/logs/{id}/calendar\"><label>Часовой пояс<select name=\"offset_minutes\">"));
+    html.push_str(&format!("<section class=\"platform-card\"><h2>Рабочее время</h2><form class=\"platform-form\" method=\"post\" action=\"/logs/{id}/calendar\"><label>Фиксированное смещение UTC<select name=\"offset_minutes\">"));
+    // Named zone input is rendered below the fixed offset selector.
     let mut offsets: Vec<i32> = (-840..=840).step_by(30).collect();
     if !offsets.contains(&calendar.offset_minutes) {
         offsets.push(calendar.offset_minutes);
@@ -365,6 +413,7 @@ pub(crate) fn log_tools(
         ));
     }
     html.push_str(&format!("</select></label><label>Рабочие дни недели<input name=\"weekdays\" value=\"{}\" required></label><small>1 — понедельник, 2 — вторник, …, 7 — воскресенье. Например: 1,2,3,4,5.</small><div class=\"platform-fields\">", html_escape(&weekdays)));
+    html.push_str(&format!("<label>Именованная зона IANA (необязательно)<input name=\"timezone\" value=\"{}\" maxlength=\"128\" placeholder=\"Europe/Berlin\"></label>", html_escape(calendar.timezone.as_deref().unwrap_or(""))));
     html.push_str(&minute_select(
         "start_minute",
         "Начало работы",
@@ -375,7 +424,7 @@ pub(crate) fn log_tools(
         "Конец работы",
         calendar.end_minute,
     ));
-    html.push_str(&format!("</div><label>Нерабочие даты<input name=\"holidays\" value=\"{}\" placeholder=\"2026-12-31,2027-01-01\"></label><small>Считается пересечение интервала между первым и последним временем трассы с рабочими часами. Начало включается, конец не включается. Сдвиг UTC фиксирован: сезонный перевод часов не поддерживается.</small><button class=\"button\" type=\"submit\">Рассчитать рабочее время</button></form></section>", html_escape(&holidays)));
+    html.push_str(&format!("</div><label>Нерабочие даты<input name=\"holidays\" value=\"{}\" placeholder=\"2026-12-31,2027-01-01\"></label><small>Считается пересечение интервала между первым и последним временем трассы с рабочими часами. Начало включается, конец не включается. Без именованной зоны смещение UTC фиксировано. При именованной зоне учитываются сезонные переходы; несуществующие и неоднозначные рабочие границы отклоняются. Для именованной зоны выберите фиксированное смещение UTC+00:00.</small><button class=\"button\" type=\"submit\">Рассчитать рабочее время</button></form></section>", html_escape(&holidays)));
     html
 }
 

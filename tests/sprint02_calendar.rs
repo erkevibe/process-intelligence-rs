@@ -5,6 +5,7 @@ fn t(s: &str) -> DateTime<Utc> {
 }
 fn spec() -> CalendarSpec {
     CalendarSpec {
+        timezone: None,
         offset_minutes: 300,
         weekdays: vec![1, 2, 3, 4, 5],
         start_minute: 540,

@@ -1,0 +1,3 @@
+# S8-P1 Root vote
+
+Root FOR docs/SPRINT_08_PLAN.md SHA256 B9745EF4FAB128DE34B7E9264225021691AC53A64A4B45C1B89BABE6B088B519. Five fixed seats Root, PM pm_s7, Customer customer_s6, QA qa_process, TD technical_debt were invited before proposal. Independent initial positions and separate emotional advice were read before proposing. This is permission to execute bounded work toward full15criteria, not a claim of complete R2–R5 in six hours. Raw immutable envelope corrects TD's rejected draft log_state placement. Unknown dependencies get actual gate verdicts, no surrogates. QA/TD final acceptance and preserved90min reserve remain required.

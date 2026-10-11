@@ -48,6 +48,20 @@ struct PendingCsv {
     project: String,
     expires: i64,
 }
+struct PendingXes {
+    raw: Option<Arc<String>>,
+    filename: String,
+    user: String,
+    project: String,
+    expires: i64,
+    status: PreviewStatus,
+}
+enum PreviewStatus {
+    Ready,
+    Confirming,
+    Completed(String),
+    Uncertain,
+}
 pub(crate) struct Platform {
     pub database: Database,
     pub auth: Auth,
@@ -56,6 +70,7 @@ pub(crate) struct Platform {
     pub(crate) resources: crate::resource_cache::ResourceCache,
     pub(crate) payload_slots: Arc<Semaphore>,
     pending: Mutex<BTreeMap<String, PendingCsv>>,
+    pending_xes: Mutex<BTreeMap<String, PendingXes>>,
 }
 impl Platform {
     pub fn open(url: String) -> Result<Self, ImportError> {
@@ -70,6 +85,7 @@ impl Platform {
             resources: crate::resource_cache::ResourceCache::new(),
             payload_slots: Arc::new(Semaphore::new(2)),
             pending: Mutex::new(BTreeMap::new()),
+            pending_xes: Mutex::new(BTreeMap::new()),
         };
         let projects = platform.auth.all_projects();
         for (id, _, value) in platform.database.project_headers()? {
@@ -176,6 +192,9 @@ impl Platform {
 fn failure(code: &str, message: &str) -> ImportError {
     ImportError::new(code, message)
 }
+#[path = "xes_workflow.inc.rs"]
+mod xes_workflow;
+use xes_workflow::*;
 pub(crate) fn session_cookie(headers: &HeaderMap) -> Option<String> {
     headers
         .get(header::COOKIE)?
@@ -204,8 +223,10 @@ fn response_error(error: ImportError) -> Response {
         "access_denied" => StatusCode::FORBIDDEN,
         "not_found" => StatusCode::NOT_FOUND,
         "project_capacity" => StatusCode::PAYLOAD_TOO_LARGE,
-        "storage_conflict" | "model_conflict" => StatusCode::CONFLICT,
-        "storage_unavailable" | "storage_busy" => StatusCode::SERVICE_UNAVAILABLE,
+        "storage_conflict" | "model_conflict" | "preview_conflict" => StatusCode::CONFLICT,
+        "storage_unavailable" | "storage_busy" | "confirmation_uncertain" => {
+            StatusCode::SERVICE_UNAVAILABLE
+        }
         _ => StatusCode::UNPROCESSABLE_ENTITY,
     };
     (
@@ -275,6 +296,13 @@ pub(crate) fn routes() -> Router<AppState> {
         .route("/csv", get(csv_form))
         .route("/csv/preview", post(csv_preview))
         .route("/csv/import", post(csv_import))
+        .route("/xes", get(xes_form))
+        .route("/xes/preview", post(xes_preview))
+        .route("/xes/previews/{token}/report", get(xes_report))
+        .route("/xes/import", post(xes_import))
+        .route("/xes/cancel", post(xes_cancel))
+        .route("/logs/{id}/original", get(original_xes))
+        .route("/logs/{id}/import-history", get(import_history))
         .route("/logs/{id}/tools", get(log_tools))
         .route("/logs/{id}/activities", get(activity_options))
         .route("/logs/{id}/filter", post(filter_log))
@@ -759,6 +787,8 @@ async fn filter_log(
 }
 #[derive(Deserialize)]
 struct CalendarForm {
+    #[serde(default)]
+    timezone: String,
     offset_minutes: i32,
     weekdays: String,
     start_minute: u32,
@@ -788,6 +818,7 @@ async fn set_calendar(
                 .map_err(|_| failure("calendar", "Праздники: даты YYYY-MM-DD через запятую."))?
         };
         let spec = CalendarSpec {
+            timezone: (!form.timezone.trim().is_empty()).then_some(form.timezone),
             offset_minutes: form.offset_minutes,
             weekdays,
             start_minute: form.start_minute,
@@ -1094,6 +1125,15 @@ fn validate_backup(repo: &Repository) -> Result<(), ImportError> {
         return Err(failure("backup_limit", "В копии превышены лимиты проекта."));
     }
     for (id, log) in &repo.logs {
+        if let Some(provenance) = &log.provenance {
+            provenance.validate(&log.source, &log.source_sha256)?;
+            if log.order != NormalizationOrder::Source {
+                return Err(failure(
+                    "backup_invalid",
+                    "Политика импорта не соответствует исходнику.",
+                ));
+            }
+        }
         if id != &log.id
             || !valid_id(id, "log-")
             || log.source_sha256.len() != 64

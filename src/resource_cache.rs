@@ -34,6 +34,7 @@ enum WeakResource {
         data: Weak<crate::domain::EventLog>,
         source: Weak<crate::domain::EventLog>,
         analysis: Weak<crate::domain::Analysis>,
+        provenance: Option<Weak<crate::import_provenance::ImportProvenance>>,
     },
     Model(Weak<StoredModel>),
 }
@@ -51,11 +52,13 @@ impl WeakResource {
                 template.data = empty.clone();
                 template.source = empty;
                 template.analysis = Arc::new(crate::mining::analyze(&template.data));
+                template.provenance = None;
                 Self::Log {
                     template,
                     data: Arc::downgrade(&log.data),
                     source: Arc::downgrade(&log.source),
                     analysis: Arc::downgrade(&log.analysis),
+                    provenance: log.provenance.as_ref().map(Arc::downgrade),
                 }
             }
         }
@@ -68,11 +71,16 @@ impl WeakResource {
                 data,
                 source,
                 analysis,
+                provenance,
             } => {
                 let mut log = template.clone();
                 log.data = data.upgrade()?;
                 log.source = source.upgrade()?;
                 log.analysis = analysis.upgrade()?;
+                log.provenance = match provenance {
+                    Some(p) => Some(p.upgrade()?),
+                    None => None,
+                };
                 Some(Resource::Log(Arc::new(*log)))
             }
         }
@@ -433,7 +441,9 @@ fn resource_charge(resource: &Resource) -> usize {
             .saturating_add(strings(&log.filters.retain_activities))
             .saturating_add(strings(&log.filters.remove_activities))
             .saturating_add(vec_charge(&log.calendar.weekdays))
-            .saturating_add(vec_charge(&log.calendar.holidays)),
+            .saturating_add(vec_charge(&log.calendar.holidays))
+            .saturating_add(opt_string(&log.calendar.timezone))
+            .saturating_add(log.provenance.as_ref().map_or(0, |p| p.charge())),
     }
 }
 fn key_charge(key: &Key, versions: &Versions) -> usize {

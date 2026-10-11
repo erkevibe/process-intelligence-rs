@@ -82,6 +82,8 @@ pub(crate) struct StoredLog {
     pub(crate) filters: crate::filters::FilterSpec,
     pub(crate) calendar: crate::calendar::CalendarSpec,
     pub(crate) project_id: Option<String>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub(crate) provenance: Option<Arc<crate::import_provenance::ImportProvenance>>,
 }
 #[derive(Default, Clone, Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
@@ -466,6 +468,7 @@ async fn guard_inner(State(state): State<AppState>, mut request: Request, next: 
             }
             let method = request.method();
             let heavy = path == "/"
+                || path.starts_with("/xes")
                 || path == "/logs" && method != axum::http::Method::GET
                 || path.starts_with("/logs/")
                 || path.starts_with("/models/")
@@ -781,6 +784,37 @@ pub(crate) fn store_log(
     order: crate::csv_io::NormalizationOrder,
     completed: Option<&JobSnapshot>,
 ) -> Result<StoredLog, crate::domain::ImportError> {
+    store_log_with_provenance(
+        state,
+        data,
+        analysis,
+        filename,
+        elapsed_ms,
+        source_sha256,
+        order,
+        completed,
+        None,
+    )
+}
+#[allow(clippy::too_many_arguments)]
+pub(crate) fn store_log_with_provenance(
+    state: &AppState,
+    data: EventLog,
+    analysis: Analysis,
+    filename: String,
+    elapsed_ms: u128,
+    source_sha256: String,
+    order: crate::csv_io::NormalizationOrder,
+    completed: Option<&JobSnapshot>,
+    provenance: Option<Arc<crate::import_provenance::ImportProvenance>>,
+) -> Result<StoredLog, crate::domain::ImportError> {
+    state.validate_resource_actor()?;
+    if state.actor.as_ref().is_some_and(|a| !a.role.can_write()) {
+        return Err(crate::domain::ImportError::new(
+            "access_denied",
+            "Требуются права редактора.",
+        ));
+    }
     let mut repository = state.repository.lock().expect("repository mutex");
     if state.platform.is_some() && repository.log_count() >= MAX_LOGS {
         return Err(crate::domain::ImportError::new(
@@ -816,6 +850,7 @@ pub(crate) fn store_log(
         filters: Default::default(),
         calendar: Default::default(),
         project_id: state.actor.as_ref().map(|a| a.project_id.clone()),
+        provenance,
     };
     if next.logs.len() >= MAX_LOGS
         && let Some(oldest) = next
@@ -1512,6 +1547,7 @@ async fn export(Workspace(state): Workspace, Path(id): Path<String>) -> Response
         "schema_version":1,"log_id":log.id,"name":log.filename,"analysis_version":log.analysis_version,"view_revision":log.view_revision,
         "parameters":{"min_edge_frequency":log.threshold,"order":log.order,"lifecycle":"each-event","filters":log.filters,"calendar":log.calendar},
         "source_sha256":log.source_sha256,"project_id":state.actor.as_ref().map(|a|&a.project_id),
+        "import_history":log.provenance.as_ref().map(|p| json!({"schema_version":p.schema_version,"policy":p.policy,"operation_id":p.operation_id,"actor_id":p.actor_id,"origin_project_id":p.origin_project_id,"confirmed_at":p.confirmed_at,"source_cases":p.source_cases,"source_events":p.source_events,"actions":p.actions,"source_sha256":p.source_sha256})),
         "business_durations":crate::platform::calendar_results(&log),
         "analysis":log.analysis.as_ref(),"view":view(&log),"warnings":log.data.warnings,"elapsed_ms":log.elapsed_ms,
         "selected_case":log.selected_case.as_ref().and_then(|id| log.data.cases.iter().find(|case| &case.id == id)),
