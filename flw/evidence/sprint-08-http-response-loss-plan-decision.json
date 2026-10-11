@@ -1,0 +1,46 @@
+{
+  "utc": "2026-10-11T07:24:43.3538460Z",
+  "proposal_sha256": "730D0C0ACBE151568C70EDD7946029E2F054239C8CA6E67A0AC05EB956E6BA4B",
+  "fixed_voters": 5,
+  "actual_for": 5,
+  "actual_against": 0,
+  "votes": [
+    {
+      "role": "Root",
+      "path": "flw/evidence/sprint-08-root-http-response-loss-plan-vote.md",
+      "sha256": "FDBE161AE034E375E54DC5E416EA4FB1929F2C54ADF3FB5664BD5F858F3CA24B",
+      "vote": "FOR"
+    },
+    {
+      "role": "PM",
+      "path": "flw/evidence/sprint-08-pm-http-response-loss-plan-vote.md",
+      "sha256": "FDD34D446811B99CF117D2F73103DDDB8FD1B9D079B6E4F0AB2C8BDFA5C59151",
+      "vote": "FOR"
+    },
+    {
+      "role": "Customer",
+      "path": "flw/evidence/sprint-08-customer-http-response-loss-plan-vote.md",
+      "sha256": "3FA18D3C748D542EE66051F0C9E1258D3F2F67E24BB74CCC9F759E72CE8C291D",
+      "vote": "FOR"
+    },
+    {
+      "role": "QA",
+      "path": "flw/evidence/sprint-08-qa-http-response-loss-plan-vote.md",
+      "sha256": "54CE3777193A01D741896E934A4DBCE614EC1F972832503C6AD0AA2DBC4636A5",
+      "vote": "FOR"
+    },
+    {
+      "role": "TechnicalDebt",
+      "path": "flw/evidence/sprint-08-td-http-response-loss-plan-vote.md",
+      "sha256": "746418E652FE42F25E311CCDFBC23D55C70C2A1BB401658E64B26E61E909A5F6",
+      "vote": "FOR"
+    }
+  ],
+  "verdict": "ADOPT conditional plan only; execution NOT ACTIVATED",
+  "activation_gates": [
+    "Complete C06 A08 local/public/newhuman/protected/finalCI/exactacceptance",
+    "Independent exact instrument source review before fault",
+    "First actual fault<=08:00UTC/proof<=08:40UTC/min45min independentreview/final09:42UTC"
+  ],
+  "scope": "No DB-COMMITack/globalexactlyonce/R2-03/fullstages PASS; original15 unchanged; failure of gate DEFER without speculative retry."
+}
