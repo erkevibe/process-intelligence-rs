@@ -1,0 +1,228 @@
+{
+  "schema_version": 1,
+  "provenance": "Literal pre-execution manual expectations; error codes subject to independent source review before execution",
+  "parameters": {
+    "legacy_factory": "XFactoryNaiveImpl",
+    "classifier": "XEventNameClassifier",
+    "legacy_order": "XML source; no adapter sorting",
+    "manager_validateLog": "excluded",
+    "legacy_time": "java.util.Date milliseconds",
+    "rust_order": [
+      "source",
+      "timestamp"
+    ]
+  },
+  "fixtures": [
+    {
+      "id": "reverse-ties",
+      "events": [
+        {
+          "activity": "B",
+          "timestamp": "2026-01-01T10:00:02Z",
+          "lifecycle": null
+        },
+        {
+          "activity": "A",
+          "timestamp": "2026-01-01T10:00:01Z",
+          "lifecycle": null
+        },
+        {
+          "activity": "C",
+          "timestamp": "2026-01-01T10:00:01Z",
+          "lifecycle": null
+        }
+      ],
+      "timestamp_sequence": [
+        "A",
+        "C",
+        "B"
+      ],
+      "sha256": "a8eeb66979966c266aa5b455e43d430e7c46045075d85791cdf91352f4411c65",
+      "bytes": 508,
+      "source_sequence": [
+        "B",
+        "A",
+        "C"
+      ]
+    },
+    {
+      "id": "offset-equal",
+      "events": [
+        {
+          "activity": "B",
+          "timestamp": "2026-01-01T15:00:00+05:00",
+          "lifecycle": null
+        },
+        {
+          "activity": "A",
+          "timestamp": "2026-01-01T10:00:00Z",
+          "lifecycle": null
+        }
+      ],
+      "timestamp_sequence": [
+        "B",
+        "A"
+      ],
+      "utc_millis": [
+        1767261600000,
+        1767261600000
+      ],
+      "sha256": "b7d78d5d89bf3c858e33427408ff95377c50979d3a08cc38fc34dda261b1f13a",
+      "bytes": 402,
+      "source_sequence": [
+        "B",
+        "A"
+      ]
+    },
+    {
+      "id": "lifecycle",
+      "events": [
+        {
+          "activity": "A",
+          "timestamp": "2026-01-01T10:00:00Z",
+          "lifecycle": "start"
+        },
+        {
+          "activity": "A",
+          "timestamp": "2026-01-01T10:00:01Z",
+          "lifecycle": "complete"
+        }
+      ],
+      "timestamp_sequence": [
+        "A",
+        "A"
+      ],
+      "sha256": "d9dd15d81c74a7eedcbd7694184391f2a7d578293804f9b4d5cf0e781a061b41",
+      "bytes": 497,
+      "source_sequence": [
+        "A",
+        "A"
+      ]
+    },
+    {
+      "id": "missing-time",
+      "events": [
+        {
+          "activity": "A",
+          "timestamp": null,
+          "lifecycle": null
+        },
+        {
+          "activity": "B",
+          "timestamp": "2026-01-01T10:00:00Z",
+          "lifecycle": null
+        }
+      ],
+      "timestamp_error": "missing_timestamp",
+      "sha256": "bcba5093813ccb04b1bfafe3a142a0511f2fb09cca46501b5370749df3c8880e",
+      "bytes": 340,
+      "source_sequence": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "id": "invalid-time",
+      "events": [
+        {
+          "activity": "A",
+          "timestamp": "not-a-date",
+          "lifecycle": null
+        }
+      ],
+      "rust_error": "invalid_timestamp",
+      "legacy": "observe-error",
+      "sha256": "2737f1536e37392df6d2c902ceaa42281b9b3eafd5ad8f3c5be56c169e3ec88a",
+      "bytes": 276,
+      "source_sequence": [
+        "A"
+      ]
+    },
+    {
+      "id": "wrong-time-type",
+      "events": [
+        {
+          "activity": "A",
+          "timestamp": "2026-01-01T10:00:00Z",
+          "lifecycle": null
+        }
+      ],
+      "time_type": "string",
+      "rust_error": "invalid_timestamp",
+      "legacy": "observe-type",
+      "sha256": "322d1e4cdb8b3d2ec4eed7eb57f32c4b5eab29bb322e5fccf5673ff7404373f5",
+      "bytes": 291,
+      "source_sequence": [
+        "A"
+      ]
+    },
+    {
+      "id": "duplicate-name",
+      "events": [
+        {
+          "activity": "A",
+          "timestamp": null,
+          "lifecycle": null
+        }
+      ],
+      "duplicate_name": "B",
+      "rust_error": "duplicate_key",
+      "legacy": "observe-duplicate",
+      "sha256": "d66428531d5dc4afd6d3f2abcc825ebab1253a9168927cc94faec3a0860cc22f",
+      "bytes": 269,
+      "source_sequence": [
+        "A"
+      ]
+    },
+    {
+      "id": "empty-trace",
+      "events": [],
+      "timestamp_sequence": [],
+      "sha256": "2c33b99c359d3a8538d1456d9b0314fb87b68a4a3713ca9f10e84f42e87d979e",
+      "bytes": 175,
+      "source_sequence": []
+    },
+    {
+      "id": "unicode",
+      "events": [
+        {
+          "activity": "审批\nمرحبا",
+          "timestamp": null,
+          "lifecycle": null
+        },
+        {
+          "activity": "終わり",
+          "timestamp": null,
+          "lifecycle": null
+        }
+      ],
+      "timestamp_error": "missing_timestamp",
+      "sha256": "dd412c1a96ae514f937bf3d844e3bf9dcaff210a9c5c6b1b423588758223b07e",
+      "bytes": 306,
+      "source_sequence": [
+        "审批\nمرحبا",
+        "終わり"
+      ]
+    },
+    {
+      "id": "submillisecond",
+      "events": [
+        {
+          "activity": "A",
+          "timestamp": "2026-01-01T10:00:00.123456Z",
+          "lifecycle": null
+        }
+      ],
+      "timestamp_sequence": [
+        "A"
+      ],
+      "rust_timestamp": "2026-01-01T10:00:00.123456Z",
+      "legacy": "observe-precision",
+      "sha256": "21bf86ad1f722fba7b9fe852558a533622851f5599f618c50f032871114140ac",
+      "bytes": 295,
+      "source_sequence": [
+        "A"
+      ]
+    }
+  ]
+}

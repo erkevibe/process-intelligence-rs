@@ -1,0 +1,11 @@
+# Sprint06 — actual PM S6-P1 vote
+
+**FOR** exact `docs/SPRINT_06_PLAN.md` raw SHA256 **D0E6F787F6DB4D6D443BFA0009A6C62ECC36B8790C81DA3D668009F512DA9FBF**. PM `/root/pm_final` fully read the proposal and independently recomputed its matching hash. This is a new plan vote, separate from feasibility observations and previous Council votes; no release acceptance follows.
+
+The single parser/XLog-consumer focus is achievable within four hours with the explicit02:48:15 feasibility gate, honest BLOCKED fallback and04:34:15 freeze. Real execution is mandatory for any reference claim; missing dependencies cannot be replaced by signatures/stubs or the prior String adapter. Diagnostic fallback delivers corpus/tooling and limitations without claiming A03/A04 legacy execution or closing R2. Preserve six prior regressions and original immutable fixture expectations.
+
+Primary upstream reading supports the chosen narrow boundary: XesXmlParser with XFactoryNaiveImpl parses actual XML and appends events in document order; it does not invoke timestamp sorting. Timestamp millis arise from the actual Java7 converter and fallback. EventLogServiceImpl downstream validateLog defaults lifecycle and removes invalid events/empty traces, so parser/consumer results must not be labelled full service or Portal import compatibility. The plan explicitly separates these scopes and manual Rust timestamp-sort expectations.
+
+Dependency feasibility remains an experiment: Guava interning, EclipseCollections and statically referenced buffered/extension classes enlarge the real source closure. A passing build alone is not the gate; execute the actual parser and unchanged XLog overload. Unknown/invalid time behavior and consumer defaults must be measured rather than inferred from comments. Upstream source/license/provenance stays private and distinct from MIT runtime.
+
+Public tools/corpus/results through checked PR/CI are useful even if production remains unchanged. Keep Windows0.5 rather than repacking identical runtime. A production repair needs a separately frozen and independently checked artifact; if the reserve cannot accommodate that, report the defect open. No cleanup, user database changes, security bypass or new domain features are authorized. Final independent QA/TD, exact proposal votes and publication checks remain necessary.

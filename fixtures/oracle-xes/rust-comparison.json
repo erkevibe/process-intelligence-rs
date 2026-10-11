@@ -1,0 +1,999 @@
+{
+  "schema_version": 1,
+  "provenance": "Independent exact C2 comparator replay; source observer built from C1 Git archive, src/examples/Cargo unchanged in C2",
+  "comparator_source": "d0665a40f5389ce901100e2a20a7aed32f791c67",
+  "observer_source": "b0dcf126f076714d8571f65c759fa39591b4aebd",
+  "original_report_sha256": "87ca36b109ff9820716126d309aea1acbcc3f6682edb018a82981066ed3631ee",
+  "corpus_sha256": "8ebdb55f3a6a8c585865014c206d92be3d11e314925c52c1e7c6665ed9d14ac4",
+  "reference_sha256": "c9433fbfb9f4fc98d36b8f194be92e8182883b41581b1419bde81b0d35ea8ff9",
+  "observer_executable_sha256": "e7c86243a7eb5da6d55401e977839cf23d2d07b1bff9a4e60672861b04206e3b",
+  "scope": "parser attribute observations and actual LogParser XLog consumer; manager validateLog/Portal/calendar/miner excluded",
+  "manual_contract_passed": true,
+  "legacy_consumer_consistency_passed": true,
+  "passed": true,
+  "results": [
+    {
+      "id": "reverse-ties",
+      "input_sha256": "a8eeb66979966c266aa5b455e43d430e7c46045075d85791cdf91352f4411c65",
+      "rust": {
+        "source": {
+          "log": {
+            "cases": [
+              {
+                "events": [
+                  {
+                    "activity": "B",
+                    "lifecycle": null,
+                    "ordinal": 0,
+                    "timestamp": "2026-01-01T10:00:02Z"
+                  },
+                  {
+                    "activity": "A",
+                    "lifecycle": null,
+                    "ordinal": 1,
+                    "timestamp": "2026-01-01T10:00:01Z"
+                  },
+                  {
+                    "activity": "C",
+                    "lifecycle": null,
+                    "ordinal": 2,
+                    "timestamp": "2026-01-01T10:00:01Z"
+                  }
+                ],
+                "id": "case-0",
+                "name": "case-1"
+              }
+            ],
+            "name": "reverse-ties",
+            "warnings": [
+              "Порядок событий — как в XML. Lifecycle start/complete не объединяются.",
+              "Совместимость с Apromore ещё не подтверждена legacy oracle."
+            ]
+          },
+          "status": "ok"
+        },
+        "timestamp": {
+          "log": {
+            "cases": [
+              {
+                "events": [
+                  {
+                    "activity": "A",
+                    "lifecycle": null,
+                    "ordinal": 1,
+                    "timestamp": "2026-01-01T10:00:01Z"
+                  },
+                  {
+                    "activity": "C",
+                    "lifecycle": null,
+                    "ordinal": 2,
+                    "timestamp": "2026-01-01T10:00:01Z"
+                  },
+                  {
+                    "activity": "B",
+                    "lifecycle": null,
+                    "ordinal": 0,
+                    "timestamp": "2026-01-01T10:00:02Z"
+                  }
+                ],
+                "id": "case-0",
+                "name": "case-1"
+              }
+            ],
+            "name": "reverse-ties",
+            "warnings": [
+              "Порядок событий — как в XML. Lifecycle start/complete не объединяются.",
+              "Совместимость с Apromore ещё не подтверждена legacy oracle."
+            ]
+          },
+          "status": "ok"
+        }
+      },
+      "legacy_status": "ok",
+      "legacy_observed": {
+        "name": "reverse-ties",
+        "cases": [
+          {
+            "name": "case-1",
+            "events": [
+              {
+                "ordinal": 0,
+                "activity": "B",
+                "timestamp_millis": 1767261602000,
+                "lifecycle": null,
+                "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                "timestamp_attribute_value": "2026-01-01T10:00:02Z"
+              },
+              {
+                "ordinal": 1,
+                "activity": "A",
+                "timestamp_millis": 1767261601000,
+                "lifecycle": null,
+                "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                "timestamp_attribute_value": "2026-01-01T10:00:01Z"
+              },
+              {
+                "ordinal": 2,
+                "activity": "C",
+                "timestamp_millis": 1767261601000,
+                "lifecycle": null,
+                "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                "timestamp_attribute_value": "2026-01-01T10:00:01Z"
+              }
+            ]
+          }
+        ],
+        "consumer": {
+          "variants": [
+            {
+              "count": 1,
+              "sequence": [
+                "B",
+                "A",
+                "C"
+              ]
+            }
+          ],
+          "cases": 1,
+          "activities": 3,
+          "events": 3
+        }
+      },
+      "legacy_checks": {
+        "log_name": true,
+        "case_count": true,
+        "consumer_cases": true,
+        "consumer_events": true,
+        "consumer_activities": true,
+        "consumer_variants": true
+      },
+      "manual_checks": {
+        "source_order_or_error": true,
+        "timestamp_order_or_error": true,
+        "cardinality_names": true,
+        "attributes": true,
+        "timestamp_structure_attributes": true,
+        "exact_precision": true
+      },
+      "differences": []
+    },
+    {
+      "id": "offset-equal",
+      "input_sha256": "b7d78d5d89bf3c858e33427408ff95377c50979d3a08cc38fc34dda261b1f13a",
+      "rust": {
+        "source": {
+          "log": {
+            "cases": [
+              {
+                "events": [
+                  {
+                    "activity": "B",
+                    "lifecycle": null,
+                    "ordinal": 0,
+                    "timestamp": "2026-01-01T10:00:00Z"
+                  },
+                  {
+                    "activity": "A",
+                    "lifecycle": null,
+                    "ordinal": 1,
+                    "timestamp": "2026-01-01T10:00:00Z"
+                  }
+                ],
+                "id": "case-0",
+                "name": "case-1"
+              }
+            ],
+            "name": "offset-equal",
+            "warnings": [
+              "Порядок событий — как в XML. Lifecycle start/complete не объединяются.",
+              "Совместимость с Apromore ещё не подтверждена legacy oracle."
+            ]
+          },
+          "status": "ok"
+        },
+        "timestamp": {
+          "log": {
+            "cases": [
+              {
+                "events": [
+                  {
+                    "activity": "B",
+                    "lifecycle": null,
+                    "ordinal": 0,
+                    "timestamp": "2026-01-01T10:00:00Z"
+                  },
+                  {
+                    "activity": "A",
+                    "lifecycle": null,
+                    "ordinal": 1,
+                    "timestamp": "2026-01-01T10:00:00Z"
+                  }
+                ],
+                "id": "case-0",
+                "name": "case-1"
+              }
+            ],
+            "name": "offset-equal",
+            "warnings": [
+              "Порядок событий — как в XML. Lifecycle start/complete не объединяются.",
+              "Совместимость с Apromore ещё не подтверждена legacy oracle."
+            ]
+          },
+          "status": "ok"
+        }
+      },
+      "legacy_status": "ok",
+      "legacy_observed": {
+        "name": "offset-equal",
+        "cases": [
+          {
+            "name": "case-1",
+            "events": [
+              {
+                "ordinal": 0,
+                "activity": "B",
+                "timestamp_millis": 1767261600000,
+                "lifecycle": null,
+                "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                "timestamp_attribute_value": "2026-01-01T10:00:00Z"
+              },
+              {
+                "ordinal": 1,
+                "activity": "A",
+                "timestamp_millis": 1767261600000,
+                "lifecycle": null,
+                "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                "timestamp_attribute_value": "2026-01-01T10:00:00Z"
+              }
+            ]
+          }
+        ],
+        "consumer": {
+          "variants": [
+            {
+              "count": 1,
+              "sequence": [
+                "B",
+                "A"
+              ]
+            }
+          ],
+          "cases": 1,
+          "activities": 2,
+          "events": 2
+        }
+      },
+      "legacy_checks": {
+        "log_name": true,
+        "case_count": true,
+        "consumer_cases": true,
+        "consumer_events": true,
+        "consumer_activities": true,
+        "consumer_variants": true
+      },
+      "manual_checks": {
+        "source_order_or_error": true,
+        "timestamp_order_or_error": true,
+        "cardinality_names": true,
+        "attributes": true,
+        "timestamp_structure_attributes": true,
+        "exact_precision": true
+      },
+      "differences": []
+    },
+    {
+      "id": "lifecycle",
+      "input_sha256": "d9dd15d81c74a7eedcbd7694184391f2a7d578293804f9b4d5cf0e781a061b41",
+      "rust": {
+        "source": {
+          "log": {
+            "cases": [
+              {
+                "events": [
+                  {
+                    "activity": "A",
+                    "lifecycle": "start",
+                    "ordinal": 0,
+                    "timestamp": "2026-01-01T10:00:00Z"
+                  },
+                  {
+                    "activity": "A",
+                    "lifecycle": "complete",
+                    "ordinal": 1,
+                    "timestamp": "2026-01-01T10:00:01Z"
+                  }
+                ],
+                "id": "case-0",
+                "name": "case-1"
+              }
+            ],
+            "name": "lifecycle",
+            "warnings": [
+              "Порядок событий — как в XML. Lifecycle start/complete не объединяются.",
+              "Совместимость с Apromore ещё не подтверждена legacy oracle."
+            ]
+          },
+          "status": "ok"
+        },
+        "timestamp": {
+          "log": {
+            "cases": [
+              {
+                "events": [
+                  {
+                    "activity": "A",
+                    "lifecycle": "start",
+                    "ordinal": 0,
+                    "timestamp": "2026-01-01T10:00:00Z"
+                  },
+                  {
+                    "activity": "A",
+                    "lifecycle": "complete",
+                    "ordinal": 1,
+                    "timestamp": "2026-01-01T10:00:01Z"
+                  }
+                ],
+                "id": "case-0",
+                "name": "case-1"
+              }
+            ],
+            "name": "lifecycle",
+            "warnings": [
+              "Порядок событий — как в XML. Lifecycle start/complete не объединяются.",
+              "Совместимость с Apromore ещё не подтверждена legacy oracle."
+            ]
+          },
+          "status": "ok"
+        }
+      },
+      "legacy_status": "ok",
+      "legacy_observed": {
+        "name": "lifecycle",
+        "cases": [
+          {
+            "name": "case-1",
+            "events": [
+              {
+                "ordinal": 0,
+                "activity": "A",
+                "timestamp_millis": 1767261600000,
+                "lifecycle": "start",
+                "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                "timestamp_attribute_value": "2026-01-01T10:00:00Z"
+              },
+              {
+                "ordinal": 1,
+                "activity": "A",
+                "timestamp_millis": 1767261601000,
+                "lifecycle": "complete",
+                "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                "timestamp_attribute_value": "2026-01-01T10:00:01Z"
+              }
+            ]
+          }
+        ],
+        "consumer": {
+          "variants": [
+            {
+              "count": 1,
+              "sequence": [
+                "A",
+                "A"
+              ]
+            }
+          ],
+          "cases": 1,
+          "activities": 1,
+          "events": 2
+        }
+      },
+      "legacy_checks": {
+        "log_name": true,
+        "case_count": true,
+        "consumer_cases": true,
+        "consumer_events": true,
+        "consumer_activities": true,
+        "consumer_variants": true
+      },
+      "manual_checks": {
+        "source_order_or_error": true,
+        "timestamp_order_or_error": true,
+        "cardinality_names": true,
+        "attributes": true,
+        "timestamp_structure_attributes": true,
+        "exact_precision": true
+      },
+      "differences": []
+    },
+    {
+      "id": "missing-time",
+      "input_sha256": "bcba5093813ccb04b1bfafe3a142a0511f2fb09cca46501b5370749df3c8880e",
+      "rust": {
+        "source": {
+          "log": {
+            "cases": [
+              {
+                "events": [
+                  {
+                    "activity": "A",
+                    "lifecycle": null,
+                    "ordinal": 0,
+                    "timestamp": null
+                  },
+                  {
+                    "activity": "B",
+                    "lifecycle": null,
+                    "ordinal": 1,
+                    "timestamp": "2026-01-01T10:00:00Z"
+                  }
+                ],
+                "id": "case-0",
+                "name": "case-1"
+              }
+            ],
+            "name": "missing-time",
+            "warnings": [
+              "Порядок событий — как в XML. Lifecycle start/complete не объединяются.",
+              "Совместимость с Apromore ещё не подтверждена legacy oracle."
+            ]
+          },
+          "status": "ok"
+        },
+        "timestamp": {
+          "error": {
+            "case_index": null,
+            "code": "missing_timestamp",
+            "event_index": null,
+            "message": "Для сортировки по времени нужны timestamps всех событий."
+          },
+          "status": "rejected"
+        }
+      },
+      "legacy_status": "ok",
+      "legacy_observed": {
+        "name": "missing-time",
+        "cases": [
+          {
+            "name": "case-1",
+            "events": [
+              {
+                "ordinal": 0,
+                "activity": "A",
+                "timestamp_millis": null,
+                "lifecycle": null,
+                "timestamp_attribute_type": null,
+                "timestamp_attribute_value": null
+              },
+              {
+                "ordinal": 1,
+                "activity": "B",
+                "timestamp_millis": 1767261600000,
+                "lifecycle": null,
+                "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                "timestamp_attribute_value": "2026-01-01T10:00:00Z"
+              }
+            ]
+          }
+        ],
+        "consumer": {
+          "variants": [
+            {
+              "count": 1,
+              "sequence": [
+                "A",
+                "B"
+              ]
+            }
+          ],
+          "cases": 1,
+          "activities": 2,
+          "events": 2
+        }
+      },
+      "legacy_checks": {
+        "log_name": true,
+        "case_count": true,
+        "consumer_cases": true,
+        "consumer_events": true,
+        "consumer_activities": true,
+        "consumer_variants": true
+      },
+      "manual_checks": {
+        "source_order_or_error": true,
+        "timestamp_order_or_error": true,
+        "cardinality_names": true,
+        "attributes": true,
+        "timestamp_structure_attributes": true,
+        "exact_precision": true
+      },
+      "differences": []
+    },
+    {
+      "id": "invalid-time",
+      "input_sha256": "2737f1536e37392df6d2c902ceaa42281b9b3eafd5ad8f3c5be56c169e3ec88a",
+      "rust": {
+        "source": {
+          "error": {
+            "case_index": 0,
+            "code": "invalid_timestamp",
+            "event_index": 0,
+            "message": "Timestamp должен быть ISO 8601 с явно указанным часовым поясом."
+          },
+          "status": "rejected"
+        },
+        "timestamp": {
+          "error": {
+            "case_index": 0,
+            "code": "invalid_timestamp",
+            "event_index": 0,
+            "message": "Timestamp должен быть ISO 8601 с явно указанным часовым поясом."
+          },
+          "status": "rejected"
+        }
+      },
+      "legacy_status": "rejected",
+      "legacy_observed": {
+        "name": null,
+        "cases": [],
+        "consumer": {
+          "variants": []
+        }
+      },
+      "legacy_checks": {},
+      "manual_checks": {
+        "source_order_or_error": true,
+        "timestamp_order_or_error": true,
+        "cardinality_names": true,
+        "attributes": true,
+        "timestamp_structure_attributes": true,
+        "exact_precision": true
+      },
+      "differences": []
+    },
+    {
+      "id": "wrong-time-type",
+      "input_sha256": "322d1e4cdb8b3d2ec4eed7eb57f32c4b5eab29bb322e5fccf5673ff7404373f5",
+      "rust": {
+        "source": {
+          "error": {
+            "case_index": 0,
+            "code": "invalid_timestamp",
+            "event_index": 0,
+            "message": "Timestamp должен быть ISO 8601 с явно указанным часовым поясом."
+          },
+          "status": "rejected"
+        },
+        "timestamp": {
+          "error": {
+            "case_index": 0,
+            "code": "invalid_timestamp",
+            "event_index": 0,
+            "message": "Timestamp должен быть ISO 8601 с явно указанным часовым поясом."
+          },
+          "status": "rejected"
+        }
+      },
+      "legacy_status": "ok",
+      "legacy_observed": {
+        "name": "wrong-time-type",
+        "cases": [
+          {
+            "name": "case-1",
+            "events": [
+              {
+                "ordinal": 0,
+                "activity": "A",
+                "timestamp_millis": null,
+                "lifecycle": null,
+                "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeLiteralImpl",
+                "timestamp_attribute_value": "2026-01-01T10:00:00Z"
+              }
+            ]
+          }
+        ],
+        "consumer": {
+          "variants": [
+            {
+              "count": 1,
+              "sequence": [
+                "A"
+              ]
+            }
+          ],
+          "cases": 1,
+          "activities": 1,
+          "events": 1
+        }
+      },
+      "legacy_checks": {
+        "consumer_cases": true,
+        "consumer_events": true,
+        "consumer_activities": true,
+        "consumer_variants": true
+      },
+      "manual_checks": {
+        "source_order_or_error": true,
+        "timestamp_order_or_error": true,
+        "cardinality_names": true,
+        "attributes": true,
+        "timestamp_structure_attributes": true,
+        "exact_precision": true
+      },
+      "differences": [
+        {
+          "field": "acceptance",
+          "rust": "rejected",
+          "legacy": "ok"
+        }
+      ]
+    },
+    {
+      "id": "duplicate-name",
+      "input_sha256": "d66428531d5dc4afd6d3f2abcc825ebab1253a9168927cc94faec3a0860cc22f",
+      "rust": {
+        "source": {
+          "error": {
+            "case_index": 0,
+            "code": "duplicate_key",
+            "event_index": 0,
+            "message": "Повторное concept:name у события."
+          },
+          "status": "rejected"
+        },
+        "timestamp": {
+          "error": {
+            "case_index": 0,
+            "code": "duplicate_key",
+            "event_index": 0,
+            "message": "Повторное concept:name у события."
+          },
+          "status": "rejected"
+        }
+      },
+      "legacy_status": "ok",
+      "legacy_observed": {
+        "name": "duplicate-name",
+        "cases": [
+          {
+            "name": "case-1",
+            "events": [
+              {
+                "ordinal": 0,
+                "activity": "B",
+                "timestamp_millis": null,
+                "lifecycle": null,
+                "timestamp_attribute_type": null,
+                "timestamp_attribute_value": null
+              }
+            ]
+          }
+        ],
+        "consumer": {
+          "variants": [
+            {
+              "count": 1,
+              "sequence": [
+                "B"
+              ]
+            }
+          ],
+          "cases": 1,
+          "activities": 1,
+          "events": 1
+        }
+      },
+      "legacy_checks": {
+        "consumer_cases": true,
+        "consumer_events": true,
+        "consumer_activities": true,
+        "consumer_variants": true
+      },
+      "manual_checks": {
+        "source_order_or_error": true,
+        "timestamp_order_or_error": true,
+        "cardinality_names": true,
+        "attributes": true,
+        "timestamp_structure_attributes": true,
+        "exact_precision": true
+      },
+      "differences": [
+        {
+          "field": "acceptance",
+          "rust": "rejected",
+          "legacy": "ok"
+        }
+      ]
+    },
+    {
+      "id": "empty-trace",
+      "input_sha256": "2c33b99c359d3a8538d1456d9b0314fb87b68a4a3713ca9f10e84f42e87d979e",
+      "rust": {
+        "source": {
+          "log": {
+            "cases": [
+              {
+                "events": [],
+                "id": "case-0",
+                "name": "case-1"
+              }
+            ],
+            "name": "empty-trace",
+            "warnings": [
+              "Порядок событий — как в XML. Lifecycle start/complete не объединяются.",
+              "Совместимость с Apromore ещё не подтверждена legacy oracle."
+            ]
+          },
+          "status": "ok"
+        },
+        "timestamp": {
+          "log": {
+            "cases": [
+              {
+                "events": [],
+                "id": "case-0",
+                "name": "case-1"
+              }
+            ],
+            "name": "empty-trace",
+            "warnings": [
+              "Порядок событий — как в XML. Lifecycle start/complete не объединяются.",
+              "Совместимость с Apromore ещё не подтверждена legacy oracle."
+            ]
+          },
+          "status": "ok"
+        }
+      },
+      "legacy_status": "ok",
+      "legacy_observed": {
+        "name": "empty-trace",
+        "cases": [
+          {
+            "name": "case-1",
+            "events": []
+          }
+        ],
+        "consumer": {
+          "variants": [
+            {
+              "count": 1,
+              "sequence": []
+            }
+          ],
+          "cases": 1,
+          "activities": 0,
+          "events": 0
+        }
+      },
+      "legacy_checks": {
+        "log_name": true,
+        "case_count": true,
+        "consumer_cases": true,
+        "consumer_events": true,
+        "consumer_activities": true,
+        "consumer_variants": true
+      },
+      "manual_checks": {
+        "source_order_or_error": true,
+        "timestamp_order_or_error": true,
+        "cardinality_names": true,
+        "attributes": true,
+        "timestamp_structure_attributes": true,
+        "exact_precision": true
+      },
+      "differences": []
+    },
+    {
+      "id": "unicode",
+      "input_sha256": "dd412c1a96ae514f937bf3d844e3bf9dcaff210a9c5c6b1b423588758223b07e",
+      "rust": {
+        "source": {
+          "log": {
+            "cases": [
+              {
+                "events": [
+                  {
+                    "activity": "审批\nمرحبا",
+                    "lifecycle": null,
+                    "ordinal": 0,
+                    "timestamp": null
+                  },
+                  {
+                    "activity": "終わり",
+                    "lifecycle": null,
+                    "ordinal": 1,
+                    "timestamp": null
+                  }
+                ],
+                "id": "case-0",
+                "name": "case-1"
+              }
+            ],
+            "name": "unicode",
+            "warnings": [
+              "Порядок событий — как в XML. Lifecycle start/complete не объединяются.",
+              "Совместимость с Apromore ещё не подтверждена legacy oracle."
+            ]
+          },
+          "status": "ok"
+        },
+        "timestamp": {
+          "error": {
+            "case_index": null,
+            "code": "missing_timestamp",
+            "event_index": null,
+            "message": "Для сортировки по времени нужны timestamps всех событий."
+          },
+          "status": "rejected"
+        }
+      },
+      "legacy_status": "ok",
+      "legacy_observed": {
+        "name": "unicode",
+        "cases": [
+          {
+            "name": "case-1",
+            "events": [
+              {
+                "ordinal": 0,
+                "activity": "审批\nمرحبا",
+                "timestamp_millis": null,
+                "lifecycle": null,
+                "timestamp_attribute_type": null,
+                "timestamp_attribute_value": null
+              },
+              {
+                "ordinal": 1,
+                "activity": "終わり",
+                "timestamp_millis": null,
+                "lifecycle": null,
+                "timestamp_attribute_type": null,
+                "timestamp_attribute_value": null
+              }
+            ]
+          }
+        ],
+        "consumer": {
+          "variants": [
+            {
+              "count": 1,
+              "sequence": [
+                "审批\nمرحبا",
+                "終わり"
+              ]
+            }
+          ],
+          "cases": 1,
+          "activities": 2,
+          "events": 2
+        }
+      },
+      "legacy_checks": {
+        "log_name": true,
+        "case_count": true,
+        "consumer_cases": true,
+        "consumer_events": true,
+        "consumer_activities": true,
+        "consumer_variants": true
+      },
+      "manual_checks": {
+        "source_order_or_error": true,
+        "timestamp_order_or_error": true,
+        "cardinality_names": true,
+        "attributes": true,
+        "timestamp_structure_attributes": true,
+        "exact_precision": true
+      },
+      "differences": []
+    },
+    {
+      "id": "submillisecond",
+      "input_sha256": "21bf86ad1f722fba7b9fe852558a533622851f5599f618c50f032871114140ac",
+      "rust": {
+        "source": {
+          "log": {
+            "cases": [
+              {
+                "events": [
+                  {
+                    "activity": "A",
+                    "lifecycle": null,
+                    "ordinal": 0,
+                    "timestamp": "2026-01-01T10:00:00.123456Z"
+                  }
+                ],
+                "id": "case-0",
+                "name": "case-1"
+              }
+            ],
+            "name": "submillisecond",
+            "warnings": [
+              "Порядок событий — как в XML. Lifecycle start/complete не объединяются.",
+              "Совместимость с Apromore ещё не подтверждена legacy oracle."
+            ]
+          },
+          "status": "ok"
+        },
+        "timestamp": {
+          "log": {
+            "cases": [
+              {
+                "events": [
+                  {
+                    "activity": "A",
+                    "lifecycle": null,
+                    "ordinal": 0,
+                    "timestamp": "2026-01-01T10:00:00.123456Z"
+                  }
+                ],
+                "id": "case-0",
+                "name": "case-1"
+              }
+            ],
+            "name": "submillisecond",
+            "warnings": [
+              "Порядок событий — как в XML. Lifecycle start/complete не объединяются.",
+              "Совместимость с Apromore ещё не подтверждена legacy oracle."
+            ]
+          },
+          "status": "ok"
+        }
+      },
+      "legacy_status": "ok",
+      "legacy_observed": {
+        "name": "submillisecond",
+        "cases": [
+          {
+            "name": "case-1",
+            "events": [
+              {
+                "ordinal": 0,
+                "activity": "A",
+                "timestamp_millis": 1767261600123,
+                "lifecycle": null,
+                "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                "timestamp_attribute_value": "2026-01-01T10:00:00.123Z"
+              }
+            ]
+          }
+        ],
+        "consumer": {
+          "variants": [
+            {
+              "count": 1,
+              "sequence": [
+                "A"
+              ]
+            }
+          ],
+          "cases": 1,
+          "activities": 1,
+          "events": 1
+        }
+      },
+      "legacy_checks": {
+        "log_name": true,
+        "case_count": true,
+        "consumer_cases": true,
+        "consumer_events": true,
+        "consumer_activities": true,
+        "consumer_variants": true
+      },
+      "manual_checks": {
+        "source_order_or_error": true,
+        "timestamp_order_or_error": true,
+        "cardinality_names": true,
+        "attributes": true,
+        "timestamp_structure_attributes": true,
+        "exact_precision": true
+      },
+      "differences": [
+        {
+          "field": "cases[0].events[0].timestamp_precision",
+          "rust": "2026-01-01T10:00:00.123456Z",
+          "legacy_millis": 1767261600123,
+          "reason": "Rust retains submillisecond precision; java.util.Date observation is milliseconds"
+        }
+      ]
+    }
+  ]
+}

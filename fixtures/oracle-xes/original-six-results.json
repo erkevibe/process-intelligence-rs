@@ -1,0 +1,674 @@
+{
+  "schema_version": 1,
+  "provenance": "Original immutable six XES read by genuine parser/XLog consumer and accepted0.5 ephemeral runtime",
+  "actual_xes_report_sha256": "bd6b5fce390cf2603c0f50bfabc6424a03a4bea292daf6ae141cd8fe5a57f454",
+  "accepted_runtime_report_sha256": "4dc6618e5ccfa8b35addc61402db068f4a95bd8e0126e4dd2054c8890944b77d",
+  "corpus_sha256": "6c0ade912a2c6e9db989ecd0c81e2b4c5fe3c39d2fa6544837497976f5a6fc5b",
+  "runtime_executable_sha256": "4da47c60da169b2b0d659e4583a72ea5e17dbce18b83e28b8923b2df1cdaf98a",
+  "parameters": {
+    "order": "source",
+    "lifecycle": "each-event",
+    "classifier": "concept:name",
+    "missing_timestamp": "allowed in source order",
+    "legacy_adapter": "XES normalized traces -> frequency-prefixed text, lossless hex UTF-8 labels; not legacy XES importer"
+  },
+  "scope": "Actual XES parser and XLog counts/variants checked; manual DFG only, no Portal/service/calendar/miner quality credit",
+  "results": [
+    {
+      "id": "alternatives",
+      "input_sha256": "928e69d4354c60e0ba968262178189f77ff4b504199219684844888393786ba9",
+      "exit_code": 0,
+      "status": "ok",
+      "observed": {
+        "name": null,
+        "cases": [
+          {
+            "name": "same-case-name",
+            "events": [
+              {
+                "ordinal": 0,
+                "activity": "A",
+                "timestamp_millis": null,
+                "lifecycle": null,
+                "timestamp_attribute_type": null,
+                "timestamp_attribute_value": null
+              },
+              {
+                "ordinal": 1,
+                "activity": "B",
+                "timestamp_millis": null,
+                "lifecycle": null,
+                "timestamp_attribute_type": null,
+                "timestamp_attribute_value": null
+              }
+            ]
+          },
+          {
+            "name": "same-case-name",
+            "events": [
+              {
+                "ordinal": 0,
+                "activity": "A",
+                "timestamp_millis": null,
+                "lifecycle": null,
+                "timestamp_attribute_type": null,
+                "timestamp_attribute_value": null
+              },
+              {
+                "ordinal": 1,
+                "activity": "C",
+                "timestamp_millis": null,
+                "lifecycle": null,
+                "timestamp_attribute_type": null,
+                "timestamp_attribute_value": null
+              }
+            ]
+          },
+          {
+            "name": "same-case-name",
+            "events": [
+              {
+                "ordinal": 0,
+                "activity": "A",
+                "timestamp_millis": null,
+                "lifecycle": null,
+                "timestamp_attribute_type": null,
+                "timestamp_attribute_value": null
+              },
+              {
+                "ordinal": 1,
+                "activity": "B",
+                "timestamp_millis": null,
+                "lifecycle": null,
+                "timestamp_attribute_type": null,
+                "timestamp_attribute_value": null
+              }
+            ]
+          }
+        ],
+        "consumer": {
+          "variants": [
+            {
+              "count": 2,
+              "sequence": [
+                "A",
+                "B"
+              ]
+            },
+            {
+              "count": 1,
+              "sequence": [
+                "A",
+                "C"
+              ]
+            }
+          ],
+          "cases": 3,
+          "activities": 3,
+          "events": 6
+        }
+      },
+      "rust": {
+        "cases": 3,
+        "events": 6,
+        "activities": 3,
+        "variants": [
+          {
+            "sequence": [
+              "A",
+              "B"
+            ],
+            "count": 2
+          },
+          {
+            "sequence": [
+              "A",
+              "C"
+            ],
+            "count": 1
+          }
+        ],
+        "edges": [
+          {
+            "source": "A",
+            "target": "B",
+            "count": 2
+          },
+          {
+            "source": "A",
+            "target": "C",
+            "count": 1
+          }
+        ],
+        "activity_counts": {
+          "A": 3,
+          "B": 2,
+          "C": 1
+        }
+      },
+      "manual_comparison": {
+        "cases": true,
+        "events": true,
+        "activities": true,
+        "activity_counts": true,
+        "variants": true,
+        "dfg": true
+      },
+      "legacy_comparison": {
+        "cases": true,
+        "activities": true,
+        "variants": true
+      }
+    },
+    {
+      "id": "self-loop",
+      "input_sha256": "497f0358254a89b46429d8347b2f150f554397d3940701a663bf2a9717a26958",
+      "exit_code": 0,
+      "status": "ok",
+      "observed": {
+        "name": null,
+        "cases": [
+          {
+            "name": "same-case-name",
+            "events": [
+              {
+                "ordinal": 0,
+                "activity": "A",
+                "timestamp_millis": null,
+                "lifecycle": null,
+                "timestamp_attribute_type": null,
+                "timestamp_attribute_value": null
+              },
+              {
+                "ordinal": 1,
+                "activity": "A",
+                "timestamp_millis": null,
+                "lifecycle": null,
+                "timestamp_attribute_type": null,
+                "timestamp_attribute_value": null
+              }
+            ]
+          },
+          {
+            "name": "same-case-name",
+            "events": [
+              {
+                "ordinal": 0,
+                "activity": "A",
+                "timestamp_millis": null,
+                "lifecycle": null,
+                "timestamp_attribute_type": null,
+                "timestamp_attribute_value": null
+              }
+            ]
+          }
+        ],
+        "consumer": {
+          "variants": [
+            {
+              "count": 1,
+              "sequence": [
+                "A"
+              ]
+            },
+            {
+              "count": 1,
+              "sequence": [
+                "A",
+                "A"
+              ]
+            }
+          ],
+          "cases": 2,
+          "activities": 1,
+          "events": 3
+        }
+      },
+      "rust": {
+        "cases": 2,
+        "events": 3,
+        "activities": 1,
+        "variants": [
+          {
+            "sequence": [
+              "A"
+            ],
+            "count": 1
+          },
+          {
+            "sequence": [
+              "A",
+              "A"
+            ],
+            "count": 1
+          }
+        ],
+        "edges": [
+          {
+            "source": "A",
+            "target": "A",
+            "count": 1
+          }
+        ],
+        "activity_counts": {
+          "A": 3
+        }
+      },
+      "manual_comparison": {
+        "cases": true,
+        "events": true,
+        "activities": true,
+        "activity_counts": true,
+        "variants": true,
+        "dfg": true
+      },
+      "legacy_comparison": {
+        "cases": true,
+        "activities": true,
+        "variants": true
+      }
+    },
+    {
+      "id": "empty-trace",
+      "input_sha256": "c9c7cf34e6fa3eb358ab4146804eadab120ecc8a2992e979c50d3afac9731c6e",
+      "exit_code": 0,
+      "status": "ok",
+      "observed": {
+        "name": null,
+        "cases": [
+          {
+            "name": "same-case-name",
+            "events": []
+          },
+          {
+            "name": "same-case-name",
+            "events": [
+              {
+                "ordinal": 0,
+                "activity": "A",
+                "timestamp_millis": null,
+                "lifecycle": null,
+                "timestamp_attribute_type": null,
+                "timestamp_attribute_value": null
+              }
+            ]
+          }
+        ],
+        "consumer": {
+          "variants": [
+            {
+              "count": 1,
+              "sequence": []
+            },
+            {
+              "count": 1,
+              "sequence": [
+                "A"
+              ]
+            }
+          ],
+          "cases": 2,
+          "activities": 1,
+          "events": 1
+        }
+      },
+      "rust": {
+        "cases": 2,
+        "events": 1,
+        "activities": 1,
+        "variants": [
+          {
+            "sequence": [],
+            "count": 1
+          },
+          {
+            "sequence": [
+              "A"
+            ],
+            "count": 1
+          }
+        ],
+        "edges": [],
+        "activity_counts": {
+          "A": 1
+        }
+      },
+      "manual_comparison": {
+        "cases": true,
+        "events": true,
+        "activities": true,
+        "activity_counts": true,
+        "variants": true,
+        "dfg": true
+      },
+      "legacy_comparison": {
+        "cases": true,
+        "activities": true,
+        "variants": true
+      }
+    },
+    {
+      "id": "unicode",
+      "input_sha256": "a4886a085e3d69bcf8996f6ed9e9f4e2bdfa7ecc2c56251ce278d45d70fdc729",
+      "exit_code": 0,
+      "status": "ok",
+      "observed": {
+        "name": null,
+        "cases": [
+          {
+            "name": "same-case-name",
+            "events": [
+              {
+                "ordinal": 0,
+                "activity": "Проверка\n雪",
+                "timestamp_millis": null,
+                "lifecycle": null,
+                "timestamp_attribute_type": null,
+                "timestamp_attribute_value": null
+              },
+              {
+                "ordinal": 1,
+                "activity": "Одобрить",
+                "timestamp_millis": null,
+                "lifecycle": null,
+                "timestamp_attribute_type": null,
+                "timestamp_attribute_value": null
+              }
+            ]
+          },
+          {
+            "name": "same-case-name",
+            "events": [
+              {
+                "ordinal": 0,
+                "activity": "Одобрить",
+                "timestamp_millis": null,
+                "lifecycle": null,
+                "timestamp_attribute_type": null,
+                "timestamp_attribute_value": null
+              },
+              {
+                "ordinal": 1,
+                "activity": "Проверка\n雪",
+                "timestamp_millis": null,
+                "lifecycle": null,
+                "timestamp_attribute_type": null,
+                "timestamp_attribute_value": null
+              }
+            ]
+          }
+        ],
+        "consumer": {
+          "variants": [
+            {
+              "count": 1,
+              "sequence": [
+                "Одобрить",
+                "Проверка\n雪"
+              ]
+            },
+            {
+              "count": 1,
+              "sequence": [
+                "Проверка\n雪",
+                "Одобрить"
+              ]
+            }
+          ],
+          "cases": 2,
+          "activities": 2,
+          "events": 4
+        }
+      },
+      "rust": {
+        "cases": 2,
+        "events": 4,
+        "activities": 2,
+        "variants": [
+          {
+            "sequence": [
+              "Одобрить",
+              "Проверка\n雪"
+            ],
+            "count": 1
+          },
+          {
+            "sequence": [
+              "Проверка\n雪",
+              "Одобрить"
+            ],
+            "count": 1
+          }
+        ],
+        "edges": [
+          {
+            "source": "Одобрить",
+            "target": "Проверка\n雪",
+            "count": 1
+          },
+          {
+            "source": "Проверка\n雪",
+            "target": "Одобрить",
+            "count": 1
+          }
+        ],
+        "activity_counts": {
+          "Одобрить": 2,
+          "Проверка\n雪": 2
+        }
+      },
+      "manual_comparison": {
+        "cases": true,
+        "events": true,
+        "activities": true,
+        "activity_counts": true,
+        "variants": true,
+        "dfg": true
+      },
+      "legacy_comparison": {
+        "cases": true,
+        "activities": true,
+        "variants": true
+      }
+    },
+    {
+      "id": "lifecycle",
+      "input_sha256": "672294eb6f97458448153f0e5aa7928867898f73cd3f986f87be7042daf7f59f",
+      "exit_code": 0,
+      "status": "ok",
+      "observed": {
+        "name": null,
+        "cases": [
+          {
+            "name": "same-case-name",
+            "events": [
+              {
+                "ordinal": 0,
+                "activity": "A",
+                "timestamp_millis": null,
+                "lifecycle": "start",
+                "timestamp_attribute_type": null,
+                "timestamp_attribute_value": null
+              },
+              {
+                "ordinal": 1,
+                "activity": "A",
+                "timestamp_millis": null,
+                "lifecycle": "complete",
+                "timestamp_attribute_type": null,
+                "timestamp_attribute_value": null
+              },
+              {
+                "ordinal": 2,
+                "activity": "B",
+                "timestamp_millis": null,
+                "lifecycle": "complete",
+                "timestamp_attribute_type": null,
+                "timestamp_attribute_value": null
+              }
+            ]
+          }
+        ],
+        "consumer": {
+          "variants": [
+            {
+              "count": 1,
+              "sequence": [
+                "A",
+                "A",
+                "B"
+              ]
+            }
+          ],
+          "cases": 1,
+          "activities": 2,
+          "events": 3
+        }
+      },
+      "rust": {
+        "cases": 1,
+        "events": 3,
+        "activities": 2,
+        "variants": [
+          {
+            "sequence": [
+              "A",
+              "A",
+              "B"
+            ],
+            "count": 1
+          }
+        ],
+        "edges": [
+          {
+            "source": "A",
+            "target": "A",
+            "count": 1
+          },
+          {
+            "source": "A",
+            "target": "B",
+            "count": 1
+          }
+        ],
+        "activity_counts": {
+          "A": 2,
+          "B": 1
+        }
+      },
+      "manual_comparison": {
+        "cases": true,
+        "events": true,
+        "activities": true,
+        "activity_counts": true,
+        "variants": true,
+        "dfg": true
+      },
+      "legacy_comparison": {
+        "cases": true,
+        "activities": true,
+        "variants": true
+      }
+    },
+    {
+      "id": "timestamp-order",
+      "input_sha256": "66f8b5ac2c76764700424b149cf97a195652b1b8f2a1bdc4a6ebc4f7d8936740",
+      "exit_code": 0,
+      "status": "ok",
+      "observed": {
+        "name": null,
+        "cases": [
+          {
+            "name": "same-case-name",
+            "events": [
+              {
+                "ordinal": 0,
+                "activity": "B",
+                "timestamp_millis": 1767225602000,
+                "lifecycle": null,
+                "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                "timestamp_attribute_value": "2026-01-01T00:00:02Z"
+              },
+              {
+                "ordinal": 1,
+                "activity": "A",
+                "timestamp_millis": 1767225601000,
+                "lifecycle": null,
+                "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                "timestamp_attribute_value": "2026-01-01T00:00:01Z"
+              },
+              {
+                "ordinal": 2,
+                "activity": "C",
+                "timestamp_millis": 1767225601000,
+                "lifecycle": null,
+                "timestamp_attribute_type": "org.deckfour.xes.model.impl.XAttributeTimestampImpl",
+                "timestamp_attribute_value": "2026-01-01T00:00:01Z"
+              }
+            ]
+          }
+        ],
+        "consumer": {
+          "variants": [
+            {
+              "count": 1,
+              "sequence": [
+                "B",
+                "A",
+                "C"
+              ]
+            }
+          ],
+          "cases": 1,
+          "activities": 3,
+          "events": 3
+        }
+      },
+      "rust": {
+        "cases": 1,
+        "events": 3,
+        "activities": 3,
+        "variants": [
+          {
+            "sequence": [
+              "B",
+              "A",
+              "C"
+            ],
+            "count": 1
+          }
+        ],
+        "edges": [
+          {
+            "source": "A",
+            "target": "C",
+            "count": 1
+          },
+          {
+            "source": "B",
+            "target": "A",
+            "count": 1
+          }
+        ],
+        "activity_counts": {
+          "A": 1,
+          "B": 1,
+          "C": 1
+        }
+      },
+      "manual_comparison": {
+        "cases": true,
+        "events": true,
+        "activities": true,
+        "activity_counts": true,
+        "variants": true,
+        "dfg": true
+      },
+      "legacy_comparison": {
+        "cases": true,
+        "activities": true,
+        "variants": true
+      }
+    }
+  ]
+}

@@ -1,0 +1,198 @@
+{
+  "utc": "2026-10-11T02:25:40.290178+00:00",
+  "candidate_source": "b0dcf126f076714d8571f65c759fa39591b4aebd",
+  "source_archive_sha256": "15478C325844FE3235129E71A4F880136D565FF14870940799E9DF7EF614A4D7",
+  "frozen_source_files_git_blob_verified": 417,
+  "observer_sha256": "E7C86243A7EB5DA6D55401E977839CF23D2D07B1BFF9A4E60672861B04206E3B",
+  "lock_sha256": "4845ED15E0B2EAE47F82FEFFFFFD416B56A9F254CDEE6E3917A74FBB1BAEF6CD",
+  "production_runtime_inputs_unchanged_from_accepted05": true,
+  "current_windows05_artifact": "4DA47C60DA169B2B0D659E4583A72EA5E17DBCE18B83E28B8923B2DF1CDAF98A",
+  "jdk504_files_full_verified": 504,
+  "own_cold_build_proof_sha256": "275E44E15C97A0565D090581993E1E134A9DED3D6BA47358238CFB047AD3B44B",
+  "independent_new10": {
+    "utc": "2026-10-11T02:23:54.466157+00:00",
+    "scope": "Independent actual10 genuine reference replay +20Rust mode runs/manual/cardinality/attribute/consumer review; exact frozen C1 b0dcf126f076714d8571f65c759fa39591b4aebd",
+    "reference_build_sha256": "275E44E15C97A0565D090581993E1E134A9DED3D6BA47358238CFB047AD3B44B",
+    "verified_build_file_hashes": 313,
+    "verified_upstream_git_blob_files": 134,
+    "missing_build_hashes": [],
+    "actual_java_version_exit": 0,
+    "actual_java_version_sha256": "93A80478C2444D8D17E804A85B170290C6FAF38E314CC6D0D6DFFDDCCD40F5D7",
+    "corpus_sha256": "8EBDB55F3A6A8C585865014C206D92BE3D11E314925C52C1E7C6665ED9D14AC4",
+    "reference_sha256": "C9433FBFB9F4FC98D36B8F194BE92E8182883B41581B1419BDE81B0D35EA8FF9",
+    "comparison_sha256": "1DD526F964662648CB3D54504CE3F2115C3FA34208F960719600AF8F8E9C330A",
+    "observer_exe_sha256": "E7C86243A7EB5DA6D55401E977839CF23D2D07B1BFF9A4E60672861B04206E3B",
+    "checks": [
+      {
+        "id": "reverse-ties",
+        "manual_rust_contract": true,
+        "actual_legacy_exit": 0,
+        "legacy_case_event_variant_cardinality_checked": true,
+        "differences": []
+      },
+      {
+        "id": "offset-equal",
+        "manual_rust_contract": true,
+        "actual_legacy_exit": 0,
+        "legacy_case_event_variant_cardinality_checked": true,
+        "differences": []
+      },
+      {
+        "id": "lifecycle",
+        "manual_rust_contract": true,
+        "actual_legacy_exit": 0,
+        "legacy_case_event_variant_cardinality_checked": true,
+        "differences": []
+      },
+      {
+        "id": "missing-time",
+        "manual_rust_contract": true,
+        "actual_legacy_exit": 0,
+        "legacy_case_event_variant_cardinality_checked": true,
+        "differences": []
+      },
+      {
+        "id": "invalid-time",
+        "manual_rust_contract": true,
+        "actual_legacy_exit": 1,
+        "legacy_case_event_variant_cardinality_checked": false,
+        "differences": []
+      },
+      {
+        "id": "wrong-time-type",
+        "manual_rust_contract": true,
+        "actual_legacy_exit": 0,
+        "legacy_case_event_variant_cardinality_checked": true,
+        "differences": [
+          {
+            "field": "acceptance",
+            "rust": "rejected",
+            "legacy": "ok"
+          }
+        ]
+      },
+      {
+        "id": "duplicate-name",
+        "manual_rust_contract": true,
+        "actual_legacy_exit": 0,
+        "legacy_case_event_variant_cardinality_checked": true,
+        "differences": [
+          {
+            "field": "acceptance",
+            "rust": "rejected",
+            "legacy": "ok"
+          }
+        ]
+      },
+      {
+        "id": "empty-trace",
+        "manual_rust_contract": true,
+        "actual_legacy_exit": 0,
+        "legacy_case_event_variant_cardinality_checked": true,
+        "differences": []
+      },
+      {
+        "id": "unicode",
+        "manual_rust_contract": true,
+        "actual_legacy_exit": 0,
+        "legacy_case_event_variant_cardinality_checked": true,
+        "differences": []
+      },
+      {
+        "id": "submillisecond",
+        "manual_rust_contract": true,
+        "actual_legacy_exit": 0,
+        "legacy_case_event_variant_cardinality_checked": true,
+        "differences": [
+          {
+            "field": "cases[0].events[0].timestamp_precision",
+            "rust": "2026-01-01T10:00:00.123456Z",
+            "legacy_millis": 1767261600123,
+            "reason": "Rust retains submillisecond precision; java.util.Date observation is milliseconds"
+          }
+        ]
+      }
+    ],
+    "rust_only_negatives": [
+      {
+        "id": "doctype-internal",
+        "actual_process_exit": 0,
+        "actual_error": "doctype",
+        "scope": "Rust only; no upstream entity/network probe"
+      },
+      {
+        "id": "missing-name",
+        "actual_process_exit": 0,
+        "actual_error": "missing_activity",
+        "scope": "Rust only; no upstream entity/network probe"
+      }
+    ],
+    "verdict": "PASS narrow actual oracle observation/manual Rust contracts; differences explicit, not full parity",
+    "limits": [
+      "Portal/manager validateLog/calendar/miner excluded; source order legacy, timestamp Rust manual only.",
+      "Wrong time type legacy accepts string attribute but typed timestamp null; Rust rejects invalid_timestamp. Duplicate name legacy last-wins B; Rust rejects duplicate_key. Java milliseconds vs Rust exact .123456 precision difference.",
+      "Invalid-time upstream genuine parser throws EmptyStackException, not safe controlled legacy validation.",
+      "Final harness exposes raw timestamp type/value; wrong-type string explicitly observable.",
+      "Independent cold build all captured hashes verified; earlier Build02 gaps remain historical.",
+      "Final helper actual class/JDK/dependency identities and version checked each run; earlier gap preserved."
+    ]
+  },
+  "independent_genuine_existing6": [
+    {
+      "id": "alternatives",
+      "actual_genuine_xes_exit": 0,
+      "manual_full_sequences_counts_variants_equal": true
+    },
+    {
+      "id": "self-loop",
+      "actual_genuine_xes_exit": 0,
+      "manual_full_sequences_counts_variants_equal": true
+    },
+    {
+      "id": "empty-trace",
+      "actual_genuine_xes_exit": 0,
+      "manual_full_sequences_counts_variants_equal": true
+    },
+    {
+      "id": "unicode",
+      "actual_genuine_xes_exit": 0,
+      "manual_full_sequences_counts_variants_equal": true
+    },
+    {
+      "id": "lifecycle",
+      "actual_genuine_xes_exit": 0,
+      "manual_full_sequences_counts_variants_equal": true
+    },
+    {
+      "id": "timestamp-order",
+      "actual_genuine_xes_exit": 0,
+      "manual_full_sequences_counts_variants_equal": true
+    }
+  ],
+  "accepted05_existing6_replay_sha256": "4DC6618E5CCFA8B35ADDC61402DB068F4A95BD8E0126E4DD2054C8890944B77D",
+  "QA_S6_01_status": "CLOSED exact replay names/cardinality/consumer/precision with stronger independent checks, not prior generic PASS",
+  "QA_S6_02_status": "CLOSED exact final raw timestamp type/value observed and asserted independently",
+  "position": "Support bounded tooling/oracle artifact acceptance. No final vote yet; final proposal/CI/public source provenance/preservation still pending. No new Windows version/repack or production defect repair justified.",
+  "matrix": {
+    "A01": "PASS actual own cold genuine parser/XLog, pinned sources/deps/licenses/JDK; prior build failures retained",
+    "A02": "PASS 10frozen literals reviewed before generation; unchanged original6, hashes checked before/after",
+    "A03": "PASS actual16genuine XES executions15success/invaliddateupstream exception, separate20Rust modes; full field differences explicit",
+    "A04": "PASS source/time tie/offset/missing/lifecycle/precision/type/duplicate; Rust-only internalDTD/missingname controlled refusals; legacy timestamp sorting NOT credited",
+    "A05": "Independent QA/replay/audit PASS scoped; TD/final votes pending",
+    "A06": "PENDING final checked PR/CI/public source and readonly preservation; existing Windows05 remains accepted"
+  },
+  "history": [
+    "build01 missingSLF4Jcompile1 retained; cold03tree/commit identity guard repair retained, no unchangedretry",
+    "build01 current8files andbuild02ACL2 unreadable; earlier build01compile contents captured in actual tool output, not currenthash",
+    "QAinventory01 catch ErrorRecord bug invalid; inventory02 PermissionError aborted; corrected per-file03 captures missing explicitly",
+    "QA private prepare-c1-audit inline quoting SyntaxError beforeexecution; script-file mechanism corrected, no source/data changes",
+    "No upstream external entity/unknownextension network probes; no blocked historical harness reads or security changes"
+  ],
+  "limits": [
+    "Genuine selective OpenXES parser+Naivefactory+concept:name XLog consumer, not Portal/service/manager.validateLog/miner/calendar completeness",
+    "Timestamp normalization Rust manual contract; actual legacy retains source order. Source acceptance differs wrongtype/duplicate, precision .123456vs.123 and invalid-time genuine EmptyStackException",
+    "Consumer events now actual realXLog count unlike earlier String overload-1; no DFG/discovery quality legacy claim",
+    "JDK/referenceclasses/dependencies remain private; no LGPL runtime redistribution in MIT Windows package",
+    "Only synthetic inputs/ephemeral helper process; protected3000–3050/5433–5439 unchanged and notloggedin/mutated"
+  ]
+}

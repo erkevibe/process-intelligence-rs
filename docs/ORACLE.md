@@ -1,5 +1,9 @@
 # Конкретное сравнение с Apromore
 
+Текущий следующий уровень проверен в Sprint06: настоящий **OpenXES XesXmlParser → LogParser.getSimpleLog(XLog,XEventNameClassifier)** на десяти новых и шести прежних XES. [Контракт, расхождения и воспроизведение](XES_ORACLE.md), [отчёт06](SPRINT_06_REPORT.md). Новая проверка не использует внешний текстовый адаптер. Portal/service validateLog, timestamp normalization legacy и miner/calendar остаются отдельными непроверенными контрактами.
+
+## Исторический reference спринта03
+
 Область этого oracle — **ApromoreCore, SplitMiner LogParser.getSimpleLog(String)**, неизменённые `LogParser.java` и `SimpleLog.java` из commit `bbf24dfd43e72d6992392465f875a4367cbe792b`. Это настоящий выбранный компонент, а не запуск Portal или всего SplitMiner. Фактический запуск и результаты подтверждаются только отдельным evidence; наличие harness само по себе не означает PASS.
 
 Шесть исходных синтетических XES и их SHA256 закреплены в [corpus.json](../fixtures/oracle/corpus.json). Эталоны — явно записанная ручная арифметика PM; независимый QA проверяет её отдельно. Примеры: выбор AB/AC, повтор AA, пустая трасса, Unicode с переводом строки и обратным порядком, lifecycle start/complete как отдельные события, обратное время с равными timestamps. Все названия трасс одинаковы намеренно; они не объединяются. Основное сравнение использует исходный порядок, classifier concept:name, каждое lifecycle-событие отдельно. Для шестого примера также записан ручной timestamp-эталон AC B со стабильным исходным порядком при равном времени; его присутствие не означает фактический запуск legacy timestamp normalization.
