@@ -1,0 +1,9 @@
+# Sprint07 TD actual final vote
+
+FOR exact S7-F1 rawSHA256001E9FEED166D4CBF45BD3AF3870CE2C74A12CF9EEB373813E4E43CB633022F5. Proposal fully read and independently hashed; this is a new independent actual vote, not prior plan consent. Draft26E7 receives no credit.
+
+Basis: fixed TD2E36A8DC78202F45D53C59DB9AA9BDAAEE09CEE01786D40FAC0A2BBA74FF00EF and author-separated exact C2 QA C064/D513 accept bounded A01-A05. Final CI JSOND503AAA9382A3E3ABC609A60FA27E486936FA19E59A7E030E5813BD2CF46A666/MDC3A5DF1EC069865D811F574B24621DA66638C6FDFD1820A841EECE4545CDA3B4 and preservationCF89BA0899A4799D4CBAEA2880D1B18426CAFE37537B3E9F41052BFAEFD58BA6 independently read/hash-matched. Own C2..Hfb905527212c32e557562434502db3cf5a212d21 executable source/tools/examples/tests/Cargo/workflow diff empty.74ordinary/13PGignored and5+7syntheticguards are CI scope, not actual Java/PG executions.
+
+Authorize only guarded PR7 promotion H/base3bec813ff0ee158ccef8c3e245330a6d15cf87da with successful exactCI/noSTOP and proper vote hashes. Postmerge public immutable archive allGitblob bytes/set/lineage/projections and independent protected read-only preservation A06 remain mandatory pending. Vote does not mark delivery complete. Completion K may be docs/evidence only under remote/source guards.
+
+Developer preview is explicit opt-in/nonpersisting with unchanged ordinarystrictHTTP, exact extracted methods only,5supported/6divergences. Default actions on subsequently removed objects are inferred from beforeattributes plus unconditional byte-verified assignment, not separately observed deleted-object aftersnapshots. No fullclass/service/Portal/UI/Windows0.6 credit. Existing runtime/assets/installations/DB unchanged. DISK01 OPEN/native5backup UNVERIFIED, ASCIIcasefold/cooperativeparsecancellation/wholeattribute/XXE/calendar/miner limits preserved. Historical failedverifiers/partialstreams remain qualified; humanacceptance separate. No implementation or userdata modifications by voter.

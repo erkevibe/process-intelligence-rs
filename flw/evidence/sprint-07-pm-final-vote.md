@@ -1,0 +1,9 @@
+# PM actual S7-F1 final vote
+
+PM /root/pm_s7: FOR exact flw/evidence/sprint-07-final-proposal.md SHA256 001E9FEED166D4CBF45BD3AF3870CE2C74A12CF9EEB373813E4E43CB633022F5. Fully read proposal and independently calculated this hash; read complete QA final H CI and TD final position before voting. Fixed five-seat invitation preceded this proposal. Earlier typo draft is not the voted proposal.
+
+The conditional decision matches adopted scope and my 69B5097660EE6964A866517D58A2125F6117B8C925FCC0618289AE5995C0D020 position: separate developer API/example, strict ordinary import, explained removals/defaults and honest fully-filtered result. Exact extracted method reference is bounded to real OpenXES objects and unchanged method bytes; no original class/service/UI/package claim. Ten cases reach methods, invalid-date fails upstream parser first. Five supported scenarios and six explicit divergences stay separate. Default actions on removed objects are source-derived, not independently observed after-removed snapshots.
+
+Independent QA/TD evidence and checked H CI establish the bounded technical gate; I authored the reference adapter and do not replace independent QA. This FOR authorizes the guarded PR7 promotion described by the proposal, only while exact H/base/proofs/CI and no STOP conditions remain true. Mandatory anonymous immutable merge archive/full Git blobs and independent QA/protected preservation are pending at this vote. Failure leaves the sprint incomplete. No claim that public delivery already passed.
+
+Residuals and future operator preview/persistence work remain explicit; no Windows0.6, cleanup, database, protected process or source-data mutation. Completion may only follow actual delivery acceptance and the guarded docs/evidence-only source-equivalent K. Human final acceptance remains separate.

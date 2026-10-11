@@ -1,0 +1,346 @@
+{
+  "verdict": "PASS exact final H CI component; public A06 delivery remains pending",
+  "utc": "2026-10-11T03:19:08.575028+00:00",
+  "head": "fb905527212c32e557562434502db3cf5a212d21",
+  "candidate": "e890d84c95c892fa25f465e30ca215c803c49b71",
+  "runs": [
+    {
+      "event": "push",
+      "run_id": 38107686178,
+      "head_sha": "fb905527212c32e557562434502db3cf5a212d21",
+      "actual_checkout": "fb905527212c32e557562434502db3cf5a212d21",
+      "status": "completed",
+      "conclusion": "success",
+      "archive_bytes": 43146,
+      "archive_sha256": "f8cb4ec7b82e352ebce3d9b7b10d9e23346203bfd7040831ddcc3fae4b573af3",
+      "files": [
+        {
+          "path": "0_linux.txt",
+          "bytes": 81304,
+          "sha256": "bf5a2d5a6316239080c25be3d47195853cba10ebace29bcb4270b0925ebd2bbf"
+        },
+        {
+          "path": "linux/10_Run actions_upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9.txt",
+          "bytes": 1744,
+          "sha256": "bad3651abb097544697d77c79605d1ffcbb1749fe9338bb9312318b278cac5d2"
+        },
+        {
+          "path": "linux/1_Set up job.txt",
+          "bytes": 2102,
+          "sha256": "5ff607efa2dd81e34fbf2829e3734decec64e6cf8b984541baa104e144b55ac5"
+        },
+        {
+          "path": "linux/20_Post Run actions_checkout@3d3c42e5aac5ba805825da76410c181273ba90b1.txt",
+          "bytes": 1773,
+          "sha256": "4fb94ad75116bd3b4f8afb9477746b43d56ae63fa1ee9c8f9908e69eda25c21f"
+        },
+        {
+          "path": "linux/21_Complete job.txt",
+          "bytes": 61,
+          "sha256": "0be531b2107f5eefd95eae06324affd6a6b4498e13f070b2d0f220044139dd6d"
+        },
+        {
+          "path": "linux/2_Run actions_checkout@3d3c42e5aac5ba805825da76410c181273ba90b1.txt",
+          "bytes": 11555,
+          "sha256": "b585628cbacaae871bb69c55808b29fe2ceedf757766d4b92b070a1c6f48527b"
+        },
+        {
+          "path": "linux/3_Pinned toolchain.txt",
+          "bytes": 769,
+          "sha256": "c30f78447f40705d318fb80cbf0c09d570b12bfdd775d3f154b2b01f59caa9f4"
+        },
+        {
+          "path": "linux/4_Run cargo fmt --all -- --check.txt",
+          "bytes": 238,
+          "sha256": "5d48a6adc4e8283eb84ff8a21f972746608b93b3652a16e89f9fd6bc9d56a7b8"
+        },
+        {
+          "path": "linux/5_Run cargo clippy --locked --all-targets -- -D warnings.txt",
+          "bytes": 23557,
+          "sha256": "69f6d48cd7d229559620beeba9fd3632ec5b5f00f0c56d456c55a2ce3428c3fe"
+        },
+        {
+          "path": "linux/6_Run cargo test --locked --all-targets.txt",
+          "bytes": 26372,
+          "sha256": "3fe012fd34011f11053a86923bee23edfb1509acfc0d3747c2471db42ced673c"
+        },
+        {
+          "path": "linux/7_XES oracle provenance guards.txt",
+          "bytes": 397,
+          "sha256": "3c6fcf10b8217a5e7a20305d5f3576f8cc890ee5b5be37130eb61f483a169329"
+        },
+        {
+          "path": "linux/8_Service method provenance guards.txt",
+          "bytes": 467,
+          "sha256": "7099ac4d2c70676592957f4ca6114c2a3ac6164b035e65bd3868203ed9131372"
+        },
+        {
+          "path": "linux/9_Build release and local health smoke.txt",
+          "bytes": 12302,
+          "sha256": "7efb1aac1057a155a412e25f29d35005a3d3acf64e7d2bb31a141acb70c8a65c"
+        },
+        {
+          "path": "linux/system.txt",
+          "bytes": 592,
+          "sha256": "873c9efa040c55d3784a0953b226281e2374a0633fd0df3a71632ae5fa0ae9ed"
+        }
+      ],
+      "steps": [
+        {
+          "name": "Set up job",
+          "number": 1,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "number": 2,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Pinned toolchain",
+          "number": 3,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run cargo fmt --all -- --check",
+          "number": 4,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run cargo clippy --locked --all-targets -- -D warnings",
+          "number": 5,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run cargo test --locked --all-targets",
+          "number": 6,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "XES oracle provenance guards",
+          "number": 7,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Service method provenance guards",
+          "number": 8,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Build release and local health smoke",
+          "number": 9,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9",
+          "number": 10,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "number": 20,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "number": 21,
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ],
+      "ordinary_pass": 74,
+      "pg_ignored": 13,
+      "xes_synthetic_guards": 5,
+      "service_synthetic_guard_groups": 7
+    },
+    {
+      "event": "pull_request",
+      "run_id": 38107688062,
+      "head_sha": "fb905527212c32e557562434502db3cf5a212d21",
+      "actual_checkout": "1232a31917de37b8bc8225a90d2745265b26de9f",
+      "status": "completed",
+      "conclusion": "success",
+      "archive_bytes": 44068,
+      "archive_sha256": "65b406e448384e62638133848295dbf8627e8144a92006986b79c3c132447a75",
+      "files": [
+        {
+          "path": "0_linux.txt",
+          "bytes": 81969,
+          "sha256": "f8a2e0066caba5cf58225d37042a3018cd2dad8d3a84c40c54bf5323f820699b"
+        },
+        {
+          "path": "linux/10_Run actions_upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9.txt",
+          "bytes": 1744,
+          "sha256": "6be084401912b25b7957e1cdd08d7eb1ee35e702de8d6b931c59714a6d7ba880"
+        },
+        {
+          "path": "linux/1_Set up job.txt",
+          "bytes": 2099,
+          "sha256": "70605d6b5941871b4e9f7c6d627dd531ee4cba2cea709c0f31b760c7cc5e596d"
+        },
+        {
+          "path": "linux/20_Post Run actions_checkout@3d3c42e5aac5ba805825da76410c181273ba90b1.txt",
+          "bytes": 1773,
+          "sha256": "d42cdb8b9a1bdb3997c1a008ef82c3db066f6d00fc4b64b1d1030f5c17189dd2"
+        },
+        {
+          "path": "linux/21_Complete job.txt",
+          "bytes": 61,
+          "sha256": "4ba2476569b1e8689a0b4f27d79de6b0a7cdc6e8cd99be169e6ec98f8098d3d8"
+        },
+        {
+          "path": "linux/2_Run actions_checkout@3d3c42e5aac5ba805825da76410c181273ba90b1.txt",
+          "bytes": 12223,
+          "sha256": "063f60d427ca43f3cff5802823826833358f629b9a9d2155446c237a68220abf"
+        },
+        {
+          "path": "linux/3_Pinned toolchain.txt",
+          "bytes": 769,
+          "sha256": "2bd6c981bc7cfd9e71aef3da4e9ee2bfac003d7db37b2d7686d8cafe61daf3eb"
+        },
+        {
+          "path": "linux/4_Run cargo fmt --all -- --check.txt",
+          "bytes": 238,
+          "sha256": "8ffc2e10630d9f630320e99a793be4b2478eaa1fb55fa72e64fc49f2a5f68a86"
+        },
+        {
+          "path": "linux/5_Run cargo clippy --locked --all-targets -- -D warnings.txt",
+          "bytes": 23557,
+          "sha256": "4a4544b1eec6f71ad5ccb5fd046690c88fe133d42891a7cfef871792dee2f043"
+        },
+        {
+          "path": "linux/6_Run cargo test --locked --all-targets.txt",
+          "bytes": 26372,
+          "sha256": "b9b23e568c3973b17b0c54ab3a8a776844b7c743d44d0622c145e56b6c432a6f"
+        },
+        {
+          "path": "linux/7_XES oracle provenance guards.txt",
+          "bytes": 397,
+          "sha256": "b8603295528afdf03ca8362e622811aefd189e3c418b276a4de448a14aba6ee2"
+        },
+        {
+          "path": "linux/8_Service method provenance guards.txt",
+          "bytes": 467,
+          "sha256": "9fe33af81b165c72cc2730b7be015d7b2fda09a20e640c7b1ddb6fc5a7e79616"
+        },
+        {
+          "path": "linux/9_Build release and local health smoke.txt",
+          "bytes": 12302,
+          "sha256": "a17e8efc581862b0ceb3b6eecca312faa0ce27022fdf7eec43a3f8027ad6a6f4"
+        },
+        {
+          "path": "linux/system.txt",
+          "bytes": 583,
+          "sha256": "8b386776a78e377ec49dd5f18118796c4723e14830df4595bb6260f61c2a9949"
+        }
+      ],
+      "steps": [
+        {
+          "name": "Set up job",
+          "number": 1,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "number": 2,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Pinned toolchain",
+          "number": 3,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run cargo fmt --all -- --check",
+          "number": 4,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run cargo clippy --locked --all-targets -- -D warnings",
+          "number": 5,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run cargo test --locked --all-targets",
+          "number": 6,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "XES oracle provenance guards",
+          "number": 7,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Service method provenance guards",
+          "number": 8,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Build release and local health smoke",
+          "number": 9,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9",
+          "number": 10,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "number": 20,
+          "status": "completed",
+          "conclusion": "success"
+        },
+        {
+          "name": "Complete job",
+          "number": 21,
+          "status": "completed",
+          "conclusion": "success"
+        }
+      ],
+      "ordinary_pass": 74,
+      "pg_ignored": 13,
+      "xes_synthetic_guards": 5,
+      "service_synthetic_guard_groups": 7
+    }
+  ],
+  "coverage": {
+    "files": 28,
+    "bytes": 327787,
+    "scope": "All28available files fully loaded/fingerprinted and archive/extracted bytes equal; bounded semantic identity/test/guard/build/health/upload checked. Duplicate whole-job/step logs counted as files, not unique machine stream bytes."
+  },
+  "semantic_scope": [
+    "fmt/clippy-Dwarnings actual API step success and captured command/build logs",
+    "74ordinary PASS;13explicitPGignored perrun; no actualPGorJava reference execution in CI",
+    "5XESprovenance synthetic guards and7service-method synthetic assertiongroups; servicegroups directfunctions/tempfixtures, XES childstdout/stderr in memory assertions without persisted individualchildrawfiles",
+    "Linuxrelease optimized build plus own ephemeral in-memory health smoke succeeded, runnerartifact upload; not newWindowspackage or protectedproduction testing",
+    "ActualpushcheckoutH, PRsynthetic1232a319 distinct and observed mergesH into base3bec813ff0ee158ccef8c3e245330a6d15cf87da"
+  ],
+  "source_equivalence_proof_sha256": "b6764b2943d69079276004d76c5e4471fb8cdd7c1c75c89c92e6c2e42f56bfe8",
+  "protected_prepromotion_sha256": "cf89ba0899a4799d4cbaea2880d1b18426cafe37537b3e9f41052bfaefd58ba6",
+  "audit_history": [
+    "Initial rg Windows wildcard path failed before read; corrected rg --glob actual checkout log lines obtained.",
+    "Early combined/tool displays truncated remain bounded; full28available bytes then independently loaded programmatically. No allmachine/historical coverage claim."
+  ]
+}

@@ -2,7 +2,7 @@
 
 Проект развивается от локального анализа XES к замене выбранных сценариев Apromore Core. Переход между этапами определяется результатами проверки. Оценки после первых 8 часов предварительные и уточняются по фактической скорости работы.
 
-Sprint07: независимо принят developer/API preview правил service-import с точными извлечёнными методами Apromore на реальных OpenXES типах. 11примеры: пять policy equality и шесть explicit admission/error divergences; source indices/default/removal reasons и strict limits сохранены. Fullservice/Portal и HTTP/UI preview не заявляются. FinalCI/Совет/publicdelivery фиксируются в [отчёте07](SPRINT_07_REPORT.md). [Контракт и пример](SERVICE_IMPORT_PREVIEW.md). Следующий прикладной шаг — operator preview/подтверждаемый импорт с сохранённым исходником и audit trail.
+Sprint07 завершён в четырёхчасовом лимите: независимо принят developer/API preview правил service-import с точными извлечёнными методами Apromore на реальных OpenXES типах. 11примеры: пять policy equality и шесть explicit admission/error divergences; source indices/default/removal reasons и strict limits сохранены. Fullservice/Portal и HTTP/UI preview не заявляются. Пять голосов, итоговый CI и независимая публичная доставка завершены; доказательства в [отчёте07](SPRINT_07_REPORT.md). [Контракт и пример](SERVICE_IMPORT_PREVIEW.md). Следующий прикладной шаг — operator preview/подтверждаемый импорт с сохранённым исходником и audit trail.
 
 Sprint06 завершён в четырёхчасовом лимите и расширил R2: настоящий OpenXES parser и неизменённый XLog consumer проверены на16фиксированных XES, отдельный Rust контракт на20режимах новых примеров и прежних шести регрессиях. Три различия validation/precision и upstream invalid-date exception сохранены. Production/runtime0.5 не меняется. Независимые cold build/replay/QA, пять финальных голосов, CI и проверка публичной доставки завершены в [отчёте06](SPRINT_06_REPORT.md). [Контракт XES](XES_ORACLE.md). Полное service-import/Portal покрытие ещё не подтверждено.
 
@@ -18,7 +18,7 @@ Sprint06 завершён в четырёхчасовом лимите и рас
 
 ### На каком этапе сейчас
 
-| Этап | Проверено в приложении 05 и oracle 06 | Что нужно для полного этапа |
+| Этап | Проверено в приложении 05 и oracle/preview 06–07 | Что нужно для полного этапа |
 |---|---|---|
 | R1 | Принятый XES/статистика/варианты/DFG/SSE | Поддерживать регрессии |
 | R2 — частично | CSV mapping, явный порядок событий, SHA256; шесть прежних/десять новых XES через настоящий parser/XLog consumer, наблюдения атрибутов и отдельный Rust source/time контракт | Подтверждён узкий extracted validateLog preview; нужны пользовательский import workflow, полный service/defaults/classifiers и расширенный corpus; полная legacy timestamp/lifecycle семантика |
