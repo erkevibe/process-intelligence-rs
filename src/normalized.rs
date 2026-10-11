@@ -295,7 +295,7 @@ pub(crate) fn join_repository(
     let mut logs = serde_json::Map::new();
     for id in log_ids {
         let mut pieces = Vec::new();
-        for kind in crate::repository_v2::LOG_KINDS {
+        for &kind in crate::repository_v2::LOG_KINDS {
             pieces.push((
                 kind.into(),
                 1,
