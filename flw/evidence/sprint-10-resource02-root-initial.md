@@ -1,0 +1,11 @@
+# Root: resource02 initial position
+
+The all-old-debug-EXE hash capture failed with an insufficient-disk error and did not produce its planned complete inventory. Actual C free space is zero. Its exact cause has not been established; no hydration or paging cause is claimed. No cache unlink has occurred. The ongoing copy-only attempt has partial D outputs and must remain a partial attempt, never native PASS by inference.
+
+I support a new finite resource amendment using independently verified recoverable batches of the already frozen compiler incremental inventory. Each batch must have closed complete recovery ZIPs, full decompressed entry-set/length/SHA and fresh exact source checks, complete native verification and two actual auditor joins before its individual file unlink. Preserve every failed/partial attempt, archive, exact removal journal and empty directory. Cumulative batches must be disjoint and bind all 20 builds and 29,516 files. No missing file may silently pass.
+
+To avoid consuming capacity during preservation checks, unrelated old debug EXE/DLL files can be observed through file identity and metadata only, explicitly without a full-byte preservation claim. Actual used frozen EXE, source ZIPs, package, existing build proofs and named failure records still require full SHA. They are outside every unlink target. This is a narrower truthful claim, not permission to remove or mutate any of them.
+
+Before any unlink, require a durably writable fsynced journal with sufficient space for the whole batch. A D journal may contain only public compiler-cache relative names, lengths, hashes and operation markers; no credentials, application/private data, raw SQL or private process streams. If the pre-write or space test fails, unlink is forbidden. Actual private C NTFS admission remains at least 3 GiB plus measured phase-specific headroom. No heavy SQL while that gate fails. All original deadlines, query and timeout budgets, corpus and product acceptance gates remain unchanged.
+
+This is an initial position, not a vote or unlink authorization. Preserve the previous resource proposal, real votes and every refusal. The exact revised proposal must receive new real votes before execution.
