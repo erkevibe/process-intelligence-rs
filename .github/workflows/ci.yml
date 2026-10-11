@@ -18,6 +18,8 @@ jobs:
       - run: cargo test --locked --all-targets
       - name: XES oracle provenance guards
         run: node tests/oracle_xes_tools.mjs
+      - name: Service method provenance guards
+        run: node tests/service-oracle-tools.mjs
       - name: Build release and local health smoke
         run: |
           cargo build --locked --release

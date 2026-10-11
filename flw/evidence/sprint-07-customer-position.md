@@ -1,0 +1,21 @@
+# Sprint07 — independent Customer position before proposal
+
+Customer: customer_s6. Four-hour window 2026-10-11 02:52:21–06:52:21 UTC as invited by Root. This position precedes voting; silence is not FOR. Reviewed docs/XES_ORACLE.md. A broad read-only search in historical private reference directories encountered denied ACL files and truncated tool output; it produced no independent validateLog source evidence. No protection bypass or repeated retry, runtime/database/installation mutation occurred. Method semantics below are proposed verification targets, not asserted newly executed legacy behaviour.
+
+The useful next result is a named, explicit service-import normalisation contract measured against the genuine pinned validateLog method on a small fixed corpus. Genuine parser/XLog results alone are not that service contract. I favour a developer opt-in preview with structured changes/rejections over adding a new runtime import mode under a four-hour delivery deadline. Runtime integration can follow separately once the service semantics and preservation requirements are independently proven.
+
+| Requirement | Customer value and acceptance target |
+|---|---|
+| S7-C01 genuine service method | Execute the unmodified pinned upstream validateLog method with genuine XES types. Prove the invocation, dependencies and method boundary; no hand-transcribed Java replacement receives legacy credit. Portal/auth/persistence need not run and must not be claimed. |
+| S7-C02 explicit opt-in | Rust normalisation preview is a separately named mode; ordinary imports and stored original input remain unchanged. Operator sees what mode was chosen. No silent default switch or migration of existing logs. |
+| S7-C03 explain removals | Before/after trace/event counts and stable source trace/event indices identify removals and modifications, with reasons. The selected corpus tests missing time/name, missing/unsupported lifecycle, start/complete and empty traces according to actual verified service behaviour. |
+| S7-C04 avoid invented events | If genuine behaviour supplies lifecycle=complete, expose that as a normalisation action, not an observed original attribute. Never invent timestamp or activity merely to make invalid input pass. Preserve source order unless real method evidence and a separate contract require a change. |
+| S7-C05 explicit refusals | Retain strict Rust duplicate-key/type/invalid-date checks unless a separately justified contract changes them. Reports distinguish unsupported input/refusal from proven equality. A fully filtered empty result is visible, not presented as useful mining output. |
+| S7-C06 fixed evidence | Freeze small inputs/manual expectations before execution; independently replay genuine method and Rust preview with per-field differences. Keep Sprint06 cases and accepted Windows0.5 unchanged. No broad compatibility percentage. |
+| S7-C07 practical documentation | Show a concrete before/after example with removed/defaulted events and remaining limitations. Publish reproducible tools/results through checked PR/CI and independent delivery review. Without runtime changes, no artificial new Windows package. |
+
+Feasibility gate should occur early enough to reserve at least ninety minutes for independent replay and public delivery. If actual method cannot be built/invoked safely in time, publish a bounded diagnostic corpus and blocker; do not claim service compatibility or secretly replace the method. Expanding to runtime UI, persistence, licensing exposure, full lifecycle interval reconstruction, calendar/DST or destructive cleanup requires a separately reviewed scope.
+
+Main risks: service dependencies exceed the sprint, accidental deletion is hidden as successful import, fabricated defaults look like source events, and validation differences get weakened to manufacture equality. Original XML/hash plus explicit action reports and refusal paths address customer trust. DISK01 remains open as a separate operational sprint with verified backup/new restore/conservation/rollback.
+
+Separate emotional advisor feedback is pending and will be considered without changing the fixed five-seat Council. No plan or final vote is made in this position.
