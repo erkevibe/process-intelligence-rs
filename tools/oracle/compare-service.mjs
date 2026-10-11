@@ -1,5 +1,6 @@
 import fs from 'node:fs';import path from 'node:path';import crypto from 'node:crypto';import assert from 'node:assert/strict';import {spawnSync} from 'node:child_process';
 const sha=b=>crypto.createHash('sha256').update(b).digest('hex');
+const comparatorHash=sha(fs.readFileSync(process.argv[1]));
 const [exe,reference,corpusDir,out]=process.argv.slice(2);
 if(!out||fs.existsSync(out))throw Error('Fresh private output required');
 if(!path.resolve(out).startsWith(path.resolve('.local/sprint07')+path.sep))throw Error('Private output must stay under protected sprint07');
@@ -18,6 +19,7 @@ for(const f of corpus.fixtures){
  else{
   assert.equal(r.status,'ok');assert.equal(r.exit_code,0);assert.equal(r.same_log,true);
   assert.deepEqual(r.after,r.second);assert.equal(r.before.name,'Service corpus');assert.equal(r.after.name,r.before.name);
+  for(const phase of ['before','after','second'])assert.deepEqual(r.counts[phase],{traces:r[phase].cases.length,events:r[phase].cases.reduce((n,c)=>n+c.events.length,0)});
   const original=new Map();for(const c of r.before.cases){assert(!original.has(c.trace_index));assert.equal(c.trace_index,original.size);const es=new Map();for(const v of c.events){assert.equal(v.event_index,es.size);es.set(v.event_index,v);}original.set(c.trace_index,{...c,events:es});}
   const traces=new Set();for(const c of r.after.cases){assert(!traces.has(c.trace_index));traces.add(c.trace_index);const before=original.get(c.trace_index);assert(before);assert.equal(c.name,before.name);assert(c.events.length>0);let prev=-1;for(const v of c.events){assert(v.event_index>prev);prev=v.event_index;const b=before.events.get(v.event_index);assert(b);assert.equal(v.activity,b.activity);assert.equal(v.timestamp_millis,b.timestamp_millis);assert.equal(v.timestamp_attribute_type,b.timestamp_attribute_type);assert.equal(v.timestamp_attribute_value,b.timestamp_attribute_value);assert.equal(v.activity_attribute_type,b.activity_attribute_type);assert.equal(v.lifecycle,b.lifecycle_attribute_type===null?'complete':b.lifecycle);assert.equal(v.lifecycle_attribute_type,b.lifecycle_attribute_type===null?'org.deckfour.xes.model.impl.XAttributeLiteralImpl':b.lifecycle_attribute_type);}}
  }
@@ -34,9 +36,11 @@ for(const f of corpus.fixtures){
   assert.deepEqual(p.changes.filter(c=>c.action==='default_lifecycle').map(c=>[c.case_index,c.event_index]),e.defaulted);assert.deepEqual(p.changes.filter(c=>c.action==='remove_event').map(c=>[c.case_index,c.event_index,c.reasons]),e.removed);assert.deepEqual(p.changes.filter(c=>c.action==='remove_case').map(c=>c.case_index),e.removed_cases);
   assert.deepEqual(pairs(r.actions.defaulted_lifecycle),e.defaulted);assert.deepEqual(r.actions.removed_events.map(c=>[c.trace_index,c.event_index,c.reasons.map(x=>x==='missing_name'?'missing_activity':x)]),e.removed);assert.deepEqual(r.actions.removed_traces.map(c=>c.trace_index),e.removed_cases);
   assert.equal(p.changes.length,e.defaulted.length+e.removed.length+e.removed_cases.length);
+  for(const c of p.changes){if(c.action==='default_lifecycle')assert.deepEqual(c.reasons,['missing_lifecycle']);if(c.action==='remove_case'){assert.equal(c.event_index,null);assert.deepEqual(c.reasons,['empty_case']);}}
  }
  results.push({id:f.id,manual_pass:true,compatibility:e.rust_error?'explicit-admission-divergence':'supported-policy-equality',rust,legacy:r});
 }
 assert.equal(sha(fs.readFileSync(exe)),exeHash);
-const report={schema:1,scope:'Extracted unchanged methods only; strict Rust admission divergences; no whole service parity',corpus_sha256:sha(corpusBytes),reference_sha256:sha(referenceBytes),observer_exe_sha256:exeHash,results};
+assert.equal(sha(fs.readFileSync(process.argv[1])),comparatorHash);
+const report={schema:1,scope:'Extracted unchanged methods only; strict Rust admission divergences; no whole service parity',comparator_sha256:comparatorHash,corpus_sha256:sha(corpusBytes),reference_sha256:sha(referenceBytes),observer_exe_sha256:exeHash,results};
 fs.writeFileSync(path.join(out,'comparison.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify({manual_pass:results.length,supported:results.filter(r=>r.compatibility==='supported-policy-equality').length,divergences:results.filter(r=>r.compatibility!=='supported-policy-equality').length}));
