@@ -62,6 +62,8 @@ struct Session {
 #[derive(Debug, Clone, Default, Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
 struct AuthData {
+    #[serde(default, skip_serializing_if = "BTreeMap::is_empty")]
+    deletions: BTreeMap<String, crate::audit::AuditTrail>,
     #[serde(
         default,
         skip_serializing_if = "crate::audit::ProjectAuditTrails::is_empty"
@@ -74,11 +76,36 @@ struct AuthData {
 pub(crate) fn validate_stored(value: &serde_json::Value) -> Result<(), ImportError> {
     let data: AuthData = serde_json::from_value(value.clone()).map_err(|_| denied())?;
     data.audit.validate()?;
+    for (owner, trail) in &data.deletions {
+        if !data.users.contains_key(owner) {
+            return Err(denied());
+        }
+        trail.validate()?;
+        if trail.entries.iter().any(|e| {
+            e.action != "project_deleted"
+                || data.projects.contains_key(&e.project)
+                || !data.users.contains_key(&e.actor)
+                || e.resources != [e.project.clone()]
+                || e.policy.is_none()
+                || e.outcome.is_none()
+        }) {
+            return Err(denied());
+        }
+    }
     if data
         .audit
         .0
         .keys()
         .any(|project| !data.projects.contains_key(project))
+    {
+        return Err(denied());
+    }
+    if data
+        .audit
+        .0
+        .values()
+        .flat_map(|trail| &trail.entries)
+        .any(|entry| entry.policy.is_some() && !data.users.contains_key(&entry.actor))
     {
         return Err(denied());
     }
@@ -113,6 +140,26 @@ pub(crate) fn validate_stored(value: &serde_json::Value) -> Result<(), ImportErr
 struct Versioned {
     revision: u64,
     data: AuthData,
+}
+#[derive(Debug, Clone, Serialize)]
+pub(crate) struct ProjectDeletionPreview {
+    pub(crate) project_id: String,
+    pub(crate) name: String,
+    pub(crate) revision: u64,
+    pub(crate) auth_revision: u64,
+    pub(crate) repository_revision: u64,
+    pub(crate) logs: usize,
+    pub(crate) models: usize,
+    pub(crate) folders: usize,
+    pub(crate) members: usize,
+    pub(crate) active_jobs: usize,
+    pub(crate) digest: String,
+}
+pub(crate) struct ProjectDeletionConfirmation<'a> {
+    pub(crate) id: &'a str,
+    pub(crate) phrase: &'a str,
+    pub(crate) revision: u64,
+    pub(crate) digest: &'a str,
 }
 pub struct Auth {
     database: Database,
@@ -197,6 +244,9 @@ impl Auth {
                 return Err(denied());
             }
             let user = create_user(data, username, hash, true)?;
+            let project = data.projects.values().find(|p| p.members.get(&user) == Some(&Role::Owner)).ok_or_else(denied)?.id.clone();
+            data.audit.append_business(&user,&project,"platform_initialized",vec![user.clone(),project.clone()],1,
+                &serde_json::json!({"empty_workspace_required":true,"initial_user_id":user,"default_project_id":project,"initial_account_admin":true,"default_project_role":"owner"}))?;
             new_session(data, &user)
         })
     }
@@ -293,10 +343,7 @@ impl Auth {
         expected_revision: u64,
     ) -> Result<(), ImportError> {
         self.update(|d| {
-            let current = actor_from_data(d, session)?;
-            if current.id != actor.id || current.project_id != actor.project_id {
-                return Err(denied());
-            }
+            require_current_writer(d, session, actor)?;
             if name.trim().is_empty() || name.len() > 200 {
                 return Err(ImportError::new(
                     "project_limit",
@@ -315,12 +362,13 @@ impl Auth {
             }
             project.name = name.into();
             project.revision = project.revision.checked_add(1).ok_or_else(denied)?;
-            d.audit.append(
+            d.audit.append_business(
                 &actor.id,
                 id,
                 "project_renamed",
                 vec![id.into()],
                 project.revision,
+                &serde_json::json!({"name_sha256":sha256(name.as_bytes()),"name_bytes":name.len(),"expected_revision":expected_revision}),
             )?;
             Ok(())
         })
@@ -334,24 +382,25 @@ impl Auth {
         expected_revision: u64,
     ) -> Result<(), ImportError> {
         self.update(|d| {
-            let current = actor_from_data(d, session)?;
-            if current.id != actor.id || current.project_id != actor.project_id { return Err(denied()); }
+            require_current_writer(d, session, actor)?;
             let project = d.projects.get(id).ok_or_else(denied)?;
             if project.members.get(&actor.id) != Some(&Role::Owner) { return Err(denied()); }
             if project.revision != expected_revision { return Err(ImportError::new("project_conflict", "Проект изменился. Обновите страницу.")); }
             if project.archived == archived { return Ok(()); }
             if archived {
-                let replacement = d.projects.values().find(|p| p.id != id && !p.archived && p.members.contains_key(&actor.id)).map(|p| p.id.clone());
+                let replacement = d.projects.values().find(|p| p.id != id && !p.archived && p.members.get(&actor.id).is_some_and(|role| role.can_write())).map(|p| p.id.clone());
                 if d.sessions.get(&sha256(session.as_bytes())).is_some_and(|s| s.project_id == id) && replacement.is_none() {
-                    return Err(ImportError::new("project_last_active", "Сначала создайте или откройте другой доступный проект. Последний текущий проект не архивируется."));
+                    return Err(ImportError::new("project_last_active", "Сначала создайте или откройте другой активный проект с правом записи. Проект только для чтения не позволяет восстановить архив."));
                 }
                 for s in d.sessions.values_mut().filter(|s| s.project_id == id) {
-                    if let Some(other) = d.projects.values().find(|p| p.id != id && !p.archived && p.members.contains_key(&s.user_id)) { s.project_id = other.id.clone(); }
+                    if s.user_id == actor.id {
+                        if let Some(other) = &replacement { s.project_id = other.clone(); }
+                    } else if let Some(other) = d.projects.values().find(|p| p.id != id && !p.archived && p.members.contains_key(&s.user_id)) { s.project_id = other.id.clone(); }
                 }
             }
             let project = d.projects.get_mut(id).expect("project"); project.archived = archived;
             project.revision = project.revision.checked_add(1).ok_or_else(denied)?;
-            d.audit.append(&actor.id, id, if archived { "project_archived" } else { "project_restored" }, vec![id.into()], project.revision)?; Ok(())
+            d.audit.append_business(&actor.id, id, if archived { "project_archived" } else { "project_restored" }, vec![id.into()], project.revision, &serde_json::json!({"archived":archived,"expected_revision":expected_revision,"session_policy":"initiator_current_requires_writable_replacement_others_accessible"}))?; Ok(())
         })
     }
     pub fn projects(&self, actor: &Actor) -> Vec<Project> {
@@ -390,6 +439,178 @@ fn require_current_writer(
         return Err(denied());
     }
     Ok(actual)
+}
+impl Auth {
+    fn deletion_preview_locked(
+        &self,
+        data: &AuthData,
+        auth_revision: u64,
+        actor: &Actor,
+        session: &str,
+        id: &str,
+    ) -> Result<ProjectDeletionPreview, ImportError> {
+        require_current_writer(data, session, actor)?;
+        let project = data.projects.get(id).ok_or_else(denied)?;
+        if project.members.get(&actor.id) != Some(&Role::Owner) || !project.archived {
+            return Err(ImportError::new(
+                "project_delete_policy",
+                "Удалить можно только свой заранее архивированный проект.",
+            ));
+        }
+        let (repository_revision, logs, models, folders, active_jobs) =
+            if let Some((version, value)) = self.database.project_header(id)? {
+                let header = crate::repository_v2::Header::parse(value)?;
+                (
+                    version,
+                    header.log_ids.len(),
+                    header.model_ids.len(),
+                    header.organization.folders.len(),
+                    header
+                        .durable_jobs
+                        .values()
+                        .filter(|j| !j.is_terminal())
+                        .count(),
+                )
+            } else {
+                (0, 0, 0, 0, 0)
+            };
+        let mut preview = ProjectDeletionPreview {
+            project_id: id.into(),
+            name: project.name.clone(),
+            revision: project.revision,
+            auth_revision,
+            repository_revision,
+            logs,
+            models,
+            folders,
+            members: project.members.len(),
+            active_jobs,
+            digest: String::new(),
+        };
+        let bound = serde_json::json!({"preview":preview,"project":project,
+            "actor_id":actor.id,"session_binding":sha256(session.as_bytes())});
+        preview.digest = sha256(&serde_json::to_vec(&bound).map_err(|_| denied())?);
+        Ok(preview)
+    }
+    pub(crate) fn deletion_preview(
+        &self,
+        actor: &Actor,
+        session: &str,
+        id: &str,
+    ) -> Result<ProjectDeletionPreview, ImportError> {
+        let guard = self.inner.lock().expect("auth mutex");
+        self.deletion_preview_locked(&guard.data, guard.revision, actor, session, id)
+    }
+    pub(crate) fn delete_project(
+        &self,
+        actor: &Actor,
+        session: &str,
+        id: &str,
+        confirmation: ProjectDeletionConfirmation<'_>,
+    ) -> Result<(), ImportError> {
+        // Never acquire a repository or a live Job mutex inside Auth. The
+        // publication gate serializes durable job/header writes with deletion.
+        let mut guard = self.inner.lock().expect("auth mutex");
+        let preview =
+            self.deletion_preview_locked(&guard.data, guard.revision, actor, session, id)?;
+        if confirmation.id != id
+            || confirmation.phrase != "УДАЛИТЬ"
+            || confirmation.revision != preview.revision
+            || confirmation.digest != preview.digest
+        {
+            return Err(ImportError::new(
+                "project_delete_confirmation",
+                "Подтверждение не совпало или проект изменился. Проверьте удаление заново.",
+            ));
+        }
+        if preview.active_jobs != 0 {
+            return Err(ImportError::new(
+                "project_jobs_active",
+                "В проекте остались незавершённые задачи. Восстановите проект и завершите или отмените их до удаления.",
+            ));
+        }
+        let project = guard.data.projects.get(id).ok_or_else(denied)?.clone();
+        let mut next = guard.data.clone();
+        let parameters = serde_json::json!({"project_id":id,"project_revision":confirmation.revision,
+            "auth_revision":preview.auth_revision,"confirmed_id":confirmation.id,
+            "confirmation_phrase":confirmation.phrase,"preview_digest":preview.digest,
+            "repository_revision":preview.repository_revision,"logs":preview.logs,
+            "models":preview.models,"folders":preview.folders,"members":preview.members,
+            "archived_required":true,"active_jobs":0,"typed_identity_required":true,
+            "backup_verified_by_application":false});
+        for (owner, role) in &project.members {
+            if *role == Role::Owner {
+                next.deletions
+                    .entry(owner.clone())
+                    .or_default()
+                    .append_business(
+                        &actor.id,
+                        id,
+                        "project_deleted",
+                        vec![id.into()],
+                        confirmation.revision.checked_add(1).ok_or_else(denied)?,
+                        &parameters,
+                    )?;
+            }
+        }
+        next.projects.remove(id);
+        next.audit.0.remove(id);
+        next.sessions.retain(|_, session| {
+            if session.project_id != id {
+                return true;
+            }
+            if let Some(replacement) = next
+                .projects
+                .values()
+                .find(|p| !p.archived && p.members.contains_key(&session.user_id))
+            {
+                session.project_id = replacement.id.clone();
+                true
+            } else {
+                false
+            }
+        });
+        let value = serde_json::to_value(&next).map_err(|_| denied())?;
+        validate_stored(&value)?;
+        let version = self
+            .database
+            .delete_project(crate::storage::ProjectDelete {
+                project: id.into(),
+                expected_auth: guard.revision,
+                auth_document: value,
+                expected_project: preview.repository_revision,
+            })?;
+        // An unconfirmed commit never publishes in-memory success. The worker
+        // fails closed, requiring restart/reconciliation before another action.
+        guard.data = next;
+        guard.revision = version;
+        Ok(())
+    }
+    pub(crate) fn deletion_audit(
+        &self,
+        actor: &Actor,
+        session: &str,
+    ) -> Result<serde_json::Value, ImportError> {
+        let guard = self.inner.lock().expect("auth mutex");
+        let current = actor_from_data(&guard.data, session)?;
+        if current.id != actor.id
+            || current.project_id != actor.project_id
+            || current.role != actor.role
+        {
+            return Err(denied());
+        }
+        let trail = guard
+            .data
+            .deletions
+            .get(&actor.id)
+            .cloned()
+            .unwrap_or_default();
+        Ok(
+            serde_json::json!({"scope":"former owner only; deletion witnesses, no deleted payloads",
+            "retention_capacity":crate::audit::RETAINED,"total":trail.total,
+            "dropped":trail.total.saturating_sub(trail.entries.len() as u64),"entries":trail.entries}),
+        )
+    }
 }
 fn actor_from_data(data: &AuthData, session: &str) -> Result<Actor, ImportError> {
     let session = data
@@ -436,8 +657,8 @@ impl Auth {
         self.update(|d| {
             require_current_writer(d, session, actor)?;
             let id = create_project(d, &actor.id, name)?;
-            d.audit
-                .append(&actor.id, &id, "project_created", vec![id.clone()], 0)?;
+            d.audit.append_business(&actor.id, &id, "project_created", vec![id.clone()], 1,
+                &serde_json::json!({"name_sha256":sha256(name.as_bytes()),"name_bytes":name.len(),"owner_id":actor.id}))?;
             Ok(id)
         })
     }
@@ -450,14 +671,28 @@ impl Auth {
     ) -> Result<String, ImportError> {
         let mut guard = self.inner.lock().expect("auth mutex");
         require_current_writer(&guard.data, session, actor)?;
+        let repository_sha256 = sha256(&serde_json::to_vec(&repository).map_err(|_| denied())?);
+        let (imported_audit_total, imported_audit_retained) =
+            if let Some(value) = repository.get_mut("audit") {
+                let mut trail: crate::audit::AuditTrail =
+                    serde_json::from_value(value.clone()).map_err(|_| denied())?;
+                trail.mark_project_backup_unverified()?;
+                let counts = (trail.total, trail.entries.len());
+                *value = serde_json::to_value(trail).map_err(|_| denied())?;
+                counts
+            } else {
+                (0, 0)
+            };
         let mut next = guard.data.clone();
         let id = create_project(&mut next, &actor.id, name)?;
-        next.audit.append(
+        next.audit.append_business(
             &actor.id,
             &id,
             "project_backup_restored",
             vec![id.clone()],
-            0,
+            1,
+            &serde_json::json!({"new_project_id":id,"name_sha256":sha256(name.as_bytes()),"repository_sha256":repository_sha256,
+                "audit_import_policy":"project_backup_unverified_v1","imported_audit_total":imported_audit_total,"imported_audit_retained":imported_audit_retained}),
         )?;
         if let Some(logs) = repository
             .get_mut("logs")
@@ -498,12 +733,15 @@ impl Auth {
                 return Err(denied());
             }
             let id = create_user(d, username, hash, false)?;
-            d.audit.append(
+            let owned_projects = d.projects.values().filter(|p|p.members.get(&id) == Some(&Role::Owner)).map(|p|p.id.clone()).collect::<Vec<_>>();
+            let project_revision = d.projects.get(&actor.project_id).ok_or_else(denied)?.revision;
+            d.audit.append_business(
                 &actor.id,
                 &actor.project_id,
                 "user_created",
                 vec![id.clone()],
-                0,
+                project_revision,
+                &serde_json::json!({"new_user_id":id,"administrator_required":true,"new_account_admin":false,"owned_default_project_ids":owned_projects,"default_project_role":"owner"}),
             )?;
             Ok(id)
         })
@@ -532,14 +770,15 @@ impl Auth {
             {
                 return Err(denied());
             }
-            project.members.insert(user, role);
+            project.members.insert(user.clone(), role);
             project.revision = project.revision.checked_add(1).ok_or_else(denied)?;
-            d.audit.append(
+            d.audit.append_business(
                 &actor.id,
                 project_id,
                 "membership_changed",
                 vec![project_id.into()],
                 project.revision,
+                &serde_json::json!({"user_id":user,"role":role,"target_owner_required":true,"grant_owner_forbidden":true}),
             )?;
             Ok(())
         })
@@ -599,7 +838,17 @@ fn create_project(data: &mut AuthData, user: &str, name: &str) -> Result<String,
             "Нужно непустое название до 200 bytes; максимум 64 проекта.",
         ));
     }
-    let id = format!("project-{}", uuid::Uuid::new_v4().simple());
+    let id = loop {
+        let candidate = format!("project-{}", uuid::Uuid::new_v4().simple());
+        if !data.projects.contains_key(&candidate)
+            && !data
+                .deletions
+                .values()
+                .any(|trail| trail.entries.iter().any(|entry| entry.project == candidate))
+        {
+            break candidate;
+        }
+    };
     data.projects.insert(
         id.clone(),
         Project {
@@ -643,6 +892,82 @@ fn new_session(data: &mut AuthData, user: &str) -> Result<String, ImportError> {
 #[cfg(test)]
 mod sprint08_contracts {
     use super::*;
+    #[test]
+    fn deletion_witness_validation_rejects_resurrection_and_unknown_owner() {
+        let mut data = AuthData::default();
+        let user = create_user(
+            &mut data,
+            "owner",
+            password_hash("long-enough-password").unwrap(),
+            true,
+        )
+        .unwrap();
+        let mut trail = crate::audit::AuditTrail::default();
+        trail
+            .append_business(
+                &user,
+                "deleted-project",
+                "project_deleted",
+                vec!["deleted-project".into()],
+                2,
+                &serde_json::json!({"logs":1}),
+            )
+            .unwrap();
+        data.deletions.insert(user.clone(), trail.clone());
+        let valid = serde_json::to_value(&data).unwrap();
+        validate_stored(&valid).unwrap();
+        let mut unknown = data.clone();
+        unknown.deletions.insert("missing-owner".into(), trail);
+        assert!(validate_stored(&serde_json::to_value(unknown).unwrap()).is_err());
+        let mut resurrected = data.clone();
+        resurrected.projects.insert(
+            "deleted-project".into(),
+            Project {
+                id: "deleted-project".into(),
+                name: "resurrected".into(),
+                members: BTreeMap::from([(user, Role::Owner)]),
+                archived: false,
+                revision: 1,
+            },
+        );
+        assert!(validate_stored(&serde_json::to_value(resurrected).unwrap()).is_err());
+        let mut legacy = valid.clone();
+        legacy["deletions"]
+            .as_object_mut()
+            .unwrap()
+            .values_mut()
+            .next()
+            .unwrap()["entries"][0]
+            .as_object_mut()
+            .unwrap()
+            .remove("policy");
+        assert!(validate_stored(&legacy).is_err());
+        let mut tampered = valid;
+        tampered["deletions"]
+            .as_object_mut()
+            .unwrap()
+            .values_mut()
+            .next()
+            .unwrap()["entries"][0]["project"] =
+            serde_json::json!(data.projects.keys().next().unwrap());
+        assert!(validate_stored(&tampered).is_err());
+        let mut spoofed_actor = serde_json::to_value(&data).unwrap();
+        spoofed_actor["deletions"]
+            .as_object_mut()
+            .unwrap()
+            .values_mut()
+            .next()
+            .unwrap()["entries"][0]["actor"] = serde_json::json!("missing-actor");
+        assert!(validate_stored(&spoofed_actor).is_err());
+        let mut payload_resource = serde_json::to_value(&data).unwrap();
+        payload_resource["deletions"]
+            .as_object_mut()
+            .unwrap()
+            .values_mut()
+            .next()
+            .unwrap()["entries"][0]["resources"] = serde_json::json!(["original_utf8"]);
+        assert!(validate_stored(&payload_resource).is_err());
+    }
     #[test]
     fn old_project_json_is_unchanged_and_current_session_checks_fail_closed() {
         let old = serde_json::json!({"id":"p","name":"old","members":{"u":"owner"}});

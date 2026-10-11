@@ -306,6 +306,16 @@ impl AppState {
         action: &str,
         explicit_resources: Vec<String>,
     ) -> Result<(), crate::domain::ImportError> {
+        self.commit_with_policy(next, importing, action, explicit_resources, None)
+    }
+    fn commit_with_policy(
+        &self,
+        next: &mut Repository,
+        importing: bool,
+        action: &str,
+        explicit_resources: Vec<String>,
+        action_parameters: Option<serde_json::Value>,
+    ) -> Result<(), crate::domain::ImportError> {
         if let (Some(platform), Some(actor)) = (&self.platform, &self.actor) {
             let mut write = crate::repository_v2::prepare(&actor.project_id, next, importing)?;
             if action == "view_changed" && (!write.puts.is_empty() || !write.deletes.is_empty()) {
@@ -314,7 +324,7 @@ impl AppState {
                     "Представление не может изменять ресурсы.",
                 ));
             }
-            let resources = write
+            let resources: Vec<String> = write
                 .puts
                 .iter()
                 .map(|(kind, id, _)| format!("{kind}/{id}"))
@@ -331,8 +341,47 @@ impl AppState {
             let revision = next.storage_revision.checked_add(1).ok_or_else(|| {
                 crate::domain::ImportError::new("storage_conflict", "Счётчик проекта исчерпан.")
             })?;
-            next.audit
-                .append(&actor.id, &actor.project_id, action, resources, revision)?;
+            let affected_ids = resources
+                .iter()
+                .map(|r| r.split_once('/').map_or(r.as_str(), |(_, id)| id))
+                .collect::<BTreeSet<_>>();
+            let log_action = matches!(
+                action,
+                "log_imported" | "xes_import_confirmed" | "filter_applied" | "calendar_changed"
+            );
+            let model_action = matches!(action, "model_created" | "model_saved");
+            let job_action = matches!(
+                action,
+                "job_updated" | "log_imported" | "xes_import_confirmed"
+            );
+            let model_parameters = next.models.iter().filter(|(id,_)|model_action && affected_ids.contains(id.as_str())).map(|(id, model)| {
+                Ok(serde_json::json!({"id":id,"revision":model.revision,"name":model.name,"source_log":model.source_log,
+                    "model_sha256":crate::storage::sha256(&serde_json::to_vec(&model.model)
+                        .map_err(|_|crate::domain::ImportError::new("audit_policy","Политика модели не сохранена."))?)}))
+            }).collect::<Result<Vec<serde_json::Value>,crate::domain::ImportError>>()?;
+            let parameters = serde_json::json!({
+                "action":action, "expected_repository_revision":next.storage_revision,
+                "resources":resources,
+                "validated_action_parameters":action_parameters,
+                "logs":next.logs.iter().filter(|(id,_)|log_action && affected_ids.contains(id.as_str())).map(|(id,log)|serde_json::json!({
+                    "id":id,"source_sha256":log.source_sha256,"order":log.order,
+                    "filters":log.filters,"calendar":log.calendar,"threshold":log.threshold,
+                    "selected":log.selected,"selected_case":log.selected_case,
+                    "preview":log.provenance.as_ref().map(|p|serde_json::json!({
+                        "operation_id":p.operation_id,"policy":p.policy,"actions":p.actions.len()}))
+                })).collect::<Vec<_>>(),
+                "organization":if matches!(action,"folder_created"|"folder_renamed"|"folder_moved"|"folder_deleted"|"resource_moved"|"folder_changed") {Some(&next.organization)} else {None},
+                "jobs":next.durable_jobs.iter().filter(|(id,j)|job_action && (affected_ids.contains(id.as_str()) || j.result_id.as_ref().is_some_and(|r|affected_ids.contains(r.as_str())))).collect::<BTreeMap<_,_>>(),
+                "models":model_parameters,"actor_current":if action == "view_changed" {next.current.get(&actor.id)} else {None},"actor_views":if action == "view_changed" {next.user_views.get(&actor.id)} else {None}
+            });
+            next.audit.append_business(
+                &actor.id,
+                &actor.project_id,
+                action,
+                resources,
+                revision,
+                &parameters,
+            )?;
             write.metadata = crate::repository_v2::header(next).value()?;
             let logs = write
                 .puts
@@ -905,6 +954,32 @@ pub(crate) fn store_log_with_provenance(
     completed: Option<&JobSnapshot>,
     provenance: Option<Arc<crate::import_provenance::ImportProvenance>>,
 ) -> Result<StoredLog, crate::domain::ImportError> {
+    store_log_with_policy(
+        state,
+        data,
+        analysis,
+        filename,
+        elapsed_ms,
+        source_sha256,
+        order,
+        completed,
+        provenance,
+        None,
+    )
+}
+#[allow(clippy::too_many_arguments)]
+pub(crate) fn store_log_with_policy(
+    state: &AppState,
+    data: EventLog,
+    analysis: Analysis,
+    filename: String,
+    elapsed_ms: u128,
+    source_sha256: String,
+    order: crate::csv_io::NormalizationOrder,
+    completed: Option<&JobSnapshot>,
+    provenance: Option<Arc<crate::import_provenance::ImportProvenance>>,
+    import_policy: Option<serde_json::Value>,
+) -> Result<StoredLog, crate::domain::ImportError> {
     state.validate_resource_actor()?;
     if state.actor.as_ref().is_some_and(|a| !a.role.can_write()) {
         return Err(crate::domain::ImportError::new(
@@ -975,7 +1050,7 @@ pub(crate) fn store_log_with_provenance(
         terminal.result_id = Some(id);
         next.durable_jobs.insert(terminal.id.clone(), terminal);
     }
-    state.commit_with_action(
+    state.commit_with_policy(
         &mut next,
         true,
         if log.provenance.is_some() {
@@ -984,6 +1059,7 @@ pub(crate) fn store_log_with_provenance(
             "log_imported"
         },
         vec![],
+        import_policy,
     )?;
     *repository = next;
     Ok(log)

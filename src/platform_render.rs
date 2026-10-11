@@ -53,6 +53,9 @@ pub(crate) fn projects(actor: &Actor, projects: &[Project]) -> String {
             ));
             if role == Role::Owner && actor.role.can_write() {
                 html.push_str(&format!("<form method=\"post\" action=\"/projects/{id}/unarchive\"><input type=\"hidden\" name=\"revision\" value=\"{}\"><button class=\"small-button\">Вернуть из архива</button></form>", project.revision));
+                html.push_str(&format!(
+                    "<p><a href=\"/projects/{id}/delete\">Проверить постоянное удаление</a></p>"
+                ));
             }
             html.push_str("</td></tr>");
             continue;
@@ -79,9 +82,25 @@ pub(crate) fn projects(actor: &Actor, projects: &[Project]) -> String {
 pub(crate) fn csv_upload() -> String {
     "<section class=\"platform-heading\"><div class=\"eyebrow\">ИМПОРТ ЖУРНАЛА</div><h1>Загрузить таблицу CSV</h1><p>Сначала проверьте строки и выберите колонки. Анализ начнётся после подтверждения.</p></section><section class=\"platform-card\"><form class=\"platform-form\" method=\"post\" action=\"/csv/preview\" enctype=\"multipart/form-data\"><label>Файл CSV<input type=\"file\" name=\"file\" accept=\".csv,text/csv\" required></label><label>Разделитель<select name=\"delimiter\"><option value=\"comma\">Запятая</option><option value=\"semicolon\">Точка с запятой</option><option value=\"tab\">Табуляция</option></select></label><small>UTF-8, первая строка — названия колонок. До 20 MiB и 100 000 событий. Значения с разделителем внутри должны быть заключены в кавычки.</small><button class=\"button primary\" type=\"submit\">Проверить таблицу</button></form></section>".to_owned()
 }
+pub(crate) fn project_delete(p: &crate::auth::ProjectDeletionPreview) -> String {
+    let id = route_id(&p.project_id);
+    format!(
+        "<section class=\"platform-card\"><h1>Удалить проект навсегда</h1><h2>{}</h2><p>Точный ID: <code>{}</code></p><p>Будут удалены: {} журналов с исходниками и анализами, {} моделей, {} папок и доступ {} участников. Незавершённых задач: {}.</p><p><strong>Вернуть проект одной кнопкой нельзя.</strong> Без заранее сохранённой резервной копии восстановление невозможно. До удаления сохраните копию и проверьте её восстановление в новую базу. Приложение не проверяет наличие вашей копии.</p><p>Резервные копии и прежние версии PostgreSQL могут сохранить удалённые данные. Эта операция не обещает физическое стирание или немедленное уменьшение файлов на диске. У бывших владельцев останется краткое свидетельство удаления без содержимого проекта.</p><form class=\"platform-form\" method=\"post\" action=\"/projects/{id}/delete\"><input type=\"hidden\" name=\"revision\" value=\"{}\"><input type=\"hidden\" name=\"digest\" value=\"{}\"><label>Введите точный ID проекта<input name=\"confirmation_id\" required autocomplete=\"off\"></label><label>Введите УДАЛИТЬ<input name=\"phrase\" required autocomplete=\"off\"></label><button class=\"button\" {}>Удалить проект навсегда</button></form><p><a href=\"/projects\">Отмена — вернуться к проектам</a></p></section>",
+        html_escape(&p.name),
+        html_escape(&p.project_id),
+        p.logs,
+        p.models,
+        p.folders,
+        p.members,
+        p.active_jobs,
+        p.revision,
+        html_escape(&p.digest),
+        if p.active_jobs == 0 { "" } else { "disabled" }
+    )
+}
 pub(crate) fn audit(trail: &crate::audit::AuditTrail, auth: &serde_json::Value) -> String {
     let mut html = format!(
-        "<section class=\"platform-card\"><h1>История успешных действий</h1><p>В проекте зарегистрировано {} изменений. Сохранены последние {} записей; более ранних вне этого журнала: {}. Подтверждённые исходники и подробные изменения импорта хранятся отдельно у журнала.</p><p><a href=\"/audit/export\">Скачать историю JSON</a></p><table class=\"platform-table\"><thead><tr><th>№</th><th>Время UTC</th><th>Действие</th><th>Кто</th><th>Ресурсы</th></tr></thead><tbody>",
+        "<section class=\"platform-card\"><h1>История действий</h1><p>Всего записей: {}. Сохранены последние {} записей; более ранних вне этого журнала: {}. Новые действия этого сервера подтверждены; результат старых записей неизвестен. История из загруженной копии не проверена: её автор, время и результат указаны в файле, а не подтверждены этим сервером. Подробные изменения импорта хранятся отдельно у журнала.</p><p><a href=\"/audit/export\">Скачать историю JSON</a></p><table class=\"platform-table\"><thead><tr><th>№</th><th>Время UTC</th><th>Действие</th><th>Кто</th><th>Ресурсы</th></tr></thead><tbody>",
         trail.total,
         trail.entries.len(),
         trail.total.saturating_sub(trail.entries.len() as u64)
@@ -106,11 +125,52 @@ pub(crate) fn audit(trail: &crate::audit::AuditTrail, auth: &serde_json::Value) 
             "repository_updated" => "Обновление проекта",
             other => other,
         };
+        let policy = if e.origin.is_some() {
+            "История из загруженной копии — происхождение не проверено".into()
+        } else {
+            e.policy
+                .as_ref()
+                .map(|p| {
+                    let rule = match p.rule.as_str() {
+                        "strict_import_v1" => "Строгая проверка импорта",
+                        "service_preview_confirm_v1" => {
+                            "Подтверждение показанных изменений импорта"
+                        }
+                        "source_case_then_activity_projection_v1" => {
+                            "Фильтры случаев, затем событий"
+                        }
+                        "half_open_business_calendar_v1" => "Расчёт по рабочему календарю",
+                        "validated_model_project_cas_v1" => "Проверка модели и версии проекта",
+                        "project_catalog_folder_cas_v1" => "Проверка связей папок и версии проекта",
+                        "actor_private_view_v1" => "Личное представление пользователя",
+                        "durable_job_transition_v1" => "Сохранение перехода задачи",
+                        "restart_interrupted_job_v1" => "Восстановление задач после перезапуска",
+                        _ => "Проверенная политика действия",
+                    };
+                    format!(
+                        "{} (версия {}); отпечаток параметров {}",
+                        rule, p.version, p.parameters_sha256
+                    )
+                })
+                .unwrap_or_else(|| "Политика не сохранена в старой записи".into())
+        };
+        let outcome = if e.origin.is_some() {
+            "Результат не подтверждён этим сервером"
+        } else if e.outcome.is_some() {
+            "Изменение сохранено"
+        } else {
+            "Результат не сохранён в старой записи"
+        };
         html.push_str(&format!(
             "<tr><td>{}</td><td>{}</td><td>{}</td><td>{}</td><td>{}</td></tr>",
             e.sequence,
             e.at,
-            html_escape(label),
+            format_args!(
+                "{}<br><small>{}<br>{}</small>",
+                html_escape(label),
+                html_escape(&policy),
+                outcome
+            ),
             html_escape(&e.actor),
             html_escape(&e.resources.join(", "))
         ));

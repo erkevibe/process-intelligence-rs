@@ -333,6 +333,23 @@ impl ResourceCache {
             }
         }
     }
+    pub(crate) fn invalidate_project(&self, project: &str) {
+        let mut retired = Vec::new();
+        let mut state = self.state.lock().unwrap_or_else(|p| p.into_inner());
+        state.epoch = state.epoch.wrapping_add(1);
+        let keys = state
+            .entries
+            .keys()
+            .filter(|key| key.project == project)
+            .cloned()
+            .collect::<Vec<_>>();
+        for key in keys {
+            if let Some(old) = state.entries.remove(&key) {
+                state.stats.charged_bytes = state.stats.charged_bytes.saturating_sub(old.charge);
+                retired.push(old);
+            }
+        }
+    }
 }
 // Each owned heap allocation receives 32 additional bytes for alignment and
 // allocator overhead. Shared data/source are deliberately charged separately.
