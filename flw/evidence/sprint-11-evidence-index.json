@@ -3,6 +3,11 @@
   "sprint": 11,
   "files": [
     {
+      "bytes": 3607,
+      "sha256": "399E9F42C09CA9CD6EB7A25E8F21C1FF7062F697251DB89746BE9BCE16F20382",
+      "path": ".local/sprint11/customer/finite-handoff-initial01.json"
+    },
+    {
       "path": ".local/sprint11/customer/stock-flow03-blank-setup-addendum01.json",
       "bytes": 437,
       "sha256": "6C41EC757806FBFD7DF73DEA0E75EA85755E38EF456D9F8E59E5B4BC72E246CD"
@@ -26,6 +31,16 @@
       "path": ".local/sprint11/qa/audit-retention01-prospective-source-review01.json",
       "bytes": 3839,
       "sha256": "8ADE7818A5CDA13B8B0F1D7559FEC85DEB802C98DB8D2BD1D40DE5B4F9EA7922"
+    },
+    {
+      "bytes": 1621464,
+      "sha256": "F8B6C3C6615136F3E902CAD413E732946B4003E2AE87CB6FAAC4B7F3F5E364E2",
+      "path": ".local/sprint11/qa/audit-retention02-actual-independent01.json"
+    },
+    {
+      "bytes": 2135,
+      "sha256": "DE3D4C31D7BDE3FB82A69817FE0353DBDE7853474FC93522ADA406546504BFC2",
+      "path": ".local/sprint11/qa/audit-retention02-auth-public-supplement01.json"
     },
     {
       "path": ".local/sprint11/qa/audit-retention02-prospective-admission01.json",
@@ -211,6 +226,11 @@
       "path": ".local/sprint11/qa/pipe-fixture-regression02-prospective02.json",
       "bytes": 748,
       "sha256": "BDE2AAFD8D6928BF79F1C2F8D76B17BDC610BDCF2F26B2607C0F8AD17470A381"
+    },
+    {
+      "bytes": 2280,
+      "sha256": "F1E0B48FBB181A09B1626E12B4E5946D3250785B9DCAFCA23640CF8032F3C173",
+      "path": ".local/sprint11/qa/public-handoff-preliminary-review01.json"
     },
     {
       "path": ".local/sprint11/qa/regression-prospective03.json",
@@ -2908,6 +2928,11 @@
       "sha256": "67220F850F4CDEE3DC432440F523F128BEDA78B527EB1D94672F8C0513B21BF4"
     },
     {
+      "bytes": 844,
+      "sha256": "30159D92C4B0B47AB118814547184B44F76F793D31E28BE03016D2C429156036",
+      "path": ".local/sprint11/root/runtime-freeze01.json"
+    },
+    {
       "path": ".local/sprint11/root/sql5-inputs01/original-main.process.json",
       "bytes": 1094,
       "sha256": "84D950B141DB1ED9D4FE42D67E8BB469D12FEA7754AED6516A12881166F7988F"
@@ -3318,6 +3343,26 @@
       "sha256": "FEFE9F0A6EABCEF0E19DFBC1B5D0A32392FB94810FF7802E04430983EC6AC970"
     },
     {
+      "bytes": 19202,
+      "sha256": "ABA7CD304311AFE079FB2FFC1F63F50B1552D8668CF2A2A40C3D8BA262C12828",
+      "path": ".local/sprint11/td/audit-retention01-actual-final-review04.json"
+    },
+    {
+      "bytes": 5375,
+      "sha256": "D23C907DDAC24FB719222800B41E4BB5BF1B2263ED0613B98346C120173E52AF",
+      "path": ".local/sprint11/td/audit-retention01-independent-transform01.json"
+    },
+    {
+      "bytes": 1175,
+      "sha256": "8640462B8F69F149353760465A266DDE352BA0FF6F9E64652696F540E316143C",
+      "path": ".local/sprint11/td/audit-retention01-independent-transform02.json"
+    },
+    {
+      "bytes": 1196,
+      "sha256": "452AA54B1145265722CDEC5057F312A8E315E1717A3D7E76E8001A4F9D65C757",
+      "path": ".local/sprint11/td/audit-retention01-independent-transform03.json"
+    },
+    {
       "path": ".local/sprint11/td/audit-retention01-prospective-admission01.json",
       "bytes": 2493,
       "sha256": "74600DDAD1B82D40FFB7B9473865584779CD8D27C8C86F71E72FA4CA1A3728A4"
@@ -3596,6 +3641,12 @@
   "diagnostic_source": "b4edef34b083d1cb7737cf648f1c051eeb94127a",
   "product_source": "9005f6f77ca449e7d7f63889a5c874c8fbc83372",
   "product_cleanup": "DISABLED",
-  "utc": "2026-10-12T15:46:29.1815560Z",
-  "scope": "Safe metadata only, finite local evidence, not public replay or product acceptance"
+  "utc": "2026-10-12T15:52:37.7332250Z",
+  "scope": "Safe metadata only, finite local evidence, not public replay or product acceptance",
+  "runtime_frozen": true,
+  "notes": [
+    "Artifacts include failed and invalid offline analyses; existence or a fixed label is not PASS",
+    "Accepted Audit depends on QA F8B6/DE3D and corrected TD ABA7/864046/452AA; D23C explicitly invalid",
+    "Index omits future final review/votes to avoid circular hash references"
+  ]
 }
