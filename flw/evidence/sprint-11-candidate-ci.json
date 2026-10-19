@@ -1,0 +1,171 @@
+{
+  "limits": "Actual candidate HEAD CI, not future final metadata commit; ignored tests not promoted to runtime proof",
+  "utc": "2026-10-19T07:04:06.8187122Z",
+  "runs": [
+    {
+      "jobs": [
+        {
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Pinned toolchain",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run cargo fmt --all -- --check",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run cargo clippy --locked --all-targets -- -D warnings",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run cargo test --locked --all-targets",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "XES oracle provenance guards",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Service method provenance guards",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Diagnostic protocol and state oracle regressions",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Build release and local health smoke",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success"
+            }
+          ],
+          "conclusion": "success",
+          "status": "completed",
+          "name": "linux"
+        }
+      ],
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/erkevibe/process-intelligence-rs/actions/runs/39213149734",
+      "event": "push",
+      "head": "c86edd9e82b561c3f72cb9780852e58e85111c57",
+      "id": 39213149734
+    },
+    {
+      "jobs": [
+        {
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Pinned toolchain",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run cargo fmt --all -- --check",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run cargo clippy --locked --all-targets -- -D warnings",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run cargo test --locked --all-targets",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "XES oracle provenance guards",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Service method provenance guards",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Diagnostic protocol and state oracle regressions",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Build release and local health smoke",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success"
+            }
+          ],
+          "conclusion": "success",
+          "status": "completed",
+          "name": "linux"
+        }
+      ],
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/erkevibe/process-intelligence-rs/actions/runs/39213155237",
+      "event": "pull_request",
+      "head": "c86edd9e82b561c3f72cb9780852e58e85111c57",
+      "id": 39213155237
+    }
+  ],
+  "source_candidate": "c86edd9e82b561c3f72cb9780852e58e85111c57"
+}

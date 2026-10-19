@@ -1,0 +1,75 @@
+{
+  "delivery_gate_at_decision": "PENDING_FINAL_METADATA_HEAD_CI_AND_COMPLETE_PUBLIC_RECEIPT",
+  "accepted_conditions": [
+    "Final evidence-only HEAD must pass fresh push and PR CI, complete public archive/tree match and current PR binding check before completion",
+    "No changed proposal-bound bytes; otherwise new proposal and vote",
+    "No release/tag/merge/user install/cleanup enablement or full R3/DISK/R2-R5 acceptance",
+    "Preserve historical failed/invalid evidence, original criteria and pause/resume dates"
+  ],
+  "proposal_sha256": "AAC785857DB5CA09E17706D51E391EBFB53E1CDAA038069167EFEB8F0044CCA9",
+  "abstain": 0,
+  "votes": [
+    {
+      "path": "flw/evidence/sprint-11-root-final-vote.json",
+      "role": "Root",
+      "vote": "FOR",
+      "utc": "2026-10-19T07:04:06.8692730Z",
+      "agent": "/root",
+      "sha256": "F477B7AAB47A603A73AD2D401AEA8544D1FE35CD9F49B9E5F72BC2C5963F7E64"
+    },
+    {
+      "path": "flw/evidence/sprint-11-qa-final-vote.json",
+      "role": "QA/ProcessLogAuditor",
+      "vote": "FOR",
+      "utc": "2026-10-19T07:03:49.2803592Z",
+      "agent": "/root/qa_resume11",
+      "sha256": "D847B66A161923864359DF35EE4677C46BC66EB166E493BF2CA3B965BC354FEE"
+    },
+    {
+      "path": "flw/evidence/sprint-11-td-final-vote.json",
+      "role": "TechnicalDebt",
+      "vote": "FOR",
+      "utc": "2026-10-19T07:03:47.9542818Z",
+      "agent": "/root/td_resume11",
+      "sha256": "2582A55343C19DADFA7DDB05C30969D6F561FD710FA56A33040EA67FAC7D2C54"
+    },
+    {
+      "path": "flw/evidence/sprint-11-customer-final-vote.json",
+      "role": "Customer",
+      "vote": "FOR",
+      "utc": "2026-10-19T07:03:47.3366886Z",
+      "agent": "/root/customer_resume11",
+      "sha256": "CAB7160947091BCB91FBAC07E0C33DDAB539BC8B940AA5BDBF6CE345782F0E27"
+    },
+    {
+      "path": "flw/evidence/sprint-11-pm-final-vote.json",
+      "role": "PM",
+      "vote": "FOR",
+      "utc": "2026-10-19T07:04:53.1039538Z",
+      "agent": "/root/pm_resume11",
+      "sha256": "8F50A235B49DA70AC3CAE1775AE44C082E6D736F3C19662C0A0A06760F720A86"
+    }
+  ],
+  "utc": "2026-10-19T07:06:42.4296597Z",
+  "candidate_pr_ci": 39213155237,
+  "status": "LIMITED_SOURCE_EVIDENCE_HANDOFF_APPROVED",
+  "for": 5,
+  "candidate_ci": "BOTH_COMPLETED_SUCCESS",
+  "majority_required": 3,
+  "objections": [],
+  "owners": {
+    "PM": "Next original R3 lifecycle/all-producer scope matrix",
+    "QA": "Independent final delivery check; STOP on missing or mismatched proof",
+    "TechnicalDebt": "Carry original missing coverage and verified diagnostic repairs without broad acceptance",
+    "Customer": "Clear limited outcome and next user-visible objective",
+    "Root": "Finish final publication/CI/receipt; next functional scope with PM"
+  },
+  "completion_authority": "Subsequent exact-final-HEAD CI, full public archive byte receipt and independent QA delivery review; this immutable record is the approval event, not a future CI result",
+  "process_note": "Initial offline decision assembly stopped before write/commit due automatic JSON date coercion; original failure and two lexical UTC regression cases retained privately; fixed DateKind String reads leave all original votes untouched",
+  "fixed_members": 5,
+  "against": 0,
+  "candidate_push_ci": 39213149734,
+  "source_candidate": "c86edd9e82b561c3f72cb9780852e58e85111c57",
+  "proposal_path": "flw/evidence/sprint-11-final-proposal.md",
+  "next_check": "Final published metadata HEAD CI and full public source receipt in this resumed handoff; next functional sprint has no newly assigned time budget"
+}
