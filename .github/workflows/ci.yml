@@ -20,6 +20,13 @@ jobs:
         run: node tests/oracle_xes_tools.mjs
       - name: Service method provenance guards
         run: node tests/service-oracle-tools.mjs
+      - name: Diagnostic protocol and state oracle regressions
+        run: |
+          node tests/sql5-cycle-regression.cjs
+          node tests/cleanup-boundary-regression.cjs
+          node tests/stock-state-compare-regression.cjs
+          node tests/auth-delta-regression.cjs
+          node tests/audit-retention-regression.cjs
       - name: Build release and local health smoke
         run: |
           cargo build --locked --release
