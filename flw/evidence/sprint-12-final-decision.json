@@ -1,5 +1,5 @@
 {
-  "utc": "2026-10-19T10:46:12.1294023Z",
+  "utc": "2026-10-19T10:53:00.5027931Z",
   "deadline_utc": "2026-10-19T15:22:56Z",
   "for": 5,
   "superseded_proposal": "DA19B8289E143DC79E9A1145ACC21EB995951B39640DC7B3F72D34CD6A966103",
@@ -7,35 +7,35 @@
     {
       "role": "root",
       "agent": "/root",
-      "sha256": "72F579F904E20535386368DDF2FB0B4915653AF4F4FD26C7C8A0344EE8C589F0",
+      "sha256": "55495EEB81446CD595067C00ECA28882F4842019A58DFFB8C2108AB7761DA91F",
       "vote": "FOR",
       "path": "flw/evidence/sprint-12-final-root-vote.json"
     },
     {
       "role": "qa",
       "agent": "/root/qa_resume11",
-      "sha256": "EE02B8D2F150C36FD270FA55BD3CBBFDE025174576513D4829A9A718E8323268",
+      "sha256": "21A7EE584AF2AABD3E6BD1818B09709C6DCB4FB790DC3528A7205E6D85BA3508",
       "vote": "FOR",
       "path": "flw/evidence/sprint-12-final-qa-vote.json"
     },
     {
       "role": "td",
       "agent": "/root/td_resume11",
-      "sha256": "BAB0EB2A87D4E6B2AC629DFA78DF09323F947BE1ED6B1505557A2C40A1959D15",
+      "sha256": "15FB69CAF82A55FC572E389EA0B5BF2F1DCA692CD1397186423B39406C5E5EB1",
       "vote": "FOR",
       "path": "flw/evidence/sprint-12-final-td-vote.json"
     },
     {
       "role": "customer",
       "agent": "/root/customer_resume11",
-      "sha256": "4F4663E0610180495AA70839624C0A5750A5F81446355D0C5C60BD85E1CBE4EA",
+      "sha256": "09E7E8780F15C3E4F3FF29B0BCC33956C200D8AB9737AC17E1D99EDF6F43BACF",
       "vote": "FOR",
       "path": "flw/evidence/sprint-12-final-customer-vote.json"
     },
     {
       "role": "pm",
       "agent": "/root/pm_resume11",
-      "sha256": "13203ABBDD231B2E96060A1AE5E0EDB136C2774B83A54FB506ECD9ECBC35B721",
+      "sha256": "153F3176A86D0D23A3A817C61677077F74B6CD2CD3A20BF4E51F1F77842B44DF",
       "vote": "FOR",
       "path": "flw/evidence/sprint-12-final-pm-vote.json"
     }
@@ -57,8 +57,13 @@
   "against": 0,
   "full_R3_R2_R5_enterprise": "OPEN",
   "session": "final-acceptance-01",
-  "authorized": "Commit exact frozen snapshot and real proposal/vote/decision metadata; verify finalHEADpush+PRCI; publish exactownlimitedprerelease0.7.2/source9005; independentlydownloadallpublicassets; finalacceptanceonlyafterreceipt",
-  "proposal_sha256": "87278A88E2BC2CB704E5F63FB0243CEBDE36B419F6FF6F9FAAA072D7000F6A23",
+  "authorized": "Commit only amended manifest explanatory exception metadata, exact proposal, five fresh actual votes and decision; replace only superseded own unpublished draft supplementalasset655993729 with exactnewfinalHEAD archive. Verify NEW finalHEADpush+PRCI; publish exactownlimitedprerelease0.7.2/source9005; independent complete public downloads; acceptance only after allG receipt.",
+  "proposal_sha256": "70DCE734F28E252A4295CB575B58D3706282B59076BCE0594CFD6B6CAA43BDA3",
   "old_votes_counted": 0,
-  "decision": "APPROVED_CONDITIONAL_ACCEPTANCE_AND_PUBLICATION_SEQUENCE"
+  "decision": "APPROVED_CONDITIONAL_ACCEPTANCE_AND_PUBLICATION_SEQUENCE",
+  "superseded_proposals": [
+    "DA19B8289E143DC79E9A1145ACC21EB995951B39640DC7B3F72D34CD6A966103",
+    "87278A88E2BC2CB704E5F63FB0243CEBDE36B419F6FF6F9FAAA072D7000F6A23"
+  ],
+  "explicit_exception": "Exactly3 historical -text files preserve unchanged Git LF baseline and frozen working CRLF, both SHA recorded in amendedmanifest21424; not automatic normalization. All1083workingrows and8frozenbindings unchanged. QA own STOP resolved by actualfreshQA21A7 vote afterproof; no waiver."
 }

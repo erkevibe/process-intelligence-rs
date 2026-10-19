@@ -5420,5 +5420,36 @@
   "utc": "2026-10-19T10:41:48.7404651Z",
   "source_candidate": "6a804d307d8e7e0b98f31cc90849d98e8cd25fa5",
   "permitted_tail": "Only new final proposal, actual role votes and decision; no product/code/test/docs/index changes after freeze",
-  "scope": "All current public files frozen for review except this manifest, final proposal/votes/decision metadata. Working-byte hashes may differ from Git archive solely by configured checkout line endings; public archive verified separately against exact final Git tree."
+  "scope": "All1083 current public working files frozen with their exact working-byte SHA. Public Git archive verified separately against exact final tree. Declared text=auto/eol=lf normalization is permitted; exactly three separately listed inherited -text historical files retain their unchanged baseline Git LF bytes and frozen working CRLF bytes. They are NOT described as automatic normalization.",
+  "inherited_historical_line_ending_exceptions": [
+    {
+      "path": "flw/evidence/sprint-05-council-invitation.md",
+      "working_sha256": "593ED16753C4923572AF2D1CB8CFC94BC3B7AB79F321028641BA3646EC13927A",
+      "git": {
+        "9005f6f77ca449e7d7f63889a5c874c8fbc83372": "B5AEF60A48037DB2BB68834052883FCCC4D768388B24B01BB6E41BF444E71288",
+        "6a804d307d8e7e0b98f31cc90849d98e8cd25fa5": "B5AEF60A48037DB2BB68834052883FCCC4D768388B24B01BB6E41BF444E71288",
+        "77e90fcf5a508ef8cc0af0704658c1500629181c": "B5AEF60A48037DB2BB68834052883FCCC4D768388B24B01BB6E41BF444E71288"
+      }
+    },
+    {
+      "path": "flw/evidence/sprint-05-plan-decision.md",
+      "working_sha256": "DF20AE0BF2421A1C75D677DF5A78D917BC1F0A73F488810E01E1A75462486F40",
+      "git": {
+        "9005f6f77ca449e7d7f63889a5c874c8fbc83372": "90B8522C40F25F5E5038B8A07993CFF255BEAC335ED751954F1F0F4D55402348",
+        "6a804d307d8e7e0b98f31cc90849d98e8cd25fa5": "90B8522C40F25F5E5038B8A07993CFF255BEAC335ED751954F1F0F4D55402348",
+        "77e90fcf5a508ef8cc0af0704658c1500629181c": "90B8522C40F25F5E5038B8A07993CFF255BEAC335ED751954F1F0F4D55402348"
+      }
+    },
+    {
+      "path": "flw/evidence/sprint-07-emotional-advice.md",
+      "working_sha256": "2E9FECEDCA13424A87FF52874509C9AA2DC60D19A92176773CC35344F8C69C0F",
+      "git": {
+        "9005f6f77ca449e7d7f63889a5c874c8fbc83372": "6AED5B037B96FD7C16F74CCCB5400B3493F1942D27284DA9EDEE1911B543676F",
+        "6a804d307d8e7e0b98f31cc90849d98e8cd25fa5": "6AED5B037B96FD7C16F74CCCB5400B3493F1942D27284DA9EDEE1911B543676F",
+        "77e90fcf5a508ef8cc0af0704658c1500629181c": "6AED5B037B96FD7C16F74CCCB5400B3493F1942D27284DA9EDEE1911B543676F"
+      }
+    }
+  ],
+  "exception_proof_sha256": "D786C458D644A483D49815E2D93107E4F1106995D2AE9B21BBD471FF9D7C6C19",
+  "supersedes_manifest_sha256": "88CF368DDD38CD473CECB6DBBCAF04B39557B7E66DE2354E610EFC88A44A0676"
 }
