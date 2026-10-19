@@ -892,6 +892,22 @@ fn reconcile(
 mod tests {
     use super::*;
     #[test]
+    fn receipt_snapshot_digest_public_calibration() {
+        let snapshot = Snapshot {
+            rows: vec![
+                json!(["kv", "fixture/Ж𐍈\n\t\"\\", 7, "abc"]),
+                json!(["marker", "p", 11, "source", "ddl"]),
+            ],
+            sequence: json!(["bigint", 1, 1, i64::MAX, 1, 1, false, 63, true]),
+        };
+        let bytes = serde_json::to_vec(&snapshot).unwrap();
+        assert_eq!(snapshot.digest().unwrap(), crate::storage::sha256(&bytes));
+        println!(
+            "S13_RECEIPT_SNAPSHOT_CALIBRATION {}",
+            snapshot.digest().unwrap()
+        );
+    }
+    #[test]
     fn streaming_eligibility_equals_existing_serde_hash_domain() {
         for v in [
             json!({"b":[true,null,"é"],"a":1}),

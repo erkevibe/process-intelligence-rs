@@ -1,0 +1,29 @@
+{
+  "role": "Customer",
+  "source_agent": "/root/customer_resume11",
+  "utc": "2026-10-19T13:25:28.4829738Z",
+  "proposal_path": "docs/SPRINT_13_PLAN.md",
+  "proposal_sha256": "9E4D53FE13126972F3D369447EEBCB2F645F4DAEBEE0F34C547C38E467E0B88F",
+  "vote": "FOR",
+  "stage": "START_PLAN_NOT_PRODUCT_ACCEPTANCE",
+  "basis": [
+    "Полный фактический план прочитан и SHA256 независимо пересчитан.",
+    "ВсеC13-01..05 отражены: отдельные папки списка проектов, creator+writercurrent CRUD, ProjectOwner assignment/root, права не наследуются, доступные проекты не исчезают, чужие соседи не раскрываются.",
+    "Archivefolder — только организация списка, не projectarchive/accesschange; archivedsubtree не новаяdestination. Projectarchive сохраняетassignment, permanentdelete очищаетего, nonemptyfolderdelete отказан.",
+    "Historicalmigration/fullRBAC/currentcleanupfaults остаются полными исходными условиями, новый0.7.3 требует реально integratedsource/EXE/package и затронутую регрессию принятогоR302.",
+    "Время ограничивает попытку, но не превращает missingcases вPASS; опасная непроверенная возможность не выпускается принятой."
+  ],
+  "risks": [
+    "Объём трёх больших ветвей высок для8часов; ранний feasibility и сохранение90минут обязательны.",
+    "Folderownership и projectaccess различны: объяснение должно быть видно в UI, не только в спецификации.",
+    "НеопределённыйCOMMIT, receiptfailure иknowncommit имеют разные действия оператора; нельзя предлагать слепойповтор или обещать shrink/physicalerase."
+  ],
+  "conditions": [
+    "Новый каталог и observers допускаются на freshownedresources с independentQA/TD/liveauditor; никаких старых пользовательских данных/установок.",
+    "Проверить serverroles/CAS/cycles/foreignpaths/current/session/data conservation и новыйaudit/retention/trust/downgrade/restart/fullrestore, не только browserappearance.",
+    "Новый реальный browserroute должен показать папки списка проектов и перенос проекта с сохранением доступа; внутренние папки проекта не заменяют это.",
+    "Финальная приёмка/публичнаядоставка только по exactcandidate/CI/download/новымголосам и полномуclauseledger. Failed/missingmandatorygate оставляет критерийOPEN."
+  ],
+  "actions": "Ownvote only; no runtime/network/browser/HTTP/SQL/secrets/source edits",
+  "vote_supersedes_no_final_acceptance": true
+}

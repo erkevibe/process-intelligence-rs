@@ -1,0 +1,51 @@
+# Sprint13 — оставшийся R3: исторические миграции, права и очистка
+
+Кандидат плана для нового FLW-голосования, не приёмка продукта. Начало19 октября2026 13:14:42UTC (18:14:42 Asia/Qyzylorda), лимит21:14:42UTC (02:14:42 20октября местного времени). Runtime freeze19:44:42UTC оставляет90минут проверки/передачи. База640a1964993d9501bb24fe14b286fff99e655b27, ветка codex/sprint-13. Пять приглашённых равных голосующих:Root, QA/ProcessLogAuditor, TechnicalDebt, Customer, PM; начальные независимые позиции сохранены до этого предложения.
+
+## Что закрываем
+
+Цель — все оставшиеся исходные R3-01/03/04 и DISK01 на одном интегрированном кандидате0.7.3. [Исходные условия](SPRINT_08_SCOPE.md), [спецификация](SPRINT_09_SPECIFICATION.md), [полный C01–C18/subcases/F01–F03](SPRINT_09_CLEANUP_CORPUS.md) и [cleanup policy](SPRINT_08_CLEANUP_PROPOSAL.md) не сокращаются. Принятый конечный R3-02 на0.7.2 сохраняется исторически; новые Auth-поля, policy/actions и cleanup требуют затронутой регрессии на0.7.3. Полное R3 — только если каждый критерий принят. Восемь часов не гарантируют PASS и не разрешают заменить полный корпус выборкой, диагностику продуктом или неизвестный исход успехом.
+
+## Согласованный продуктовый контракт
+
+Пользователь прямо выбрал перемещение проектов между папками списка проектов в одной рабочей области, сохраняя участников, права и данные. Это не перенос исходного checkout, не перенос между командами и не существующие папки ресурсов внутри проекта.
+
+Отдельный Auth-каталог «Папки списка проектов»:folders, project assignments, собственная монотонная revision/CAS. Старый Auth без каталога декодируется без дописанных полей; новые данные строго валидируются. Папка принадлежит создателю; CRUD требует creator и действительную writer-role текущей сессии. Перемещение проекта — только его Owner в собственную папку либо в корень списка. Folder ownership не даёт прав на проекты; расположение не меняет membership/current/session/repository/log/model IDs или значения. Любой ProjectOwner может вернуть свой доступный проект в корень независимо от создателя исходной папки.
+
+Папки поддерживают create/rename/move/archive/restore и безопасное удаление только пустой папки. Циклы, чужой/несуществующий parent, одинаковые sibling names, stale revision, viewer/foreign access отказывают без изменений. Архив папки запрещает новые назначения в её subtree, но не архивирует проекты и не меняет их доступ; проекты остаются видимыми с путём и отметкой архива папки. Архив/restore проекта сохраняет assignment; постоянное удаление проекта атомарно убирает assignment и меняет catalog revision. Нет каскадного удаления проектов действием папки. Project backup в новый ID не импортирует чужой workspace-каталог; полный database backup/new restore сохраняет каталог.
+
+Выдача списка показывает каждый доступный пользователю проект, его путь и необходимые ancestor folders; не раскрывает names/IDs/counts недоступных соседних проектов. Собственные пустые папки доступны создателю. Управляющие элементы соответствуют действительным правам, сервер проверяет их заново под Auth mutex/CAS. UI различает «Папки списка проектов» и «Папки проекта», объясняет отсутствие наследования прав.
+
+Каждая новая бизнес-мутация имеет явную action-specific policy, actor/project/resources/revision/time/committed outcome и атомарную Auth-запись. Project move журналируется в целевом проекте; folder CRUD — в текущем writable проекте с явной политикой workspace list catalog. Имена/секреты не попадают в параметры аудита, используются необходимые ID и хеши. Новый producer inventory и затронутые прежние23 проверяются, а не принимаются по одному count.
+
+## Достижимые задачи и проверка
+
+| Задача | Конкретный результат | Приёмка |
+|---|---|---|
+| S13-01 новый стенд и runner | Новый scope.local/sprint13, app3097/PG5465, отдельно разрешённый clonePG5466/observer ports по точному профилю; старые guards не ослаблены | Малые регрессии namespace/deadline/аргументов/EOF/Job; prospective QA/TD перед дорогим/опасным runtime |
+| S13-02 настоящий исторический источник | Полный old0.3 dump3972748B/E0F3…, все12KV/10project/ledger, полные307160864B values и отдельная точная sequence | QA input manifest, новый restore и полный ожидаемый forward transform; округлённый JSseqmax не oracle |
+| S13-03 историческая миграция | Новый кластер/новые БД; maintained ownership/roles; offline migration, реальные fault/rollback/resume/no-op | Все значения/версии/markers/ledger/sequence и catalog сравниваются; per-project migration transactions не выдаются за atomic whole migration |
+| S13-04 проектный каталог | Описанный workflow и сохранение lifecycle/session/rights/данных | Независимый whole-PRE HTTP/native oracle, owner/editor/viewer/foreign, cycles/stale/CAS/restart/full backup/new restore; реальный браузерный маршрут |
+| S13-05 явный cleanup CLI | Реально собранный единый0.7.3 с существующим cleanup module и operator wrapper; без startup/HTTP/automatic retry | Verify/apply/empty/knowncommit/receiptfailed/unconfirmed имеют различимые JSON outcomes; успех0, ошибка1, unconfirmed2, committed-receipt-failed3. Неизвестный COMMIT не означает rollback |
+| S13-06 полный cleanup корпус | Все C01–C18 и самостоятельные subcases в отдельных свежих идентифицированных состояниях | PRE/POST всего управляемого состояния, catalog/identity/leases/RETURNING/sequence, строгие текущие лимиты; не count-only |
+| S13-07 реальные аварийные границы | F01 до DELETE после actual locks; F02 после DELETE до COMMIT; F03 server COMMIT success с удержанным ACK; SQL5/lock2/tx10 отдельно | Независимый проверенный protocol observer на фактическом новом EXE; backend identity/gone и whole-state reconciliation; без fault flags/подменыSQL/увеличения таймаутов |
+| S13-08 полная recovery/RBAC | Полный current C2 со всеми latest normalized changes через C01/C02/C18; другая runtime recovery copy | Verification copy никогда не app/login; runtime copy запускает0.7.3, полный export/rights/downgrade/refusals и restart; backup остаётся доступен |
+| S13-09 поставка | Исходники, неизменный EXE/package manifest, инструкция preview/apply/restore/unconfirmed, новый prerelease | Независимый package install/CI окончательного HEAD/полный публичный download/file tree/sourceSHA; реальные финальные голоса и receipt |
+
+Исторический old0.3 dump не имеет установленного соседнего stock manifest: новый private provenance adapter явно фиксирует исходные SHA/bytes и raw restore в новую БД с maintained owner/role policy. После полного сравнения новая холодная штатная копия имеет собственный настоящий manifest. Это не поддельный исходный manifest и не обход validator. Для cleanup используется полный normalized C2 archive7943113B/3A0E… и его настоящий manifestBD4B… либо новая доказанная полная копия; эти данные не подменяют историческую forward migration.
+
+## Время, исполнители, зависимости
+
+13:14–14:00UTC: независимые позиции, полный inventory, точный план/голоса, ранние feasibility и новый runner. 14:00–15:30: forward migration/RBAC и реализация project-list catalog/cleanup integration; freeze первого собранного кандидата. 15:30–18:45: полный корпус, observers/faults, recovery и устранение реальных причин. 18:45–19:44: затронутая регрессия, браузер/новая установка, окончательные source/EXE/package freeze. 19:44–21:14: независимые заключения, реальные финальные голоса, exact-finalHEAD CI, публичная поставка и readback.
+
+Root владеет общими Auth/storage/routes/render/CLI/package интеграциями и запускает новые admitted runtime. Доступный прежний implementation-agent может писать только отдельно назначенный pure catalog/helper файл; QA не принимает собственный код. QA/ProcessLogAuditor владеет независимыми expected states, input/protocol inventory, наблюдением actual stdout/stderr/business/PG/native processes в реальном времени и окончательной независимой приёмкой. TD — вторая проверка identity/transaction/compatibility/debt, Customer — пользовательский контракт и маршрут, PM — полная исходная матрица/порядок. Состав пяти голосов не расширяется разработчиком.
+
+## Безопасность и бюджеты
+
+Все SQL/DDL/restore/DELETE/fault — только на новых owned S13 ресурсах с фактическими PID/creation/image/datadir/Job/loopback pins, currentSID-only ACL, полными ограниченными потоками и actual exits. Старые кластеры, пользовательские установки и прежние failed fixtures не запускаются/логинятся/меняются/удаляются. Старые архивы/программы/доказательства — read-only inputs. Физический clone C05 только новой S13 копии, с сохранением исходника, в отдельно разрешённый новый абсолютный target; не clone пользовательского кластера. Привилегии не повышаются ради обхода identity. Секреты не печатаются и не публикуются.
+
+Один новый compile target, incremental0/debug0/jobs2. Бюджет S13≤16GiB, предварительно свободно≥16GiB для build/≥8GiB для PG, runtime floor4GiB, не более1800с на admitted phase. Полные большие state captures не размножаются бесконтрольно: full historical values читаются потоком, исходные полные PRE/POST сохраняются на нужных положительных/аварийных границах; независимое сравнение всех значений/полного ordered inventory не заменяется выборкой. Негативные случаи используют полный малыйS, исторические C01/C02/C18/F01–03 — полный исторический/current corpus. Если требуется больше диска, сначала измерить/перепланировать; failed evidence не удалять и fixture не сокращать.
+
+Cleanup лимиты неизменны:10000managedrows,512UTF8-byte key,4MiB plan, statement5s/lock2s/transaction10s. Источники whole-state/digest и Rust serde source hash различаются. Неопределённый COMMIT — explicit unconfirmed, read-only reconciliation, без blind retry; known commit с failed receipt — отдельный результат. Logical removal не обещает physical erase/shrink. Никакого VACUUM FULL/удаления установок.
+
+Полный PASS R3 выдаётся только после всех исходных условий на конкретном кандидате, включая новые producer/retention/trust/compatibility paths. Если обязательная проверка провалена/не выполнена, затронутая опасная возможность не выпускается как принятая; fallback требует явной фиксации меньшего фактического результата и оставляет исходный критерий OPEN. Это отказ от ложной приёмки, а не заранее выбранная частичная цель. STOP действует независимо от голосования. Пользователь уже разрешил работу; повторного общего запроса разрешений план не требует.

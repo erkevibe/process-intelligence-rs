@@ -62,6 +62,11 @@ struct Session {
 #[derive(Debug, Clone, Default, Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
 struct AuthData {
+    #[serde(
+        default,
+        skip_serializing_if = "crate::project_list::ProjectListCatalog::is_empty"
+    )]
+    project_list: crate::project_list::ProjectListCatalog,
     #[serde(default, skip_serializing_if = "BTreeMap::is_empty")]
     deletions: BTreeMap<String, crate::audit::AuditTrail>,
     #[serde(
@@ -135,8 +140,12 @@ pub(crate) fn validate_stored(value: &serde_json::Value) -> Result<(), ImportErr
             return Err(denied());
         }
     }
+    project_list_operations::validate_catalog(&data)?;
     Ok(())
 }
+#[path = "auth_project_list.rs"]
+mod project_list_operations;
+pub(crate) use project_list_operations::{ProjectListChange, ProjectListView};
 struct Versioned {
     revision: u64,
     data: AuthData,
@@ -558,6 +567,7 @@ impl Auth {
             }
         }
         next.projects.remove(id);
+        next.project_list.remove_project(id)?;
         next.audit.0.remove(id);
         next.sessions.retain(|_, session| {
             if session.project_id != id {

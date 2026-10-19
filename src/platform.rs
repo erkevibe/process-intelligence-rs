@@ -1,6 +1,6 @@
 //! Project-scoped local platform. Database operations run only on blocking workers.
 use crate::{
-    auth::{Actor, Auth, Role},
+    auth::{Actor, Auth, ProjectListChange, Role},
     bpmn::ProcessModel,
     calendar::CalendarSpec,
     csv_io::{self, CsvMapping, NormalizationOrder},
@@ -265,9 +265,11 @@ fn response_error(error: ImportError) -> Response {
         "access_denied" => StatusCode::FORBIDDEN,
         "not_found" => StatusCode::NOT_FOUND,
         "project_capacity" => StatusCode::PAYLOAD_TOO_LARGE,
-        "storage_conflict" | "model_conflict" | "preview_conflict" | "project_conflict" => {
-            StatusCode::CONFLICT
-        }
+        "storage_conflict"
+        | "model_conflict"
+        | "preview_conflict"
+        | "project_conflict"
+        | "project_list_conflict" => StatusCode::CONFLICT,
         "storage_unavailable" | "storage_busy" | "confirmation_uncertain" => {
             StatusCode::SERVICE_UNAVAILABLE
         }
@@ -330,6 +332,35 @@ pub(crate) fn routes() -> Router<AppState> {
         )
         .route("/logout", post(logout))
         .route("/projects", get(projects).post(create_project))
+        .route("/project-list/json", get(project_list_json))
+        .route(
+            "/project-list/folders",
+            post(project_list_create).layer(DefaultBodyLimit::max(4096)),
+        )
+        .route(
+            "/project-list/folders/{id}/rename",
+            post(project_list_rename).layer(DefaultBodyLimit::max(4096)),
+        )
+        .route(
+            "/project-list/folders/{id}/move",
+            post(project_list_move).layer(DefaultBodyLimit::max(4096)),
+        )
+        .route(
+            "/project-list/folders/{id}/archive",
+            post(project_list_archive).layer(DefaultBodyLimit::max(4096)),
+        )
+        .route(
+            "/project-list/folders/{id}/unarchive",
+            post(project_list_unarchive).layer(DefaultBodyLimit::max(4096)),
+        )
+        .route(
+            "/project-list/folders/{id}/delete",
+            post(project_list_delete).layer(DefaultBodyLimit::max(4096)),
+        )
+        .route(
+            "/projects/{id}/move",
+            post(move_project_in_list).layer(DefaultBodyLimit::max(4096)),
+        )
         .route("/projects/{id}/open", post(open_project))
         .route("/projects/{id}/members", post(membership))
         .route("/projects/{id}/rename", post(rename_project))
@@ -452,9 +483,205 @@ async fn logout(Workspace(state): Workspace, headers: HeaderMap) -> Response {
     }
 }
 async fn projects(Workspace(state): Workspace) -> Response {
-    match (platform(&state), actor(&state)) {
-        (Ok(p), Ok(a)) => page("Проекты", render::projects(&a, &p.auth.projects(&a))),
-        _ => response_error(failure("access_denied", "Войдите в проект.")),
+    match blocking(move || {
+        let a = actor(&state)?;
+        let view = platform(&state)?
+            .auth
+            .project_list_view(&a, current_session(&state)?)?;
+        Ok((a, view))
+    })
+    .await
+    {
+        Ok((a, view)) => page("Проекты", render::projects(&a, &view.projects, &view)),
+        Err(e) => response_error(e),
+    }
+}
+
+async fn project_list_json(Workspace(state): Workspace) -> Response {
+    match blocking(move || {
+        let a = actor(&state)?;
+        let view = platform(&state)?
+            .auth
+            .project_list_view(&a, current_session(&state)?)?;
+        let projects = view
+            .projects
+            .iter()
+            .filter_map(|project| {
+                project.members.get(&a.id).map(|role| {
+                    json!({
+                        "id":project.id,"name":project.name,"revision":project.revision,
+                        "archived":project.archived,"role":role,
+                        "folder_id":view.project_folders.get(&project.id)
+                    })
+                })
+            })
+            .collect::<Vec<_>>();
+        Ok(json!({"revision":view.revision,"folders":view.folders,
+            "project_folders":view.project_folders,"projects":projects}))
+    })
+    .await
+    {
+        Ok(view) => Json(view).into_response(),
+        Err(e) => response_error(e),
+    }
+}
+
+#[derive(Deserialize)]
+#[serde(deny_unknown_fields)]
+struct ProjectListCreateForm {
+    catalog_revision: u64,
+    name: String,
+    #[serde(default)]
+    parent: String,
+}
+#[derive(Deserialize)]
+#[serde(deny_unknown_fields)]
+struct ProjectListRenameForm {
+    catalog_revision: u64,
+    name: String,
+}
+#[derive(Deserialize)]
+#[serde(deny_unknown_fields)]
+struct ProjectListParentForm {
+    catalog_revision: u64,
+    #[serde(default)]
+    parent: String,
+}
+#[derive(Deserialize)]
+#[serde(deny_unknown_fields)]
+struct ProjectListRevisionForm {
+    catalog_revision: u64,
+}
+#[derive(Deserialize)]
+#[serde(deny_unknown_fields)]
+struct ProjectListAssignmentForm {
+    catalog_revision: u64,
+    project_revision: u64,
+    #[serde(default)]
+    destination: String,
+}
+
+async fn change_project_list(
+    state: AppState,
+    revision: u64,
+    change: ProjectListChange,
+) -> Response {
+    match blocking(move || {
+        platform(&state)?.auth.change_project_list(
+            &actor(&state)?,
+            current_session(&state)?,
+            revision,
+            change,
+        )
+    })
+    .await
+    {
+        Ok(_) => redirect("/projects"),
+        Err(e) => response_error(e),
+    }
+}
+async fn project_list_create(
+    Workspace(state): Workspace,
+    Form(form): Form<ProjectListCreateForm>,
+) -> Response {
+    change_project_list(
+        state,
+        form.catalog_revision,
+        ProjectListChange::Create {
+            name: form.name,
+            parent: (!form.parent.is_empty()).then_some(form.parent),
+        },
+    )
+    .await
+}
+async fn project_list_rename(
+    Workspace(state): Workspace,
+    Path(id): Path<String>,
+    Form(form): Form<ProjectListRenameForm>,
+) -> Response {
+    change_project_list(
+        state,
+        form.catalog_revision,
+        ProjectListChange::Rename {
+            id,
+            name: form.name,
+        },
+    )
+    .await
+}
+async fn project_list_move(
+    Workspace(state): Workspace,
+    Path(id): Path<String>,
+    Form(form): Form<ProjectListParentForm>,
+) -> Response {
+    change_project_list(
+        state,
+        form.catalog_revision,
+        ProjectListChange::Move {
+            id,
+            parent: (!form.parent.is_empty()).then_some(form.parent),
+        },
+    )
+    .await
+}
+async fn project_list_archive(
+    Workspace(state): Workspace,
+    Path(id): Path<String>,
+    Form(form): Form<ProjectListRevisionForm>,
+) -> Response {
+    change_project_list(
+        state,
+        form.catalog_revision,
+        ProjectListChange::Archive { id, archived: true },
+    )
+    .await
+}
+async fn project_list_unarchive(
+    Workspace(state): Workspace,
+    Path(id): Path<String>,
+    Form(form): Form<ProjectListRevisionForm>,
+) -> Response {
+    change_project_list(
+        state,
+        form.catalog_revision,
+        ProjectListChange::Archive {
+            id,
+            archived: false,
+        },
+    )
+    .await
+}
+async fn project_list_delete(
+    Workspace(state): Workspace,
+    Path(id): Path<String>,
+    Form(form): Form<ProjectListRevisionForm>,
+) -> Response {
+    change_project_list(
+        state,
+        form.catalog_revision,
+        ProjectListChange::Delete { id },
+    )
+    .await
+}
+async fn move_project_in_list(
+    Workspace(state): Workspace,
+    Path(id): Path<String>,
+    Form(form): Form<ProjectListAssignmentForm>,
+) -> Response {
+    match blocking(move || {
+        platform(&state)?.auth.move_project_in_list(
+            &actor(&state)?,
+            current_session(&state)?,
+            &id,
+            (!form.destination.is_empty()).then_some(form.destination.as_str()),
+            form.catalog_revision,
+            form.project_revision,
+        )
+    })
+    .await
+    {
+        Ok(()) => redirect("/projects"),
+        Err(e) => response_error(e),
     }
 }
 #[derive(Deserialize)]

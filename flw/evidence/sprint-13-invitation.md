@@ -1,0 +1,11 @@
+# Sprint13 — FLW invitation before proposal
+
+Start:2026-10-19T13:14:42Z. Deadline:2026-10-19T21:14:42Z (2026-10-20 02:14:42 Asia/Qyzylorda). Runtime freeze:2026-10-19T19:44:42Z, leaving90 minutes for independent acceptance/delivery. Base640a1964993d9501bb24fe14b286fff99e655b27; branch codex/sprint-13.
+
+Fixed five equal voters:Root/Chair and integration; QA/ProcessLogAuditor `/root/qa_resume11`; TechnicalDebt `/root/td_resume11`; PM `/root/pm_resume11`; Customer `/root/customer_resume11`. Actual independent positions precede exact proposal and new votes. Old votes are not new votes. Four slots are used in queues without inventing absent positions.
+
+User request: eight-hour sprint for historical migrations, access rights and cleanup fault checks, closing remaining R3. Original R3-01/03/04 and DISK01 contracts remain; accepted finite R3-02 on exact0.7.2 is preserved and regression-tested where affected. No claim of fullR3 until every original clause passes on the final integrated candidate. Literal project movement semantics are an open product question, not permission to move this source checkout.
+
+Risk appetite: minimal risk to existing/user data. Routine reversible drafts use lightweight review. Destructive/migration/restore/fault/runtime candidates require owned fresh resources, exact source/tool/fixture pins, actual bounded capture/exit/identity, independent prospective QA/TD and live ProcessLogAuditor. No old installation/cluster restart, login, SQL, mutation, deletion or repackaging. Old artifacts are read-only inputs copied/restored only into new owned resources. Raw Auth/config/cookies/passwords/dumps/HTTP payload remain private under currentSID-only ACL. New runner scope/deadline must be implemented in new S13 files, never weakening S12 gates.
+
+Initial independent positions must identify actual original gaps, available full historical archives and native protocol proofs, integrated product changes, finite achievable work, risks and acceptance. Then Root presents exact plan/hash for five actual votes; majority exceeds half fixed membership. A failed mandatory gate or STOP cannot be waived by majority or the eight-hour limit. Concrete partial delivery is reported honestly if original fullR3 cannot be established.
