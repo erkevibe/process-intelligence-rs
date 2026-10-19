@@ -11,6 +11,7 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           persist-credentials: false
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
       - name: Pinned toolchain
         run: rustup toolchain install 1.99.0 --profile minimal --component rustfmt,clippy
       - run: cargo fmt --all -- --check
@@ -37,6 +38,16 @@ jobs:
           node tests/sprint12-folder-oracle.cjs .local/sprint12/root/ci-folder
           node tests/sprint12-project-oracle.cjs .local/sprint12/root/ci-project
           node tests/sprint12-resource-oracle.cjs .local/sprint12/root/ci-resource
+      - name: Sprint13 pure diagnostic regressions
+        run: |
+          node tests/sprint13_cleanup_boundary_regression.cjs
+          node tests/sprint13_complete_post_regression.cjs
+          mkdir -p .local/sprint13/root/ci-receipt .local/sprint13/root/ci-historical
+          cargo test --locked --lib receipt_snapshot_digest_public_calibration -- --nocapture > .local/sprint13/root/ci-receipt/rust-calibration.stdout
+          node tools/sprint13/receipt-regression.cjs .local/sprint13/root/ci-receipt .local/sprint13/root/ci-receipt/rust-calibration.stdout
+          node tools/sprint13/historical-oracle-regression.cjs .local/sprint13/root/ci-historical
+          cargo run --locked --example sprint13_recovery_exports -- --self-test
+          pwsh -NoProfile -File tests/sprint13_phase_command_names.ps1
       - name: Build release and local health smoke
         run: |
           cargo build --locked --release
@@ -52,6 +63,7 @@ jobs:
           cp target/release/process-intelligence-rs dist/
           cp -r static fixtures dist/
           cp README.md LICENSE docs/DEPENDENCIES.json dist/
+          cp docs/SPRINT_13_REPORT.md dist/CANDIDATE_STATUS.md
           tar -czf process-intelligence-rs-linux.tar.gz -C dist .
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         with:
