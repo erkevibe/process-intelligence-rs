@@ -1,0 +1,219 @@
+{
+  "utc": "2026-10-19T10:37:00.8519332Z",
+  "product_source": "9005f6f77ca449e7d7f63889a5c874c8fbc83372",
+  "delivery_source_archive_sha256": "6728D0F6040A8F78246722107BFBFFC15E556F836EBF053E0D9E218B722B6DE5",
+  "delivery_source_archive_prefix": "process-intelligence-rs-9005f6f/",
+  "historical_build_archive_sha256": "18198C8516A536BB4F6072034D1D6637A238E9D60D7498686BE2D7B8404F8E3E",
+  "note": "Delivery ZIP has an explicit prefix and is not claimed byte-identical to the historical build source ZIP. Every original src Rust file is compared to the exact Git source tree. Added acceptance modules are test-only.",
+  "original_src_files": [
+    {
+      "production_body_equal": true,
+      "working_sha256": "6C5CE3754362FDA590622E81545E9D2A1425E3576A37A8DF6CB678B0F7A836FD",
+      "path": "src/audit.rs",
+      "comparison": "NONE",
+      "source_git_sha256": "6C5CE3754362FDA590622E81545E9D2A1425E3576A37A8DF6CB678B0F7A836FD"
+    },
+    {
+      "production_body_equal": true,
+      "working_sha256": "CC6FA07825D720687A68BAB3F0F6FAB84D9BD3DE0BE7EB9A9646476D93DB8753",
+      "path": "src/auth.rs",
+      "comparison": "REMOVE_EXACT_FOUR_LINE_CFG_TEST_DECLARATION_AND_COMPARE_LF_TEXT",
+      "source_git_sha256": "CCF55A27D67EF1B9D2A0A37AB8B28B44BB5D055A0E0637C78EC2CADA62DA19F8"
+    },
+    {
+      "production_body_equal": true,
+      "working_sha256": "611B45898CAD86FC3DB39A398B4E5161A46EC287A1604CDF79903BCCFB9F7674",
+      "path": "src/bpmn.rs",
+      "comparison": "NONE",
+      "source_git_sha256": "611B45898CAD86FC3DB39A398B4E5161A46EC287A1604CDF79903BCCFB9F7674"
+    },
+    {
+      "production_body_equal": true,
+      "working_sha256": "58A2FC21E432C2B9817A1EABC223F86EC2B83170C719F7C6CE9DD9EBD5A77B3C",
+      "path": "src/calendar.rs",
+      "comparison": "NONE",
+      "source_git_sha256": "58A2FC21E432C2B9817A1EABC223F86EC2B83170C719F7C6CE9DD9EBD5A77B3C"
+    },
+    {
+      "production_body_equal": true,
+      "working_sha256": "2941BEEE76B62E529448C701C9C44638E8EE64E615C9C299A9F074A9BDCB786B",
+      "path": "src/cleanup.rs",
+      "comparison": "NONE",
+      "source_git_sha256": "2941BEEE76B62E529448C701C9C44638E8EE64E615C9C299A9F074A9BDCB786B"
+    },
+    {
+      "production_body_equal": true,
+      "working_sha256": "3EED3D20C0262E3CBF2BB2BF4666C33581F13AD61A9834DA2B186E6623AB469D",
+      "path": "src/csv_io.rs",
+      "comparison": "NONE",
+      "source_git_sha256": "3EED3D20C0262E3CBF2BB2BF4666C33581F13AD61A9834DA2B186E6623AB469D"
+    },
+    {
+      "production_body_equal": true,
+      "working_sha256": "286E55FA7FC7C4F0DEE4C28C1386E2A37813444E7A671054A6F33483CC798246",
+      "path": "src/discovery.rs",
+      "comparison": "NONE",
+      "source_git_sha256": "286E55FA7FC7C4F0DEE4C28C1386E2A37813444E7A671054A6F33483CC798246"
+    },
+    {
+      "production_body_equal": true,
+      "working_sha256": "AFD8EB46BE4439668E11A8092D8E77D5A5B3D55595E6464C47BBB2611EF3C662",
+      "path": "src/domain.rs",
+      "comparison": "NONE",
+      "source_git_sha256": "AFD8EB46BE4439668E11A8092D8E77D5A5B3D55595E6464C47BBB2611EF3C662"
+    },
+    {
+      "production_body_equal": true,
+      "working_sha256": "E2F96E3CEB1F4AF7D69492D0A7433259E6205397E219FC837B0ADB30C4330FC8",
+      "path": "src/event_io.rs",
+      "comparison": "NONE",
+      "source_git_sha256": "E2F96E3CEB1F4AF7D69492D0A7433259E6205397E219FC837B0ADB30C4330FC8"
+    },
+    {
+      "production_body_equal": true,
+      "working_sha256": "EDBCC434E1CE1C3C45EE7D9DB935C659D11CBAFB75D88381D77AE6CF132EED3D",
+      "path": "src/filters.rs",
+      "comparison": "NONE",
+      "source_git_sha256": "EDBCC434E1CE1C3C45EE7D9DB935C659D11CBAFB75D88381D77AE6CF132EED3D"
+    },
+    {
+      "production_body_equal": true,
+      "working_sha256": "9F2CF01668642F45FC66948A597368D643249418D4216074AA8FD2EA6644AF14",
+      "path": "src/folder_workflow.rs",
+      "comparison": "NONE",
+      "source_git_sha256": "9F2CF01668642F45FC66948A597368D643249418D4216074AA8FD2EA6644AF14"
+    },
+    {
+      "production_body_equal": true,
+      "working_sha256": "93C097A806D372F1827758BF03DE96F8EF4A8BFBD8522ED9BF27B2355A09928F",
+      "path": "src/folders.rs",
+      "comparison": "NONE",
+      "source_git_sha256": "93C097A806D372F1827758BF03DE96F8EF4A8BFBD8522ED9BF27B2355A09928F"
+    },
+    {
+      "production_body_equal": true,
+      "working_sha256": "844D87AB619AA2D2232B4103065132D30B14511944AC490A58FCF58608E8FAF3",
+      "path": "src/import_provenance.rs",
+      "comparison": "NONE",
+      "source_git_sha256": "844D87AB619AA2D2232B4103065132D30B14511944AC490A58FCF58608E8FAF3"
+    },
+    {
+      "production_body_equal": true,
+      "working_sha256": "3DD4DCB07F7D81E458294EC47ED65188B92067A476C8FE0641F6B48CADA4861C",
+      "path": "src/jobs.rs",
+      "comparison": "NONE",
+      "source_git_sha256": "3DD4DCB07F7D81E458294EC47ED65188B92067A476C8FE0641F6B48CADA4861C"
+    },
+    {
+      "production_body_equal": true,
+      "working_sha256": "4CBF8583D0F7C31E5B5FAFDF414EA3CD98F2C144840FA8538BABA02A988C59F2",
+      "path": "src/lib.rs",
+      "comparison": "NONE",
+      "source_git_sha256": "4CBF8583D0F7C31E5B5FAFDF414EA3CD98F2C144840FA8538BABA02A988C59F2"
+    },
+    {
+      "production_body_equal": true,
+      "working_sha256": "DF18784E1CBABFF08724D8CF8D0FC43B052B1B1A592240B4F457085B2F66FF53",
+      "path": "src/main.rs",
+      "comparison": "NONE",
+      "source_git_sha256": "DF18784E1CBABFF08724D8CF8D0FC43B052B1B1A592240B4F457085B2F66FF53"
+    },
+    {
+      "production_body_equal": true,
+      "working_sha256": "227520EA7E15591D8D79E93245B1346BFA01C94707905B1D3D6C7D4BD3E027CB",
+      "path": "src/migration_v2.rs",
+      "comparison": "NONE",
+      "source_git_sha256": "227520EA7E15591D8D79E93245B1346BFA01C94707905B1D3D6C7D4BD3E027CB"
+    },
+    {
+      "production_body_equal": true,
+      "working_sha256": "6CE464AE2E7470FDB90A5AF04D0AB6513225D6A6A5B62E48CB76F8F320E5F783",
+      "path": "src/migrations.rs",
+      "comparison": "NONE",
+      "source_git_sha256": "6CE464AE2E7470FDB90A5AF04D0AB6513225D6A6A5B62E48CB76F8F320E5F783"
+    },
+    {
+      "production_body_equal": true,
+      "working_sha256": "9A7FABF144DF0111B400E0BCDFAD948A5427026AB48211F2AD34578E290084AD",
+      "path": "src/mining.rs",
+      "comparison": "NONE",
+      "source_git_sha256": "9A7FABF144DF0111B400E0BCDFAD948A5427026AB48211F2AD34578E290084AD"
+    },
+    {
+      "production_body_equal": true,
+      "working_sha256": "25D9F2A781DA19B4F8E1B6C7CCB6D27FFE291E2D776F359A31A818F8DE854EB6",
+      "path": "src/normalized.rs",
+      "comparison": "NONE",
+      "source_git_sha256": "25D9F2A781DA19B4F8E1B6C7CCB6D27FFE291E2D776F359A31A818F8DE854EB6"
+    },
+    {
+      "production_body_equal": true,
+      "working_sha256": "8DD96225442DDA2EA95C22888CC218219B7C4F112AF84DE2238E038FD932CE01",
+      "path": "src/platform.rs",
+      "comparison": "NONE",
+      "source_git_sha256": "8DD96225442DDA2EA95C22888CC218219B7C4F112AF84DE2238E038FD932CE01"
+    },
+    {
+      "production_body_equal": true,
+      "working_sha256": "1AD6480E47B62F14212B92BB578951AF31C321B6AC3631B0874809B19AC78C04",
+      "path": "src/platform_render.rs",
+      "comparison": "NONE",
+      "source_git_sha256": "1AD6480E47B62F14212B92BB578951AF31C321B6AC3631B0874809B19AC78C04"
+    },
+    {
+      "production_body_equal": true,
+      "working_sha256": "843F1ADE94B8BDD7B5B0C365188601561E0581B293144732F68341E1DF5428FE",
+      "path": "src/repository_v2.rs",
+      "comparison": "NONE",
+      "source_git_sha256": "843F1ADE94B8BDD7B5B0C365188601561E0581B293144732F68341E1DF5428FE"
+    },
+    {
+      "production_body_equal": true,
+      "working_sha256": "D24A4DE993755B98BD2B9B885A7DFDABE788199E239C69373F3895FCA370056F",
+      "path": "src/resource_cache.rs",
+      "comparison": "NONE",
+      "source_git_sha256": "D24A4DE993755B98BD2B9B885A7DFDABE788199E239C69373F3895FCA370056F"
+    },
+    {
+      "production_body_equal": true,
+      "working_sha256": "7CC9792EB5F0B7B9C2D0FF852113C186B4BC2D3F07FB01086013260101B78701",
+      "path": "src/service_preview.rs",
+      "comparison": "NONE",
+      "source_git_sha256": "7CC9792EB5F0B7B9C2D0FF852113C186B4BC2D3F07FB01086013260101B78701"
+    },
+    {
+      "production_body_equal": true,
+      "working_sha256": "51F69875B198AE182C578C8652EFD838B6DBEA7938EAB5C9DF5D6FA9BC0D6DD4",
+      "path": "src/storage.rs",
+      "comparison": "NONE",
+      "source_git_sha256": "51F69875B198AE182C578C8652EFD838B6DBEA7938EAB5C9DF5D6FA9BC0D6DD4"
+    },
+    {
+      "production_body_equal": true,
+      "working_sha256": "354B0874432777A1731B4D99B4D50BA4DB579B4726387DF735788FF2B19EF448",
+      "path": "src/web.rs",
+      "comparison": "REMOVE_EXACT_FOUR_LINE_CFG_TEST_DECLARATION_AND_COMPARE_LF_TEXT",
+      "source_git_sha256": "A4C5B43555251D7704F17FFE30D14A909ACC8B2531683F147BD519FC91B585B3"
+    },
+    {
+      "production_body_equal": true,
+      "working_sha256": "111C4850D813A5BFB6C92E11F8F583AAB78B2F864ADB3D8329FC2DE7DDBE29BE",
+      "path": "src/xes_workflow.inc.rs",
+      "comparison": "NONE",
+      "source_git_sha256": "111C4850D813A5BFB6C92E11F8F583AAB78B2F864ADB3D8329FC2DE7DDBE29BE"
+    }
+  ],
+  "new_test_modules": [
+    "src/auth_sprint12_tests.rs",
+    "src/web_sprint12_tests.rs",
+    "src/web_sprint12_http_tests.rs"
+  ],
+  "exe_sha256": "B14F3D2E306DBB8FF81EC37A8BF8A70F63E53252E43079364E1C09D4AF345DE6",
+  "zip_sha256": "EE1DD55968FEB636F5D7EA66DFB26B4F3DF83E236094A70EF3F254C322542A64",
+  "status": "ALL_ORIGINAL_SRC_PRODUCTION_BODIES_EQUAL_EXACT_9005_TREE",
+  "limits": [
+    "Source comparison is not a reproducible-build claim",
+    "Acceptance supplement HEAD differs from binary build source",
+    "Final supplement archive and CI are separate delivery gates"
+  ]
+}

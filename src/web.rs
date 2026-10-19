@@ -25,6 +25,10 @@ use tower_http::services::ServeDir;
 
 const MAX_LOGS: usize = 8;
 
+#[cfg(test)]
+#[path = "web_sprint12_tests.rs"]
+mod sprint12_tests;
+
 #[derive(Clone)]
 pub struct AppState {
     pub(crate) repository: Arc<Mutex<Repository>>,
