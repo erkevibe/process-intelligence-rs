@@ -1,0 +1,108 @@
+{
+  "utc": "2026-10-19T10:44:06.7677046Z",
+  "sprint": 12,
+  "session": "final-acceptance-01",
+  "kind": "EXACT_CONDITIONAL_ACCEPTANCE_AND_PUBLICATION_PROPOSAL",
+  "fixed_voters": [
+    "/root",
+    "/root/qa_resume11",
+    "/root/td_resume11",
+    "/root/customer_resume11",
+    "/root/pm_resume11"
+  ],
+  "source_candidate": "6a804d307d8e7e0b98f31cc90849d98e8cd25fa5",
+  "content_manifest_sha256": "88CF368DDD38CD473CECB6DBBCAF04B39557B7E66DE2354E610EFC88A44A0676",
+  "frozen": [
+    {
+      "sha256": "49C84C8BDCD1EAEBD02C952CD105312B0AA25DA9B5187F40F2F7A7846DEF8FA1",
+      "path": "docs/SPRINT_12_REPORT.md"
+    },
+    {
+      "sha256": "3F63C4ABD3F2258F7D71E3DF2A76498EEDC743B6E0057A87BE592F0243A73C8A",
+      "path": "docs/SPRINT_12_RUN_GUIDE.md"
+    },
+    {
+      "sha256": "80209AD88EF83DE840D508F0FDAE1C31BAA144FC4AEA45E5F901D81E03A95479",
+      "path": "docs/ROADMAP.md"
+    },
+    {
+      "sha256": "611892CCD152CFD0DC62EEE9A956AC6EA9F0690D8E7D3D2B5C0D684ECF59C801",
+      "path": "flw/evidence/sprint-12-producer-matrix.json"
+    },
+    {
+      "sha256": "09A7E15160B453D2FB8EF7B01936E72E52827368FEB882E831817841B01882E8",
+      "path": "flw/evidence/sprint-12-coverage-ledger.json"
+    },
+    {
+      "sha256": "EA9242D45D413018C674B8D046FCF05FAB1A916E2FCD23B0873F5D34D3887D09",
+      "path": "flw/evidence/sprint-12-r3-02-clauses.json"
+    },
+    {
+      "sha256": "F72A4B9507D17CD010FAB7B75C7899522E21BA8F8986056B088F7EADAFB73B15",
+      "path": "flw/evidence/sprint-12-acceptance-index.json"
+    },
+    {
+      "sha256": "64FE99F5EAFF3DDB2C87E2431B4081DCEE101BA43F850DD13724A3324494559A",
+      "path": "flw/evidence/sprint-12-source-binding.json"
+    }
+  ],
+  "product": {
+    "manifest_sha256": "3773A24A132F49E8A62448DDD8A9056C86499FF36C282097F32A53A75BD24D41",
+    "exe_sha256": "B14F3D2E306DBB8FF81EC37A8BF8A70F63E53252E43079364E1C09D4AF345DE6",
+    "source": "9005f6f77ca449e7d7f63889a5c874c8fbc83372",
+    "version": "0.7.2",
+    "zip_sha256": "EE1DD55968FEB636F5D7EA66DFB26B4F3DF83E236094A70EF3F254C322542A64",
+    "cleanup": "DISABLED"
+  },
+  "decision_requested": "Accept finite Sprint12 lifecycle/business-audit increment and original R3-02 criterion ONLY when every mandatory delivery gate below actually passes. Authorize publication of the prepared limited prerelease after real Council majority and successful final-head CI, followed by independent complete public-download verification. Until final receipt passes, criterion acceptance remains conditional, never success inferred from release creation.",
+  "release": {
+    "windows_asset": "process-intelligence-rs-0.7.2-windows-x86_64.zip",
+    "review_notes_sha256": "58E0467D60142A0B8DB868A2CAE744C53BA4253CB7E5686A4944C15A295ABC16",
+    "source_asset": "process-intelligence-rs-source-9005f6f.zip",
+    "target": "9005f6f77ca449e7d7f63889a5c874c8fbc83372",
+    "latest_stable_unchanged": "v0.6.1",
+    "id": 417169192,
+    "prerelease": true,
+    "tag": "v0.7.2",
+    "source_archive_sha256": "6728D0F6040A8F78246722107BFBFFC15E556F836EBF053E0D9E218B722B6DE5",
+    "supplement_asset": "process-intelligence-rs-sprint12-supplement.zip",
+    "supplement_source": "Final descendant of codecandidate6a804 containing the exact1083 frozen working-file bytes (Git configured line endings permitted) committed as the freeze snapshot, the content manifest itself, and only final proposal/real votes/decision metadata. Exact final Git HEAD in delivery manifest, separate from binary source9005."
+  },
+  "actual_local": {
+    "td_final": "952AC38A719D0688296FAB80D606E8459C81868CAD203A6A2B6911E2DC4DCF23",
+    "trust_source_qa": "D9BFBC513985ACCC7C45462679A6A091796203D2FD05F03316DDEEAF6BE7BEA8",
+    "node_checks": 9,
+    "rust_ignored": 18,
+    "access_qa": "24DBBE173E4BA45E1E87386C0DA8D5AC06B2CC0361ABCC2EEAB5EED87541F203",
+    "checks03_qa": "3A6B10F5D4CF83B76E69D0E827F3B858F27EB9A4069D7F54C4834F323C06196F",
+    "rust_passed": 100,
+    "source9005_ci": [
+      38159578074,
+      38160147605
+    ]
+  },
+  "mandatory_gates": [
+    "Actual independent QA/TD/Customer/PM positions and real exact-proposal votes, majority of fixed5; no STOP or failure waived",
+    "All1083 frozen working files remain exact. Commit the existing reviewed snapshot plus content-manifest unchanged; only final proposal, real amended-proposal votes and decision may be added. No new byte edits to frozen files.",
+    "Successful push and PR CI runs whose head_sha equals exact final supplemental HEAD; source9005 previous CI separately bound",
+    "Immediately before publish: draft is exact own417169192, target9005 and expected assets; v0.7.2 tag absent or created by this publication at exact9005; conflict STOP/no overwrite",
+    "Publish prepared prerelease without replacing any prior release/tag, changing stable latest, merging PRs or installing to user environment",
+    "Complete unauthenticated public downloads of Windows ZIP, source ZIP, supplement ZIP and delivery manifest; independent length/SHA and exact ZIP1742tree/manifest/EXE; both source archive Git trees bound to their own exact commits",
+    "Independent public safe-asset scan; no privateAuth/cookies/passwords/configs/dumps/HTTPpayload published",
+    "Final named-port/own-process/disk snapshot within16GiB sprint budget; own3096/5464 absent; preserve failed fixtures and existing protected resources",
+    "Actual final acceptance receipt published as separate release asset, names finalHEAD/CI/decision/proposalSHA/all assetSHA and independent report. Missing/failed gate leaves R3-02OPEN/PENDING, not silently waived"
+  ],
+  "permitted_metadata_tail": "One freeze snapshot commit may include every already-frozen exact working file listed by content-manifest88CF, including the five modified docs/index/clauses, frozen invitation and content manifest itself. This commits previously reviewed bytes and does not authorize editing them. Final proposal, five actual amended-proposal votes and final decision may be added in that commit or subsequent metadata-only commits. No frozen code, tests, workflow, docs, index, source-binding, invitation or manifest bytes may change. External delivery manifest/receipt and factual release status append follow exact-finalHEAD CI. Any material change requires fresh proposal/votes.",
+  "boundaries": [
+    "23 current business producers, finite expected state/policy/role/retention/backup/recovery cases; two compatibility labels have no current producer",
+    "In-process production HTTP distinct from stock TCP/browser; native guard tests not held-final-instruction HTTP",
+    "Unknown commit outcome source-bound fail-closed; no live universal lostACK/exactly-once/HA claim",
+    "Repository serde projection is not whole process/internal cache; terminal durable state is not thread exit",
+    "Browser API-seeded logs/models; no browser upload or irreversible delete POST credit; false graph finding withdrawn after individual review",
+    "Legacy synthetic absent-policy is not historical producer; missing first faulted startup child receipt remains missing; controlled same-host restore not universal disaster recovery",
+    "Full R3-01 staysOPEN including literal project movement with undefined semantics; full R3-03/04/DISK/R2-R5/enterpriseOPEN; cleanup disabled"
+  ],
+  "next_work": "Clarify literal product project-movement contract; finish historical repository/Auth migration and RBAC, remaining cleanup fault corpus and separate integrated cleanup candidate; then full reference/BPMN/Core and enterprise operational acceptance.",
+  "supersedes_proposal_sha256": "DA19B8289E143DC79E9A1145ACC21EB995951B39640DC7B3F72D34CD6A966103",
+  "amendment": "PM identified ambiguity between codecandidate commit6a804 and later frozen working documentation. Explicitly authorize committing already-frozen exact manifest working bytes without edits. No code/docs/evidence bytes changed; old votes do not count for amended proposal."
+}

@@ -9,7 +9,7 @@
     "exe_sha256": "B14F3D2E306DBB8FF81EC37A8BF8A70F63E53252E43079364E1C09D4AF345DE6",
     "zip_sha256": "EE1DD55968FEB636F5D7EA66DFB26B4F3DF83E236094A70EF3F254C322542A64",
     "manifest_sha256": "3773A24A132F49E8A62448DDD8A9056C86499FF36C282097F32A53A75BD24D41",
-    "sprint12_source_head": "SUPPLEMENT_HEAD_PENDING_FINAL_FREEZE_NOT_BINARY_BUILD_SOURCE",
+    "sprint12_source_head": "CODE_CANDIDATE_6a804d307d8e7e0b98f31cc90849d98e8cd25fa5_FINAL_METADATA_HEAD_IN_DELIVERY_RECEIPT_NOT_BINARY_BUILD_SOURCE",
     "cleanup": "DISABLED"
   },
   "public_repository_references": [
@@ -240,7 +240,7 @@
       "sha256": "C369432D2D8982E7146E51CADE5CFDD339E9F4D47BAC4924922B0861E1319D36",
       "bytes": 1102,
       "reported_verdict": "LOCAL_CHECKS01_CLIPPY_FAILURE_NO_ALLCHECKS_ACCEPTANCE",
-      "finite_boundary": "FAILEDchecks01 clippytest-onlytoo_many_arguments; fmtpassed buttests/model/Node9notexecuted; checks02stillpending",
+      "finite_boundary": "FAILEDchecks01 clippytest-onlytoo_many_arguments; fmtpassed buttests/model/Node9notexecuted; checks02 subsequentlyFAILED6750;checks03accepted3A6B10",
       "raw_report_published": false
     },
     {
@@ -276,8 +276,40 @@
       "sha256": "6750E666BBA43650FEEF45A39170074EB8670BDA4BA23FBBE54C792FDFB3A409",
       "bytes": 1489,
       "reported_verdict": "CHECKS02_ACTUAL_TEST_FAILURE_NO_ALLCHECKS_PASS",
-      "finite_boundary": "FAILEDchecks02:fmt/clippyPASS,cargotest429pre-admissionbusy-tailfailure; model/Node9notexecuted. Testonlyboundedexplicitknownbusyrepair/checks03PENDING",
+      "finite_boundary": "FAILEDchecks02:fmt/clippyPASS,cargotest429pre-admissionbusy-tailfailure; model/Node9notexecuted. Testonlyboundedexplicitknownbusyrepair/checks03 subsequentlyaccepted3A6B10",
       "raw_report_published": false
+    },
+    {
+      "bytes": 591,
+      "sha256": "3A6B10F5D4CF83B76E69D0E827F3B858F27EB9A4069D7F54C4834F323C06196F",
+      "reported_verdict": "FINITE_LOCAL_CHECKS_ACCEPTED",
+      "finite_boundary": "100passed18ignored0failed;24Rustsuites;4cargo9Nodezero/full",
+      "role": "QA",
+      "private_report_basename": "final-local-checks03-actual-independent01.json"
+    },
+    {
+      "bytes": 2832,
+      "sha256": "D9BFBC513985ACCC7C45462679A6A091796203D2FD05F03316DDEEAF6BE7BEA8",
+      "reported_verdict": "FINITE_TRUST05_SOURCE_AND_FAIL_CLOSED_PATHS_VERIFIED",
+      "finite_boundary": "555files;12specificrefusals19conserved38rawpairs;8runtimeblobs9005;no live lostACK claim",
+      "role": "QA",
+      "private_report_basename": "trust05-source-clause-c-independent01.json"
+    },
+    {
+      "bytes": 4045,
+      "sha256": "952AC38A719D0688296FAB80D606E8459C81868CAD203A6A2B6911E2DC4DCF23",
+      "reported_verdict": "FINITE_A_F_ELIGIBLE_G_PENDING",
+      "finite_boundary": "All28src matched9005; actualaccessclosesgap;70changedfiles privacy scan",
+      "role": "TechnicalDebt",
+      "private_report_basename": "final-gap-review02.json"
+    },
+    {
+      "bytes": 3891,
+      "sha256": "F32A3882F9F00A1BA639E769CAAE635D187CA4D5DB7B9AC3E63CE194BDA1A5CD",
+      "reported_verdict": "FINITE_UI_USEFUL_FINAL_GATES_PENDING",
+      "finite_boundary": "Fourimagesindividuallyconfirmed0to3to0to0;falsefindingwithdrawn;noupload/deletePOSTcredit",
+      "role": "Customer",
+      "private_report_basename": "preproposal-position03.json"
     }
   ],
   "exact_source_bound_reuse": [
@@ -325,8 +357,8 @@
   "pending": [
     {
       "gate": "LOCAL_CHECKS03",
-      "status": "PENDING",
-      "condition": "Freshactualfmt/clippy/tests/model/Node9 completecaptures; checks01clippyFAILED andchecks02knownpre-admission429testFAILEDpreserved; boundedtest-onlyexplicitbusyrepairnotproductremediation"
+      "status": "FINITE_ACCEPTED",
+      "condition": "Actual3A6B10:100passed18ignored0failed;4cargo9Nodezero/full;separatePGreceipts"
     },
     {
       "gate": "AUDIT_ACCESS",
@@ -361,5 +393,5 @@
     "full_R3_R2_R5_enterprise": "OPEN"
   },
   "privacy": "Only role, controlledreportbasename, size,SHA, scopedverdict and explicitboundaries selected. No privatepayload/Auth/cookie/password/config/dump/privateURL/localabsolute paths. Privatefixtures are not publiclyreplayable fromthisindex.",
-  "revision_note": "Adds actualfourroleaccess/sourceC andpreservedchecks02failure; originalindex SHA34711A30AEF3C616D3488BFAAFBB08978C7FC851EB3CD3F5FBC8158F7FB6F041 retainedprivately; no privatepayloadpublished"
+  "revision_note": "Reviewcandidate includes independent checks03/Trust05/sourceC/A-F/UI; finalCouncil/CI/publicdelivery remainnonwaivable."
 }

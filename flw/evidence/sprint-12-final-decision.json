@@ -1,0 +1,64 @@
+{
+  "utc": "2026-10-19T10:46:12.1294023Z",
+  "deadline_utc": "2026-10-19T15:22:56Z",
+  "for": 5,
+  "superseded_proposal": "DA19B8289E143DC79E9A1145ACC21EB995951B39640DC7B3F72D34CD6A966103",
+  "votes": [
+    {
+      "role": "root",
+      "agent": "/root",
+      "sha256": "72F579F904E20535386368DDF2FB0B4915653AF4F4FD26C7C8A0344EE8C589F0",
+      "vote": "FOR",
+      "path": "flw/evidence/sprint-12-final-root-vote.json"
+    },
+    {
+      "role": "qa",
+      "agent": "/root/qa_resume11",
+      "sha256": "EE02B8D2F150C36FD270FA55BD3CBBFDE025174576513D4829A9A718E8323268",
+      "vote": "FOR",
+      "path": "flw/evidence/sprint-12-final-qa-vote.json"
+    },
+    {
+      "role": "td",
+      "agent": "/root/td_resume11",
+      "sha256": "BAB0EB2A87D4E6B2AC629DFA78DF09323F947BE1ED6B1505557A2C40A1959D15",
+      "vote": "FOR",
+      "path": "flw/evidence/sprint-12-final-td-vote.json"
+    },
+    {
+      "role": "customer",
+      "agent": "/root/customer_resume11",
+      "sha256": "4F4663E0610180495AA70839624C0A5750A5F81446355D0C5C60BD85E1CBE4EA",
+      "vote": "FOR",
+      "path": "flw/evidence/sprint-12-final-customer-vote.json"
+    },
+    {
+      "role": "pm",
+      "agent": "/root/pm_resume11",
+      "sha256": "13203ABBDD231B2E96060A1AE5E0EDB136C2774B83A54FB506ECD9ECBC35B721",
+      "vote": "FOR",
+      "path": "flw/evidence/sprint-12-final-pm-vote.json"
+    }
+  ],
+  "fixed_voter_count": 5,
+  "cleanup": "DISABLED",
+  "abstained": 0,
+  "owners": {
+    "independent_public_download": "/root/qa_resume11",
+    "debt_source": "/root/td_resume11",
+    "user_acceptance": "/root/customer_resume11",
+    "scope": "/root/pm_resume11",
+    "integration_delivery": "/root"
+  },
+  "prohibited": "No frozen byte edits, gate waiver, blindretryunknowncommit, oldrelease/tagoverwrite, merge/userinstall, fullR301/R3/R2R5/enterpriseclaim",
+  "full_R3_01": "OPEN literal product project movement lacks agreed contract",
+  "current_gate_state": "FINAL_HEAD_CI_AND_PUBLIC_DOWNLOAD_PENDING_NOT_YET_R3_02_PASS",
+  "acceptance_effective": "ONLY_AFTER_ALL_MANDATORY_G_ACTUALLY_PASS_IN_EXTERNAL_PUBLIC_DELIVERY_RECEIPT",
+  "against": 0,
+  "full_R3_R2_R5_enterprise": "OPEN",
+  "session": "final-acceptance-01",
+  "authorized": "Commit exact frozen snapshot and real proposal/vote/decision metadata; verify finalHEADpush+PRCI; publish exactownlimitedprerelease0.7.2/source9005; independentlydownloadallpublicassets; finalacceptanceonlyafterreceipt",
+  "proposal_sha256": "87278A88E2BC2CB704E5F63FB0243CEBDE36B419F6FF6F9FAAA072D7000F6A23",
+  "old_votes_counted": 0,
+  "decision": "APPROVED_CONDITIONAL_ACCEPTANCE_AND_PUBLICATION_SEQUENCE"
+}
