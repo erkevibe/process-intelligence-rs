@@ -1,11 +1,13 @@
 //! Pure HTML renderers. Route authorization and persistence belong to platform.
 use crate::{
-    auth::{Actor, Project, Role},
+    auth::{Actor, Project, ProjectListView, Role},
     bpmn::ProcessModel,
     calendar::CalendarSpec,
     csv_io::CsvPreview,
     filters::FilterSpec,
+    project_list::ListFolder,
 };
+use std::collections::{BTreeMap, BTreeSet};
 
 pub(crate) fn html_escape(value: &str) -> String {
     value
@@ -34,7 +36,149 @@ fn route_id(id: &str) -> String {
         .collect()
 }
 
-pub(crate) fn projects(actor: &Actor, projects: &[Project]) -> String {
+fn list_path(view: &ProjectListView, folder: Option<&str>) -> (String, bool) {
+    let folders = view
+        .folders
+        .iter()
+        .map(|folder| (folder.id.as_str(), folder))
+        .collect::<BTreeMap<_, _>>();
+    let mut cursor = folder;
+    let mut parts = Vec::new();
+    let mut archived = false;
+    let mut seen = BTreeSet::new();
+    while let Some(id) = cursor {
+        if !seen.insert(id) || seen.len() > 64 {
+            break;
+        }
+        let Some(folder) = folders.get(id) else {
+            break;
+        };
+        archived |= folder.archived;
+        parts.push(folder.name.as_str());
+        cursor = folder.parent_id.as_deref();
+    }
+    parts.reverse();
+    (
+        if parts.is_empty() {
+            "Корень списка".into()
+        } else {
+            parts.join(" / ")
+        },
+        archived,
+    )
+}
+
+fn active_destination(
+    view: &ProjectListView,
+    actor: &Actor,
+    folder: &ListFolder,
+    moving: Option<&str>,
+) -> bool {
+    let folders = view
+        .folders
+        .iter()
+        .map(|folder| (folder.id.as_str(), folder))
+        .collect::<BTreeMap<_, _>>();
+    let mut cursor = Some(folder.id.as_str());
+    let mut seen = BTreeSet::new();
+    while let Some(id) = cursor {
+        if Some(id) == moving || !seen.insert(id) || seen.len() > 64 {
+            return false;
+        }
+        let Some(folder) = folders.get(id) else {
+            return false;
+        };
+        if folder.owner_id != actor.id || folder.archived {
+            return false;
+        }
+        cursor = folder.parent_id.as_deref();
+    }
+    true
+}
+
+fn destination_options(
+    view: &ProjectListView,
+    actor: &Actor,
+    selected: Option<&str>,
+    moving: Option<&str>,
+) -> String {
+    let mut html = format!(
+        "<option value=\"\" {}>Корень списка</option>",
+        if selected.is_none() { "selected" } else { "" }
+    );
+    for folder in &view.folders {
+        if !active_destination(view, actor, folder, moving) {
+            continue;
+        }
+        let (label, _) = list_path(view, Some(&folder.id));
+        html.push_str(&format!(
+            "<option value=\"{}\" {}>{}</option>",
+            html_escape(&folder.id),
+            if selected == Some(folder.id.as_str()) {
+                "selected"
+            } else {
+                ""
+            },
+            html_escape(&label)
+        ));
+    }
+    html
+}
+
+fn project_placement(actor: &Actor, project: &Project, view: &ProjectListView) -> String {
+    if !actor.role.can_write() || project.members.get(&actor.id) != Some(&Role::Owner) {
+        return String::new();
+    }
+    let options = destination_options(
+        view,
+        actor,
+        view.project_folders.get(&project.id).map(String::as_str),
+        None,
+    );
+    format!(
+        "<tr><td colspan=\"3\"><details><summary>Переместить проект в папку списка</summary><form class=\"platform-form\" method=\"post\" action=\"/projects/{}/move\"><input type=\"hidden\" name=\"catalog_revision\" value=\"{}\"><input type=\"hidden\" name=\"project_revision\" value=\"{}\"><label>Куда переместить<select name=\"destination\">{options}</select></label><small>Участники, права, журналы и модели сохранятся. Вернуть свой проект в корень можно из любой папки.</small><button class=\"button\">Переместить проект</button></form></details></td></tr>",
+        route_id(&project.id),
+        view.revision,
+        project.revision
+    )
+}
+
+fn project_list_folders(actor: &Actor, view: &ProjectListView) -> String {
+    let mut html = String::from(
+        "<section class=\"platform-card\" id=\"project-list-folders\"><h2>Папки списка проектов</h2><p>Эти папки упорядочивают список проектов. Права остаются у участников каждого проекта и не наследуются от папки. Папки внутри проекта доступны отдельно в разделе «Папки проекта».</p><p>Архив папки сохраняет доступ к проектам, но запрещает добавлять проекты и папки в её ветку.</p>",
+    );
+    if actor.role.can_write() {
+        let options = destination_options(view, actor, None, None);
+        html.push_str(&format!("<form class=\"platform-form\" method=\"post\" action=\"/project-list/folders\"><input type=\"hidden\" name=\"catalog_revision\" value=\"{}\"><label>Название папки<input name=\"name\" required maxlength=\"200\"></label><label>Родительская папка<select name=\"parent\">{options}</select></label><button class=\"button\">Создать папку списка</button></form>", view.revision));
+    }
+    if view.folders.is_empty() {
+        html.push_str("<p>Папок пока нет.</p>");
+    }
+    for folder in &view.folders {
+        let (label, archived_path) = list_path(view, Some(&folder.id));
+        html.push_str(&format!(
+            "<div class=\"platform-note\"><strong>{}</strong>{}",
+            html_escape(&label),
+            if archived_path {
+                " <span class=\"platform-badge\">Папка в архивной ветке</span>"
+            } else {
+                ""
+            }
+        ));
+        if actor.role.can_write() && folder.owner_id == actor.id {
+            let id = route_id(&folder.id);
+            let options =
+                destination_options(view, actor, folder.parent_id.as_deref(), Some(&folder.id));
+            html.push_str(&format!("<details><summary>Управление папкой</summary><form class=\"platform-form\" method=\"post\" action=\"/project-list/folders/{id}/rename\"><input type=\"hidden\" name=\"catalog_revision\" value=\"{}\"><label>Название<input name=\"name\" value=\"{}\" required maxlength=\"200\"></label><button class=\"small-button\">Переименовать папку</button></form><form class=\"platform-form\" method=\"post\" action=\"/project-list/folders/{id}/move\"><input type=\"hidden\" name=\"catalog_revision\" value=\"{}\"><label>Новая родительская папка<select name=\"parent\">{options}</select></label><button class=\"small-button\">Переместить папку</button></form>", view.revision, html_escape(&folder.name), view.revision));
+            html.push_str(&format!("<form method=\"post\" action=\"/project-list/folders/{id}/{}\"><input type=\"hidden\" name=\"catalog_revision\" value=\"{}\"><button class=\"small-button\">{}</button></form><form method=\"post\" action=\"/project-list/folders/{id}/delete\"><input type=\"hidden\" name=\"catalog_revision\" value=\"{}\"><small>Удаление доступно только для пустой папки. Проекты и дочерние папки не удаляются.</small><button class=\"small-button\">Удалить пустую папку</button></form></details>", if folder.archived { "unarchive" } else { "archive" }, view.revision, if folder.archived { "Вернуть папку из архива" } else { "Архивировать папку" }, view.revision));
+        }
+        html.push_str("</div>");
+    }
+    html.push_str("</section>");
+    html
+}
+
+pub(crate) fn projects(actor: &Actor, projects: &[Project], view: &ProjectListView) -> String {
     let mut html = format!(
         "<section class=\"platform-heading\"><div class=\"eyebrow\">РАБОЧИЕ ПРОЕКТЫ</div><h1>Ваши проекты</h1><p>Вы вошли как <strong>{}</strong>. Журналы и модели доступны участникам своего проекта.</p></section><section class=\"platform-card\"><div class=\"platform-table-wrap\"><table class=\"platform-table\"><thead><tr><th>Проект</th><th>Ваши права</th><th>Открыть</th></tr></thead><tbody>",
         html_escape(&actor.username)
@@ -45,9 +189,22 @@ pub(crate) fn projects(actor: &Actor, projects: &[Project]) -> String {
         };
         let id = route_id(&project.id);
         let current = project.id == actor.project_id;
+        let (folder_path, archived_folder) = list_path(
+            view,
+            view.project_folders.get(&project.id).map(String::as_str),
+        );
+        let placement_label = format!(
+            "<p class=\"platform-note\">Папка списка: {}{}</p>",
+            html_escape(&folder_path),
+            if archived_folder {
+                " <span class=\"platform-badge\">Архив папки — доступ к проекту сохранён</span>"
+            } else {
+                ""
+            }
+        );
         if project.archived {
             html.push_str(&format!(
-                "<tr><td>{} <span class=\"platform-badge\">Архив</span></td><td>{}</td><td>",
+                "<tr><td>{}{placement_label} <span class=\"platform-badge\">Архив</span></td><td>{}</td><td>",
                 html_escape(&project.name),
                 role_label(role)
             ));
@@ -58,15 +215,18 @@ pub(crate) fn projects(actor: &Actor, projects: &[Project]) -> String {
                 ));
             }
             html.push_str("</td></tr>");
+            html.push_str(&project_placement(actor, project, view));
             continue;
         }
-        html.push_str(&format!("<tr><td>{} {}</td><td>{}</td><td><form method=\"post\" action=\"/projects/{id}/open\"><button class=\"small-button\" type=\"submit\">{}</button></form></td></tr>", html_escape(&project.name), if current { "<span class=\"platform-badge\">Текущий</span>" } else { "" }, role_label(role), if current { "Открыть текущий" } else { "Открыть" }));
+        html.push_str(&format!("<tr><td>{} {}{placement_label}</td><td>{}</td><td><form method=\"post\" action=\"/projects/{id}/open\"><button class=\"small-button\" type=\"submit\">{}</button></form></td></tr>", html_escape(&project.name), if current { "<span class=\"platform-badge\">Текущий</span>" } else { "" }, role_label(role), if current { "Открыть текущий" } else { "Открыть" }));
+        html.push_str(&project_placement(actor, project, view));
         if role == Role::Owner && actor.role.can_write() {
             html.push_str(&format!("<tr><td colspan=\"3\"><details><summary>Название и архив</summary><form class=\"platform-form\" method=\"post\" action=\"/projects/{id}/rename\"><input type=\"hidden\" name=\"revision\" value=\"{}\"><label>Название проекта<input name=\"name\" value=\"{}\" required maxlength=\"200\"></label><button class=\"button\">Переименовать</button></form><form method=\"post\" action=\"/projects/{id}/archive\"><input type=\"hidden\" name=\"revision\" value=\"{}\"><p>Архив закрывает доступ к проекту до восстановления и сохраняет данные. Для текущего проекта нужен другой доступный проект.</p><button class=\"button\">Архивировать проект</button></form></details></td></tr>", project.revision, html_escape(&project.name), project.revision));
             html.push_str(&format!("<tr><td colspan=\"3\"><details><summary>Дать доступ к проекту «{}»</summary><form class=\"platform-form\" method=\"post\" action=\"/projects/{id}/members\"><label>Имя пользователя<input name=\"username\" required maxlength=\"80\" autocomplete=\"off\"></label><label>Права<select name=\"role\"><option value=\"viewer\">Наблюдатель — просмотр и экспорт</option><option value=\"editor\">Редактор — просмотр и изменение</option></select></label><button class=\"button\" type=\"submit\">Предоставить доступ</button><small>Пользователь должен уже иметь учётную запись. Эта операция изменяет его права в выбранном проекте.</small></form></details></td></tr>", html_escape(&project.name)));
         }
     }
     html.push_str("</tbody></table></div></section>");
+    html.push_str(&project_list_folders(actor, view));
     if actor.role.can_write() {
         html.push_str("<section class=\"platform-card\"><h2>Новый проект</h2><form class=\"platform-form\" method=\"post\" action=\"/projects\"><label>Название<input name=\"name\" required maxlength=\"200\" placeholder=\"Например, обработка заявок\"></label><button class=\"button primary\" type=\"submit\">Создать проект</button></form></section>");
     } else {
@@ -779,5 +939,88 @@ mod c06_tests {
         assert_eq!(html.matches("<td>Сохранённый анализ</td>").count(), 2);
         assert!(html.contains("Целостность данных проверяется при открытии; незавершённые обработки находятся в задачах"));
         assert!(!html.contains("action=\"/restore\""));
+    }
+}
+
+#[cfg(test)]
+mod project_list_tests {
+    use super::*;
+
+    fn actor(role: Role) -> Actor {
+        Actor {
+            id: "owner".into(),
+            username: "Owner".into(),
+            project_id: "project".into(),
+            role,
+            admin: false,
+        }
+    }
+
+    #[test]
+    fn destinations_exclude_foreign_archived_branches_and_moving_subtree() {
+        let folder = |id: &str, owner: &str, parent: Option<&str>, archived| ListFolder {
+            id: id.into(),
+            name: format!("<{id}>"),
+            owner_id: owner.into(),
+            parent_id: parent.map(str::to_owned),
+            archived,
+        };
+        let view = ProjectListView {
+            projects: vec![],
+            revision: 7,
+            folders: vec![
+                folder("root", "owner", None, false),
+                folder("child", "owner", Some("root"), false),
+                folder("archived", "owner", None, true),
+                folder("under-archive", "owner", Some("archived"), false),
+                folder("foreign", "other", None, false),
+            ],
+            project_folders: BTreeMap::new(),
+        };
+        let options = destination_options(&view, &actor(Role::Owner), None, None);
+        assert!(options.contains("value=\"root\""));
+        assert!(options.contains("&lt;root&gt; / &lt;child&gt;"));
+        assert!(!options.contains("value=\"archived\""));
+        assert!(!options.contains("value=\"under-archive\""));
+        assert!(!options.contains("value=\"foreign\""));
+        let moving = destination_options(&view, &actor(Role::Owner), None, Some("root"));
+        assert!(!moving.contains("value=\"root\""));
+        assert!(!moving.contains("value=\"child\""));
+    }
+
+    #[test]
+    fn archived_project_keeps_path_and_owner_move_while_viewer_has_no_mutations() {
+        let project = Project {
+            id: "project".into(),
+            name: "<Project>".into(),
+            members: BTreeMap::from([("owner".into(), Role::Owner)]),
+            archived: true,
+            revision: 9,
+        };
+        let view = ProjectListView {
+            projects: vec![project.clone()],
+            revision: 8,
+            folders: vec![ListFolder {
+                id: "folder".into(),
+                name: "<Folder>".into(),
+                owner_id: "owner".into(),
+                parent_id: None,
+                archived: true,
+            }],
+            project_folders: BTreeMap::from([("project".into(), "folder".into())]),
+        };
+        let html = projects(&actor(Role::Owner), &view.projects, &view);
+        assert!(html.contains("&lt;Project&gt;"));
+        assert!(html.contains("&lt;Folder&gt;"));
+        assert!(html.contains("Архив папки — доступ к проекту сохранён"));
+        assert!(html.contains("action=\"/projects/project/move\""));
+        assert!(html.contains("name=\"catalog_revision\" value=\"8\""));
+        assert!(html.contains("name=\"project_revision\" value=\"9\""));
+        assert!(html.contains("action=\"/projects/project/unarchive\""));
+        assert!(!html.contains("<Folder>"));
+        let readonly = projects(&actor(Role::Viewer), &view.projects, &view);
+        assert!(!readonly.contains("action=\"/projects/project/move\""));
+        assert!(!readonly.contains("action=\"/project-list/folders"));
+        assert!(!readonly.contains("action=\"/projects/project/unarchive\""));
     }
 }

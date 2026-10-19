@@ -26,6 +26,13 @@ impl BusinessPolicy {
             "jobs_interrupted_after_restart" => "restart_interrupted_job_v1",
             "project_created" => "current_writer_new_owner_project_v1",
             "project_renamed" => "owner_project_name_cas_v1",
+            "project_moved" => "owner_project_list_placement_cas_v1",
+            "project_list_folder_created"
+            | "project_list_folder_renamed"
+            | "project_list_folder_moved"
+            | "project_list_folder_archived"
+            | "project_list_folder_restored"
+            | "project_list_folder_deleted" => "creator_current_writer_project_list_catalog_cas_v1",
             "project_archived" | "project_restored" => "owner_archive_session_cas_v1",
             "project_deleted" => "owner_archived_exact_confirmation_cas_v1",
             "membership_changed" => "owner_nonowner_membership_v1",
