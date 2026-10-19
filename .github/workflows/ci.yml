@@ -16,6 +16,9 @@ jobs:
       - run: cargo fmt --all -- --check
       - run: cargo clippy --locked --all-targets -- -D warnings
       - run: cargo test --locked --all-targets
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24.19.0'
       - name: XES oracle provenance guards
         run: node tests/oracle_xes_tools.mjs
       - name: Service method provenance guards
@@ -27,6 +30,13 @@ jobs:
           node tests/stock-state-compare-regression.cjs
           node tests/auth-delta-regression.cjs
           node tests/audit-retention-regression.cjs
+      - name: Sprint12 lifecycle oracle regressions
+        run: |
+          node tests/sprint12-project-selector.cjs
+          mkdir -p .local/sprint12/root/ci-folder .local/sprint12/root/ci-project .local/sprint12/root/ci-resource
+          node tests/sprint12-folder-oracle.cjs .local/sprint12/root/ci-folder
+          node tests/sprint12-project-oracle.cjs .local/sprint12/root/ci-project
+          node tests/sprint12-resource-oracle.cjs .local/sprint12/root/ci-resource
       - name: Build release and local health smoke
         run: |
           cargo build --locked --release

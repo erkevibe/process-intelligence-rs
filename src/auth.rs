@@ -197,6 +197,10 @@ fn password_hash(password: &str) -> Result<String, ImportError> {
         .map(|v| v.to_string())
         .map_err(|_| denied())
 }
+#[cfg(test)]
+#[path = "auth_sprint12_tests.rs"]
+mod sprint12_tests;
+
 impl Auth {
     pub fn open(database: Database) -> Result<Self, ImportError> {
         let (revision, data) = match database.read("auth")? {
