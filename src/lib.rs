@@ -16,6 +16,7 @@ pub mod mining;
 mod platform;
 mod platform_render;
 pub mod project_list;
+mod projection_loss;
 pub mod service_preview;
 pub mod storage;
 pub mod web;

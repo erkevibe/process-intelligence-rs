@@ -1,0 +1,326 @@
+{
+  "schema_version": 1,
+  "scope": "Finite unchanged full-class private importer path, not public authenticated/persistent importLog",
+  "assertions": "disabled explicitly, matching ordinary Java default",
+  "corpus": [
+    {
+      "id": "default-log-name",
+      "file": "default-log-name.xes",
+      "extension": "xes",
+      "bytes": 308,
+      "sha256": "39419e3014fc56ccc74c24116275db3aa9ec14d0ab7122deffd0a205242f5480",
+      "expected_service": {
+        "outcome": "success",
+        "traces": 1,
+        "events": 1,
+        "log_name": "Anonymous log imported from "
+      },
+      "purpose": "Exact original service default log-name; missing lifecycle becomes complete",
+      "selected_path": "UNCHANGED_FULL_CLASS_PRIVATE_importFromStream_WITH_REAL_DEFAULT_FACTORY",
+      "public_importLog_executed": false
+    },
+    {
+      "id": "empty-log",
+      "file": "empty-log.xes",
+      "extension": "xes",
+      "bytes": 43,
+      "sha256": "65af6bce5a79a523a14a1019d55a7523996b019cc7a112e25e06a6c5adc8f875",
+      "expected_service": {
+        "outcome": "refusal",
+        "message": "No process instances contained in log!"
+      },
+      "purpose": "Pre-validation empty log sanity refusal",
+      "selected_path": "UNCHANGED_FULL_CLASS_PRIVATE_importFromStream_WITH_REAL_DEFAULT_FACTORY",
+      "public_importLog_executed": false
+    },
+    {
+      "id": "empty-trace",
+      "file": "empty-trace.xes",
+      "extension": "xes",
+      "bytes": 242,
+      "sha256": "f43d9cfdae7423bd41cff5f854e6d67b6abefb5feb0b07f523bc30180a9a31cb",
+      "expected_service": {
+        "outcome": "success",
+        "traces": 0,
+        "events": 0
+      },
+      "purpose": "Nonempty parsed log becomes empty after validateLog removes empty trace",
+      "selected_path": "UNCHANGED_FULL_CLASS_PRIVATE_importFromStream_WITH_REAL_DEFAULT_FACTORY",
+      "public_importLog_executed": false
+    },
+    {
+      "id": "all-filtered",
+      "file": "all-filtered.xes",
+      "extension": "xes",
+      "bytes": 457,
+      "sha256": "f3534ac107c4d1fb0f99c11c6c157026103e2c78ab2d48dfee1db03010f58f91",
+      "expected_service": {
+        "outcome": "success",
+        "traces": 0,
+        "events": 0
+      },
+      "purpose": "Missing timestamp and unsupported lifecycle removed; no usable mining result inferred",
+      "selected_path": "UNCHANGED_FULL_CLASS_PRIVATE_importFromStream_WITH_REAL_DEFAULT_FACTORY",
+      "public_importLog_executed": false
+    },
+    {
+      "id": "lifecycle",
+      "file": "lifecycle.xes",
+      "extension": "xes",
+      "bytes": 1155,
+      "sha256": "8194fb5ba254cf8754e7df738f69b302ee953a9e0fb61384e50699c026622b62",
+      "expected_service": {
+        "outcome": "success",
+        "traces": 1,
+        "events": 3,
+        "activities": [
+          "A",
+          "B",
+          "C"
+        ]
+      },
+      "purpose": "Missing default, case-insensitivity, whitespace and nonliteral lifecycle",
+      "selected_path": "UNCHANGED_FULL_CLASS_PRIVATE_importFromStream_WITH_REAL_DEFAULT_FACTORY",
+      "public_importLog_executed": false
+    },
+    {
+      "id": "reverse-ties",
+      "file": "reverse-ties.xes",
+      "extension": "xes",
+      "bytes": 572,
+      "sha256": "38055e50a9a7bb39f6eda4847547db6bcec99e588b1964330ac62fcdc28e55f3",
+      "expected_service": {
+        "outcome": "success",
+        "traces": 1,
+        "events": 3,
+        "activities": [
+          "B",
+          "A",
+          "C"
+        ]
+      },
+      "purpose": "Original XML order preserved, no adapter timestamp sort",
+      "selected_path": "UNCHANGED_FULL_CLASS_PRIVATE_importFromStream_WITH_REAL_DEFAULT_FACTORY",
+      "public_importLog_executed": false
+    },
+    {
+      "id": "submillisecond",
+      "file": "submillisecond.xes",
+      "extension": "xes",
+      "bytes": 359,
+      "sha256": "8395357d3b5d954068a618a6f8e9700cd2ee440850fc7e4338de1b067b7c36bb",
+      "expected_service": {
+        "outcome": "success",
+        "traces": 1,
+        "events": 1,
+        "timestamp_millis": [
+          1704067200123
+        ]
+      },
+      "purpose": "Java Date millisecond projection explicitly differs from Rust submillisecond precision",
+      "selected_path": "UNCHANGED_FULL_CLASS_PRIVATE_importFromStream_WITH_REAL_DEFAULT_FACTORY",
+      "public_importLog_executed": false
+    },
+    {
+      "id": "offset-equivalent",
+      "file": "offset-equivalent.xes",
+      "extension": "xes",
+      "bytes": 467,
+      "sha256": "d958fba08267b3a2b72c901d142d167fecb0a71ad14ee90bc7471e0b95bf85e6",
+      "expected_service": {
+        "outcome": "success",
+        "traces": 1,
+        "events": 2,
+        "timestamp_millis": [
+          1704067200000,
+          1704067200000
+        ]
+      },
+      "purpose": "Equivalent offsets and stable source order",
+      "selected_path": "UNCHANGED_FULL_CLASS_PRIVATE_importFromStream_WITH_REAL_DEFAULT_FACTORY",
+      "public_importLog_executed": false
+    },
+    {
+      "id": "typed-flat-attributes",
+      "file": "typed-flat-attributes.xes",
+      "extension": "xes",
+      "bytes": 636,
+      "sha256": "02f30140fa00c37fe667e555514076440c123e76f2dded1fca69067b73de234f",
+      "expected_service": {
+        "outcome": "success",
+        "traces": 1,
+        "events": 1
+      },
+      "purpose": "Full typed custom attributes at log/trace/event scopes; loss must be explicit",
+      "selected_path": "UNCHANGED_FULL_CLASS_PRIVATE_importFromStream_WITH_REAL_DEFAULT_FACTORY",
+      "public_importLog_executed": false
+    },
+    {
+      "id": "classifiers-extensions",
+      "file": "classifiers-extensions.xes",
+      "extension": "xes",
+      "bytes": 701,
+      "sha256": "546f89e1c32872c18616baa22ce63a4798556fc777141438e3caa8134bfd64f2",
+      "expected_service": {
+        "outcome": "success",
+        "traces": 1,
+        "events": 1,
+        "classifiers": 2
+      },
+      "purpose": "Preserve classifier name/key arrays and extension declarations; do not flatten silently",
+      "selected_path": "UNCHANGED_FULL_CLASS_PRIVATE_importFromStream_WITH_REAL_DEFAULT_FACTORY",
+      "public_importLog_executed": false
+    },
+    {
+      "id": "globals-not-event-values",
+      "file": "globals-not-event-values.xes",
+      "extension": "xes",
+      "bytes": 422,
+      "sha256": "a70f5331c26f6f1a99939150f3b9011d6c2f93315e6937f973a27f265def2b39",
+      "expected_service": {
+        "outcome": "success",
+        "traces": 0,
+        "events": 0
+      },
+      "purpose": "Global declarations are metadata, not automatically materialized per-event mandatory keys",
+      "selected_path": "UNCHANGED_FULL_CLASS_PRIVATE_importFromStream_WITH_REAL_DEFAULT_FACTORY",
+      "public_importLog_executed": false
+    },
+    {
+      "id": "duplicate-semantic-name",
+      "file": "duplicate-semantic-name.xes",
+      "extension": "xes",
+      "bytes": 390,
+      "sha256": "833d4af507468054bda7a75425230be004f9e7ecf2a5592549793e96ce7adf2f",
+      "expected_service": {
+        "outcome": "success",
+        "traces": 1,
+        "events": 1,
+        "activities": [
+          "B"
+        ]
+      },
+      "purpose": "Original parser last-key wins versus Rust strict duplicate-key admission",
+      "selected_path": "UNCHANGED_FULL_CLASS_PRIVATE_importFromStream_WITH_REAL_DEFAULT_FACTORY",
+      "public_importLog_executed": false
+    },
+    {
+      "id": "wrong-timestamp-type",
+      "file": "wrong-timestamp-type.xes",
+      "extension": "xes",
+      "bytes": 354,
+      "sha256": "04b2cf62ea6b55c48281fb30dc8e80272098085af921e4b55322b003460b66ab",
+      "expected_service": {
+        "outcome": "success",
+        "traces": 1,
+        "events": 1
+      },
+      "purpose": "Original validate checks key presence; preserve actual string type, do not invent Date",
+      "selected_path": "UNCHANGED_FULL_CLASS_PRIVATE_importFromStream_WITH_REAL_DEFAULT_FACTORY",
+      "public_importLog_executed": false
+    },
+    {
+      "id": "wrong-activity-type",
+      "file": "wrong-activity-type.xes",
+      "extension": "xes",
+      "bytes": 350,
+      "sha256": "df83d60a63234e2a814762212b8387da79b7fdb86761747bfd89fb6dee5028f6",
+      "expected_service": {
+        "outcome": "success",
+        "traces": 1,
+        "events": 1
+      },
+      "purpose": "Original validate keeps typed activity by presence; Rust admission remains explicit",
+      "selected_path": "UNCHANGED_FULL_CLASS_PRIVATE_importFromStream_WITH_REAL_DEFAULT_FACTORY",
+      "public_importLog_executed": false
+    },
+    {
+      "id": "nested-attributes",
+      "file": "nested-attributes.xes",
+      "extension": "xes",
+      "bytes": 526,
+      "sha256": "59b6cf9833c052dae32804768609ad85ed3a7447373103a783830c5afce50146",
+      "expected_service": {
+        "outcome": "success",
+        "traces": 1,
+        "events": 1
+      },
+      "purpose": "List ordering and nested attribute containment require full typed observer",
+      "selected_path": "UNCHANGED_FULL_CLASS_PRIVATE_importFromStream_WITH_REAL_DEFAULT_FACTORY",
+      "public_importLog_executed": false
+    },
+    {
+      "id": "xes-gzip",
+      "file": "xes-gzip.xes.gz",
+      "extension": "xes.gz",
+      "bytes": 230,
+      "sha256": "89d880b9a5ef470f596e113c4e3a5bc081f369b0e3dcc536a82308ddce67e63e",
+      "expected_service": {
+        "outcome": "success",
+        "traces": 1,
+        "events": 1
+      },
+      "purpose": "Real XesXmlGZIPParser dispatch",
+      "selected_path": "UNCHANGED_FULL_CLASS_PRIVATE_importFromStream_WITH_REAL_DEFAULT_FACTORY",
+      "public_importLog_executed": false
+    },
+    {
+      "id": "unknown-extension-fallback",
+      "file": "unknown-extension-fallback.data",
+      "extension": "unknown",
+      "bytes": 352,
+      "sha256": "6d532afae345030a8ad816f957d2a16b654f0b9d0cfb6ddd8f9c43962d754595",
+      "expected_service": {
+        "outcome": "success",
+        "traces": 1,
+        "events": 1
+      },
+      "purpose": "Default assertions disabled; null selected parser enters actual registry fallback on unconsumed stream",
+      "selected_path": "UNCHANGED_FULL_CLASS_PRIVATE_importFromStream_WITH_REAL_DEFAULT_FACTORY",
+      "public_importLog_executed": false
+    },
+    {
+      "id": "wrong-parser-consumed-stream",
+      "file": "wrong-parser-consumed-stream.mxml",
+      "extension": "mxml",
+      "bytes": 352,
+      "sha256": "6d532afae345030a8ad816f957d2a16b654f0b9d0cfb6ddd8f9c43962d754595",
+      "expected_service": {
+        "outcome": "refusal"
+      },
+      "purpose": "MXML selection on XES input; actual fallback reuses same stream and must not be rewound by adapter",
+      "selected_path": "UNCHANGED_FULL_CLASS_PRIVATE_importFromStream_WITH_REAL_DEFAULT_FACTORY",
+      "public_importLog_executed": false
+    },
+    {
+      "id": "mxml-dispatch",
+      "file": "mxml-dispatch.mxml",
+      "extension": "mxml",
+      "bytes": 375,
+      "sha256": "bebd8bf1dbcc01e4eb7f87682098e390dc7cf1fbbec0f75b504664aade946146",
+      "expected_service": {
+        "outcome": "success",
+        "traces": 1,
+        "events": 1
+      },
+      "purpose": "Real XMxmlParser import path; Rust XES-only refusal is declared",
+      "selected_path": "UNCHANGED_FULL_CLASS_PRIVATE_importFromStream_WITH_REAL_DEFAULT_FACTORY",
+      "public_importLog_executed": false
+    },
+    {
+      "id": "mxml-gzip-dispatch",
+      "file": "mxml-gzip-dispatch.mxml.gz",
+      "extension": "mxml.gz",
+      "bytes": 240,
+      "sha256": "21e26c921e1e3ce9a7b315e40c8c5ab3d1f6719a8f494099166f78477f9be2ec",
+      "expected_service": {
+        "outcome": "success",
+        "traces": 1,
+        "events": 1
+      },
+      "purpose": "Real XMxmlGZIPParser import path",
+      "selected_path": "UNCHANGED_FULL_CLASS_PRIVATE_importFromStream_WITH_REAL_DEFAULT_FACTORY",
+      "public_importLog_executed": false
+    }
+  ]
+}

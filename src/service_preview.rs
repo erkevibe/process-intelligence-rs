@@ -1,5 +1,6 @@
 //! Opt-in, non-persisting preview of the pinned Apromore validateLog policy.
 //! Strict admission divergences are deliberate; this is not the whole service.
+pub use crate::projection_loss::{OmittedAttribute, ProjectionReport};
 use crate::{
     domain::{Case, Event, EventLog, ImportError},
     event_io::{Limits, preflight_profile},
@@ -23,6 +24,7 @@ pub struct Preview {
     pub source_events: usize,
     pub fully_filtered: bool,
     pub changes: Vec<Change>,
+    pub projection_report: ProjectionReport,
     pub log: EventLog,
 }
 
@@ -59,6 +61,8 @@ pub fn preview_xes_checked(
     )
     .map_err(|_| ImportError::new("xes_parse", "Не удалось разобрать XES."))?;
     check()?;
+    let projection_report = crate::projection_loss::inspect(&raw, cancelled)
+        .ok_or_else(|| ImportError::new("cancelled", "Предварительный просмотр отменён."))?;
     let name = raw
         .attributes
         .iter()
@@ -153,7 +157,7 @@ pub fn preview_xes_checked(
     check()?;
     Ok(Preview {
         policy: "apromore-validateLog-bbf24df-preview-v1",
-        source_cases, source_events, fully_filtered: cases.is_empty(), changes,
+        source_cases, source_events, fully_filtered: cases.is_empty(), changes, projection_report,
         log: EventLog { name, cases, warnings: vec!["Предварительный просмотр: исходные данные не изменены. Это не полный сервис Apromore.".into()] }
     })
 }

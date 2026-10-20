@@ -1,0 +1,172 @@
+{
+  "corpus_sha256": "3af07e2094abd0a91cb6bbbe0e152dc9341ca40e75c3b238b6db1ec0b30abf60",
+  "scope": "Fieldwise whole-original-class selected private importer versus actual Rust preview/library; no public authenticated/persisted importLog or arbitrary-format parity",
+  "rows": [
+    {
+      "rust_error": null,
+      "id": "default-log-name",
+      "input_sha256": "39419e3014fc56ccc74c24116275db3aa9ec14d0ab7122deffd0a205242f5480",
+      "rust_preview_status": "ok",
+      "allowed_service_difference": "service_default_log_name"
+    },
+    {
+      "rust_error": null,
+      "id": "empty-log",
+      "input_sha256": "65af6bce5a79a523a14a1019d55a7523996b019cc7a112e25e06a6c5adc8f875",
+      "rust_preview_status": "ok",
+      "allowed_service_difference": "service_prevalidation_empty_log_refusal"
+    },
+    {
+      "rust_error": null,
+      "id": "empty-trace",
+      "input_sha256": "f43d9cfdae7423bd41cff5f854e6d67b6abefb5feb0b07f523bc30180a9a31cb",
+      "rust_preview_status": "ok",
+      "allowed_service_difference": null
+    },
+    {
+      "rust_error": null,
+      "id": "all-filtered",
+      "input_sha256": "f3534ac107c4d1fb0f99c11c6c157026103e2c78ab2d48dfee1db03010f58f91",
+      "rust_preview_status": "ok",
+      "allowed_service_difference": null
+    },
+    {
+      "rust_error": "invalid_lifecycle",
+      "id": "lifecycle",
+      "input_sha256": "8194fb5ba254cf8754e7df738f69b302ee953a9e0fb61384e50699c026622b62",
+      "rust_preview_status": "rejected",
+      "allowed_service_difference": "explicit_strict_rust_admission"
+    },
+    {
+      "rust_error": null,
+      "id": "reverse-ties",
+      "input_sha256": "38055e50a9a7bb39f6eda4847547db6bcec99e588b1964330ac62fcdc28e55f3",
+      "rust_preview_status": "ok",
+      "allowed_service_difference": null
+    },
+    {
+      "rust_error": null,
+      "id": "submillisecond",
+      "input_sha256": "8395357d3b5d954068a618a6f8e9700cd2ee440850fc7e4338de1b067b7c36bb",
+      "rust_preview_status": "ok",
+      "allowed_service_difference": "java_millisecond_precision"
+    },
+    {
+      "rust_error": null,
+      "id": "offset-equivalent",
+      "input_sha256": "d958fba08267b3a2b72c901d142d167fecb0a71ad14ee90bc7471e0b95bf85e6",
+      "rust_preview_status": "ok",
+      "allowed_service_difference": null
+    },
+    {
+      "rust_error": null,
+      "id": "typed-flat-attributes",
+      "input_sha256": "02f30140fa00c37fe667e555514076440c123e76f2dded1fca69067b73de234f",
+      "rust_preview_status": "ok",
+      "allowed_service_difference": null
+    },
+    {
+      "rust_error": null,
+      "id": "classifiers-extensions",
+      "input_sha256": "546f89e1c32872c18616baa22ce63a4798556fc777141438e3caa8134bfd64f2",
+      "rust_preview_status": "ok",
+      "allowed_service_difference": null
+    },
+    {
+      "rust_error": "unsupported_format",
+      "id": "globals-not-event-values",
+      "input_sha256": "a70f5331c26f6f1a99939150f3b9011d6c2f93315e6937f973a27f265def2b39",
+      "rust_preview_status": "rejected",
+      "allowed_service_difference": "explicit_strict_rust_admission"
+    },
+    {
+      "rust_error": "duplicate_key",
+      "id": "duplicate-semantic-name",
+      "input_sha256": "833d4af507468054bda7a75425230be004f9e7ecf2a5592549793e96ce7adf2f",
+      "rust_preview_status": "rejected",
+      "allowed_service_difference": "explicit_strict_rust_admission"
+    },
+    {
+      "rust_error": "invalid_timestamp",
+      "id": "wrong-timestamp-type",
+      "input_sha256": "04b2cf62ea6b55c48281fb30dc8e80272098085af921e4b55322b003460b66ab",
+      "rust_preview_status": "rejected",
+      "allowed_service_difference": "explicit_strict_rust_admission"
+    },
+    {
+      "rust_error": "empty_activity",
+      "id": "wrong-activity-type",
+      "input_sha256": "df83d60a63234e2a814762212b8387da79b7fdb86761747bfd89fb6dee5028f6",
+      "rust_preview_status": "rejected",
+      "allowed_service_difference": "explicit_strict_rust_admission"
+    },
+    {
+      "rust_error": "unsupported_format",
+      "id": "nested-attributes",
+      "input_sha256": "59b6cf9833c052dae32804768609ad85ed3a7447373103a783830c5afce50146",
+      "rust_preview_status": "rejected",
+      "allowed_service_difference": "explicit_strict_rust_admission"
+    },
+    {
+      "rust_error": "encoding",
+      "id": "xes-gzip",
+      "input_sha256": "89d880b9a5ef470f596e113c4e3a5bc081f369b0e3dcc536a82308ddce67e63e",
+      "rust_preview_status": "rejected",
+      "allowed_service_difference": "explicit_strict_rust_admission"
+    },
+    {
+      "rust_error": null,
+      "id": "unknown-extension-fallback",
+      "input_sha256": "6d532afae345030a8ad816f957d2a16b654f0b9d0cfb6ddd8f9c43962d754595",
+      "rust_preview_status": "ok",
+      "allowed_service_difference": null
+    },
+    {
+      "rust_error": null,
+      "id": "wrong-parser-consumed-stream",
+      "input_sha256": "6d532afae345030a8ad816f957d2a16b654f0b9d0cfb6ddd8f9c43962d754595",
+      "rust_preview_status": "ok",
+      "allowed_service_difference": "service_selected_parser_and_unrewound_fallback_refusal"
+    },
+    {
+      "rust_error": "malformed_xml",
+      "id": "mxml-dispatch",
+      "input_sha256": "bebd8bf1dbcc01e4eb7f87682098e390dc7cf1fbbec0f75b504664aade946146",
+      "rust_preview_status": "rejected",
+      "allowed_service_difference": "explicit_strict_rust_admission"
+    },
+    {
+      "rust_error": "encoding",
+      "id": "mxml-gzip-dispatch",
+      "input_sha256": "21e26c921e1e3ce9a7b315e40c8c5ab3d1f6719a8f494099166f78477f9be2ec",
+      "rust_preview_status": "rejected",
+      "allowed_service_difference": "explicit_strict_rust_admission"
+    }
+  ],
+  "author_role": "Root",
+  "manual_projection_losses": {
+    "typed-flat-attributes": {
+      "trace": 1,
+      "log": 1,
+      "event": 5,
+      "classifiers": 0
+    },
+    "classifiers-extensions": {
+      "extensions": 2,
+      "trace": 0,
+      "log": 0,
+      "event": 1,
+      "classifiers": 2
+    }
+  },
+  "utc": "2026-10-20T13:44:40.5278932+00:00",
+  "field_requirements": [
+    "All actual retained event order/activity/lifecycle/timestamp instants and case/log names, explicit service default name difference",
+    "Entire typed original metadata for retained source entries, classifier name/key order, extensions and globals; omitted product fields separately accounted, not flattened into equality",
+    "Java millisecond projection versus Rust retained submillisecond precision explicitly reported",
+    "Actual Rust source case IDs/ordinals and changes retained; Java after-import arrays do not manufacture source IDs",
+    "Reference stream parser dispatch/fallback behavior and actual factory/parserregistry; unsupportedRustformats and strictertypechecks explicit",
+    "No count-only or all-core parity claim, no expectedoutcome rewrite afterrun"
+  ],
+  "schema_version": 1
+}

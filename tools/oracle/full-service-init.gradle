@@ -1,0 +1,25 @@
+// External environment overlay only; upstream sources/build files stay unchanged.
+import org.gradle.api.artifacts.repositories.MavenArtifactRepository
+allprojects {
+  repositories.all { repo ->
+    if (repo instanceof MavenArtifactRepository &&
+        repo.url.toString().contains('apromore/ApromoreCore_SupportLibs/master/mvn-repo')) {
+      repo.setUrl('https://raw.githubusercontent.com/apromore/ApromoreCore_SupportLibs/99887cddb0d88a107c3005f6711c1ffa67dd13e1/mvn-repo/')
+    }
+  }
+}
+// Register early: projectsEvaluated is too late for on-demand task discovery.
+gradle.rootProject { root ->
+  root.tasks.register('fullServiceRuntimeClasspath') {
+    dependsOn ':Apromore-Core-Components:Apromore-Manager:classes'
+    // Resolving only asPath does not build project runtime JAR artifacts.
+    dependsOn { root.project(':Apromore-Core-Components:Apromore-Manager').configurations.runtimeClasspath }
+    doLast {
+      def manager = root.project(':Apromore-Core-Components:Apromore-Manager')
+      def output = new File(gradle.startParameter.projectProperties['fullServiceClasspathPath'])
+      if (output.exists()) { throw new GradleException('new classpath receipt required') }
+      output.setText(manager.sourceSets.main.runtimeClasspath.asPath, 'UTF-8')
+      println('FULL_SERVICE_CLASSPATH_WRITTEN ' + output.length())
+    }
+  }
+}

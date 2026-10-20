@@ -19,6 +19,7 @@ fn inserted() -> ProcessModel {
         label: "Жаңа <task>\nline".into(),
         x: 123.5,
         y: -234.25,
+        dimensions: None,
     });
     m.flows.iter_mut().find(|f| f.id == "ab").unwrap().target = "c".into();
     m.flows.push(flow("cb", "c", "b"));

@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "scope": "Finite genuine upstream SplitMiner observations; no expected general quality or Rust parity claim",
+  "core_commit": "bbf24dfd43e72d6992392465f875a4367cbe792b",
+  "parameters": {
+    "percentile_frequency_threshold": 0.4,
+    "parallelisms_threshold": 0.1,
+    "filter_type": "WTH",
+    "parallelisms_first": false,
+    "replace_iors": true,
+    "remove_loop_activities": false,
+    "structuring_time": "NONE",
+    "classifier": "org.deckfour.xes.classification.XEventNameClassifier"
+  },
+  "corpus": [
+    {
+      "id": "linear",
+      "file": "linear.xes",
+      "sha256": "e322a6d8ff750b39022ca4a83c77cefe1dfcf0fd7f9c140cb07a56ce4ee1239d",
+      "training_variants": [
+        "ABC",
+        "ABC"
+      ],
+      "trace_count": 2,
+      "event_count": 6,
+      "manual_input_activities": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    {
+      "id": "exclusive-choice",
+      "file": "exclusive-choice.xes",
+      "sha256": "2304ae0ed58ce8ba6996476b147c0c1cb23fb7aa8bbab27dd0d65578f58cfdf5",
+      "training_variants": [
+        "ABD",
+        "ACD",
+        "ABD",
+        "ACD"
+      ],
+      "trace_count": 4,
+      "event_count": 12,
+      "manual_input_activities": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ]
+    },
+    {
+      "id": "parallel-interleavings",
+      "file": "parallel-interleavings.xes",
+      "sha256": "0765643359e6e28b24e16123ca136d726f9e3ff49388f98b9a8aab4120f08c20",
+      "training_variants": [
+        "ABCD",
+        "ACBD",
+        "ABCD",
+        "ACBD",
+        "ABCD",
+        "ACBD"
+      ],
+      "trace_count": 6,
+      "event_count": 24,
+      "manual_input_activities": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ]
+    },
+    {
+      "id": "self-loop",
+      "file": "self-loop.xes",
+      "sha256": "4d0caf82f37113cefdb9caeefbae81292dcb874e6750ba244cec3e8e45a9a0dc",
+      "training_variants": [
+        "AAB",
+        "AB",
+        "AAAB"
+      ],
+      "trace_count": 3,
+      "event_count": 9,
+      "manual_input_activities": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "id": "short-loop",
+      "file": "short-loop.xes",
+      "sha256": "4b941524e45d72353e69d61e6f5a600468647abb9576511364b31bfbb73d3d1b",
+      "training_variants": [
+        "ABAC",
+        "AC",
+        "ABABAC"
+      ],
+      "trace_count": 3,
+      "event_count": 12,
+      "manual_input_activities": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    {
+      "id": "rare-noise",
+      "file": "rare-noise.xes",
+      "sha256": "03e909d2de9b618cb6655c5a2e378ddc3277b58f6607f7b6b156758db4b916ad",
+      "training_variants": [
+        "ABC",
+        "ABC",
+        "ABC",
+        "ABC",
+        "ABC",
+        "ABC",
+        "ABC",
+        "ABC",
+        "ABC",
+        "ADC"
+      ],
+      "trace_count": 10,
+      "event_count": 30,
+      "manual_input_activities": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ]
+    },
+    {
+      "id": "empty-log",
+      "file": "empty-log.xes",
+      "sha256": "2dfebdb1c9abcfd2d5f46f592b9d6afb038fd880513e32509c4149914f27efba",
+      "training_variants": [],
+      "trace_count": 0,
+      "event_count": 0,
+      "manual_input_activities": []
+    },
+    {
+      "id": "empty-trace",
+      "file": "empty-trace.xes",
+      "sha256": "5c22ab666b6b3ffae5dd5457a4701f45bbc65bb4dc8deb51491854b157bd3e12",
+      "training_variants": [
+        ""
+      ],
+      "trace_count": 1,
+      "event_count": 0,
+      "manual_input_activities": []
+    }
+  ],
+  "expected_output_policy": "Observe outcomes including exceptions and internal safe/DFG fallback; do not substitute another miner or tune this frozen corpus after results"
+}
