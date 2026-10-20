@@ -50,7 +50,7 @@ jobs:
           pwsh -NoProfile -File tests/sprint13_phase_command_names.ps1
       - name: Sprint14 diagnostic source and deadline checks
         run: |
-          pwsh -NoProfile -Command '& ./tests/sprint14_phase_command_names.ps1 -AdditionalFiles @("full-timeout-phase.ps1","restore-login-phase.ps1","small-holders-phase.ps1","futureclone-phase.ps1","resource-phase-budget.psm1","catalog-integration-phase.ps1","catalog-race-phase.ps1","catalog-import-phase.ps1","catalog-downgrade-phase.ps1","historical-write-phase.ps1","identity-denied-phase.ps1")'
+          pwsh -NoProfile -Command '& ./tests/sprint14_phase_command_names.ps1 -AdditionalFiles @("full-timeout-phase.ps1","restore-login-phase.ps1","small-holders-phase.ps1","futureclone-phase.ps1","resource-phase-budget.psm1","catalog-integration-phase.ps1","catalog-race-phase.ps1","catalog-import-phase.ps1","catalog-downgrade-phase.ps1","historical-write-phase.ps1","identity-denied-phase.ps1","browser-phase.ps1","full-lock2-hot-phase.ps1","check-profile-bindings.ps1")'
           pwsh -NoProfile -File tools/sprint14/launch-reviewed-phase.ps1 -SelfTest
           node --check tools/sprint14/sql5-stream-observer.cjs
           node --check tools/sprint14/cleanup-boundary-observer.cjs
@@ -61,6 +61,8 @@ jobs:
           node --check tools/sprint14/historical-write-probe.cjs
           node --check tools/sprint14/historical-write-state.cjs
           node --check tools/sprint14/identity-denied-probe.cjs
+          node --check tools/sprint14/browser-bootstrap.cjs
+          node tests/sprint14_crlf_index.cjs .local/sprint14/root/ci-crlf
       - name: Build release and local health smoke
         run: |
           cargo build --locked --release
