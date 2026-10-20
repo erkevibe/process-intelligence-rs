@@ -1,0 +1,89 @@
+{
+  "utc": "2026-10-20T12:44:03.0273624Z",
+  "author_role": "Root",
+  "kind": "ACTUAL_FIVE_ROLE_COUNCIL_DECISION",
+  "verdict": "ADOPTED_CONDITIONAL_TECHNICAL_R3_ACCEPTANCE",
+  "effective_acceptance_at_vote": false,
+  "proposal_sha256": "278958A93B3FA9B04EDC0E6C1B1786944275039EE47094B643290450CD6DA3B6",
+  "invitation_sha256": "9ABCFFFE87BA2633839088943F3C24D524BDDC2E4B54C4880320C8119C103862",
+  "fixed_voters": [
+    "Root",
+    "QA",
+    "TechnicalDebt",
+    "PM",
+    "Customer"
+  ],
+  "actual_votes": [
+    {
+      "source_sha256": "20975A5088EC61D360A072C8ADC75EBA4DE2534643EC591FF21D7BAB358DBAE7",
+      "role": "Root",
+      "vote": "FOR"
+    },
+    {
+      "source_sha256": "D52F21B8B1152B8ACD1D11784BB9BBA6BCDE69C7FE2E475298B265181E84434F",
+      "role": "QA",
+      "vote": "FOR"
+    },
+    {
+      "source_sha256": "F6EC879397CFEED1B77CE5557A353E44F2B5DFC75AF811C76232EF2A6E8F9EAE",
+      "role": "TD",
+      "vote": "FOR"
+    },
+    {
+      "source_sha256": "641B851395D26C6AE7E9FF8425ACFFAE02309F0EB39C92BD25398273B5A4AAE6",
+      "role": "PM",
+      "vote": "FOR"
+    },
+    {
+      "source_sha256": "FC10A2AF919D4867A6BF1ECD9C89C044E91FD14CD366F5CF486C3BF4ADD83CDF",
+      "role": "Customer",
+      "vote": "FOR"
+    }
+  ],
+  "for_count": 5,
+  "against_count": 0,
+  "abstain_count": 0,
+  "majority_required": 3,
+  "scope": "Technical closure of original finite R3-01 lifecycle/placement; R3-02 action-specific trusted audit/import origin; R3-03 migrations/backup/new-restore/restart; R3-04 bounded offline cleanup including original C/F subcases. No reduction to only S15 named new cases.",
+  "accepted_matrix": {
+    "public_sha256": "E015B1E4F36BC1312F0F5E9B700A5F65ACCC63E8354D80AF0BC7AAFEB79E9ABC",
+    "public_path": "docs/SPRINT_15_R3_MATRIX.json",
+    "audit_rows": 30,
+    "carry": "Exact immutable production paths and accepted finite old capsules; no all30 new runtime assertion or failed-parent relabel",
+    "c_f_rows": 53,
+    "pm_sha256": "2DE72488B3D40182069AAE722B45172057877FA1B4CAEEE9616FF17529DC7680"
+  },
+  "package": {
+    "zip_sha256": "E79866DA3E9348CFA3EA08542D1A9FB405A47D9F7C5AE15F56979A4559AE3A4C",
+    "public_readback_TD": "ED0D339EC42476CE4B3F712D193A55D7075328C4F3BB8CB72DDC7DD0144EF52E",
+    "exe_sha256": "23563DFF8FE93F339AD7F12FD0783AC3E2C53B8D9368C00D772A8FBABBE5F292",
+    "tag": "v0.7.3",
+    "ci_runs": [
+      39421436965,
+      39421442219
+    ],
+    "public_readback_QA": "E9DEF427D0F0AABFDAE2C394070C4DD69711C0012E1C2BCDBEB8F0D7EAD8DBBE",
+    "version": "0.7.3",
+    "diagnostic_head": "f5f5b471b935acad803e8a28f25766ca616cbaef",
+    "core_commit": "3f0b3caa34b9b4beaf4422f78c2e31c0f97d3209"
+  },
+  "effective_only_after": [
+    "Majority of all five actual voters bound to this exact proposal; no unresolved STOP or independent blockers",
+    "QA and TD independently accept integrated original matrix plus exact public readback and named finite source limits",
+    "Root publishes accurate final report/status/guide/roadmap and actual Council record; final changes restricted to docs/evidence/metadata, no product/runtime/CI changes",
+    "Exact final public diagnostic HEAD both push and pull_request workflow380293369 completed SUCCESS; production/source bindings unchanged from reviewed f5f5",
+    "Existing prerelease metadata pinned to final diagnostic guide/report; tag core3f0 and asset E798/size/id unchanged; public metadata readback verified",
+    "Public-other actual budget recheck remains within16MiB, aggregate public256MiB, retained32GiB and disk8GiB floor; all test runtime closed"
+  ],
+  "limitations": [
+    "PowerShell7 supported route; Windows PowerShell5.1 UNVERIFIED",
+    "Frozen ZIP README0.7.2 remains explicitly disclosed by current external guide; unchanged package, no repack",
+    "Old061 refuses generically at Auth decoder, not isolated folder causality; hostile12 and concurrency are named finite contexts",
+    "Historical failed attempts remain failed; reconciliation and no blind retry preserve cleanup uncertainty semantics",
+    "PublicStart/browser/restart executed separate fresh canonical same E798 installation; downloaded ZIP verified byte-identical, not claimed executed after download",
+    "Final Council is technical team acceptance, not actual human final acceptance; full R2/R4/R5, Apromore parity and enterprise readiness remain open"
+  ],
+  "customer_actor_continuity": "Final Customer successor /root/customer_s15_final read original /root/customer_s15 stable IDs and separate /root/emotion_s15_final nine perspectives; same Customer role, no sixth vote",
+  "completion_record": "Release v0.7.3 final public delivery receipt must name exact final diagnostic HEAD, both successful CI and verified unchanged assets; vote alone is not completion",
+  "deadline_utc": "2026-10-20T18:14:24Z"
+}

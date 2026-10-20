@@ -1,0 +1,67 @@
+{
+  "author_role": "Root",
+  "utc": "2026-10-20T12:42:06.5190810Z",
+  "kind": "S15_ORIGINAL_FINITE_R3_TECHNICAL_ACCEPTANCE_PROPOSAL",
+  "voters": [
+    "Root",
+    "QA",
+    "TechnicalDebt",
+    "PM",
+    "Customer"
+  ],
+  "invitation_sha256": "9ABCFFFE87BA2633839088943F3C24D524BDDC2E4B54C4880320C8119C103862",
+  "initial_positions": {
+    "TechnicalDebt": "ED0D339EC42476CE4B3F712D193A55D7075328C4F3BB8CB72DDC7DD0144EF52E",
+    "separate_Emotion": "C8D7E3EEFD1D85C8EAB2C996D91A4C1BFBF73DA9AF9BEAE7B4AD84F526EA6B18",
+    "PM": "A35B42BF3C7A2849DDBAFEE859C1F9922E1644D1053C38A365570B9154836F1F",
+    "QA": "7D15343A56EB2071E48B4AD5A3CEC9BFF483D1A7C6A2FC4117EC717BBA30537A",
+    "Customer": "14A02B38CD4BB23B23D00946A28ADD40A17DB8620413C0C00958B5B81E587037",
+    "Root": "invitation record"
+  },
+  "scope": "Technical closure of original finite R3-01 lifecycle/placement; R3-02 action-specific trusted audit/import origin; R3-03 migrations/backup/new-restore/restart; R3-04 bounded offline cleanup including original C/F subcases. No reduction to only S15 named new cases.",
+  "accepted_matrix": {
+    "public_sha256": "E015B1E4F36BC1312F0F5E9B700A5F65ACCC63E8354D80AF0BC7AAFEB79E9ABC",
+    "public_path": "docs/SPRINT_15_R3_MATRIX.json",
+    "audit_rows": 30,
+    "carry": "Exact immutable production paths and accepted finite old capsules; no all30 new runtime assertion or failed-parent relabel",
+    "c_f_rows": 53,
+    "pm_sha256": "2DE72488B3D40182069AAE722B45172057877FA1B4CAEEE9616FF17529DC7680"
+  },
+  "package": {
+    "zip_sha256": "E79866DA3E9348CFA3EA08542D1A9FB405A47D9F7C5AE15F56979A4559AE3A4C",
+    "public_readback_TD": "ED0D339EC42476CE4B3F712D193A55D7075328C4F3BB8CB72DDC7DD0144EF52E",
+    "exe_sha256": "23563DFF8FE93F339AD7F12FD0783AC3E2C53B8D9368C00D772A8FBABBE5F292",
+    "tag": "v0.7.3",
+    "ci_runs": [
+      39421436965,
+      39421442219
+    ],
+    "public_readback_QA": "E9DEF427D0F0AABFDAE2C394070C4DD69711C0012E1C2BCDBEB8F0D7EAD8DBBE",
+    "version": "0.7.3",
+    "diagnostic_head": "f5f5b471b935acad803e8a28f25766ca616cbaef",
+    "core_commit": "3f0b3caa34b9b4beaf4422f78c2e31c0f97d3209"
+  },
+  "host_closure_sha256": "282B0127ECD599A1D08837FB08F0EBD96E66671917502C33BC6F851A5BAD6F4B",
+  "effective_only_after": [
+    "Majority of all five actual voters bound to this exact proposal; no unresolved STOP or independent blockers",
+    "QA and TD independently accept integrated original matrix plus exact public readback and named finite source limits",
+    "Root publishes accurate final report/status/guide/roadmap and actual Council record; final changes restricted to docs/evidence/metadata, no product/runtime/CI changes",
+    "Exact final public diagnostic HEAD both push and pull_request workflow380293369 completed SUCCESS; production/source bindings unchanged from reviewed f5f5",
+    "Existing prerelease metadata pinned to final diagnostic guide/report; tag core3f0 and asset E798/size/id unchanged; public metadata readback verified",
+    "Public-other actual budget recheck remains within16MiB, aggregate public256MiB, retained32GiB and disk8GiB floor; all test runtime closed"
+  ],
+  "implementation_owner": "Root",
+  "verification_owners": [
+    "QA",
+    "TechnicalDebt"
+  ],
+  "deadline_utc": "2026-10-20T18:14:24Z",
+  "limitations": [
+    "PowerShell7 supported route; Windows PowerShell5.1 UNVERIFIED",
+    "Frozen ZIP README0.7.2 remains explicitly disclosed by current external guide; unchanged package, no repack",
+    "Old061 refuses generically at Auth decoder, not isolated folder causality; hostile12 and concurrency are named finite contexts",
+    "Historical failed attempts remain failed; reconciliation and no blind retry preserve cleanup uncertainty semantics",
+    "PublicStart/browser/restart executed separate fresh canonical same E798 installation; downloaded ZIP verified byte-identical, not claimed executed after download",
+    "Final Council is technical team acceptance, not actual human final acceptance; full R2/R4/R5, Apromore parity and enterprise readiness remain open"
+  ]
+}
