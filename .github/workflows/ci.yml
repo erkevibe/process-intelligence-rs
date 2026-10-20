@@ -65,8 +65,12 @@ jobs:
           node tests/sprint14_crlf_index.cjs .local/sprint14/root/ci-crlf
       - name: Sprint15 diagnostic epoch checks
         run: |
-          pwsh -NoProfile -Command '& ./tests/sprint15_phase_command_names.ps1 -AdditionalFiles @("resource-phase-budget.psm1","catalog-race-phase.ps1","catalog-downgrade-phase.ps1","full-lock2-hot-phase.ps1","browser-phase.ps1","check-profile-bindings.ps1","prepare-profile.ps1","launch-reviewed-phase.ps1")'
+          pwsh -NoProfile -Command '& ./tests/sprint15_phase_command_names.ps1 -AdditionalFiles @("resource-phase-budget.psm1","catalog-race-phase.ps1","catalog-downgrade-phase.ps1","full-lock2-hot-phase.ps1","browser-phase.ps1","check-profile-bindings.ps1","prepare-profile.ps1","launch-reviewed-phase.ps1","assert-writer-quiescence.ps1","catalog-invalid-phase.ps1","full-lock2-lifecycle-phase.ps1","full-lock2-stream-phase.ps1","owned-public-entry-service.psm1","browser-public-phase.ps1","validate-public-readback.ps1","validate-public-readback-bounded.ps1","public-readback-phase.ps1")'
           pwsh -NoProfile -File tools/sprint15/launch-reviewed-phase.ps1 -SelfTest
+          pwsh -NoProfile -File tools/sprint15/assert-writer-quiescence.ps1 -SelfTest
+          # Linux predicates/file IO only; Windows sharing and AssertHot drive guard have native evidence.
+          pwsh -NoProfile -File tests/sprint15_hot_lifecycle.ps1
+          pwsh -NoProfile -File tests/sprint15_closed_stream.ps1 -FixtureDirectory "$RUNNER_TEMP/sprint15-closed-stream"
           node --check tools/sprint15/catalog-race-probe.cjs
           node --check tools/sprint15/browser-bootstrap.cjs
           node --check tools/sprint15/cleanup-boundary-observer.cjs

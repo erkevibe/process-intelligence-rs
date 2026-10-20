@@ -1,4 +1,4 @@
-param([Parameter(Mandatory)][ValidateSet('race','downgrade','lock2','browser')][string]$Case,[switch]$Seal)
+param([Parameter(Mandatory)][ValidateSet('race','downgrade','lock2','browser')][string]$Case,[ValidateRange(1,99)][int]$Attempt=1,[ValidateSet('default','lifecycle','closed-stream')][string]$PhaseVariant='default',[switch]$Seal)
 Set-StrictMode -Version Latest
 $ErrorActionPreference='Stop'
 $workspace=[IO.Path]::GetFullPath((Join-Path $PSScriptRoot '../..'))
@@ -12,7 +12,8 @@ $spec=@{
  lock2=@{old='full-lock2-hot03';phase='full-lock2-hot-phase.ps1'}
  browser=@{old='browser02';phase='browser-phase.ps1'}
 }[$Case]
-$name='s15-'+$Case+'01';$dir=Join-Path $root ($name+'-inputs');$draft=Join-Path $dir 'draft01.json';$phase=Join-Path $PSScriptRoot $spec.phase
+$suffix=$Attempt.ToString('00');$name='s15-'+$Case+$suffix;$dir=Join-Path $root ($name+'-inputs');$draft=Join-Path $dir 'draft01.json';$phase=Join-Path $PSScriptRoot $spec.phase
+if($PhaseVariant -cin @('lifecycle','closed-stream')){if($Case -cne 'lock2'){throw 'profile_lifecycle_only_lock2'};$phase=Join-Path $PSScriptRoot $(if($PhaseVariant -ceq 'closed-stream'){'full-lock2-stream-phase.ps1'}else{'full-lock2-lifecycle-phase.ps1'})}
 if(!$Seal){
  $oldPath=Join-Path $root ($spec.old+'-inputs/phase01.json')
  $c=Get-Content -LiteralPath $oldPath -Raw|ConvertFrom-Json -AsHashtable -DateKind String
@@ -27,8 +28,9 @@ if(!$Seal){
   if($v -is [array]){return ,@($v|ForEach-Object {Rebase $_})};return $v
  }
  $c=Rebase $c
+ if($PhaseVariant -cin @('lifecycle','closed-stream')){$defaultPhase=Join-Path $PSScriptRoot $spec.phase;foreach($pin in $c.pins){if($pin.path -ceq $defaultPhase){$pin.path=$phase}}}
  $c.deadline_utc='2026-10-20T16:44:24Z';$c.epoch='S15'
- foreach($k in @('source_db','restore_db','verify_db')){if($Case -cne 'browser' -and $c.ContainsKey($k)){$c[$k]='pi_restore_s14_s15_'+$Case+'_'+$k.Replace('_db','')+'01'}}
+ foreach($k in @('source_db','restore_db','verify_db')){if($Case -cne 'browser' -and $c.ContainsKey($k)){$c[$k]='pi_restore_s14_s15_'+$Case+'_'+$k.Replace('_db','')+$suffix}}
  $c.phase_budget.phase_sha=Hash $phase;$c.phase_budget.module_sha=Hash (Join-Path $PSScriptRoot 'resource-phase-budget.psm1')
  $proposal=Join-Path $root 's15-start-proposal01.json';$decision=Join-Path $root 's15-start-decision01.json'
  $c.phase_budget.plan_proposal_sha256=Hash $proposal;$c.phase_budget.decision=@{path=$decision;sha256=Hash $decision}
@@ -42,6 +44,7 @@ if(!$Seal){
  Save $draft $c
 }else{
  $c=Get-Content -LiteralPath $draft -Raw|ConvertFrom-Json -AsHashtable -DateKind String
+ if((Hash $phase) -cne $c.phase_budget.phase_sha){throw 'profile_exact_variant_source_required'}
  foreach($role in @('Root','QA','TD')){$folder=if($role -ceq 'Root'){'root'}else{$role.ToLowerInvariant()};$p=Join-Path $workspace ('.local/sprint14/'+$folder+'/s15-start01/'+$name+'-budget-prospective01.json');$r=Get-Content -LiteralPath $p -Raw|ConvertFrom-Json -AsHashtable -DateKind String
   if($r.author_role -cne $role -or $r.verdict -cne 'PROSPECTIVE_EXACT_FULL_UNCOMPRESSED_PHASE_RESOURCE_GO'){throw 'profile_independent_budget_review'}
   foreach($key in @('scope','output_directory','install_parent','capture_reservation_bytes','phase_reservation_bytes','phase_allocation_reservation_bytes')){if($r[$key] -cne $c[$key]){throw ('profile_review_mismatch_'+$key)}}
