@@ -48,6 +48,13 @@ jobs:
           node tools/sprint13/historical-oracle-regression.cjs .local/sprint13/root/ci-historical
           cargo run --locked --example sprint13_recovery_exports -- --self-test
           pwsh -NoProfile -File tests/sprint13_phase_command_names.ps1
+      - name: Sprint14 diagnostic source and deadline checks
+        run: |
+          pwsh -NoProfile -Command '& ./tests/sprint14_phase_command_names.ps1 -AdditionalFiles @("full-timeout-phase.ps1","restore-login-phase.ps1","small-holders-phase.ps1","futureclone-phase.ps1","resource-phase-budget.psm1")'
+          pwsh -NoProfile -File tools/sprint14/launch-reviewed-phase.ps1 -SelfTest
+          node --check tools/sprint14/sql5-stream-observer.cjs
+          node --check tools/sprint14/cleanup-boundary-observer.cjs
+          node --check tools/sprint14/restore-login-probe.cjs
       - name: Build release and local health smoke
         run: |
           cargo build --locked --release
