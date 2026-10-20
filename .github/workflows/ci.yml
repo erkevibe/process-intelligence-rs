@@ -63,6 +63,13 @@ jobs:
           node --check tools/sprint14/identity-denied-probe.cjs
           node --check tools/sprint14/browser-bootstrap.cjs
           node tests/sprint14_crlf_index.cjs .local/sprint14/root/ci-crlf
+      - name: Sprint15 diagnostic epoch checks
+        run: |
+          pwsh -NoProfile -Command '& ./tests/sprint15_phase_command_names.ps1 -AdditionalFiles @("resource-phase-budget.psm1","catalog-race-phase.ps1","catalog-downgrade-phase.ps1","full-lock2-hot-phase.ps1","browser-phase.ps1","check-profile-bindings.ps1","prepare-profile.ps1","launch-reviewed-phase.ps1")'
+          pwsh -NoProfile -File tools/sprint15/launch-reviewed-phase.ps1 -SelfTest
+          node --check tools/sprint15/catalog-race-probe.cjs
+          node --check tools/sprint15/browser-bootstrap.cjs
+          node --check tools/sprint15/cleanup-boundary-observer.cjs
       - name: Build release and local health smoke
         run: |
           cargo build --locked --release
