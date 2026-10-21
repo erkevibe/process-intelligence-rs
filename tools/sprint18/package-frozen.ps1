@@ -70,5 +70,3 @@ if(Test-Path -LiteralPath $taskZip){throw 'ZIP already exists.'}
 Compress-Archive -LiteralPath $taskPackage -DestinationPath $taskZip -CompressionLevel Optimal
 Write-Output "Package: $taskZip"
 Write-Output "SHA256: $((Get-FileHash -LiteralPath $taskZip).Hash)"
-
-
