@@ -436,6 +436,7 @@ fn model_charge(model: &StoredModel) -> usize {
             .saturating_add(string_charge(&f.id))
             .saturating_add(string_charge(&f.source))
             .saturating_add(string_charge(&f.target))
+            .saturating_add(string_charge(&f.label))
             .saturating_add(vec_charge(&f.waypoints));
     }
     bytes
@@ -483,6 +484,22 @@ fn key_charge(key: &Key, versions: &Versions) -> usize {
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn named_flow_charge_includes_allocated_label_capacity() {
+        let mut stored = StoredModel {
+            id: "m".into(),
+            name: "M".into(),
+            revision: 1,
+            source_log: None,
+            model: crate::bpmn::parse(include_bytes!("../fixtures/sprint02/linear.bpmn")).unwrap(),
+        };
+        let empty_charge = model_charge(&stored);
+        let mut label = String::with_capacity(4096);
+        label.push_str("Ә choice");
+        let capacity = label.capacity();
+        stored.model.flows[0].label = label;
+        assert_eq!(model_charge(&stored), empty_charge + capacity + 32);
+    }
     fn model(id: &str) -> Resource {
         Resource::Model(Arc::new(StoredModel {
             id: id.into(),

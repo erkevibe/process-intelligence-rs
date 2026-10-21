@@ -1,0 +1,100 @@
+{
+  "places": {
+    "6b4f1707-fc46-4aab-865c-d59cbf3420a2": {
+      "id": "6b4f1707-fc46-4aab-865c-d59cbf3420a2"
+    },
+    "ba7dd19f-5260-4674-84ee-6b99f3cb57af": {
+      "id": "ba7dd19f-5260-4674-84ee-6b99f3cb57af"
+    },
+    "9d035990-1b49-4ab0-9e57-7ed21b049fd1": {
+      "id": "9d035990-1b49-4ab0-9e57-7ed21b049fd1"
+    },
+    "a431bd2c-21ed-436a-9f42-804333000add": {
+      "id": "a431bd2c-21ed-436a-9f42-804333000add"
+    }
+  },
+  "transitions": {
+    "fe407727-f9a2-4f42-a517-4c2148b96a65": {
+      "label": "C",
+      "id": "fe407727-f9a2-4f42-a517-4c2148b96a65"
+    },
+    "69154ab2-6d35-403a-8fca-787b9ee4a49b": {
+      "label": "A",
+      "id": "69154ab2-6d35-403a-8fca-787b9ee4a49b"
+    },
+    "1812e370-900a-4886-8cc4-60c882861c6d": {
+      "label": "B",
+      "id": "1812e370-900a-4886-8cc4-60c882861c6d"
+    }
+  },
+  "arcs": [
+    {
+      "from_to": {
+        "type": "PlaceTransition",
+        "nodes": [
+          "9d035990-1b49-4ab0-9e57-7ed21b049fd1",
+          "69154ab2-6d35-403a-8fca-787b9ee4a49b"
+        ]
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "type": "TransitionPlace",
+        "nodes": [
+          "fe407727-f9a2-4f42-a517-4c2148b96a65",
+          "ba7dd19f-5260-4674-84ee-6b99f3cb57af"
+        ]
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "type": "TransitionPlace",
+        "nodes": [
+          "69154ab2-6d35-403a-8fca-787b9ee4a49b",
+          "6b4f1707-fc46-4aab-865c-d59cbf3420a2"
+        ]
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "type": "PlaceTransition",
+        "nodes": [
+          "6b4f1707-fc46-4aab-865c-d59cbf3420a2",
+          "1812e370-900a-4886-8cc4-60c882861c6d"
+        ]
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "type": "TransitionPlace",
+        "nodes": [
+          "1812e370-900a-4886-8cc4-60c882861c6d",
+          "a431bd2c-21ed-436a-9f42-804333000add"
+        ]
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "type": "PlaceTransition",
+        "nodes": [
+          "a431bd2c-21ed-436a-9f42-804333000add",
+          "fe407727-f9a2-4f42-a517-4c2148b96a65"
+        ]
+      },
+      "weight": 1
+    }
+  ],
+  "initial_marking": {
+    "9d035990-1b49-4ab0-9e57-7ed21b049fd1": 1
+  },
+  "final_markings": [
+    {
+      "ba7dd19f-5260-4674-84ee-6b99f3cb57af": 1
+    }
+  ]
+}

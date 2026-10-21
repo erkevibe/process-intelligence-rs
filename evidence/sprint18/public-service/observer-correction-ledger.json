@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "events": [
+    {
+      "id": "preworker-manifest-cap",
+      "kind": "own_guard_preflight_refusal_no_native",
+      "evidence": "preflight-refusal.json"
+    },
+    {
+      "id": "gate01-advisor-missing",
+      "kind": "own_observer_not_applied",
+      "resolved_by": "own_infrastructure_advisor_role",
+      "earlier_native_result_retained": true
+    },
+    {
+      "id": "gate02-ambiguous-role",
+      "kind": "own_compiler_error",
+      "resolved_by": "fully_qualified_spring_annotation",
+      "failed_native_result_retained": true
+    },
+    {
+      "id": "corpus01-empty-reload-observer-null",
+      "kind": "own_observer_null_dereference_after_actual_service_returned_null",
+      "resolved_by": "nullable_observation_only_no_upstream_change",
+      "fresh_actual_case": "java/all-filtered.json",
+      "failed_native_result_retained": true
+    }
+  ],
+  "limitations": [
+    "No failed old case relabeled as successful",
+    "Frozen 11+1 source hypotheses never changed"
+  ]
+}

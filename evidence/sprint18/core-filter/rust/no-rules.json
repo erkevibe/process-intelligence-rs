@@ -1,0 +1,80 @@
+{
+  "engine": "process_intelligence_rs::filters::apply",
+  "id": "no-rules",
+  "input_sha256": "f56058d297814ec7cdbe88b2a1283fde47576d964b0c91f34d9dcb1c81be71fc",
+  "rule_literals": [],
+  "schema_version": 1,
+  "scope": "Actual production filter sequential calls; full EventLog conservation only, not rich XLog metadata or public persistence",
+  "selected_source_indices": [
+    0,
+    1
+  ],
+  "selected_source_log": {
+    "cases": [
+      {
+        "events": [
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          }
+        ],
+        "id": "no-rules-source-0",
+        "name": "no-rules-trace-0"
+      },
+      {
+        "events": [
+          {
+            "activity": "B",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          }
+        ],
+        "id": "no-rules-source-1",
+        "name": "no-rules-trace-1"
+      }
+    ],
+    "name": "Core filter no-rules",
+    "warnings": [
+      "synthetic source warning retained"
+    ]
+  },
+  "source_after_sha256": "02571f310c3a90b9f24113ba351a6f096401be02cd7ca324bcf0f3575257867f",
+  "source_before_sha256": "02571f310c3a90b9f24113ba351a6f096401be02cd7ca324bcf0f3575257867f",
+  "source_domain_before": {
+    "cases": [
+      {
+        "events": [
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          }
+        ],
+        "id": "no-rules-source-0",
+        "name": "no-rules-trace-0"
+      },
+      {
+        "events": [
+          {
+            "activity": "B",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          }
+        ],
+        "id": "no-rules-source-1",
+        "name": "no-rules-trace-1"
+      }
+    ],
+    "name": "Core filter no-rules",
+    "warnings": [
+      "synthetic source warning retained"
+    ]
+  },
+  "source_unchanged": true,
+  "status": "ACTUAL_RUST_CASE_ACTIVITY_FILTER_OBSERVED"
+}

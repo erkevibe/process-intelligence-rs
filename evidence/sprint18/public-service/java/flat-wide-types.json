@@ -1,0 +1,489 @@
+{
+  "schema_version": 1,
+  "id": "flat-wide-types",
+  "input_sha256": "b15e2aabadd0fa4723a4b30b8504f20264e7134730effff327355d9f069e44f2",
+  "corpus_sha256": "05ab614aaa1a047251d009c096801152b0258b072d8e65a156100a2761be4202",
+  "parameters": {
+    "perspective": false,
+    "created": "2026-10-21",
+    "folder": null,
+    "sha256": "b15e2aabadd0fa4723a4b30b8504f20264e7134730effff327355d9f069e44f2",
+    "public_model": false,
+    "id": "flat-wide-types",
+    "username": "s18-alice",
+    "expected_source_hypothesis": {
+      "folder": "home",
+      "global_attributes": "absent",
+      "reopened_typed_log": "equal initial full typed log",
+      "outcome": "success",
+      "stored_traces": 1,
+      "negative_zero": "IEEE754 sign preserved",
+      "stored_timestamp_millis": [
+        1704067200123,
+        1704067201000
+      ],
+      "stored_activities": [
+        "A",
+        "B"
+      ],
+      "classifiers": "exact name and key order",
+      "uuid": "exact identifier",
+      "extensions": "known concept/time/lifecycle exact",
+      "stored_events": 2,
+      "date_precision": "OpenXES milliseconds; raw source nanoseconds explicit difference",
+      "wide_integers": "exact signed64 values even beyond2^53"
+    },
+    "domain": "s18-domain",
+    "extension": "xes",
+    "file": "flat-wide-types.xes",
+    "log_name": "Flat import"
+  },
+  "service_identity": {
+    "class": "org.apromore.service.impl.EventLogServiceImpl",
+    "sha256": "24900e3f31629f3337490b930d51fbe7b4c1436872ed184477ae580a17d61097",
+    "code_source": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Core-Components/Apromore-Manager/build/classes/java/main/"
+  },
+  "scope": "Actual unchanged public importLog username/perspective=false, real reachable dependencies; selective wiring/H2, no Portal/MySQL/perspective=true claim",
+  "seed_folder_ids": {
+    "owned": 1,
+    "foreign": 2
+  },
+  "proxy": {
+    "is_aop_proxy": true,
+    "target_class": "org.apromore.service.impl.EventLogServiceImpl",
+    "advice": [
+      "org.springframework.transaction.interceptor.TransactionInterceptor",
+      "PublicServiceHarness$Wiring$$Lambda$<ephemeral>"
+    ]
+  },
+  "before": {
+    "database": {
+      "logs": 0,
+      "storage": 0,
+      "group_logs": 0
+    },
+    "files": [],
+    "cache": []
+  },
+  "outcome": "success",
+  "after": {
+    "database": {
+      "logs": 1,
+      "storage": 1,
+      "group_logs": 1
+    },
+    "files": [
+      {
+        "relative": "files\\s18\\20261021165313318_Flat import.xes.gz",
+        "bytes": 720,
+        "sha256": "85e8c7261a418888f7ac5d7ba8483494f8d018ab97a04cadea95e1498d5e30a3"
+      }
+    ],
+    "cache": [
+      {
+        "key": "20261021165313318_Flat import.xes.gz",
+        "value_class": "org.deckfour.xes.model.impl.XLogImpl"
+      },
+      {
+        "key": "20261021165313318_Flat import.xes.gzAPMLog",
+        "value_class": "org.apromore.apmlog.logobjects.ImmutableLog"
+      }
+    ]
+  },
+  "first_readback": {
+    "id": 1,
+    "name": "Flat import",
+    "domain": "s18-domain",
+    "created": "2026-10-21",
+    "file_path": "PROXY_PATH",
+    "user_id": 1,
+    "folder_id": null,
+    "storage": {
+      "id": 1,
+      "key": "20261021165313318_Flat import.xes.gz",
+      "prefix": "s18",
+      "path": "FILE::workspace://.local/sprint18/service/corpus02/flat-wide-types-state/files"
+    },
+    "rights": [
+      {
+        "group_id": 1,
+        "group_name": "s18-alice",
+        "group_type": "USER",
+        "read": true,
+        "write": true,
+        "owner": true
+      }
+    ],
+    "reloaded_log": {
+      "attributes": [
+        {
+          "key": "budget",
+          "type": "int",
+          "value": 9007199254740993
+        },
+        {
+          "key": "concept:name",
+          "type": "string",
+          "value": "Public flat contract"
+        },
+        {
+          "key": "department",
+          "type": "string",
+          "value": "synthetic-flat"
+        }
+      ],
+      "classifiers": [
+        {
+          "name": "Activity resource",
+          "keys": [
+            "concept:name",
+            "resource"
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "name": "Concept",
+          "prefix": "concept",
+          "uri": "http://www.xes-standard.org/concept.xesext"
+        },
+        {
+          "name": "Lifecycle",
+          "prefix": "lifecycle",
+          "uri": "http://www.xes-standard.org/lifecycle.xesext"
+        },
+        {
+          "name": "Time",
+          "prefix": "time",
+          "uri": "http://www.xes-standard.org/time.xesext"
+        }
+      ],
+      "global_trace_attributes": [],
+      "global_event_attributes": [],
+      "traces": [
+        {
+          "attributes": [
+            {
+              "key": "concept:name",
+              "type": "string",
+              "value": "flat-case-1"
+            },
+            {
+              "key": "weight",
+              "type": "float",
+              "value": 0.125
+            }
+          ],
+          "events": [
+            {
+              "attributes": [
+                {
+                  "key": "approved",
+                  "type": "boolean",
+                  "value": true
+                },
+                {
+                  "key": "concept:name",
+                  "type": "string",
+                  "value": "A"
+                },
+                {
+                  "key": "lifecycle:transition",
+                  "type": "string",
+                  "value": "complete"
+                },
+                {
+                  "key": "long-max",
+                  "type": "int",
+                  "value": 9223372036854775807
+                },
+                {
+                  "key": "long-min",
+                  "type": "int",
+                  "value": -9223372036854775808
+                },
+                {
+                  "key": "negative-zero",
+                  "type": "float",
+                  "value": -0.0
+                },
+                {
+                  "key": "resource",
+                  "type": "string",
+                  "value": "synthetic-r1"
+                },
+                {
+                  "key": "time:timestamp",
+                  "type": "date",
+                  "value": 1704067200123,
+                  "text": "2024-01-01T00:00:00.123Z"
+                },
+                {
+                  "key": "uuid",
+                  "type": "id",
+                  "value": "00112233-4455-6677-8899-AABBCCDDEEFF"
+                }
+              ]
+            },
+            {
+              "attributes": [
+                {
+                  "key": "concept:name",
+                  "type": "string",
+                  "value": "B"
+                },
+                {
+                  "key": "lifecycle:transition",
+                  "type": "string",
+                  "value": "complete"
+                },
+                {
+                  "key": "resource",
+                  "type": "string",
+                  "value": "synthetic-r2"
+                },
+                {
+                  "key": "time:timestamp",
+                  "type": "date",
+                  "value": 1704067201000,
+                  "text": "2024-01-01T00:00:01Z"
+                },
+                {
+                  "key": "wide-negative",
+                  "type": "int",
+                  "value": -9007199254740993
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "trace_count": 1,
+      "event_count": 2
+    },
+    "reloaded_log_status": "available",
+    "apm_cache_class": "org.apromore.apmlog.logobjects.ImmutableLog"
+  },
+  "transaction_entries": [
+    {
+      "method": "public abstract org.apromore.dao.model.Log org.apromore.service.EventLogService.importLog(java.lang.String,java.lang.Integer,java.lang.String,java.io.InputStream,java.lang.String,java.lang.String,java.lang.String,boolean,boolean) throws java.lang.Exception",
+      "actual_transaction_active": true,
+      "synchronization_active": true,
+      "transaction_name": "org.apromore.service.impl.EventLogServiceImpl.importLog"
+    }
+  ],
+  "reopened_before_read": {
+    "database": {
+      "logs": 1,
+      "storage": 1,
+      "group_logs": 1
+    },
+    "files": [
+      {
+        "relative": "files\\s18\\20261021165313318_Flat import.xes.gz",
+        "bytes": 720,
+        "sha256": "85e8c7261a418888f7ac5d7ba8483494f8d018ab97a04cadea95e1498d5e30a3"
+      }
+    ],
+    "cache": []
+  },
+  "reopened_readback": {
+    "id": 1,
+    "name": "Flat import",
+    "domain": "s18-domain",
+    "created": "2026-10-21",
+    "file_path": "PROXY_PATH",
+    "user_id": 1,
+    "folder_id": null,
+    "storage": {
+      "id": 1,
+      "key": "20261021165313318_Flat import.xes.gz",
+      "prefix": "s18",
+      "path": "FILE::workspace://.local/sprint18/service/corpus02/flat-wide-types-state/files"
+    },
+    "rights": [
+      {
+        "group_id": 1,
+        "group_name": "s18-alice",
+        "group_type": "USER",
+        "read": true,
+        "write": true,
+        "owner": true
+      }
+    ],
+    "reloaded_log": {
+      "attributes": [
+        {
+          "key": "budget",
+          "type": "int",
+          "value": 9007199254740993
+        },
+        {
+          "key": "concept:name",
+          "type": "string",
+          "value": "Public flat contract"
+        },
+        {
+          "key": "department",
+          "type": "string",
+          "value": "synthetic-flat"
+        }
+      ],
+      "classifiers": [
+        {
+          "name": "Activity resource",
+          "keys": [
+            "concept:name",
+            "resource"
+          ]
+        }
+      ],
+      "extensions": [
+        {
+          "name": "Concept",
+          "prefix": "concept",
+          "uri": "http://www.xes-standard.org/concept.xesext"
+        },
+        {
+          "name": "Lifecycle",
+          "prefix": "lifecycle",
+          "uri": "http://www.xes-standard.org/lifecycle.xesext"
+        },
+        {
+          "name": "Time",
+          "prefix": "time",
+          "uri": "http://www.xes-standard.org/time.xesext"
+        }
+      ],
+      "global_trace_attributes": [],
+      "global_event_attributes": [],
+      "traces": [
+        {
+          "attributes": [
+            {
+              "key": "concept:name",
+              "type": "string",
+              "value": "flat-case-1"
+            },
+            {
+              "key": "weight",
+              "type": "float",
+              "value": 0.125
+            }
+          ],
+          "events": [
+            {
+              "attributes": [
+                {
+                  "key": "approved",
+                  "type": "boolean",
+                  "value": true
+                },
+                {
+                  "key": "concept:name",
+                  "type": "string",
+                  "value": "A"
+                },
+                {
+                  "key": "lifecycle:transition",
+                  "type": "string",
+                  "value": "complete"
+                },
+                {
+                  "key": "long-max",
+                  "type": "int",
+                  "value": 9223372036854775807
+                },
+                {
+                  "key": "long-min",
+                  "type": "int",
+                  "value": -9223372036854775808
+                },
+                {
+                  "key": "negative-zero",
+                  "type": "float",
+                  "value": -0.0
+                },
+                {
+                  "key": "resource",
+                  "type": "string",
+                  "value": "synthetic-r1"
+                },
+                {
+                  "key": "time:timestamp",
+                  "type": "date",
+                  "value": 1704067200123,
+                  "text": "2024-01-01T00:00:00.123Z"
+                },
+                {
+                  "key": "uuid",
+                  "type": "id",
+                  "value": "00112233-4455-6677-8899-AABBCCDDEEFF"
+                }
+              ]
+            },
+            {
+              "attributes": [
+                {
+                  "key": "concept:name",
+                  "type": "string",
+                  "value": "B"
+                },
+                {
+                  "key": "lifecycle:transition",
+                  "type": "string",
+                  "value": "complete"
+                },
+                {
+                  "key": "resource",
+                  "type": "string",
+                  "value": "synthetic-r2"
+                },
+                {
+                  "key": "time:timestamp",
+                  "type": "date",
+                  "value": 1704067201000,
+                  "text": "2024-01-01T00:00:01Z"
+                },
+                {
+                  "key": "wide-negative",
+                  "type": "int",
+                  "value": -9007199254740993
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "trace_count": 1,
+      "event_count": 2
+    },
+    "reloaded_log_status": "available",
+    "apm_cache_class": "org.apromore.apmlog.logobjects.ImmutableLog"
+  },
+  "reopened_after_read": {
+    "database": {
+      "logs": 1,
+      "storage": 1,
+      "group_logs": 1
+    },
+    "files": [
+      {
+        "relative": "files\\s18\\20261021165313318_Flat import.xes.gz",
+        "bytes": 720,
+        "sha256": "85e8c7261a418888f7ac5d7ba8483494f8d018ab97a04cadea95e1498d5e30a3"
+      }
+    ],
+    "cache": [
+      {
+        "key": "20261021165313318_Flat import.xes.gz",
+        "value_class": "org.deckfour.xes.model.impl.XLogImpl"
+      },
+      {
+        "key": "20261021165313318_Flat import.xes.gzAPMLog",
+        "value_class": "org.apromore.apmlog.logobjects.ImmutableLog"
+      }
+    ]
+  },
+  "status": "ACTUAL_PUBLIC_CASE_OBSERVED"
+}

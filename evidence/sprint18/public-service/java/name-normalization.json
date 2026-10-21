@@ -1,0 +1,349 @@
+{
+  "schema_version": 1,
+  "id": "name-normalization",
+  "input_sha256": "3ce20038300de8f6d9c7f65c515cf7d10eab2e7bfc4c4df8939a09d00738f182",
+  "corpus_sha256": "60878d96cdb6d3882ff1bc11cfa32e8207f2457b6c76c47c9fc73713ad08a648",
+  "parameters": {
+    "id": "name-normalization",
+    "file": "typed-defaults.xes",
+    "sha256": "3ce20038300de8f6d9c7f65c515cf7d10eab2e7bfc4c4df8939a09d00738f182",
+    "username": "s18-alice",
+    "folder": null,
+    "public_model": false,
+    "perspective": false,
+    "log_name": " report.v1. ",
+    "extension": "xes",
+    "domain": "s18-domain",
+    "created": "2026-10-21",
+    "expected_source_hypothesis": {
+      "outcome": "success",
+      "normalized_name": "report_v1",
+      "folder": "home",
+      "rights": {
+        "s18-alice": [
+          true,
+          true,
+          true
+        ]
+      },
+      "log_delta": 1,
+      "storage_delta": 1
+    }
+  },
+  "service_identity": {
+    "class": "org.apromore.service.impl.EventLogServiceImpl",
+    "sha256": "24900e3f31629f3337490b930d51fbe7b4c1436872ed184477ae580a17d61097",
+    "code_source": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Core-Components/Apromore-Manager/build/classes/java/main/"
+  },
+  "scope": "Actual unchanged public importLog username/perspective=false, real reachable dependencies; selective wiring/H2, no Portal/MySQL/perspective=true claim",
+  "seed_folder_ids": {
+    "owned": 1,
+    "foreign": 2
+  },
+  "proxy": {
+    "is_aop_proxy": true,
+    "target_class": "org.apromore.service.impl.EventLogServiceImpl",
+    "advice": [
+      "org.springframework.transaction.interceptor.TransactionInterceptor",
+      "PublicServiceHarness$Wiring$$Lambda$<ephemeral>"
+    ]
+  },
+  "before": {
+    "database": {
+      "logs": 0,
+      "storage": 0,
+      "group_logs": 0
+    },
+    "files": [],
+    "cache": []
+  },
+  "outcome": "success",
+  "after": {
+    "database": {
+      "logs": 1,
+      "storage": 1,
+      "group_logs": 1
+    },
+    "files": [
+      {
+        "relative": "files\\s18\\20261021164831934_ report.v1. .xes.gz",
+        "bytes": 535,
+        "sha256": "fbe830e0e9cc7508a0769079a0cb22cb3a4602f17b41bfaa496db9b6c8b858de"
+      }
+    ],
+    "cache": [
+      {
+        "key": "20261021164831934_ report.v1. .xes.gz",
+        "value_class": "org.deckfour.xes.model.impl.XLogImpl"
+      },
+      {
+        "key": "20261021164831934_ report.v1. .xes.gzAPMLog",
+        "value_class": "org.apromore.apmlog.logobjects.ImmutableLog"
+      }
+    ]
+  },
+  "first_readback": {
+    "id": 1,
+    "name": "report_v1",
+    "domain": "s18-domain",
+    "created": "2026-10-21",
+    "file_path": "PROXY_PATH",
+    "user_id": 1,
+    "folder_id": null,
+    "storage": {
+      "id": 1,
+      "key": "20261021164831934_ report.v1. .xes.gz",
+      "prefix": "s18",
+      "path": "FILE::workspace://.local/sprint18/service/corpus01/name-normalization-state/files"
+    },
+    "rights": [
+      {
+        "group_id": 1,
+        "group_name": "s18-alice",
+        "group_type": "USER",
+        "read": true,
+        "write": true,
+        "owner": true
+      }
+    ],
+    "reloaded_log": {
+      "attributes": [
+        {
+          "key": "concept:name",
+          "type": "string",
+          "value": "Anonymous log imported from "
+        },
+        {
+          "key": "department",
+          "type": "string",
+          "value": "synthetic"
+        }
+      ],
+      "classifiers": [
+        {
+          "name": "Activity lifecycle",
+          "keys": [
+            "concept:name",
+            "lifecycle:transition"
+          ]
+        }
+      ],
+      "extensions": [],
+      "global_trace_attributes": [],
+      "global_event_attributes": [
+        {
+          "key": "resource",
+          "type": "string",
+          "value": "global-default"
+        }
+      ],
+      "traces": [
+        {
+          "attributes": [
+            {
+              "key": "concept:name",
+              "type": "string",
+              "value": "case-1"
+            },
+            {
+              "key": "weight",
+              "type": "float",
+              "value": 1.5
+            }
+          ],
+          "events": [
+            {
+              "attributes": [
+                {
+                  "key": "approved",
+                  "type": "boolean",
+                  "value": true
+                },
+                {
+                  "key": "concept:name",
+                  "type": "string",
+                  "value": "A"
+                },
+                {
+                  "key": "cost",
+                  "type": "int",
+                  "value": 7
+                },
+                {
+                  "key": "lifecycle:transition",
+                  "type": "string",
+                  "value": "complete"
+                },
+                {
+                  "key": "time:timestamp",
+                  "type": "date",
+                  "value": 1704067200123,
+                  "text": "2024-01-01T00:00:00.123Z"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "trace_count": 1,
+      "event_count": 1
+    },
+    "apm_cache_class": "org.apromore.apmlog.logobjects.ImmutableLog"
+  },
+  "transaction_entries": [
+    {
+      "method": "public abstract org.apromore.dao.model.Log org.apromore.service.EventLogService.importLog(java.lang.String,java.lang.Integer,java.lang.String,java.io.InputStream,java.lang.String,java.lang.String,java.lang.String,boolean,boolean) throws java.lang.Exception",
+      "actual_transaction_active": true,
+      "synchronization_active": true,
+      "transaction_name": "org.apromore.service.impl.EventLogServiceImpl.importLog"
+    }
+  ],
+  "reopened_before_read": {
+    "database": {
+      "logs": 1,
+      "storage": 1,
+      "group_logs": 1
+    },
+    "files": [
+      {
+        "relative": "files\\s18\\20261021164831934_ report.v1. .xes.gz",
+        "bytes": 535,
+        "sha256": "fbe830e0e9cc7508a0769079a0cb22cb3a4602f17b41bfaa496db9b6c8b858de"
+      }
+    ],
+    "cache": []
+  },
+  "reopened_readback": {
+    "id": 1,
+    "name": "report_v1",
+    "domain": "s18-domain",
+    "created": "2026-10-21",
+    "file_path": "PROXY_PATH",
+    "user_id": 1,
+    "folder_id": null,
+    "storage": {
+      "id": 1,
+      "key": "20261021164831934_ report.v1. .xes.gz",
+      "prefix": "s18",
+      "path": "FILE::workspace://.local/sprint18/service/corpus01/name-normalization-state/files"
+    },
+    "rights": [
+      {
+        "group_id": 1,
+        "group_name": "s18-alice",
+        "group_type": "USER",
+        "read": true,
+        "write": true,
+        "owner": true
+      }
+    ],
+    "reloaded_log": {
+      "attributes": [
+        {
+          "key": "concept:name",
+          "type": "string",
+          "value": "Anonymous log imported from"
+        },
+        {
+          "key": "department",
+          "type": "string",
+          "value": "synthetic"
+        }
+      ],
+      "classifiers": [
+        {
+          "name": "Activity lifecycle",
+          "keys": [
+            "concept:name",
+            "lifecycle:transition"
+          ]
+        }
+      ],
+      "extensions": [],
+      "global_trace_attributes": [],
+      "global_event_attributes": [
+        {
+          "key": "resource",
+          "type": "string",
+          "value": "global-default"
+        }
+      ],
+      "traces": [
+        {
+          "attributes": [
+            {
+              "key": "concept:name",
+              "type": "string",
+              "value": "case-1"
+            },
+            {
+              "key": "weight",
+              "type": "float",
+              "value": 1.5
+            }
+          ],
+          "events": [
+            {
+              "attributes": [
+                {
+                  "key": "approved",
+                  "type": "boolean",
+                  "value": true
+                },
+                {
+                  "key": "concept:name",
+                  "type": "string",
+                  "value": "A"
+                },
+                {
+                  "key": "cost",
+                  "type": "int",
+                  "value": 7
+                },
+                {
+                  "key": "lifecycle:transition",
+                  "type": "string",
+                  "value": "complete"
+                },
+                {
+                  "key": "time:timestamp",
+                  "type": "date",
+                  "value": 1704067200123,
+                  "text": "2024-01-01T00:00:00.123Z"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "trace_count": 1,
+      "event_count": 1
+    },
+    "apm_cache_class": "org.apromore.apmlog.logobjects.ImmutableLog"
+  },
+  "reopened_after_read": {
+    "database": {
+      "logs": 1,
+      "storage": 1,
+      "group_logs": 1
+    },
+    "files": [
+      {
+        "relative": "files\\s18\\20261021164831934_ report.v1. .xes.gz",
+        "bytes": 535,
+        "sha256": "fbe830e0e9cc7508a0769079a0cb22cb3a4602f17b41bfaa496db9b6c8b858de"
+      }
+    ],
+    "cache": [
+      {
+        "key": "20261021164831934_ report.v1. .xes.gz",
+        "value_class": "org.deckfour.xes.model.impl.XLogImpl"
+      },
+      {
+        "key": "20261021164831934_ report.v1. .xes.gzAPMLog",
+        "value_class": "org.apromore.apmlog.logobjects.ImmutableLog"
+      }
+    ]
+  },
+  "status": "ACTUAL_PUBLIC_CASE_OBSERVED"
+}

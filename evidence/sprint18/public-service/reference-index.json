@@ -1,0 +1,356 @@
+{
+  "schema_version": 1,
+  "status": "SANITIZED_ACTUAL_PUBLIC_FINITE_REFERENCE_INDEX",
+  "original_index_sha256": "833e07a357d38ab745a64cde78581d09abd6f82bdd3cf3627648f058324f6817",
+  "case_count": 12,
+  "source_aware_carry": {
+    "path": "evidence/sprint18/public-service/carry.json",
+    "sha256": "bf8a320c57e197fb876ab104ecc62ede11ab5cab641596e3e70d1cd0cd226d28",
+    "original_sha256": "7DCF59D4ABA5B454883B77F2367C98E6C69DFC501FA8EB50E1071905E9EF762A"
+  },
+  "all_frozen_checked_fields_match": false,
+  "cases": [
+    {
+      "id": "minimal-home-private",
+      "input_sha256": "3ce20038300de8f6d9c7f65c515cf7d10eab2e7bfc4c4df8939a09d00738f182",
+      "observation_sha256": "b3ca2aff1fae76a8d0f598dfcc35af434dee1e59575347be0a8694a7b4d05f65",
+      "original_observation_sha256": "d3e3185c0271784d32bb62464ff5aa12193f1ec6ed7bf0e530a05a2ce51a8ebf",
+      "native": {
+        "path": "evidence/sprint18/public-service/java/minimal-home-private",
+        "private_capture_alias": "private-evidence://sprint18/service/corpus01/minimal-home-private"
+      },
+      "adapter_generation": "corpus01_old_non_null_path_carried",
+      "frozen_manual_expected_checks": {
+        "outcome": true,
+        "actual_transaction_active": true,
+        "actual_original_service": true,
+        "reopened_database_equal": true,
+        "reopened_files_equal": true,
+        "reopened_cache_initially_empty": true,
+        "log_delta": true,
+        "storage_delta": true,
+        "durable_reload_available": true,
+        "folder": true,
+        "rights": true,
+        "stored_traces": true,
+        "stored_events": true,
+        "default_xlog_name": true,
+        "default_lifecycle": true,
+        "custom_flat_types": true,
+        "classifiers": true,
+        "global_metadata_not_materialized": true,
+        "timestamp_millisecond_precision": true
+      },
+      "pending_manual_expected_fields": []
+    },
+    {
+      "id": "owned-folder-private",
+      "input_sha256": "3ce20038300de8f6d9c7f65c515cf7d10eab2e7bfc4c4df8939a09d00738f182",
+      "observation_sha256": "b9dafbc44292eece9d464ed76f944cddf022e0a425cbdf6114c17db20ceafb5e",
+      "original_observation_sha256": "ec8ae4614e84c91d7e688239e0e21f771ab0e9d331c980e5b20cae08f5eddee8",
+      "native": {
+        "path": "evidence/sprint18/public-service/java/owned-folder-private",
+        "private_capture_alias": "private-evidence://sprint18/service/corpus01/owned-folder-private"
+      },
+      "adapter_generation": "corpus01_old_non_null_path_carried",
+      "frozen_manual_expected_checks": {
+        "outcome": true,
+        "actual_transaction_active": true,
+        "actual_original_service": true,
+        "reopened_database_equal": true,
+        "reopened_files_equal": true,
+        "reopened_cache_initially_empty": true,
+        "log_delta": true,
+        "storage_delta": true,
+        "durable_reload_available": true,
+        "folder": true,
+        "rights": true,
+        "default_xlog_name": true,
+        "default_lifecycle": true,
+        "custom_flat_types": true,
+        "classifiers": true,
+        "global_metadata_not_materialized": true,
+        "timestamp_millisecond_precision": true
+      },
+      "pending_manual_expected_fields": []
+    },
+    {
+      "id": "foreign-folder-redirect",
+      "input_sha256": "3ce20038300de8f6d9c7f65c515cf7d10eab2e7bfc4c4df8939a09d00738f182",
+      "observation_sha256": "a0a08155e0aaa555d82cacd3eddf2d7e71c9c01f188575fcdc3c3173f9267c62",
+      "original_observation_sha256": "ed364638f8402e8cde01a2a4d8c382a684b320fecade8d972d1122a83070841a",
+      "native": {
+        "path": "evidence/sprint18/public-service/java/foreign-folder-redirect",
+        "private_capture_alias": "private-evidence://sprint18/service/corpus01/foreign-folder-redirect"
+      },
+      "adapter_generation": "corpus01_old_non_null_path_carried",
+      "frozen_manual_expected_checks": {
+        "outcome": true,
+        "actual_transaction_active": true,
+        "actual_original_service": true,
+        "reopened_database_equal": true,
+        "reopened_files_equal": true,
+        "reopened_cache_initially_empty": true,
+        "log_delta": true,
+        "storage_delta": true,
+        "durable_reload_available": true,
+        "folder": true,
+        "rights": true,
+        "default_xlog_name": true,
+        "default_lifecycle": true,
+        "custom_flat_types": true,
+        "classifiers": true,
+        "global_metadata_not_materialized": true,
+        "timestamp_millisecond_precision": true
+      },
+      "pending_manual_expected_fields": []
+    },
+    {
+      "id": "owned-folder-public",
+      "input_sha256": "3ce20038300de8f6d9c7f65c515cf7d10eab2e7bfc4c4df8939a09d00738f182",
+      "observation_sha256": "81b9be320f8acfa0340a131d9e7281b5dbb618722e5c7e51c5bd66981db22fcd",
+      "original_observation_sha256": "429fb3188844f1b81012880e67388188e16923c0ea833f92d76c83aade93bd2f",
+      "native": {
+        "path": "evidence/sprint18/public-service/java/owned-folder-public",
+        "private_capture_alias": "private-evidence://sprint18/service/corpus01/owned-folder-public"
+      },
+      "adapter_generation": "corpus01_old_non_null_path_carried",
+      "frozen_manual_expected_checks": {
+        "outcome": true,
+        "actual_transaction_active": true,
+        "actual_original_service": true,
+        "reopened_database_equal": true,
+        "reopened_files_equal": true,
+        "reopened_cache_initially_empty": true,
+        "log_delta": true,
+        "storage_delta": true,
+        "durable_reload_available": true,
+        "folder": true,
+        "rights": true,
+        "default_xlog_name": true,
+        "default_lifecycle": true,
+        "custom_flat_types": true,
+        "classifiers": true,
+        "global_metadata_not_materialized": true,
+        "timestamp_millisecond_precision": true
+      },
+      "pending_manual_expected_fields": []
+    },
+    {
+      "id": "unknown-user",
+      "input_sha256": "3ce20038300de8f6d9c7f65c515cf7d10eab2e7bfc4c4df8939a09d00738f182",
+      "observation_sha256": "8af00f0220a7b22edd7e90fe225bfe3932ae4ffc9fa6bfac818f5afa642d1198",
+      "original_observation_sha256": "ac6fc45d32218fb701acb0ed7ba2ec64bbe0a02434729bd33d13c275d7f4b82e",
+      "native": {
+        "path": "evidence/sprint18/public-service/java/unknown-user",
+        "private_capture_alias": "private-evidence://sprint18/service/corpus01/unknown-user"
+      },
+      "adapter_generation": "corpus01_old_non_null_path_carried",
+      "frozen_manual_expected_checks": {
+        "outcome": true,
+        "actual_transaction_active": true,
+        "actual_original_service": true,
+        "reopened_database_equal": true,
+        "reopened_files_equal": true,
+        "reopened_cache_initially_empty": true,
+        "log_delta": true,
+        "storage_delta": true,
+        "file_delta": true,
+        "cache_delta": true,
+        "files_exactly_unchanged": true,
+        "cache_exactly_unchanged": true,
+        "exception_class": true
+      },
+      "pending_manual_expected_fields": []
+    },
+    {
+      "id": "invalid-log",
+      "input_sha256": "5cc07927652418b5479ebc0f9dc33772d23cd3be63a75be8cafcb600b5f94967",
+      "observation_sha256": "69ec1cc1499f193941974476d2005892b474ff7f5c967b1e719df088bd0c821d",
+      "original_observation_sha256": "e097b7340b47c2ea977dd2fc88fc0f1d8b49ff2033d201b8998f783d1d6d505a",
+      "native": {
+        "path": "evidence/sprint18/public-service/java/invalid-log",
+        "private_capture_alias": "private-evidence://sprint18/service/corpus01/invalid-log"
+      },
+      "adapter_generation": "corpus01_old_non_null_path_carried",
+      "frozen_manual_expected_checks": {
+        "outcome": true,
+        "actual_transaction_active": true,
+        "actual_original_service": true,
+        "reopened_database_equal": true,
+        "reopened_files_equal": true,
+        "reopened_cache_initially_empty": true,
+        "log_delta": true,
+        "storage_delta": true,
+        "file_delta": true,
+        "cache_delta": true,
+        "files_exactly_unchanged": true,
+        "cache_exactly_unchanged": true,
+        "exception_message": true
+      },
+      "pending_manual_expected_fields": []
+    },
+    {
+      "id": "outer-rollback",
+      "input_sha256": "3ce20038300de8f6d9c7f65c515cf7d10eab2e7bfc4c4df8939a09d00738f182",
+      "observation_sha256": "22bd80dde215c59e76a56393b75527276a4a0893027f6a336b949e7da33cbe73",
+      "original_observation_sha256": "aeac92656ffb0b86c68a357a1f9d300ea41d36a903149462e89c1120ac79bd6b",
+      "native": {
+        "path": "evidence/sprint18/public-service/java/outer-rollback",
+        "private_capture_alias": "private-evidence://sprint18/service/corpus01/outer-rollback"
+      },
+      "adapter_generation": "corpus01_old_non_null_path_carried",
+      "frozen_manual_expected_checks": {
+        "outcome": true,
+        "actual_transaction_active": true,
+        "actual_original_service": true,
+        "reopened_database_equal": true,
+        "reopened_files_equal": true,
+        "reopened_cache_initially_empty": true,
+        "log_delta": true,
+        "storage_delta": true
+      },
+      "pending_manual_expected_fields": []
+    },
+    {
+      "id": "duplicate-owned-name",
+      "input_sha256": "3ce20038300de8f6d9c7f65c515cf7d10eab2e7bfc4c4df8939a09d00738f182",
+      "observation_sha256": "afb893b24dcbd51f34961c99fc09e0d9cc0103568f81d8a1e6d8278ef9ecf045",
+      "original_observation_sha256": "e8c42ea57c2f8af9864dc2ce931a231a91ccfe462666362963c8cc02b051a061",
+      "native": {
+        "path": "evidence/sprint18/public-service/java/duplicate-owned-name",
+        "private_capture_alias": "private-evidence://sprint18/service/corpus01/duplicate-owned-name"
+      },
+      "adapter_generation": "corpus01_old_non_null_path_carried",
+      "frozen_manual_expected_checks": {
+        "outcome": true,
+        "actual_transaction_active": true,
+        "actual_original_service": true,
+        "reopened_database_equal": true,
+        "reopened_files_equal": true,
+        "reopened_cache_initially_empty": true,
+        "log_delta": true,
+        "storage_delta": true
+      },
+      "pending_manual_expected_fields": []
+    },
+    {
+      "id": "name-normalization",
+      "input_sha256": "3ce20038300de8f6d9c7f65c515cf7d10eab2e7bfc4c4df8939a09d00738f182",
+      "observation_sha256": "15c15d28a2595dd71cec5a8a6c10b37088f87cb5145d99e2377fcf11d9a04de2",
+      "original_observation_sha256": "b10237891cbc9b34718e2570dd7dbf97f937fc251c27bd8af94310c18d72dede",
+      "native": {
+        "path": "evidence/sprint18/public-service/java/name-normalization",
+        "private_capture_alias": "private-evidence://sprint18/service/corpus01/name-normalization"
+      },
+      "adapter_generation": "corpus01_old_non_null_path_carried",
+      "frozen_manual_expected_checks": {
+        "outcome": true,
+        "actual_transaction_active": true,
+        "actual_original_service": true,
+        "reopened_database_equal": true,
+        "reopened_files_equal": true,
+        "reopened_cache_initially_empty": true,
+        "log_delta": true,
+        "storage_delta": true,
+        "durable_reload_available": true,
+        "folder": true,
+        "rights": true,
+        "normalized_name": true,
+        "default_xlog_name": true,
+        "default_lifecycle": true,
+        "custom_flat_types": true,
+        "classifiers": true,
+        "global_metadata_not_materialized": true,
+        "timestamp_millisecond_precision": true
+      },
+      "pending_manual_expected_fields": []
+    },
+    {
+      "id": "order-offset-lifecycle",
+      "input_sha256": "e2fccbe9fa11db9bf5c1948a875e0fa72ec34e7633cd413e46821959f10ef6dd",
+      "observation_sha256": "b4107b45607db9b31b743d07b2189291574d58da17fbca4e8bf4d227349eb1a2",
+      "original_observation_sha256": "24b5f19062181cfa3f31f78b0af540768c02994161950342ed612aa87fa887a9",
+      "native": {
+        "path": "evidence/sprint18/public-service/java/order-offset-lifecycle",
+        "private_capture_alias": "private-evidence://sprint18/service/corpus01/order-offset-lifecycle"
+      },
+      "adapter_generation": "corpus01_old_non_null_path_carried",
+      "frozen_manual_expected_checks": {
+        "outcome": true,
+        "actual_transaction_active": true,
+        "actual_original_service": true,
+        "reopened_database_equal": true,
+        "reopened_files_equal": true,
+        "reopened_cache_initially_empty": true,
+        "log_delta": true,
+        "storage_delta": true,
+        "durable_reload_available": true,
+        "stored_activities": true,
+        "stored_timestamp_millis": true,
+        "stored_lifecycle": true
+      },
+      "pending_manual_expected_fields": []
+    },
+    {
+      "id": "all-filtered",
+      "input_sha256": "3c3c5e3e35cae8315e2bef39e27cab65d57113c4d990eb2b0c927c9a29de950e",
+      "observation_sha256": "ca94e3ea61f2f054ece19c5e8c3de1879b2dd654a4e0bb7e404f325fa23f5e34",
+      "original_observation_sha256": "a7cc9ac16423fe03b737264fa060ae4282334f2046be547e77e760f8ad2648db",
+      "native": {
+        "path": "evidence/sprint18/public-service/java/all-filtered",
+        "private_capture_alias": "private-evidence://sprint18/service/corpus02/all-filtered"
+      },
+      "adapter_generation": "corpus02_null_capable_observer_actual",
+      "frozen_manual_expected_checks": {
+        "outcome": true,
+        "actual_transaction_active": true,
+        "actual_original_service": true,
+        "reopened_database_equal": true,
+        "reopened_files_equal": true,
+        "reopened_cache_initially_empty": true,
+        "log_delta": true,
+        "storage_delta": true,
+        "durable_reload_available": false,
+        "stored_traces": true,
+        "stored_events": true,
+        "apm_cache": true
+      },
+      "pending_manual_expected_fields": []
+    },
+    {
+      "id": "flat-wide-types",
+      "input_sha256": "b15e2aabadd0fa4723a4b30b8504f20264e7134730effff327355d9f069e44f2",
+      "observation_sha256": "cc9bacdc5a001eeed150a8fa9e0d8be014998ebc3c9519d3120a854895dd41ef",
+      "original_observation_sha256": "94b41f2617cb0ed8edd8344fd1a26db2decc7e891df46b6f92c3e64c48d52f0d",
+      "native": {
+        "path": "evidence/sprint18/public-service/java/flat-wide-types",
+        "private_capture_alias": "private-evidence://sprint18/service/corpus02/flat-wide-types"
+      },
+      "adapter_generation": "corpus02_null_capable_observer_actual",
+      "frozen_manual_expected_checks": {
+        "outcome": true,
+        "actual_transaction_active": true,
+        "actual_original_service": true,
+        "reopened_database_equal": true,
+        "reopened_files_equal": true,
+        "reopened_cache_initially_empty": true,
+        "durable_reload_available": true,
+        "folder": true,
+        "stored_traces": true,
+        "stored_events": true,
+        "stored_activities": true,
+        "stored_timestamp_millis": true,
+        "wide_integers": true,
+        "negative_zero": true,
+        "uuid": true,
+        "classifiers": true,
+        "extensions": true,
+        "global_attributes": true,
+        "reopened_full_typed_equal": true
+      },
+      "pending_manual_expected_fields": []
+    }
+  ],
+  "no_single_adapter_binary_claim": true
+}

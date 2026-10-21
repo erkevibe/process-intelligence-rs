@@ -1,0 +1,437 @@
+{
+  "schema_version": 1,
+  "kind": "EXACT_OWN_NULL_OBSERVER_REPAIR_SOURCE_AWARE_TEN_CASE_CARRY",
+  "old_source": {
+    "path": "workspace://.local/sprint18/service/preserved-harness-2d8d.java",
+    "sha256": "2d8d30cac64306f1d8feb9dbe93fce4bfa6b8f73308e4a8ae9fdba3f828e687e"
+  },
+  "new_source": {
+    "path": "workspace://tools/oracle/public-service-harness.java",
+    "sha256": "e3f4e4a6b5a4de38280855b2b2581468da15e611595387b2a8f0b9cebc463610"
+  },
+  "exact_only_declared_replacement": true,
+  "source_diff": [
+    "--- \n",
+    "+++ \n",
+    "@@ -130,7 +130,9 @@\n",
+    "             Object apm=context.getBean(CacheRepositoryImpl.class).get(storage.getKey()+\"APMLog\");",
+    "             return obj(\"id\",log.getId(),\"name\",log.getName(),\"domain\",log.getDomain(),\"created\",log.getCreateDate(),\"file_path\",log.getFilePath(),\"user_id\",log.getUser().getId(),\"folder_id\",log.getFolder()==null?null:log.getFolder().getId(),",
+    "               \"storage\",obj(\"id\",storage.getId(),\"key\",storage.getKey(),\"prefix\",storage.getPrefix(),\"path\",storage.getStoragePath()),\"rights\",rights,",
+    "-              \"reloaded_log\",PublicServiceXesObserver.log(xlog),\"apm_cache_class\",apm==null?null:apm.getClass().getName());",
+    "+              \"reloaded_log\",xlog==null?null:PublicServiceXesObserver.log(xlog),",
+    "+              \"reloaded_log_status\",xlog==null?\"actual_service_returned_null\":\"available\",",
+    "+              \"apm_cache_class\",apm==null?null:apm.getClass().getName());",
+    "         });",
+    "     }",
+    "     public static void main(String[] args)throws Exception {"
+  ],
+  "unchanged_compiled_classes": [
+    "PublicServiceCorpusHarness.class",
+    "PublicServiceCorpusHarness$CheckedBridge.class",
+    "PublicServiceCorpusHarness$IntentionalRollback.class",
+    "PublicServiceHarness$Wiring.class",
+    "PublicServiceHarness$Wiring$1.class",
+    "PublicServiceXesObserver.class"
+  ],
+  "changed_compiled_classes": [
+    "PublicServiceHarness.class"
+  ],
+  "cases": [
+    {
+      "id": "minimal-home-private",
+      "observation_sha256": "d3e3185c0271784d32bb62464ff5aa12193f1ec6ed7bf0e530a05a2ce51a8ebf",
+      "non_null_reloaded_fields": [
+        "/first_readback/reloaded_log",
+        "/reopened_readback/reloaded_log"
+      ],
+      "no_saved_readback_on_public_exception_or_outer_rollback": false,
+      "old_adapter_source_sha256": "2d8d30cac64306f1d8feb9dbe93fce4bfa6b8f73308e4a8ae9fdba3f828e687e",
+      "old_class_pins": [
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceCorpusHarness.class",
+          "sha256": "018D5F7D2E6695D98132B604B5A7D841D9EB0C8BB505A3E502FAC7DB2E128849"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceCorpusHarness$CheckedBridge.class",
+          "sha256": "4290E8FB77F36C4E148ECCFAA802263FA3B19573DF8831FF97FEFF2B43D96C08"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceCorpusHarness$IntentionalRollback.class",
+          "sha256": "FCF70D30E4B36D9D4FC4C006E8285B9B64581799A4B69D1C760783DCA1848D26"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceHarness.class",
+          "sha256": "03A36074520120B4D09557977C918478A0D6C37759C75BD159A919786E550623"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceHarness$Wiring.class",
+          "sha256": "20F588371DBE8F4CED07115D6B8ABEAE385D6C5F2AA686881F4DC4DC5A413B09"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceHarness$Wiring$1.class",
+          "sha256": "169A665D46F6BF8BA0EB2F3E7D5FAC7348DD78F1E1F09290EA4DFCCD95B3561C"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceXesObserver.class",
+          "sha256": "F20AD946F23BD563BECE7594CA911B9016FEADA568B8E8028CF8862684D686DB"
+        }
+      ]
+    },
+    {
+      "id": "owned-folder-private",
+      "observation_sha256": "ec8ae4614e84c91d7e688239e0e21f771ab0e9d331c980e5b20cae08f5eddee8",
+      "non_null_reloaded_fields": [
+        "/first_readback/reloaded_log",
+        "/reopened_readback/reloaded_log"
+      ],
+      "no_saved_readback_on_public_exception_or_outer_rollback": false,
+      "old_adapter_source_sha256": "2d8d30cac64306f1d8feb9dbe93fce4bfa6b8f73308e4a8ae9fdba3f828e687e",
+      "old_class_pins": [
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceCorpusHarness.class",
+          "sha256": "018D5F7D2E6695D98132B604B5A7D841D9EB0C8BB505A3E502FAC7DB2E128849"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceCorpusHarness$CheckedBridge.class",
+          "sha256": "4290E8FB77F36C4E148ECCFAA802263FA3B19573DF8831FF97FEFF2B43D96C08"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceCorpusHarness$IntentionalRollback.class",
+          "sha256": "FCF70D30E4B36D9D4FC4C006E8285B9B64581799A4B69D1C760783DCA1848D26"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceHarness.class",
+          "sha256": "03A36074520120B4D09557977C918478A0D6C37759C75BD159A919786E550623"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceHarness$Wiring.class",
+          "sha256": "20F588371DBE8F4CED07115D6B8ABEAE385D6C5F2AA686881F4DC4DC5A413B09"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceHarness$Wiring$1.class",
+          "sha256": "169A665D46F6BF8BA0EB2F3E7D5FAC7348DD78F1E1F09290EA4DFCCD95B3561C"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceXesObserver.class",
+          "sha256": "F20AD946F23BD563BECE7594CA911B9016FEADA568B8E8028CF8862684D686DB"
+        }
+      ]
+    },
+    {
+      "id": "foreign-folder-redirect",
+      "observation_sha256": "ed364638f8402e8cde01a2a4d8c382a684b320fecade8d972d1122a83070841a",
+      "non_null_reloaded_fields": [
+        "/first_readback/reloaded_log",
+        "/reopened_readback/reloaded_log"
+      ],
+      "no_saved_readback_on_public_exception_or_outer_rollback": false,
+      "old_adapter_source_sha256": "2d8d30cac64306f1d8feb9dbe93fce4bfa6b8f73308e4a8ae9fdba3f828e687e",
+      "old_class_pins": [
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceCorpusHarness.class",
+          "sha256": "018D5F7D2E6695D98132B604B5A7D841D9EB0C8BB505A3E502FAC7DB2E128849"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceCorpusHarness$CheckedBridge.class",
+          "sha256": "4290E8FB77F36C4E148ECCFAA802263FA3B19573DF8831FF97FEFF2B43D96C08"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceCorpusHarness$IntentionalRollback.class",
+          "sha256": "FCF70D30E4B36D9D4FC4C006E8285B9B64581799A4B69D1C760783DCA1848D26"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceHarness.class",
+          "sha256": "03A36074520120B4D09557977C918478A0D6C37759C75BD159A919786E550623"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceHarness$Wiring.class",
+          "sha256": "20F588371DBE8F4CED07115D6B8ABEAE385D6C5F2AA686881F4DC4DC5A413B09"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceHarness$Wiring$1.class",
+          "sha256": "169A665D46F6BF8BA0EB2F3E7D5FAC7348DD78F1E1F09290EA4DFCCD95B3561C"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceXesObserver.class",
+          "sha256": "F20AD946F23BD563BECE7594CA911B9016FEADA568B8E8028CF8862684D686DB"
+        }
+      ]
+    },
+    {
+      "id": "owned-folder-public",
+      "observation_sha256": "429fb3188844f1b81012880e67388188e16923c0ea833f92d76c83aade93bd2f",
+      "non_null_reloaded_fields": [
+        "/first_readback/reloaded_log",
+        "/reopened_readback/reloaded_log"
+      ],
+      "no_saved_readback_on_public_exception_or_outer_rollback": false,
+      "old_adapter_source_sha256": "2d8d30cac64306f1d8feb9dbe93fce4bfa6b8f73308e4a8ae9fdba3f828e687e",
+      "old_class_pins": [
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceCorpusHarness.class",
+          "sha256": "018D5F7D2E6695D98132B604B5A7D841D9EB0C8BB505A3E502FAC7DB2E128849"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceCorpusHarness$CheckedBridge.class",
+          "sha256": "4290E8FB77F36C4E148ECCFAA802263FA3B19573DF8831FF97FEFF2B43D96C08"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceCorpusHarness$IntentionalRollback.class",
+          "sha256": "FCF70D30E4B36D9D4FC4C006E8285B9B64581799A4B69D1C760783DCA1848D26"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceHarness.class",
+          "sha256": "03A36074520120B4D09557977C918478A0D6C37759C75BD159A919786E550623"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceHarness$Wiring.class",
+          "sha256": "20F588371DBE8F4CED07115D6B8ABEAE385D6C5F2AA686881F4DC4DC5A413B09"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceHarness$Wiring$1.class",
+          "sha256": "169A665D46F6BF8BA0EB2F3E7D5FAC7348DD78F1E1F09290EA4DFCCD95B3561C"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceXesObserver.class",
+          "sha256": "F20AD946F23BD563BECE7594CA911B9016FEADA568B8E8028CF8862684D686DB"
+        }
+      ]
+    },
+    {
+      "id": "unknown-user",
+      "observation_sha256": "ac6fc45d32218fb701acb0ed7ba2ec64bbe0a02434729bd33d13c275d7f4b82e",
+      "non_null_reloaded_fields": [],
+      "no_saved_readback_on_public_exception_or_outer_rollback": true,
+      "old_adapter_source_sha256": "2d8d30cac64306f1d8feb9dbe93fce4bfa6b8f73308e4a8ae9fdba3f828e687e",
+      "old_class_pins": [
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceCorpusHarness.class",
+          "sha256": "018D5F7D2E6695D98132B604B5A7D841D9EB0C8BB505A3E502FAC7DB2E128849"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceCorpusHarness$CheckedBridge.class",
+          "sha256": "4290E8FB77F36C4E148ECCFAA802263FA3B19573DF8831FF97FEFF2B43D96C08"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceCorpusHarness$IntentionalRollback.class",
+          "sha256": "FCF70D30E4B36D9D4FC4C006E8285B9B64581799A4B69D1C760783DCA1848D26"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceHarness.class",
+          "sha256": "03A36074520120B4D09557977C918478A0D6C37759C75BD159A919786E550623"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceHarness$Wiring.class",
+          "sha256": "20F588371DBE8F4CED07115D6B8ABEAE385D6C5F2AA686881F4DC4DC5A413B09"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceHarness$Wiring$1.class",
+          "sha256": "169A665D46F6BF8BA0EB2F3E7D5FAC7348DD78F1E1F09290EA4DFCCD95B3561C"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceXesObserver.class",
+          "sha256": "F20AD946F23BD563BECE7594CA911B9016FEADA568B8E8028CF8862684D686DB"
+        }
+      ]
+    },
+    {
+      "id": "invalid-log",
+      "observation_sha256": "e097b7340b47c2ea977dd2fc88fc0f1d8b49ff2033d201b8998f783d1d6d505a",
+      "non_null_reloaded_fields": [],
+      "no_saved_readback_on_public_exception_or_outer_rollback": true,
+      "old_adapter_source_sha256": "2d8d30cac64306f1d8feb9dbe93fce4bfa6b8f73308e4a8ae9fdba3f828e687e",
+      "old_class_pins": [
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceCorpusHarness.class",
+          "sha256": "018D5F7D2E6695D98132B604B5A7D841D9EB0C8BB505A3E502FAC7DB2E128849"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceCorpusHarness$CheckedBridge.class",
+          "sha256": "4290E8FB77F36C4E148ECCFAA802263FA3B19573DF8831FF97FEFF2B43D96C08"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceCorpusHarness$IntentionalRollback.class",
+          "sha256": "FCF70D30E4B36D9D4FC4C006E8285B9B64581799A4B69D1C760783DCA1848D26"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceHarness.class",
+          "sha256": "03A36074520120B4D09557977C918478A0D6C37759C75BD159A919786E550623"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceHarness$Wiring.class",
+          "sha256": "20F588371DBE8F4CED07115D6B8ABEAE385D6C5F2AA686881F4DC4DC5A413B09"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceHarness$Wiring$1.class",
+          "sha256": "169A665D46F6BF8BA0EB2F3E7D5FAC7348DD78F1E1F09290EA4DFCCD95B3561C"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceXesObserver.class",
+          "sha256": "F20AD946F23BD563BECE7594CA911B9016FEADA568B8E8028CF8862684D686DB"
+        }
+      ]
+    },
+    {
+      "id": "outer-rollback",
+      "observation_sha256": "aeac92656ffb0b86c68a357a1f9d300ea41d36a903149462e89c1120ac79bd6b",
+      "non_null_reloaded_fields": [],
+      "no_saved_readback_on_public_exception_or_outer_rollback": true,
+      "old_adapter_source_sha256": "2d8d30cac64306f1d8feb9dbe93fce4bfa6b8f73308e4a8ae9fdba3f828e687e",
+      "old_class_pins": [
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceCorpusHarness.class",
+          "sha256": "018D5F7D2E6695D98132B604B5A7D841D9EB0C8BB505A3E502FAC7DB2E128849"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceCorpusHarness$CheckedBridge.class",
+          "sha256": "4290E8FB77F36C4E148ECCFAA802263FA3B19573DF8831FF97FEFF2B43D96C08"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceCorpusHarness$IntentionalRollback.class",
+          "sha256": "FCF70D30E4B36D9D4FC4C006E8285B9B64581799A4B69D1C760783DCA1848D26"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceHarness.class",
+          "sha256": "03A36074520120B4D09557977C918478A0D6C37759C75BD159A919786E550623"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceHarness$Wiring.class",
+          "sha256": "20F588371DBE8F4CED07115D6B8ABEAE385D6C5F2AA686881F4DC4DC5A413B09"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceHarness$Wiring$1.class",
+          "sha256": "169A665D46F6BF8BA0EB2F3E7D5FAC7348DD78F1E1F09290EA4DFCCD95B3561C"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceXesObserver.class",
+          "sha256": "F20AD946F23BD563BECE7594CA911B9016FEADA568B8E8028CF8862684D686DB"
+        }
+      ]
+    },
+    {
+      "id": "duplicate-owned-name",
+      "observation_sha256": "e8c42ea57c2f8af9864dc2ce931a231a91ccfe462666362963c8cc02b051a061",
+      "non_null_reloaded_fields": [
+        "/baseline_log/reloaded_log"
+      ],
+      "no_saved_readback_on_public_exception_or_outer_rollback": false,
+      "old_adapter_source_sha256": "2d8d30cac64306f1d8feb9dbe93fce4bfa6b8f73308e4a8ae9fdba3f828e687e",
+      "old_class_pins": [
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceCorpusHarness.class",
+          "sha256": "018D5F7D2E6695D98132B604B5A7D841D9EB0C8BB505A3E502FAC7DB2E128849"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceCorpusHarness$CheckedBridge.class",
+          "sha256": "4290E8FB77F36C4E148ECCFAA802263FA3B19573DF8831FF97FEFF2B43D96C08"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceCorpusHarness$IntentionalRollback.class",
+          "sha256": "FCF70D30E4B36D9D4FC4C006E8285B9B64581799A4B69D1C760783DCA1848D26"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceHarness.class",
+          "sha256": "03A36074520120B4D09557977C918478A0D6C37759C75BD159A919786E550623"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceHarness$Wiring.class",
+          "sha256": "20F588371DBE8F4CED07115D6B8ABEAE385D6C5F2AA686881F4DC4DC5A413B09"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceHarness$Wiring$1.class",
+          "sha256": "169A665D46F6BF8BA0EB2F3E7D5FAC7348DD78F1E1F09290EA4DFCCD95B3561C"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceXesObserver.class",
+          "sha256": "F20AD946F23BD563BECE7594CA911B9016FEADA568B8E8028CF8862684D686DB"
+        }
+      ]
+    },
+    {
+      "id": "name-normalization",
+      "observation_sha256": "b10237891cbc9b34718e2570dd7dbf97f937fc251c27bd8af94310c18d72dede",
+      "non_null_reloaded_fields": [
+        "/first_readback/reloaded_log",
+        "/reopened_readback/reloaded_log"
+      ],
+      "no_saved_readback_on_public_exception_or_outer_rollback": false,
+      "old_adapter_source_sha256": "2d8d30cac64306f1d8feb9dbe93fce4bfa6b8f73308e4a8ae9fdba3f828e687e",
+      "old_class_pins": [
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceCorpusHarness.class",
+          "sha256": "018D5F7D2E6695D98132B604B5A7D841D9EB0C8BB505A3E502FAC7DB2E128849"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceCorpusHarness$CheckedBridge.class",
+          "sha256": "4290E8FB77F36C4E148ECCFAA802263FA3B19573DF8831FF97FEFF2B43D96C08"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceCorpusHarness$IntentionalRollback.class",
+          "sha256": "FCF70D30E4B36D9D4FC4C006E8285B9B64581799A4B69D1C760783DCA1848D26"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceHarness.class",
+          "sha256": "03A36074520120B4D09557977C918478A0D6C37759C75BD159A919786E550623"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceHarness$Wiring.class",
+          "sha256": "20F588371DBE8F4CED07115D6B8ABEAE385D6C5F2AA686881F4DC4DC5A413B09"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceHarness$Wiring$1.class",
+          "sha256": "169A665D46F6BF8BA0EB2F3E7D5FAC7348DD78F1E1F09290EA4DFCCD95B3561C"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceXesObserver.class",
+          "sha256": "F20AD946F23BD563BECE7594CA911B9016FEADA568B8E8028CF8862684D686DB"
+        }
+      ]
+    },
+    {
+      "id": "order-offset-lifecycle",
+      "observation_sha256": "24b5f19062181cfa3f31f78b0af540768c02994161950342ed612aa87fa887a9",
+      "non_null_reloaded_fields": [
+        "/first_readback/reloaded_log",
+        "/reopened_readback/reloaded_log"
+      ],
+      "no_saved_readback_on_public_exception_or_outer_rollback": false,
+      "old_adapter_source_sha256": "2d8d30cac64306f1d8feb9dbe93fce4bfa6b8f73308e4a8ae9fdba3f828e687e",
+      "old_class_pins": [
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceCorpusHarness.class",
+          "sha256": "018D5F7D2E6695D98132B604B5A7D841D9EB0C8BB505A3E502FAC7DB2E128849"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceCorpusHarness$CheckedBridge.class",
+          "sha256": "4290E8FB77F36C4E148ECCFAA802263FA3B19573DF8831FF97FEFF2B43D96C08"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceCorpusHarness$IntentionalRollback.class",
+          "sha256": "FCF70D30E4B36D9D4FC4C006E8285B9B64581799A4B69D1C760783DCA1848D26"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceHarness.class",
+          "sha256": "03A36074520120B4D09557977C918478A0D6C37759C75BD159A919786E550623"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceHarness$Wiring.class",
+          "sha256": "20F588371DBE8F4CED07115D6B8ABEAE385D6C5F2AA686881F4DC4DC5A413B09"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceHarness$Wiring$1.class",
+          "sha256": "169A665D46F6BF8BA0EB2F3E7D5FAC7348DD78F1E1F09290EA4DFCCD95B3561C"
+        },
+        {
+          "path": "workspace://.local/sprint18/service/corpus01/classes/PublicServiceXesObserver.class",
+          "sha256": "F20AD946F23BD563BECE7594CA911B9016FEADA568B8E8028CF8862684D686DB"
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "Original business class and runtime are unchanged; this is own observer repair only",
+    "Carried records retain old adapter/native identities, never relabeled as new binary execution",
+    "Failed old all-filtered case is not carried as completed evidence; fresh corrected run required",
+    "No typed value fabricated or raw observation rewritten"
+  ]
+}

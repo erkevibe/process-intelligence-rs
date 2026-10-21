@@ -1,0 +1,145 @@
+{
+  "input_sha256": "e2fccbe9fa11db9bf5c1948a875e0fa72ec34e7633cd413e46821959f10ef6dd",
+  "preview": {
+    "status": "ok",
+    "value": {
+      "changes": [],
+      "fully_filtered": false,
+      "log": {
+        "cases": [
+          {
+            "events": [
+              {
+                "activity": "B",
+                "lifecycle": "start",
+                "ordinal": 0,
+                "timestamp": "2024-01-01T00:00:01.999999Z"
+              },
+              {
+                "activity": "A",
+                "lifecycle": "complete",
+                "ordinal": 1,
+                "timestamp": "2024-01-01T00:00:00Z"
+              }
+            ],
+            "id": "case-0",
+            "name": "case-order"
+          }
+        ],
+        "name": "order",
+        "warnings": [
+          "Предварительный просмотр: исходные данные не изменены. Это не полный сервис Apromore."
+        ]
+      },
+      "policy": "apromore-validateLog-bbf24df-preview-v1",
+      "projection_report": {
+        "admission_profile": "flat_xes_no_global_defaults_or_nested_attributes",
+        "attributes": [],
+        "basis": "all_source_attributes_before_event_filtering",
+        "ignored_classifiers": 0,
+        "omitted_event_attributes": 0,
+        "omitted_extension_declarations": 0,
+        "omitted_log_attributes": 0,
+        "omitted_trace_attributes": 0,
+        "schema_version": 1,
+        "timestamp_offsets_normalized_to_utc": 1,
+        "unlisted_attribute_occurrences": 0
+      },
+      "source_cases": 1,
+      "source_events": 2
+    }
+  },
+  "raw_rust4pm": {
+    "log": {
+      "attributes": [
+        {
+          "key": "concept:name",
+          "own_attributes": null,
+          "value": {
+            "content": "order",
+            "type": "String"
+          }
+        }
+      ],
+      "classifiers": [],
+      "extensions": [],
+      "global_event_attrs": null,
+      "global_trace_attrs": null,
+      "traces": [
+        {
+          "attributes": [
+            {
+              "key": "concept:name",
+              "own_attributes": null,
+              "value": {
+                "content": "case-order",
+                "type": "String"
+              }
+            }
+          ],
+          "events": [
+            {
+              "attributes": [
+                {
+                  "key": "concept:name",
+                  "own_attributes": null,
+                  "value": {
+                    "content": "B",
+                    "type": "String"
+                  }
+                },
+                {
+                  "key": "time:timestamp",
+                  "own_attributes": null,
+                  "value": {
+                    "content": "2024-01-01T00:00:01.999999Z",
+                    "type": "Date"
+                  }
+                },
+                {
+                  "key": "lifecycle:transition",
+                  "own_attributes": null,
+                  "value": {
+                    "content": "start",
+                    "type": "String"
+                  }
+                }
+              ]
+            },
+            {
+              "attributes": [
+                {
+                  "key": "concept:name",
+                  "own_attributes": null,
+                  "value": {
+                    "content": "A",
+                    "type": "String"
+                  }
+                },
+                {
+                  "key": "time:timestamp",
+                  "own_attributes": null,
+                  "value": {
+                    "content": "2024-01-01T05:00:00+05:00",
+                    "type": "Date"
+                  }
+                },
+                {
+                  "key": "lifecycle:transition",
+                  "own_attributes": null,
+                  "value": {
+                    "content": "complete",
+                    "type": "String"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "status": "ok"
+  },
+  "schema_version": 1,
+  "scope": "Fixed trusted corpus only; raw Rust4PM observation is separate from application preview admission; no persistence"
+}

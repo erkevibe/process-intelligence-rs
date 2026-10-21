@@ -1,0 +1,54 @@
+{
+  "engine": "process_intelligence_rs::filters::apply",
+  "id": "no-match",
+  "input_sha256": "09a9ec54572e758f3d59831696ab97473b81598bf3fc04810979aa542fb450a8",
+  "rule_literals": [
+    "Z"
+  ],
+  "schema_version": 1,
+  "scope": "Actual production filter sequential calls; full EventLog conservation only, not rich XLog metadata or public persistence",
+  "selected_source_indices": [],
+  "selected_source_log": {
+    "cases": [],
+    "name": "Core filter no-match",
+    "warnings": [
+      "synthetic source warning retained"
+    ]
+  },
+  "source_after_sha256": "c0681df97f7f3c569f0fd165818d4b8a9342123590dde29a5a00e2400ef5d84a",
+  "source_before_sha256": "c0681df97f7f3c569f0fd165818d4b8a9342123590dde29a5a00e2400ef5d84a",
+  "source_domain_before": {
+    "cases": [
+      {
+        "events": [
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          }
+        ],
+        "id": "no-match-source-0",
+        "name": "no-match-trace-0"
+      },
+      {
+        "events": [
+          {
+            "activity": "B",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          }
+        ],
+        "id": "no-match-source-1",
+        "name": "no-match-trace-1"
+      }
+    ],
+    "name": "Core filter no-match",
+    "warnings": [
+      "synthetic source warning retained"
+    ]
+  },
+  "source_unchanged": true,
+  "status": "ACTUAL_RUST_CASE_ACTIVITY_FILTER_OBSERVED"
+}

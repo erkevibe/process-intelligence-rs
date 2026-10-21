@@ -1,0 +1,44 @@
+{
+  "kind": "ADDITIONAL_FROZEN_BEFORE_EXECUTION_FLAT_METADATA_CASE",
+  "corpus": [
+    {
+      "perspective": false,
+      "created": "2026-10-21",
+      "folder": null,
+      "sha256": "b15e2aabadd0fa4723a4b30b8504f20264e7134730effff327355d9f069e44f2",
+      "public_model": false,
+      "id": "flat-wide-types",
+      "username": "s18-alice",
+      "expected_source_hypothesis": {
+        "folder": "home",
+        "global_attributes": "absent",
+        "reopened_typed_log": "equal initial full typed log",
+        "outcome": "success",
+        "stored_traces": 1,
+        "negative_zero": "IEEE754 sign preserved",
+        "stored_timestamp_millis": [
+          1704067200123,
+          1704067201000
+        ],
+        "stored_activities": [
+          "A",
+          "B"
+        ],
+        "classifiers": "exact name and key order",
+        "uuid": "exact identifier",
+        "extensions": "known concept/time/lifecycle exact",
+        "stored_events": 2,
+        "date_precision": "OpenXES milliseconds; raw source nanoseconds explicit difference",
+        "wide_integers": "exact signed64 values even beyond2^53"
+      },
+      "domain": "s18-domain",
+      "extension": "xes",
+      "file": "flat-wide-types.xes",
+      "log_name": "Flat import"
+    }
+  ],
+  "scope": "One Rust-admissible flat typed cross-product row; source-derived hypotheses not cooked from Java output; no global/list attributes; original11 unchanged",
+  "original_main_corpus_sha256": "60878D96CDB6D3882FF1BC11CFA32E8207F2457B6C76C47C9FC73713AD08A648",
+  "schema_version": 1,
+  "no_native_execution_before_freeze": true
+}

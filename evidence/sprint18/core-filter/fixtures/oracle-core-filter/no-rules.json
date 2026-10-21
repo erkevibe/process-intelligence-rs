@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "id": "no-rules",
+  "rule_literals": [],
+  "source": {
+    "name": "Core filter no-rules",
+    "cases": [
+      {
+        "id": "no-rules-source-0",
+        "name": "no-rules-trace-0",
+        "events": [
+          {
+            "ordinal": 3,
+            "activity": "A",
+            "timestamp": "2024-01-01T00:00:40.123Z",
+            "lifecycle": "complete"
+          }
+        ]
+      },
+      {
+        "id": "no-rules-source-1",
+        "name": "no-rules-trace-1",
+        "events": [
+          {
+            "ordinal": 3,
+            "activity": "B",
+            "timestamp": "2024-01-01T00:00:40.123Z",
+            "lifecycle": "complete"
+          }
+        ]
+      }
+    ],
+    "warnings": [
+      "synthetic source warning retained"
+    ]
+  }
+}

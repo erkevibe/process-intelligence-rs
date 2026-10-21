@@ -20,7 +20,7 @@
       { selector: 'node[kind = "end"]', style: { 'border-width': 4 } },
       { selector: 'node[kind = "exclusive_gateway"], node[kind = "parallel_gateway"]', style: { 'shape': 'diamond', 'font-size': 19 } },
       { selector: 'node[kind = "exclusive_gateway"][hasLabel = true], node[kind = "parallel_gateway"][hasLabel = true]', style: { 'text-valign': 'bottom', 'text-margin-y': 8, 'font-size': 12 } },
-      { selector: 'edge', style: { 'curve-style': 'bezier', 'width': 1.8, 'line-color': css('--edge'), 'target-arrow-color': css('--edge'), 'target-arrow-shape': 'triangle' } },
+      { selector: 'edge', style: { 'label': 'data(label)', 'color': css('--text'), 'font-family': 'Segoe UI, sans-serif', 'font-size': 12, 'text-wrap': 'wrap', 'text-max-width': 160, 'text-background-color': css('--node'), 'text-background-opacity': 0.9, 'text-background-padding': 3, 'curve-style': 'bezier', 'width': 1.8, 'line-color': css('--edge'), 'target-arrow-color': css('--edge'), 'target-arrow-shape': 'triangle' } },
       { selector: 'edge[hasBends]', style: { 'curve-style': 'segments', 'segment-weights': 'data(weights)', 'segment-distances': 'data(distances)' } },
       { selector: ':selected', style: { 'border-color': css('--green'), 'line-color': css('--green'), 'target-arrow-color': css('--green'), 'border-width': 3 } }
     ];
@@ -32,7 +32,7 @@
     });
     const centers = new Map(nodes.map(node => [node.data.id, node.position]));
     const edges = model.flows.map(flow => {
-      const data = { id: flow.id, source: flow.source, target: flow.target };
+      const data = { id: flow.id, source: flow.source, target: flow.target, label: flow.label || '' };
       const from = centers.get(flow.source); const to = centers.get(flow.target);
       if (from && to && flow.waypoints.length > 2) {
         const dx = to.x - from.x; const dy = to.y - from.y; const length = Math.hypot(dx, dy);
@@ -60,14 +60,21 @@
     selected = null;
     selectedFlow = model.flows.find(flow => flow.id === flowId) || null;
     for (const id of ['bpmn-node-id', 'bpmn-node-label', 'bpmn-node-x', 'bpmn-node-y']) {
-      const field = byId(id); if (field) { field.value = id === 'bpmn-node-id' ? (selectedFlow?.id ?? '') : ''; field.disabled = true; }
+      const field = byId(id); if (field) { field.value = id === 'bpmn-node-id' ? (selectedFlow?.id ?? '') : id === 'bpmn-node-label' ? (selectedFlow?.label ?? '') : ''; field.disabled = id !== 'bpmn-node-label' || !editable || !selectedFlow; }
     }
-    const apply = byId('bpmn-apply-node'); if (apply) apply.disabled = true;
+    const apply = byId('bpmn-apply-node'); if (apply) apply.disabled = !editable || !selectedFlow;
     const remove = byId('bpmn-delete-element'); if (remove) remove.disabled = !editable || !selectedFlow;
-    const hint = byId('bpmn-node-hint'); if (hint) hint.textContent = selectedFlow ? (editable ? 'Выбран переход. Его можно удалить из черновика.' : 'Выбран переход. Изменение доступно редактору проекта.') : 'Выберите узел или переход на диаграмме.';
+    const hint = byId('bpmn-node-hint'); if (hint) hint.textContent = selectedFlow ? (editable ? 'Измените подпись перехода, затем сохраните модель. Подпись не является условием.' : 'Подпись перехода доступна для просмотра; изменение доступно редактору проекта.') : 'Выберите узел или переход на диаграмме.';
   }
   function applySelected() {
-    if (!editable || !selected) return true;
+    if (!editable) return true;
+    if (selectedFlow) {
+      const label = byId('bpmn-node-label')?.value ?? selectedFlow.label ?? '';
+      if (label) selectedFlow.label = label; else delete selectedFlow.label;
+      cy.getElementById(selectedFlow.id).data({ label }); syncField();
+      return true;
+    }
+    if (!selected) return true;
     const label = byId('bpmn-node-label')?.value ?? selected.label;
     const rawX = byId('bpmn-node-x')?.value ?? ''; const rawY = byId('bpmn-node-y')?.value ?? '';
     const x = Number(rawX); const y = Number(rawY);
@@ -153,7 +160,7 @@
     byId('bpmn-save-form')?.addEventListener('submit', event => { if (!applySelected()) event.preventDefault(); else { syncField(); status('Отправляем черновик. Дождитесь подтверждения после обновления страницы.'); } });
     refillFlowChoices();
     syncField();
-    window.piBpmnSnapshot = () => ({ model: JSON.parse(JSON.stringify(model)), selected_node_id: selected?.id ?? null, pan: cy.pan(), zoom: cy.zoom(), editable });
+    window.piBpmnSnapshot = () => ({ model: JSON.parse(JSON.stringify(model)), selected_node_id: selected?.id ?? null, selected_flow_id: selectedFlow?.id ?? null, pan: cy.pan(), zoom: cy.zoom(), editable });
   }
   function initActivityPicker(picker) {
     const field = picker.dataset.field;

@@ -1,0 +1,23 @@
+# Genuine Core case-activity reference adapter
+
+This adapter calls the complete unchanged `APMLogFilter.filterIndex(List<LogFilterRule>)` from canonical Apromore Core commit `bbf24dfd43e72d6992392465f875a4367cbe792b`, using the real `XLogToImmutableLog` converter and real rule objects. It does not implement a filter predicate. The admitted profile is defined in `docs/R5_CASE_ACTIVITY_REFERENCE_CONTRACT.md`.
+
+The frozen corpus has six overlap cases and two declared diagnostics. A single ordered Java rule list corresponds to successive Rust `filters::apply` calls. Repeated Java method calls are not used for AND composition because the upstream method resets its pointer traces. Empty PLog results are observed directly; converting them back to an immutable log would introduce an unrelated empty-input exception.
+
+The observer records actual immutable trace indexes and full source cases selected by those indexes, pointer event masks, real implementation class identities, source XLog before/after, and original APM trace/activity identities before/after. It never reconstructs selection from its own membership predicate and does not substitute APM-to-XES export for original source identity. Converter refusal is distinct from a successful empty filter result. Source JSON fields, sparse ordinals, reverse timestamps, lifecycle, Unicode spelling, case names and warning metadata are preserved in fieldwise observations.
+
+Native execution depends on the retained S16 canonical build and its pinned 285 runtime files, JDK11, and reviewed Sprint18 `public-service-run.ps1` Job/GO capture mechanism. `core-filter-prepare.ps1` creates a fresh private compile configuration; `core-filter-prepare-cases.ps1` requires its actual successful compilation and pins every generated class before producing eight fresh runtime configurations. Compilation and Java execution require the exact configuration review described by the sprint records. The reused runtime guard intentionally expires on 2026-10-21 at 22:55:42 UTC; a future replay needs a new scoped workspace/deadline and review. These scripts do not provide a standalone downloaded canonical build.
+
+`core-filter-collect.py PRIVATE_ATTEMPT` checks actual closed child/worker native exits, complete stdout/stderr byte hashes, fixture bindings, every frozen manual hypothesis, and full selected source identity. It serializes observed failures instead of rewriting the frozen corpus. This finite profile does not establish all Core filters, event projection, numerical/duration/calendar behavior, SplitMiner quality, or complete R5 parity.
+
+## Sprint 18 finite result and public replay
+
+The eight actual Java observations and eight actual Rust observations are published under `evidence/sprint18/core-filter/`. Six overlap cases match the full selected source EventLog and actual source indexes, with source conservation confirmed. Empty-literal semantics and empty-input converter refusal remain two explicit diagnostic differences, rather than equality passes. All eight frozen manual hypotheses matched the observed results. Independent QA reproduced every one of the 37 publication files byte-for-byte and reproduced the portable field comparison.
+
+Run the pure offline comparison from repository root with Node24:
+
+```
+node tools/oracle/compare-core-filter.mjs evidence/sprint18/core-filter/java-index.json evidence/sprint18/core-filter/rust-index.json NEW-comparison.json
+```
+
+`core-filter-public-evidence.py` produces the sanitized dataset from the retained, pinned private observations. It preserves every JSON numeric lexical token, publishes original observation hashes separately from sanitized hashes, aliases private workspace paths, and publishes native stream hashes/counts/exits/EOF flags without raw console text. The public README explains provenance-only hash changes and native replay dependencies. No complete Core filter suite, SplitMiner quality, or whole R5 closure follows from this finite comparison.

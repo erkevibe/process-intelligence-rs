@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<log xmlns="http://www.xes-standard.org/" xes.version="1.0">
+  <extension name="Concept" prefix="concept" uri="http://www.xes-standard.org/concept.xesext"/>
+  <extension name="Time" prefix="time" uri="http://www.xes-standard.org/time.xesext"/>
+  <extension name="Lifecycle" prefix="lifecycle" uri="http://www.xes-standard.org/lifecycle.xesext"/>
+  <classifier name="Activity resource" keys="concept:name resource"/>
+  <string key="concept:name" value="Public flat contract"/>
+  <string key="department" value="synthetic-flat"/>
+  <int key="budget" value="9007199254740993"/>
+  <trace>
+    <string key="concept:name" value="flat-case-1"/>
+    <float key="weight" value="0.125"/>
+    <event>
+      <string key="concept:name" value="A"/>
+      <string key="resource" value="synthetic-r1"/>
+      <string key="lifecycle:transition" value="complete"/>
+      <date key="time:timestamp" value="2024-01-01T05:00:00.123456789+05:00"/>
+      <int key="long-max" value="9223372036854775807"/>
+      <int key="long-min" value="-9223372036854775808"/>
+      <float key="negative-zero" value="-0.0"/>
+      <boolean key="approved" value="true"/>
+      <id key="uuid" value="00112233-4455-6677-8899-aabbccddeeff"/>
+    </event>
+    <event>
+      <string key="concept:name" value="B"/>
+      <string key="resource" value="synthetic-r2"/>
+      <string key="lifecycle:transition" value="complete"/>
+      <date key="time:timestamp" value="2024-01-01T00:00:01Z"/>
+      <int key="wide-negative" value="-9007199254740993"/>
+    </event>
+  </trace>
+</log>
