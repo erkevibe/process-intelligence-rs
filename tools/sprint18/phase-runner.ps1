@@ -4,23 +4,16 @@ $ErrorActionPreference='Stop'
 $ws=[string]$PWD
 Import-Module (Join-Path $ws 'tools/sprint18/owned-runtime.psm1') -Force -DisableNameChecking
 Import-Module (Join-Path $ws 'tools/sprint15/evidence-storage.psm1') -Force -DisableNameChecking
+Import-Module (Join-Path $PSScriptRoot 'resource-guard.psm1') -Force
 if((Get-FileHash $Config).Hash -cne $ConfigSha){throw 'config_pin'}
 $c=Get-Content $Config -Raw|ConvertFrom-Json -AsHashtable
 function Assert-S18Capacity {
  $why=''
  if([DateTimeOffset]::UtcNow -ge [DateTimeOffset]'2026-10-21T22:55:42Z'){throw 'runtime_freeze'}
  if((Get-PSDrive C).Free -lt 8GB){throw 'free_floor'}
-   $rootBytes=(Get-ChildItem (Join-Path $ws '.local/sprint18/root') -Recurse -File -Force|Measure-Object Length -Sum).Sum
-   $allBytes=(Get-ChildItem (Join-Path $ws '.local/sprint18') -Recurse -File -Force|Measure-Object Length -Sum).Sum
-   if($rootBytes -gt (8GB-512MB) -or $allBytes -gt (12GB-512MB)){$why='capacity_headroom_stop'}
-   [long]$allocated=0;[long]$rootAllocated=0
-   foreach($file in Get-ChildItem (Join-Path $ws '.local/sprint18') -Recurse -File -Force){
-    if($file.Attributes -band [IO.FileAttributes]::ReparsePoint){$why='reparse_refused';break}
-    try{$stream=[IO.File]::Open($file.FullName,[IO.FileMode]::Open,[IO.FileAccess]::Read,([IO.FileShare]::ReadWrite -bor [IO.FileShare]::Delete));try{$storage=[PiS13EvidenceStorageV1]::Inspect($stream)}finally{$stream.Dispose()}}catch{if(Test-Path -LiteralPath $file.FullName){throw};continue}
-    $allocated+=$storage.AllocationSize
-    if($file.FullName.StartsWith((Join-Path $ws '.local/sprint18/root')+[IO.Path]::DirectorySeparatorChar,[StringComparison]::OrdinalIgnoreCase)){$rootAllocated+=$storage.AllocationSize}
-   }
-   if($rootAllocated -gt (8GB-512MB) -or $allocated -gt (12GB-512MB)){$why='allocated_capacity_headroom_stop'}
+ $sample=Get-S18ResourceSnapshot (Join-Path $ws '.local/sprint18') (Join-Path $ws '.local/sprint18/root/target')
+ if($sample.root_logical_bytes -gt (8GB-512MB) -or $sample.logical_bytes -gt (12GB-512MB)){$why='capacity_headroom_stop'}
+ if($sample.root_allocation_bytes -gt (8GB-512MB) -or $sample.allocation_bytes -gt (12GB-512MB)){$why='allocated_capacity_headroom_stop'}
  if($why){throw $why}
 }
 Assert-S18Capacity

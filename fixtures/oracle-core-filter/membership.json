@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "id": "membership",
+  "rule_literals": [
+    "A"
+  ],
+  "source": {
+    "name": "Core filter membership",
+    "cases": [
+      {
+        "id": "membership-source-0",
+        "name": "membership-trace-0",
+        "events": [
+          {
+            "ordinal": 3,
+            "activity": "A",
+            "timestamp": "2024-01-01T00:00:40.123Z",
+            "lifecycle": "complete"
+          },
+          {
+            "ordinal": 10,
+            "activity": "B",
+            "timestamp": "2024-01-01T00:00:39.123Z",
+            "lifecycle": "complete"
+          }
+        ]
+      },
+      {
+        "id": "membership-source-1",
+        "name": "membership-trace-1",
+        "events": [
+          {
+            "ordinal": 3,
+            "activity": "a",
+            "timestamp": "2024-01-01T00:00:40.123Z",
+            "lifecycle": "complete"
+          },
+          {
+            "ordinal": 10,
+            "activity": "B",
+            "timestamp": "2024-01-01T00:00:39.123Z",
+            "lifecycle": "complete"
+          }
+        ]
+      },
+      {
+        "id": "membership-source-2",
+        "name": "membership-trace-2",
+        "events": [
+          {
+            "ordinal": 3,
+            "activity": "C",
+            "timestamp": "2024-01-01T00:00:40.123Z",
+            "lifecycle": "complete"
+          },
+          {
+            "ordinal": 10,
+            "activity": "A",
+            "timestamp": "2024-01-01T00:00:39.123Z",
+            "lifecycle": "complete"
+          }
+        ]
+      }
+    ],
+    "warnings": [
+      "synthetic source warning retained"
+    ]
+  }
+}
