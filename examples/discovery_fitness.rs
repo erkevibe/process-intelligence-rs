@@ -496,7 +496,7 @@ fn mine(directory: &Path) -> Result<()> {
         write_new(&directory.join(&net_file), &net_bytes)?;
         write_new(&directory.join(&pnml_file), discovered.pnml.as_bytes())?;
         write_new(&directory.join(format!("{id}.training.json")), &before)?;
-        nets.push(json!({"id":id,"net_file":net_file,"net_sha256":sha(&net_bytes),"pnml_file":pnml_file,"pnml_sha256":sha(discovered.pnml.as_bytes()),"training_sha256":sha(&before),"algorithm":discovered.algorithm,"library":discovered.library,"config":discovered.config,"projected_variants":discovered.variants,"elapsed_discovery_adapter_ns":elapsed,"admission":admit(&discovered.net,MAX_MARKINGS).map_or_else(|e|json!({"status":"inconclusive","error":e}),|v|v)}));
+        nets.push(json!({"id":id,"net_file":net_file,"net_sha256":sha(&net_bytes),"pnml_file":pnml_file,"pnml_sha256":sha(discovered.pnml.as_bytes()),"training_sha256":sha(&before),"algorithm":discovered.algorithm,"library":discovered.library,"config":discovered.config,"projected_variants":discovered.variants,"elapsed_discovery_adapter_ns":elapsed,"admission":admit(&discovered.net,MAX_MARKINGS).unwrap_or_else(|e|json!({"status":"inconclusive","error":e}))}));
     }
     let bundle = json!({"schema_version":1,"phase":"mine_only_no_alignment","corpus_sha256":sha(CORPUS.as_bytes()),"observer_source_sha256":sha(include_bytes!("discovery_fitness.rs")),"nets":nets});
     write_new(&directory.join("bundle.json"), &json_bytes(&bundle)?)
