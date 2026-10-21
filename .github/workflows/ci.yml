@@ -39,6 +39,11 @@ jobs:
           node tools/oracle/compare-public-service.mjs --matrix evidence/sprint18/public-service/reference-index.json evidence/sprint18/public-service/rust-index.json .local/sprint18/public-comparison.json
           node tools/oracle/compare-core-filter.mjs evidence/sprint18/core-filter/java-index.json evidence/sprint18/core-filter/rust-index.json .local/sprint18/core-filter-comparison.json
           node -e "const r=require('./.local/sprint18/core-filter-comparison.json'); if(r.case_count!==8 || r.cases.some(c=>!c.all_frozen_hypotheses_match || (c.profile==='overlap' && c.overlap_fields_match!==true))) process.exit(1);"
+      - name: Sprint18 finite Petri alignment evidence
+        run: |
+          mkdir -p .local/sprint18/alignment-tools
+          python3 -B tools/oracle/verify-alignment-evidence.py evidence/sprint18/alignment-fitness
+          python3 -B tests/alignment_evidence_tools.py --workroot .local/sprint18/alignment-tools
       - name: Diagnostic protocol and state oracle regressions
         run: |
           node tests/sql5-cycle-regression.cjs

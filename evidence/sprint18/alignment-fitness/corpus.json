@@ -1,0 +1,580 @@
+{
+  "schema_version": 1,
+  "scope": "A measured optimal-alignment fitness contribution for exact admitted Petri nets and frozen synthetic training/held-out traces. Not production integration, BPMN fitness, SplitMiner parity, precision, simplicity, soundness, empirical generalization or whole R4-03 closure.",
+  "proposal_sha256": "9E50789F951E97BFDE648E3BD28C528B032D1076ED235C6B5817BC3C197E019E",
+  "algorithm": {
+    "crate": "process_mining=0.6.2, default-features=false, current Cargo.lock SHA9005A089CCD3EC721E6D3209600C4CEA10E0EFC76C7EA4111406FB28C99F29B6",
+    "crate_checksum": "424d94890f6db8b38851427c1905448c31791e4ed348a015263079bec2fdd40f",
+    "crate_vcs": "cd9d27c1a9d75aeddd6b8a6818b803b86d59c8b7",
+    "discovery": "process_intelligence_rs::discovery::discover; actual process_mining::discovery::case_centric::alphappp::full::alphappp_discover_petri_net; pinned_config unchanged from docs/DISCOVERY_ALPHA.md. Name Alpha+++ always retained.",
+    "conformance": "process_mining::conformance::alignments::{align_variants, align_trace, align_empty_trace, compute_fitness, AlignmentOptions}; conformance::alignments::cost::CostFunction::standard(); PetriNet and EventLogActivityProjection unchanged public API.",
+    "alignment_source_sha256": "CF95B37387F66628DC7A648FD7E3AA280910F349DF9840693B404C1DFD71E255",
+    "cost_source_sha256": "6CBD1D2162D6E0BC7E74E99388D20729533A00C859A86C97BA55AB73127BF6A2",
+    "costs": {
+      "visible_model_move": 1,
+      "log_move": 1,
+      "synchronous_move": 0,
+      "silent_model_move": 0
+    },
+    "options": {
+      "max_states_per_trace_including_empty": 100000,
+      "rayon_threads": 1
+    },
+    "algorithm": "Unchanged upstream optimal synchronous-product alignment with Dijkstra. Complete source paths/hashes in quality-feasibility01.json. No optional token-based-replay feature needed or enabled."
+  },
+  "metric": {
+    "empty_cost": "m = optimal cost aligning empty trace against exact net, standard cost = minimum number of visible model moves along a complete execution.",
+    "trace_fitness": "F(v)=1-c(v)/(len(v)+m); denominator0 ->1 under exact upstream definition.",
+    "weighted_log_fitness": "1-sum(f(v)*c(v))/sum(f(v)*(len(v)+m)); denominator0 ->1 upstream policy. All alignments must succeed.",
+    "average_trace_fitness": "sum(f(v)*F(v))/sum(f(v)); upstream empty log returns0. Report separately from weighted_log_fitness, never conflate.",
+    "perfect_fraction": "sum(f(v) for c(v)=0)/sum(f(v)); empty log returns0.",
+    "verification": "Exact integer costs/frequencies/denominators retained. Independent rational calculation compared to reported float absolute tolerance1e-12. Costs exact equality, no tuning. Unknown label cannot synchronize and must incur a log move (plus any missing model activity).",
+    "admission_failure": "Any required variant or empty-model alignment failure invalidates aggregate: status inconclusive/error with raw reason; never average only completed variants or insert zero metrics.",
+    "mined_results_policy": "Manual ground-truth-net values below are exact predeclared assertions. Alpha net outcomes are observations, not forced to match ideal ground truth or threshold selected after execution. Report training and diagnostic held-out metrics separately; discrepancies stay visible."
+  },
+  "manual_nets": {
+    "SEQ": {
+      "places": [
+        "p0",
+        "p1",
+        "p2",
+        "p3"
+      ],
+      "transitions": {
+        "a": "A",
+        "b": "B",
+        "c": "C"
+      },
+      "arcs": [
+        [
+          "p0",
+          "a"
+        ],
+        [
+          "a",
+          "p1"
+        ],
+        [
+          "p1",
+          "b"
+        ],
+        [
+          "b",
+          "p2"
+        ],
+        [
+          "p2",
+          "c"
+        ],
+        [
+          "c",
+          "p3"
+        ]
+      ],
+      "initial": {
+        "p0": 1
+      },
+      "final": {
+        "p3": 1
+      },
+      "empty_alignment_cost": 3
+    },
+    "CHOICE": {
+      "places": [
+        "p0",
+        "p1",
+        "p2",
+        "p3"
+      ],
+      "transitions": {
+        "a": "A",
+        "b": "B",
+        "c": "C",
+        "d": "D"
+      },
+      "arcs": [
+        [
+          "p0",
+          "a"
+        ],
+        [
+          "a",
+          "p1"
+        ],
+        [
+          "p1",
+          "b"
+        ],
+        [
+          "b",
+          "p2"
+        ],
+        [
+          "p1",
+          "c"
+        ],
+        [
+          "c",
+          "p2"
+        ],
+        [
+          "p2",
+          "d"
+        ],
+        [
+          "d",
+          "p3"
+        ]
+      ],
+      "initial": {
+        "p0": 1
+      },
+      "final": {
+        "p3": 1
+      },
+      "empty_alignment_cost": 3
+    },
+    "TAU": {
+      "places": [
+        "p0",
+        "p1",
+        "p2",
+        "p3"
+      ],
+      "transitions": {
+        "a": "A",
+        "t": null,
+        "b": "B"
+      },
+      "arcs": [
+        [
+          "p0",
+          "a"
+        ],
+        [
+          "a",
+          "p1"
+        ],
+        [
+          "p1",
+          "t"
+        ],
+        [
+          "t",
+          "p2"
+        ],
+        [
+          "p2",
+          "b"
+        ],
+        [
+          "b",
+          "p3"
+        ]
+      ],
+      "initial": {
+        "p0": 1
+      },
+      "final": {
+        "p3": 1
+      },
+      "empty_alignment_cost": 2
+    },
+    "AND": {
+      "places": [
+        "p0",
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "p5",
+        "p6",
+        "p7"
+      ],
+      "transitions": {
+        "a": "A",
+        "split": null,
+        "b": "B",
+        "c": "C",
+        "join": null,
+        "d": "D"
+      },
+      "arcs": [
+        [
+          "p0",
+          "a"
+        ],
+        [
+          "a",
+          "p1"
+        ],
+        [
+          "p1",
+          "split"
+        ],
+        [
+          "split",
+          "p2"
+        ],
+        [
+          "split",
+          "p3"
+        ],
+        [
+          "p2",
+          "b"
+        ],
+        [
+          "b",
+          "p4"
+        ],
+        [
+          "p3",
+          "c"
+        ],
+        [
+          "c",
+          "p5"
+        ],
+        [
+          "p4",
+          "join"
+        ],
+        [
+          "p5",
+          "join"
+        ],
+        [
+          "join",
+          "p6"
+        ],
+        [
+          "p6",
+          "d"
+        ],
+        [
+          "d",
+          "p7"
+        ]
+      ],
+      "initial": {
+        "p0": 1
+      },
+      "final": {
+        "p7": 1
+      },
+      "empty_alignment_cost": 4
+    },
+    "all_arc_weights": 1,
+    "meaning": "These are hand-specified executable Petri references, not derived from mined graphs or activity counts. Independent QA must approve minimal-cost arguments before execution: only complete SEQ wordABC, CHOICE wordsABD/ACD, TAU wordAB, AND wordsABCD/ACBD. Used only as small analytic optimal-cost reference cases; no general-language evaluator claim."
+  },
+  "cases": [
+    {
+      "id": "M01",
+      "net": "SEQ",
+      "sequence": [
+        "A",
+        "B",
+        "C"
+      ],
+      "frequency": 2,
+      "expected_cost": 0,
+      "expected_fitness": "1"
+    },
+    {
+      "id": "M02",
+      "net": "SEQ",
+      "sequence": [
+        "A",
+        "C"
+      ],
+      "frequency": 1,
+      "expected_cost": 1,
+      "expected_fitness": "4/5",
+      "argument": "One missing B requires and suffices for one visible model move."
+    },
+    {
+      "id": "M03",
+      "net": "SEQ",
+      "sequence": [
+        "A",
+        "X",
+        "C"
+      ],
+      "frequency": 1,
+      "expected_cost": 2,
+      "expected_fitness": "2/3",
+      "argument": "X has no synchronous transition, one log move plus missing B model move."
+    },
+    {
+      "id": "M04",
+      "net": "SEQ",
+      "sequence": [],
+      "frequency": 1,
+      "expected_cost": 3,
+      "expected_fitness": "0",
+      "argument": "Every complete path has three visible transitions."
+    },
+    {
+      "id": "M05",
+      "net": "CHOICE",
+      "sequence": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "frequency": 1,
+      "expected_cost": 1,
+      "expected_fitness": "6/7",
+      "argument": "Either alternative permits exactly one B/C, so remove the other as one log move."
+    },
+    {
+      "id": "M06",
+      "net": "TAU",
+      "sequence": [
+        "A",
+        "B"
+      ],
+      "frequency": 1,
+      "expected_cost": 0,
+      "expected_fitness": "1",
+      "argument": "A then zero-cost silent transition then B."
+    },
+    {
+      "id": "M07",
+      "net": "AND",
+      "sequence": [
+        "A",
+        "C",
+        "B",
+        "D"
+      ],
+      "frequency": 1,
+      "expected_cost": 0,
+      "expected_fitness": "1",
+      "argument": "Split enables B/C independently, join consumes both."
+    },
+    {
+      "id": "M08",
+      "net": "AND",
+      "sequence": [
+        "A",
+        "B",
+        "D"
+      ],
+      "frequency": 1,
+      "expected_cost": 1,
+      "expected_fitness": "6/7",
+      "argument": "Missing C requires and suffices for one model move before join."
+    },
+    {
+      "id": "M09",
+      "net": "SEQ",
+      "aggregate_case_ids": [
+        "M01",
+        "M02",
+        "M03",
+        "M04"
+      ],
+      "expected_weighted_total_cost": 6,
+      "expected_trace_count": 5,
+      "expected_event_count": 11,
+      "expected_denominator": 26,
+      "expected_log_fitness": "10/13",
+      "expected_average_trace_fitness": "52/75",
+      "expected_perfect_fraction": "2/5"
+    },
+    {
+      "id": "A10",
+      "net": "actual newly mined Alpha sequential",
+      "training": [
+        {
+          "frequency": 20,
+          "sequence": [
+            "A",
+            "B",
+            "C"
+          ]
+        }
+      ],
+      "diagnostic_held_out": [
+        {
+          "frequency": 3,
+          "sequence": [
+            "A",
+            "B",
+            "C"
+          ]
+        },
+        {
+          "frequency": 1,
+          "sequence": [
+            "A",
+            "X",
+            "C"
+          ]
+        },
+        {
+          "frequency": 1,
+          "sequence": [
+            "A",
+            "B",
+            "C",
+            "C"
+          ]
+        }
+      ],
+      "ideal_ground_truth_net": "SEQ",
+      "ideal_held_out_costs": [
+        0,
+        2,
+        1
+      ],
+      "ideal_held_out_log_fitness": "28/31",
+      "ideal_held_out_average": "19/21",
+      "actual_mined_metric": "Measured unchanged, no predetermined pass threshold; all costs and discrepancy from ideal retained."
+    },
+    {
+      "id": "A11",
+      "net": "actual newly mined Alpha choice",
+      "training": [
+        {
+          "frequency": 20,
+          "sequence": [
+            "A",
+            "B",
+            "D"
+          ]
+        },
+        {
+          "frequency": 20,
+          "sequence": [
+            "A",
+            "C",
+            "D"
+          ]
+        }
+      ],
+      "diagnostic_held_out": [
+        {
+          "frequency": 2,
+          "sequence": [
+            "A",
+            "B",
+            "D"
+          ]
+        },
+        {
+          "frequency": 2,
+          "sequence": [
+            "A",
+            "C",
+            "D"
+          ]
+        },
+        {
+          "frequency": 1,
+          "sequence": [
+            "A",
+            "B",
+            "B",
+            "D"
+          ]
+        },
+        {
+          "frequency": 1,
+          "sequence": [
+            "A",
+            "C"
+          ]
+        }
+      ],
+      "ideal_ground_truth_net": "CHOICE",
+      "ideal_held_out_costs": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "ideal_held_out_log_fitness": "17/18",
+      "ideal_held_out_average": "33/35",
+      "actual_mined_metric": "Measured unchanged, no predetermined pass threshold; all costs and discrepancy from ideal retained."
+    },
+    {
+      "id": "A12",
+      "net": "actual newly mined Alpha concurrent",
+      "training": [
+        {
+          "frequency": 20,
+          "sequence": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ]
+        },
+        {
+          "frequency": 20,
+          "sequence": [
+            "A",
+            "C",
+            "B",
+            "D"
+          ]
+        }
+      ],
+      "diagnostic_held_out": [
+        {
+          "frequency": 2,
+          "sequence": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ]
+        },
+        {
+          "frequency": 2,
+          "sequence": [
+            "A",
+            "C",
+            "B",
+            "D"
+          ]
+        },
+        {
+          "frequency": 1,
+          "sequence": [
+            "A",
+            "B",
+            "D",
+            "C"
+          ]
+        },
+        {
+          "frequency": 1,
+          "sequence": [
+            "A",
+            "C",
+            "B",
+            "D",
+            "D"
+          ]
+        }
+      ],
+      "ideal_ground_truth_net": "AND",
+      "ideal_held_out_costs": [
+        0,
+        0,
+        2,
+        1
+      ],
+      "ideal_held_out_log_fitness": "46/49",
+      "ideal_held_out_average": "203/216",
+      "actual_mined_metric": "Measured unchanged, no predetermined pass threshold; all costs and discrepancy from ideal retained."
+    }
+  ],
+  "training_heldout_designation": "A10-A12 training variants intentionally reuse the previously accepted fixed Alpha corpus for provenance. Newly assigned trace IDs and all diagnostic held-out weights/sequences are frozen before this experiment's mining; only training traces enter discovery. Repeated fitting variants are independently designated trace observations, not unseen behavior. Nontraining corrupted sequences test robustness against explicit synthetic reference languages; this is not an independent real-world sample or evidence of empirical generalization. No threshold fitting, model selection or miner parameter changes from held-out results. Verify raw source-log immutability and full projection identities/order/frequencies.",
+  "independent_reference_meaning": "Unchanged upstream alignment implementation is distinct from the Alpha discovery implementation but resides in the same crate; do not call it an independent external tool replication. Independent QA, not author, validates the four manually authored tiny reference nets and optimal-edit-cost lower/upper arguments and weighted rational arithmetic before run, then verifies exact candidate outputs. A second established conformance executable is not presently available and is not promised. Therefore claim only this named source-pinned/analytically cross-checked experiment, leaving original independent broad quality acceptance open."
+}
