@@ -447,8 +447,9 @@ pub(crate) fn xes_preview(
         .iter()
         .filter(|c| c.action == "default_lifecycle")
         .count();
+    let projection = projection_notice(&preview.projection_report);
     let mut html = format!(
-        "<section class=\"platform-card\"><h1>Изменения перед импортом</h1><p>Файл: <strong>{}</strong>. Пока ничего не сохранено.</p><dl><dt>Трассы</dt><dd>{} → {}</dd><dt>События</dt><dd>{} → {remaining}</dd><dt>Добавлен lifecycle=complete</dt><dd>{defaults}</dd><dt>SHA256 исходника</dt><dd><code>{digest}</code></dd><dt>Политика</dt><dd>{}</dd></dl><p>Исходные индексы начинаются с нуля и сохраняются после удаления. Изменения относятся к исходным событиям.</p><table class=\"platform-table\"><thead><tr><th>Трасса</th><th>Событие</th><th>Действие</th><th>Причины</th></tr></thead><tbody>",
+        "<section class=\"platform-card\"><h1>Изменения перед импортом</h1><p>Файл: <strong>{}</strong>. Пока ничего не сохранено.</p><dl><dt>Трассы</dt><dd>{} → {}</dd><dt>События</dt><dd>{} → {remaining}</dd><dt>Добавлен lifecycle=complete</dt><dd>{defaults}</dd><dt>SHA256 исходника</dt><dd><code>{digest}</code></dd><dt>Политика</dt><dd>{}</dd></dl>{projection}<p>Исходные индексы начинаются с нуля и сохраняются после удаления. Изменения относятся к исходным событиям.</p><table class=\"platform-table\"><thead><tr><th>Трасса</th><th>Событие</th><th>Действие</th><th>Причины</th></tr></thead><tbody>",
         html_escape(filename),
         preview.source_cases,
         preview.log.cases.len(),
@@ -491,6 +492,45 @@ pub(crate) fn xes_preview(
         html.push_str(&format!("<form class=\"platform-form\" method=\"post\" action=\"/xes/import\"><input type=\"hidden\" name=\"token\" value=\"{token}\"><label><input type=\"checkbox\" name=\"consent\" value=\"yes\" required> Сохранить новый журнал с показанными изменениями, исходным файлом и историей импорта</label><button class=\"button primary\" type=\"submit\">Подтвердить импорт</button></form><p>После начала подтверждения отмена не принимается. Не закрывайте страницу до ответа. Повтор того же подтверждения открывает тот же журнал в течение пяти минут, пока приложение не перезапущено.</p>"));
     }
     html.push_str(&format!("<form method=\"post\" action=\"/xes/cancel\"><input type=\"hidden\" name=\"token\" value=\"{token}\"><button class=\"button\" type=\"submit\">Отменить просмотр</button></form></section>"));
+    html
+}
+
+fn projection_notice(report: &crate::service_preview::ProjectionReport) -> String {
+    if !report.has_omissions() && report.timestamp_offsets_normalized_to_utc == 0 {
+        return String::new();
+    }
+    let mut html = format!(
+        "<section aria-label=\"Поля вне анализа\"><h2>Какие данные не попадут в анализ</h2><p>Анализ использует имя действия, время и lifecycle. Для имён журнала и трасс используются строковые concept:name. Дополнительных полей в исходнике: журнала — {}, трасс — {}, событий — {}. Классификаторов вне анализа: {}. Объявлений расширений: {}.</p><p>Подсчёт включает весь исходный файл до удаления событий. После подтверждения исходный XES сохранится для скачивания; эти поля не будут доступны в CSV и результатах анализа.</p>",
+        report.omitted_log_attributes,
+        report.omitted_trace_attributes,
+        report.omitted_event_attributes,
+        report.ignored_classifiers,
+        report.omitted_extension_declarations
+    );
+    if report.timestamp_offsets_normalized_to_utc > 0 {
+        html.push_str(&format!("<p>У {} исходных отметок времени смещение часового пояса приводится к UTC. У сохранённых событий сам момент времени не меняется.</p>", report.timestamp_offsets_normalized_to_utc));
+    }
+    if !report.attributes.is_empty() {
+        html.push_str("<ul>");
+        for attribute in report.attributes.iter().take(20) {
+            let scope = match attribute.scope {
+                "log" => "Журнал",
+                "trace" => "Трасса",
+                _ => "Событие",
+            };
+            html.push_str(&format!(
+                "<li>{scope}: <code>{}</code> ({}) — {}</li>",
+                html_escape(&attribute.key),
+                html_escape(attribute.value_type),
+                attribute.occurrences
+            ));
+        }
+        html.push_str("</ul><p>Показаны первые 20 групп полей; подробности — в отчёте JSON.</p>");
+    }
+    if report.unlisted_attribute_occurrences > 0 {
+        html.push_str(&format!("<p>В кратком списке не перечислены ещё {} вхождений полей из-за ограничения размера отчёта. Итоговые счётчики включают их все; полные данные остаются в исходном XES.</p>", report.unlisted_attribute_occurrences));
+    }
+    html.push_str("</section>");
     html
 }
 
@@ -939,6 +979,35 @@ mod c06_tests {
         assert_eq!(html.matches("<td>Сохранённый анализ</td>").count(), 2);
         assert!(html.contains("Целостность данных проверяется при открытии; незавершённые обработки находятся в задачах"));
         assert!(!html.contains("action=\"/restore\""));
+    }
+}
+
+#[cfg(test)]
+mod projection_report_tests {
+    use super::*;
+
+    #[test]
+    fn preview_discloses_omissions_before_consent_and_escapes_keys_without_values() {
+        let input = br#"<log><classifier name="By resource" keys="org:resource"/>
+        <trace><event><string key="concept:name" value="A"/>
+        <date key="time:timestamp" value="2026-01-01T05:00:00+05:00"/>
+        <string key="&lt;script&gt;&amp;" value="PRIVATE_VALUE"/>
+        </event></trace></log>"#;
+        let preview = crate::service_preview::preview_xes(input).unwrap();
+        let html = xes_preview("token", &preview, "digest", "<img>");
+        assert!(html.contains("Какие данные не попадут в анализ"));
+        assert!(html.contains("Классификаторов вне анализа: 1"));
+        assert!(html.contains("&lt;script&gt;&amp;"));
+        assert!(html.contains("&lt;img&gt;"));
+        assert!(!html.contains("<script>"));
+        assert!(!html.contains("PRIVATE_VALUE"));
+        assert!(html.contains("исходный XES сохранится"));
+        assert!(
+            html.find("Какие данные не попадут в анализ").unwrap()
+                < html.find("Подтвердить импорт").unwrap()
+        );
+        assert!(html.contains("сам момент времени не меняется"));
+        assert!(html.contains("action=\"/xes/import\""));
     }
 }
 

@@ -24,6 +24,12 @@ jobs:
         run: node tests/oracle_xes_tools.mjs
       - name: Service method provenance guards
         run: node tests/service-oracle-tools.mjs
+      - name: Sprint16 fieldwise comparator and BPMN geometry regressions
+        run: |
+          node tests/full_service_comparator.mjs
+          node tests/sprint16_bpmn_geometry.cjs
+          mkdir -p .local/sprint16/service
+          python3 tools/oracle/full-service-bootstrap-tests.py
       - name: Diagnostic protocol and state oracle regressions
         run: |
           node tests/sql5-cycle-regression.cjs
@@ -89,7 +95,7 @@ jobs:
           cp target/release/process-intelligence-rs dist/
           cp -r static fixtures dist/
           cp README.md LICENSE docs/DEPENDENCIES.json dist/
-          cp docs/SPRINT_13_REPORT.md dist/CANDIDATE_STATUS.md
+          cp docs/SPRINT_16_REPORT.md dist/CANDIDATE_STATUS.md
           tar -czf process-intelligence-rs-linux.tar.gz -C dist .
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         with:

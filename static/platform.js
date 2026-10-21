@@ -3,7 +3,7 @@
   'use strict';
   const byId = id => document.getElementById(id);
   const css = key => getComputedStyle(document.documentElement).getPropertyValue(key).trim();
-  const sizes = kind => kind === 'task' ? { width: 120, height: 70 } : { width: 45, height: 45 };
+  const sizes = node => node.dimensions || (node.kind === 'task' ? { width: 120, height: 70 } : { width: 45, height: 45 });
   const displayLabel = node => { const symbol = node.kind === 'exclusive_gateway' ? '×' : node.kind === 'parallel_gateway' ? '+' : ''; return symbol ? symbol + (node.label ? '\n' + node.label : '') : node.label; };
   let cy = null;
   let model = null;
@@ -27,7 +27,7 @@
   }
   function diagramElements() {
     const nodes = model.nodes.map(node => {
-      const size = sizes(node.kind);
+      const size = sizes(node);
       return { group: 'nodes', data: { ...node, ...size, displayLabel: displayLabel(node), hasLabel: Boolean(node.label) }, position: { x: node.x + size.width / 2, y: node.y + size.height / 2 }, grabbable: editable };
     });
     const centers = new Map(nodes.map(node => [node.data.id, node.position]));
@@ -73,7 +73,7 @@
     const x = Number(rawX); const y = Number(rawY);
     if (!rawX.trim() || !rawY.trim() || !Number.isFinite(x) || !Number.isFinite(y) || Math.abs(x) > 1000000 || Math.abs(y) > 1000000) { status('Положение должно быть числом от −1 000 000 до 1 000 000.'); return false; }
     selected.label = label; moveNode(selected, x, y);
-    const size = sizes(selected.kind); const node = cy.getElementById(selected.id);
+    const size = sizes(selected); const node = cy.getElementById(selected.id);
     node.data({ displayLabel: displayLabel(selected), hasLabel: Boolean(label) });
     node.position({ x: x + size.width / 2, y: y + size.height / 2 }); syncField();
     return true;
@@ -95,7 +95,7 @@
     cy.batch(() => { cy.elements().remove(); cy.add(diagramElements()); });
     cy.zoom(zoom); cy.pan(pan); refillFlowChoices(); syncField();
   }
-  function center(node) { const size = sizes(node.kind); return { x: node.x + size.width / 2, y: node.y + size.height / 2 }; }
+  function center(node) { const size = sizes(node); return { x: node.x + size.width / 2, y: node.y + size.height / 2 }; }
   function moveNode(node, x, y) {
     const dx = x - node.x; const dy = y - node.y;
     for (const flow of model.flows) {
@@ -118,7 +118,7 @@
     cy.on('dragfree', 'node', event => {
       if (!editable) return;
       const node = model.nodes.find(item => item.id === event.target.id()); if (!node) return;
-      const position = event.target.position(); const size = sizes(node.kind);
+      const position = event.target.position(); const size = sizes(node);
       moveNode(node, Math.round((position.x - size.width / 2) * 1000) / 1000, Math.round((position.y - size.height / 2) * 1000) / 1000);
       syncField(); selectNode(node.id); status('Положение изменено в черновике. Сохраните модель.');
     });

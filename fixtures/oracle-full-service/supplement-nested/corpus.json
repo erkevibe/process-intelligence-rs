@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "scope": "Supplement frozen after original20 observation, before supplemental execution",
+  "original_corpus_sha256": "3af07e2094abd0a91cb6bbbe0e152dc9341ca40e75c3b238b6db1ec0b30abf60",
+  "derived_from_actual_original_report_sha256": "13bbea23275ea851087051db44da8db5960e95b534755bb85c80db1a84189562",
+  "original_manual_mismatches_retained": [
+    "nested-attributes",
+    "unknown-extension-fallback"
+  ],
+  "corpus": [
+    {
+      "id": "list-only",
+      "file": "list-only.xes",
+      "extension": "xes",
+      "bytes": 398,
+      "sha256": "1822559cb43a94b1a1e2cfade7b8a650fb07429b1b6c087cba2b83cb6c63f8f0",
+      "expected_service": {
+        "outcome": "success",
+        "traces": 1,
+        "events": 1
+      },
+      "purpose": "Separate successful typed containment from original mixed list+container upstream refusal",
+      "typed_manual_expectation": {
+        "target_key": "costs",
+        "type": "list",
+        "ordered_values": [
+          3,
+          7
+        ]
+      }
+    },
+    {
+      "id": "nested-literal",
+      "file": "nested-literal.xes",
+      "extension": "xes",
+      "bytes": 383,
+      "sha256": "11a1d85cc389c3056592deff49b13adbef67641a8735fb2e3d38c00c3f4fa924",
+      "expected_service": {
+        "outcome": "success",
+        "traces": 1,
+        "events": 1
+      },
+      "purpose": "Separate successful typed containment from original mixed list+container upstream refusal",
+      "typed_manual_expectation": {
+        "target_key": "cost_label",
+        "type": "string",
+        "value": "USD",
+        "children": [
+          {
+            "key": "unit",
+            "type": "string",
+            "value": "dollar"
+          }
+        ]
+      }
+    }
+  ]
+}
