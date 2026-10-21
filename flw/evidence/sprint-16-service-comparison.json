@@ -1,0 +1,492 @@
+{
+  "schema_version": 1,
+  "status": "FINITE_FIELDWISE_COMPARISON_COMPLETED_WITH_UPSTREAM_EXPECTATION_DIFFERENCES",
+  "basis_comparison_sha256": "2344ED018CE94454CDFA632A5D341B664DD4EB010288DF8E6D1FCB70EBD66014",
+  "reference_report_sha256": "d661cb72767b193ce2eec394a299ba43adccaa8bf889eabf54402a5b19a310a8",
+  "contract_sha256": "512572453bf402617709168885003568408aa12311f8518a6d680989030b0d07",
+  "corpus_sha256": "3af07e2094abd0a91cb6bbbe0e152dc9341ca40e75c3b238b6db1ec0b30abf60",
+  "observer_exe_sha256": "906a06c95a87013fce481ff3ec23054bada9e5a9b5d81aaf8b5895527a5a1969",
+  "no_full_service_parity_claim": true,
+  "no_public_authenticated_importLog_claim": true,
+  "no_original_expectations_rewritten": true,
+  "cases": [
+    {
+      "id": "default-log-name",
+      "input_sha256": "39419e3014fc56ccc74c24116275db3aa9ec14d0ab7122deffd0a205242f5480",
+      "reference_status": "success",
+      "rust_preview_status": "ok",
+      "rust_error": null,
+      "declared_difference": "service_default_log_name",
+      "failed_original_manual_checks": [],
+      "fieldwise_checks": {
+        "core_field_differences": [
+          {
+            "path": "$.name",
+            "left": null,
+            "right": "Anonymous log imported from "
+          }
+        ],
+        "retained_source_full_metadata_differences_before_declared_default": [
+          {
+            "path": "$.attributes.length",
+            "left": 0,
+            "right": 1
+          },
+          {
+            "path": "$.attributes[0]",
+            "left": null,
+            "right": {
+              "key": "concept:name",
+              "type": "string",
+              "value": "Anonymous log imported from "
+            }
+          }
+        ],
+        "retained_source_metadata_except_declared_default": "equal",
+        "timestamp_precision_differences": [],
+        "product_projection_report": {
+          "admission_profile": "flat_xes_no_global_defaults_or_nested_attributes",
+          "attributes": [],
+          "basis": "all_source_attributes_before_event_filtering",
+          "ignored_classifiers": 0,
+          "omitted_event_attributes": 0,
+          "omitted_extension_declarations": 0,
+          "omitted_log_attributes": 0,
+          "omitted_trace_attributes": 0,
+          "schema_version": 1,
+          "timestamp_offsets_normalized_to_utc": 0,
+          "unlisted_attribute_occurrences": 0
+        },
+        "source_identity_scope": "Only Rust source case IDs/ordinals are claimed; Java after-import arrays do not invent original object indices"
+      },
+      "native_exit": 0,
+      "reference_observation_sha256": "8e70398fb431f48d674af526c19b69ec7b78b8573168d95d406a1d19544f3df7"
+    },
+    {
+      "id": "empty-log",
+      "input_sha256": "65af6bce5a79a523a14a1019d55a7523996b019cc7a112e25e06a6c5adc8f875",
+      "reference_status": "refused",
+      "rust_preview_status": "ok",
+      "rust_error": null,
+      "declared_difference": "service_prevalidation_empty_log_refusal",
+      "failed_original_manual_checks": [],
+      "fieldwise_checks": null,
+      "native_exit": 0,
+      "reference_observation_sha256": "791752c8f3b1a4047df11a369504f67797c95aebe2e89c4581121b87b31615dd"
+    },
+    {
+      "id": "empty-trace",
+      "input_sha256": "f43d9cfdae7423bd41cff5f854e6d67b6abefb5feb0b07f523bc30180a9a31cb",
+      "reference_status": "success",
+      "rust_preview_status": "ok",
+      "rust_error": null,
+      "declared_difference": null,
+      "failed_original_manual_checks": [],
+      "fieldwise_checks": {
+        "core_field_differences": [],
+        "retained_source_full_metadata_differences_before_declared_default": [],
+        "retained_source_metadata_except_declared_default": "equal",
+        "timestamp_precision_differences": [],
+        "product_projection_report": {
+          "admission_profile": "flat_xes_no_global_defaults_or_nested_attributes",
+          "attributes": [],
+          "basis": "all_source_attributes_before_event_filtering",
+          "ignored_classifiers": 0,
+          "omitted_event_attributes": 0,
+          "omitted_extension_declarations": 0,
+          "omitted_log_attributes": 0,
+          "omitted_trace_attributes": 0,
+          "schema_version": 1,
+          "timestamp_offsets_normalized_to_utc": 0,
+          "unlisted_attribute_occurrences": 0
+        },
+        "source_identity_scope": "Only Rust source case IDs/ordinals are claimed; Java after-import arrays do not invent original object indices"
+      },
+      "native_exit": 0,
+      "reference_observation_sha256": "c3132a49adb0722bbf6772f96e525c6b84cbe650b0f1cf3d1e52125b5731fb13"
+    },
+    {
+      "id": "all-filtered",
+      "input_sha256": "f3534ac107c4d1fb0f99c11c6c157026103e2c78ab2d48dfee1db03010f58f91",
+      "reference_status": "success",
+      "rust_preview_status": "ok",
+      "rust_error": null,
+      "declared_difference": null,
+      "failed_original_manual_checks": [],
+      "fieldwise_checks": {
+        "core_field_differences": [],
+        "retained_source_full_metadata_differences_before_declared_default": [],
+        "retained_source_metadata_except_declared_default": "equal",
+        "timestamp_precision_differences": [],
+        "product_projection_report": {
+          "admission_profile": "flat_xes_no_global_defaults_or_nested_attributes",
+          "attributes": [],
+          "basis": "all_source_attributes_before_event_filtering",
+          "ignored_classifiers": 0,
+          "omitted_event_attributes": 0,
+          "omitted_extension_declarations": 0,
+          "omitted_log_attributes": 0,
+          "omitted_trace_attributes": 0,
+          "schema_version": 1,
+          "timestamp_offsets_normalized_to_utc": 0,
+          "unlisted_attribute_occurrences": 0
+        },
+        "source_identity_scope": "Only Rust source case IDs/ordinals are claimed; Java after-import arrays do not invent original object indices"
+      },
+      "native_exit": 0,
+      "reference_observation_sha256": "a154a0e5bc83299ed63e50196fd026a4720e6f1e91b74faa1a20f862231c8f6b"
+    },
+    {
+      "id": "lifecycle",
+      "input_sha256": "8194fb5ba254cf8754e7df738f69b302ee953a9e0fb61384e50699c026622b62",
+      "reference_status": "success",
+      "rust_preview_status": "rejected",
+      "rust_error": "invalid_lifecycle",
+      "declared_difference": "explicit_strict_rust_admission",
+      "failed_original_manual_checks": [],
+      "fieldwise_checks": null,
+      "native_exit": 0,
+      "reference_observation_sha256": "15a34de9960015dc3191e191b93d05dfa528e99be3aa4177424bdc5e0937702c"
+    },
+    {
+      "id": "reverse-ties",
+      "input_sha256": "38055e50a9a7bb39f6eda4847547db6bcec99e588b1964330ac62fcdc28e55f3",
+      "reference_status": "success",
+      "rust_preview_status": "ok",
+      "rust_error": null,
+      "declared_difference": null,
+      "failed_original_manual_checks": [],
+      "fieldwise_checks": {
+        "core_field_differences": [],
+        "retained_source_full_metadata_differences_before_declared_default": [],
+        "retained_source_metadata_except_declared_default": "equal",
+        "timestamp_precision_differences": [],
+        "product_projection_report": {
+          "admission_profile": "flat_xes_no_global_defaults_or_nested_attributes",
+          "attributes": [],
+          "basis": "all_source_attributes_before_event_filtering",
+          "ignored_classifiers": 0,
+          "omitted_event_attributes": 0,
+          "omitted_extension_declarations": 0,
+          "omitted_log_attributes": 0,
+          "omitted_trace_attributes": 0,
+          "schema_version": 1,
+          "timestamp_offsets_normalized_to_utc": 0,
+          "unlisted_attribute_occurrences": 0
+        },
+        "source_identity_scope": "Only Rust source case IDs/ordinals are claimed; Java after-import arrays do not invent original object indices"
+      },
+      "native_exit": 0,
+      "reference_observation_sha256": "cfeb06984dc56ccc936cae881a2407b5663d8c267bf521ce99956e21100aaf13"
+    },
+    {
+      "id": "submillisecond",
+      "input_sha256": "8395357d3b5d954068a618a6f8e9700cd2ee440850fc7e4338de1b067b7c36bb",
+      "reference_status": "success",
+      "rust_preview_status": "ok",
+      "rust_error": null,
+      "declared_difference": "java_millisecond_precision",
+      "failed_original_manual_checks": [],
+      "fieldwise_checks": {
+        "core_field_differences": [],
+        "retained_source_full_metadata_differences_before_declared_default": [],
+        "retained_source_metadata_except_declared_default": "equal",
+        "timestamp_precision_differences": [
+          {
+            "rust_case_id": "case-0",
+            "rust_event_ordinal": 0,
+            "rust_timestamp": "2024-01-01T00:00:00.123456Z",
+            "java_millis": 1704067200123
+          }
+        ],
+        "product_projection_report": {
+          "admission_profile": "flat_xes_no_global_defaults_or_nested_attributes",
+          "attributes": [],
+          "basis": "all_source_attributes_before_event_filtering",
+          "ignored_classifiers": 0,
+          "omitted_event_attributes": 0,
+          "omitted_extension_declarations": 0,
+          "omitted_log_attributes": 0,
+          "omitted_trace_attributes": 0,
+          "schema_version": 1,
+          "timestamp_offsets_normalized_to_utc": 0,
+          "unlisted_attribute_occurrences": 0
+        },
+        "source_identity_scope": "Only Rust source case IDs/ordinals are claimed; Java after-import arrays do not invent original object indices"
+      },
+      "native_exit": 0,
+      "reference_observation_sha256": "5045ef539f92152cab386c91a0578de04e011cedf54adf2ee74a47d1ecab8925"
+    },
+    {
+      "id": "offset-equivalent",
+      "input_sha256": "d958fba08267b3a2b72c901d142d167fecb0a71ad14ee90bc7471e0b95bf85e6",
+      "reference_status": "success",
+      "rust_preview_status": "ok",
+      "rust_error": null,
+      "declared_difference": null,
+      "failed_original_manual_checks": [],
+      "fieldwise_checks": {
+        "core_field_differences": [],
+        "retained_source_full_metadata_differences_before_declared_default": [],
+        "retained_source_metadata_except_declared_default": "equal",
+        "timestamp_precision_differences": [],
+        "product_projection_report": {
+          "admission_profile": "flat_xes_no_global_defaults_or_nested_attributes",
+          "attributes": [],
+          "basis": "all_source_attributes_before_event_filtering",
+          "ignored_classifiers": 0,
+          "omitted_event_attributes": 0,
+          "omitted_extension_declarations": 0,
+          "omitted_log_attributes": 0,
+          "omitted_trace_attributes": 0,
+          "schema_version": 1,
+          "timestamp_offsets_normalized_to_utc": 1,
+          "unlisted_attribute_occurrences": 0
+        },
+        "source_identity_scope": "Only Rust source case IDs/ordinals are claimed; Java after-import arrays do not invent original object indices"
+      },
+      "native_exit": 0,
+      "reference_observation_sha256": "c1ce05f5cc481651e26e9512ab6fd2e094ecb45237c090b600bbf0f5f103811d"
+    },
+    {
+      "id": "typed-flat-attributes",
+      "input_sha256": "02f30140fa00c37fe667e555514076440c123e76f2dded1fca69067b73de234f",
+      "reference_status": "success",
+      "rust_preview_status": "ok",
+      "rust_error": null,
+      "declared_difference": null,
+      "failed_original_manual_checks": [],
+      "fieldwise_checks": {
+        "core_field_differences": [],
+        "retained_source_full_metadata_differences_before_declared_default": [],
+        "retained_source_metadata_except_declared_default": "equal",
+        "timestamp_precision_differences": [],
+        "product_projection_report": {
+          "admission_profile": "flat_xes_no_global_defaults_or_nested_attributes",
+          "attributes": [
+            {
+              "key": "approved",
+              "occurrences": 1,
+              "scope": "event",
+              "value_type": "boolean"
+            },
+            {
+              "key": "attempt",
+              "occurrences": 1,
+              "scope": "event",
+              "value_type": "int"
+            },
+            {
+              "key": "cost",
+              "occurrences": 1,
+              "scope": "event",
+              "value_type": "float"
+            },
+            {
+              "key": "identity:id",
+              "occurrences": 1,
+              "scope": "event",
+              "value_type": "id"
+            },
+            {
+              "key": "org:resource",
+              "occurrences": 1,
+              "scope": "event",
+              "value_type": "string"
+            },
+            {
+              "key": "log:revision",
+              "occurrences": 1,
+              "scope": "log",
+              "value_type": "int"
+            },
+            {
+              "key": "vip",
+              "occurrences": 1,
+              "scope": "trace",
+              "value_type": "boolean"
+            }
+          ],
+          "basis": "all_source_attributes_before_event_filtering",
+          "ignored_classifiers": 0,
+          "omitted_event_attributes": 5,
+          "omitted_extension_declarations": 0,
+          "omitted_log_attributes": 1,
+          "omitted_trace_attributes": 1,
+          "schema_version": 1,
+          "timestamp_offsets_normalized_to_utc": 0,
+          "unlisted_attribute_occurrences": 0
+        },
+        "source_identity_scope": "Only Rust source case IDs/ordinals are claimed; Java after-import arrays do not invent original object indices"
+      },
+      "native_exit": 0,
+      "reference_observation_sha256": "458d0b9e001f60b09674f0ed7f7e623721054252ca36ad0f70852b78a2da6ffd"
+    },
+    {
+      "id": "classifiers-extensions",
+      "input_sha256": "546f89e1c32872c18616baa22ce63a4798556fc777141438e3caa8134bfd64f2",
+      "reference_status": "success",
+      "rust_preview_status": "ok",
+      "rust_error": null,
+      "declared_difference": null,
+      "failed_original_manual_checks": [],
+      "fieldwise_checks": {
+        "core_field_differences": [],
+        "retained_source_full_metadata_differences_before_declared_default": [],
+        "retained_source_metadata_except_declared_default": "equal",
+        "timestamp_precision_differences": [],
+        "product_projection_report": {
+          "admission_profile": "flat_xes_no_global_defaults_or_nested_attributes",
+          "attributes": [
+            {
+              "key": "org:resource",
+              "occurrences": 1,
+              "scope": "event",
+              "value_type": "string"
+            }
+          ],
+          "basis": "all_source_attributes_before_event_filtering",
+          "ignored_classifiers": 2,
+          "omitted_event_attributes": 1,
+          "omitted_extension_declarations": 2,
+          "omitted_log_attributes": 0,
+          "omitted_trace_attributes": 0,
+          "schema_version": 1,
+          "timestamp_offsets_normalized_to_utc": 0,
+          "unlisted_attribute_occurrences": 0
+        },
+        "source_identity_scope": "Only Rust source case IDs/ordinals are claimed; Java after-import arrays do not invent original object indices"
+      },
+      "native_exit": 0,
+      "reference_observation_sha256": "2790eeb745c030ac7ccd4beb9bfb407907d965c600815562c76dbdfa9714cda4"
+    },
+    {
+      "id": "globals-not-event-values",
+      "input_sha256": "a70f5331c26f6f1a99939150f3b9011d6c2f93315e6937f973a27f265def2b39",
+      "reference_status": "success",
+      "rust_preview_status": "rejected",
+      "rust_error": "unsupported_format",
+      "declared_difference": "explicit_strict_rust_admission",
+      "failed_original_manual_checks": [],
+      "fieldwise_checks": null,
+      "native_exit": 0,
+      "reference_observation_sha256": "b569019d31c5bf9f30fc02d6d0edbcfe22c9dcbd7f9fe584e8e645370db5e3d6"
+    },
+    {
+      "id": "duplicate-semantic-name",
+      "input_sha256": "833d4af507468054bda7a75425230be004f9e7ecf2a5592549793e96ce7adf2f",
+      "reference_status": "success",
+      "rust_preview_status": "rejected",
+      "rust_error": "duplicate_key",
+      "declared_difference": "explicit_strict_rust_admission",
+      "failed_original_manual_checks": [],
+      "fieldwise_checks": null,
+      "native_exit": 0,
+      "reference_observation_sha256": "07648e2de239283e38eff74a63a32431b48bbad935796171f90752b4bd2923c8"
+    },
+    {
+      "id": "wrong-timestamp-type",
+      "input_sha256": "04b2cf62ea6b55c48281fb30dc8e80272098085af921e4b55322b003460b66ab",
+      "reference_status": "success",
+      "rust_preview_status": "rejected",
+      "rust_error": "invalid_timestamp",
+      "declared_difference": "explicit_strict_rust_admission",
+      "failed_original_manual_checks": [],
+      "fieldwise_checks": null,
+      "native_exit": 0,
+      "reference_observation_sha256": "9d463eba2c49aa7bfb217f96d7932de3a51e80a8e6d06ab60b4639f6d89f1b5a"
+    },
+    {
+      "id": "wrong-activity-type",
+      "input_sha256": "df83d60a63234e2a814762212b8387da79b7fdb86761747bfd89fb6dee5028f6",
+      "reference_status": "success",
+      "rust_preview_status": "rejected",
+      "rust_error": "empty_activity",
+      "declared_difference": "explicit_strict_rust_admission",
+      "failed_original_manual_checks": [],
+      "fieldwise_checks": null,
+      "native_exit": 0,
+      "reference_observation_sha256": "76dca1f3e4ca7c2a4824d361c5a8eb4e602ba02299690d5dc9feeccabcd270d9"
+    },
+    {
+      "id": "nested-attributes",
+      "input_sha256": "59b6cf9833c052dae32804768609ad85ed3a7447373103a783830c5afce50146",
+      "reference_status": "refused",
+      "rust_preview_status": "rejected",
+      "rust_error": "unsupported_format",
+      "declared_difference": "explicit_strict_rust_admission",
+      "failed_original_manual_checks": [
+        "traces",
+        "outcome",
+        "events"
+      ],
+      "fieldwise_checks": null,
+      "native_exit": 0,
+      "reference_observation_sha256": "b56b878c7ee3b1c3237282d812aa8f066d7023225a6f86da39bc1a47f7a13007"
+    },
+    {
+      "id": "xes-gzip",
+      "input_sha256": "89d880b9a5ef470f596e113c4e3a5bc081f369b0e3dcc536a82308ddce67e63e",
+      "reference_status": "success",
+      "rust_preview_status": "rejected",
+      "rust_error": "encoding",
+      "declared_difference": "explicit_strict_rust_admission",
+      "failed_original_manual_checks": [],
+      "fieldwise_checks": null,
+      "native_exit": 0,
+      "reference_observation_sha256": "89625ee16ff57af3f1f5c4c5ab1e4a78a056b5702363b5dfe7f875e6bfb67f2c"
+    },
+    {
+      "id": "unknown-extension-fallback",
+      "input_sha256": "6d532afae345030a8ad816f957d2a16b654f0b9d0cfb6ddd8f9c43962d754595",
+      "reference_status": "refused",
+      "rust_preview_status": "ok",
+      "rust_error": null,
+      "declared_difference": null,
+      "failed_original_manual_checks": [
+        "traces",
+        "outcome",
+        "events"
+      ],
+      "fieldwise_checks": null,
+      "native_exit": 0,
+      "reference_observation_sha256": "3d87d67bcf00d607f3a687c7ad62479284dda7369f72c5a1b868339e7f8b174a"
+    },
+    {
+      "id": "wrong-parser-consumed-stream",
+      "input_sha256": "6d532afae345030a8ad816f957d2a16b654f0b9d0cfb6ddd8f9c43962d754595",
+      "reference_status": "refused",
+      "rust_preview_status": "ok",
+      "rust_error": null,
+      "declared_difference": "service_selected_parser_and_unrewound_fallback_refusal",
+      "failed_original_manual_checks": [],
+      "fieldwise_checks": null,
+      "native_exit": 0,
+      "reference_observation_sha256": "15d14ee171f2193e25a3321f4ac12bcfe32d7766873392d990f345fd9e09b180"
+    },
+    {
+      "id": "mxml-dispatch",
+      "input_sha256": "bebd8bf1dbcc01e4eb7f87682098e390dc7cf1fbbec0f75b504664aade946146",
+      "reference_status": "success",
+      "rust_preview_status": "rejected",
+      "rust_error": "malformed_xml",
+      "declared_difference": "explicit_strict_rust_admission",
+      "failed_original_manual_checks": [],
+      "fieldwise_checks": null,
+      "native_exit": 0,
+      "reference_observation_sha256": "f86a6405159b331a4a32a36715a7b65c0d2c556d1cf1ff9b29349f1b8a46ae01"
+    },
+    {
+      "id": "mxml-gzip-dispatch",
+      "input_sha256": "21e26c921e1e3ce9a7b315e40c8c5ab3d1f6719a8f494099166f78477f9be2ec",
+      "reference_status": "success",
+      "rust_preview_status": "rejected",
+      "rust_error": "encoding",
+      "declared_difference": "explicit_strict_rust_admission",
+      "failed_original_manual_checks": [],
+      "fieldwise_checks": null,
+      "native_exit": 0,
+      "reference_observation_sha256": "43731908239a931ef43f0d1d4205864318594496343d6f1cbd998db934ae3cc0"
+    }
+  ]
+}

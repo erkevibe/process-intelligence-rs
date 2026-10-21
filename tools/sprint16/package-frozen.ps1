@@ -42,7 +42,7 @@ $taskName="process-intelligence-rs-$Version-windows-x86_64"
 $taskDist=[IO.Path]::GetFullPath($OutputDirectory)
 $taskAllowedDist=[IO.Path]::GetFullPath((Join-Path $taskRoot '.local/sprint16/root')).TrimEnd('\')+'\'
 if(-not $taskDist.StartsWith($taskAllowedDist,[StringComparison]::OrdinalIgnoreCase) -or (Test-Path -LiteralPath $taskDist)){throw 'Use a new S16 candidate output directory.'}
-if((Split-Path -Parent $taskDist) -cne $taskAllowedDist.TrimEnd('\')){throw 'Candidate must be a direct new child of the private S16 root.'}
+if((Split-Path -Parent $taskDist) -ceq $taskAllowedDist.TrimEnd('\')){throw 'Candidate requires an existing private S16 child directory as its parent.'}
 Assert-OwnedNoReparse (Split-Path -Parent $taskDist)
 Assert-OwnedPrivateDirectory (Split-Path -Parent $taskDist)
 [void](New-OwnedPrivateDirectory $taskDist)
