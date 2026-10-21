@@ -6,7 +6,7 @@ Import-Module (Join-Path $ws 'tools/sprint18/owned-runtime.psm1') -Force -Disabl
 Import-Module (Join-Path $ws 'tools/sprint15/evidence-storage.psm1') -Force -DisableNameChecking
 Import-Module (Join-Path $PSScriptRoot 'resource-guard.psm1') -Force
 if((Get-FileHash $Config).Hash -cne $ConfigSha){throw 'config_pin'}
-$c=Get-Content $Config -Raw|ConvertFrom-Json -AsHashtable
+$c=Get-Content $Config -Raw|ConvertFrom-Json -AsHashtable -DateKind String
 $phaseDeadline=[DateTimeOffset]'2026-10-21T22:55:42Z'
 if($c.ContainsKey('phase_deadline_utc')){
  $requestedDeadline=[DateTimeOffset]::ParseExact([string]$c.phase_deadline_utc,"yyyy-MM-dd'T'HH:mm:ss'Z'",[Globalization.CultureInfo]::InvariantCulture,[Globalization.DateTimeStyles]::AssumeUniversal)
