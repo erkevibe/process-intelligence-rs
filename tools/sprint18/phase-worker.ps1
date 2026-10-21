@@ -8,6 +8,7 @@ $c=Get-Content -LiteralPath $Config -Raw|ConvertFrom-Json -AsHashtable -DateKind
 foreach($pin in $c.pins){if((Get-FileHash -LiteralPath $pin.path).Hash -cne $pin.sha256){throw 'input_pin'}}
 Set-Location -LiteralPath $c.workspace
 $env:RUSTUP_HOME=$c.rustup_home;$env:RUSTUP_TOOLCHAIN='1.99.0-x86_64-pc-windows-gnu';$env:CARGO_HOME=$c.cargo_home;$env:CARGO_TARGET_DIR=$c.target;$env:CARGO_INCREMENTAL='0';$env:CARGO_PROFILE_RELEASE_DEBUG='0';$env:CARGO_BUILD_JOBS='2';$env:TEMP=$c.temp;$env:TMP=$c.temp
+$env:CARGO_PROFILE_DEV_DEBUG='0';$env:CARGO_PROFILE_TEST_DEBUG='0'
 $env:PATH=$c.toolchain_bin+';'+$c.linker_self+';'+$c.linker_bin+';'+$env:PATH
 $sep=[char]0x1f;$env:CARGO_ENCODED_RUSTFLAGS="-C${sep}dlltool=$($c.dlltool)${sep}-C${sep}linker=$($c.linker)${sep}-C${sep}linker-flavor=ld.lld${sep}-C${sep}link-self-contained=yes"
 if([DateTimeOffset]::UtcNow -ge [DateTimeOffset]'2026-10-21T22:55:42Z'){throw 'runtime_freeze'}
