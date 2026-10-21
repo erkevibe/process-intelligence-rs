@@ -1,0 +1,46 @@
+{
+  "input_sha256": "5cc07927652418b5479ebc0f9dc33772d23cd3be63a75be8cafcb600b5f94967",
+  "preview": {
+    "status": "ok",
+    "value": {
+      "changes": [],
+      "fully_filtered": true,
+      "log": {
+        "cases": [],
+        "name": null,
+        "warnings": [
+          "Предварительный просмотр: исходные данные не изменены. Это не полный сервис Apromore."
+        ]
+      },
+      "policy": "apromore-validateLog-bbf24df-preview-v1",
+      "projection_report": {
+        "admission_profile": "flat_xes_no_global_defaults_or_nested_attributes",
+        "attributes": [],
+        "basis": "all_source_attributes_before_event_filtering",
+        "ignored_classifiers": 0,
+        "omitted_event_attributes": 0,
+        "omitted_extension_declarations": 0,
+        "omitted_log_attributes": 0,
+        "omitted_trace_attributes": 0,
+        "schema_version": 1,
+        "timestamp_offsets_normalized_to_utc": 0,
+        "unlisted_attribute_occurrences": 0
+      },
+      "source_cases": 0,
+      "source_events": 0
+    }
+  },
+  "raw_rust4pm": {
+    "log": {
+      "attributes": [],
+      "classifiers": [],
+      "extensions": [],
+      "global_event_attrs": null,
+      "global_trace_attrs": null,
+      "traces": []
+    },
+    "status": "ok"
+  },
+  "schema_version": 1,
+  "scope": "Fixed trusted corpus only; raw Rust4PM observation is separate from application preview admission; no persistence"
+}

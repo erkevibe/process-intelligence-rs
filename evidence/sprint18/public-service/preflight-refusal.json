@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "status": "SUPERVISOR_PREFLIGHT_REFUSED_BEFORE_NATIVE_PROCESS",
+  "runner_sha256": "15BCD51DE57082F6A154AD3E24C2B74DAA06B317FA0420BB455EB6E580CE2F5E",
+  "config_sha256": "A7053CA72CD6BAC238E31164A37774DCBE49D1A9CA87D85E408AC10063B49B9C",
+  "observed_shell_exit": 1,
+  "reason": "bounded_runtime_manifest",
+  "actual_manifest_bytes": 1609704,
+  "initial_limit_bytes": 1048576,
+  "output_directory_created": false,
+  "worker_started": false,
+  "javac_started": false,
+  "correction": "Unexecuted draft raises bounded manifest read limit to4MiB; all content/hash/count checks unchanged; separate QA admission requested"
+}

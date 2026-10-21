@@ -1,0 +1,318 @@
+{
+  "input_sha256": "b15e2aabadd0fa4723a4b30b8504f20264e7134730effff327355d9f069e44f2",
+  "preview": {
+    "status": "ok",
+    "value": {
+      "changes": [],
+      "fully_filtered": false,
+      "log": {
+        "cases": [
+          {
+            "events": [
+              {
+                "activity": "A",
+                "lifecycle": "complete",
+                "ordinal": 0,
+                "timestamp": "2024-01-01T00:00:00.123456789Z"
+              },
+              {
+                "activity": "B",
+                "lifecycle": "complete",
+                "ordinal": 1,
+                "timestamp": "2024-01-01T00:00:01Z"
+              }
+            ],
+            "id": "case-0",
+            "name": "flat-case-1"
+          }
+        ],
+        "name": "Public flat contract",
+        "warnings": [
+          "Предварительный просмотр: исходные данные не изменены. Это не полный сервис Apromore."
+        ]
+      },
+      "policy": "apromore-validateLog-bbf24df-preview-v1",
+      "projection_report": {
+        "admission_profile": "flat_xes_no_global_defaults_or_nested_attributes",
+        "attributes": [
+          {
+            "key": "approved",
+            "occurrences": 1,
+            "scope": "event",
+            "value_type": "boolean"
+          },
+          {
+            "key": "long-max",
+            "occurrences": 1,
+            "scope": "event",
+            "value_type": "int"
+          },
+          {
+            "key": "long-min",
+            "occurrences": 1,
+            "scope": "event",
+            "value_type": "int"
+          },
+          {
+            "key": "negative-zero",
+            "occurrences": 1,
+            "scope": "event",
+            "value_type": "float"
+          },
+          {
+            "key": "resource",
+            "occurrences": 2,
+            "scope": "event",
+            "value_type": "string"
+          },
+          {
+            "key": "uuid",
+            "occurrences": 1,
+            "scope": "event",
+            "value_type": "id"
+          },
+          {
+            "key": "wide-negative",
+            "occurrences": 1,
+            "scope": "event",
+            "value_type": "int"
+          },
+          {
+            "key": "budget",
+            "occurrences": 1,
+            "scope": "log",
+            "value_type": "int"
+          },
+          {
+            "key": "department",
+            "occurrences": 1,
+            "scope": "log",
+            "value_type": "string"
+          },
+          {
+            "key": "weight",
+            "occurrences": 1,
+            "scope": "trace",
+            "value_type": "float"
+          }
+        ],
+        "basis": "all_source_attributes_before_event_filtering",
+        "ignored_classifiers": 1,
+        "omitted_event_attributes": 8,
+        "omitted_extension_declarations": 3,
+        "omitted_log_attributes": 2,
+        "omitted_trace_attributes": 1,
+        "schema_version": 1,
+        "timestamp_offsets_normalized_to_utc": 1,
+        "unlisted_attribute_occurrences": 0
+      },
+      "source_cases": 1,
+      "source_events": 2
+    }
+  },
+  "raw_rust4pm": {
+    "log": {
+      "attributes": [
+        {
+          "key": "concept:name",
+          "own_attributes": null,
+          "value": {
+            "content": "Public flat contract",
+            "type": "String"
+          }
+        },
+        {
+          "key": "department",
+          "own_attributes": null,
+          "value": {
+            "content": "synthetic-flat",
+            "type": "String"
+          }
+        },
+        {
+          "key": "budget",
+          "own_attributes": null,
+          "value": {
+            "content": 9007199254740993,
+            "type": "Int"
+          }
+        }
+      ],
+      "classifiers": [
+        {
+          "keys": [
+            "concept:name",
+            "resource"
+          ],
+          "name": "Activity resource"
+        }
+      ],
+      "extensions": [
+        {
+          "name": "Concept",
+          "prefix": "concept",
+          "uri": "http://www.xes-standard.org/concept.xesext"
+        },
+        {
+          "name": "Time",
+          "prefix": "time",
+          "uri": "http://www.xes-standard.org/time.xesext"
+        },
+        {
+          "name": "Lifecycle",
+          "prefix": "lifecycle",
+          "uri": "http://www.xes-standard.org/lifecycle.xesext"
+        }
+      ],
+      "global_event_attrs": null,
+      "global_trace_attrs": null,
+      "traces": [
+        {
+          "attributes": [
+            {
+              "key": "concept:name",
+              "own_attributes": null,
+              "value": {
+                "content": "flat-case-1",
+                "type": "String"
+              }
+            },
+            {
+              "key": "weight",
+              "own_attributes": null,
+              "value": {
+                "content": 0.125,
+                "type": "Float"
+              }
+            }
+          ],
+          "events": [
+            {
+              "attributes": [
+                {
+                  "key": "concept:name",
+                  "own_attributes": null,
+                  "value": {
+                    "content": "A",
+                    "type": "String"
+                  }
+                },
+                {
+                  "key": "resource",
+                  "own_attributes": null,
+                  "value": {
+                    "content": "synthetic-r1",
+                    "type": "String"
+                  }
+                },
+                {
+                  "key": "lifecycle:transition",
+                  "own_attributes": null,
+                  "value": {
+                    "content": "complete",
+                    "type": "String"
+                  }
+                },
+                {
+                  "key": "time:timestamp",
+                  "own_attributes": null,
+                  "value": {
+                    "content": "2024-01-01T05:00:00.123456789+05:00",
+                    "type": "Date"
+                  }
+                },
+                {
+                  "key": "long-max",
+                  "own_attributes": null,
+                  "value": {
+                    "content": 9223372036854775807,
+                    "type": "Int"
+                  }
+                },
+                {
+                  "key": "long-min",
+                  "own_attributes": null,
+                  "value": {
+                    "content": -9223372036854775808,
+                    "type": "Int"
+                  }
+                },
+                {
+                  "key": "negative-zero",
+                  "own_attributes": null,
+                  "value": {
+                    "content": -0.0,
+                    "type": "Float"
+                  }
+                },
+                {
+                  "key": "approved",
+                  "own_attributes": null,
+                  "value": {
+                    "content": true,
+                    "type": "Boolean"
+                  }
+                },
+                {
+                  "key": "uuid",
+                  "own_attributes": null,
+                  "value": {
+                    "content": "00112233-4455-6677-8899-aabbccddeeff",
+                    "type": "ID"
+                  }
+                }
+              ]
+            },
+            {
+              "attributes": [
+                {
+                  "key": "concept:name",
+                  "own_attributes": null,
+                  "value": {
+                    "content": "B",
+                    "type": "String"
+                  }
+                },
+                {
+                  "key": "resource",
+                  "own_attributes": null,
+                  "value": {
+                    "content": "synthetic-r2",
+                    "type": "String"
+                  }
+                },
+                {
+                  "key": "lifecycle:transition",
+                  "own_attributes": null,
+                  "value": {
+                    "content": "complete",
+                    "type": "String"
+                  }
+                },
+                {
+                  "key": "time:timestamp",
+                  "own_attributes": null,
+                  "value": {
+                    "content": "2024-01-01T00:00:01Z",
+                    "type": "Date"
+                  }
+                },
+                {
+                  "key": "wide-negative",
+                  "own_attributes": null,
+                  "value": {
+                    "content": -9007199254740993,
+                    "type": "Int"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "status": "ok"
+  },
+  "schema_version": 1,
+  "scope": "Fixed trusted corpus only; raw Rust4PM observation is separate from application preview admission; no persistence"
+}

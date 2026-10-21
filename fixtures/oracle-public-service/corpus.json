@@ -1,0 +1,310 @@
+{
+  "schema_version": 1,
+  "scope": "Actual unchanged public importLog selected username/perspective=false path with real reachable Spring/JPA/H2/FILE/cache/APMLog; no Portal/MySQL/fullR2 claim",
+  "source_commit": "bbf24dfd43e72d6992392465f875a4367cbe792b",
+  "corpus": [
+    {
+      "id": "minimal-home-private",
+      "file": "typed-defaults.xes",
+      "sha256": "3ce20038300de8f6d9c7f65c515cf7d10eab2e7bfc4c4df8939a09d00738f182",
+      "username": "s18-alice",
+      "folder": null,
+      "public_model": false,
+      "perspective": false,
+      "log_name": "Public gate",
+      "extension": "xes",
+      "domain": "s18-domain",
+      "created": "2026-10-21",
+      "expected_source_hypothesis": {
+        "outcome": "success",
+        "folder": "home",
+        "rights": {
+          "s18-alice": [
+            true,
+            true,
+            true
+          ]
+        },
+        "log_delta": 1,
+        "storage_delta": 1,
+        "stored_traces": 1,
+        "stored_events": 1
+      }
+    },
+    {
+      "id": "owned-folder-private",
+      "file": "typed-defaults.xes",
+      "sha256": "3ce20038300de8f6d9c7f65c515cf7d10eab2e7bfc4c4df8939a09d00738f182",
+      "username": "s18-alice",
+      "folder": "owned",
+      "public_model": false,
+      "perspective": false,
+      "log_name": "Owned import",
+      "extension": "xes",
+      "domain": "s18-domain",
+      "created": "2026-10-21",
+      "expected_source_hypothesis": {
+        "outcome": "success",
+        "folder": "owned",
+        "rights": {
+          "s18-alice": [
+            true,
+            true,
+            true
+          ],
+          "s18-team": [
+            true,
+            false,
+            false
+          ]
+        },
+        "log_delta": 1,
+        "storage_delta": 1
+      }
+    },
+    {
+      "id": "foreign-folder-redirect",
+      "file": "typed-defaults.xes",
+      "sha256": "3ce20038300de8f6d9c7f65c515cf7d10eab2e7bfc4c4df8939a09d00738f182",
+      "username": "s18-alice",
+      "folder": "foreign",
+      "public_model": false,
+      "perspective": false,
+      "log_name": "Foreign import",
+      "extension": "xes",
+      "domain": "s18-domain",
+      "created": "2026-10-21",
+      "expected_source_hypothesis": {
+        "outcome": "success",
+        "folder": "home",
+        "rights": {
+          "s18-alice": [
+            true,
+            true,
+            true
+          ]
+        },
+        "log_delta": 1,
+        "storage_delta": 1
+      }
+    },
+    {
+      "id": "owned-folder-public",
+      "file": "typed-defaults.xes",
+      "sha256": "3ce20038300de8f6d9c7f65c515cf7d10eab2e7bfc4c4df8939a09d00738f182",
+      "username": "s18-alice",
+      "folder": "owned",
+      "public_model": true,
+      "perspective": false,
+      "log_name": "Public import",
+      "extension": "xes",
+      "domain": "s18-domain",
+      "created": "2026-10-21",
+      "expected_source_hypothesis": {
+        "outcome": "success",
+        "folder": "owned",
+        "rights": {
+          "s18-alice": [
+            true,
+            true,
+            true
+          ],
+          "s18-team": [
+            true,
+            false,
+            false
+          ],
+          "s18-public": [
+            true,
+            true,
+            false
+          ]
+        },
+        "log_delta": 1,
+        "storage_delta": 1
+      }
+    },
+    {
+      "id": "unknown-user",
+      "file": "typed-defaults.xes",
+      "sha256": "3ce20038300de8f6d9c7f65c515cf7d10eab2e7bfc4c4df8939a09d00738f182",
+      "username": "s18-missing",
+      "folder": null,
+      "public_model": false,
+      "perspective": false,
+      "log_name": "Unknown import",
+      "extension": "xes",
+      "domain": "s18-domain",
+      "created": "2026-10-21",
+      "expected_source_hypothesis": {
+        "outcome": "exception",
+        "exception_class": "org.apromore.exception.UserNotFoundException",
+        "log_delta": 0,
+        "storage_delta": 0,
+        "file_delta": 0,
+        "cache_delta": 0
+      }
+    },
+    {
+      "id": "invalid-log",
+      "file": "invalid-empty.xes",
+      "sha256": "5cc07927652418b5479ebc0f9dc33772d23cd3be63a75be8cafcb600b5f94967",
+      "username": "s18-alice",
+      "folder": null,
+      "public_model": false,
+      "perspective": false,
+      "log_name": "Invalid import",
+      "extension": "xes",
+      "domain": "s18-domain",
+      "created": "2026-10-21",
+      "expected_source_hypothesis": {
+        "outcome": "exception",
+        "exception_message": "No process instances contained in log!",
+        "log_delta": 0,
+        "storage_delta": 0,
+        "file_delta": 0,
+        "cache_delta": 0
+      }
+    },
+    {
+      "id": "outer-rollback",
+      "file": "typed-defaults.xes",
+      "sha256": "3ce20038300de8f6d9c7f65c515cf7d10eab2e7bfc4c4df8939a09d00738f182",
+      "username": "s18-alice",
+      "folder": "owned",
+      "public_model": false,
+      "perspective": false,
+      "log_name": "Rollback import",
+      "extension": "xes",
+      "domain": "s18-domain",
+      "created": "2026-10-21",
+      "expected_source_hypothesis": {
+        "outcome": "outer_rollback",
+        "log_delta": 0,
+        "storage_delta": 0,
+        "external_effects": "observe exact file/cache delta; do not presume JPA rollback covers them"
+      }
+    },
+    {
+      "id": "duplicate-owned-name",
+      "file": "typed-defaults.xes",
+      "sha256": "3ce20038300de8f6d9c7f65c515cf7d10eab2e7bfc4c4df8939a09d00738f182",
+      "username": "s18-alice",
+      "folder": "owned",
+      "public_model": false,
+      "perspective": false,
+      "log_name": "Duplicate import",
+      "extension": "xes",
+      "domain": "s18-domain",
+      "created": "2026-10-21",
+      "expected_source_hypothesis": {
+        "outcome": "exception",
+        "log_delta": 0,
+        "storage_delta": 0,
+        "external_effects": "observe exact file/cache delta after actual DB unique constraint failure; seed baseline duplicate first"
+      }
+    },
+    {
+      "id": "name-normalization",
+      "file": "typed-defaults.xes",
+      "sha256": "3ce20038300de8f6d9c7f65c515cf7d10eab2e7bfc4c4df8939a09d00738f182",
+      "username": "s18-alice",
+      "folder": null,
+      "public_model": false,
+      "perspective": false,
+      "log_name": " report.v1. ",
+      "extension": "xes",
+      "domain": "s18-domain",
+      "created": "2026-10-21",
+      "expected_source_hypothesis": {
+        "outcome": "success",
+        "normalized_name": "report_v1",
+        "folder": "home",
+        "rights": {
+          "s18-alice": [
+            true,
+            true,
+            true
+          ]
+        },
+        "log_delta": 1,
+        "storage_delta": 1
+      }
+    },
+    {
+      "id": "order-offset-lifecycle",
+      "file": "order-offset.xes",
+      "sha256": "e2fccbe9fa11db9bf5c1948a875e0fa72ec34e7633cd413e46821959f10ef6dd",
+      "username": "s18-alice",
+      "folder": null,
+      "public_model": false,
+      "perspective": false,
+      "log_name": "Order import",
+      "extension": "xes",
+      "domain": "s18-domain",
+      "created": "2026-10-21",
+      "expected_source_hypothesis": {
+        "outcome": "success",
+        "stored_activities": [
+          "B",
+          "A"
+        ],
+        "stored_timestamp_millis": [
+          1704067201999,
+          1704067200000
+        ],
+        "stored_lifecycle": [
+          "start",
+          "complete"
+        ],
+        "log_delta": 1,
+        "storage_delta": 1
+      }
+    },
+    {
+      "id": "all-filtered",
+      "file": "all-filtered.xes",
+      "sha256": "3c3c5e3e35cae8315e2bef39e27cab65d57113c4d990eb2b0c927c9a29de950e",
+      "username": "s18-alice",
+      "folder": null,
+      "public_model": false,
+      "perspective": false,
+      "log_name": "Filtered import",
+      "extension": "xes",
+      "domain": "s18-domain",
+      "created": "2026-10-21",
+      "expected_source_hypothesis": {
+        "outcome": "success",
+        "stored_traces": 0,
+        "stored_events": 0,
+        "log_delta": 1,
+        "storage_delta": 1,
+        "apm_cache": "absent for empty converted log"
+      }
+    }
+  ],
+  "typed_metadata_hypotheses": {
+    "typed-defaults.xes": {
+      "default_log_name": "Anonymous log imported from ",
+      "missing_lifecycle_default": "complete",
+      "custom_flat_types": "retain log string/trace float/event int+boolean",
+      "classifiers": "retain exact name/key order",
+      "globals": "retain global metadata; do not materialize missing event resource",
+      "timestamp": "actual OpenXES millisecond precision; raw nanoseconds not retained"
+    },
+    "order-offset.xes": {
+      "event_order": "retain input event order",
+      "offset": "normalize to same instant at millisecond precision"
+    }
+  },
+  "invariant_policy": [
+    "Freeze hypotheses before execution, preserve every false hypothesis as actual mismatch",
+    "Each scenario fresh private DB/file/cache state; duplicate scenario has declared seeded baseline",
+    "Actual transaction advisor and active transaction entry required for transactional claim",
+    "Unknownuser/parser failures expected no persistence/cache/file side effects",
+    "Owned/foreign checks use persisted GroupFolder rights, never stub authorization",
+    "Restart closes Spring/H2/cache and opens existing file database with schema validation; typed storage readback bound to saved key",
+    "No fixture expectation of dynamic storage timestamp or assigned numeric identity",
+    "External file/cache side effects on rollback observed independently; no atomic rollback claim from DB annotations"
+  ]
+}

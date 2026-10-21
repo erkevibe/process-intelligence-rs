@@ -75,6 +75,8 @@ pub struct ModelFlow {
     pub source: String,
     pub target: String,
     pub waypoints: Vec<Point>,
+    #[serde(default, skip_serializing_if = "String::is_empty")]
+    pub label: String,
 }
 #[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
@@ -353,16 +355,15 @@ pub fn parse(input: &[u8]) -> Result<ProcessModel, ImportError> {
                 "sequenceFlow",
                 &["id", "name", "sourceRef", "targetRef"],
             )?;
-            if !child.children.is_empty() || !child.optional("name").is_empty() {
-                return Err(unsupported(
-                    "Условия и именованные sequenceFlow не входят в subset.",
-                ));
+            if !child.children.is_empty() {
+                return Err(unsupported("Условия sequenceFlow не входят в subset."));
             }
             model.flows.push(ModelFlow {
                 id: child.attr("id")?.to_owned(),
                 source: child.attr("sourceRef")?.to_owned(),
                 target: child.attr("targetRef")?.to_owned(),
                 waypoints: Vec::new(),
+                label: child.optional("name").to_owned(),
             });
         }
         if model.nodes.len() > MAX_NODES || model.flows.len() > MAX_FLOWS {
@@ -580,6 +581,11 @@ pub fn validate(model: &ProcessModel) -> Result<(), ImportError> {
     let mut incoming: BTreeMap<&str, usize> = BTreeMap::new();
     let mut outgoing: BTreeMap<&str, usize> = BTreeMap::new();
     for flow in &model.flows {
+        if flow.label.len() > 4096 || !xml_text(&flow.label) {
+            return Err(invalid(
+                "Некорректная подпись перехода: предел 4096 байт UTF-8.",
+            ));
+        }
         if !identifier(&flow.id)
             || !ids.insert(&flow.id)
             || !nodes.contains_key(flow.source.as_str())
@@ -716,8 +722,13 @@ pub fn serialize(model: &ProcessModel) -> Result<String, ImportError> {
         ));
     }
     for flow in &model.flows {
+        let name = if flow.label.is_empty() {
+            String::new()
+        } else {
+            format!(" name=\"{}\"", escape(&flow.label))
+        };
         xml.push_str(&format!(
-            "<bpmn:sequenceFlow id=\"{}\" sourceRef=\"{}\" targetRef=\"{}\"/>\n",
+            "<bpmn:sequenceFlow id=\"{}\" sourceRef=\"{}\" targetRef=\"{}\"{name}/>\n",
             escape(&flow.id),
             escape(&flow.source),
             escape(&flow.target)
@@ -850,5 +861,6 @@ fn add_flow(model: &mut ProcessModel, source: &str, target: &str) {
         source: source.into(),
         target: target.into(),
         waypoints: Vec::new(),
+        label: String::new(),
     });
 }

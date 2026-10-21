@@ -30,6 +30,12 @@ jobs:
           node tests/sprint16_bpmn_geometry.cjs
           mkdir -p .local/sprint16/service
           python3 tools/oracle/full-service-bootstrap-tests.py
+      - name: Sprint18 public-service comparator regressions
+        run: |
+          node tests/public_service_comparator.mjs
+          node tests/sprint18_bpmn_labels.cjs
+          mkdir -p .local/sprint18
+          node tools/oracle/compare-public-service.mjs --matrix evidence/sprint18/public-service/reference-index.json evidence/sprint18/public-service/rust-index.json .local/sprint18/public-comparison.json
       - name: Diagnostic protocol and state oracle regressions
         run: |
           node tests/sql5-cycle-regression.cjs

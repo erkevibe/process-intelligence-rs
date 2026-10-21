@@ -190,6 +190,7 @@ fn size_loss_or_resize_of_existing_node_is_refused_but_task_deletion_is_valid() 
         source: "s".into(),
         target: "b".into(),
         waypoints: vec![],
+        label: String::new(),
     });
     bpmn::validate_edit(&original, &deletion).unwrap();
     assert_eq!(
@@ -199,18 +200,30 @@ fn size_loss_or_resize_of_existing_node_is_refused_but_task_deletion_is_valid() 
 }
 
 #[test]
-fn flow_names_conditions_and_unknown_dimension_fields_are_still_refused() {
+fn flow_names_are_preserved_by_the_agreed_label_extension() {
     let named = XML.replace(
         "id=\"ab\" sourceRef",
         "id=\"ab\" name=\"conditional choice\" sourceRef",
     );
+    assert_eq!(
+        bpmn::parse(named.as_bytes())
+            .unwrap()
+            .flows
+            .iter()
+            .find(|f| f.id == "ab")
+            .unwrap()
+            .label,
+        "conditional choice"
+    );
+}
+
+#[test]
+fn conditions_and_unknown_dimension_fields_are_still_refused() {
     let condition = XML.replace("sourceRef=\"a\" targetRef=\"b\"/>", "sourceRef=\"a\" targetRef=\"b\"><b:conditionExpression>true</b:conditionExpression></b:sequenceFlow>");
-    for xml in [named, condition] {
-        assert_eq!(
-            bpmn::parse(xml.as_bytes()).unwrap_err().code,
-            "bpmn_unsupported"
-        );
-    }
+    assert_eq!(
+        bpmn::parse(condition.as_bytes()).unwrap_err().code,
+        "bpmn_unsupported"
+    );
     let mut json: serde_json::Value = serde_json::from_str(OLD_JSON).unwrap();
     json["nodes"][1]["dimensions"] =
         serde_json::json!({"width":100.0,"height":80.0,"script":"ignored?"});

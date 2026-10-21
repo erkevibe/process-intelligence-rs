@@ -9,6 +9,7 @@ fn flow(id: &str, source: &str, target: &str) -> ModelFlow {
         source: source.into(),
         target: target.into(),
         waypoints: vec![],
+        label: String::new(),
     }
 }
 fn inserted() -> ProcessModel {
