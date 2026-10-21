@@ -56,3 +56,13 @@ Preserve JSON creation timestamps as literal strings (`ConvertFrom-Json -DateKin
 Root observations in current PID + creation + normalized executable path. Build ancestry from each observed live snapshot with present parents and child creation not earlier than its current parent. Keep captured identities as PID+creation; never reuse a historical PID set as an ancestry seed. Actual Sprint08 stale PID reuse incorrectly captured unrelated QA children; the repaired observer and fresh03 passed independent targeted Council review. See sprint-08-td-pid-closure-position.md and sprint-08-qa-observer-closure01.json under flw/evidence.
 
 CIM polling is non-atomic sampling: missing paths, short-lived/exited-parent children and uncaptured child exits remain unavailable. Capture actual main native handle/exit and full streams separately. This does not authorize terminating processes or promise kernel/full-machine ancestry. Preserve contaminated/failed attempts; freeze fresh evidence for changed mechanisms rather than relabel them.
+
+
+## Bounded browser file selection on a live fixture
+
+For actual browser file upload, inspect the current visible DOM file input and use only currently documented computer-use APIs. Start the chooser wait and the observed input activation concurrently, with finite per-action/tool bounds shorter than remaining fixture lifetime. A timed-out chooser is a diagnostic failure: check fixture liveness and resolve the pending interaction before another upload; do not queue follow-up API/UI work after the fixture deadline. Preserve the failed attempt and distinguish tool success, page response and server-side saved bytes. Actual browser permission denials remain binding; never switch channels to bypass them. This mechanism was used for successful S16 pre-restart uploads; it does not establish completed reimport/restart or arbitrary file-picker portability.
+
+
+## Pin transitive sibling runtime dependencies
+
+When reusing a wrapper/worker, resolve each relative import from the exact copied file PSScriptRoot and verify the reachable sibling runtime modules, scope/bounds and executable hashes. Byte-identical outer code at a new path can execute a different dependency. A new sprint changes only the explicitly reviewed diagnostic paths/deadline/ports/nonce; retain real package bytes. Review the narrow resolved-path/hash diff before launch and keep the earlier failure unchanged. Do not weaken private ACL, path/reparse, native ownership, output limits or free-space guards merely to make relocation run. Full old-tree inventory is unnecessary for a small isolated wrapper relocation when protected trees remain read-only.
