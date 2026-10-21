@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "status": "READ_ONLY_POSTCHECK_CANONICAL_INPUTS_AND_NEW_PUBLIC_SOURCE_FREEZE",
+  "original_source_blobs": 5763,
+  "original_source_bytes": 79393964,
+  "runtime_files": 285,
+  "canonical_build_proof_sha256": "976db2b8712233abd6323286e0ad0ad0b0198d74147fc35596a18f13a8bedd83",
+  "tree_sha256": "bce30c8d971da259d4947f7ae9db904765dc1e980f5b9d41ccd86567a45fd96f",
+  "old_source_tree_modified": false,
+  "old_runtime_modified": false,
+  "public_source_inventory": [
+    {
+      "path": "tools/oracle/core-filter-collect.py",
+      "bytes": 3774,
+      "sha256": "46f25f4a8177cbf0fdf6c64fedba919a25bec676013864404b7f127ba139b2a8"
+    },
+    {
+      "path": "tools/oracle/core-filter-freeze.py",
+      "bytes": 4754,
+      "sha256": "e3ddce4d931b38946e740d19a397ce7f34a4e67083f17f99c26ab23bad97d9a0"
+    },
+    {
+      "path": "tools/oracle/core-filter-harness.java",
+      "bytes": 12388,
+      "sha256": "39bef9eb9043130ba75ce0e7d2669b5d64f73a09882a1c108f044a9cd8ea677a"
+    },
+    {
+      "path": "tools/oracle/core-filter-postcheck.py",
+      "bytes": 2352,
+      "sha256": "c8413b635f7fdb88ce87f325e38b609db6b4853f8fb01a5a3f22dd53199fccc6"
+    },
+    {
+      "path": "tools/oracle/core-filter-prepare-cases.ps1",
+      "bytes": 5160,
+      "sha256": "840367ad35b18f21293faf3bd01374d6e2a610fd8088611a17d53c15a61e5897"
+    },
+    {
+      "path": "tools/oracle/core-filter-prepare.ps1",
+      "bytes": 3950,
+      "sha256": "62af72fcb7e3c7b07bd1358dad91ae8d090bf7e4b0392c861e55ede4db5bc2f5"
+    },
+    {
+      "path": "tools/oracle/core-filter-README.md",
+      "bytes": 2594,
+      "sha256": "a13bd92ad980c83865043cd9e872bba7ec1ccfeab78a9aa8c1a21e1d4a55550a"
+    },
+    {
+      "path": "tools/oracle/core-filter-xes-observer.java",
+      "bytes": 5491,
+      "sha256": "61349f3724c231d9c344aea684c36625e554c0eb2aaca750b44a265ad101fe51"
+    },
+    {
+      "path": "fixtures/oracle-core-filter/corpus.json",
+      "bytes": 9296,
+      "sha256": "0997acc2af6514c0d799181f78cfef217bddb375def14646f6864f8257cfce6c"
+    },
+    {
+      "path": "fixtures/oracle-core-filter/duplicate-activities.json",
+      "bytes": 1609,
+      "sha256": "c1ddee193794e0e12f09fbd1bea584f02fb2b30327889222107f9991bc8b470d"
+    },
+    {
+      "path": "fixtures/oracle-core-filter/empty-input.json",
+      "bytes": 238,
+      "sha256": "7fc4b4c57621185d119777c5f9075299aaaebbc804d6f44a7f9b273fb7d80f8f"
+    },
+    {
+      "path": "fixtures/oracle-core-filter/empty-literal.json",
+      "bytes": 862,
+      "sha256": "d8f9663885bff94276c910824ff6c63e18e78fd034d6ec8ccfbe2dee2a500368"
+    },
+    {
+      "path": "fixtures/oracle-core-filter/membership.json",
+      "bytes": 1675,
+      "sha256": "de47249a23c473216116c4eed15d531d52dbdf6c50e4f6e11ad5682cc17a9ae3"
+    },
+    {
+      "path": "fixtures/oracle-core-filter/no-match.json",
+      "bytes": 833,
+      "sha256": "09a9ec54572e758f3d59831696ab97473b81598bf3fc04810979aa542fb450a8"
+    },
+    {
+      "path": "fixtures/oracle-core-filter/no-rules.json",
+      "bytes": 820,
+      "sha256": "f56058d297814ec7cdbe88b2a1283fde47576d964b0c91f34d9dcb1c81be71fc"
+    },
+    {
+      "path": "fixtures/oracle-core-filter/ordered-composition.json",
+      "bytes": 1901,
+      "sha256": "78b641b8d1a8a942d9172d7e985556fe29379cb675a47fb4b95f5cc28acd0afc"
+    },
+    {
+      "path": "fixtures/oracle-core-filter/unicode-exact.json",
+      "bytes": 1176,
+      "sha256": "2722330784224e45ef08dba76327c0c7ee5209fd80f383b1729432556b2fdc6f"
+    }
+  ],
+  "limits": [
+    "No Gradle/build/cache/source mutation",
+    "Per-file readback is not an atomic filesystem snapshot",
+    "Frozen8 case manifest retained exactly"
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "engine": "process_intelligence_rs::filters::apply",
+  "id": "unicode-exact",
+  "input_sha256": "2722330784224e45ef08dba76327c0c7ee5209fd80f383b1729432556b2fdc6f",
+  "rule_literals": [
+    "É"
+  ],
+  "schema_version": 1,
+  "scope": "Actual production filter sequential calls; full EventLog conservation only, not rich XLog metadata or public persistence",
+  "selected_source_indices": [
+    0
+  ],
+  "selected_source_log": {
+    "cases": [
+      {
+        "events": [
+          {
+            "activity": "É",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          }
+        ],
+        "id": "unicode-exact-source-0",
+        "name": "unicode-exact-trace-0"
+      }
+    ],
+    "name": "Core filter unicode-exact",
+    "warnings": [
+      "synthetic source warning retained"
+    ]
+  },
+  "source_after_sha256": "4e5c9d06da10ac0d27d4613f11a4d1ba4f25b188b4e9e7f9958da8535bcc1086",
+  "source_before_sha256": "4e5c9d06da10ac0d27d4613f11a4d1ba4f25b188b4e9e7f9958da8535bcc1086",
+  "source_domain_before": {
+    "cases": [
+      {
+        "events": [
+          {
+            "activity": "É",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          }
+        ],
+        "id": "unicode-exact-source-0",
+        "name": "unicode-exact-trace-0"
+      },
+      {
+        "events": [
+          {
+            "activity": "É",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          }
+        ],
+        "id": "unicode-exact-source-1",
+        "name": "unicode-exact-trace-1"
+      },
+      {
+        "events": [
+          {
+            "activity": "é",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          }
+        ],
+        "id": "unicode-exact-source-2",
+        "name": "unicode-exact-trace-2"
+      }
+    ],
+    "name": "Core filter unicode-exact",
+    "warnings": [
+      "synthetic source warning retained"
+    ]
+  },
+  "source_unchanged": true,
+  "status": "ACTUAL_RUST_CASE_ACTIVITY_FILTER_OBSERVED"
+}

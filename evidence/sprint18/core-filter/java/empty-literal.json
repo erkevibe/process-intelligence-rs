@@ -1,0 +1,558 @@
+{
+  "schema_version": 1,
+  "id": "empty-literal",
+  "input_sha256": "d8f9663885bff94276c910824ff6c63e18e78fd034d6ec8ccfbe2dee2a500368",
+  "engine_identity": {
+    "class": "org.apromore.apmlog.filter.APMLogFilter",
+    "sha256": "b07c241d7d5a430f9fd1f6cea5eb696a71eefdee7dc268ee0c81d18c464769b3",
+    "code_source": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+  },
+  "predicate_identity": {
+    "class": "org.apromore.apmlog.filter.typefilters.CaseSectionEventAttributeFilter",
+    "sha256": "ce03abaddf3115810137685e11f453a5dfca72b2a1d569ed03b014c20f7dafc8",
+    "code_source": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+  },
+  "converter_identity": {
+    "class": "org.apromore.apmlog.xes.XLogToImmutableLog",
+    "sha256": "01b0f16bffef26ed24bf3570fcecac0cdf3a21dd1f1757a7b54009c8c331a2e7",
+    "code_source": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+  },
+  "rule_identity": {
+    "class": "org.apromore.apmlog.filter.rules.LogFilterRuleImpl",
+    "sha256": "37bc711f897b54684e4e349c3890a217817202362f7ae1150a4e3253de693315",
+    "code_source": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+  },
+  "rule_value_identity": {
+    "class": "org.apromore.apmlog.filter.rules.RuleValue",
+    "sha256": "3d9fe85b1380bad10801140b9b747159495b3b50aa5423b5a0f8fc71bb1e4e01",
+    "code_source": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+  },
+  "factory": "org.deckfour.xes.factory.XFactoryNaiveImpl",
+  "assertions_enabled": false,
+  "rule_literals": [
+    ""
+  ],
+  "parameters": {
+    "filter_type": "CASE_EVENT_ATTRIBUTE",
+    "choice": "RETAIN",
+    "inclusion": "ANY_VALUE",
+    "section": "CASE",
+    "key": "concept:name",
+    "rule_value_operation": "EQUAL",
+    "one_java_ordered_rule_list": true
+  },
+  "source_domain_before": {
+    "name": "Core filter empty-literal",
+    "cases": [
+      {
+        "id": "empty-literal-source-0",
+        "name": "empty-literal-trace-0",
+        "events": [
+          {
+            "ordinal": 3,
+            "activity": "A",
+            "timestamp": "2024-01-01T00:00:40.123Z",
+            "lifecycle": "complete"
+          }
+        ]
+      },
+      {
+        "id": "empty-literal-source-1",
+        "name": "empty-literal-trace-1",
+        "events": [
+          {
+            "ordinal": 3,
+            "activity": "B",
+            "timestamp": "2024-01-01T00:00:40.123Z",
+            "lifecycle": "complete"
+          }
+        ]
+      }
+    ],
+    "warnings": [
+      "synthetic source warning retained"
+    ]
+  },
+  "source_domain_before_sha256": "ad63ccf3dd1715950bb323469f906af65f28dcb1324c344ba66e3ee54b5137e8",
+  "source_xlog_before": {
+    "attributes": [
+      {
+        "key": "concept:name",
+        "type": "string",
+        "value": "Core filter empty-literal"
+      },
+      {
+        "key": "source:warnings",
+        "type": "string",
+        "value": "[\"synthetic source warning retained\"]"
+      }
+    ],
+    "classifiers": [],
+    "extensions": [],
+    "global_trace_attributes": [],
+    "global_event_attributes": [],
+    "traces": [
+      {
+        "attributes": [
+          {
+            "key": "case:source_id",
+            "type": "string",
+            "value": "empty-literal-source-0"
+          },
+          {
+            "key": "concept:name",
+            "type": "string",
+            "value": "empty-literal-trace-0"
+          }
+        ],
+        "events": [
+          {
+            "attributes": [
+              {
+                "key": "concept:name",
+                "type": "string",
+                "value": "A"
+              },
+              {
+                "key": "event:source_ordinal",
+                "type": "int",
+                "value": 3
+              },
+              {
+                "key": "lifecycle:transition",
+                "type": "string",
+                "value": "complete"
+              },
+              {
+                "key": "time:timestamp",
+                "type": "date",
+                "value": 1704067240123,
+                "text": "2024-01-01T00:00:40.123Z"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "attributes": [
+          {
+            "key": "case:source_id",
+            "type": "string",
+            "value": "empty-literal-source-1"
+          },
+          {
+            "key": "concept:name",
+            "type": "string",
+            "value": "empty-literal-trace-1"
+          }
+        ],
+        "events": [
+          {
+            "attributes": [
+              {
+                "key": "concept:name",
+                "type": "string",
+                "value": "B"
+              },
+              {
+                "key": "event:source_ordinal",
+                "type": "int",
+                "value": 3
+              },
+              {
+                "key": "lifecycle:transition",
+                "type": "string",
+                "value": "complete"
+              },
+              {
+                "key": "time:timestamp",
+                "type": "date",
+                "value": 1704067240123,
+                "text": "2024-01-01T00:00:40.123Z"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "trace_count": 2,
+    "event_count": 2
+  },
+  "source_xlog_before_sha256": "b8c8bd6d16ac4f5a33084849c8578a5814bf62ce97a5f6de40f7dcf6194738f0",
+  "engine_invoked": true,
+  "source_xlog_after_conversion": {
+    "attributes": [
+      {
+        "key": "concept:name",
+        "type": "string",
+        "value": "Core filter empty-literal"
+      },
+      {
+        "key": "source:warnings",
+        "type": "string",
+        "value": "[\"synthetic source warning retained\"]"
+      }
+    ],
+    "classifiers": [],
+    "extensions": [],
+    "global_trace_attributes": [],
+    "global_event_attributes": [],
+    "traces": [
+      {
+        "attributes": [
+          {
+            "key": "case:source_id",
+            "type": "string",
+            "value": "empty-literal-source-0"
+          },
+          {
+            "key": "concept:name",
+            "type": "string",
+            "value": "empty-literal-trace-0"
+          }
+        ],
+        "events": [
+          {
+            "attributes": [
+              {
+                "key": "concept:name",
+                "type": "string",
+                "value": "A"
+              },
+              {
+                "key": "event:source_ordinal",
+                "type": "int",
+                "value": 3
+              },
+              {
+                "key": "lifecycle:transition",
+                "type": "string",
+                "value": "complete"
+              },
+              {
+                "key": "time:timestamp",
+                "type": "date",
+                "value": 1704067240123,
+                "text": "2024-01-01T00:00:40.123Z"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "attributes": [
+          {
+            "key": "case:source_id",
+            "type": "string",
+            "value": "empty-literal-source-1"
+          },
+          {
+            "key": "concept:name",
+            "type": "string",
+            "value": "empty-literal-trace-1"
+          }
+        ],
+        "events": [
+          {
+            "attributes": [
+              {
+                "key": "concept:name",
+                "type": "string",
+                "value": "B"
+              },
+              {
+                "key": "event:source_ordinal",
+                "type": "int",
+                "value": 3
+              },
+              {
+                "key": "lifecycle:transition",
+                "type": "string",
+                "value": "complete"
+              },
+              {
+                "key": "time:timestamp",
+                "type": "date",
+                "value": 1704067240123,
+                "text": "2024-01-01T00:00:40.123Z"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "trace_count": 2,
+    "event_count": 2
+  },
+  "source_xlog_after_conversion_sha256": "b8c8bd6d16ac4f5a33084849c8578a5814bf62ce97a5f6de40f7dcf6194738f0",
+  "source_apm_before": {
+    "log_name": "Core filter empty-literal",
+    "traces": [
+      {
+        "immutable_index": 0,
+        "case_id": "empty-literal-trace-0",
+        "immutable_event_count": 1,
+        "attributes": {
+          "case:source_id": "empty-literal-source-0"
+        },
+        "activities": [
+          {
+            "immutable_index": 0,
+            "immutable_trace_index": 0,
+            "mutable_trace_index": 0,
+            "parent_case_id": "empty-literal-trace-0",
+            "event_indices": [
+              0
+            ],
+            "name": "A",
+            "name_indicator": 0,
+            "start_time_ms": 1704067240123,
+            "end_time_ms": 1704067240123,
+            "attributes": {
+              "concept:name": "A",
+              "event:source_ordinal": "3"
+            }
+          }
+        ]
+      },
+      {
+        "immutable_index": 1,
+        "case_id": "empty-literal-trace-1",
+        "immutable_event_count": 1,
+        "attributes": {
+          "case:source_id": "empty-literal-source-1"
+        },
+        "activities": [
+          {
+            "immutable_index": 0,
+            "immutable_trace_index": 1,
+            "mutable_trace_index": 1,
+            "parent_case_id": "empty-literal-trace-1",
+            "event_indices": [
+              0
+            ],
+            "name": "B",
+            "name_indicator": 1,
+            "start_time_ms": 1704067240123,
+            "end_time_ms": 1704067240123,
+            "attributes": {
+              "concept:name": "B",
+              "event:source_ordinal": "3"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "source_apm_before_sha256": "2423b990fadc1856ae7b8ad3cc3634af033abba1ed62b984e67ced788d7b96e8",
+  "engine_call_count": 1,
+  "status": "filtered",
+  "selected_source_indices": [],
+  "selected_pointer_traces": [],
+  "selected_source_log": {
+    "name": "Core filter empty-literal",
+    "cases": [],
+    "warnings": [
+      "synthetic source warning retained"
+    ]
+  },
+  "source_apm_after": {
+    "log_name": "Core filter empty-literal",
+    "traces": [
+      {
+        "immutable_index": 0,
+        "case_id": "empty-literal-trace-0",
+        "immutable_event_count": 1,
+        "attributes": {
+          "case:source_id": "empty-literal-source-0"
+        },
+        "activities": [
+          {
+            "immutable_index": 0,
+            "immutable_trace_index": 0,
+            "mutable_trace_index": 0,
+            "parent_case_id": "empty-literal-trace-0",
+            "event_indices": [
+              0
+            ],
+            "name": "A",
+            "name_indicator": 0,
+            "start_time_ms": 1704067240123,
+            "end_time_ms": 1704067240123,
+            "attributes": {
+              "concept:name": "A",
+              "event:source_ordinal": "3"
+            }
+          }
+        ]
+      },
+      {
+        "immutable_index": 1,
+        "case_id": "empty-literal-trace-1",
+        "immutable_event_count": 1,
+        "attributes": {
+          "case:source_id": "empty-literal-source-1"
+        },
+        "activities": [
+          {
+            "immutable_index": 0,
+            "immutable_trace_index": 1,
+            "mutable_trace_index": 1,
+            "parent_case_id": "empty-literal-trace-1",
+            "event_indices": [
+              0
+            ],
+            "name": "B",
+            "name_indicator": 1,
+            "start_time_ms": 1704067240123,
+            "end_time_ms": 1704067240123,
+            "attributes": {
+              "concept:name": "B",
+              "event:source_ordinal": "3"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "source_apm_after_sha256": "2423b990fadc1856ae7b8ad3cc3634af033abba1ed62b984e67ced788d7b96e8",
+  "source_xlog_after_filter": {
+    "attributes": [
+      {
+        "key": "concept:name",
+        "type": "string",
+        "value": "Core filter empty-literal"
+      },
+      {
+        "key": "source:warnings",
+        "type": "string",
+        "value": "[\"synthetic source warning retained\"]"
+      }
+    ],
+    "classifiers": [],
+    "extensions": [],
+    "global_trace_attributes": [],
+    "global_event_attributes": [],
+    "traces": [
+      {
+        "attributes": [
+          {
+            "key": "case:source_id",
+            "type": "string",
+            "value": "empty-literal-source-0"
+          },
+          {
+            "key": "concept:name",
+            "type": "string",
+            "value": "empty-literal-trace-0"
+          }
+        ],
+        "events": [
+          {
+            "attributes": [
+              {
+                "key": "concept:name",
+                "type": "string",
+                "value": "A"
+              },
+              {
+                "key": "event:source_ordinal",
+                "type": "int",
+                "value": 3
+              },
+              {
+                "key": "lifecycle:transition",
+                "type": "string",
+                "value": "complete"
+              },
+              {
+                "key": "time:timestamp",
+                "type": "date",
+                "value": 1704067240123,
+                "text": "2024-01-01T00:00:40.123Z"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "attributes": [
+          {
+            "key": "case:source_id",
+            "type": "string",
+            "value": "empty-literal-source-1"
+          },
+          {
+            "key": "concept:name",
+            "type": "string",
+            "value": "empty-literal-trace-1"
+          }
+        ],
+        "events": [
+          {
+            "attributes": [
+              {
+                "key": "concept:name",
+                "type": "string",
+                "value": "B"
+              },
+              {
+                "key": "event:source_ordinal",
+                "type": "int",
+                "value": 3
+              },
+              {
+                "key": "lifecycle:transition",
+                "type": "string",
+                "value": "complete"
+              },
+              {
+                "key": "time:timestamp",
+                "type": "date",
+                "value": 1704067240123,
+                "text": "2024-01-01T00:00:40.123Z"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "trace_count": 2,
+    "event_count": 2
+  },
+  "source_xlog_after_filter_sha256": "b8c8bd6d16ac4f5a33084849c8578a5814bf62ce97a5f6de40f7dcf6194738f0",
+  "source_domain_after": {
+    "name": "Core filter empty-literal",
+    "cases": [
+      {
+        "id": "empty-literal-source-0",
+        "name": "empty-literal-trace-0",
+        "events": [
+          {
+            "ordinal": 3,
+            "activity": "A",
+            "timestamp": "2024-01-01T00:00:40.123Z",
+            "lifecycle": "complete"
+          }
+        ]
+      },
+      {
+        "id": "empty-literal-source-1",
+        "name": "empty-literal-trace-1",
+        "events": [
+          {
+            "ordinal": 3,
+            "activity": "B",
+            "timestamp": "2024-01-01T00:00:40.123Z",
+            "lifecycle": "complete"
+          }
+        ]
+      }
+    ],
+    "warnings": [
+      "synthetic source warning retained"
+    ]
+  },
+  "source_domain_after_sha256": "ad63ccf3dd1715950bb323469f906af65f28dcb1324c344ba66e3ee54b5137e8",
+  "selection_observation": "Whole source cases selected only by actual returned PTrace immutable indexes; no observer membership predicate or APM-to-XES export"
+}

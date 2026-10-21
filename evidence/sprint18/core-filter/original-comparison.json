@@ -1,0 +1,665 @@
+{
+  "schema_version": 1,
+  "status": "ACTUAL_CORE_FILTER_FIELD_COMPARISON_COMPLETED",
+  "corpus_sha256": "0997acc2af6514c0d799181f78cfef217bddb375def14646f6864f8257cfce6c",
+  "java_index_sha256": "a6b1f7f644f90f99c841ed1121abf64b1bacdea556d564f630897f9ba5bc27fe",
+  "rust_index_sha256": "4efb011c31262a235f77a97827a950feddda3b89f1e79629581a944a224b4ff5",
+  "case_count": 8,
+  "cases": [
+    {
+      "id": "membership",
+      "profile": "overlap",
+      "input_sha256": "de47249a23c473216116c4eed15d531d52dbdf6c50e4f6e11ad5682cc17a9ae3",
+      "java": {
+        "status": "filtered",
+        "engine_invoked": true,
+        "selected_trace_indices": [
+          0,
+          2
+        ],
+        "selected_source_case_ids": [
+          "membership-source-0",
+          "membership-source-2"
+        ],
+        "source_xlog_unchanged": true,
+        "source_apm_unchanged": true
+      },
+      "rust": {
+        "status": "filtered",
+        "selected_source_case_ids": [
+          "membership-source-0",
+          "membership-source-2"
+        ],
+        "source_unchanged": true
+      },
+      "java_domain_unchanged": true,
+      "selected_full_log_equal": true,
+      "selected_full_log_differences": [],
+      "source_indices_equal": true,
+      "java_selection_conservation": {
+        "source_order_preserved": true,
+        "complete_selected_source_preserved": true
+      },
+      "rust_selection_conservation": {
+        "source_order_preserved": true,
+        "complete_selected_source_preserved": true
+      },
+      "original_manual_hypotheses": {
+        "java": {
+          "status": "filtered",
+          "engine_invoked": true,
+          "selected_trace_indices": [
+            0,
+            2
+          ],
+          "selected_source_case_ids": [
+            "membership-source-0",
+            "membership-source-2"
+          ],
+          "source_xlog_unchanged": true,
+          "source_apm_unchanged": true
+        },
+        "rust": {
+          "status": "filtered",
+          "selected_source_case_ids": [
+            "membership-source-0",
+            "membership-source-2"
+          ],
+          "source_unchanged": true
+        }
+      },
+      "hypothesis_checks": {
+        "java": {
+          "status": true,
+          "engine_invoked": true,
+          "selected_trace_indices": true,
+          "selected_source_case_ids": true,
+          "source_xlog_unchanged": true,
+          "source_apm_unchanged": true
+        },
+        "rust": {
+          "status": true,
+          "selected_source_case_ids": true,
+          "source_unchanged": true
+        }
+      },
+      "all_frozen_hypotheses_match": true,
+      "overlap_fields_match": true,
+      "diagnostic_difference_is_not_equality_pass": false,
+      "scope": "Full selected EventLog identities/order/fields and source conservation; rich XLog and APM source conservation observed separately, no whole Core/R5 claim",
+      "java_observation_sha256": "14528ff9a59e4100f2a016700dec642faa19542c8276007bb10144e21e8780f6",
+      "rust_observation_sha256": "1B7482C308199DC69B70D6D29175058F6A59159060BF5ADDEB352CD4B729EA19"
+    },
+    {
+      "id": "no-match",
+      "profile": "overlap",
+      "input_sha256": "09a9ec54572e758f3d59831696ab97473b81598bf3fc04810979aa542fb450a8",
+      "java": {
+        "status": "filtered",
+        "engine_invoked": true,
+        "selected_trace_indices": [],
+        "selected_source_case_ids": [],
+        "source_xlog_unchanged": true,
+        "source_apm_unchanged": true
+      },
+      "rust": {
+        "status": "filtered",
+        "selected_source_case_ids": [],
+        "source_unchanged": true
+      },
+      "java_domain_unchanged": true,
+      "selected_full_log_equal": true,
+      "selected_full_log_differences": [],
+      "source_indices_equal": true,
+      "java_selection_conservation": {
+        "source_order_preserved": true,
+        "complete_selected_source_preserved": true
+      },
+      "rust_selection_conservation": {
+        "source_order_preserved": true,
+        "complete_selected_source_preserved": true
+      },
+      "original_manual_hypotheses": {
+        "java": {
+          "status": "filtered",
+          "engine_invoked": true,
+          "selected_trace_indices": [],
+          "selected_source_case_ids": [],
+          "source_xlog_unchanged": true,
+          "source_apm_unchanged": true
+        },
+        "rust": {
+          "status": "filtered",
+          "selected_source_case_ids": [],
+          "source_unchanged": true
+        }
+      },
+      "hypothesis_checks": {
+        "java": {
+          "status": true,
+          "engine_invoked": true,
+          "selected_trace_indices": true,
+          "selected_source_case_ids": true,
+          "source_xlog_unchanged": true,
+          "source_apm_unchanged": true
+        },
+        "rust": {
+          "status": true,
+          "selected_source_case_ids": true,
+          "source_unchanged": true
+        }
+      },
+      "all_frozen_hypotheses_match": true,
+      "overlap_fields_match": true,
+      "diagnostic_difference_is_not_equality_pass": false,
+      "scope": "Full selected EventLog identities/order/fields and source conservation; rich XLog and APM source conservation observed separately, no whole Core/R5 claim",
+      "java_observation_sha256": "4cd102ac38470cb18810b39633f313e05ac635d355f78c746440707ce91e7161",
+      "rust_observation_sha256": "6EB1BAF5224D240687EAB3DF9074FA91585273491E744CAD20CF4E4D3FB8E828"
+    },
+    {
+      "id": "duplicate-activities",
+      "profile": "overlap",
+      "input_sha256": "c1ddee193794e0e12f09fbd1bea584f02fb2b30327889222107f9991bc8b470d",
+      "java": {
+        "status": "filtered",
+        "engine_invoked": true,
+        "selected_trace_indices": [
+          0
+        ],
+        "selected_source_case_ids": [
+          "duplicate-activities-source-0"
+        ],
+        "source_xlog_unchanged": true,
+        "source_apm_unchanged": true
+      },
+      "rust": {
+        "status": "filtered",
+        "selected_source_case_ids": [
+          "duplicate-activities-source-0"
+        ],
+        "source_unchanged": true
+      },
+      "java_domain_unchanged": true,
+      "selected_full_log_equal": true,
+      "selected_full_log_differences": [],
+      "source_indices_equal": true,
+      "java_selection_conservation": {
+        "source_order_preserved": true,
+        "complete_selected_source_preserved": true
+      },
+      "rust_selection_conservation": {
+        "source_order_preserved": true,
+        "complete_selected_source_preserved": true
+      },
+      "original_manual_hypotheses": {
+        "java": {
+          "status": "filtered",
+          "engine_invoked": true,
+          "selected_trace_indices": [
+            0
+          ],
+          "selected_source_case_ids": [
+            "duplicate-activities-source-0"
+          ],
+          "source_xlog_unchanged": true,
+          "source_apm_unchanged": true
+        },
+        "rust": {
+          "status": "filtered",
+          "selected_source_case_ids": [
+            "duplicate-activities-source-0"
+          ],
+          "source_unchanged": true
+        }
+      },
+      "hypothesis_checks": {
+        "java": {
+          "status": true,
+          "engine_invoked": true,
+          "selected_trace_indices": true,
+          "selected_source_case_ids": true,
+          "source_xlog_unchanged": true,
+          "source_apm_unchanged": true
+        },
+        "rust": {
+          "status": true,
+          "selected_source_case_ids": true,
+          "source_unchanged": true
+        }
+      },
+      "all_frozen_hypotheses_match": true,
+      "overlap_fields_match": true,
+      "diagnostic_difference_is_not_equality_pass": false,
+      "scope": "Full selected EventLog identities/order/fields and source conservation; rich XLog and APM source conservation observed separately, no whole Core/R5 claim",
+      "java_observation_sha256": "f22c64cc033345d653715d32db9a45745a4213e042c28118104f68458ee2f1a8",
+      "rust_observation_sha256": "5F02A1ADC1F1838D8B62C080E13FEC8E918BCE2E8172B0161541FAAC9985F579"
+    },
+    {
+      "id": "unicode-exact",
+      "profile": "overlap",
+      "input_sha256": "2722330784224e45ef08dba76327c0c7ee5209fd80f383b1729432556b2fdc6f",
+      "java": {
+        "status": "filtered",
+        "engine_invoked": true,
+        "selected_trace_indices": [
+          0
+        ],
+        "selected_source_case_ids": [
+          "unicode-exact-source-0"
+        ],
+        "source_xlog_unchanged": true,
+        "source_apm_unchanged": true
+      },
+      "rust": {
+        "status": "filtered",
+        "selected_source_case_ids": [
+          "unicode-exact-source-0"
+        ],
+        "source_unchanged": true
+      },
+      "java_domain_unchanged": true,
+      "selected_full_log_equal": true,
+      "selected_full_log_differences": [],
+      "source_indices_equal": true,
+      "java_selection_conservation": {
+        "source_order_preserved": true,
+        "complete_selected_source_preserved": true
+      },
+      "rust_selection_conservation": {
+        "source_order_preserved": true,
+        "complete_selected_source_preserved": true
+      },
+      "original_manual_hypotheses": {
+        "java": {
+          "status": "filtered",
+          "engine_invoked": true,
+          "selected_trace_indices": [
+            0
+          ],
+          "selected_source_case_ids": [
+            "unicode-exact-source-0"
+          ],
+          "source_xlog_unchanged": true,
+          "source_apm_unchanged": true
+        },
+        "rust": {
+          "status": "filtered",
+          "selected_source_case_ids": [
+            "unicode-exact-source-0"
+          ],
+          "source_unchanged": true
+        }
+      },
+      "hypothesis_checks": {
+        "java": {
+          "status": true,
+          "engine_invoked": true,
+          "selected_trace_indices": true,
+          "selected_source_case_ids": true,
+          "source_xlog_unchanged": true,
+          "source_apm_unchanged": true
+        },
+        "rust": {
+          "status": true,
+          "selected_source_case_ids": true,
+          "source_unchanged": true
+        }
+      },
+      "all_frozen_hypotheses_match": true,
+      "overlap_fields_match": true,
+      "diagnostic_difference_is_not_equality_pass": false,
+      "scope": "Full selected EventLog identities/order/fields and source conservation; rich XLog and APM source conservation observed separately, no whole Core/R5 claim",
+      "java_observation_sha256": "637cc34525de122a2baff71871dc695f1d7a002845e1b5e6abb3acd0562a8107",
+      "rust_observation_sha256": "97F3E7E2E38F5ACA23614756388D810211214AFFCB0098D5B6EDB80C4FF501A7"
+    },
+    {
+      "id": "ordered-composition",
+      "profile": "overlap",
+      "input_sha256": "78b641b8d1a8a942d9172d7e985556fe29379cb675a47fb4b95f5cc28acd0afc",
+      "java": {
+        "status": "filtered",
+        "engine_invoked": true,
+        "selected_trace_indices": [
+          0,
+          3
+        ],
+        "selected_source_case_ids": [
+          "ordered-composition-source-0",
+          "ordered-composition-source-3"
+        ],
+        "source_xlog_unchanged": true,
+        "source_apm_unchanged": true
+      },
+      "rust": {
+        "status": "filtered",
+        "selected_source_case_ids": [
+          "ordered-composition-source-0",
+          "ordered-composition-source-3"
+        ],
+        "source_unchanged": true
+      },
+      "java_domain_unchanged": true,
+      "selected_full_log_equal": true,
+      "selected_full_log_differences": [],
+      "source_indices_equal": true,
+      "java_selection_conservation": {
+        "source_order_preserved": true,
+        "complete_selected_source_preserved": true
+      },
+      "rust_selection_conservation": {
+        "source_order_preserved": true,
+        "complete_selected_source_preserved": true
+      },
+      "original_manual_hypotheses": {
+        "java": {
+          "status": "filtered",
+          "engine_invoked": true,
+          "selected_trace_indices": [
+            0,
+            3
+          ],
+          "selected_source_case_ids": [
+            "ordered-composition-source-0",
+            "ordered-composition-source-3"
+          ],
+          "source_xlog_unchanged": true,
+          "source_apm_unchanged": true
+        },
+        "rust": {
+          "status": "filtered",
+          "selected_source_case_ids": [
+            "ordered-composition-source-0",
+            "ordered-composition-source-3"
+          ],
+          "source_unchanged": true
+        }
+      },
+      "hypothesis_checks": {
+        "java": {
+          "status": true,
+          "engine_invoked": true,
+          "selected_trace_indices": true,
+          "selected_source_case_ids": true,
+          "source_xlog_unchanged": true,
+          "source_apm_unchanged": true
+        },
+        "rust": {
+          "status": true,
+          "selected_source_case_ids": true,
+          "source_unchanged": true
+        }
+      },
+      "all_frozen_hypotheses_match": true,
+      "overlap_fields_match": true,
+      "diagnostic_difference_is_not_equality_pass": false,
+      "scope": "Full selected EventLog identities/order/fields and source conservation; rich XLog and APM source conservation observed separately, no whole Core/R5 claim",
+      "java_observation_sha256": "16f9f27a8fcd9711126ffa2cea18e9c7a6100df353b7fb0295739ebb444fc926",
+      "rust_observation_sha256": "2A48C2F8E640324767D2E733C849D37DA65F90B152C7D579A3852B864A2E46B2"
+    },
+    {
+      "id": "no-rules",
+      "profile": "overlap",
+      "input_sha256": "f56058d297814ec7cdbe88b2a1283fde47576d964b0c91f34d9dcb1c81be71fc",
+      "java": {
+        "status": "filtered",
+        "engine_invoked": true,
+        "selected_trace_indices": [
+          0,
+          1
+        ],
+        "selected_source_case_ids": [
+          "no-rules-source-0",
+          "no-rules-source-1"
+        ],
+        "source_xlog_unchanged": true,
+        "source_apm_unchanged": true
+      },
+      "rust": {
+        "status": "filtered",
+        "selected_source_case_ids": [
+          "no-rules-source-0",
+          "no-rules-source-1"
+        ],
+        "source_unchanged": true
+      },
+      "java_domain_unchanged": true,
+      "selected_full_log_equal": true,
+      "selected_full_log_differences": [],
+      "source_indices_equal": true,
+      "java_selection_conservation": {
+        "source_order_preserved": true,
+        "complete_selected_source_preserved": true
+      },
+      "rust_selection_conservation": {
+        "source_order_preserved": true,
+        "complete_selected_source_preserved": true
+      },
+      "original_manual_hypotheses": {
+        "java": {
+          "status": "filtered",
+          "engine_invoked": true,
+          "selected_trace_indices": [
+            0,
+            1
+          ],
+          "selected_source_case_ids": [
+            "no-rules-source-0",
+            "no-rules-source-1"
+          ],
+          "source_xlog_unchanged": true,
+          "source_apm_unchanged": true
+        },
+        "rust": {
+          "status": "filtered",
+          "selected_source_case_ids": [
+            "no-rules-source-0",
+            "no-rules-source-1"
+          ],
+          "source_unchanged": true
+        }
+      },
+      "hypothesis_checks": {
+        "java": {
+          "status": true,
+          "engine_invoked": true,
+          "selected_trace_indices": true,
+          "selected_source_case_ids": true,
+          "source_xlog_unchanged": true,
+          "source_apm_unchanged": true
+        },
+        "rust": {
+          "status": true,
+          "selected_source_case_ids": true,
+          "source_unchanged": true
+        }
+      },
+      "all_frozen_hypotheses_match": true,
+      "overlap_fields_match": true,
+      "diagnostic_difference_is_not_equality_pass": false,
+      "scope": "Full selected EventLog identities/order/fields and source conservation; rich XLog and APM source conservation observed separately, no whole Core/R5 claim",
+      "java_observation_sha256": "6f91740302ecdb7237c0ec3290cb31ccb14c2f25f2d796869b69fb646e6ce598",
+      "rust_observation_sha256": "A0921D37082ED8ACED27C2F6BEA0928E67493DF1E8FCBEAF1BBE475C1C55373C"
+    },
+    {
+      "id": "empty-literal",
+      "profile": "diagnostic_sentinel_difference",
+      "input_sha256": "d8f9663885bff94276c910824ff6c63e18e78fd034d6ec8ccfbe2dee2a500368",
+      "java": {
+        "status": "filtered",
+        "engine_invoked": true,
+        "selected_trace_indices": [],
+        "selected_source_case_ids": [],
+        "source_xlog_unchanged": true,
+        "source_apm_unchanged": true
+      },
+      "rust": {
+        "status": "filtered",
+        "selected_source_case_ids": [
+          "empty-literal-source-0",
+          "empty-literal-source-1"
+        ],
+        "source_unchanged": true
+      },
+      "java_domain_unchanged": true,
+      "selected_full_log_equal": false,
+      "selected_full_log_differences": [
+        {
+          "path": "$.cases.length",
+          "left": 0,
+          "right": 2
+        },
+        {
+          "path": "$.cases[0]",
+          "left": null,
+          "right": {
+            "events": [
+              {
+                "activity": "A",
+                "lifecycle": "complete",
+                "ordinal": 3,
+                "timestamp": "2024-01-01T00:00:40.123Z"
+              }
+            ],
+            "id": "empty-literal-source-0",
+            "name": "empty-literal-trace-0"
+          },
+          "left_missing": true,
+          "right_missing": false
+        },
+        {
+          "path": "$.cases[1]",
+          "left": null,
+          "right": {
+            "events": [
+              {
+                "activity": "B",
+                "lifecycle": "complete",
+                "ordinal": 3,
+                "timestamp": "2024-01-01T00:00:40.123Z"
+              }
+            ],
+            "id": "empty-literal-source-1",
+            "name": "empty-literal-trace-1"
+          },
+          "left_missing": true,
+          "right_missing": false
+        }
+      ],
+      "source_indices_equal": false,
+      "java_selection_conservation": {
+        "source_order_preserved": true,
+        "complete_selected_source_preserved": true
+      },
+      "rust_selection_conservation": {
+        "source_order_preserved": true,
+        "complete_selected_source_preserved": true
+      },
+      "original_manual_hypotheses": {
+        "java": {
+          "status": "filtered",
+          "engine_invoked": true,
+          "selected_trace_indices": [],
+          "selected_source_case_ids": [],
+          "source_xlog_unchanged": true,
+          "source_apm_unchanged": true
+        },
+        "rust": {
+          "status": "filtered",
+          "selected_source_case_ids": [
+            "empty-literal-source-0",
+            "empty-literal-source-1"
+          ],
+          "source_unchanged": true
+        }
+      },
+      "hypothesis_checks": {
+        "java": {
+          "status": true,
+          "engine_invoked": true,
+          "selected_trace_indices": true,
+          "selected_source_case_ids": true,
+          "source_xlog_unchanged": true,
+          "source_apm_unchanged": true
+        },
+        "rust": {
+          "status": true,
+          "selected_source_case_ids": true,
+          "source_unchanged": true
+        }
+      },
+      "all_frozen_hypotheses_match": true,
+      "overlap_fields_match": null,
+      "diagnostic_difference_is_not_equality_pass": true,
+      "scope": "Full selected EventLog identities/order/fields and source conservation; rich XLog and APM source conservation observed separately, no whole Core/R5 claim",
+      "java_observation_sha256": "2ef57eeb051f74aa25da10d22b97c378538c7f47f1e10041933f5c7ca6bae9cd",
+      "rust_observation_sha256": "630D2C322F5CD4EFE55A41E03F6F0EE2DC7B32F4DC0111CCC184444E210151DC"
+    },
+    {
+      "id": "empty-input",
+      "profile": "diagnostic_converter_refusal",
+      "input_sha256": "7fc4b4c57621185d119777c5f9075299aaaebbc804d6f44a7f9b273fb7d80f8f",
+      "java": {
+        "status": "converter_refused",
+        "engine_invoked": false,
+        "selected_trace_indices": null,
+        "selected_source_case_ids": null,
+        "source_xlog_unchanged": true,
+        "source_apm_unchanged": null,
+        "exception_class": "org.apromore.apmlog.exceptions.EmptyInputException"
+      },
+      "rust": {
+        "status": "filtered",
+        "selected_source_case_ids": [],
+        "source_unchanged": true
+      },
+      "java_domain_unchanged": true,
+      "selected_full_log_equal": null,
+      "selected_full_log_differences": null,
+      "source_indices_equal": null,
+      "java_selection_conservation": null,
+      "rust_selection_conservation": {
+        "source_order_preserved": true,
+        "complete_selected_source_preserved": true
+      },
+      "original_manual_hypotheses": {
+        "java": {
+          "status": "converter_refused",
+          "engine_invoked": false,
+          "selected_trace_indices": null,
+          "selected_source_case_ids": null,
+          "source_xlog_unchanged": true,
+          "source_apm_unchanged": null,
+          "exception_class": "org.apromore.apmlog.exceptions.EmptyInputException"
+        },
+        "rust": {
+          "status": "filtered",
+          "selected_source_case_ids": [],
+          "source_unchanged": true
+        }
+      },
+      "hypothesis_checks": {
+        "java": {
+          "status": true,
+          "engine_invoked": true,
+          "selected_trace_indices": true,
+          "selected_source_case_ids": true,
+          "source_xlog_unchanged": true,
+          "source_apm_unchanged": true,
+          "exception_class": true
+        },
+        "rust": {
+          "status": true,
+          "selected_source_case_ids": true,
+          "source_unchanged": true
+        }
+      },
+      "all_frozen_hypotheses_match": true,
+      "overlap_fields_match": null,
+      "diagnostic_difference_is_not_equality_pass": true,
+      "scope": "Full selected EventLog identities/order/fields and source conservation; rich XLog and APM source conservation observed separately, no whole Core/R5 claim",
+      "java_observation_sha256": "9bc08f375064d02193e5073d1e3822c14477a094c45e31209108e91654766069",
+      "rust_observation_sha256": "752BA0DDAAF8547843700927F12312E9167A1D60CF6DCC2CA617FBC182922243"
+    }
+  ],
+  "no_whole_R5_or_Core_parity_claim": true
+}

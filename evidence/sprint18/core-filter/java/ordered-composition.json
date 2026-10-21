@@ -1,0 +1,1266 @@
+{
+  "schema_version": 1,
+  "id": "ordered-composition",
+  "input_sha256": "78b641b8d1a8a942d9172d7e985556fe29379cb675a47fb4b95f5cc28acd0afc",
+  "engine_identity": {
+    "class": "org.apromore.apmlog.filter.APMLogFilter",
+    "sha256": "b07c241d7d5a430f9fd1f6cea5eb696a71eefdee7dc268ee0c81d18c464769b3",
+    "code_source": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+  },
+  "predicate_identity": {
+    "class": "org.apromore.apmlog.filter.typefilters.CaseSectionEventAttributeFilter",
+    "sha256": "ce03abaddf3115810137685e11f453a5dfca72b2a1d569ed03b014c20f7dafc8",
+    "code_source": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+  },
+  "converter_identity": {
+    "class": "org.apromore.apmlog.xes.XLogToImmutableLog",
+    "sha256": "01b0f16bffef26ed24bf3570fcecac0cdf3a21dd1f1757a7b54009c8c331a2e7",
+    "code_source": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+  },
+  "rule_identity": {
+    "class": "org.apromore.apmlog.filter.rules.LogFilterRuleImpl",
+    "sha256": "37bc711f897b54684e4e349c3890a217817202362f7ae1150a4e3253de693315",
+    "code_source": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+  },
+  "rule_value_identity": {
+    "class": "org.apromore.apmlog.filter.rules.RuleValue",
+    "sha256": "3d9fe85b1380bad10801140b9b747159495b3b50aa5423b5a0f8fc71bb1e4e01",
+    "code_source": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+  },
+  "factory": "org.deckfour.xes.factory.XFactoryNaiveImpl",
+  "assertions_enabled": false,
+  "rule_literals": [
+    "A",
+    "B"
+  ],
+  "parameters": {
+    "filter_type": "CASE_EVENT_ATTRIBUTE",
+    "choice": "RETAIN",
+    "inclusion": "ANY_VALUE",
+    "section": "CASE",
+    "key": "concept:name",
+    "rule_value_operation": "EQUAL",
+    "one_java_ordered_rule_list": true
+  },
+  "source_domain_before": {
+    "name": "Core filter ordered-composition",
+    "cases": [
+      {
+        "id": "ordered-composition-source-0",
+        "name": "ordered-composition-trace-0",
+        "events": [
+          {
+            "ordinal": 3,
+            "activity": "A",
+            "timestamp": "2024-01-01T00:00:40.123Z",
+            "lifecycle": "complete"
+          },
+          {
+            "ordinal": 10,
+            "activity": "B",
+            "timestamp": "2024-01-01T00:00:39.123Z",
+            "lifecycle": "complete"
+          }
+        ]
+      },
+      {
+        "id": "ordered-composition-source-1",
+        "name": "ordered-composition-trace-1",
+        "events": [
+          {
+            "ordinal": 3,
+            "activity": "A",
+            "timestamp": "2024-01-01T00:00:40.123Z",
+            "lifecycle": "complete"
+          }
+        ]
+      },
+      {
+        "id": "ordered-composition-source-2",
+        "name": "ordered-composition-trace-2",
+        "events": [
+          {
+            "ordinal": 3,
+            "activity": "B",
+            "timestamp": "2024-01-01T00:00:40.123Z",
+            "lifecycle": "complete"
+          }
+        ]
+      },
+      {
+        "id": "ordered-composition-source-3",
+        "name": "ordered-composition-trace-3",
+        "events": [
+          {
+            "ordinal": 3,
+            "activity": "B",
+            "timestamp": "2024-01-01T00:00:40.123Z",
+            "lifecycle": "complete"
+          },
+          {
+            "ordinal": 10,
+            "activity": "A",
+            "timestamp": "2024-01-01T00:00:39.123Z",
+            "lifecycle": "complete"
+          }
+        ]
+      }
+    ],
+    "warnings": [
+      "synthetic source warning retained"
+    ]
+  },
+  "source_domain_before_sha256": "3580ac2386857ad41b10d971faf9910750cb602d12c51c72b5ef8b409312c4f7",
+  "source_xlog_before": {
+    "attributes": [
+      {
+        "key": "concept:name",
+        "type": "string",
+        "value": "Core filter ordered-composition"
+      },
+      {
+        "key": "source:warnings",
+        "type": "string",
+        "value": "[\"synthetic source warning retained\"]"
+      }
+    ],
+    "classifiers": [],
+    "extensions": [],
+    "global_trace_attributes": [],
+    "global_event_attributes": [],
+    "traces": [
+      {
+        "attributes": [
+          {
+            "key": "case:source_id",
+            "type": "string",
+            "value": "ordered-composition-source-0"
+          },
+          {
+            "key": "concept:name",
+            "type": "string",
+            "value": "ordered-composition-trace-0"
+          }
+        ],
+        "events": [
+          {
+            "attributes": [
+              {
+                "key": "concept:name",
+                "type": "string",
+                "value": "A"
+              },
+              {
+                "key": "event:source_ordinal",
+                "type": "int",
+                "value": 3
+              },
+              {
+                "key": "lifecycle:transition",
+                "type": "string",
+                "value": "complete"
+              },
+              {
+                "key": "time:timestamp",
+                "type": "date",
+                "value": 1704067240123,
+                "text": "2024-01-01T00:00:40.123Z"
+              }
+            ]
+          },
+          {
+            "attributes": [
+              {
+                "key": "concept:name",
+                "type": "string",
+                "value": "B"
+              },
+              {
+                "key": "event:source_ordinal",
+                "type": "int",
+                "value": 10
+              },
+              {
+                "key": "lifecycle:transition",
+                "type": "string",
+                "value": "complete"
+              },
+              {
+                "key": "time:timestamp",
+                "type": "date",
+                "value": 1704067239123,
+                "text": "2024-01-01T00:00:39.123Z"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "attributes": [
+          {
+            "key": "case:source_id",
+            "type": "string",
+            "value": "ordered-composition-source-1"
+          },
+          {
+            "key": "concept:name",
+            "type": "string",
+            "value": "ordered-composition-trace-1"
+          }
+        ],
+        "events": [
+          {
+            "attributes": [
+              {
+                "key": "concept:name",
+                "type": "string",
+                "value": "A"
+              },
+              {
+                "key": "event:source_ordinal",
+                "type": "int",
+                "value": 3
+              },
+              {
+                "key": "lifecycle:transition",
+                "type": "string",
+                "value": "complete"
+              },
+              {
+                "key": "time:timestamp",
+                "type": "date",
+                "value": 1704067240123,
+                "text": "2024-01-01T00:00:40.123Z"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "attributes": [
+          {
+            "key": "case:source_id",
+            "type": "string",
+            "value": "ordered-composition-source-2"
+          },
+          {
+            "key": "concept:name",
+            "type": "string",
+            "value": "ordered-composition-trace-2"
+          }
+        ],
+        "events": [
+          {
+            "attributes": [
+              {
+                "key": "concept:name",
+                "type": "string",
+                "value": "B"
+              },
+              {
+                "key": "event:source_ordinal",
+                "type": "int",
+                "value": 3
+              },
+              {
+                "key": "lifecycle:transition",
+                "type": "string",
+                "value": "complete"
+              },
+              {
+                "key": "time:timestamp",
+                "type": "date",
+                "value": 1704067240123,
+                "text": "2024-01-01T00:00:40.123Z"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "attributes": [
+          {
+            "key": "case:source_id",
+            "type": "string",
+            "value": "ordered-composition-source-3"
+          },
+          {
+            "key": "concept:name",
+            "type": "string",
+            "value": "ordered-composition-trace-3"
+          }
+        ],
+        "events": [
+          {
+            "attributes": [
+              {
+                "key": "concept:name",
+                "type": "string",
+                "value": "B"
+              },
+              {
+                "key": "event:source_ordinal",
+                "type": "int",
+                "value": 3
+              },
+              {
+                "key": "lifecycle:transition",
+                "type": "string",
+                "value": "complete"
+              },
+              {
+                "key": "time:timestamp",
+                "type": "date",
+                "value": 1704067240123,
+                "text": "2024-01-01T00:00:40.123Z"
+              }
+            ]
+          },
+          {
+            "attributes": [
+              {
+                "key": "concept:name",
+                "type": "string",
+                "value": "A"
+              },
+              {
+                "key": "event:source_ordinal",
+                "type": "int",
+                "value": 10
+              },
+              {
+                "key": "lifecycle:transition",
+                "type": "string",
+                "value": "complete"
+              },
+              {
+                "key": "time:timestamp",
+                "type": "date",
+                "value": 1704067239123,
+                "text": "2024-01-01T00:00:39.123Z"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "trace_count": 4,
+    "event_count": 6
+  },
+  "source_xlog_before_sha256": "9a403ae6370d69b7b233496c306f10b42496ff7de65cc361f0c480e862dc13e6",
+  "engine_invoked": true,
+  "source_xlog_after_conversion": {
+    "attributes": [
+      {
+        "key": "concept:name",
+        "type": "string",
+        "value": "Core filter ordered-composition"
+      },
+      {
+        "key": "source:warnings",
+        "type": "string",
+        "value": "[\"synthetic source warning retained\"]"
+      }
+    ],
+    "classifiers": [],
+    "extensions": [],
+    "global_trace_attributes": [],
+    "global_event_attributes": [],
+    "traces": [
+      {
+        "attributes": [
+          {
+            "key": "case:source_id",
+            "type": "string",
+            "value": "ordered-composition-source-0"
+          },
+          {
+            "key": "concept:name",
+            "type": "string",
+            "value": "ordered-composition-trace-0"
+          }
+        ],
+        "events": [
+          {
+            "attributes": [
+              {
+                "key": "concept:name",
+                "type": "string",
+                "value": "A"
+              },
+              {
+                "key": "event:source_ordinal",
+                "type": "int",
+                "value": 3
+              },
+              {
+                "key": "lifecycle:transition",
+                "type": "string",
+                "value": "complete"
+              },
+              {
+                "key": "time:timestamp",
+                "type": "date",
+                "value": 1704067240123,
+                "text": "2024-01-01T00:00:40.123Z"
+              }
+            ]
+          },
+          {
+            "attributes": [
+              {
+                "key": "concept:name",
+                "type": "string",
+                "value": "B"
+              },
+              {
+                "key": "event:source_ordinal",
+                "type": "int",
+                "value": 10
+              },
+              {
+                "key": "lifecycle:transition",
+                "type": "string",
+                "value": "complete"
+              },
+              {
+                "key": "time:timestamp",
+                "type": "date",
+                "value": 1704067239123,
+                "text": "2024-01-01T00:00:39.123Z"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "attributes": [
+          {
+            "key": "case:source_id",
+            "type": "string",
+            "value": "ordered-composition-source-1"
+          },
+          {
+            "key": "concept:name",
+            "type": "string",
+            "value": "ordered-composition-trace-1"
+          }
+        ],
+        "events": [
+          {
+            "attributes": [
+              {
+                "key": "concept:name",
+                "type": "string",
+                "value": "A"
+              },
+              {
+                "key": "event:source_ordinal",
+                "type": "int",
+                "value": 3
+              },
+              {
+                "key": "lifecycle:transition",
+                "type": "string",
+                "value": "complete"
+              },
+              {
+                "key": "time:timestamp",
+                "type": "date",
+                "value": 1704067240123,
+                "text": "2024-01-01T00:00:40.123Z"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "attributes": [
+          {
+            "key": "case:source_id",
+            "type": "string",
+            "value": "ordered-composition-source-2"
+          },
+          {
+            "key": "concept:name",
+            "type": "string",
+            "value": "ordered-composition-trace-2"
+          }
+        ],
+        "events": [
+          {
+            "attributes": [
+              {
+                "key": "concept:name",
+                "type": "string",
+                "value": "B"
+              },
+              {
+                "key": "event:source_ordinal",
+                "type": "int",
+                "value": 3
+              },
+              {
+                "key": "lifecycle:transition",
+                "type": "string",
+                "value": "complete"
+              },
+              {
+                "key": "time:timestamp",
+                "type": "date",
+                "value": 1704067240123,
+                "text": "2024-01-01T00:00:40.123Z"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "attributes": [
+          {
+            "key": "case:source_id",
+            "type": "string",
+            "value": "ordered-composition-source-3"
+          },
+          {
+            "key": "concept:name",
+            "type": "string",
+            "value": "ordered-composition-trace-3"
+          }
+        ],
+        "events": [
+          {
+            "attributes": [
+              {
+                "key": "concept:name",
+                "type": "string",
+                "value": "B"
+              },
+              {
+                "key": "event:source_ordinal",
+                "type": "int",
+                "value": 3
+              },
+              {
+                "key": "lifecycle:transition",
+                "type": "string",
+                "value": "complete"
+              },
+              {
+                "key": "time:timestamp",
+                "type": "date",
+                "value": 1704067240123,
+                "text": "2024-01-01T00:00:40.123Z"
+              }
+            ]
+          },
+          {
+            "attributes": [
+              {
+                "key": "concept:name",
+                "type": "string",
+                "value": "A"
+              },
+              {
+                "key": "event:source_ordinal",
+                "type": "int",
+                "value": 10
+              },
+              {
+                "key": "lifecycle:transition",
+                "type": "string",
+                "value": "complete"
+              },
+              {
+                "key": "time:timestamp",
+                "type": "date",
+                "value": 1704067239123,
+                "text": "2024-01-01T00:00:39.123Z"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "trace_count": 4,
+    "event_count": 6
+  },
+  "source_xlog_after_conversion_sha256": "9a403ae6370d69b7b233496c306f10b42496ff7de65cc361f0c480e862dc13e6",
+  "source_apm_before": {
+    "log_name": "Core filter ordered-composition",
+    "traces": [
+      {
+        "immutable_index": 0,
+        "case_id": "ordered-composition-trace-0",
+        "immutable_event_count": 2,
+        "attributes": {
+          "case:source_id": "ordered-composition-source-0"
+        },
+        "activities": [
+          {
+            "immutable_index": 0,
+            "immutable_trace_index": 0,
+            "mutable_trace_index": 0,
+            "parent_case_id": "ordered-composition-trace-0",
+            "event_indices": [
+              0
+            ],
+            "name": "A",
+            "name_indicator": 0,
+            "start_time_ms": 1704067240123,
+            "end_time_ms": 1704067240123,
+            "attributes": {
+              "concept:name": "A",
+              "event:source_ordinal": "3"
+            }
+          },
+          {
+            "immutable_index": 1,
+            "immutable_trace_index": 0,
+            "mutable_trace_index": 0,
+            "parent_case_id": "ordered-composition-trace-0",
+            "event_indices": [
+              1
+            ],
+            "name": "B",
+            "name_indicator": 1,
+            "start_time_ms": 1704067239123,
+            "end_time_ms": 1704067239123,
+            "attributes": {
+              "concept:name": "B",
+              "event:source_ordinal": "10"
+            }
+          }
+        ]
+      },
+      {
+        "immutable_index": 1,
+        "case_id": "ordered-composition-trace-1",
+        "immutable_event_count": 1,
+        "attributes": {
+          "case:source_id": "ordered-composition-source-1"
+        },
+        "activities": [
+          {
+            "immutable_index": 0,
+            "immutable_trace_index": 1,
+            "mutable_trace_index": 1,
+            "parent_case_id": "ordered-composition-trace-1",
+            "event_indices": [
+              0
+            ],
+            "name": "A",
+            "name_indicator": 0,
+            "start_time_ms": 1704067240123,
+            "end_time_ms": 1704067240123,
+            "attributes": {
+              "concept:name": "A",
+              "event:source_ordinal": "3"
+            }
+          }
+        ]
+      },
+      {
+        "immutable_index": 2,
+        "case_id": "ordered-composition-trace-2",
+        "immutable_event_count": 1,
+        "attributes": {
+          "case:source_id": "ordered-composition-source-2"
+        },
+        "activities": [
+          {
+            "immutable_index": 0,
+            "immutable_trace_index": 2,
+            "mutable_trace_index": 2,
+            "parent_case_id": "ordered-composition-trace-2",
+            "event_indices": [
+              0
+            ],
+            "name": "B",
+            "name_indicator": 1,
+            "start_time_ms": 1704067240123,
+            "end_time_ms": 1704067240123,
+            "attributes": {
+              "concept:name": "B",
+              "event:source_ordinal": "3"
+            }
+          }
+        ]
+      },
+      {
+        "immutable_index": 3,
+        "case_id": "ordered-composition-trace-3",
+        "immutable_event_count": 2,
+        "attributes": {
+          "case:source_id": "ordered-composition-source-3"
+        },
+        "activities": [
+          {
+            "immutable_index": 0,
+            "immutable_trace_index": 3,
+            "mutable_trace_index": 3,
+            "parent_case_id": "ordered-composition-trace-3",
+            "event_indices": [
+              0
+            ],
+            "name": "B",
+            "name_indicator": 1,
+            "start_time_ms": 1704067240123,
+            "end_time_ms": 1704067240123,
+            "attributes": {
+              "concept:name": "B",
+              "event:source_ordinal": "3"
+            }
+          },
+          {
+            "immutable_index": 1,
+            "immutable_trace_index": 3,
+            "mutable_trace_index": 3,
+            "parent_case_id": "ordered-composition-trace-3",
+            "event_indices": [
+              1
+            ],
+            "name": "A",
+            "name_indicator": 0,
+            "start_time_ms": 1704067239123,
+            "end_time_ms": 1704067239123,
+            "attributes": {
+              "concept:name": "A",
+              "event:source_ordinal": "10"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "source_apm_before_sha256": "b1f134b23eaa73002f8c370bb373449c1f6fa768691cb1a8728e9706e3ca54c7",
+  "engine_call_count": 1,
+  "status": "filtered",
+  "selected_source_indices": [
+    0,
+    3
+  ],
+  "selected_pointer_traces": [
+    {
+      "immutable_trace_index": 0,
+      "mutable_pointer_index": 0,
+      "case_id": "ordered-composition-trace-0",
+      "source_case_id": "ordered-composition-source-0",
+      "valid_event_indices": [
+        0,
+        1
+      ],
+      "activity_instance_count": 2
+    },
+    {
+      "immutable_trace_index": 3,
+      "mutable_pointer_index": 0,
+      "case_id": "ordered-composition-trace-3",
+      "source_case_id": "ordered-composition-source-3",
+      "valid_event_indices": [
+        0,
+        1
+      ],
+      "activity_instance_count": 2
+    }
+  ],
+  "selected_source_log": {
+    "name": "Core filter ordered-composition",
+    "cases": [
+      {
+        "id": "ordered-composition-source-0",
+        "name": "ordered-composition-trace-0",
+        "events": [
+          {
+            "ordinal": 3,
+            "activity": "A",
+            "timestamp": "2024-01-01T00:00:40.123Z",
+            "lifecycle": "complete"
+          },
+          {
+            "ordinal": 10,
+            "activity": "B",
+            "timestamp": "2024-01-01T00:00:39.123Z",
+            "lifecycle": "complete"
+          }
+        ]
+      },
+      {
+        "id": "ordered-composition-source-3",
+        "name": "ordered-composition-trace-3",
+        "events": [
+          {
+            "ordinal": 3,
+            "activity": "B",
+            "timestamp": "2024-01-01T00:00:40.123Z",
+            "lifecycle": "complete"
+          },
+          {
+            "ordinal": 10,
+            "activity": "A",
+            "timestamp": "2024-01-01T00:00:39.123Z",
+            "lifecycle": "complete"
+          }
+        ]
+      }
+    ],
+    "warnings": [
+      "synthetic source warning retained"
+    ]
+  },
+  "source_apm_after": {
+    "log_name": "Core filter ordered-composition",
+    "traces": [
+      {
+        "immutable_index": 0,
+        "case_id": "ordered-composition-trace-0",
+        "immutable_event_count": 2,
+        "attributes": {
+          "case:source_id": "ordered-composition-source-0"
+        },
+        "activities": [
+          {
+            "immutable_index": 0,
+            "immutable_trace_index": 0,
+            "mutable_trace_index": 0,
+            "parent_case_id": "ordered-composition-trace-0",
+            "event_indices": [
+              0
+            ],
+            "name": "A",
+            "name_indicator": 0,
+            "start_time_ms": 1704067240123,
+            "end_time_ms": 1704067240123,
+            "attributes": {
+              "concept:name": "A",
+              "event:source_ordinal": "3"
+            }
+          },
+          {
+            "immutable_index": 1,
+            "immutable_trace_index": 0,
+            "mutable_trace_index": 0,
+            "parent_case_id": "ordered-composition-trace-0",
+            "event_indices": [
+              1
+            ],
+            "name": "B",
+            "name_indicator": 1,
+            "start_time_ms": 1704067239123,
+            "end_time_ms": 1704067239123,
+            "attributes": {
+              "concept:name": "B",
+              "event:source_ordinal": "10"
+            }
+          }
+        ]
+      },
+      {
+        "immutable_index": 1,
+        "case_id": "ordered-composition-trace-1",
+        "immutable_event_count": 1,
+        "attributes": {
+          "case:source_id": "ordered-composition-source-1"
+        },
+        "activities": [
+          {
+            "immutable_index": 0,
+            "immutable_trace_index": 1,
+            "mutable_trace_index": 1,
+            "parent_case_id": "ordered-composition-trace-1",
+            "event_indices": [
+              0
+            ],
+            "name": "A",
+            "name_indicator": 0,
+            "start_time_ms": 1704067240123,
+            "end_time_ms": 1704067240123,
+            "attributes": {
+              "concept:name": "A",
+              "event:source_ordinal": "3"
+            }
+          }
+        ]
+      },
+      {
+        "immutable_index": 2,
+        "case_id": "ordered-composition-trace-2",
+        "immutable_event_count": 1,
+        "attributes": {
+          "case:source_id": "ordered-composition-source-2"
+        },
+        "activities": [
+          {
+            "immutable_index": 0,
+            "immutable_trace_index": 2,
+            "mutable_trace_index": 2,
+            "parent_case_id": "ordered-composition-trace-2",
+            "event_indices": [
+              0
+            ],
+            "name": "B",
+            "name_indicator": 1,
+            "start_time_ms": 1704067240123,
+            "end_time_ms": 1704067240123,
+            "attributes": {
+              "concept:name": "B",
+              "event:source_ordinal": "3"
+            }
+          }
+        ]
+      },
+      {
+        "immutable_index": 3,
+        "case_id": "ordered-composition-trace-3",
+        "immutable_event_count": 2,
+        "attributes": {
+          "case:source_id": "ordered-composition-source-3"
+        },
+        "activities": [
+          {
+            "immutable_index": 0,
+            "immutable_trace_index": 3,
+            "mutable_trace_index": 3,
+            "parent_case_id": "ordered-composition-trace-3",
+            "event_indices": [
+              0
+            ],
+            "name": "B",
+            "name_indicator": 1,
+            "start_time_ms": 1704067240123,
+            "end_time_ms": 1704067240123,
+            "attributes": {
+              "concept:name": "B",
+              "event:source_ordinal": "3"
+            }
+          },
+          {
+            "immutable_index": 1,
+            "immutable_trace_index": 3,
+            "mutable_trace_index": 3,
+            "parent_case_id": "ordered-composition-trace-3",
+            "event_indices": [
+              1
+            ],
+            "name": "A",
+            "name_indicator": 0,
+            "start_time_ms": 1704067239123,
+            "end_time_ms": 1704067239123,
+            "attributes": {
+              "concept:name": "A",
+              "event:source_ordinal": "10"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "source_apm_after_sha256": "b1f134b23eaa73002f8c370bb373449c1f6fa768691cb1a8728e9706e3ca54c7",
+  "source_xlog_after_filter": {
+    "attributes": [
+      {
+        "key": "concept:name",
+        "type": "string",
+        "value": "Core filter ordered-composition"
+      },
+      {
+        "key": "source:warnings",
+        "type": "string",
+        "value": "[\"synthetic source warning retained\"]"
+      }
+    ],
+    "classifiers": [],
+    "extensions": [],
+    "global_trace_attributes": [],
+    "global_event_attributes": [],
+    "traces": [
+      {
+        "attributes": [
+          {
+            "key": "case:source_id",
+            "type": "string",
+            "value": "ordered-composition-source-0"
+          },
+          {
+            "key": "concept:name",
+            "type": "string",
+            "value": "ordered-composition-trace-0"
+          }
+        ],
+        "events": [
+          {
+            "attributes": [
+              {
+                "key": "concept:name",
+                "type": "string",
+                "value": "A"
+              },
+              {
+                "key": "event:source_ordinal",
+                "type": "int",
+                "value": 3
+              },
+              {
+                "key": "lifecycle:transition",
+                "type": "string",
+                "value": "complete"
+              },
+              {
+                "key": "time:timestamp",
+                "type": "date",
+                "value": 1704067240123,
+                "text": "2024-01-01T00:00:40.123Z"
+              }
+            ]
+          },
+          {
+            "attributes": [
+              {
+                "key": "concept:name",
+                "type": "string",
+                "value": "B"
+              },
+              {
+                "key": "event:source_ordinal",
+                "type": "int",
+                "value": 10
+              },
+              {
+                "key": "lifecycle:transition",
+                "type": "string",
+                "value": "complete"
+              },
+              {
+                "key": "time:timestamp",
+                "type": "date",
+                "value": 1704067239123,
+                "text": "2024-01-01T00:00:39.123Z"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "attributes": [
+          {
+            "key": "case:source_id",
+            "type": "string",
+            "value": "ordered-composition-source-1"
+          },
+          {
+            "key": "concept:name",
+            "type": "string",
+            "value": "ordered-composition-trace-1"
+          }
+        ],
+        "events": [
+          {
+            "attributes": [
+              {
+                "key": "concept:name",
+                "type": "string",
+                "value": "A"
+              },
+              {
+                "key": "event:source_ordinal",
+                "type": "int",
+                "value": 3
+              },
+              {
+                "key": "lifecycle:transition",
+                "type": "string",
+                "value": "complete"
+              },
+              {
+                "key": "time:timestamp",
+                "type": "date",
+                "value": 1704067240123,
+                "text": "2024-01-01T00:00:40.123Z"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "attributes": [
+          {
+            "key": "case:source_id",
+            "type": "string",
+            "value": "ordered-composition-source-2"
+          },
+          {
+            "key": "concept:name",
+            "type": "string",
+            "value": "ordered-composition-trace-2"
+          }
+        ],
+        "events": [
+          {
+            "attributes": [
+              {
+                "key": "concept:name",
+                "type": "string",
+                "value": "B"
+              },
+              {
+                "key": "event:source_ordinal",
+                "type": "int",
+                "value": 3
+              },
+              {
+                "key": "lifecycle:transition",
+                "type": "string",
+                "value": "complete"
+              },
+              {
+                "key": "time:timestamp",
+                "type": "date",
+                "value": 1704067240123,
+                "text": "2024-01-01T00:00:40.123Z"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "attributes": [
+          {
+            "key": "case:source_id",
+            "type": "string",
+            "value": "ordered-composition-source-3"
+          },
+          {
+            "key": "concept:name",
+            "type": "string",
+            "value": "ordered-composition-trace-3"
+          }
+        ],
+        "events": [
+          {
+            "attributes": [
+              {
+                "key": "concept:name",
+                "type": "string",
+                "value": "B"
+              },
+              {
+                "key": "event:source_ordinal",
+                "type": "int",
+                "value": 3
+              },
+              {
+                "key": "lifecycle:transition",
+                "type": "string",
+                "value": "complete"
+              },
+              {
+                "key": "time:timestamp",
+                "type": "date",
+                "value": 1704067240123,
+                "text": "2024-01-01T00:00:40.123Z"
+              }
+            ]
+          },
+          {
+            "attributes": [
+              {
+                "key": "concept:name",
+                "type": "string",
+                "value": "A"
+              },
+              {
+                "key": "event:source_ordinal",
+                "type": "int",
+                "value": 10
+              },
+              {
+                "key": "lifecycle:transition",
+                "type": "string",
+                "value": "complete"
+              },
+              {
+                "key": "time:timestamp",
+                "type": "date",
+                "value": 1704067239123,
+                "text": "2024-01-01T00:00:39.123Z"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "trace_count": 4,
+    "event_count": 6
+  },
+  "source_xlog_after_filter_sha256": "9a403ae6370d69b7b233496c306f10b42496ff7de65cc361f0c480e862dc13e6",
+  "source_domain_after": {
+    "name": "Core filter ordered-composition",
+    "cases": [
+      {
+        "id": "ordered-composition-source-0",
+        "name": "ordered-composition-trace-0",
+        "events": [
+          {
+            "ordinal": 3,
+            "activity": "A",
+            "timestamp": "2024-01-01T00:00:40.123Z",
+            "lifecycle": "complete"
+          },
+          {
+            "ordinal": 10,
+            "activity": "B",
+            "timestamp": "2024-01-01T00:00:39.123Z",
+            "lifecycle": "complete"
+          }
+        ]
+      },
+      {
+        "id": "ordered-composition-source-1",
+        "name": "ordered-composition-trace-1",
+        "events": [
+          {
+            "ordinal": 3,
+            "activity": "A",
+            "timestamp": "2024-01-01T00:00:40.123Z",
+            "lifecycle": "complete"
+          }
+        ]
+      },
+      {
+        "id": "ordered-composition-source-2",
+        "name": "ordered-composition-trace-2",
+        "events": [
+          {
+            "ordinal": 3,
+            "activity": "B",
+            "timestamp": "2024-01-01T00:00:40.123Z",
+            "lifecycle": "complete"
+          }
+        ]
+      },
+      {
+        "id": "ordered-composition-source-3",
+        "name": "ordered-composition-trace-3",
+        "events": [
+          {
+            "ordinal": 3,
+            "activity": "B",
+            "timestamp": "2024-01-01T00:00:40.123Z",
+            "lifecycle": "complete"
+          },
+          {
+            "ordinal": 10,
+            "activity": "A",
+            "timestamp": "2024-01-01T00:00:39.123Z",
+            "lifecycle": "complete"
+          }
+        ]
+      }
+    ],
+    "warnings": [
+      "synthetic source warning retained"
+    ]
+  },
+  "source_domain_after_sha256": "3580ac2386857ad41b10d971faf9910750cb602d12c51c72b5ef8b409312c4f7",
+  "selection_observation": "Whole source cases selected only by actual returned PTrace immutable indexes; no observer membership predicate or APM-to-XES export"
+}

@@ -1,0 +1,124 @@
+{
+  "engine": "process_intelligence_rs::filters::apply",
+  "id": "membership",
+  "input_sha256": "de47249a23c473216116c4eed15d531d52dbdf6c50e4f6e11ad5682cc17a9ae3",
+  "rule_literals": [
+    "A"
+  ],
+  "schema_version": 1,
+  "scope": "Actual production filter sequential calls; full EventLog conservation only, not rich XLog metadata or public persistence",
+  "selected_source_indices": [
+    0,
+    2
+  ],
+  "selected_source_log": {
+    "cases": [
+      {
+        "events": [
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          },
+          {
+            "activity": "B",
+            "lifecycle": "complete",
+            "ordinal": 10,
+            "timestamp": "2024-01-01T00:00:39.123Z"
+          }
+        ],
+        "id": "membership-source-0",
+        "name": "membership-trace-0"
+      },
+      {
+        "events": [
+          {
+            "activity": "C",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          },
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 10,
+            "timestamp": "2024-01-01T00:00:39.123Z"
+          }
+        ],
+        "id": "membership-source-2",
+        "name": "membership-trace-2"
+      }
+    ],
+    "name": "Core filter membership",
+    "warnings": [
+      "synthetic source warning retained"
+    ]
+  },
+  "source_after_sha256": "30211c386d8a9cbd69ffa00625425d54c50bbb7ea8f47f42fcbca81aca8449a7",
+  "source_before_sha256": "30211c386d8a9cbd69ffa00625425d54c50bbb7ea8f47f42fcbca81aca8449a7",
+  "source_domain_before": {
+    "cases": [
+      {
+        "events": [
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          },
+          {
+            "activity": "B",
+            "lifecycle": "complete",
+            "ordinal": 10,
+            "timestamp": "2024-01-01T00:00:39.123Z"
+          }
+        ],
+        "id": "membership-source-0",
+        "name": "membership-trace-0"
+      },
+      {
+        "events": [
+          {
+            "activity": "a",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          },
+          {
+            "activity": "B",
+            "lifecycle": "complete",
+            "ordinal": 10,
+            "timestamp": "2024-01-01T00:00:39.123Z"
+          }
+        ],
+        "id": "membership-source-1",
+        "name": "membership-trace-1"
+      },
+      {
+        "events": [
+          {
+            "activity": "C",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          },
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 10,
+            "timestamp": "2024-01-01T00:00:39.123Z"
+          }
+        ],
+        "id": "membership-source-2",
+        "name": "membership-trace-2"
+      }
+    ],
+    "name": "Core filter membership",
+    "warnings": [
+      "synthetic source warning retained"
+    ]
+  },
+  "source_unchanged": true,
+  "status": "ACTUAL_RUST_CASE_ACTIVITY_FILTER_OBSERVED"
+}

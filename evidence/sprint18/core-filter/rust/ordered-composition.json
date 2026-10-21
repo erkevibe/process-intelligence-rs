@@ -1,0 +1,131 @@
+{
+  "engine": "process_intelligence_rs::filters::apply",
+  "id": "ordered-composition",
+  "input_sha256": "78b641b8d1a8a942d9172d7e985556fe29379cb675a47fb4b95f5cc28acd0afc",
+  "rule_literals": [
+    "A",
+    "B"
+  ],
+  "schema_version": 1,
+  "scope": "Actual production filter sequential calls; full EventLog conservation only, not rich XLog metadata or public persistence",
+  "selected_source_indices": [
+    0,
+    3
+  ],
+  "selected_source_log": {
+    "cases": [
+      {
+        "events": [
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          },
+          {
+            "activity": "B",
+            "lifecycle": "complete",
+            "ordinal": 10,
+            "timestamp": "2024-01-01T00:00:39.123Z"
+          }
+        ],
+        "id": "ordered-composition-source-0",
+        "name": "ordered-composition-trace-0"
+      },
+      {
+        "events": [
+          {
+            "activity": "B",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          },
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 10,
+            "timestamp": "2024-01-01T00:00:39.123Z"
+          }
+        ],
+        "id": "ordered-composition-source-3",
+        "name": "ordered-composition-trace-3"
+      }
+    ],
+    "name": "Core filter ordered-composition",
+    "warnings": [
+      "synthetic source warning retained"
+    ]
+  },
+  "source_after_sha256": "3580ac2386857ad41b10d971faf9910750cb602d12c51c72b5ef8b409312c4f7",
+  "source_before_sha256": "3580ac2386857ad41b10d971faf9910750cb602d12c51c72b5ef8b409312c4f7",
+  "source_domain_before": {
+    "cases": [
+      {
+        "events": [
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          },
+          {
+            "activity": "B",
+            "lifecycle": "complete",
+            "ordinal": 10,
+            "timestamp": "2024-01-01T00:00:39.123Z"
+          }
+        ],
+        "id": "ordered-composition-source-0",
+        "name": "ordered-composition-trace-0"
+      },
+      {
+        "events": [
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          }
+        ],
+        "id": "ordered-composition-source-1",
+        "name": "ordered-composition-trace-1"
+      },
+      {
+        "events": [
+          {
+            "activity": "B",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          }
+        ],
+        "id": "ordered-composition-source-2",
+        "name": "ordered-composition-trace-2"
+      },
+      {
+        "events": [
+          {
+            "activity": "B",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          },
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 10,
+            "timestamp": "2024-01-01T00:00:39.123Z"
+          }
+        ],
+        "id": "ordered-composition-source-3",
+        "name": "ordered-composition-trace-3"
+      }
+    ],
+    "name": "Core filter ordered-composition",
+    "warnings": [
+      "synthetic source warning retained"
+    ]
+  },
+  "source_unchanged": true,
+  "status": "ACTUAL_RUST_CASE_ACTIVITY_FILTER_OBSERVED"
+}

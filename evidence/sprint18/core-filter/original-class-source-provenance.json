@@ -1,0 +1,314 @@
+{
+  "schema_version": 1,
+  "kind": "READ_ONLY_R5_FILTER_FEASIBILITY_DRAFT_NO_EXECUTION_CONTRACT_FROZEN",
+  "no_java_or_native_execution": true,
+  "no_source_or_product_changes": true,
+  "core_commit": "bbf24dfd43e72d6992392465f875a4367cbe792b",
+  "canonical_build_proof_sha256": "976db2b8712233abd6323286e0ad0ad0b0198d74147fc35596a18f13a8bedd83",
+  "canonical_jar": {
+    "path": "workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar",
+    "sha256": "4fc0c2cdd170c1f5cbf4fe542250c7b84deb2dfc583dc10631b6562b3894ef81",
+    "bytes": 238994
+  },
+  "pins": [
+    {
+      "class": "org.apromore.apmlog.filter.APMLogFilter",
+      "source_path": "Apromore-Extras/APMLogModule/src/main/java/org/apromore/apmlog/filter/APMLogFilter.java",
+      "source_git_blob": "815a7a29e39e687c85a06afda3fd3e914cd92ba5",
+      "source_sha256": "6f8986c68b0abb570067270e00209b9b55aaeed2ac3299db58d6ad445ff24d64",
+      "class_sha256": "b07c241d7d5a430f9fd1f6cea5eb696a71eefdee7dc268ee0c81d18c464769b3",
+      "class_bytes": 19801
+    },
+    {
+      "class": "org.apromore.apmlog.filter.typefilters.CaseSectionEventAttributeFilter",
+      "source_path": "Apromore-Extras/APMLogModule/src/main/java/org/apromore/apmlog/filter/typefilters/CaseSectionEventAttributeFilter.java",
+      "source_git_blob": "7e274bb4bfd6aac8e5e5ff88326c0cf4134e04bc",
+      "source_sha256": "853161d70edd2e9d66304559e08f490ea2e5eb15c43621a98e663aed5c40ad75",
+      "class_sha256": "ce03abaddf3115810137685e11f453a5dfca72b2a1d569ed03b014c20f7dafc8",
+      "class_bytes": 4315
+    },
+    {
+      "class": "org.apromore.apmlog.filter.PLog",
+      "source_path": "Apromore-Extras/APMLogModule/src/main/java/org/apromore/apmlog/filter/PLog.java",
+      "source_git_blob": "f4db6c4214a7d0b66db22449f2bead81a6395d53",
+      "source_sha256": "9a2e3c33e7ecdc522bb9c0d3c2f1ab85caefa568fd1804d10efb12ef44a79480",
+      "class_sha256": "00c7d950a90af46d0797fcc310f001d2f79ad0b58b9749bf7a91a5fa372747d0",
+      "class_bytes": 9330
+    },
+    {
+      "class": "org.apromore.apmlog.filter.PTrace",
+      "source_path": "Apromore-Extras/APMLogModule/src/main/java/org/apromore/apmlog/filter/PTrace.java",
+      "source_git_blob": "c9736a63d28f904d19a5157f7e5f5a475e0516ff",
+      "source_sha256": "bf3a2fcbf62c31b9225b1131bc3b3ecf1a7da7d51fb8ab6668e29b769f996786",
+      "class_sha256": "9ba950829882b9b2c2155f405116bf0ddbdc08ac1ffc1da0aa3acdf3bb454e68",
+      "class_bytes": 6522
+    },
+    {
+      "class": "org.apromore.apmlog.filter.rules.LogFilterRuleImpl",
+      "source_path": "Apromore-Extras/APMLogModule/src/main/java/org/apromore/apmlog/filter/rules/LogFilterRuleImpl.java",
+      "source_git_blob": "3699e8d5026d4d2645b6303c0a8a06aa920198f6",
+      "source_sha256": "b938edb5723062c90a12d1f8ea7c044481dc647a6a820c5f9f698693c35846df",
+      "class_sha256": "37bc711f897b54684e4e349c3890a217817202362f7ae1150a4e3253de693315",
+      "class_bytes": 14708
+    },
+    {
+      "class": "org.apromore.apmlog.filter.rules.RuleValue",
+      "source_path": "Apromore-Extras/APMLogModule/src/main/java/org/apromore/apmlog/filter/rules/RuleValue.java",
+      "source_git_blob": "1aab55d59b0e93631fd1fa6f650290b0bea3c24d",
+      "source_sha256": "4bc12950cd49e6fcedd0c90ad2f38a6fd128b6c94cb00943d35374fdba4e983f",
+      "class_sha256": "3d9fe85b1380bad10801140b9b747159495b3b50aa5423b5a0f8fc71bb1e4e01",
+      "class_bytes": 12028
+    },
+    {
+      "class": "org.apromore.apmlog.filter.types.FilterType",
+      "source_path": "Apromore-Extras/APMLogModule/src/main/java/org/apromore/apmlog/filter/types/FilterType.java",
+      "source_git_blob": "8fa886808a0cfa4bedd3f8e4f2576dba33da9ae0",
+      "source_sha256": "ea34ed208bd1e027e50c75cea33bc1dc5aecd831ce3f9fc5d5b491a5d010081d",
+      "class_sha256": "221947f26ff449c8085b919aa7ff619b32ec8c5087cd4cd3e021c8a42dd023a7",
+      "class_bytes": 4439
+    },
+    {
+      "class": "org.apromore.apmlog.filter.types.Choice",
+      "source_path": "Apromore-Extras/APMLogModule/src/main/java/org/apromore/apmlog/filter/types/Choice.java",
+      "source_git_blob": "1fd698bbb74f68e1664ee4709d300fbd20812f01",
+      "source_sha256": "2310ff23194bf02fcf423c526b527e011895a60d695e9ae68a1bfaaac95072e4",
+      "class_sha256": "893b1c871699e691207ad2f9e87db19bd9b963187351942d4b30a1117e7506b0",
+      "class_bytes": 1120
+    },
+    {
+      "class": "org.apromore.apmlog.filter.types.Inclusion",
+      "source_path": "Apromore-Extras/APMLogModule/src/main/java/org/apromore/apmlog/filter/types/Inclusion.java",
+      "source_git_blob": "f11a4a2156ed2b2b440d1e9835cae891e9cc479a",
+      "source_sha256": "88eb973186e95100207c7fa5f11f16dc59b5a4ce94ee21850b87e1372c083ff1",
+      "class_sha256": "435cf1e518ad02a7aca2d00b6c3c45b105e0f2209c03a5597e40cec53dad1b23",
+      "class_bytes": 1148
+    },
+    {
+      "class": "org.apromore.apmlog.filter.types.Section",
+      "source_path": "Apromore-Extras/APMLogModule/src/main/java/org/apromore/apmlog/filter/types/Section.java",
+      "source_git_blob": "140900c57c1ea3bbaa67b54b02067bad08add421",
+      "source_sha256": "5454ec0aa5e364422a977dddb1bfd6c160782a1cdfb3e0cf6e6e9347c2a71d3a",
+      "class_sha256": "5d14e1892a7d94581284d63f2ffc9e2e454a5632b63dec7b09dca115662f21a4",
+      "class_bytes": 1124
+    },
+    {
+      "class": "org.apromore.apmlog.filter.types.OperationType",
+      "source_path": "Apromore-Extras/APMLogModule/src/main/java/org/apromore/apmlog/filter/types/OperationType.java",
+      "source_git_blob": "61c4e5686c9063e8de9009f9d154f0b82c73e458",
+      "source_sha256": "d21d32fbb1102030c2f6bfbe8806daba06c66d671c879219e53b4a9aafe0f6a0",
+      "class_sha256": "00bb63a24dd65c847f144381a764ad7f7a705dc6f83b3f5aaf49f5c6ac41f0f2",
+      "class_bytes": 1558
+    },
+    {
+      "class": "org.apromore.apmlog.xes.XLogToImmutableLog",
+      "source_path": "Apromore-Extras/APMLogModule/src/main/java/org/apromore/apmlog/xes/XLogToImmutableLog.java",
+      "source_git_blob": "feea22e1d22dcb3639594f966508c2f2d6881509",
+      "source_sha256": "fbffed5342f7f25a0bd7f2c0c2b48dd0a38ed1aaabcf375ffb0e8df06f6e6cd6",
+      "class_sha256": "01b0f16bffef26ed24bf3570fcecac0cdf3a21dd1f1757a7b54009c8c331a2e7",
+      "class_bytes": 12508
+    }
+  ],
+  "rust": {
+    "path": "src/filters.rs",
+    "sha256": "edbcc434e1ce1c3c45ee7d9db935c659d11cbafb75d88381d77ae6cf132eed3d",
+    "api": "process_intelligence_rs::filters::apply(&EventLog,&FilterSpec)",
+    "selected_spec": "case_activity=Some(literal), other fields default/empty; None is no-rule control",
+    "existing_exported_library": true,
+    "native_observer": "Existing906 only observes import/preview, NOT filters. Root must create/review a thin actual production filters::apply caller or select actual current API; no claimed existing filter-executable result."
+  },
+  "proposed_named_scope": "CASE_EVENT_ATTRIBUTE_RETAIN_LITERAL_ACTIVITY_V1_FINITE_REFERENCE",
+  "actual_api": [
+    "XLogToImmutableLog.convertXLog(String,XLog), real source preparation",
+    "new APMLogFilter(real APMLog)",
+    "APMLogFilter.filterIndex(List<LogFilterRule>) returns actual PLog",
+    "Original route CASE_EVENT_ATTRIBUTE -> CaseSectionEventAttributeFilter.toKeep(PTrace,LogFilterRule)"
+  ],
+  "parameters": {
+    "choice": "RETAIN",
+    "inclusion": "ANY_VALUE",
+    "section": "CASE",
+    "filter_type": "CASE_EVENT_ATTRIBUTE",
+    "key": "concept:name",
+    "primary_values": "Exactly one real RuleValue(FilterType.CASE_EVENT_ATTRIBUTE,OperationType.EQUAL,key,Set<String>{literal}); actual set overload, not String overload",
+    "secondary_values": null,
+    "composition": "One filterIndex([ruleA,ruleB]) call; Rust sequential apply(A),apply(B). Do NOT compare repeated same Java engine calls as AND: proceedFiltering resets original traces each invocation."
+  },
+  "source_semantics": [
+    "Exact String set membership, case-sensitive, no Unicode normalization",
+    "Retain a whole trace if at least one activity-instance attribute concept:name equals literal; no event projection in selected case-level branch",
+    "Input trace order preserved by stream.filter/collect; selected event BitSets initially contain every immutable event index",
+    "No-match returns zero PTraces; do not call getAPMLog/toImmutableLog merely to serialize because that adds an independent empty-model conversion behavior",
+    "No numeric length bounds selected; inclusive numeric boundaries not applicable to this named operation"
+  ],
+  "preconditions_common_overlap": [
+    "Nonempty XLog with unique nonempty trace concept:name values",
+    "All events have concept:name, valid timestamp and explicit complete lifecycle; each event therefore maps to one real activity instance",
+    "No start/complete pairing, malformed/filtered events, empty trace or duplicate case-ID in overlap scope; these are preparation boundaries, not silently supported full Core coverage",
+    "Nonempty literal for equality overlap; empty literal is a separately frozen diagnostic"
+  ],
+  "observation_plan": [
+    "Record parsed typed XLog before and after real conversion, no adapter preprocessing/validation edits",
+    "Record real immutable APMLog before and after filter and real PLog selected immutable trace indexes/caseIDs/valid event indexes",
+    "Map observed returned indexes into the actual converted source trace/event records for full identity/order/time/lifecycle comparison; this is observation of engine selection, never a reimplementation of its predicate",
+    "Bind trace/event synthetic IDs, complete arrays and typed input attributes; assert all retained complete-event masks and source nonmutation in common-valid cases",
+    "Do not use APMLog.toXLog as identity-preserving output: original converter serializes attributes as strings and may normalize lifecycle; export is a separate R5 conversion contract",
+    "Actual Class.getResource SHA/codeSource and original JAR/runtime pins required on future execution"
+  ],
+  "candidate_cases_not_yet_frozen": [
+    {
+      "id": "F01-membership",
+      "source_activities": {
+        "c0": [
+          "A",
+          "B"
+        ],
+        "c1": [
+          "B"
+        ],
+        "c2": [
+          "C",
+          "A"
+        ]
+      },
+      "literal": "A",
+      "expected_kept": [
+        "c0",
+        "c2"
+      ],
+      "full_source_events_retained": true
+    },
+    {
+      "id": "F02-no-match-empty-result",
+      "source_activities": {
+        "c0": [
+          "A"
+        ],
+        "c1": [
+          "B"
+        ]
+      },
+      "literal": "Z",
+      "expected_kept": [],
+      "expected_actual_result": "PLog has zero selected traces; no export fallback"
+    },
+    {
+      "id": "F03-duplicate-activities",
+      "source_activities": {
+        "c0": [
+          "A",
+          "A",
+          "B",
+          "A"
+        ],
+        "c1": [
+          "B",
+          "B"
+        ]
+      },
+      "literal": "A",
+      "expected_kept": [
+        "c0"
+      ],
+      "full_source_events_retained": true
+    },
+    {
+      "id": "F04-unicode-case-normalization",
+      "source_activities": {
+        "c0": [
+          "É"
+        ],
+        "c1": [
+          "É"
+        ],
+        "c2": [
+          "é"
+        ]
+      },
+      "literal": "É",
+      "expected_kept": [
+        "c0"
+      ],
+      "expectation": "No normalization or case-folding; source exact codepoints"
+    },
+    {
+      "id": "F05-ordered-composition",
+      "source_activities": {
+        "c0": [
+          "A",
+          "B"
+        ],
+        "c1": [
+          "A"
+        ],
+        "c2": [
+          "B"
+        ],
+        "c3": [
+          "B",
+          "A"
+        ]
+      },
+      "literal_sequence": [
+        "A",
+        "B"
+      ],
+      "expected_kept": [
+        "c0",
+        "c3"
+      ],
+      "java_call": "Single filterIndex([ruleA,ruleB])"
+    },
+    {
+      "id": "F06-no-rule-control",
+      "source_activities": {
+        "c0": [
+          "A"
+        ],
+        "c1": [
+          "B"
+        ]
+      },
+      "java_rules": [],
+      "rust_case_activity": null,
+      "expected_kept": [
+        "c0",
+        "c1"
+      ]
+    },
+    {
+      "id": "F07-empty-literal-diagnostic",
+      "source_activities": {
+        "c0": [
+          "A"
+        ],
+        "c1": [
+          "B"
+        ]
+      },
+      "literal": "",
+      "source_expected_java_kept": [],
+      "source_expected_rust_kept": [
+        "c0",
+        "c1"
+      ],
+      "classification": "Declared sentinel-policy difference, not equality-overlap PASS"
+    },
+    {
+      "id": "F08-empty-input-preparation-boundary",
+      "source_activities": {},
+      "literal": "A",
+      "source_expected_java": "Real XLogToImmutableLog throws EmptyInputException before filter construction",
+      "source_expected_rust": "filters::apply accepts empty EventLog and returns empty clone",
+      "classification": "Preparation refusal boundary; do not claim filter engine itself executed"
+    }
+  ],
+  "source_risks": [
+    "XLogToImmutableLog.validateXLog mutates XLog: adds missing complete lifecycle, removes invalid events/empty traces; explicit complete valid overlap prevents silently hiding this",
+    "APM PLog maps cases by caseId using toMap, so duplicate IDs can fail; not generally equivalent to Rust unique internal IDs plus optional duplicate names",
+    "APMLogFilter.filterIndex resets originalPTraces at start of every call; composition must be explicit ordered rule list",
+    "Activity instances combine paired lifecycle events outside overlap; case length filter counts instances, unlike raw Rust event count",
+    "No whole R5-01 coverage or source-preservation claim outside selected finite overlap"
+  ],
+  "feasibility": "GO-to-contract plausible: real compiled whole classes and complete dependencies already present, no downloads/rebuild of upstream needed. No implementation or execution until Root exact named contract and QA native config admission.",
+  "fallback": "No fallback oracle needed or authorized; if actual class/runtime fails, retain native failure and diagnose real dependency rather than extracting predicate or implementing toy oracle."
+}

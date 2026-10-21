@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "id": "empty-input",
+  "input_sha256": "7fc4b4c57621185d119777c5f9075299aaaebbc804d6f44a7f9b273fb7d80f8f",
+  "engine_identity": {
+    "class": "org.apromore.apmlog.filter.APMLogFilter",
+    "sha256": "b07c241d7d5a430f9fd1f6cea5eb696a71eefdee7dc268ee0c81d18c464769b3",
+    "code_source": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+  },
+  "predicate_identity": {
+    "class": "org.apromore.apmlog.filter.typefilters.CaseSectionEventAttributeFilter",
+    "sha256": "ce03abaddf3115810137685e11f453a5dfca72b2a1d569ed03b014c20f7dafc8",
+    "code_source": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+  },
+  "converter_identity": {
+    "class": "org.apromore.apmlog.xes.XLogToImmutableLog",
+    "sha256": "01b0f16bffef26ed24bf3570fcecac0cdf3a21dd1f1757a7b54009c8c331a2e7",
+    "code_source": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+  },
+  "rule_identity": {
+    "class": "org.apromore.apmlog.filter.rules.LogFilterRuleImpl",
+    "sha256": "37bc711f897b54684e4e349c3890a217817202362f7ae1150a4e3253de693315",
+    "code_source": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+  },
+  "rule_value_identity": {
+    "class": "org.apromore.apmlog.filter.rules.RuleValue",
+    "sha256": "3d9fe85b1380bad10801140b9b747159495b3b50aa5423b5a0f8fc71bb1e4e01",
+    "code_source": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+  },
+  "factory": "org.deckfour.xes.factory.XFactoryNaiveImpl",
+  "assertions_enabled": false,
+  "rule_literals": [
+    "A"
+  ],
+  "parameters": {
+    "filter_type": "CASE_EVENT_ATTRIBUTE",
+    "choice": "RETAIN",
+    "inclusion": "ANY_VALUE",
+    "section": "CASE",
+    "key": "concept:name",
+    "rule_value_operation": "EQUAL",
+    "one_java_ordered_rule_list": true
+  },
+  "source_domain_before": {
+    "name": "Core filter empty-input",
+    "cases": [],
+    "warnings": [
+      "synthetic source warning retained"
+    ]
+  },
+  "source_domain_before_sha256": "284426cae975e1c861d3987280436315e19564958a054aa35c35d0cd92dc6769",
+  "source_xlog_before": {
+    "attributes": [
+      {
+        "key": "concept:name",
+        "type": "string",
+        "value": "Core filter empty-input"
+      },
+      {
+        "key": "source:warnings",
+        "type": "string",
+        "value": "[\"synthetic source warning retained\"]"
+      }
+    ],
+    "classifiers": [],
+    "extensions": [],
+    "global_trace_attributes": [],
+    "global_event_attributes": [],
+    "traces": [],
+    "trace_count": 0,
+    "event_count": 0
+  },
+  "source_xlog_before_sha256": "5f49c6f75e63f88e0255374cf86b4c932ca13fd31c6c21a8eb9717d511cb9a3d",
+  "engine_invoked": false,
+  "status": "converter_refused",
+  "exception": {
+    "chain": [
+      {
+        "class": "org.apromore.apmlog.exceptions.EmptyInputException",
+        "message": null,
+        "message_sha256": "73c1da7478abb22ee7705dc196b435b46aad7ff368c3c6ae8e7576ee3bca337f",
+        "message_withheld": true
+      }
+    ],
+    "root": {
+      "class": "org.apromore.apmlog.exceptions.EmptyInputException",
+      "message": null,
+      "message_sha256": "73c1da7478abb22ee7705dc196b435b46aad7ff368c3c6ae8e7576ee3bca337f",
+      "message_withheld": true
+    }
+  },
+  "source_xlog_after_conversion": {
+    "attributes": [
+      {
+        "key": "concept:name",
+        "type": "string",
+        "value": "Core filter empty-input"
+      },
+      {
+        "key": "source:warnings",
+        "type": "string",
+        "value": "[\"synthetic source warning retained\"]"
+      }
+    ],
+    "classifiers": [],
+    "extensions": [],
+    "global_trace_attributes": [],
+    "global_event_attributes": [],
+    "traces": [],
+    "trace_count": 0,
+    "event_count": 0
+  },
+  "source_xlog_after_conversion_sha256": "5f49c6f75e63f88e0255374cf86b4c932ca13fd31c6c21a8eb9717d511cb9a3d",
+  "source_domain_after": {
+    "name": "Core filter empty-input",
+    "cases": [],
+    "warnings": [
+      "synthetic source warning retained"
+    ]
+  },
+  "source_domain_after_sha256": "284426cae975e1c861d3987280436315e19564958a054aa35c35d0cd92dc6769"
+}
