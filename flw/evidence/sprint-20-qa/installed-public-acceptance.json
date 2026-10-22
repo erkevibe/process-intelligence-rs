@@ -1,0 +1,68 @@
+{
+  "post_pins_checked": 3184,
+  "role": "QA",
+  "results": [
+    {
+      "file": "conversion-audit.json",
+      "sha256": "DCD33FBD9BC93769792569413D038A66A8D501DBE8AD1C541814506D4B18F06F",
+      "status": "INDEPENDENT_FINITE_CONVERSION_EVIDENCE_AUDIT_PASS"
+    },
+    {
+      "file": "miner-audit.json",
+      "sha256": "D0D143A1F59B23217A4B71AB2BCB2E4F7784D0D510FC7FD64E6194B627C3F6E7",
+      "status": "COMPLETE_FROZEN_BENCHMARK_AND_CONDITIONAL_HISTORICAL_CARRY"
+    },
+    {
+      "file": "independent-projection.json",
+      "sha256": "A92C1304437A8A169FC93ADBEBB460FE6E13B2A12A1F363CF661F89B0523FC70",
+      "status": "INDEPENDENT_ORIGINAL_TO_PUBLIC_PROJECTION_PASS"
+    }
+  ],
+  "remaining": "Exact candidate final Council, exact HEAD both CI, Root and QA whole anonymous source readback plus actual downloaded-source replay/resource/native closure",
+  "status": "INDEPENDENT_INSTALLED_PUBLIC_REPLAY_AND_FULL_CAPTURE_ACCEPTED",
+  "config_sha256": "20BB77B4F5163F70F8B074DBF832EBCA8F68764FAFDE3E38366943C1536FCDCD",
+  "manifest_test_methods": 14,
+  "manifest_test_skips": 2,
+  "agent": "/root/qa_s20_delivery",
+  "actual_captures": [
+    {
+      "pid": 34032,
+      "record": "command.process.json",
+      "sha256": "DDDA215FEF1899236344A7DC3E7AD0C0E18273262E3CC1AB3D18B8D0E7BD9586",
+      "creation_utc": "2026-10-22T15:21:41.4751312Z"
+    },
+    {
+      "pid": 30004,
+      "record": "conversion.process.json",
+      "sha256": "29011B2890E50450FED14718C33E1C097B7BF5DEFDBFF234FDF3CBDDB7986A4A",
+      "creation_utc": "2026-10-22T15:21:51.2036612Z"
+    },
+    {
+      "pid": 228,
+      "record": "independent-projection.process.json",
+      "sha256": "B87F4C4220502C32A761702EE2ECAF95010C116C0B2F569C26A9D1A72B9D5111",
+      "creation_utc": "2026-10-22T15:21:55.785536Z"
+    },
+    {
+      "pid": 27972,
+      "record": "manifest-controls.process.json",
+      "sha256": "C2AFC6F0FEEC3A474B08AE33C4DA4A955AA8F813D41C6791D5EAE0CA020C42FF",
+      "creation_utc": "2026-10-22T15:22:47.7252278Z"
+    },
+    {
+      "pid": 13168,
+      "record": "manifest.process.json",
+      "sha256": "14726BFBEF3AEABD853A013EECDBFE513813134043F55496370A9D114666E1CA",
+      "creation_utc": "2026-10-22T15:21:50.5170044Z"
+    },
+    {
+      "pid": 29932,
+      "record": "miner.process.json",
+      "sha256": "87F9C4386D96F2DE98F0CC54A280DAE11163D0B2124172FB07DB620E86787EC4",
+      "creation_utc": "2026-10-22T15:21:52.0486523Z"
+    }
+  ],
+  "symlink_limit": "OS denied creating actual symlinks; not declared passed",
+  "final_public_delivery_acceptance": false,
+  "utc": "2026-10-22T15:23:22.4927007+00:00"
+}

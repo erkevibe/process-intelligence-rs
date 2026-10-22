@@ -1,0 +1,35 @@
+{
+  "native_creation_utc": "2026-10-22T09:49:50.7701403Z",
+  "process_cpu": {
+    "creation_filetime_100ns": 134371361907701403,
+    "scope": "Native GetProcessTimes for actual retained process handle; creation/exit are Windows FILETIME (exit unavailable while alive); CPU since process creation through snapshot, not engine-only CPU.",
+    "kernel_cpu_100ns": 3437500,
+    "user_cpu_100ns": 3437500,
+    "exit_filetime_100ns": null
+  },
+  "protocol": {
+    "phase": "BOOT_READY",
+    "pid": 29284,
+    "nonce": "0c90c281ef3c4aea8558ae75388e1a51",
+    "process_id": "cold-r3-linear"
+  },
+  "process_memory": {
+    "peak_private_commit_bytes": 611258368,
+    "scope": "OS process counters since process creation, observed at caller snapshot; a terminal pre-exit snapshot excludes subsequent teardown. Working set may include shared pages; commit is not working set.",
+    "current_working_set_bytes": 61960192,
+    "current_private_commit_bytes": 611258368,
+    "peak_working_set_bytes": 61960192,
+    "page_faults": 15606
+  },
+  "job": {
+    "limit_terminated_processes": 0,
+    "user_cpu_100ns": 3437500,
+    "scope": "Fresh per-trial Job from assignment; includes assigned process and descendants; does not include pre-assignment startup. Commit is not physical working set.",
+    "page_faults": 15606,
+    "total_processes": 1,
+    "kernel_cpu_100ns": 3437500,
+    "active_processes": 1,
+    "peak_job_commit_bytes": 611258368,
+    "peak_single_process_commit_bytes": 611258368
+  }
+}

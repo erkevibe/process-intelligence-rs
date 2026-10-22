@@ -1,0 +1,429 @@
+{
+  "allow_metadata_loss": false,
+  "evidence": {
+    "actual_inverse_conversion_not_claimed": true,
+    "actual_upstream_api": "import_pnml_reader",
+    "bijection_partial_assignments": 5,
+    "metadata_loss_count": 0,
+    "node_bijection": {
+      "00000000-0000-0000-0000-000000000001": "4b1bd8c3-c050-4154-9370-0d6eeb082890",
+      "00000000-0000-0000-0000-000000000002": "3da388f9-168d-4468-894e-dab8e2e4000d",
+      "00000000-0000-0000-0000-000000000003": "acc189df-19f3-4f7f-907d-7bde81d84510",
+      "00000000-0000-0000-0000-000000000004": "3c76845c-a430-47a4-b838-39051d6b2a5b",
+      "00000000-0000-0000-0000-000000000005": "6d11352c-8956-441a-8511-3f8ecab9528a"
+    },
+    "normalization_inventory": {
+      "counts": {
+        "arc_id": 6,
+        "net_id": 1,
+        "node_id_bijection": 5,
+        "page_id": 1,
+        "place_display_name": 1,
+        "tau_local_node_id": 1
+      },
+      "entries": [
+        {
+          "action": "omitted_format_field",
+          "kind": "net_id",
+          "locator": {
+            "attribute": "id",
+            "path": "/pnml/net[0]",
+            "syntax": "xml"
+          },
+          "normalized_value": null,
+          "original_value": "manual",
+          "side": "source"
+        },
+        {
+          "action": "omitted_format_field",
+          "kind": "page_id",
+          "locator": {
+            "attribute": "id",
+            "path": "/pnml/net[0]/page[0]",
+            "syntax": "xml"
+          },
+          "normalized_value": null,
+          "original_value": "n0",
+          "side": "source"
+        },
+        {
+          "action": "omitted_format_field",
+          "kind": "place_display_name",
+          "locator": {
+            "path": "/pnml/net[0]/page[0]/place[0]/name[0]/text[0]",
+            "syntax": "xml"
+          },
+          "normalized_value": null,
+          "original_value": "00000000-0000-0000-0000-000000000001",
+          "side": "source"
+        },
+        {
+          "action": "omitted_format_field",
+          "kind": "tau_local_node_id",
+          "locator": {
+            "attribute": "localNodeID",
+            "path": "/pnml/net[0]/page[0]/transition[2]/toolspecific[0]",
+            "syntax": "xml"
+          },
+          "normalized_value": null,
+          "original_value": "00000000-0000-0000-0000-000000000099",
+          "side": "source"
+        },
+        {
+          "action": "omitted_format_field",
+          "kind": "arc_id",
+          "locator": {
+            "attribute": "id",
+            "path": "/pnml/net[0]/page[0]/arc[0]",
+            "syntax": "xml"
+          },
+          "normalized_value": null,
+          "original_value": "a0",
+          "side": "source"
+        },
+        {
+          "action": "omitted_format_field",
+          "kind": "arc_id",
+          "locator": {
+            "attribute": "id",
+            "path": "/pnml/net[0]/page[0]/arc[1]",
+            "syntax": "xml"
+          },
+          "normalized_value": null,
+          "original_value": "a1",
+          "side": "source"
+        },
+        {
+          "action": "omitted_format_field",
+          "kind": "arc_id",
+          "locator": {
+            "attribute": "id",
+            "path": "/pnml/net[0]/page[0]/arc[2]",
+            "syntax": "xml"
+          },
+          "normalized_value": null,
+          "original_value": "a2",
+          "side": "source"
+        },
+        {
+          "action": "omitted_format_field",
+          "kind": "arc_id",
+          "locator": {
+            "attribute": "id",
+            "path": "/pnml/net[0]/page[0]/arc[3]",
+            "syntax": "xml"
+          },
+          "normalized_value": null,
+          "original_value": "a3",
+          "side": "source"
+        },
+        {
+          "action": "omitted_format_field",
+          "kind": "arc_id",
+          "locator": {
+            "attribute": "id",
+            "path": "/pnml/net[0]/page[0]/arc[4]",
+            "syntax": "xml"
+          },
+          "normalized_value": null,
+          "original_value": "a4",
+          "side": "source"
+        },
+        {
+          "action": "omitted_format_field",
+          "kind": "arc_id",
+          "locator": {
+            "attribute": "id",
+            "path": "/pnml/net[0]/page[0]/arc[5]",
+            "syntax": "xml"
+          },
+          "normalized_value": null,
+          "original_value": "a5",
+          "side": "source"
+        },
+        {
+          "action": "verified_id_renaming",
+          "changed": true,
+          "counterpart_locator": {
+            "path": "/places/4b1bd8c3-c050-4154-9370-0d6eeb082890/id",
+            "syntax": "json"
+          },
+          "kind": "node_id_bijection",
+          "locator": {
+            "attribute": "id",
+            "path": "/pnml/net[0]/page[0]/place[0]",
+            "syntax": "xml"
+          },
+          "normalized_value": "4b1bd8c3-c050-4154-9370-0d6eeb082890",
+          "original_value": "00000000-0000-0000-0000-000000000001",
+          "side": "source_to_target",
+          "source_graph_id": "00000000-0000-0000-0000-000000000001",
+          "target_graph_id": "4b1bd8c3-c050-4154-9370-0d6eeb082890"
+        },
+        {
+          "action": "verified_id_renaming",
+          "changed": true,
+          "counterpart_locator": {
+            "path": "/places/3da388f9-168d-4468-894e-dab8e2e4000d/id",
+            "syntax": "json"
+          },
+          "kind": "node_id_bijection",
+          "locator": {
+            "attribute": "id",
+            "path": "/pnml/net[0]/page[0]/place[1]",
+            "syntax": "xml"
+          },
+          "normalized_value": "3da388f9-168d-4468-894e-dab8e2e4000d",
+          "original_value": "00000000-0000-0000-0000-000000000002",
+          "side": "source_to_target",
+          "source_graph_id": "00000000-0000-0000-0000-000000000002",
+          "target_graph_id": "3da388f9-168d-4468-894e-dab8e2e4000d"
+        },
+        {
+          "action": "verified_id_renaming",
+          "changed": true,
+          "counterpart_locator": {
+            "path": "/transitions/acc189df-19f3-4f7f-907d-7bde81d84510/id",
+            "syntax": "json"
+          },
+          "kind": "node_id_bijection",
+          "locator": {
+            "attribute": "id",
+            "path": "/pnml/net[0]/page[0]/transition[0]",
+            "syntax": "xml"
+          },
+          "normalized_value": "acc189df-19f3-4f7f-907d-7bde81d84510",
+          "original_value": "00000000-0000-0000-0000-000000000003",
+          "side": "source_to_target",
+          "source_graph_id": "00000000-0000-0000-0000-000000000003",
+          "target_graph_id": "acc189df-19f3-4f7f-907d-7bde81d84510"
+        },
+        {
+          "action": "verified_id_renaming",
+          "changed": true,
+          "counterpart_locator": {
+            "path": "/transitions/3c76845c-a430-47a4-b838-39051d6b2a5b/id",
+            "syntax": "json"
+          },
+          "kind": "node_id_bijection",
+          "locator": {
+            "attribute": "id",
+            "path": "/pnml/net[0]/page[0]/transition[1]",
+            "syntax": "xml"
+          },
+          "normalized_value": "3c76845c-a430-47a4-b838-39051d6b2a5b",
+          "original_value": "00000000-0000-0000-0000-000000000004",
+          "side": "source_to_target",
+          "source_graph_id": "00000000-0000-0000-0000-000000000004",
+          "target_graph_id": "3c76845c-a430-47a4-b838-39051d6b2a5b"
+        },
+        {
+          "action": "verified_id_renaming",
+          "changed": true,
+          "counterpart_locator": {
+            "path": "/transitions/6d11352c-8956-441a-8511-3f8ecab9528a/id",
+            "syntax": "json"
+          },
+          "kind": "node_id_bijection",
+          "locator": {
+            "attribute": "id",
+            "path": "/pnml/net[0]/page[0]/transition[2]",
+            "syntax": "xml"
+          },
+          "normalized_value": "6d11352c-8956-441a-8511-3f8ecab9528a",
+          "original_value": "00000000-0000-0000-0000-000000000005",
+          "side": "source_to_target",
+          "source_graph_id": "00000000-0000-0000-0000-000000000005",
+          "target_graph_id": "6d11352c-8956-441a-8511-3f8ecab9528a"
+        }
+      ],
+      "entry_count": 15,
+      "json_pointer_escaping": "RFC6901 ~0 and ~1",
+      "schema_version": 1,
+      "value_scope": "actual decoded XML attribute/text or JSON string values; exact lexical bytes remain SHA-bound payloads",
+      "xml_path_indexing": "zero_based_siblings_per_element_name"
+    },
+    "normalizations": [
+      "arc_id",
+      "net_id",
+      "node_id_bijection",
+      "page_id",
+      "place_display_name",
+      "tau_local_node_id"
+    ],
+    "profile": "process_mining_0.6.2_native-json-pnml-v1",
+    "source_graph": {
+      "arcs": [
+        {
+          "source": "00000000-0000-0000-0000-000000000001",
+          "target": "00000000-0000-0000-0000-000000000003",
+          "weight": 4294967295
+        },
+        {
+          "source": "00000000-0000-0000-0000-000000000002",
+          "target": "00000000-0000-0000-0000-000000000004",
+          "weight": 3
+        },
+        {
+          "source": "00000000-0000-0000-0000-000000000002",
+          "target": "00000000-0000-0000-0000-000000000005",
+          "weight": 1
+        },
+        {
+          "source": "00000000-0000-0000-0000-000000000003",
+          "target": "00000000-0000-0000-0000-000000000002",
+          "weight": 3
+        },
+        {
+          "source": "00000000-0000-0000-0000-000000000004",
+          "target": "00000000-0000-0000-0000-000000000001",
+          "weight": 2
+        },
+        {
+          "source": "00000000-0000-0000-0000-000000000005",
+          "target": "00000000-0000-0000-0000-000000000002",
+          "weight": 1
+        }
+      ],
+      "finals": [
+        {
+          "00000000-0000-0000-0000-000000000002": 18446744073709551615
+        },
+        {},
+        {
+          "00000000-0000-0000-0000-000000000001": 0,
+          "00000000-0000-0000-0000-000000000002": 0
+        }
+      ],
+      "initial": {
+        "00000000-0000-0000-0000-000000000001": 18446744073709551615,
+        "00000000-0000-0000-0000-000000000002": 0
+      },
+      "nodes": {
+        "00000000-0000-0000-0000-000000000001": {
+          "id": "00000000-0000-0000-0000-000000000001",
+          "kind": "place",
+          "label": null
+        },
+        "00000000-0000-0000-0000-000000000002": {
+          "id": "00000000-0000-0000-0000-000000000002",
+          "kind": "place",
+          "label": null
+        },
+        "00000000-0000-0000-0000-000000000003": {
+          "id": "00000000-0000-0000-0000-000000000003",
+          "kind": "transition",
+          "label": "A & β"
+        },
+        "00000000-0000-0000-0000-000000000004": {
+          "id": "00000000-0000-0000-0000-000000000004",
+          "kind": "transition",
+          "label": "A & β"
+        },
+        "00000000-0000-0000-0000-000000000005": {
+          "id": "00000000-0000-0000-0000-000000000005",
+          "kind": "transition",
+          "label": null
+        }
+      }
+    },
+    "target_graph": {
+      "arcs": [
+        {
+          "source": "3c76845c-a430-47a4-b838-39051d6b2a5b",
+          "target": "4b1bd8c3-c050-4154-9370-0d6eeb082890",
+          "weight": 2
+        },
+        {
+          "source": "3da388f9-168d-4468-894e-dab8e2e4000d",
+          "target": "3c76845c-a430-47a4-b838-39051d6b2a5b",
+          "weight": 3
+        },
+        {
+          "source": "3da388f9-168d-4468-894e-dab8e2e4000d",
+          "target": "6d11352c-8956-441a-8511-3f8ecab9528a",
+          "weight": 1
+        },
+        {
+          "source": "4b1bd8c3-c050-4154-9370-0d6eeb082890",
+          "target": "acc189df-19f3-4f7f-907d-7bde81d84510",
+          "weight": 4294967295
+        },
+        {
+          "source": "6d11352c-8956-441a-8511-3f8ecab9528a",
+          "target": "3da388f9-168d-4468-894e-dab8e2e4000d",
+          "weight": 1
+        },
+        {
+          "source": "acc189df-19f3-4f7f-907d-7bde81d84510",
+          "target": "3da388f9-168d-4468-894e-dab8e2e4000d",
+          "weight": 3
+        }
+      ],
+      "finals": [
+        {
+          "3da388f9-168d-4468-894e-dab8e2e4000d": 18446744073709551615
+        },
+        {},
+        {
+          "3da388f9-168d-4468-894e-dab8e2e4000d": 0,
+          "4b1bd8c3-c050-4154-9370-0d6eeb082890": 0
+        }
+      ],
+      "initial": {
+        "3da388f9-168d-4468-894e-dab8e2e4000d": 0,
+        "4b1bd8c3-c050-4154-9370-0d6eeb082890": 18446744073709551615
+      },
+      "nodes": {
+        "3c76845c-a430-47a4-b838-39051d6b2a5b": {
+          "id": "3c76845c-a430-47a4-b838-39051d6b2a5b",
+          "kind": "transition",
+          "label": "A & β"
+        },
+        "3da388f9-168d-4468-894e-dab8e2e4000d": {
+          "id": "3da388f9-168d-4468-894e-dab8e2e4000d",
+          "kind": "place",
+          "label": null
+        },
+        "4b1bd8c3-c050-4154-9370-0d6eeb082890": {
+          "id": "4b1bd8c3-c050-4154-9370-0d6eeb082890",
+          "kind": "place",
+          "label": null
+        },
+        "6d11352c-8956-441a-8511-3f8ecab9528a": {
+          "id": "6d11352c-8956-441a-8511-3f8ecab9528a",
+          "kind": "transition",
+          "label": null
+        },
+        "acc189df-19f3-4f7f-907d-7bde81d84510": {
+          "id": "acc189df-19f3-4f7f-907d-7bde81d84510",
+          "kind": "transition",
+          "label": "A & β"
+        }
+      }
+    }
+  },
+  "from": "pnml",
+  "input_bytes": 2075,
+  "input_sha256": "e32fc596ae00ef69c13d8c12a4b9928c7551236122d61d8b790fadabeacc23fc",
+  "method_sha256": "49dc32d1f4219965ea57cc79caa9355974269fab989cc38d09173c8e734e619b",
+  "not_general_format_support": true,
+  "payload_file": "payload.json",
+  "reason": "full_graph_bijection",
+  "schema_version": 1,
+  "sources": {
+    "Cargo.lock": "9005a089ccd3ec721e6d3209600c4cea10e0efc76c7ea4111406fb28c99f29b6",
+    "examples/conversion/logs.rs": "6765fc8a72c47c72b548689ed3f1249ca8e56ff560f08b04b25aef75177c94fe",
+    "examples/conversion/mod.rs": "0dee3aad92715daedc1d37164c911762cf519152e6fb8276e40e05af0b3051b5",
+    "examples/conversion/net.rs": "0850a692536f428facef5e2763c313781f75e42f8ed27d2f3ee8f4b80508d750",
+    "examples/conversion/xml.rs": "a1ff196c278638d3b63f395ad09ea8c8135a2f0021163cd73f30001c4fb21846",
+    "examples/pi_convert.rs": "f3935a0c1926c78807a9a94e7526062107c612093bf81680ff98e1d8bae51d4d",
+    "locked_process_mining": "0.6.2",
+    "src/csv_io.rs": "3eed3d20c0262e3cbf2bb2bf4666c33581f13ad61a9834da2b186e6623ab469d",
+    "src/event_io.rs": "e2f96e3ceb1f4af7d69492d0a7433259e6205397e219fc837b0adb30c4330fc8"
+  },
+  "status": "converted",
+  "target_bytes": 2355,
+  "target_sha256": "73fdcc7af46598126fd11c6bc0dff56f7ce1b673874ca76d2495eb216ed4c854",
+  "to": "petri-json"
+}

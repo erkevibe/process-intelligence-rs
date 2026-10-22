@@ -1,0 +1,68 @@
+{
+  "full_tree": {
+    "logical_bytes": 1412419620,
+    "root_allocation_bytes": 1445938336,
+    "files": 20898,
+    "scope": "non-atomic read-only sampling; vanished compiler target entries only; 512MiB headroom mandatory",
+    "allocation_bytes": 1446590640,
+    "root_logical_bytes": 1412018896,
+    "skipped_vanished_target_entries": 0
+  },
+  "native_cases": [
+    {
+      "observed_compression_format": 0,
+      "requested_compression_format": 0,
+      "name": "empty",
+      "logical": 0,
+      "allocated": 0,
+      "old_native_equal": true
+    },
+    {
+      "observed_compression_format": 0,
+      "requested_compression_format": 0,
+      "name": "one",
+      "logical": 1,
+      "allocated": 8,
+      "old_native_equal": true
+    },
+    {
+      "observed_compression_format": 0,
+      "requested_compression_format": 0,
+      "name": "cluster",
+      "logical": 4096,
+      "allocated": 4096,
+      "old_native_equal": true
+    },
+    {
+      "observed_compression_format": 0,
+      "requested_compression_format": 0,
+      "name": "next-cluster",
+      "logical": 4097,
+      "allocated": 8192,
+      "old_native_equal": true
+    },
+    {
+      "observed_compression_format": 2,
+      "requested_compression_format": 1,
+      "name": "compressed",
+      "logical": 1048576,
+      "allocated": 0,
+      "old_native_equal": true
+    }
+  ],
+  "small_tree": {
+    "logical_bytes": 1056770,
+    "root_allocation_bytes": 12296,
+    "files": 5,
+    "scope": "non-atomic read-only sampling; vanished compiler target entries only; 512MiB headroom mandatory",
+    "allocation_bytes": 12296,
+    "root_logical_bytes": 1056770,
+    "skipped_vanished_target_entries": 0
+  },
+  "status": "ACTUAL_NATIVE_CAPACITY_COUNTER_EQUIVALENCE_AND_FULL_25S_SCAN_PASS",
+  "no_native_feature_engine_executed": true,
+  "free_bytes": 41621696512,
+  "elapsed_ms": 10854,
+  "utc": "2026-10-22T15:18:51.6147992+00:00",
+  "reparse_test": "SKIPPED_OS_REFUSED_SYMLINK_CREATION"
+}

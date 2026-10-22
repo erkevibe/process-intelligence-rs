@@ -1,0 +1,36 @@
+{
+  "schema": "sprint20-td-capacity-closure-v1",
+  "utc": "2026-10-22T15:19:40.3715371+00:00",
+  "reviewer": "/root/td_s20_delivery",
+  "role": "TechnicalDebt",
+  "finding": "TD-S20-CAPACITY-SAMPLER-01",
+  "finding_sha256": "8090C4AC21AC64D2191046EA91B15A1AA2C04330A298587EB175810BF46235BD",
+  "status": "MECHANISM_CLOSED_INSTALLED_PURE_AUDIT_RESUME_GO_CONDITIONAL_QA_AND_EXACT_CONFIG",
+  "actual_result_sha256": "FF28ABE8D1AA965D5835614CFD814CADDF06DC1C3F073FAF7CD2D7F842328847",
+  "native_process_sha256": "EEC2F24E111DC10D02ECA063D5F28C05308777D8AD51713A8EA39B283BD73AA6",
+  "actual_native_identity": {
+    "stderr_bytes": 0,
+    "full_eof": true,
+    "pid": 5216,
+    "stdout_bytes": 0,
+    "creation_utc": "2026-10-22T15:18:38.5969082Z",
+    "exit": 0
+  },
+  "actual_findings": [
+    "Five actual fresh calibration files and sizes independently enumerated",
+    "Old full native and new minimal native EOF/allocation equal on all five cases",
+    "Actual1MiB compressed file is Compressed, observedLZNT1=2 requestedDEFAULT=1 and allocation0; allocation is not estimated from logical length",
+    "Whole20898 files scan10854ms below unchanged25000ms limit",
+    "Total logical1412419620/allocated1446590640; Root logical1412018896/allocated1445938336; free41621696512 within all budgets",
+    "Exact storage790CF/guard0E5D/testB33B remain unchanged"
+  ],
+  "reparse_test": "SKIPPED_OS_REFUSED_SYMLINK_CREATION, not claimed PASS",
+  "conditions": [
+    "Independent QA actual acceptance",
+    "Exact prospective config repins continuation runner/worker/guard/storage and all dependencies",
+    "Keep existing limits, native metric interpretation and old failures preserved",
+    "No feature engine rerun authorized or needed by this admission",
+    "Final Council decision and publicCI/readback acceptance remain pending"
+  ],
+  "execution_by_td": false
+}

@@ -1,0 +1,31 @@
+{
+  "boot": {
+    "pid": 38016,
+    "nonce": "637b80a3d7734c9eb8cd0b938ef0613d"
+  },
+  "baseline": {
+    "kernel_cpu_100ns": 781250,
+    "creation_filetime_100ns": 134371321241343809,
+    "user_cpu_100ns": 156250,
+    "scope": "Native GetProcessTimes for actual retained process handle; creation/exit are Windows FILETIME (exit unavailable while alive); CPU since process creation through snapshot, not engine-only CPU.",
+    "exit_filetime_100ns": null
+  },
+  "native_creation_utc": "2026-10-22T08:42:04.1343809Z",
+  "cpu_increase_100ns": 1562500,
+  "invalid_handle_refused": true,
+  "scope": "150ms controlled busy loop plus allocation; positive CPU response >=10ms, no exact scheduling expectation.",
+  "ready": {
+    "pid": 38016,
+    "nonce": "637b80a3d7734c9eb8cd0b938ef0613d",
+    "allocated_bytes": 33554432,
+    "touched_pages": 8192,
+    "checksum": 919609
+  },
+  "terminal": {
+    "kernel_cpu_100ns": 781250,
+    "creation_filetime_100ns": 134371321241343809,
+    "user_cpu_100ns": 1718750,
+    "scope": "Native GetProcessTimes for actual retained process handle; creation/exit are Windows FILETIME (exit unavailable while alive); CPU since process creation through snapshot, not engine-only CPU.",
+    "exit_filetime_100ns": null
+  }
+}

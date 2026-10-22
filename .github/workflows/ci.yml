@@ -63,6 +63,20 @@ jobs:
           TMPDIR="$PWD/.local/sprint19/ci-temp" python3 -B tools/oracle/core-calendar-public-projection-tests.py
           python3 -B tools/sprint19/verify-quality-manifest.py evidence/sprint19/bpmn-quality
           python3 -B tools/oracle/audit-quality-evidence.py --rust evidence/sprint19/bpmn-quality/rust-metrics.json --reference evidence/sprint19/bpmn-quality/reference-metrics.json --prepared evidence/sprint19/bpmn-quality/prepared --corpus fixtures/quality/corpus.json --output .local/sprint19/ci-audit/independent-audit.json
+      - name: Sprint20 conversions and saved SplitMiner measurements
+        run: |
+          mkdir -p .local/sprint20/ci
+          python3 -B tools/sprint20/verify-evidence-manifest.py evidence/sprint20
+          python3 -B tests/sprint20_evidence_manifest.py
+          python3 -B tests/conversion_evidence_auditor.py
+          python3 -B tools/oracle/audit-miner-performance-tests.py
+          python3 -B tools/oracle/audit-miner-benchmark-evidence-tests.py
+          python3 -B tools/sprint20/project-public-evidence-tests.py
+          python3 -B tests/public_projection_independent.py
+          python3 -B tools/oracle/audit-conversion-evidence.py --corpus fixtures/conversions/corpus.json --index evidence/sprint20/conversions/index.json --boundary-index evidence/sprint20/conversion-boundaries/index.json --output .local/sprint20/ci/conversion-audit.json
+          python3 -B tests/conversion_evidence_counterfactuals.py --corpus fixtures/conversions/corpus.json --index evidence/sprint20/conversions/index.json --boundary-index evidence/sprint20/conversion-boundaries/index.json --output-directory .local/sprint20/ci/conversion-counterfactuals
+          python3 -B tools/oracle/audit-miner-benchmark-evidence.py --corpus fixtures/oracle-miner-performance/corpus.json --index evidence/sprint20/miner-performance/index.json --public-projection evidence/sprint20/public-projection.json --output .local/sprint20/ci/miner-audit.json
+          python3 -c "import json; r=json.load(open('.local/sprint20/ci/miner-audit.json')); assert r['status']=='COMPLETE_FROZEN_BENCHMARK_AND_CONDITIONAL_HISTORICAL_CARRY' and not r['errors'] and r['completed_call_rows']==64 and r['full_semantic_maps']==56"
       - name: Diagnostic protocol and state oracle regressions
         run: |
           node tests/sql5-cycle-regression.cjs
@@ -116,6 +130,7 @@ jobs:
       - name: Build release and local health smoke
         run: |
           cargo build --locked --release
+          cargo build --locked --release --example pi_convert
           PI_EPHEMERAL=1 target/release/process-intelligence-rs > server.log 2>&1 &
           server_pid=$!
           trap 'kill "$server_pid"' EXIT
@@ -126,9 +141,11 @@ jobs:
           grep -q '"status":"ready"' health.json
           mkdir -p dist
           cp target/release/process-intelligence-rs dist/
+          cp target/release/examples/pi_convert dist/
           cp -r static fixtures dist/
           cp README.md LICENSE docs/DEPENDENCIES.json dist/
-          cp docs/SPRINT_16_REPORT.md dist/CANDIDATE_STATUS.md
+          cp docs/CONVERSIONS.md dist/
+          cp docs/SPRINT_20_REPORT.md dist/CANDIDATE_STATUS.md
           tar -czf process-intelligence-rs-linux.tar.gz -C dist .
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         with:

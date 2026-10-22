@@ -1,0 +1,1362 @@
+{
+  "schema_version": 1,
+  "status": "PROSPECTIVE_METHOD_AND_CORPUS_DRAFT_NO_IMPLEMENTATION_OR_EXECUTION",
+  "method_path": "docs/R5_MINER_PERFORMANCE_DRAFT.md",
+  "method_sha256": "2866febdc20406f0382715f50027af80c1dbcbc25ee18ac159bd00e43bd9933e",
+  "original_input_corpus_sha256": "642254ed2ee675fd4ee2167ce353c75913f0e049aab681f668de6184431daad0",
+  "historical_quality_cohort_sha256": "6dac7a9b69d553590f342ed4b836140678a9f2c072cc806119f0ecc48ace208d",
+  "core_commit": "bbf24dfd43e72d6992392465f875a4367cbe792b",
+  "algorithm_class": "org.apromore.splitminer.SplitMiner",
+  "algorithm_class_sha256": "e8535a6b65b7e758a49e757d635e8797071b8e860bc8d1c6859e592eb1ee21ad",
+  "parameters": {
+    "percentile_frequency_threshold": 0.4,
+    "parallelisms_threshold": 0.1,
+    "filter_type": "WTH",
+    "parallelisms_first": false,
+    "replace_iors": true,
+    "remove_loop_activities": false,
+    "structuring_time": "NONE",
+    "classifier": "org.deckfour.xes.classification.XEventNameClassifier"
+  },
+  "case_count": 8,
+  "required_process_count": 32,
+  "required_call_count": 64,
+  "cold_measured_calls": 24,
+  "warmup_calls": 16,
+  "warm_measured_calls": 24,
+  "cases": [
+    {
+      "id": "linear",
+      "file": "linear.xes",
+      "sha256": "e322a6d8ff750b39022ca4a83c77cefe1dfcf0fd7f9c140cb07a56ce4ee1239d",
+      "trace_count": 2,
+      "event_count": 6,
+      "training_variants": [
+        "ABC",
+        "ABC"
+      ],
+      "manual_input_activities": [
+        "A",
+        "B",
+        "C"
+      ],
+      "historical_outcome_hypothesis": {
+        "status": "diagram_returned",
+        "exception": null,
+        "source_observation_sha256": "87ec5411fbecd760dcdb95af31a004feeb2031fb90da5d10c6359c8ca3abec2f",
+        "no_current_execution_credit": true
+      },
+      "historical_bpmn": {
+        "repository_path": "fixtures/quality-miner/linear.bpmn",
+        "sha256": "427e4dbded59fa732b2cef5b48ab47a414a4461331bdcc4b19b13db338c0eac5",
+        "bytes": 2565,
+        "all_semantic_xml_fields_required": true,
+        "semantic_bijection_required_per_new_output": true
+      },
+      "quality_carry_gate": {
+        "source_report_path": "evidence/sprint19/miner-quality/typed-comparison.json",
+        "source_report_sha256": "bd5e4d33ae14d888439885f0074fd093340d9b9196809972407b1486f61ea448",
+        "historical_row": {
+          "id": "linear",
+          "training_only": true,
+          "fitness": {
+            "total_cost": 0,
+            "denominator": 12,
+            "log_fitness": "1",
+            "average_trace_fitness": "1",
+            "perfectly_fitting_frac": "1"
+          },
+          "precision": "1",
+          "simplicity": "1",
+          "status": "same_saved_net_metric_components_agree",
+          "net_sha256": "0331004c5553727c14337115c349cc8bd557ff17ee5d33ab6291ed9fc2c28cb9",
+          "comparison": {
+            "fitness_status": "measured",
+            "fitness_exact": {
+              "total_cost": 0,
+              "denominator": 12,
+              "log_fitness": "1",
+              "average_trace_fitness": "1",
+              "perfectly_fitting_frac": "1"
+            },
+            "precision_status": "measured",
+            "precision_exact": "1",
+            "simplicity_exact": "1",
+            "status": "exact_components_and_scalars_agree_paths_need_independent_audit"
+          },
+          "precision_status": "measured"
+        },
+        "allowed_only_after_every_new_diagram_semantic_bijection": true,
+        "fresh_metric_measurement_claim": false,
+        "training_only": true,
+        "no_scalar_for_self_loop_or_empty_log": false
+      }
+    },
+    {
+      "id": "exclusive-choice",
+      "file": "exclusive-choice.xes",
+      "sha256": "2304ae0ed58ce8ba6996476b147c0c1cb23fb7aa8bbab27dd0d65578f58cfdf5",
+      "trace_count": 4,
+      "event_count": 12,
+      "training_variants": [
+        "ABD",
+        "ACD",
+        "ABD",
+        "ACD"
+      ],
+      "manual_input_activities": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "historical_outcome_hypothesis": {
+        "status": "diagram_returned",
+        "exception": null,
+        "source_observation_sha256": "4a8bf1ebc62875cb0efaf0eb09acf34c3e243464f724182dd2daa0954ebaf623",
+        "no_current_execution_credit": true
+      },
+      "historical_bpmn": {
+        "repository_path": "fixtures/quality-miner/exclusive-choice.bpmn",
+        "sha256": "887070a89f35c85a315423ef9b30569b220dfa30585a96a06ac39b592032951e",
+        "bytes": 4135,
+        "all_semantic_xml_fields_required": true,
+        "semantic_bijection_required_per_new_output": true
+      },
+      "quality_carry_gate": {
+        "source_report_path": "evidence/sprint19/miner-quality/typed-comparison.json",
+        "source_report_sha256": "bd5e4d33ae14d888439885f0074fd093340d9b9196809972407b1486f61ea448",
+        "historical_row": {
+          "id": "exclusive-choice",
+          "training_only": true,
+          "fitness": {
+            "total_cost": 0,
+            "denominator": 24,
+            "log_fitness": "1",
+            "average_trace_fitness": "1",
+            "perfectly_fitting_frac": "1"
+          },
+          "precision": "1",
+          "simplicity": "1",
+          "status": "same_saved_net_metric_components_agree",
+          "net_sha256": "33238732c5b11d2a4f0566c2003c617a77ca092fad376880c9114d2247c51b12",
+          "comparison": {
+            "fitness_status": "measured",
+            "fitness_exact": {
+              "total_cost": 0,
+              "denominator": 24,
+              "log_fitness": "1",
+              "average_trace_fitness": "1",
+              "perfectly_fitting_frac": "1"
+            },
+            "precision_status": "measured",
+            "precision_exact": "1",
+            "simplicity_exact": "1",
+            "status": "exact_components_and_scalars_agree_paths_need_independent_audit"
+          },
+          "precision_status": "measured"
+        },
+        "allowed_only_after_every_new_diagram_semantic_bijection": true,
+        "fresh_metric_measurement_claim": false,
+        "training_only": true,
+        "no_scalar_for_self_loop_or_empty_log": false
+      }
+    },
+    {
+      "id": "parallel-interleavings",
+      "file": "parallel-interleavings.xes",
+      "sha256": "0765643359e6e28b24e16123ca136d726f9e3ff49388f98b9a8aab4120f08c20",
+      "trace_count": 6,
+      "event_count": 24,
+      "training_variants": [
+        "ABCD",
+        "ACBD",
+        "ABCD",
+        "ACBD",
+        "ABCD",
+        "ACBD"
+      ],
+      "manual_input_activities": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "historical_outcome_hypothesis": {
+        "status": "diagram_returned",
+        "exception": null,
+        "source_observation_sha256": "44d8464c714b4160f16e96df59de4b6979edf17124d3769366c91c7929e2ee97",
+        "no_current_execution_credit": true
+      },
+      "historical_bpmn": {
+        "repository_path": "fixtures/quality-miner/parallel-interleavings.bpmn",
+        "sha256": "56e33beeab413328eb936357be0b508063d9899fdd5087b96910e4812c715c0d",
+        "bytes": 4131,
+        "all_semantic_xml_fields_required": true,
+        "semantic_bijection_required_per_new_output": true
+      },
+      "quality_carry_gate": {
+        "source_report_path": "evidence/sprint19/miner-quality/typed-comparison.json",
+        "source_report_sha256": "bd5e4d33ae14d888439885f0074fd093340d9b9196809972407b1486f61ea448",
+        "historical_row": {
+          "id": "parallel-interleavings",
+          "training_only": true,
+          "fitness": {
+            "total_cost": 0,
+            "denominator": 48,
+            "log_fitness": "1",
+            "average_trace_fitness": "1",
+            "perfectly_fitting_frac": "1"
+          },
+          "precision": "1",
+          "simplicity": "1",
+          "status": "same_saved_net_metric_components_agree",
+          "net_sha256": "a6c143309766583cbc49ada45bf75f38b218753ec316b5abcc99cc92375448a6",
+          "comparison": {
+            "fitness_status": "measured",
+            "fitness_exact": {
+              "total_cost": 0,
+              "denominator": 48,
+              "log_fitness": "1",
+              "average_trace_fitness": "1",
+              "perfectly_fitting_frac": "1"
+            },
+            "precision_status": "measured",
+            "precision_exact": "1",
+            "simplicity_exact": "1",
+            "status": "exact_components_and_scalars_agree_paths_need_independent_audit"
+          },
+          "precision_status": "measured"
+        },
+        "allowed_only_after_every_new_diagram_semantic_bijection": true,
+        "fresh_metric_measurement_claim": false,
+        "training_only": true,
+        "no_scalar_for_self_loop_or_empty_log": false
+      }
+    },
+    {
+      "id": "self-loop",
+      "file": "self-loop.xes",
+      "sha256": "4d0caf82f37113cefdb9caeefbae81292dcb874e6750ba244cec3e8e45a9a0dc",
+      "trace_count": 3,
+      "event_count": 9,
+      "training_variants": [
+        "AAB",
+        "AB",
+        "AAAB"
+      ],
+      "manual_input_activities": [
+        "A",
+        "B"
+      ],
+      "historical_outcome_hypothesis": {
+        "status": "diagram_returned",
+        "exception": null,
+        "source_observation_sha256": "5dd45a8dba93f571c9e685d53b404d531959f70e9d5a349faef4500cede578f3",
+        "no_current_execution_credit": true
+      },
+      "historical_bpmn": {
+        "repository_path": "fixtures/quality-miner/self-loop.bpmn",
+        "sha256": "cc9f4863586d47b9553d41aab8ebd7bc797aeca9597d1524c087a3937cc28463",
+        "bytes": 2192,
+        "all_semantic_xml_fields_required": true,
+        "semantic_bijection_required_per_new_output": true
+      },
+      "quality_carry_gate": {
+        "source_report_path": "evidence/sprint19/miner-quality/typed-comparison.json",
+        "source_report_sha256": "bd5e4d33ae14d888439885f0074fd093340d9b9196809972407b1486f61ea448",
+        "historical_row": {
+          "id": "self-loop",
+          "training_only": true,
+          "fitness": null,
+          "precision": null,
+          "simplicity": null,
+          "status": "quality_unsupported_semantics",
+          "original_result": {
+            "reason": "quality_unsupported_standard_loop_before_both_converters",
+            "status": "quality_unsupported_semantics"
+          },
+          "original_reference_result": {
+            "id": "self-loop",
+            "status": "raw_compatibility_refused",
+            "exception_class": "ProjectionRefused",
+            "reason": "quality_unsupported_standard_loop_before_both_converters"
+          }
+        },
+        "allowed_only_after_every_new_diagram_semantic_bijection": true,
+        "fresh_metric_measurement_claim": false,
+        "training_only": true,
+        "no_scalar_for_self_loop_or_empty_log": true
+      }
+    },
+    {
+      "id": "short-loop",
+      "file": "short-loop.xes",
+      "sha256": "4b941524e45d72353e69d61e6f5a600468647abb9576511364b31bfbb73d3d1b",
+      "trace_count": 3,
+      "event_count": 12,
+      "training_variants": [
+        "ABAC",
+        "AC",
+        "ABABAC"
+      ],
+      "manual_input_activities": [
+        "A",
+        "B",
+        "C"
+      ],
+      "historical_outcome_hypothesis": {
+        "status": "diagram_returned",
+        "exception": null,
+        "source_observation_sha256": "2ad6c063362dcc4cdac8899daae5d86bd0d73d68472d41b602d5aeaa9c5bc05a",
+        "no_current_execution_credit": true
+      },
+      "historical_bpmn": {
+        "repository_path": "fixtures/quality-miner/short-loop.bpmn",
+        "sha256": "9705eddd0b88f25f4abca3688696228046c8e99de0edb71f4b9e1375025d745a",
+        "bytes": 3779,
+        "all_semantic_xml_fields_required": true,
+        "semantic_bijection_required_per_new_output": true
+      },
+      "quality_carry_gate": {
+        "source_report_path": "evidence/sprint19/miner-quality/typed-comparison.json",
+        "source_report_sha256": "bd5e4d33ae14d888439885f0074fd093340d9b9196809972407b1486f61ea448",
+        "historical_row": {
+          "id": "short-loop",
+          "training_only": true,
+          "fitness": {
+            "total_cost": 0,
+            "denominator": 18,
+            "log_fitness": "1",
+            "average_trace_fitness": "1",
+            "perfectly_fitting_frac": "1"
+          },
+          "precision": "17/18",
+          "simplicity": "1",
+          "status": "same_saved_net_metric_components_agree",
+          "net_sha256": "71c708e9effdce1463b81a6491791d9482cc45c9ccb0875a7bf38d039094f0e7",
+          "comparison": {
+            "fitness_status": "measured",
+            "fitness_exact": {
+              "total_cost": 0,
+              "denominator": 18,
+              "log_fitness": "1",
+              "average_trace_fitness": "1",
+              "perfectly_fitting_frac": "1"
+            },
+            "precision_status": "measured",
+            "precision_exact": "17/18",
+            "simplicity_exact": "1",
+            "status": "exact_components_and_scalars_agree_paths_need_independent_audit"
+          },
+          "precision_status": "measured"
+        },
+        "allowed_only_after_every_new_diagram_semantic_bijection": true,
+        "fresh_metric_measurement_claim": false,
+        "training_only": true,
+        "no_scalar_for_self_loop_or_empty_log": false
+      }
+    },
+    {
+      "id": "rare-noise",
+      "file": "rare-noise.xes",
+      "sha256": "03e909d2de9b618cb6655c5a2e378ddc3277b58f6607f7b6b156758db4b916ad",
+      "trace_count": 10,
+      "event_count": 30,
+      "training_variants": [
+        "ABC",
+        "ABC",
+        "ABC",
+        "ABC",
+        "ABC",
+        "ABC",
+        "ABC",
+        "ABC",
+        "ABC",
+        "ADC"
+      ],
+      "manual_input_activities": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "historical_outcome_hypothesis": {
+        "status": "diagram_returned",
+        "exception": null,
+        "source_observation_sha256": "5a1d31070940c41ac96172d5911f263c8c7120b1fa6dd4fe95ddb30308b0219c",
+        "no_current_execution_credit": true
+      },
+      "historical_bpmn": {
+        "repository_path": "fixtures/quality-miner/rare-noise.bpmn",
+        "sha256": "e8c27393fb5deb7739004c7f2ab9c704a116bb5d102ddd0ffff04e20012ab613",
+        "bytes": 4134,
+        "all_semantic_xml_fields_required": true,
+        "semantic_bijection_required_per_new_output": true
+      },
+      "quality_carry_gate": {
+        "source_report_path": "evidence/sprint19/miner-quality/typed-comparison.json",
+        "source_report_sha256": "bd5e4d33ae14d888439885f0074fd093340d9b9196809972407b1486f61ea448",
+        "historical_row": {
+          "id": "rare-noise",
+          "training_only": true,
+          "fitness": {
+            "total_cost": 0,
+            "denominator": 60,
+            "log_fitness": "1",
+            "average_trace_fitness": "1",
+            "perfectly_fitting_frac": "1"
+          },
+          "precision": "1",
+          "simplicity": "1",
+          "status": "same_saved_net_metric_components_agree",
+          "net_sha256": "5d98ef74cac74a9ccd08920bc58565fe6d162312e74f2e0fd7c193dbc15e9f6b",
+          "comparison": {
+            "fitness_status": "measured",
+            "fitness_exact": {
+              "total_cost": 0,
+              "denominator": 60,
+              "log_fitness": "1",
+              "average_trace_fitness": "1",
+              "perfectly_fitting_frac": "1"
+            },
+            "precision_status": "measured",
+            "precision_exact": "1",
+            "simplicity_exact": "1",
+            "status": "exact_components_and_scalars_agree_paths_need_independent_audit"
+          },
+          "precision_status": "measured"
+        },
+        "allowed_only_after_every_new_diagram_semantic_bijection": true,
+        "fresh_metric_measurement_claim": false,
+        "training_only": true,
+        "no_scalar_for_self_loop_or_empty_log": false
+      }
+    },
+    {
+      "id": "empty-log",
+      "file": "empty-log.xes",
+      "sha256": "2dfebdb1c9abcfd2d5f46f592b9d6afb038fd880513e32509c4149914f27efba",
+      "trace_count": 0,
+      "event_count": 0,
+      "training_variants": [],
+      "manual_input_activities": [],
+      "historical_outcome_hypothesis": {
+        "status": "algorithm_exception",
+        "exception": {
+          "class": "java.util.NoSuchElementException",
+          "message": null
+        },
+        "source_observation_sha256": "031fef9242fa8fd407bee314ee480056e469d539408b4a8e0d29ae6ec081dacc",
+        "no_current_execution_credit": true
+      },
+      "historical_bpmn": null,
+      "quality_carry_gate": {
+        "source_report_path": "evidence/sprint19/miner-quality/typed-comparison.json",
+        "source_report_sha256": "bd5e4d33ae14d888439885f0074fd093340d9b9196809972407b1486f61ea448",
+        "historical_row": {
+          "id": "empty-log",
+          "training_only": true,
+          "fitness": null,
+          "precision": null,
+          "simplicity": null,
+          "status": "carried_algorithm_exception",
+          "original_result": {
+            "exception": {
+              "class": "java.util.NoSuchElementException",
+              "message": null
+            },
+            "status": "carried_algorithm_exception"
+          },
+          "original_reference_result": {
+            "id": "empty-log",
+            "status": "not_executed_rust_admission_refused",
+            "original_rust_prepared": {
+              "exception": {
+                "class": "java.util.NoSuchElementException",
+                "message": null
+              },
+              "status": "carried_algorithm_exception"
+            }
+          }
+        },
+        "allowed_only_after_every_new_diagram_semantic_bijection": true,
+        "fresh_metric_measurement_claim": false,
+        "training_only": true,
+        "no_scalar_for_self_loop_or_empty_log": true
+      }
+    },
+    {
+      "id": "empty-trace",
+      "file": "empty-trace.xes",
+      "sha256": "5c22ab666b6b3ffae5dd5457a4701f45bbc65bb4dc8deb51491854b157bd3e12",
+      "trace_count": 1,
+      "event_count": 0,
+      "training_variants": [
+        ""
+      ],
+      "manual_input_activities": [],
+      "historical_outcome_hypothesis": {
+        "status": "diagram_returned",
+        "exception": null,
+        "source_observation_sha256": "79b713dae1e31d1f4b43d967a3be26f53a99b912299e03066bff89f1f87ab9f6",
+        "no_current_execution_credit": true
+      },
+      "historical_bpmn": {
+        "repository_path": "fixtures/quality-miner/empty-trace.bpmn",
+        "sha256": "aca67b5e5d342b39e095a75a1d74023aebe96947252adf6b8b99319aec77fc73",
+        "bytes": 1290,
+        "all_semantic_xml_fields_required": true,
+        "semantic_bijection_required_per_new_output": true
+      },
+      "quality_carry_gate": {
+        "source_report_path": "evidence/sprint19/miner-quality/typed-comparison.json",
+        "source_report_sha256": "bd5e4d33ae14d888439885f0074fd093340d9b9196809972407b1486f61ea448",
+        "historical_row": {
+          "id": "empty-trace",
+          "training_only": true,
+          "fitness": {
+            "total_cost": 0,
+            "denominator": 0,
+            "log_fitness": "1",
+            "average_trace_fitness": "1",
+            "perfectly_fitting_frac": "1"
+          },
+          "precision": null,
+          "simplicity": "1",
+          "status": "same_saved_net_metric_components_agree",
+          "net_sha256": "4f72b15d9e484c2b1636a3d07426f9843b6fa499a7314d0d9e71191aa9684a7f",
+          "comparison": {
+            "fitness_status": "measured",
+            "fitness_exact": {
+              "total_cost": 0,
+              "denominator": 0,
+              "log_fitness": "1",
+              "average_trace_fitness": "1",
+              "perfectly_fitting_frac": "1"
+            },
+            "precision_status": "not_applicable_no_activated_labels",
+            "simplicity_exact": "1",
+            "status": "exact_components_and_scalars_agree_paths_need_independent_audit"
+          },
+          "precision_status": "not_applicable_no_activated_labels"
+        },
+        "allowed_only_after_every_new_diagram_semantic_bijection": true,
+        "fresh_metric_measurement_claim": false,
+        "training_only": true,
+        "no_scalar_for_self_loop_or_empty_log": false
+      }
+    }
+  ],
+  "process_order": [
+    {
+      "process_id": "cold-r1-linear",
+      "algorithm": "canonical-apromore-splitminer",
+      "regime": "cold-fresh-jvm",
+      "case_id": "linear",
+      "timeout_seconds": 60,
+      "iterations": [
+        {
+          "call_id": "cold-r1-linear-measure-1",
+          "role": "measured",
+          "ordinal_in_process": 1,
+          "primary_timing_eligible": true
+        }
+      ],
+      "lifetime_memory_scope": "startup plus one parse/mine/export and instrumentation gates"
+    },
+    {
+      "process_id": "cold-r1-exclusive-choice",
+      "algorithm": "canonical-apromore-splitminer",
+      "regime": "cold-fresh-jvm",
+      "case_id": "exclusive-choice",
+      "timeout_seconds": 60,
+      "iterations": [
+        {
+          "call_id": "cold-r1-exclusive-choice-measure-1",
+          "role": "measured",
+          "ordinal_in_process": 1,
+          "primary_timing_eligible": true
+        }
+      ],
+      "lifetime_memory_scope": "startup plus one parse/mine/export and instrumentation gates"
+    },
+    {
+      "process_id": "cold-r1-parallel-interleavings",
+      "algorithm": "canonical-apromore-splitminer",
+      "regime": "cold-fresh-jvm",
+      "case_id": "parallel-interleavings",
+      "timeout_seconds": 60,
+      "iterations": [
+        {
+          "call_id": "cold-r1-parallel-interleavings-measure-1",
+          "role": "measured",
+          "ordinal_in_process": 1,
+          "primary_timing_eligible": true
+        }
+      ],
+      "lifetime_memory_scope": "startup plus one parse/mine/export and instrumentation gates"
+    },
+    {
+      "process_id": "cold-r1-self-loop",
+      "algorithm": "canonical-apromore-splitminer",
+      "regime": "cold-fresh-jvm",
+      "case_id": "self-loop",
+      "timeout_seconds": 60,
+      "iterations": [
+        {
+          "call_id": "cold-r1-self-loop-measure-1",
+          "role": "measured",
+          "ordinal_in_process": 1,
+          "primary_timing_eligible": true
+        }
+      ],
+      "lifetime_memory_scope": "startup plus one parse/mine/export and instrumentation gates"
+    },
+    {
+      "process_id": "cold-r1-short-loop",
+      "algorithm": "canonical-apromore-splitminer",
+      "regime": "cold-fresh-jvm",
+      "case_id": "short-loop",
+      "timeout_seconds": 60,
+      "iterations": [
+        {
+          "call_id": "cold-r1-short-loop-measure-1",
+          "role": "measured",
+          "ordinal_in_process": 1,
+          "primary_timing_eligible": true
+        }
+      ],
+      "lifetime_memory_scope": "startup plus one parse/mine/export and instrumentation gates"
+    },
+    {
+      "process_id": "cold-r1-rare-noise",
+      "algorithm": "canonical-apromore-splitminer",
+      "regime": "cold-fresh-jvm",
+      "case_id": "rare-noise",
+      "timeout_seconds": 60,
+      "iterations": [
+        {
+          "call_id": "cold-r1-rare-noise-measure-1",
+          "role": "measured",
+          "ordinal_in_process": 1,
+          "primary_timing_eligible": true
+        }
+      ],
+      "lifetime_memory_scope": "startup plus one parse/mine/export and instrumentation gates"
+    },
+    {
+      "process_id": "cold-r1-empty-log",
+      "algorithm": "canonical-apromore-splitminer",
+      "regime": "cold-fresh-jvm",
+      "case_id": "empty-log",
+      "timeout_seconds": 60,
+      "iterations": [
+        {
+          "call_id": "cold-r1-empty-log-measure-1",
+          "role": "measured",
+          "ordinal_in_process": 1,
+          "primary_timing_eligible": true
+        }
+      ],
+      "lifetime_memory_scope": "startup plus one parse/mine/export and instrumentation gates"
+    },
+    {
+      "process_id": "cold-r1-empty-trace",
+      "algorithm": "canonical-apromore-splitminer",
+      "regime": "cold-fresh-jvm",
+      "case_id": "empty-trace",
+      "timeout_seconds": 60,
+      "iterations": [
+        {
+          "call_id": "cold-r1-empty-trace-measure-1",
+          "role": "measured",
+          "ordinal_in_process": 1,
+          "primary_timing_eligible": true
+        }
+      ],
+      "lifetime_memory_scope": "startup plus one parse/mine/export and instrumentation gates"
+    },
+    {
+      "process_id": "cold-r2-self-loop",
+      "algorithm": "canonical-apromore-splitminer",
+      "regime": "cold-fresh-jvm",
+      "case_id": "self-loop",
+      "timeout_seconds": 60,
+      "iterations": [
+        {
+          "call_id": "cold-r2-self-loop-measure-1",
+          "role": "measured",
+          "ordinal_in_process": 1,
+          "primary_timing_eligible": true
+        }
+      ],
+      "lifetime_memory_scope": "startup plus one parse/mine/export and instrumentation gates"
+    },
+    {
+      "process_id": "cold-r2-short-loop",
+      "algorithm": "canonical-apromore-splitminer",
+      "regime": "cold-fresh-jvm",
+      "case_id": "short-loop",
+      "timeout_seconds": 60,
+      "iterations": [
+        {
+          "call_id": "cold-r2-short-loop-measure-1",
+          "role": "measured",
+          "ordinal_in_process": 1,
+          "primary_timing_eligible": true
+        }
+      ],
+      "lifetime_memory_scope": "startup plus one parse/mine/export and instrumentation gates"
+    },
+    {
+      "process_id": "cold-r2-rare-noise",
+      "algorithm": "canonical-apromore-splitminer",
+      "regime": "cold-fresh-jvm",
+      "case_id": "rare-noise",
+      "timeout_seconds": 60,
+      "iterations": [
+        {
+          "call_id": "cold-r2-rare-noise-measure-1",
+          "role": "measured",
+          "ordinal_in_process": 1,
+          "primary_timing_eligible": true
+        }
+      ],
+      "lifetime_memory_scope": "startup plus one parse/mine/export and instrumentation gates"
+    },
+    {
+      "process_id": "cold-r2-empty-log",
+      "algorithm": "canonical-apromore-splitminer",
+      "regime": "cold-fresh-jvm",
+      "case_id": "empty-log",
+      "timeout_seconds": 60,
+      "iterations": [
+        {
+          "call_id": "cold-r2-empty-log-measure-1",
+          "role": "measured",
+          "ordinal_in_process": 1,
+          "primary_timing_eligible": true
+        }
+      ],
+      "lifetime_memory_scope": "startup plus one parse/mine/export and instrumentation gates"
+    },
+    {
+      "process_id": "cold-r2-empty-trace",
+      "algorithm": "canonical-apromore-splitminer",
+      "regime": "cold-fresh-jvm",
+      "case_id": "empty-trace",
+      "timeout_seconds": 60,
+      "iterations": [
+        {
+          "call_id": "cold-r2-empty-trace-measure-1",
+          "role": "measured",
+          "ordinal_in_process": 1,
+          "primary_timing_eligible": true
+        }
+      ],
+      "lifetime_memory_scope": "startup plus one parse/mine/export and instrumentation gates"
+    },
+    {
+      "process_id": "cold-r2-linear",
+      "algorithm": "canonical-apromore-splitminer",
+      "regime": "cold-fresh-jvm",
+      "case_id": "linear",
+      "timeout_seconds": 60,
+      "iterations": [
+        {
+          "call_id": "cold-r2-linear-measure-1",
+          "role": "measured",
+          "ordinal_in_process": 1,
+          "primary_timing_eligible": true
+        }
+      ],
+      "lifetime_memory_scope": "startup plus one parse/mine/export and instrumentation gates"
+    },
+    {
+      "process_id": "cold-r2-exclusive-choice",
+      "algorithm": "canonical-apromore-splitminer",
+      "regime": "cold-fresh-jvm",
+      "case_id": "exclusive-choice",
+      "timeout_seconds": 60,
+      "iterations": [
+        {
+          "call_id": "cold-r2-exclusive-choice-measure-1",
+          "role": "measured",
+          "ordinal_in_process": 1,
+          "primary_timing_eligible": true
+        }
+      ],
+      "lifetime_memory_scope": "startup plus one parse/mine/export and instrumentation gates"
+    },
+    {
+      "process_id": "cold-r2-parallel-interleavings",
+      "algorithm": "canonical-apromore-splitminer",
+      "regime": "cold-fresh-jvm",
+      "case_id": "parallel-interleavings",
+      "timeout_seconds": 60,
+      "iterations": [
+        {
+          "call_id": "cold-r2-parallel-interleavings-measure-1",
+          "role": "measured",
+          "ordinal_in_process": 1,
+          "primary_timing_eligible": true
+        }
+      ],
+      "lifetime_memory_scope": "startup plus one parse/mine/export and instrumentation gates"
+    },
+    {
+      "process_id": "cold-r3-empty-trace",
+      "algorithm": "canonical-apromore-splitminer",
+      "regime": "cold-fresh-jvm",
+      "case_id": "empty-trace",
+      "timeout_seconds": 60,
+      "iterations": [
+        {
+          "call_id": "cold-r3-empty-trace-measure-1",
+          "role": "measured",
+          "ordinal_in_process": 1,
+          "primary_timing_eligible": true
+        }
+      ],
+      "lifetime_memory_scope": "startup plus one parse/mine/export and instrumentation gates"
+    },
+    {
+      "process_id": "cold-r3-empty-log",
+      "algorithm": "canonical-apromore-splitminer",
+      "regime": "cold-fresh-jvm",
+      "case_id": "empty-log",
+      "timeout_seconds": 60,
+      "iterations": [
+        {
+          "call_id": "cold-r3-empty-log-measure-1",
+          "role": "measured",
+          "ordinal_in_process": 1,
+          "primary_timing_eligible": true
+        }
+      ],
+      "lifetime_memory_scope": "startup plus one parse/mine/export and instrumentation gates"
+    },
+    {
+      "process_id": "cold-r3-rare-noise",
+      "algorithm": "canonical-apromore-splitminer",
+      "regime": "cold-fresh-jvm",
+      "case_id": "rare-noise",
+      "timeout_seconds": 60,
+      "iterations": [
+        {
+          "call_id": "cold-r3-rare-noise-measure-1",
+          "role": "measured",
+          "ordinal_in_process": 1,
+          "primary_timing_eligible": true
+        }
+      ],
+      "lifetime_memory_scope": "startup plus one parse/mine/export and instrumentation gates"
+    },
+    {
+      "process_id": "cold-r3-short-loop",
+      "algorithm": "canonical-apromore-splitminer",
+      "regime": "cold-fresh-jvm",
+      "case_id": "short-loop",
+      "timeout_seconds": 60,
+      "iterations": [
+        {
+          "call_id": "cold-r3-short-loop-measure-1",
+          "role": "measured",
+          "ordinal_in_process": 1,
+          "primary_timing_eligible": true
+        }
+      ],
+      "lifetime_memory_scope": "startup plus one parse/mine/export and instrumentation gates"
+    },
+    {
+      "process_id": "cold-r3-self-loop",
+      "algorithm": "canonical-apromore-splitminer",
+      "regime": "cold-fresh-jvm",
+      "case_id": "self-loop",
+      "timeout_seconds": 60,
+      "iterations": [
+        {
+          "call_id": "cold-r3-self-loop-measure-1",
+          "role": "measured",
+          "ordinal_in_process": 1,
+          "primary_timing_eligible": true
+        }
+      ],
+      "lifetime_memory_scope": "startup plus one parse/mine/export and instrumentation gates"
+    },
+    {
+      "process_id": "cold-r3-parallel-interleavings",
+      "algorithm": "canonical-apromore-splitminer",
+      "regime": "cold-fresh-jvm",
+      "case_id": "parallel-interleavings",
+      "timeout_seconds": 60,
+      "iterations": [
+        {
+          "call_id": "cold-r3-parallel-interleavings-measure-1",
+          "role": "measured",
+          "ordinal_in_process": 1,
+          "primary_timing_eligible": true
+        }
+      ],
+      "lifetime_memory_scope": "startup plus one parse/mine/export and instrumentation gates"
+    },
+    {
+      "process_id": "cold-r3-exclusive-choice",
+      "algorithm": "canonical-apromore-splitminer",
+      "regime": "cold-fresh-jvm",
+      "case_id": "exclusive-choice",
+      "timeout_seconds": 60,
+      "iterations": [
+        {
+          "call_id": "cold-r3-exclusive-choice-measure-1",
+          "role": "measured",
+          "ordinal_in_process": 1,
+          "primary_timing_eligible": true
+        }
+      ],
+      "lifetime_memory_scope": "startup plus one parse/mine/export and instrumentation gates"
+    },
+    {
+      "process_id": "cold-r3-linear",
+      "algorithm": "canonical-apromore-splitminer",
+      "regime": "cold-fresh-jvm",
+      "case_id": "linear",
+      "timeout_seconds": 60,
+      "iterations": [
+        {
+          "call_id": "cold-r3-linear-measure-1",
+          "role": "measured",
+          "ordinal_in_process": 1,
+          "primary_timing_eligible": true
+        }
+      ],
+      "lifetime_memory_scope": "startup plus one parse/mine/export and instrumentation gates"
+    },
+    {
+      "process_id": "warm-short-loop",
+      "algorithm": "canonical-apromore-splitminer",
+      "regime": "warm-same-jvm",
+      "case_id": "short-loop",
+      "timeout_seconds": 180,
+      "iterations": [
+        {
+          "call_id": "warm-short-loop-warmup-1",
+          "role": "warmup",
+          "ordinal_in_process": 1,
+          "primary_timing_eligible": false
+        },
+        {
+          "call_id": "warm-short-loop-warmup-2",
+          "role": "warmup",
+          "ordinal_in_process": 2,
+          "primary_timing_eligible": false
+        },
+        {
+          "call_id": "warm-short-loop-measure-1",
+          "role": "measured",
+          "ordinal_in_process": 3,
+          "primary_timing_eligible": true
+        },
+        {
+          "call_id": "warm-short-loop-measure-2",
+          "role": "measured",
+          "ordinal_in_process": 4,
+          "primary_timing_eligible": true
+        },
+        {
+          "call_id": "warm-short-loop-measure-3",
+          "role": "measured",
+          "ordinal_in_process": 5,
+          "primary_timing_eligible": true
+        }
+      ],
+      "lifetime_memory_scope": "startup plus both warmups/allthree measurements/allparses/all exports and instrumentation gates; NOT per-call memory"
+    },
+    {
+      "process_id": "warm-rare-noise",
+      "algorithm": "canonical-apromore-splitminer",
+      "regime": "warm-same-jvm",
+      "case_id": "rare-noise",
+      "timeout_seconds": 180,
+      "iterations": [
+        {
+          "call_id": "warm-rare-noise-warmup-1",
+          "role": "warmup",
+          "ordinal_in_process": 1,
+          "primary_timing_eligible": false
+        },
+        {
+          "call_id": "warm-rare-noise-warmup-2",
+          "role": "warmup",
+          "ordinal_in_process": 2,
+          "primary_timing_eligible": false
+        },
+        {
+          "call_id": "warm-rare-noise-measure-1",
+          "role": "measured",
+          "ordinal_in_process": 3,
+          "primary_timing_eligible": true
+        },
+        {
+          "call_id": "warm-rare-noise-measure-2",
+          "role": "measured",
+          "ordinal_in_process": 4,
+          "primary_timing_eligible": true
+        },
+        {
+          "call_id": "warm-rare-noise-measure-3",
+          "role": "measured",
+          "ordinal_in_process": 5,
+          "primary_timing_eligible": true
+        }
+      ],
+      "lifetime_memory_scope": "startup plus both warmups/allthree measurements/allparses/all exports and instrumentation gates; NOT per-call memory"
+    },
+    {
+      "process_id": "warm-empty-log",
+      "algorithm": "canonical-apromore-splitminer",
+      "regime": "warm-same-jvm",
+      "case_id": "empty-log",
+      "timeout_seconds": 180,
+      "iterations": [
+        {
+          "call_id": "warm-empty-log-warmup-1",
+          "role": "warmup",
+          "ordinal_in_process": 1,
+          "primary_timing_eligible": false
+        },
+        {
+          "call_id": "warm-empty-log-warmup-2",
+          "role": "warmup",
+          "ordinal_in_process": 2,
+          "primary_timing_eligible": false
+        },
+        {
+          "call_id": "warm-empty-log-measure-1",
+          "role": "measured",
+          "ordinal_in_process": 3,
+          "primary_timing_eligible": true
+        },
+        {
+          "call_id": "warm-empty-log-measure-2",
+          "role": "measured",
+          "ordinal_in_process": 4,
+          "primary_timing_eligible": true
+        },
+        {
+          "call_id": "warm-empty-log-measure-3",
+          "role": "measured",
+          "ordinal_in_process": 5,
+          "primary_timing_eligible": true
+        }
+      ],
+      "lifetime_memory_scope": "startup plus both warmups/allthree measurements/allparses/all exports and instrumentation gates; NOT per-call memory"
+    },
+    {
+      "process_id": "warm-empty-trace",
+      "algorithm": "canonical-apromore-splitminer",
+      "regime": "warm-same-jvm",
+      "case_id": "empty-trace",
+      "timeout_seconds": 180,
+      "iterations": [
+        {
+          "call_id": "warm-empty-trace-warmup-1",
+          "role": "warmup",
+          "ordinal_in_process": 1,
+          "primary_timing_eligible": false
+        },
+        {
+          "call_id": "warm-empty-trace-warmup-2",
+          "role": "warmup",
+          "ordinal_in_process": 2,
+          "primary_timing_eligible": false
+        },
+        {
+          "call_id": "warm-empty-trace-measure-1",
+          "role": "measured",
+          "ordinal_in_process": 3,
+          "primary_timing_eligible": true
+        },
+        {
+          "call_id": "warm-empty-trace-measure-2",
+          "role": "measured",
+          "ordinal_in_process": 4,
+          "primary_timing_eligible": true
+        },
+        {
+          "call_id": "warm-empty-trace-measure-3",
+          "role": "measured",
+          "ordinal_in_process": 5,
+          "primary_timing_eligible": true
+        }
+      ],
+      "lifetime_memory_scope": "startup plus both warmups/allthree measurements/allparses/all exports and instrumentation gates; NOT per-call memory"
+    },
+    {
+      "process_id": "warm-linear",
+      "algorithm": "canonical-apromore-splitminer",
+      "regime": "warm-same-jvm",
+      "case_id": "linear",
+      "timeout_seconds": 180,
+      "iterations": [
+        {
+          "call_id": "warm-linear-warmup-1",
+          "role": "warmup",
+          "ordinal_in_process": 1,
+          "primary_timing_eligible": false
+        },
+        {
+          "call_id": "warm-linear-warmup-2",
+          "role": "warmup",
+          "ordinal_in_process": 2,
+          "primary_timing_eligible": false
+        },
+        {
+          "call_id": "warm-linear-measure-1",
+          "role": "measured",
+          "ordinal_in_process": 3,
+          "primary_timing_eligible": true
+        },
+        {
+          "call_id": "warm-linear-measure-2",
+          "role": "measured",
+          "ordinal_in_process": 4,
+          "primary_timing_eligible": true
+        },
+        {
+          "call_id": "warm-linear-measure-3",
+          "role": "measured",
+          "ordinal_in_process": 5,
+          "primary_timing_eligible": true
+        }
+      ],
+      "lifetime_memory_scope": "startup plus both warmups/allthree measurements/allparses/all exports and instrumentation gates; NOT per-call memory"
+    },
+    {
+      "process_id": "warm-exclusive-choice",
+      "algorithm": "canonical-apromore-splitminer",
+      "regime": "warm-same-jvm",
+      "case_id": "exclusive-choice",
+      "timeout_seconds": 180,
+      "iterations": [
+        {
+          "call_id": "warm-exclusive-choice-warmup-1",
+          "role": "warmup",
+          "ordinal_in_process": 1,
+          "primary_timing_eligible": false
+        },
+        {
+          "call_id": "warm-exclusive-choice-warmup-2",
+          "role": "warmup",
+          "ordinal_in_process": 2,
+          "primary_timing_eligible": false
+        },
+        {
+          "call_id": "warm-exclusive-choice-measure-1",
+          "role": "measured",
+          "ordinal_in_process": 3,
+          "primary_timing_eligible": true
+        },
+        {
+          "call_id": "warm-exclusive-choice-measure-2",
+          "role": "measured",
+          "ordinal_in_process": 4,
+          "primary_timing_eligible": true
+        },
+        {
+          "call_id": "warm-exclusive-choice-measure-3",
+          "role": "measured",
+          "ordinal_in_process": 5,
+          "primary_timing_eligible": true
+        }
+      ],
+      "lifetime_memory_scope": "startup plus both warmups/allthree measurements/allparses/all exports and instrumentation gates; NOT per-call memory"
+    },
+    {
+      "process_id": "warm-parallel-interleavings",
+      "algorithm": "canonical-apromore-splitminer",
+      "regime": "warm-same-jvm",
+      "case_id": "parallel-interleavings",
+      "timeout_seconds": 180,
+      "iterations": [
+        {
+          "call_id": "warm-parallel-interleavings-warmup-1",
+          "role": "warmup",
+          "ordinal_in_process": 1,
+          "primary_timing_eligible": false
+        },
+        {
+          "call_id": "warm-parallel-interleavings-warmup-2",
+          "role": "warmup",
+          "ordinal_in_process": 2,
+          "primary_timing_eligible": false
+        },
+        {
+          "call_id": "warm-parallel-interleavings-measure-1",
+          "role": "measured",
+          "ordinal_in_process": 3,
+          "primary_timing_eligible": true
+        },
+        {
+          "call_id": "warm-parallel-interleavings-measure-2",
+          "role": "measured",
+          "ordinal_in_process": 4,
+          "primary_timing_eligible": true
+        },
+        {
+          "call_id": "warm-parallel-interleavings-measure-3",
+          "role": "measured",
+          "ordinal_in_process": 5,
+          "primary_timing_eligible": true
+        }
+      ],
+      "lifetime_memory_scope": "startup plus both warmups/allthree measurements/allparses/all exports and instrumentation gates; NOT per-call memory"
+    },
+    {
+      "process_id": "warm-self-loop",
+      "algorithm": "canonical-apromore-splitminer",
+      "regime": "warm-same-jvm",
+      "case_id": "self-loop",
+      "timeout_seconds": 180,
+      "iterations": [
+        {
+          "call_id": "warm-self-loop-warmup-1",
+          "role": "warmup",
+          "ordinal_in_process": 1,
+          "primary_timing_eligible": false
+        },
+        {
+          "call_id": "warm-self-loop-warmup-2",
+          "role": "warmup",
+          "ordinal_in_process": 2,
+          "primary_timing_eligible": false
+        },
+        {
+          "call_id": "warm-self-loop-measure-1",
+          "role": "measured",
+          "ordinal_in_process": 3,
+          "primary_timing_eligible": true
+        },
+        {
+          "call_id": "warm-self-loop-measure-2",
+          "role": "measured",
+          "ordinal_in_process": 4,
+          "primary_timing_eligible": true
+        },
+        {
+          "call_id": "warm-self-loop-measure-3",
+          "role": "measured",
+          "ordinal_in_process": 5,
+          "primary_timing_eligible": true
+        }
+      ],
+      "lifetime_memory_scope": "startup plus both warmups/allthree measurements/allparses/all exports and instrumentation gates; NOT per-call memory"
+    }
+  ],
+  "prospective_jvm_flags": [
+    "-Xmx512m",
+    "-XX:ActiveProcessorCount=2",
+    "-XX:-UsePerfData",
+    "-da",
+    "-Dfile.encoding=UTF-8",
+    "-Duser.timezone=UTC",
+    "-Djava.awt.headless=true",
+    "NEW private user.home/tmp/prefs and console logging bindings before config admission"
+  ],
+  "protocol": {
+    "first_gate": "BOOT_READY actualPID+nonce; assignedJob BEFORE GO nonce; no benchmarkapplicationwork beforeGO",
+    "terminal_gate": "closed/flushed outputs and completeledger; TERMINAL_READY actualPID+nonce+hashes; wait EXIT nonce whileRootcaptures native lifetime counters",
+    "primary_timer": "System.nanoTime immediately before actualmine call to return/throw in finally; GC/internalfallback included; parse/construction/export excluded",
+    "parse_policy": "Read immutablebytes onceafterGO; fresh actualparser/XLog/miner/classifier eachcall outsideenginetimer",
+    "no_forced_gc_cache_reset_or_result_selection": true,
+    "process_wall_label": "instrumented process lifetime including bothgatewaits; activepipeline/gates separately reported",
+    "memory_primary_native_fields": [
+      "PROCESS_MEMORY_COUNTERS_EX.PeakWorkingSetSize",
+      "PROCESS_MEMORY_COUNTERS_EX.PeakPagefileUsage"
+    ],
+    "memory_not_claimed": [
+      "heapcap equals RAM",
+      "periodic samplemax equals lifetimepeak",
+      "warmbatch equals percall",
+      "freshJVM means coldOScache"
+    ],
+    "cpu_primary_native_fields": [
+      "GetProcessTimes.UserTime100ns",
+      "GetProcessTimes.KernelTime100ns"
+    ],
+    "job_counters_assignment_interval_and_membership_explicit": true,
+    "terminal_hold_limit_seconds": 10,
+    "phase_wall_limit_seconds": 3600,
+    "all_native_outcomes_and_unexecuted_calls_retained": true
+  },
+  "semantic_gate": {
+    "primary": "full raw BPMN semantic XML isomorphism + explicit complete ID/ref bijection against same-case historicaloutput and allrepetitions",
+    "ignored_only": [
+      "entire BPMNDI/DI/DC editorlayoutsubtrees",
+      "raw spelling of semanticIDs ONLYunder checkedbijection"
+    ],
+    "preserved": [
+      "all namespace-expanded semantic element/attribute names",
+      "labels includingUnicode/case/whitespace",
+      "allactivity flags",
+      "event type/trigger/use/interrupting/multiple",
+      "gatewaytype/marker",
+      "nested loop/subprocess children and attributes/text",
+      "flow labels/conditions/default/source/target/incoming/outgoing",
+      "containment",
+      "other root/process/non-DI attributes includingexisting schemahint/exporter metadata"
+    ],
+    "no_S19_source_specific_hashguard_on_new_XML": true,
+    "bounds": {
+      "xml_bytes": 4194304,
+      "semantic_id_elements": 256,
+      "reference_edges": 512,
+      "candidate_assignments": 1000000,
+      "comparison_seconds": 10
+    },
+    "exhaustion": "inconclusive_no_carry_no_partialPASS",
+    "manual_negative_obligations": [
+      "labelchange mustnotmatch",
+      "standardLoopCharacteristics removal/change mustnotmatch",
+      "loopchildcondition change mustnotmatch",
+      "flowcondition change mustnotmatch",
+      "gateway/eventtype change mustnotmatch",
+      "endpoint/default/containment ref change mustnotmatch",
+      "duplicate/danglingID mustreject",
+      "unknownsemanticextension neverignored"
+    ],
+    "manual_positive_obligations": [
+      "fullconsistentUUIDrenaming mapsallrefs",
+      "DIcoordinates/editorIDs-onlychange preservessemantics"
+    ],
+    "quality_if_no_map": "unavailable or separate newlyadmitted evaluator; neverreuseS19scorebycaseidonly"
+  },
+  "aggregation": {
+    "primary": "percase/regime all3measured samples with min/median/max/sampleIDs; no significance or productioncapacityclaim",
+    "exceptions": "separate diagnosticenginefailure times/statusclasses, nevermixedwithsuccessfulmining",
+    "warmups": "allretained flagged, excludedonlyfromprimary aggregate byprefrozenrole",
+    "no_performance_numeric_prediction": true
+  },
+  "optional_alphappp": {
+    "enabled": false,
+    "library": "process_mining0.6.2",
+    "algorithm": "Alpha+++ DIFFERENT ALGORITHM, notSplitMinerport/equivalence/speedup",
+    "future_source": "examples/miner_benchmark.rs onlyaftermethodGO",
+    "requires_separate_frozen_supplement_before_execution": true
+  },
+  "resource_limits": {
+    "service_logical_bytes": 2147483648,
+    "service_allocated_bytes": 2147483648,
+    "source_phase_bytes": 134217728,
+    "total_logical_and_allocated_bytes": 12884901888,
+    "free_floor_bytes": 8589934592,
+    "per_stream_bytes": 8388608,
+    "per_iteration_json_and_bpmn_bytes": 1048576,
+    "summary_bytes": 8388608,
+    "native_freeze_utc": "2026-10-22T14:41:26Z"
+  },
+  "no_engine_native_or_feature_execution": true,
+  "no_old_inputs_modified": true,
+  "no_full_R5_acceptance_claim": true
+}
