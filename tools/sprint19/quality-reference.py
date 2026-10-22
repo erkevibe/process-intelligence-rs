@@ -215,7 +215,7 @@ def event_log(rows, code, libraries):
     return log
 
 
-def evaluate(raw, rows, libraries, lower_caps=None):
+def evaluate(raw, rows, libraries, saved_net_sha256, lower_caps=None):
     caps = {'reachable_markings': 10000, 'fitness_search_states': 100000,
             'prefix_search_states': 100000, 'tau_closure_markings': 10000}
     for name, value in (lower_caps or {}).items():
@@ -229,7 +229,10 @@ def evaluate(raw, rows, libraries, lower_caps=None):
         counts[tuple(variant['sequence'])] += variant['frequency']
     labels = [activity for sequence in counts for activity in sequence]
     net, im, fm, code, reverse = from_rust(raw, libraries, labels)
-    graph = full_graph(net, im, fm, libraries, sha(encoded(raw)), reverse)
+    require(isinstance(saved_net_sha256, str) and len(saved_net_sha256) == 64 and
+            all(character in '0123456789abcdef' for character in saved_net_sha256),
+            'actual_saved_net_hash_required')
+    graph = full_graph(net, im, fm, libraries, saved_net_sha256, reverse)
     require(len(graph['states']) <= caps['reachable_markings'], 'reachable_marking_budget')
     simple_api = libraries['modules']['pm4py.algo.evaluation.simplicity.variants.arc_degree']
     simplicity = simple_api.apply(net, parameters={'k': 2})
@@ -388,7 +391,8 @@ def score(directory, output, libraries):
             groups = []
             for group in ['training_log', 'heldout_log']:
                 try:
-                    result = evaluate(raw, case[group], libraries, case.get('test_only_lower_caps'))
+                    result = evaluate(raw, case[group], libraries, record['net_sha256'],
+                                      case.get('test_only_lower_caps'))
                 except Exception as error:
                     result = {'status': 'reference_inconclusive', 'exception_class': type(error).__name__,
                               'reason': str(error), 'scalar': None}
