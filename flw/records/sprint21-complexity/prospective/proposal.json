@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "proposal_id": "SPRINT21_EVENT_COMPLEXITY_PROSPECTIVE_01",
+  "role": "Root",
+  "agent_name": "root",
+  "status": "EXACT_PROSPECTIVE_COUNCIL_PROPOSAL_BEFORE_INPUT_GENERATION_AND_MEASUREMENT",
+  "requested_decision": "Authorize this finite evidence-only stage after verified CAP delivery. Separate source admission required before any helper execution; no build/product/schema edits.",
+  "fixed_roster": [
+    "Root",
+    "QA",
+    "TD",
+    "PM",
+    "Customer"
+  ],
+  "entry_gate": {
+    "latest_cap_delivery_utc": "2026-10-22T22:30:00Z",
+    "required": "CAP PR21 exact public commit08371fea full identity resolved in actual method; both exactHEADCI success, Root and independentQA whole anonymous source equality+downloaded audits and actual process/resource closure before22:30UTC.",
+    "if_missed": "Do not execute this stage; retain explicit unexecuted backlog."
+  },
+  "timebox": {
+    "total_minutes_including_public_delivery": 60,
+    "native_minutes": 20,
+    "per_case_timeout_seconds": 120,
+    "native_freeze_utc": "2026-10-23T00:30:37Z",
+    "sprint_deadline_utc": "2026-10-23T02:00:37Z",
+    "rule": "Stage starts after fresh fixed-five Council and completed CAP gate; stage delivery deadline is startUTC+60minutes, never later than sprintdeadline. No new native work after00:30:37UTC. Preserve final90-minute sprint deliveryreserve."
+  },
+  "risk_appetite": "Medium bounded evidence-only native observation; prospectively fixed input semantics, independent QA/TD reviews, original process/fullcapture and resource guards. No product/schema/build changes or installs.",
+  "immutable_runtime": {
+    "version": "Accepted CAP0.8.1",
+    "app_sha256": "4121BD68F1C0C05A61B039FADF20FEC5C2DA4379D8AAAFB170DC3B43861D1525",
+    "schema": "Existing V3",
+    "converter_contract": "Accepted four-direction profile unchanged",
+    "operation": "Authenticated XES toCSV with allow_metadata_loss=false; one active operation at a time.",
+    "builds": 0
+  },
+  "fixture_oracle_plan": {
+    "status": "Inputs/generator/hashes/metrics NOT YET CREATED",
+    "generator": "One bounded deterministic source-only generator to be reviewed before native execution. Exact UTF8 bytes are emitted with LF, no BOM. No random values or environment-dependent timestamps.",
+    "cases": [
+      {
+        "id": "CMP10K",
+        "events": 10000
+      },
+      {
+        "id": "CMP90K",
+        "events": 90000
+      }
+    ],
+    "structure": {
+      "xml": "Flat XES without log metadata, declarations/extensions/global/container/list, one trace concept:name=complexity-case, every event concept:name=A and time:timestamp=2026-01-01T00:00:00.000000001Z. No lifecycle field.",
+      "ordering": "Events remain in original order. Repeated identical event values intentionally emphasize count and per-event report expansion, not activity diversity or graph complexity.",
+      "csv": "Header case,activity,timestamp,lifecycle; each expected row complexity-case,A,2026-01-01T00:00:00.000000001Z, with parser/writer normalized newline explicitly recorded. Compare parsed core rows, not assume unverified CSV raw serialization."
+    },
+    "manual_oracles": "Before measurement write independent expectations for exactly1trace and10000/90000events, case/activity/timestamp/lifecycle absent, no permitted losses. Successful output must have exact row count and core values/order, report input/target hash+byte declarations and statusconverted. Refused outcome must preserve actual reason and have no payload; do not assert target semantics that were never produced.",
+    "preflight": "Generated input each<=20MiB, eventcount<=100000; record generatorSHA,inputSHA,actualbytes, manualoracleSHA and binary/settingsSHA in signed method inventory before first measurement. If static generation violates agreed limits stop/replan before any observed outcome, no post-outcome tuning."
+  },
+  "measurement_protocol": {
+    "owner": "Root owns all native execution. QA independently reads actual artifacts and manual oracles; TD audits claims and no-product-change boundaries.",
+    "cases": "Exactly one fresh stock app process per input. Use same existing PostgreSQL instance/settings with bounded readiness check. One client and one conversion at a time; no overlapping work, no load generator. Do not merge process lifetimes.",
+    "baseline": "Record app readiness and pre-request baseline sample. Later native lifetime peaks include startup and all activity within that case; sampled maxima and allocator residue labeled separately.",
+    "metrics": "Actual server process creation identity, wall/admission/queue/conversion intervals only if actually observable, sampled working set/private bytes at approximately50ms with actual intervals retained, available Windows native lifetime peak working set/privatecommit counters. Server counters exclude PostgreSQL/client/Root.",
+    "outcomes": "Keep all actual converted/report_byte_limit/otherrefusal/failure/timeout outcomes. Both10k and90k may reach report_byte_limit; never alter counts, inputsemantics, limits or runtime to manufacture converted output.",
+    "capture": "Bounded full required stdout/stderr/process+HTTP/jobstate/measurement files with bytes/hashes/EOF and explicit captured/missing/unknown intervals. No credentials/sessionraw published. Input metadata and semantically public synthetic source can be published.",
+    "limits": "At most2cases,120seconds per case,20minutes total native runtime including supporting bounded checks, same12GiBglobal/8GiBRoot/8GiBfree/512MiBheadroom. No compiler/install or oldrootmutation."
+  },
+  "acceptance": [
+    {
+      "id": "CMP-01",
+      "criterion": "Two actual input files and independentmanualoracles, generator+appidentity+settings pinned before measurement; staticvalidity/event/bytebounds demonstrated."
+    },
+    {
+      "id": "CMP-02",
+      "criterion": "Both fixed cases actually observed once and every outcome retained; complete required processidentity/captures. Failedrefusals remain failures/refusals; no retuned repeat."
+    },
+    {
+      "id": "CMP-03",
+      "criterion": "IndependentQA manually derived count/corevalues/order and report byte/hash inventory for every converted outcome; for refused outcome verify explicit reason and no falsepayload/result plus durable source identity."
+    },
+    {
+      "id": "CMP-04",
+      "criterion": "Memory/time table labels true observation scope and exactlyone observation per case; no SLO/speedup/hardRAM/worstcase/enterpriseclaim. Existing18MiB/two-event case is historical contextual comparison with different method, not matched experimental control."
+    },
+    {
+      "id": "CMP-05",
+      "criterion": "No product/schema/runtime bytechange; independentQA+TD accept exact finite results; finalfrozenCouncil and public exactHEADbothCI/wholeanonymousRootQAreadback with downloaded audits and actualprocess/resourceclosure complete inside60minutes."
+    }
+  ],
+  "publication_plan": "Source/evidence-only separate branch/PR on accepted CAP head; source changes confined to exact experiment generator/oracles/audit/docs/evidence and Councilrecords. No runtime release tag or merge. Reuse accepted bounded capture/publicprojection workflow; preserve exact raw numeric lexemes, failures and metadata scopes.",
+  "stop_conditions": [
+    "Entry gate not met before22:30UTC",
+    "Fresh Council not majorityFOR of fixed5",
+    "Method/input identities not fixed before measurements",
+    "Guard budget failure or missing mandatory capture blocks trustworthy interpretation",
+    "Runtime/product change required",
+    "Stage60minute delivery budget or original reserve threatened"
+  ],
+  "non_goals": [
+    "More formats",
+    "Parser/library/report limits change",
+    "HardRAM enforcement or OS memorykill",
+    "Graph/miner complexity proof",
+    "Production stress or statistical ranking",
+    "Repeat primary/CAP acceptance suite without a new discrepancy",
+    "0.8.2 runtime or release tag"
+  ],
+  "vote": null,
+  "utc": "2026-10-22T22:24:01.1665933+00:00",
+  "cap_gate": {
+    "public_pr_body_updated": true,
+    "commit": "08371fea317014005ea876667cd095e8608d60f9",
+    "pr": 21,
+    "root_final_receipt_sha256": "4451D9243906EA614D46BCFF1FC9F648431656C56D0E4943B19154828D43A472",
+    "completed_utc": "2026-10-22T22:23:40Z",
+    "qa_final_receipt_sha256": "0D4D28B90E867AA8020543F6442D95F4289124039AE02DC16E329E61903B34E4"
+  },
+  "invitation_before_proposal": {
+    "channel": "Actual collaboration messages delivered before this proposal; no vote inherited",
+    "roles": [
+      "Root",
+      "QA",
+      "TD",
+      "PM",
+      "Customer"
+    ]
+  },
+  "scope_precision": [
+    "Identical repeated rows validate counts and fixed core, not order sensitivity",
+    "report_byte_limit requires durable error and absent pair, not downloadable oversized failure report",
+    "Only actually observable HTTP/poll wall spans; no inferred CPU/admission queue spans",
+    "Publish next stage in separate branch/PR based on exact accepted CAP commit; preserve all CAP source files",
+    "Original helper sources may be retained byte-exact as provenance; separate saved-observation audit and whole anonymous source replay required",
+    "Stage clock starts at fresh resolution UTC; native work ends at min(start+20minutes,00:30:37UTC), all stage delivery at start+60minutes"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "trace_count": 1,
+  "timestamp": "2026-01-01T00:00:00.000000001Z",
+  "event_count": 90000,
+  "case_id": "CMP90K",
+  "manual_csv_bytes": 4500034,
+  "row_order_scope": "identical repeated values; count/field conservation, not ordering sensitivity or activity diversity",
+  "lifecycle": null,
+  "allowed_loss_count": 0,
+  "expected_csv_row": [
+    "complexity-case",
+    "A",
+    "2026-01-01T00:00:00.000000001Z",
+    ""
+  ],
+  "manual_csv_file": "CMP90K.expected-lf.csv",
+  "expected_csv_header": [
+    "case",
+    "activity",
+    "timestamp",
+    "lifecycle"
+  ],
+  "manual_csv_normalization": "UTF8 CSV parsed rows; canonical LF header/rows supplied for independent normalization only; candidate raw serialization NOT preasserted",
+  "activity": "A",
+  "trace_name": "complexity-case",
+  "manual_csv_sha256": "044A8E94111E7F164FD600477F388333BB9746816836CA6D7BD929E323EA484E"
+}

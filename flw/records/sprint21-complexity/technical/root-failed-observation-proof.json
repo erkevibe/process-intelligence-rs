@@ -1,0 +1,86 @@
+{
+  "status": "INDEPENDENT_FAILED_INCOMPLETE_STAGE_EVIDENCE_VERIFIED",
+  "stage_success": false,
+  "two_case_acceptance": false,
+  "verified_successful_subscope": "CMP10K_ONLY",
+  "completed_original_captures": [
+    {
+      "label": "cmp10k-app-only-process",
+      "pid": 21896,
+      "exit": 1
+    },
+    {
+      "label": "cmp10k-one-conversion",
+      "pid": 40628,
+      "exit": 0
+    },
+    {
+      "label": "cmp10k-retained-source-readonly",
+      "pid": 39824,
+      "exit": 0
+    },
+    {
+      "label": "command",
+      "pid": 40132,
+      "exit": 1
+    },
+    {
+      "label": "create-one-fresh-complexity-database",
+      "pid": 38152,
+      "exit": 0
+    },
+    {
+      "label": "pg-readiness-01",
+      "pid": 39128,
+      "exit": 0
+    },
+    {
+      "label": "sql-owned-cluster",
+      "pid": 24488,
+      "exit": 0
+    }
+  ],
+  "permanent_unknowns": [
+    {
+      "label": "postgres",
+      "pid": 23044,
+      "creation_utc": "2026-10-22T22:30:40.6305015Z",
+      "native_exit": "UNKNOWN",
+      "stream_eof": "UNKNOWN"
+    },
+    {
+      "label": "cmp90k-app-only-process",
+      "pid": 39988,
+      "creation_utc": "2026-10-22T22:30:55.1979278Z",
+      "native_exit": "UNKNOWN",
+      "stream_eof": "UNKNOWN"
+    },
+    {
+      "label": "cmp90k-one-conversion",
+      "pid": 41888,
+      "creation_utc": "2026-10-22T22:30:57.3754013Z",
+      "native_exit": "UNKNOWN",
+      "stream_eof": "UNKNOWN"
+    }
+  ],
+  "cmp90k_result_absent": true,
+  "input_manifest_sha256": "59DA6F7A7A61826A579F93C394D1EFDF7DDEBE9D550E8120E1BB1EF8D5BDCC43",
+  "cmp10k_rows": 10000,
+  "cmp10k_sample_count": 117,
+  "memory_maxima": {
+    "current_working_set_bytes": 63389696,
+    "current_private_commit_bytes": 54394880,
+    "peak_working_set_bytes": 68558848,
+    "peak_private_commit_bytes": 57036800
+  },
+  "public_omitted_original_streams": [
+    "complexity-measure01/cmp10k-app-only-process.stderr",
+    "complexity-measure01/sql-owned-cluster.stdout"
+  ],
+  "limitations": [
+    "No inferred90K terminal state or new execution.",
+    "No ordering/diversity/SLO/worst-case claim.",
+    "Current sampled counters and process-lifetime peaks remain distinct; no memory hard cap claim.",
+    "Verifier checks saved evidence, not independent reproduction of resource timeout cause."
+  ]
+}
