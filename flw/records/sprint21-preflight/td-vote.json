@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "role": "TD",
+  "agent_name": "td_s20_delivery",
+  "utc": "2026-10-22T23:28:05.5210133+00:00",
+  "vote": "FOR",
+  "proposal_id": "SPRINT21_PREFLIGHT_BOUNDED_PLAN_01",
+  "proposal_sha256": "6DB9AD39B11A1DD5563A0174E81E3BF3A5DA2A778B1753E8A8C68FE03D9F7A1D",
+  "reason": "A separate bounded nonmutating preflight can prevent malformed runtime configuration from reaching existing infrastructure. Low technical risk supports targeted independent source review and six finite controls rather than another broad candidate freeze loop.",
+  "conditions": [
+    "All controls use explicit synthetic future deadlines; historical configurations and failed attempts remain byte-preserved and are not made runnable.",
+    "Mandatory fields must be derived from actual runner and worker reads, including environment/toolchain fields; no inferred defaults, hashes or silent canonicalization.",
+    "Python creates no subprocesses and does not mutate config, source or pinned files. Wrapper delegates only after successful bound-to-exact-config validation; CheckOnly never delegates.",
+    "Windows normalized pin uniqueness must reject every duplicate, not only conflicting hash values; canonical uppercase64hex required before any actual hash read.",
+    "Actual duplicate-JSON-key rejection and exact config/workspace binding should be covered by small subchecks within the focused controls if feasible; no broad test-suite expansion.",
+    "Hard00:06:30 publication deadline and original resource limits remain unchanged. No product, PostgreSQL, compiler, feature measurements or repair of historical UNKNOWN/resource-timeout cause claimed."
+  ],
+  "actual_vote": true
+}
