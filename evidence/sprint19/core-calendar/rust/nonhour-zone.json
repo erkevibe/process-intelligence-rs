@@ -1,0 +1,47 @@
+{
+  "configuration_unchanged": true,
+  "duration_millis": 32400000,
+  "engine": "process_intelligence_rs::calendar::business_millis",
+  "error": null,
+  "iana_tzdb_version": "2025b",
+  "id": "nonhour-zone",
+  "input_sha256": "bd574beae44a71338de38ac6d904ca624ab2d9d4e129897c6648eab3668f3014",
+  "outcome": "duration",
+  "schema_version": 1,
+  "scope": "Actual existing calendar API; elapsed UTC semantics and refusal policy preserved, not a legacy calendar implementation",
+  "source_input_after": {
+    "calendar": {
+      "end_minute": 1080,
+      "holidays": [],
+      "offset_minutes": 0,
+      "start_minute": 540,
+      "timezone": "Asia/Kathmandu",
+      "weekdays": [
+        1
+      ]
+    },
+    "end": "2026-06-01T12:15:00Z",
+    "id": "nonhour-zone",
+    "schema_version": 1,
+    "start": "2026-06-01T03:15:00Z"
+  },
+  "source_input_after_sha256": "90185d476816e71f5a2f79ea4b6ace1bc7bf84d5bf05e589bc4fc604a8410b56",
+  "source_input_before": {
+    "calendar": {
+      "end_minute": 1080,
+      "holidays": [],
+      "offset_minutes": 0,
+      "start_minute": 540,
+      "timezone": "Asia/Kathmandu",
+      "weekdays": [
+        1
+      ]
+    },
+    "end": "2026-06-01T12:15:00Z",
+    "id": "nonhour-zone",
+    "schema_version": 1,
+    "start": "2026-06-01T03:15:00Z"
+  },
+  "source_input_before_sha256": "90185d476816e71f5a2f79ea4b6ace1bc7bf84d5bf05e589bc4fc604a8410b56",
+  "status": "ACTUAL_RUST_BUSINESS_CALENDAR_OBSERVED"
+}

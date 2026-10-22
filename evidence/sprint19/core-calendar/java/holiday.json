@@ -1,0 +1,177 @@
+{
+  "schema_version": 1,
+  "id": "holiday",
+  "input_sha256": "832821ab92726fcb6eef8c306f31202fa6236cdc06101e0125817e3f58fee837",
+  "engine": "org.apromore.calendar.model.CalendarModel",
+  "calendar_identity": {
+    "class": "org.apromore.calendar.model.CalendarModel",
+    "sha256": "875c96a343e48cdc42c613b5f65ba7b35056498e112ebffd865084c4ad8c1e39",
+    "code_source": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+  },
+  "workday_identity": {
+    "class": "org.apromore.calendar.model.WorkDayModel",
+    "sha256": "e9983bdef6b0fe12f0d7db7bb03c326fdb1259a69cdf34bb8e0d279bb3217207",
+    "code_source": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+  },
+  "builder_identity": {
+    "class": "org.apromore.calendar.builder.CalendarModelBuilder",
+    "sha256": "8e2fefee2d943e7e8864d80d9cdfdaf8ce42ebb18e3002639d449a31c81096c5",
+    "code_source": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+  },
+  "factory_identity": {
+    "class": "org.apromore.calendar.model.Calendars",
+    "sha256": "ec2958c284cb6d88b4a69b3ff24668c7311ccd19cfcd4ed396486863252ac5b2",
+    "code_source": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+  },
+  "source_input_before": {
+    "schema_version": 1,
+    "id": "holiday",
+    "start": "2026-06-01T09:00:00Z",
+    "end": "2026-06-01T18:00:00Z",
+    "calendar": {
+      "offset_minutes": 0,
+      "timezone": "UTC",
+      "weekdays": [
+        1
+      ],
+      "start_minute": 540,
+      "end_minute": 1080,
+      "holidays": [
+        "2026-06-01"
+      ]
+    }
+  },
+  "source_input_before_sha256": "cbd06add3e6fd91b0015f241bfa24dfb421e1e7eef071fa81c20342cf8f388da",
+  "configuration_available": true,
+  "configuration_unchanged": true,
+  "configuration_before": {
+    "zone_id": "UTC",
+    "work_days": [
+      {
+        "weekday": 1,
+        "start_time": "09:00",
+        "end_time": "18:00",
+        "working_day": true,
+        "id": 0,
+        "created_by": "",
+        "updated_by": ""
+      }
+    ],
+    "holidays": [
+      {
+        "type": "PUBLIC",
+        "date": "2026-06-01",
+        "name": "fixture-holiday",
+        "description": "own synthetic frozen date",
+        "id": 0,
+        "created_by": "",
+        "updated_by": ""
+      }
+    ],
+    "id": 0,
+    "name": "CalendarModel",
+    "created": "2026-10-22T02:33:16.835240800Z",
+    "updated": "2026-10-22T02:33:16.836250800Z",
+    "created_by": "",
+    "updated_by": ""
+  },
+  "configuration_after": {
+    "zone_id": "UTC",
+    "work_days": [
+      {
+        "weekday": 1,
+        "start_time": "09:00",
+        "end_time": "18:00",
+        "working_day": true,
+        "id": 0,
+        "created_by": "",
+        "updated_by": ""
+      }
+    ],
+    "holidays": [
+      {
+        "type": "PUBLIC",
+        "date": "2026-06-01",
+        "name": "fixture-holiday",
+        "description": "own synthetic frozen date",
+        "id": 0,
+        "created_by": "",
+        "updated_by": ""
+      }
+    ],
+    "id": 0,
+    "name": "CalendarModel",
+    "created": "2026-10-22T02:33:16.835240800Z",
+    "updated": "2026-10-22T02:33:16.836250800Z",
+    "created_by": "",
+    "updated_by": ""
+  },
+  "java_zone_rules_versions": [
+    "2026b"
+  ],
+  "duration_millis": 0,
+  "duration_seconds": 0,
+  "duration_nanos": 0,
+  "get_duration_millis_secondary": 0,
+  "duration_method_invoked": true,
+  "secondary_method_invoked": true,
+  "assertions_enabled": false,
+  "main_method": "getDuration(Instant,Instant).toMillis()",
+  "secondary_method": "getDurationMillis(Instant,Instant)",
+  "configuration_before_sha256": "a6f1412458a12d8137e3c4a855a62cc9bdcfcac1329206a9e6f661f6a8fb6547",
+  "local_start": "2026-06-01T09:00Z[UTC]",
+  "local_end": "2026-06-01T18:00Z[UTC]",
+  "outcome": "duration",
+  "configuration_after_main": {
+    "zone_id": "UTC",
+    "work_days": [
+      {
+        "weekday": 1,
+        "start_time": "09:00",
+        "end_time": "18:00",
+        "working_day": true,
+        "id": 0,
+        "created_by": "",
+        "updated_by": ""
+      }
+    ],
+    "holidays": [
+      {
+        "type": "PUBLIC",
+        "date": "2026-06-01",
+        "name": "fixture-holiday",
+        "description": "own synthetic frozen date",
+        "id": 0,
+        "created_by": "",
+        "updated_by": ""
+      }
+    ],
+    "id": 0,
+    "name": "CalendarModel",
+    "created": "2026-10-22T02:33:16.835240800Z",
+    "updated": "2026-10-22T02:33:16.836250800Z",
+    "created_by": "",
+    "updated_by": ""
+  },
+  "configuration_after_main_sha256": "a6f1412458a12d8137e3c4a855a62cc9bdcfcac1329206a9e6f661f6a8fb6547",
+  "configuration_after_sha256": "a6f1412458a12d8137e3c4a855a62cc9bdcfcac1329206a9e6f661f6a8fb6547",
+  "source_input_after": {
+    "schema_version": 1,
+    "id": "holiday",
+    "start": "2026-06-01T09:00:00Z",
+    "end": "2026-06-01T18:00:00Z",
+    "calendar": {
+      "offset_minutes": 0,
+      "timezone": "UTC",
+      "weekdays": [
+        1
+      ],
+      "start_minute": 540,
+      "end_minute": 1080,
+      "holidays": [
+        "2026-06-01"
+      ]
+    }
+  },
+  "source_input_after_sha256": "cbd06add3e6fd91b0015f241bfa24dfb421e1e7eef071fa81c20342cf8f388da"
+}

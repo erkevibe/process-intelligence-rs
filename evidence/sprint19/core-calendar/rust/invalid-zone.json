@@ -1,0 +1,52 @@
+{
+  "configuration_unchanged": true,
+  "duration_millis": null,
+  "engine": "process_intelligence_rs::calendar::business_millis",
+  "error": {
+    "case_index": null,
+    "code": "calendar_timezone",
+    "event_index": null,
+    "message": "Неизвестная именованная часовая зона."
+  },
+  "iana_tzdb_version": "2025b",
+  "id": "invalid-zone",
+  "input_sha256": "af4a5e26ebaac521eb9073a2c709c7d563cc026c507b975aa053a382bbce2ae3",
+  "outcome": "refused",
+  "schema_version": 1,
+  "scope": "Actual existing calendar API; elapsed UTC semantics and refusal policy preserved, not a legacy calendar implementation",
+  "source_input_after": {
+    "calendar": {
+      "end_minute": 1080,
+      "holidays": [],
+      "offset_minutes": 0,
+      "start_minute": 540,
+      "timezone": "Unknown/Nowhere",
+      "weekdays": [
+        1
+      ]
+    },
+    "end": "2026-06-01T18:00:00Z",
+    "id": "invalid-zone",
+    "schema_version": 1,
+    "start": "2026-06-01T09:00:00Z"
+  },
+  "source_input_after_sha256": "e00d853b8d9ddf7de966295f21c407b7ea06625f8530cfbd033bd7c487d93796",
+  "source_input_before": {
+    "calendar": {
+      "end_minute": 1080,
+      "holidays": [],
+      "offset_minutes": 0,
+      "start_minute": 540,
+      "timezone": "Unknown/Nowhere",
+      "weekdays": [
+        1
+      ]
+    },
+    "end": "2026-06-01T18:00:00Z",
+    "id": "invalid-zone",
+    "schema_version": 1,
+    "start": "2026-06-01T09:00:00Z"
+  },
+  "source_input_before_sha256": "e00d853b8d9ddf7de966295f21c407b7ea06625f8530cfbd033bd7c487d93796",
+  "status": "ACTUAL_RUST_BUSINESS_CALENDAR_OBSERVED"
+}

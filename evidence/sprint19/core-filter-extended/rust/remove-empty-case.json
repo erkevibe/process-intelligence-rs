@@ -1,0 +1,135 @@
+{
+  "engine": "process_intelligence_rs::filters::apply",
+  "engine_call_count": 1,
+  "error": null,
+  "filter_spec": {
+    "case_activity": null,
+    "max_events": null,
+    "min_events": null,
+    "remove_activities": [
+      "A"
+    ],
+    "retain_activities": []
+  },
+  "filter_spec_unchanged": true,
+  "id": "remove-empty-case",
+  "input_sha256": "bd8affee6c2117db8fa64fe4e320545c2620f7272e05de0bdf9e25492cd28861",
+  "outcome": "filtered",
+  "schema_version": 1,
+  "scope": "Actual production filter once; source positions derived only from returned exact identities, no selection predicate or legacy export",
+  "selected_event_positions": [
+    [],
+    [
+      0
+    ]
+  ],
+  "selected_source_indices": [
+    0,
+    1
+  ],
+  "selected_source_log": {
+    "cases": [
+      {
+        "events": [],
+        "id": "remove-empty-case-source-0",
+        "name": "remove-empty-case-trace-0"
+      },
+      {
+        "events": [
+          {
+            "activity": "B",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          }
+        ],
+        "id": "remove-empty-case-source-1",
+        "name": "remove-empty-case-trace-1"
+      }
+    ],
+    "name": "Extended Core filter remove-empty-case",
+    "warnings": [
+      "synthetic warning retained for remove-empty-case"
+    ]
+  },
+  "source_after_sha256": "b240e45aa157b317da84314c62385f86f93ff9287d42902292e17e09cccc5401",
+  "source_before_sha256": "b240e45aa157b317da84314c62385f86f93ff9287d42902292e17e09cccc5401",
+  "source_domain_after": {
+    "cases": [
+      {
+        "events": [
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          }
+        ],
+        "id": "remove-empty-case-source-0",
+        "name": "remove-empty-case-trace-0"
+      },
+      {
+        "events": [
+          {
+            "activity": "B",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          },
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 10,
+            "timestamp": "2024-01-01T00:00:39.123Z"
+          }
+        ],
+        "id": "remove-empty-case-source-1",
+        "name": "remove-empty-case-trace-1"
+      }
+    ],
+    "name": "Extended Core filter remove-empty-case",
+    "warnings": [
+      "synthetic warning retained for remove-empty-case"
+    ]
+  },
+  "source_domain_before": {
+    "cases": [
+      {
+        "events": [
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          }
+        ],
+        "id": "remove-empty-case-source-0",
+        "name": "remove-empty-case-trace-0"
+      },
+      {
+        "events": [
+          {
+            "activity": "B",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          },
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 10,
+            "timestamp": "2024-01-01T00:00:39.123Z"
+          }
+        ],
+        "id": "remove-empty-case-source-1",
+        "name": "remove-empty-case-trace-1"
+      }
+    ],
+    "name": "Extended Core filter remove-empty-case",
+    "warnings": [
+      "synthetic warning retained for remove-empty-case"
+    ]
+  },
+  "source_unchanged": true,
+  "status": "ACTUAL_RUST_EXTENDED_FILTER_OBSERVED"
+}

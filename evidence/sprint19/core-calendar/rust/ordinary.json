@@ -1,0 +1,47 @@
+{
+  "configuration_unchanged": true,
+  "duration_millis": 32400000,
+  "engine": "process_intelligence_rs::calendar::business_millis",
+  "error": null,
+  "iana_tzdb_version": "2025b",
+  "id": "ordinary",
+  "input_sha256": "cb66b92afdcdf61f9e04e76beeb438f5b9848659de484e08eed51706ede85f34",
+  "outcome": "duration",
+  "schema_version": 1,
+  "scope": "Actual existing calendar API; elapsed UTC semantics and refusal policy preserved, not a legacy calendar implementation",
+  "source_input_after": {
+    "calendar": {
+      "end_minute": 1080,
+      "holidays": [],
+      "offset_minutes": 0,
+      "start_minute": 540,
+      "timezone": "UTC",
+      "weekdays": [
+        1
+      ]
+    },
+    "end": "2026-06-01T18:00:00Z",
+    "id": "ordinary",
+    "schema_version": 1,
+    "start": "2026-06-01T09:00:00Z"
+  },
+  "source_input_after_sha256": "e7af170390a875f28986d240a32a1718dead38ee711921c63a1a7d8b317f0859",
+  "source_input_before": {
+    "calendar": {
+      "end_minute": 1080,
+      "holidays": [],
+      "offset_minutes": 0,
+      "start_minute": 540,
+      "timezone": "UTC",
+      "weekdays": [
+        1
+      ]
+    },
+    "end": "2026-06-01T18:00:00Z",
+    "id": "ordinary",
+    "schema_version": 1,
+    "start": "2026-06-01T09:00:00Z"
+  },
+  "source_input_before_sha256": "e7af170390a875f28986d240a32a1718dead38ee711921c63a1a7d8b317f0859",
+  "status": "ACTUAL_RUST_BUSINESS_CALENDAR_OBSERVED"
+}

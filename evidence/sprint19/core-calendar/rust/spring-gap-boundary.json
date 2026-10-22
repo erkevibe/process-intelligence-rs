@@ -1,0 +1,52 @@
+{
+  "configuration_unchanged": true,
+  "duration_millis": null,
+  "engine": "process_intelligence_rs::calendar::business_millis",
+  "error": {
+    "case_index": null,
+    "code": "calendar_boundary",
+    "event_index": null,
+    "message": "Рабочая граница неоднозначна или не существует в выбранной часовой зоне. Измените расписание."
+  },
+  "iana_tzdb_version": "2025b",
+  "id": "spring-gap-boundary",
+  "input_sha256": "86e5cd57bbf6457cab0541bcd33f12aeba515f9afbd46cfa016e5becf76238a7",
+  "outcome": "refused",
+  "schema_version": 1,
+  "scope": "Actual existing calendar API; elapsed UTC semantics and refusal policy preserved, not a legacy calendar implementation",
+  "source_input_after": {
+    "calendar": {
+      "end_minute": 240,
+      "holidays": [],
+      "offset_minutes": 0,
+      "start_minute": 150,
+      "timezone": "Europe/Berlin",
+      "weekdays": [
+        7
+      ]
+    },
+    "end": "2026-03-29T03:00:00Z",
+    "id": "spring-gap-boundary",
+    "schema_version": 1,
+    "start": "2026-03-29T00:00:00Z"
+  },
+  "source_input_after_sha256": "3385815e50344500053414f64e608e33ff537e0f9dac75f37cc794b79e59d346",
+  "source_input_before": {
+    "calendar": {
+      "end_minute": 240,
+      "holidays": [],
+      "offset_minutes": 0,
+      "start_minute": 150,
+      "timezone": "Europe/Berlin",
+      "weekdays": [
+        7
+      ]
+    },
+    "end": "2026-03-29T03:00:00Z",
+    "id": "spring-gap-boundary",
+    "schema_version": 1,
+    "start": "2026-03-29T00:00:00Z"
+  },
+  "source_input_before_sha256": "3385815e50344500053414f64e608e33ff537e0f9dac75f37cc794b79e59d346",
+  "status": "ACTUAL_RUST_BUSINESS_CALENDAR_OBSERVED"
+}
