@@ -58,7 +58,7 @@ pub(crate) fn run(client: &mut Client) -> Result<(), ImportError> {
         .map(|r| r.get(0))
         .collect();
     if ledger == [1, 2] {
-        return crate::migrations::apply(client);
+        return crate::migrations::validate_v2(client);
     }
     crate::migrations::validate_v1(client)?;
     let auth = client

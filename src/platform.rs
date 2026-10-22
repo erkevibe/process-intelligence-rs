@@ -39,6 +39,7 @@ pub(crate) struct StoredModel {
 struct Cached {
     repository: Arc<Mutex<Repository>>,
     jobs: Arc<JobStore>,
+    conversion_jobs: Arc<JobStore>,
 }
 struct PendingCsv {
     bytes: Vec<u8>,
@@ -116,6 +117,12 @@ impl Platform {
                 })
                 .chain(
                     header
+                        .conversions
+                        .values()
+                        .map(|m| ("conversion".into(), m.artifact_id.clone())),
+                )
+                .chain(
+                    header
                         .model_ids
                         .iter()
                         .map(|id| ("model".into(), id.clone())),
@@ -132,8 +139,19 @@ impl Platform {
                 .values()
                 .filter(|job| !job.is_terminal())
                 .map(|job| job.id.clone())
+                .chain(
+                    header
+                        .conversions
+                        .values()
+                        .filter(|m| !m.snapshot.is_terminal())
+                        .map(|m| m.snapshot.id.clone()),
+                )
                 .collect();
             if header.recover() {
+                let mut recovery_parameters = json!({"policy":"nonterminal_to_failed_after_restart","jobs":header.durable_jobs});
+                if !header.conversions.is_empty() {
+                    recovery_parameters["conversions"] = json!(header.conversions);
+                }
                 header.audit.append_business(
                     "system",
                     id,
@@ -142,7 +160,7 @@ impl Platform {
                     revision
                         .checked_add(1)
                         .ok_or_else(|| failure("storage_conflict", "Счётчик проекта исчерпан."))?,
-                    &json!({"policy":"nonterminal_to_failed_after_restart","jobs":header.durable_jobs}),
+                    &recovery_parameters,
                 )?;
                 self.database
                     .write_project(crate::normalized::ProjectWrite {
@@ -163,9 +181,21 @@ impl Platform {
             .values()
             .filter(|job| !job.is_terminal())
             .map(|job| job.id.clone())
+            .chain(
+                header
+                    .conversions
+                    .values()
+                    .filter(|m| !m.snapshot.is_terminal())
+                    .map(|m| m.snapshot.id.clone()),
+            )
             .collect();
         if header.recover() {
             repository.durable_jobs = header.durable_jobs;
+            repository.conversions = header.conversions;
+            let mut recovery_parameters = json!({"policy":"nonterminal_to_failed_after_restart","jobs":repository.durable_jobs});
+            if !repository.conversions.is_empty() {
+                recovery_parameters["conversions"] = json!(repository.conversions);
+            }
             repository.audit.append_business(
                 "system",
                 id,
@@ -175,7 +205,7 @@ impl Platform {
                     .storage_revision
                     .checked_add(1)
                     .ok_or_else(|| failure("storage_conflict", "Счётчик проекта исчерпан."))?,
-                &json!({"policy":"nonterminal_to_failed_after_restart","jobs":repository.durable_jobs}),
+                &recovery_parameters,
             )?;
             let write = crate::repository_v2::prepare(id, repository, false)?;
             repository.storage_revision = self.database.write_project(write)?;
@@ -200,6 +230,15 @@ impl Platform {
             .cloned()
             .collect::<Vec<_>>();
         let jobs = Arc::new(JobStore::restore_with_slots(&snapshots, self.slots.clone()));
+        let conversion_snapshots = repository
+            .conversions
+            .values()
+            .map(|m| m.snapshot.clone())
+            .collect::<Vec<_>>();
+        let conversion_jobs = Arc::new(JobStore::restore_with_slots(
+            &conversion_snapshots,
+            self.slots.clone(),
+        ));
         self.workspaces
             .lock()
             .expect("workspace mutex")
@@ -207,6 +246,7 @@ impl Platform {
             .or_insert_with(|| Cached {
                 repository: Arc::new(Mutex::new(repository)),
                 jobs,
+                conversion_jobs,
             });
         Ok(())
     }
@@ -218,6 +258,7 @@ impl Platform {
         let mut state = root.clone();
         state.repository = cached.repository.clone();
         state.jobs = cached.jobs.clone();
+        state.conversion_jobs = cached.conversion_jobs.clone();
         state.actor = Some(actor);
         Ok(state)
     }
@@ -291,9 +332,9 @@ async fn blocking<T: Send + 'static>(
         )
     })?
 }
-fn page(title: &str, body: String) -> Response {
+pub(crate) fn page(title: &str, body: String) -> Response {
     let nonce = uuid::Uuid::new_v4().simple().to_string();
-    let nav = "<nav><a href=\"/\">Анализ</a> · <a href=\"/projects\">Проекты</a> · <a href=\"/folders\">Папки</a> · <a href=\"/audit\">История</a> · <a href=\"/logs\">Журналы</a> · <a href=\"/csv\">CSV</a> · <a href=\"/models\">BPMN</a> · <a href=\"/backup\">Резервная копия</a><form method=\"post\" action=\"/logout\"><button>Выйти</button></form></nav>";
+    let nav = "<nav><a href=\"/\">Анализ</a> · <a href=\"/projects\">Проекты</a> · <a href=\"/folders\">Папки</a> · <a href=\"/audit\">История</a> · <a href=\"/logs\">Журналы</a> · <a href=\"/csv\">CSV</a> · <a href=\"/conversions\">Преобразования</a> · <a href=\"/models\">BPMN</a> · <a href=\"/backup\">Резервная копия</a><form method=\"post\" action=\"/logout\"><button>Выйти</button></form></nav>";
     let html = include_str!("../templates/platform.html")
         .replace("{{NONCE}}", &nonce)
         .replace("{{TITLE}}", &render::html_escape(title))
@@ -1528,7 +1569,7 @@ async fn backup(Workspace(state): Workspace) -> Response {
     };
     let repo = state.repository.lock().expect("repository mutex");
     let result = (|| {
-        if repo.durable_jobs.values().any(|job| !job.is_terminal()) {
+        if repo.durable_jobs.values().any(|job| !job.is_terminal()) || repo.conversions.values().any(|m| !m.snapshot.is_terminal()) {
             return Err(failure(
                 "backup_busy",
                 "Дождитесь завершения или отмены фоновых задач перед созданием резервной копии.",
@@ -1576,6 +1617,8 @@ async fn backup(Workspace(state): Workspace) -> Response {
     }).await.unwrap_or_else(|_|response_error(failure("worker_failed","Не удалось подготовить результат.")))
 }
 fn validate_backup(repo: &Repository) -> Result<(), ImportError> {
+    crate::repository_v2::header(repo).validate()?;
+    crate::conversion_workflow::validate_full(repo)?;
     repo.audit.validate()?;
     repo.organization.validate(&repo.resource_catalog())?;
     if repo.logs.len() > 8 || repo.models.len() > 64 || repo.durable_jobs.len() > 10 {

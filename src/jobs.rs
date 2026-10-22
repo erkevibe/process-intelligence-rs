@@ -225,6 +225,9 @@ pub struct JobControl {
     job: Arc<Job>,
 }
 impl JobControl {
+    pub fn cancellation_token(&self) -> Arc<AtomicBool> {
+        self.job.cancelled.clone()
+    }
     pub fn is_cancelled(&self) -> bool {
         self.job.cancelled.load(Ordering::Acquire)
     }
@@ -255,6 +258,22 @@ impl Default for JobStore {
     }
 }
 impl JobStore {
+    pub(crate) fn shared_slots(&self) -> Arc<Semaphore> {
+        self.slots.clone()
+    }
+    pub(crate) fn remove_terminal(&self, id: &str) {
+        let mut entries = self.entries.lock().expect("jobs mutex");
+        if entries
+            .jobs
+            .get(id)
+            .is_some_and(|job| job.snapshot().is_terminal())
+        {
+            entries.jobs.remove(id);
+            if entries.current.as_deref() == Some(id) {
+                entries.current = None;
+            }
+        }
+    }
     pub fn new() -> Self {
         Self {
             entries: Mutex::new(Entries::default()),

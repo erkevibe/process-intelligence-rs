@@ -61,3 +61,27 @@ equivalences and20898 files in10854ms. Independent receipts are
 `capacity-mechanism-closure04.json` (TD,69EEC719...).
 Exact source test B33B6C64... and recovery proposal56D8B367... distinguish verified
 mechanism repair from final product/public-delivery acceptance.
+
+# Sprint21 transient linker files and incomplete child captures
+
+An actual linker temporary file first refused opening with UnauthorizedAccess
+and then vanished. In the exact compiler-target descendant branch only, an
+original UnauthorizedAccess may be treated as vanished when a fresh
+GetAttributes itself reports FileNotFound or DirectoryNotFound. Existing denied
+files, sharing-locked files, outside-target paths and all other errors still fail.
+Verified guard895E3558... retains native metric790CF... and25-second limit.
+
+Four actual controls passed: real ReadData denial while present, retained denial
+after ACL restoration and actual deletion, outside-target refusal, and actual
+ShareNone locking. Fixture window0.2547s; real13273-file scan2.9005s. Acceptance:
+`.local/sprint21/qa/transient-guard-acceptance01.json` (QA,A191...) and
+`.local/sprint21/td/transient-guard-actual-acceptance03.json` (TD,1ED88C4E...).
+A ready marker merely coordinates a deliberate denial fixture after a completed
+sample and before the unchanged20-second next check; it skips no budget check.
+
+Compile04's worker was stopped before its build child capture was completed.
+That child's historical native exit and EOF remain UNKNOWN even though the
+parent capture closed. Preserve the gap and partial streams; never reconstruct
+a process.json or infer child EOF from parent EOF. A fresh successful build does
+not repair historical coverage, and this guard fix does not solve every capture
+lifecycle failure.

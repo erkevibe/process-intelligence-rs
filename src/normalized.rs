@@ -70,6 +70,12 @@ pub(crate) fn validate_ready(client: &mut Client) -> Result<(), ImportError> {
     tx.commit().map_err(|_| unavailable())
 }
 pub(crate) fn validate_schema(tx: &mut Transaction<'_>) -> Result<(), ImportError> {
+    validate_schema_version(tx, false)
+}
+pub(crate) fn validate_schema_v3(tx: &mut Transaction<'_>) -> Result<(), ImportError> {
+    validate_schema_version(tx, true)
+}
+fn validate_schema_version(tx: &mut Transaction<'_>, conversions: bool) -> Result<(), ImportError> {
     for (table, columns, checks, foreign, indexes) in [
         (
             "pi_projects",
@@ -157,6 +163,10 @@ pub(crate) fn validate_schema(tx: &mut Transaction<'_>) -> Result<(), ImportErro
         let expected = match table {
             "pi_projects" => vec!["CHECK ((version > 0))"],
             "pi_migration_v2" => vec!["CHECK ((source_version > 0))"],
+            _ if conversions => vec![
+                "CHECK ((kind = ANY (ARRAY['log_state'::text, 'log_data'::text, 'log_source'::text, 'log_analysis'::text, 'model'::text, 'conversion'::text])))",
+                "CHECK ((version > 0))",
+            ],
             _ => vec![
                 "CHECK ((kind = ANY (ARRAY['log_state'::text, 'log_data'::text, 'log_source'::text, 'log_analysis'::text, 'model'::text])))",
                 "CHECK ((version > 0))",
@@ -171,7 +181,7 @@ pub(crate) fn validate_schema(tx: &mut Transaction<'_>) -> Result<(), ImportErro
 fn valid_kind(kind: &str) -> bool {
     matches!(
         kind,
-        "log_state" | "log_data" | "log_source" | "log_analysis" | "model"
+        "log_state" | "log_data" | "log_source" | "log_analysis" | "model" | "conversion"
     )
 }
 pub(crate) fn validate_write(write: &ProjectWrite) -> Result<(), ImportError> {
@@ -266,6 +276,7 @@ pub(crate) fn split_repository(
             return Err(invalid());
         }
     }
+    crate::conversion_workflow::validate_full(&repository).map_err(|_| invalid())?;
     drop(value);
     // Restore and migration use the same immutable payload encoder as new writes.
     // A separate field splitter placed provenance in mutable log_state and made
@@ -324,6 +335,28 @@ pub(crate) fn join_repository(
         {
             return Err(invalid());
         }
+    }
+    let conversions: std::collections::BTreeMap<
+        String,
+        crate::conversion_workflow::ConversionMeta,
+    > = root
+        .get("conversions")
+        .cloned()
+        .map(serde_json::from_value)
+        .transpose()
+        .map_err(|_| invalid())?
+        .unwrap_or_default();
+    let mut artifacts = serde_json::Map::new();
+    for meta in conversions.values() {
+        artifacts.insert(
+            meta.artifact_id.clone(),
+            entries
+                .remove(&("conversion".into(), meta.artifact_id.clone()))
+                .ok_or_else(invalid)?,
+        );
+    }
+    if !artifacts.is_empty() {
+        root.insert("conversion_artifacts".into(), Value::Object(artifacts));
     }
     if !entries.is_empty()
         || root.insert("logs".into(), Value::Object(logs)).is_some()

@@ -77,6 +77,14 @@ jobs:
           python3 -B tests/conversion_evidence_counterfactuals.py --corpus fixtures/conversions/corpus.json --index evidence/sprint20/conversions/index.json --boundary-index evidence/sprint20/conversion-boundaries/index.json --output-directory .local/sprint20/ci/conversion-counterfactuals
           python3 -B tools/oracle/audit-miner-benchmark-evidence.py --corpus fixtures/oracle-miner-performance/corpus.json --index evidence/sprint20/miner-performance/index.json --public-projection evidence/sprint20/public-projection.json --output .local/sprint20/ci/miner-audit.json
           python3 -c "import json; r=json.load(open('.local/sprint20/ci/miner-audit.json')); assert r['status']=='COMPLETE_FROZEN_BENCHMARK_AND_CONDITIONAL_HISTORICAL_CARRY' and not r['errors'] and r['completed_call_rows']==64 and r['full_semantic_maps']==56"
+      - name: Sprint21 conversion revisions and public evidence
+        run: |
+          mkdir -p .local/sprint21/ci
+          node tests/sprint21_conversion_revisions.cjs
+          python3 -B tests/sprint21_public_projection.py
+          python3 -B tools/oracle/audit-conversion-evidence.py --corpus fixtures/conversions/corpus.json --index evidence/sprint21/conversions/index.json --boundary-index evidence/sprint21/conversion-boundaries/index.json --output .local/sprint21/ci/conversion-audit.json
+          python3 -B tests/conversion_evidence_counterfactuals.py --corpus fixtures/conversions/corpus.json --index evidence/sprint21/conversions/index.json --boundary-index evidence/sprint21/conversion-boundaries/index.json --output-directory .local/sprint21/ci/conversion-counterfactuals
+          python3 -B tools/oracle/audit-conversion-browser-evidence.py "$PWD" evidence/sprint21/browser .local/sprint21/ci/browser-audit.json
       - name: Diagnostic protocol and state oracle regressions
         run: |
           node tests/sql5-cycle-regression.cjs

@@ -1,0 +1,88 @@
+{
+  "places": {
+    "0bcb836d-061b-413b-a602-ffcee566626f": {
+      "id": "0bcb836d-061b-413b-a602-ffcee566626f"
+    },
+    "bd9c1019-7dd3-4360-8fbb-f688d8169e2c": {
+      "id": "bd9c1019-7dd3-4360-8fbb-f688d8169e2c"
+    }
+  },
+  "transitions": {
+    "73422b36-0c54-4d2f-8363-0beafa075c65": {
+      "label": "A & β",
+      "id": "73422b36-0c54-4d2f-8363-0beafa075c65"
+    },
+    "2be1ddbe-22e0-4c57-99d3-5de7ca71ccdc": {
+      "label": "A & β",
+      "id": "2be1ddbe-22e0-4c57-99d3-5de7ca71ccdc"
+    },
+    "604399f6-73ac-4fd6-9329-0a22ca9f7c9c": {
+      "label": null,
+      "id": "604399f6-73ac-4fd6-9329-0a22ca9f7c9c"
+    }
+  },
+  "arcs": [
+    {
+      "from_to": {
+        "type": "PlaceTransition",
+        "nodes": [
+          "0bcb836d-061b-413b-a602-ffcee566626f",
+          "73422b36-0c54-4d2f-8363-0beafa075c65"
+        ]
+      },
+      "weight": 2
+    },
+    {
+      "from_to": {
+        "type": "TransitionPlace",
+        "nodes": [
+          "73422b36-0c54-4d2f-8363-0beafa075c65",
+          "bd9c1019-7dd3-4360-8fbb-f688d8169e2c"
+        ]
+      },
+      "weight": 3
+    },
+    {
+      "from_to": {
+        "type": "PlaceTransition",
+        "nodes": [
+          "bd9c1019-7dd3-4360-8fbb-f688d8169e2c",
+          "2be1ddbe-22e0-4c57-99d3-5de7ca71ccdc"
+        ]
+      },
+      "weight": 3
+    },
+    {
+      "from_to": {
+        "type": "TransitionPlace",
+        "nodes": [
+          "2be1ddbe-22e0-4c57-99d3-5de7ca71ccdc",
+          "0bcb836d-061b-413b-a602-ffcee566626f"
+        ]
+      },
+      "weight": 2
+    },
+    {
+      "from_to": {
+        "type": "PlaceTransition",
+        "nodes": [
+          "bd9c1019-7dd3-4360-8fbb-f688d8169e2c",
+          "604399f6-73ac-4fd6-9329-0a22ca9f7c9c"
+        ]
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "type": "TransitionPlace",
+        "nodes": [
+          "604399f6-73ac-4fd6-9329-0a22ca9f7c9c",
+          "bd9c1019-7dd3-4360-8fbb-f688d8169e2c"
+        ]
+      },
+      "weight": 1
+    }
+  ],
+  "initial_marking": null,
+  "final_markings": null
+}

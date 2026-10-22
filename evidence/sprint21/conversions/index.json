@@ -1,0 +1,805 @@
+{
+  "method_sha256": "49dc32d1f4219965ea57cc79caa9355974269fab989cc38d09173c8e734e619b",
+  "converter_sha256": "11820AC81B8562B45DE0FC27BBF16DC7ADF788D4C297A238F6E5E069653E675D",
+  "cases": [
+    {
+      "inverse": {
+        "output_directory": "cases/X01/inverse",
+        "native_record_path": "cases/X01/capture-inverse/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "A863E97186E673CFAC43AA77E8FE77DCC1AC65E64F2879ACC16B5C9E3BD01CB6",
+        "native_exit": 0,
+        "input_path": "cases/X01/forward/payload.csv"
+      },
+      "forward": {
+        "output_directory": "cases/X01/forward",
+        "native_record_path": "cases/X01/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "B76B75C8E14E2D7CB516246CA2C504B79FC0DDA2D6A7FE6E0C72C24ABF4EB750",
+        "native_exit": 0,
+        "input_path": "inputs/flat-unicode.xes"
+      },
+      "id": "X01"
+    },
+    {
+      "inverse": {
+        "output_directory": "cases/X02/inverse",
+        "native_record_path": "cases/X02/capture-inverse/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "B76B75C8E14E2D7CB516246CA2C504B79FC0DDA2D6A7FE6E0C72C24ABF4EB750",
+        "native_exit": 0,
+        "input_path": "cases/X02/forward/payload.xes"
+      },
+      "forward": {
+        "output_directory": "cases/X02/forward",
+        "native_record_path": "cases/X02/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "A863E97186E673CFAC43AA77E8FE77DCC1AC65E64F2879ACC16B5C9E3BD01CB6",
+        "native_exit": 0,
+        "input_path": "inputs/flat-unicode.csv"
+      },
+      "id": "X02"
+    },
+    {
+      "inverse": null,
+      "forward": {
+        "output_directory": "cases/X03/forward",
+        "native_record_path": "cases/X03/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "948AD8AF15F52D53B630DA8B3FDDA71D102C9307C0206494D8D640A0155422D6",
+        "native_exit": 2,
+        "input_path": "inputs/offset.xes"
+      },
+      "id": "X03"
+    },
+    {
+      "inverse": {
+        "output_directory": "cases/X04/inverse",
+        "native_record_path": "cases/X04/capture-inverse/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "41C5B2829314A94500801385620CC2F766B4C15D2B13173C1CCAAB8DCFB8FE29",
+        "native_exit": 0,
+        "input_path": "cases/X04/forward/payload.csv"
+      },
+      "forward": {
+        "output_directory": "cases/X04/forward",
+        "native_record_path": "cases/X04/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "5AE5798D3C29A110E0051730420896882A15FEC01397DB6D9257982D05E30AE0",
+        "native_exit": 0,
+        "input_path": "inputs/offset.xes"
+      },
+      "id": "X04"
+    },
+    {
+      "inverse": null,
+      "forward": {
+        "output_directory": "cases/X05/forward",
+        "native_record_path": "cases/X05/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "0C63CB490B316A1EF4684BED42A75FCBD889740332FF7B84E5E73FBEDD691CD6",
+        "native_exit": 2,
+        "input_path": "inputs/rich.xes"
+      },
+      "id": "X05"
+    },
+    {
+      "inverse": {
+        "output_directory": "cases/X06/inverse",
+        "native_record_path": "cases/X06/capture-inverse/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "00F746E2AE926BC90F8E1C03B5D0FFCFAC1C087F85EC0EDAEBD697203DE2B854",
+        "native_exit": 0,
+        "input_path": "cases/X06/forward/payload.csv"
+      },
+      "forward": {
+        "output_directory": "cases/X06/forward",
+        "native_record_path": "cases/X06/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "CDC902B16BD8527D35E7571C2C026FE760B3CAD5F99D4B2A1B42CF8ABDF25F8E",
+        "native_exit": 0,
+        "input_path": "inputs/rich.xes"
+      },
+      "id": "X06"
+    },
+    {
+      "inverse": null,
+      "forward": {
+        "output_directory": "cases/X07/forward",
+        "native_record_path": "cases/X07/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "E537F88FB35DEB0096B15D570573424E3D762806C40DA82E67B836279E200375",
+        "native_exit": 2,
+        "input_path": "inputs/missing-trace-name.xes"
+      },
+      "id": "X07"
+    },
+    {
+      "inverse": null,
+      "forward": {
+        "output_directory": "cases/X08/forward",
+        "native_record_path": "cases/X08/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "81B189B541BEE83DC3CE8467A6B0FDCBC3EC794CC67A03B2D7A64430001FC3B2",
+        "native_exit": 2,
+        "input_path": "inputs/duplicate-traces.xes"
+      },
+      "id": "X08"
+    },
+    {
+      "inverse": null,
+      "forward": {
+        "output_directory": "cases/X09/forward",
+        "native_record_path": "cases/X09/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "5ACDD38E8E807BDAC9448C13D1B68C41B73D4F0DF334915F215A5B7A69D10A56",
+        "native_exit": 2,
+        "input_path": "inputs/empty-trace.xes"
+      },
+      "id": "X09"
+    },
+    {
+      "inverse": null,
+      "forward": {
+        "output_directory": "cases/X15/forward",
+        "native_record_path": "cases/X15/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "0A2D856D5B4770541D875E32B09F7DA17DF6ECCB7C1C2F21BA7231D8DC13815B",
+        "native_exit": 2,
+        "input_path": "inputs/dtd.xes"
+      },
+      "id": "X15"
+    },
+    {
+      "inverse": null,
+      "forward": {
+        "output_directory": "cases/X17/forward",
+        "native_record_path": "cases/X17/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "0C18D5288854A3D47807A82F3A38241524CE04D79366E486695B452B96EE01B7",
+        "native_exit": 2,
+        "input_path": "inputs/excess-precision.xes"
+      },
+      "id": "X17"
+    },
+    {
+      "inverse": null,
+      "forward": {
+        "output_directory": "cases/X20/forward",
+        "native_record_path": "cases/X20/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "0E9073261903F25D549F676C2B95B2E85DF1826BFEA52693CE371A12BB75B395",
+        "native_exit": 2,
+        "input_path": "inputs/empty-lifecycle.xes"
+      },
+      "id": "X20"
+    },
+    {
+      "inverse": null,
+      "forward": {
+        "output_directory": "cases/X21/forward",
+        "native_record_path": "cases/X21/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "D43FE6BF350A00711A697BBB308C7060F2464530467AD35D8376970033D5EB46",
+        "native_exit": 2,
+        "input_path": "inputs/duplicate-event-key.xes"
+      },
+      "id": "X21"
+    },
+    {
+      "inverse": {
+        "output_directory": "cases/X10/inverse",
+        "native_record_path": "cases/X10/capture-inverse/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "B574F0DBC1248F16AF1CAA3FE87B4FC7E7E8A52B15F7AF3B57C305A1C3D9C1EE",
+        "native_exit": 0,
+        "input_path": "cases/X10/forward/payload.csv"
+      },
+      "forward": {
+        "output_directory": "cases/X10/forward",
+        "native_record_path": "cases/X10/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "90A086FD079D3D5B0A5F30D3D29AD8ABAB5CE157D236ED71DCC8AE2C0A1DC1AC",
+        "native_exit": 0,
+        "input_path": "inputs/empty-log.xes"
+      },
+      "id": "X10"
+    },
+    {
+      "inverse": {
+        "output_directory": "cases/X11/inverse",
+        "native_record_path": "cases/X11/capture-inverse/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "90A086FD079D3D5B0A5F30D3D29AD8ABAB5CE157D236ED71DCC8AE2C0A1DC1AC",
+        "native_exit": 0,
+        "input_path": "cases/X11/forward/payload.xes"
+      },
+      "forward": {
+        "output_directory": "cases/X11/forward",
+        "native_record_path": "cases/X11/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "B574F0DBC1248F16AF1CAA3FE87B4FC7E7E8A52B15F7AF3B57C305A1C3D9C1EE",
+        "native_exit": 0,
+        "input_path": "inputs/empty-log.csv"
+      },
+      "id": "X11"
+    },
+    {
+      "inverse": null,
+      "forward": {
+        "output_directory": "cases/X12/forward",
+        "native_record_path": "cases/X12/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "4DBCA1EF055B12F66080C6F14CC01A4141B8EF2F92CC98B4CC855ED9528AD23E",
+        "native_exit": 2,
+        "input_path": "inputs/interleaved.csv"
+      },
+      "id": "X12"
+    },
+    {
+      "inverse": null,
+      "forward": {
+        "output_directory": "cases/X13/forward",
+        "native_record_path": "cases/X13/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "D8C2C0B8F3C73E922EE63866B9343EA299228779C4311958E362F2B3646A72C1",
+        "native_exit": 2,
+        "input_path": "inputs/duplicate-header.csv"
+      },
+      "id": "X13"
+    },
+    {
+      "inverse": null,
+      "forward": {
+        "output_directory": "cases/X14/forward",
+        "native_record_path": "cases/X14/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "6551D37997D7A4520F57C500988B2259FB633E4D39FED34078A768C5B499DFFA",
+        "native_exit": 2,
+        "input_path": "inputs/bad-quote.csv"
+      },
+      "id": "X14"
+    },
+    {
+      "inverse": null,
+      "forward": {
+        "output_directory": "cases/X23/forward",
+        "native_record_path": "cases/X23/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "818D301ECFACBD3036B28B4519836DB599FEA17D48559469E14D42F5202BE389",
+        "native_exit": 2,
+        "input_path": "inputs/blank-record.csv"
+      },
+      "id": "X23"
+    },
+    {
+      "inverse": null,
+      "forward": {
+        "output_directory": "cases/X18/forward",
+        "native_record_path": "cases/X18/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "8E36CDE84B3C2DDB0B6159CEF27437CB43CC5676BF0F34062A721282D69F3083",
+        "native_exit": 2,
+        "input_path": "inputs/extra-column.csv"
+      },
+      "id": "X18"
+    },
+    {
+      "inverse": {
+        "output_directory": "cases/X19/inverse",
+        "native_record_path": "cases/X19/capture-inverse/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "6AEB58C2DE53B963B888815D3746A5F9E1F3B80DD300D54C6886C3D64C36A500",
+        "native_exit": 0,
+        "input_path": "cases/X19/forward/payload.xes"
+      },
+      "forward": {
+        "output_directory": "cases/X19/forward",
+        "native_record_path": "cases/X19/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "73677464AE3B1F0A13592C95B69D6198C208204F0AE5A1E818C883A83992E277",
+        "native_exit": 0,
+        "input_path": "inputs/extra-column.csv"
+      },
+      "id": "X19"
+    },
+    {
+      "inverse": null,
+      "forward": {
+        "output_directory": "cases/X22/forward",
+        "native_record_path": "cases/X22/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "727FE23130341FD0C895BC67829973D1D36F22D1317BAD729AFB861DAF0590CC",
+        "native_exit": 2,
+        "input_path": "inputs/invalid-metadata-number.xes"
+      },
+      "id": "X22"
+    },
+    {
+      "inverse": {
+        "output_directory": "cases/P01/inverse",
+        "native_record_path": "cases/P01/capture-inverse/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "F1431356A9CCA138D27492323660957D40B57D401DA5B05B69BDF0AFAAF17EF1",
+        "native_exit": 0,
+        "input_path": "cases/P01/forward/payload.pnml"
+      },
+      "forward": {
+        "output_directory": "cases/P01/forward",
+        "native_record_path": "cases/P01/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "CB4848EF87EB7FD506EA87801F184AC76BB13857393F244F6BCBF48A5F114AA8",
+        "native_exit": 0,
+        "input_path": "inputs/weighted-cycle.json"
+      },
+      "id": "P01"
+    },
+    {
+      "inverse": {
+        "output_directory": "cases/P02/inverse",
+        "native_record_path": "cases/P02/capture-inverse/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "B7231BCC166538937CB9AB614A3E0C0ADFBF9428E93D64F6702552296E20FAA6",
+        "native_exit": 0,
+        "input_path": "cases/P02/forward/payload.json"
+      },
+      "forward": {
+        "output_directory": "cases/P02/forward",
+        "native_record_path": "cases/P02/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "4044023D88B270F3FE938DF94A6C6DE74EEE7E9409AC94FAB4476CD9B64A54CC",
+        "native_exit": 0,
+        "input_path": "inputs/weighted-cycle.pnml"
+      },
+      "id": "P02"
+    },
+    {
+      "inverse": {
+        "output_directory": "cases/P03/inverse",
+        "native_record_path": "cases/P03/capture-inverse/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "7666926B12A69F7243618E3176A2C8F800E37A94856FAEC65D351F2B5102DB68",
+        "native_exit": 0,
+        "input_path": "cases/P03/forward/payload.pnml"
+      },
+      "forward": {
+        "output_directory": "cases/P03/forward",
+        "native_record_path": "cases/P03/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "014257D7DAB364BE32D13F309B86DF39A8C9FF6F78D39E8AC240FE15E538545F",
+        "native_exit": 0,
+        "input_path": "inputs/absent-markings.json"
+      },
+      "id": "P03"
+    },
+    {
+      "inverse": null,
+      "forward": {
+        "output_directory": "cases/P04/forward",
+        "native_record_path": "cases/P04/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "FBDCD913516A2D17E27EB0F4B5B361FDC8B453314E8A3EC38EC83AD660DD563D",
+        "native_exit": 2,
+        "input_path": "inputs/empty-initial.json"
+      },
+      "id": "P04"
+    },
+    {
+      "inverse": null,
+      "forward": {
+        "output_directory": "cases/P05/forward",
+        "native_record_path": "cases/P05/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "CC6B51F8096DB11B1C737CC792BEDC1F0E1A642D5B25899EA789EA176AA1199E",
+        "native_exit": 2,
+        "input_path": "inputs/empty-finals.json"
+      },
+      "id": "P05"
+    },
+    {
+      "inverse": null,
+      "forward": {
+        "output_directory": "cases/P06/forward",
+        "native_record_path": "cases/P06/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "166E81333A50232A878D81987A4D4FE0DECDA11666DC7A9CDE37AA7D857C5830",
+        "native_exit": 2,
+        "input_path": "inputs/dangling-json.json"
+      },
+      "id": "P06"
+    },
+    {
+      "inverse": null,
+      "forward": {
+        "output_directory": "cases/P07/forward",
+        "native_record_path": "cases/P07/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "C61A9FC96FCB307B6708C3B5791EDFC3DA45A410B36381532BB57954E0635D50",
+        "native_exit": 2,
+        "input_path": "inputs/weight-zero.json"
+      },
+      "id": "P07"
+    },
+    {
+      "inverse": null,
+      "forward": {
+        "output_directory": "cases/P08/forward",
+        "native_record_path": "cases/P08/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "0F467DFEC7D975409828555AD8A1828741DEA16A117B0858B5364E2F4E00EA2A",
+        "native_exit": 2,
+        "input_path": "inputs/label-trim.json"
+      },
+      "id": "P08"
+    },
+    {
+      "inverse": null,
+      "forward": {
+        "output_directory": "cases/P09/forward",
+        "native_record_path": "cases/P09/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "E671C47D8B665849F7B8A813981594F7E4476F4286B5CF1E6E610BA2BAAC0C2E",
+        "native_exit": 2,
+        "input_path": "inputs/duplicate-arc.json"
+      },
+      "id": "P09"
+    },
+    {
+      "inverse": null,
+      "forward": {
+        "output_directory": "cases/P10/forward",
+        "native_record_path": "cases/P10/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "5FF30F866150CD94505622E566204BBA98023C482A458DF9F65F9725BF920C55",
+        "native_exit": 2,
+        "input_path": "inputs/unknown-json.json"
+      },
+      "id": "P10"
+    },
+    {
+      "inverse": null,
+      "forward": {
+        "output_directory": "cases/P11/forward",
+        "native_record_path": "cases/P11/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "D53E91EAB64A1D88AC8E2FC94471E629A40AE8A1D04A1DC627D5698320FFA11B",
+        "native_exit": 2,
+        "input_path": "inputs/mismatched-id.json"
+      },
+      "id": "P11"
+    },
+    {
+      "inverse": null,
+      "forward": {
+        "output_directory": "cases/P12/forward",
+        "native_record_path": "cases/P12/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "CA82774F40BE8F77AAE4343C8FA3DAC56022786C453820E5C6A78A4C374CA24B",
+        "native_exit": 2,
+        "input_path": "inputs/duplicate-key.json"
+      },
+      "id": "P12"
+    },
+    {
+      "inverse": null,
+      "forward": {
+        "output_directory": "cases/P13/forward",
+        "native_record_path": "cases/P13/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "EFC5A3348FCDE1067A59B383E652C8EF76F266076FD053C82A63BC7BCAC74CA2",
+        "native_exit": 2,
+        "input_path": "inputs/bad-weight.pnml"
+      },
+      "id": "P13"
+    },
+    {
+      "inverse": null,
+      "forward": {
+        "output_directory": "cases/P14/forward",
+        "native_record_path": "cases/P14/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "FEE7B598CDE7EEF8D79944D9A1F42DBCD99B6F99E03E01298410DC09CFAB661F",
+        "native_exit": 2,
+        "input_path": "inputs/bad-token.pnml"
+      },
+      "id": "P14"
+    },
+    {
+      "inverse": null,
+      "forward": {
+        "output_directory": "cases/P15/forward",
+        "native_record_path": "cases/P15/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "E3FF1CE7AF1C74CACFD5691F351C4CBEA74CC12D88B6D9EFD754805CB0AC073A",
+        "native_exit": 2,
+        "input_path": "inputs/unknown-xml.pnml"
+      },
+      "id": "P15"
+    },
+    {
+      "inverse": null,
+      "forward": {
+        "output_directory": "cases/P16/forward",
+        "native_record_path": "cases/P16/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "04BFFDF02161E4ED44721FBE4E09B1C404D914BCD25707F8A70087D9CC4A6E93",
+        "native_exit": 2,
+        "input_path": "inputs/duplicate-id.pnml"
+      },
+      "id": "P16"
+    },
+    {
+      "inverse": null,
+      "forward": {
+        "output_directory": "cases/P17/forward",
+        "native_record_path": "cases/P17/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "7348E72BF6B6DC39DD84A239435B7F9614AF7D313E56886965497EE443817111",
+        "native_exit": 2,
+        "input_path": "inputs/dangling-pnml.pnml"
+      },
+      "id": "P17"
+    },
+    {
+      "inverse": null,
+      "forward": {
+        "output_directory": "cases/P18/forward",
+        "native_record_path": "cases/P18/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "E2FD92DCA95A598737F7FD4BB07CCF4FE216ECFB13EA159E8F7156986D9837AF",
+        "native_exit": 2,
+        "input_path": "inputs/pnml-dtd.pnml"
+      },
+      "id": "P18"
+    },
+    {
+      "inverse": null,
+      "forward": {
+        "output_directory": "cases/P19/forward",
+        "native_record_path": "cases/P19/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "1D8F86C521C2229D853A56DEDD62DF16DB48E41A3B786C19E683AE118737E8ED",
+        "native_exit": 2,
+        "input_path": "inputs/label-whitespace.pnml"
+      },
+      "id": "P19"
+    },
+    {
+      "inverse": null,
+      "forward": {
+        "output_directory": "cases/P20/forward",
+        "native_record_path": "cases/P20/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "1D0A757AC5D470FA560C60189663D0C0BC534D0C83BA8B6C80DACAB65B031FFB",
+        "native_exit": 2,
+        "input_path": "inputs/place-name-loss.pnml"
+      },
+      "id": "P20"
+    },
+    {
+      "inverse": null,
+      "forward": {
+        "output_directory": "cases/P21/forward",
+        "native_record_path": "cases/P21/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "475C3D9C521E7B731651691ABA825BE546E167A734B21F869948E884E02A794D",
+        "native_exit": 2,
+        "input_path": "inputs/missing-inscription.pnml"
+      },
+      "id": "P21"
+    },
+    {
+      "inverse": null,
+      "forward": {
+        "output_directory": "cases/P22/forward",
+        "native_record_path": "cases/P22/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "B1EEFA7324DCEF9A2F59C913504E814B4B67F2C18C5C991E9D5A881C14FED1F7",
+        "native_exit": 2,
+        "input_path": "inputs/pnml-extra-page.pnml"
+      },
+      "id": "P22"
+    },
+    {
+      "inverse": null,
+      "forward": {
+        "output_directory": "cases/X24/forward",
+        "native_record_path": "cases/X24/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "637CAFD7CAD502602F600FACB0907E81EDCBF0DF8860E2ECFA95E152971D6A1E",
+        "native_exit": 2,
+        "input_path": "inputs/global-default.xes"
+      },
+      "id": "X24"
+    },
+    {
+      "inverse": null,
+      "forward": {
+        "output_directory": "cases/X25/forward",
+        "native_record_path": "cases/X25/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "B065CE3A1987AC6A030BFBBEF8E4BA9BE5D8E19EDD673D0D6B0205BBAC4C5900",
+        "native_exit": 2,
+        "input_path": "inputs/extension-classifier.xes"
+      },
+      "id": "X25"
+    },
+    {
+      "inverse": {
+        "output_directory": "cases/X26/inverse",
+        "native_record_path": "cases/X26/capture-inverse/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "00F746E2AE926BC90F8E1C03B5D0FFCFAC1C087F85EC0EDAEBD697203DE2B854",
+        "native_exit": 0,
+        "input_path": "cases/X26/forward/payload.csv"
+      },
+      "forward": {
+        "output_directory": "cases/X26/forward",
+        "native_record_path": "cases/X26/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "0BD4D53EE8BF6464815BAF12AAB9E0F1E94079E1F0BD95E4A23CB577A549EA2F",
+        "native_exit": 0,
+        "input_path": "inputs/extension-classifier.xes"
+      },
+      "id": "X26"
+    },
+    {
+      "inverse": {
+        "output_directory": "cases/X27/inverse",
+        "native_record_path": "cases/X27/capture-inverse/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "00F746E2AE926BC90F8E1C03B5D0FFCFAC1C087F85EC0EDAEBD697203DE2B854",
+        "native_exit": 0,
+        "input_path": "cases/X27/forward/payload.csv"
+      },
+      "forward": {
+        "output_directory": "cases/X27/forward",
+        "native_record_path": "cases/X27/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "DC581034282AD5F24FA5FB3922A06A8C8593F234D19C2739FB801EAE08B3AE69",
+        "native_exit": 0,
+        "input_path": "inputs/i64-extrema.xes"
+      },
+      "id": "X27"
+    },
+    {
+      "inverse": null,
+      "forward": {
+        "output_directory": "cases/X28/forward",
+        "native_record_path": "cases/X28/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "C7A0D1493C57631B398702297F285420E72C1A66FEAC080069F6E918848F9741",
+        "native_exit": 2,
+        "input_path": "inputs/invalid-boolean.xes"
+      },
+      "id": "X28"
+    },
+    {
+      "inverse": null,
+      "forward": {
+        "output_directory": "cases/X29/forward",
+        "native_record_path": "cases/X29/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "455BC84940D0213FDBDD5793D2E1F0F497E6810BFAB9681137242D5D1F1E7EED",
+        "native_exit": 2,
+        "input_path": "inputs/i64-overflow.xes"
+      },
+      "id": "X29"
+    },
+    {
+      "inverse": null,
+      "forward": {
+        "output_directory": "cases/X30/forward",
+        "native_record_path": "cases/X30/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "9ED01C4E4502EC6EE093A4FE862A4A965B308AAA11D6541D04C7496352C46B40",
+        "native_exit": 2,
+        "input_path": "inputs/nonfinite-float.xes"
+      },
+      "id": "X30"
+    },
+    {
+      "inverse": {
+        "output_directory": "cases/P23/inverse",
+        "native_record_path": "cases/P23/capture-inverse/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "F1B9B908A8049AB74FCF33D4FB414B1AE68E5AE960B5AC9F04807ACBA647C94A",
+        "native_exit": 0,
+        "input_path": "cases/P23/forward/payload.pnml"
+      },
+      "forward": {
+        "output_directory": "cases/P23/forward",
+        "native_record_path": "cases/P23/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "74401DE36B97E31346CB1384168B54C08356860B55D903F0E5A78E3D622C12B8",
+        "native_exit": 0,
+        "input_path": "inputs/integer-maxima.json"
+      },
+      "id": "P23"
+    },
+    {
+      "inverse": {
+        "output_directory": "cases/P24/inverse",
+        "native_record_path": "cases/P24/capture-inverse/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "B5B353B816F6D9DC01DE30EE01DF56EE934E3CCAFDA96EEE9590EED31DA52497",
+        "native_exit": 0,
+        "input_path": "cases/P24/forward/payload.json"
+      },
+      "forward": {
+        "output_directory": "cases/P24/forward",
+        "native_record_path": "cases/P24/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "65890539AED4CF462CDB26E237B54F3E98E8B2C922D98934270A782F98A1C4C2",
+        "native_exit": 0,
+        "input_path": "inputs/integer-maxima.pnml"
+      },
+      "id": "P24"
+    },
+    {
+      "inverse": null,
+      "forward": {
+        "output_directory": "cases/P25/forward",
+        "native_record_path": "cases/P25/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "B4BFFAAE4159A530EA3103DB6BA17CEDFB368A7B64802715F110002ED0896022",
+        "native_exit": 2,
+        "input_path": "inputs/u32-overflow.json"
+      },
+      "id": "P25"
+    },
+    {
+      "inverse": null,
+      "forward": {
+        "output_directory": "cases/P26/forward",
+        "native_record_path": "cases/P26/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "7097FDE35567956714DB43FEBA6477A77C6B9B93375839F90FCED853890E43C2",
+        "native_exit": 2,
+        "input_path": "inputs/u64-overflow.pnml"
+      },
+      "id": "P26"
+    },
+    {
+      "inverse": {
+        "output_directory": "cases/P27/inverse",
+        "native_record_path": "cases/P27/capture-inverse/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "46F4B03BEB8B3706A9CCB8AB0462A1EE1CA28F4F8CA4CD6D072767C9A5EB75AC",
+        "native_exit": 0,
+        "input_path": "cases/P27/forward/payload.pnml"
+      },
+      "forward": {
+        "output_directory": "cases/P27/forward",
+        "native_record_path": "cases/P27/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "6034DAF3BF7F94ACBF106ECD6B4E6B7A79F0ACC01F9B4D34B8C75EE852019044",
+        "native_exit": 0,
+        "input_path": "inputs/visible-Tau.json"
+      },
+      "id": "P27"
+    },
+    {
+      "inverse": {
+        "output_directory": "cases/P28/inverse",
+        "native_record_path": "cases/P28/capture-inverse/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "A4EB4705C6C097BFE3167983A9D423BB4431848FAE56E3FA577C645F7ABFFEF7",
+        "native_exit": 0,
+        "input_path": "cases/P28/forward/payload.json"
+      },
+      "forward": {
+        "output_directory": "cases/P28/forward",
+        "native_record_path": "cases/P28/capture-forward/converter.process.json",
+        "timed_out_or_capture_stopped": false,
+        "report_sha256": "F24324090640CB9A2ED918066CA9AD53D91D193495EABEB4401F010DBDCEB462",
+        "native_exit": 0,
+        "input_path": "inputs/visible-Tau.pnml"
+      },
+      "id": "P28"
+    }
+  ],
+  "schema_version": 1,
+  "corpus_sha256": "621DC9106835EB3274659A08F033DA4B74EF7CCE9A58846E4B01788C866CFE34",
+  "scope": "Actual CLI calls and separate inverse calls, complete native records; expected matching is independently audited, not asserted here"
+}

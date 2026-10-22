@@ -482,7 +482,12 @@ impl Auth {
                         .durable_jobs
                         .values()
                         .filter(|j| !j.is_terminal())
-                        .count(),
+                        .count()
+                        + header
+                            .conversions
+                            .values()
+                            .filter(|m| !m.snapshot.is_terminal())
+                            .count(),
                 )
             } else {
                 (0, 0, 0, 0, 0)

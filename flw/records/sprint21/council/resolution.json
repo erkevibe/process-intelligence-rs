@@ -1,0 +1,50 @@
+{
+  "follow_on": "Only after primary delivery gates fulfilled, begin prospectively scoped capacity stage if time remains",
+  "delivery_conditions": [
+    "Exact commit push and pull_request CI all jobs/steps success",
+    "Root and independent QA whole anonymous public source archive plus downloaded pure audits",
+    "Owned native processes stopped and actual resource budgets verified"
+  ],
+  "for_count": 5,
+  "decision": "APPROVED_FROZEN_TECHNICAL_CANDIDATE_FOR_PUBLIC_SOURCE_PR",
+  "votes": [
+    {
+      "file": "root-vote.json",
+      "sha256": "A0F493FEB49416CBB6C88ED1737675E0444EFF6E8199F406B3F37E1E5A4F20C5",
+      "role": "root",
+      "vote": "FOR"
+    },
+    {
+      "file": "qa-vote.json",
+      "sha256": "DCBAC562351541175BE31097621CC2FC3FA3F3D79D78E6481BC2043CA82D1E4E",
+      "role": "qa",
+      "vote": "FOR"
+    },
+    {
+      "file": "td-vote.json",
+      "sha256": "961BE5F1BC68B4979BC96BFBC26467F708A14463825B326424D98E99E9527A6F",
+      "role": "td",
+      "vote": "FOR"
+    },
+    {
+      "file": "pm-vote.json",
+      "sha256": "FDFCEA2C082C1AF62C987DDD19650E4AA7501772D5BBAE1E67A52064B61438DD",
+      "role": "pm",
+      "vote": "FOR"
+    },
+    {
+      "file": "customer-vote.json",
+      "sha256": "6B80A9E2F1A88AFE8D3D0D3E89827BDE035F646601470B4FD9677094F1BFFCC8",
+      "role": "customer",
+      "vote": "FOR"
+    }
+  ],
+  "release_tag_authorized_by_this_resolution": false,
+  "freeze_sha256": "A17623A43638772BCAD5625E0DBC7C4734CDD2188ADF83F52E5E39F972F92745",
+  "majority_required": "more than 2.5 of fixed 5",
+  "against_count": 0,
+  "schema_version": 1,
+  "abstain_count": 0,
+  "utc": "2026-10-22T20:15:28.1107108+00:00",
+  "fixed_roster_count": 5
+}

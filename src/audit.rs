@@ -23,6 +23,9 @@ impl BusinessPolicy {
             | "resource_moved" | "folder_changed" => "project_catalog_folder_cas_v1",
             "view_changed" => "actor_private_view_v1",
             "job_updated" => "durable_job_transition_v1",
+            "conversion_accepted" | "conversion_job_updated" | "conversion_deleted" => {
+                "durable_conversion_pair_cas_v1"
+            }
             "jobs_interrupted_after_restart" => "restart_interrupted_job_v1",
             "project_created" => "current_writer_new_owner_project_v1",
             "project_renamed" => "owner_project_name_cas_v1",
