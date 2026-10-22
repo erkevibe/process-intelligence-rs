@@ -1,0 +1,2031 @@
+{
+  "schema_version": 1,
+  "status": "PROSPECTIVE_COHORT_INPUT_FREEZE_BEFORE_COHORT_OBSERVER_CODE",
+  "cohort_addendum_sha256": "64BE117DA3C0494DDA6FC71FBE119B0EC7810A477916351331FB8E284B0FF013",
+  "DI_addendum_sha256": "BE3AD397A3241405D69BADA74F70AF9A50F43B6C06A8443A171F49FD3ADE9A15",
+  "method_sha256": "8E17394B9E1E79FFD0BCDA4B2A55D0454FEFF5B3C017B91AB8E115D11F9F974D",
+  "provenance": {
+    "algorithm": "org.apromore.splitminer.SplitMiner",
+    "core_commit": "bbf24dfd43e72d6992392465f875a4367cbe792b",
+    "algorithm_class_sha256": "e8535a6b65b7e758a49e757d635e8797071b8e860bc8d1c6859e592eb1ee21ad",
+    "parameters": {
+      "percentile_frequency_threshold": 0.4,
+      "parallelisms_threshold": 0.1,
+      "filter_type": "WTH",
+      "parallelisms_first": false,
+      "replace_iors": true,
+      "remove_loop_activities": false,
+      "structuring_time": "NONE",
+      "classifier": "org.deckfour.xes.classification.XEventNameClassifier"
+    },
+    "original_manifest_file": "../oracle-splitminer/corpus.json",
+    "original_manifest_sha256": "642254ed2ee675fd4ee2167ce353c75913f0e049aab681f668de6184431daad0",
+    "original_build_proof_sha256": "8649b4d4f2a465954c2f999aa613fd04ff24aa818bb96ddf8390553d8e742d00",
+    "original_results_sha256": "d95aeb271db03418f252ffdec7d09a3efe1ac758a91b063740ddef29603a30d4",
+    "original_independent_QA_sha256": "d4fd778214569e28152e4b117d2ac0be4f359dd4adcd179b65b2451d2381b5b5",
+    "additive_loop_correction_sha256": "8232912852e254e8b1931b6928017fb2ee2c01e6802070df6ddccf12c3a55b99",
+    "carry_not_new_execution": true,
+    "warning_policy": "All original stream hashes/lengths/completion/failures retained; all warning/error/fallback lines above; no favorable-only cohort filtering."
+  },
+  "cases": [
+    {
+      "id": "linear",
+      "source_input": {
+        "file": "../oracle-splitminer/linear.xes",
+        "sha256": "e322a6d8ff750b39022ca4a83c77cefe1dfcf0fd7f9c140cb07a56ce4ee1239d",
+        "bytes": 1292,
+        "trace_count": 2,
+        "event_count": 6,
+        "traces": [
+          {
+            "source_trace_index": 0,
+            "source_trace_name": "case-0",
+            "sequence": [
+              "A",
+              "B",
+              "C"
+            ],
+            "event_count": 3
+          },
+          {
+            "source_trace_index": 1,
+            "source_trace_name": "case-1",
+            "sequence": [
+              "A",
+              "B",
+              "C"
+            ],
+            "event_count": 3
+          }
+        ],
+        "training_log": [
+          {
+            "sequence": [
+              "A",
+              "B",
+              "C"
+            ],
+            "frequency": 2
+          }
+        ],
+        "heldout_log": null,
+        "designation": "original_miner_training_only_no_new_heldout",
+        "original_training_variants": [
+          "ABC",
+          "ABC"
+        ]
+      },
+      "carried_actual_outcome": {
+        "status": "diagram_returned",
+        "exception": null,
+        "observation_sha256": "87ec5411fbecd760dcdb95af31a004feeb2031fb90da5d10c6359c8ca3abec2f",
+        "observation_bytes": 3099,
+        "elapsed_mining_nanos": 218793300,
+        "native_exit": 0,
+        "native_proof_sha256": "4cbcf48732604f16095f25bc9db82ec17d43985fb54a9d49b5824f47f270cc73",
+        "coordinator_result_sha256": "c0a0b6d848f303ec9fb2487091f8cbe789f2ffb3257a6d7b62f17b13addd8223",
+        "stdout_complete": true,
+        "stderr_complete": true,
+        "output_limit": false,
+        "capture_fault": false,
+        "drain_timeout": false,
+        "streams": [
+          {
+            "name": "stdout",
+            "sha256": "2af832eb929761ad1dc62e00835f39cb2166eb06d1e6a60feb13b1d3118adba0",
+            "bytes": 129,
+            "original_complete": true,
+            "warning_error_and_fallback_lines": [
+              "WARNING - first gateway not found",
+              "ERROR - something went wrong initializing the gateway map"
+            ],
+            "all_console_bytes_retained_in_historical_receipt": true,
+            "raw_console_not_copied": true
+          },
+          {
+            "name": "stderr",
+            "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+            "bytes": 92,
+            "original_complete": true,
+            "warning_error_and_fallback_lines": [],
+            "all_console_bytes_retained_in_historical_receipt": true,
+            "raw_console_not_copied": true
+          }
+        ],
+        "new_miner_execution": false
+      },
+      "raw_bpmn": {
+        "file": "linear.bpmn",
+        "sha256": "427e4dbded59fa732b2cef5b48ab47a414a4461331bdcc4b19b13db338c0eac5",
+        "bytes": 2565,
+        "byte_identical_original_export": true
+      },
+      "static_features": {
+        "root_attributes": [
+          {
+            "namespace": "",
+            "local_name": "targetNamespace",
+            "qualified_name": "targetNamespace",
+            "value": "http://www.omg.org/bpmn20"
+          },
+          {
+            "namespace": "",
+            "local_name": "exporter",
+            "qualified_name": "exporter",
+            "value": "ProM. http://www.promtools.org/prom6"
+          },
+          {
+            "namespace": "",
+            "local_name": "exporterVersion",
+            "qualified_name": "exporterVersion",
+            "value": "6.3"
+          },
+          {
+            "namespace": "http://www.w3.org/2001/XMLSchema-instance",
+            "local_name": "schemaLocation",
+            "qualified_name": "xsi:schemaLocation",
+            "value": "http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd"
+          }
+        ],
+        "bpmnlabel_DI_count": 5,
+        "standard_loop_elements": [],
+        "looped_nodes": [],
+        "all_element_localnames": [
+          "Bounds",
+          "BPMNDiagram",
+          "BPMNEdge",
+          "BPMNLabel",
+          "BPMNPlane",
+          "BPMNShape",
+          "definitions",
+          "endEvent",
+          "incoming",
+          "outgoing",
+          "process",
+          "sequenceFlow",
+          "startEvent",
+          "task",
+          "waypoint"
+        ],
+        "original_graph_semantic_copy": {
+          "label": "eDFGP-diagram",
+          "nodes": [
+            {
+              "id": "node0",
+              "label": "C",
+              "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Activity",
+              "looped": false
+            },
+            {
+              "id": "node1",
+              "label": "A",
+              "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Activity",
+              "looped": false
+            },
+            {
+              "id": "node2",
+              "label": "B",
+              "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Activity",
+              "looped": false
+            },
+            {
+              "id": "node3",
+              "label": "",
+              "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Event",
+              "event_type": "START",
+              "event_trigger": "NONE",
+              "event_use": "CATCH"
+            },
+            {
+              "id": "node4",
+              "label": "",
+              "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Event",
+              "event_type": "END",
+              "event_trigger": "NONE",
+              "event_use": "THROW"
+            }
+          ],
+          "flows": [
+            {
+              "id": "edge0",
+              "source": "node2",
+              "target": "node0",
+              "label": "",
+              "condition": null
+            },
+            {
+              "id": "edge1",
+              "source": "node3",
+              "target": "node1",
+              "label": "",
+              "condition": null
+            },
+            {
+              "id": "edge2",
+              "source": "node0",
+              "target": "node4",
+              "label": "",
+              "condition": null
+            },
+            {
+              "id": "edge3",
+              "source": "node1",
+              "target": "node2",
+              "label": "",
+              "condition": null
+            }
+          ]
+        },
+        "original_graph_copy_is_not_raw_observation_bytes": true
+      },
+      "expected_admission": {
+        "metric_scalars": "not_frozen_or_invented",
+        "all_outcomes_retained": true,
+        "raw_product_import": "refused",
+        "DI_projection_requires_approved_policy": true,
+        "status": "prospective_pending_admission",
+        "after_DI_only_projection_blocker": "strict_parser_refuses_prefixed_xsi_schemaLocation",
+        "schemaLocation_removal_not_authorized_by_DI_addendum": true,
+        "additional_features_must_remain_visible": true
+      }
+    },
+    {
+      "id": "exclusive-choice",
+      "source_input": {
+        "file": "../oracle-splitminer/exclusive-choice.xes",
+        "sha256": "2304ae0ed58ce8ba6996476b147c0c1cb23fb7aa8bbab27dd0d65578f58cfdf5",
+        "bytes": 2432,
+        "trace_count": 4,
+        "event_count": 12,
+        "traces": [
+          {
+            "source_trace_index": 0,
+            "source_trace_name": "case-0",
+            "sequence": [
+              "A",
+              "B",
+              "D"
+            ],
+            "event_count": 3
+          },
+          {
+            "source_trace_index": 1,
+            "source_trace_name": "case-1",
+            "sequence": [
+              "A",
+              "C",
+              "D"
+            ],
+            "event_count": 3
+          },
+          {
+            "source_trace_index": 2,
+            "source_trace_name": "case-2",
+            "sequence": [
+              "A",
+              "B",
+              "D"
+            ],
+            "event_count": 3
+          },
+          {
+            "source_trace_index": 3,
+            "source_trace_name": "case-3",
+            "sequence": [
+              "A",
+              "C",
+              "D"
+            ],
+            "event_count": 3
+          }
+        ],
+        "training_log": [
+          {
+            "sequence": [
+              "A",
+              "B",
+              "D"
+            ],
+            "frequency": 2
+          },
+          {
+            "sequence": [
+              "A",
+              "C",
+              "D"
+            ],
+            "frequency": 2
+          }
+        ],
+        "heldout_log": null,
+        "designation": "original_miner_training_only_no_new_heldout",
+        "original_training_variants": [
+          "ABD",
+          "ACD",
+          "ABD",
+          "ACD"
+        ]
+      },
+      "carried_actual_outcome": {
+        "status": "diagram_returned",
+        "exception": null,
+        "observation_sha256": "4a8bf1ebc62875cb0efaf0eb09acf34c3e243464f724182dd2daa0954ebaf623",
+        "observation_bytes": 4184,
+        "elapsed_mining_nanos": 276719800,
+        "native_exit": 0,
+        "native_proof_sha256": "4bf29532b9b774bf49e5d4a0ea85f896613ff25a5c0a10dd2e33fb8018b5dbbe",
+        "coordinator_result_sha256": "d6b6d57195994056c281739c6cd3f0b99a2c97360065f0cace008468dda3621c",
+        "stdout_complete": true,
+        "stderr_complete": true,
+        "output_limit": false,
+        "capture_fault": false,
+        "drain_timeout": false,
+        "streams": [
+          {
+            "name": "stdout",
+            "sha256": "554af6989f04ae6b9d05c207c2b9b28a3609746246a3cb77926e5050aa059204",
+            "bytes": 35,
+            "original_complete": true,
+            "warning_error_and_fallback_lines": [],
+            "all_console_bytes_retained_in_historical_receipt": true,
+            "raw_console_not_copied": true
+          },
+          {
+            "name": "stderr",
+            "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+            "bytes": 92,
+            "original_complete": true,
+            "warning_error_and_fallback_lines": [],
+            "all_console_bytes_retained_in_historical_receipt": true,
+            "raw_console_not_copied": true
+          }
+        ],
+        "new_miner_execution": false
+      },
+      "raw_bpmn": {
+        "file": "exclusive-choice.bpmn",
+        "sha256": "887070a89f35c85a315423ef9b30569b220dfa30585a96a06ac39b592032951e",
+        "bytes": 4135,
+        "byte_identical_original_export": true
+      },
+      "static_features": {
+        "root_attributes": [
+          {
+            "namespace": "",
+            "local_name": "targetNamespace",
+            "qualified_name": "targetNamespace",
+            "value": "http://www.omg.org/bpmn20"
+          },
+          {
+            "namespace": "",
+            "local_name": "exporter",
+            "qualified_name": "exporter",
+            "value": "ProM. http://www.promtools.org/prom6"
+          },
+          {
+            "namespace": "",
+            "local_name": "exporterVersion",
+            "qualified_name": "exporterVersion",
+            "value": "6.3"
+          },
+          {
+            "namespace": "http://www.w3.org/2001/XMLSchema-instance",
+            "local_name": "schemaLocation",
+            "qualified_name": "xsi:schemaLocation",
+            "value": "http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd"
+          }
+        ],
+        "bpmnlabel_DI_count": 8,
+        "standard_loop_elements": [],
+        "looped_nodes": [],
+        "all_element_localnames": [
+          "Bounds",
+          "BPMNDiagram",
+          "BPMNEdge",
+          "BPMNLabel",
+          "BPMNPlane",
+          "BPMNShape",
+          "definitions",
+          "endEvent",
+          "exclusiveGateway",
+          "incoming",
+          "outgoing",
+          "process",
+          "sequenceFlow",
+          "startEvent",
+          "task",
+          "waypoint"
+        ],
+        "original_graph_semantic_copy": {
+          "label": "eDFGP-diagram",
+          "nodes": [
+            {
+              "id": "node0",
+              "label": "C",
+              "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Activity",
+              "looped": false
+            },
+            {
+              "id": "node1",
+              "label": "D",
+              "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Activity",
+              "looped": false
+            },
+            {
+              "id": "node2",
+              "label": "A",
+              "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Activity",
+              "looped": false
+            },
+            {
+              "id": "node3",
+              "label": "B",
+              "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Activity",
+              "looped": false
+            },
+            {
+              "id": "node4",
+              "label": "",
+              "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Gateway",
+              "gateway_type": "DATABASED"
+            },
+            {
+              "id": "node5",
+              "label": "",
+              "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Gateway",
+              "gateway_type": "DATABASED"
+            },
+            {
+              "id": "node6",
+              "label": "",
+              "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Event",
+              "event_type": "START",
+              "event_trigger": "NONE",
+              "event_use": "CATCH"
+            },
+            {
+              "id": "node7",
+              "label": "",
+              "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Event",
+              "event_type": "END",
+              "event_trigger": "NONE",
+              "event_use": "THROW"
+            }
+          ],
+          "flows": [
+            {
+              "id": "edge0",
+              "source": "node6",
+              "target": "node2",
+              "label": "",
+              "condition": null
+            },
+            {
+              "id": "edge1",
+              "source": "node1",
+              "target": "node7",
+              "label": "",
+              "condition": null
+            },
+            {
+              "id": "edge2",
+              "source": "node2",
+              "target": "node4",
+              "label": "",
+              "condition": null
+            },
+            {
+              "id": "edge3",
+              "source": "node4",
+              "target": "node3",
+              "label": "",
+              "condition": null
+            },
+            {
+              "id": "edge4",
+              "source": "node4",
+              "target": "node0",
+              "label": "",
+              "condition": null
+            },
+            {
+              "id": "edge5",
+              "source": "node5",
+              "target": "node1",
+              "label": "",
+              "condition": null
+            },
+            {
+              "id": "edge6",
+              "source": "node0",
+              "target": "node5",
+              "label": "",
+              "condition": null
+            },
+            {
+              "id": "edge7",
+              "source": "node3",
+              "target": "node5",
+              "label": "",
+              "condition": null
+            }
+          ]
+        },
+        "original_graph_copy_is_not_raw_observation_bytes": true
+      },
+      "expected_admission": {
+        "metric_scalars": "not_frozen_or_invented",
+        "all_outcomes_retained": true,
+        "raw_product_import": "refused",
+        "DI_projection_requires_approved_policy": true,
+        "status": "prospective_pending_admission",
+        "after_DI_only_projection_blocker": "strict_parser_refuses_prefixed_xsi_schemaLocation",
+        "schemaLocation_removal_not_authorized_by_DI_addendum": true,
+        "additional_features_must_remain_visible": true
+      }
+    },
+    {
+      "id": "parallel-interleavings",
+      "source_input": {
+        "file": "../oracle-splitminer/parallel-interleavings.xes",
+        "sha256": "0765643359e6e28b24e16123ca136d726f9e3ff49388f98b9a8aab4120f08c20",
+        "bytes": 4576,
+        "trace_count": 6,
+        "event_count": 24,
+        "traces": [
+          {
+            "source_trace_index": 0,
+            "source_trace_name": "case-0",
+            "sequence": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ],
+            "event_count": 4
+          },
+          {
+            "source_trace_index": 1,
+            "source_trace_name": "case-1",
+            "sequence": [
+              "A",
+              "C",
+              "B",
+              "D"
+            ],
+            "event_count": 4
+          },
+          {
+            "source_trace_index": 2,
+            "source_trace_name": "case-2",
+            "sequence": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ],
+            "event_count": 4
+          },
+          {
+            "source_trace_index": 3,
+            "source_trace_name": "case-3",
+            "sequence": [
+              "A",
+              "C",
+              "B",
+              "D"
+            ],
+            "event_count": 4
+          },
+          {
+            "source_trace_index": 4,
+            "source_trace_name": "case-4",
+            "sequence": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ],
+            "event_count": 4
+          },
+          {
+            "source_trace_index": 5,
+            "source_trace_name": "case-5",
+            "sequence": [
+              "A",
+              "C",
+              "B",
+              "D"
+            ],
+            "event_count": 4
+          }
+        ],
+        "training_log": [
+          {
+            "sequence": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ],
+            "frequency": 3
+          },
+          {
+            "sequence": [
+              "A",
+              "C",
+              "B",
+              "D"
+            ],
+            "frequency": 3
+          }
+        ],
+        "heldout_log": null,
+        "designation": "original_miner_training_only_no_new_heldout",
+        "original_training_variants": [
+          "ABCD",
+          "ACBD",
+          "ABCD",
+          "ACBD",
+          "ABCD",
+          "ACBD"
+        ]
+      },
+      "carried_actual_outcome": {
+        "status": "diagram_returned",
+        "exception": null,
+        "observation_sha256": "44d8464c714b4160f16e96df59de4b6979edf17124d3769366c91c7929e2ee97",
+        "observation_bytes": 4182,
+        "elapsed_mining_nanos": 283916000,
+        "native_exit": 0,
+        "native_proof_sha256": "c221ac308e6bd708d0adfeea06a35aff85b2fa51c2812342ce5cdbaf3eafb4ed",
+        "coordinator_result_sha256": "59a5b498f64edf685f649456f6d91348d7a7eb0f066ced734a2f5388fef322e2",
+        "stdout_complete": true,
+        "stderr_complete": true,
+        "output_limit": false,
+        "capture_fault": false,
+        "drain_timeout": false,
+        "streams": [
+          {
+            "name": "stdout",
+            "sha256": "554af6989f04ae6b9d05c207c2b9b28a3609746246a3cb77926e5050aa059204",
+            "bytes": 35,
+            "original_complete": true,
+            "warning_error_and_fallback_lines": [],
+            "all_console_bytes_retained_in_historical_receipt": true,
+            "raw_console_not_copied": true
+          },
+          {
+            "name": "stderr",
+            "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+            "bytes": 92,
+            "original_complete": true,
+            "warning_error_and_fallback_lines": [],
+            "all_console_bytes_retained_in_historical_receipt": true,
+            "raw_console_not_copied": true
+          }
+        ],
+        "new_miner_execution": false
+      },
+      "raw_bpmn": {
+        "file": "parallel-interleavings.bpmn",
+        "sha256": "56e33beeab413328eb936357be0b508063d9899fdd5087b96910e4812c715c0d",
+        "bytes": 4131,
+        "byte_identical_original_export": true
+      },
+      "static_features": {
+        "root_attributes": [
+          {
+            "namespace": "",
+            "local_name": "targetNamespace",
+            "qualified_name": "targetNamespace",
+            "value": "http://www.omg.org/bpmn20"
+          },
+          {
+            "namespace": "",
+            "local_name": "exporter",
+            "qualified_name": "exporter",
+            "value": "ProM. http://www.promtools.org/prom6"
+          },
+          {
+            "namespace": "",
+            "local_name": "exporterVersion",
+            "qualified_name": "exporterVersion",
+            "value": "6.3"
+          },
+          {
+            "namespace": "http://www.w3.org/2001/XMLSchema-instance",
+            "local_name": "schemaLocation",
+            "qualified_name": "xsi:schemaLocation",
+            "value": "http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd"
+          }
+        ],
+        "bpmnlabel_DI_count": 8,
+        "standard_loop_elements": [],
+        "looped_nodes": [],
+        "all_element_localnames": [
+          "Bounds",
+          "BPMNDiagram",
+          "BPMNEdge",
+          "BPMNLabel",
+          "BPMNPlane",
+          "BPMNShape",
+          "definitions",
+          "endEvent",
+          "incoming",
+          "outgoing",
+          "parallelGateway",
+          "process",
+          "sequenceFlow",
+          "startEvent",
+          "task",
+          "waypoint"
+        ],
+        "original_graph_semantic_copy": {
+          "label": "eDFGP-diagram",
+          "nodes": [
+            {
+              "id": "node0",
+              "label": "C",
+              "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Activity",
+              "looped": false
+            },
+            {
+              "id": "node1",
+              "label": "D",
+              "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Activity",
+              "looped": false
+            },
+            {
+              "id": "node2",
+              "label": "A",
+              "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Activity",
+              "looped": false
+            },
+            {
+              "id": "node3",
+              "label": "B",
+              "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Activity",
+              "looped": false
+            },
+            {
+              "id": "node4",
+              "label": "",
+              "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Gateway",
+              "gateway_type": "PARALLEL"
+            },
+            {
+              "id": "node5",
+              "label": "",
+              "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Gateway",
+              "gateway_type": "PARALLEL"
+            },
+            {
+              "id": "node6",
+              "label": "",
+              "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Event",
+              "event_type": "START",
+              "event_trigger": "NONE",
+              "event_use": "CATCH"
+            },
+            {
+              "id": "node7",
+              "label": "",
+              "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Event",
+              "event_type": "END",
+              "event_trigger": "NONE",
+              "event_use": "THROW"
+            }
+          ],
+          "flows": [
+            {
+              "id": "edge0",
+              "source": "node1",
+              "target": "node7",
+              "label": "",
+              "condition": null
+            },
+            {
+              "id": "edge1",
+              "source": "node6",
+              "target": "node2",
+              "label": "",
+              "condition": null
+            },
+            {
+              "id": "edge2",
+              "source": "node2",
+              "target": "node4",
+              "label": "",
+              "condition": null
+            },
+            {
+              "id": "edge3",
+              "source": "node4",
+              "target": "node3",
+              "label": "",
+              "condition": null
+            },
+            {
+              "id": "edge4",
+              "source": "node4",
+              "target": "node0",
+              "label": "",
+              "condition": null
+            },
+            {
+              "id": "edge5",
+              "source": "node5",
+              "target": "node1",
+              "label": "",
+              "condition": null
+            },
+            {
+              "id": "edge6",
+              "source": "node3",
+              "target": "node5",
+              "label": "",
+              "condition": null
+            },
+            {
+              "id": "edge7",
+              "source": "node0",
+              "target": "node5",
+              "label": "",
+              "condition": null
+            }
+          ]
+        },
+        "original_graph_copy_is_not_raw_observation_bytes": true
+      },
+      "expected_admission": {
+        "metric_scalars": "not_frozen_or_invented",
+        "all_outcomes_retained": true,
+        "raw_product_import": "refused",
+        "DI_projection_requires_approved_policy": true,
+        "status": "prospective_pending_admission",
+        "after_DI_only_projection_blocker": "strict_parser_refuses_prefixed_xsi_schemaLocation",
+        "schemaLocation_removal_not_authorized_by_DI_addendum": true,
+        "additional_features_must_remain_visible": true
+      }
+    },
+    {
+      "id": "self-loop",
+      "source_input": {
+        "file": "../oracle-splitminer/self-loop.xes",
+        "sha256": "4d0caf82f37113cefdb9caeefbae81292dcb874e6750ba244cec3e8e45a9a0dc",
+        "bytes": 1860,
+        "trace_count": 3,
+        "event_count": 9,
+        "traces": [
+          {
+            "source_trace_index": 0,
+            "source_trace_name": "case-0",
+            "sequence": [
+              "A",
+              "A",
+              "B"
+            ],
+            "event_count": 3
+          },
+          {
+            "source_trace_index": 1,
+            "source_trace_name": "case-1",
+            "sequence": [
+              "A",
+              "B"
+            ],
+            "event_count": 2
+          },
+          {
+            "source_trace_index": 2,
+            "source_trace_name": "case-2",
+            "sequence": [
+              "A",
+              "A",
+              "A",
+              "B"
+            ],
+            "event_count": 4
+          }
+        ],
+        "training_log": [
+          {
+            "sequence": [
+              "A",
+              "A",
+              "B"
+            ],
+            "frequency": 1
+          },
+          {
+            "sequence": [
+              "A",
+              "B"
+            ],
+            "frequency": 1
+          },
+          {
+            "sequence": [
+              "A",
+              "A",
+              "A",
+              "B"
+            ],
+            "frequency": 1
+          }
+        ],
+        "heldout_log": null,
+        "designation": "original_miner_training_only_no_new_heldout",
+        "original_training_variants": [
+          "AAB",
+          "AB",
+          "AAAB"
+        ]
+      },
+      "carried_actual_outcome": {
+        "status": "diagram_returned",
+        "exception": null,
+        "observation_sha256": "5dd45a8dba93f571c9e685d53b404d531959f70e9d5a349faef4500cede578f3",
+        "observation_bytes": 2788,
+        "elapsed_mining_nanos": 179061300,
+        "native_exit": 0,
+        "native_proof_sha256": "f57e263a13bcaf8f279e78f8289f6c26bbdfa9a057c83f9ab6ac21f26f2ef338",
+        "coordinator_result_sha256": "e166b3164aaecdc8e47f91fe17dec15d6535b05dc22995f9be7fa6f00a85b8df",
+        "stdout_complete": true,
+        "stderr_complete": true,
+        "output_limit": false,
+        "capture_fault": false,
+        "drain_timeout": false,
+        "streams": [
+          {
+            "name": "stdout",
+            "sha256": "2af832eb929761ad1dc62e00835f39cb2166eb06d1e6a60feb13b1d3118adba0",
+            "bytes": 129,
+            "original_complete": true,
+            "warning_error_and_fallback_lines": [
+              "WARNING - first gateway not found",
+              "ERROR - something went wrong initializing the gateway map"
+            ],
+            "all_console_bytes_retained_in_historical_receipt": true,
+            "raw_console_not_copied": true
+          },
+          {
+            "name": "stderr",
+            "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+            "bytes": 92,
+            "original_complete": true,
+            "warning_error_and_fallback_lines": [],
+            "all_console_bytes_retained_in_historical_receipt": true,
+            "raw_console_not_copied": true
+          }
+        ],
+        "new_miner_execution": false
+      },
+      "raw_bpmn": {
+        "file": "self-loop.bpmn",
+        "sha256": "cc9f4863586d47b9553d41aab8ebd7bc797aeca9597d1524c087a3937cc28463",
+        "bytes": 2192,
+        "byte_identical_original_export": true
+      },
+      "static_features": {
+        "root_attributes": [
+          {
+            "namespace": "",
+            "local_name": "targetNamespace",
+            "qualified_name": "targetNamespace",
+            "value": "http://www.omg.org/bpmn20"
+          },
+          {
+            "namespace": "",
+            "local_name": "exporter",
+            "qualified_name": "exporter",
+            "value": "ProM. http://www.promtools.org/prom6"
+          },
+          {
+            "namespace": "",
+            "local_name": "exporterVersion",
+            "qualified_name": "exporterVersion",
+            "value": "6.3"
+          },
+          {
+            "namespace": "http://www.w3.org/2001/XMLSchema-instance",
+            "local_name": "schemaLocation",
+            "qualified_name": "xsi:schemaLocation",
+            "value": "http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd"
+          }
+        ],
+        "bpmnlabel_DI_count": 4,
+        "standard_loop_elements": [
+          "<standardLoopCharacteristics testBefore=\"false\" xmlns=\"http://www.omg.org/spec/BPMN/20100524/MODEL\" />"
+        ],
+        "looped_nodes": [
+          {
+            "label": "A",
+            "id": "node0"
+          }
+        ],
+        "all_element_localnames": [
+          "Bounds",
+          "BPMNDiagram",
+          "BPMNEdge",
+          "BPMNLabel",
+          "BPMNPlane",
+          "BPMNShape",
+          "definitions",
+          "endEvent",
+          "incoming",
+          "outgoing",
+          "process",
+          "sequenceFlow",
+          "standardLoopCharacteristics",
+          "startEvent",
+          "task",
+          "waypoint"
+        ],
+        "original_graph_semantic_copy": {
+          "label": "eDFGP-diagram",
+          "nodes": [
+            {
+              "id": "node0",
+              "label": "A",
+              "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Activity",
+              "looped": true
+            },
+            {
+              "id": "node1",
+              "label": "B",
+              "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Activity",
+              "looped": false
+            },
+            {
+              "id": "node2",
+              "label": "",
+              "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Event",
+              "event_type": "START",
+              "event_trigger": "NONE",
+              "event_use": "CATCH"
+            },
+            {
+              "id": "node3",
+              "label": "",
+              "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Event",
+              "event_type": "END",
+              "event_trigger": "NONE",
+              "event_use": "THROW"
+            }
+          ],
+          "flows": [
+            {
+              "id": "edge0",
+              "source": "node1",
+              "target": "node3",
+              "label": "",
+              "condition": null
+            },
+            {
+              "id": "edge1",
+              "source": "node2",
+              "target": "node0",
+              "label": "",
+              "condition": null
+            },
+            {
+              "id": "edge2",
+              "source": "node0",
+              "target": "node1",
+              "label": "",
+              "condition": null
+            }
+          ]
+        },
+        "original_graph_copy_is_not_raw_observation_bytes": true
+      },
+      "expected_admission": {
+        "metric_scalars": "not_frozen_or_invented",
+        "all_outcomes_retained": true,
+        "raw_product_import": "refused",
+        "DI_projection_requires_approved_policy": true,
+        "status": "quality_unsupported_standard_loop",
+        "before_both_converters": true,
+        "projected_semantic_replacement_forbidden": true
+      }
+    },
+    {
+      "id": "short-loop",
+      "source_input": {
+        "file": "../oracle-splitminer/short-loop.xes",
+        "sha256": "4b941524e45d72353e69d61e6f5a600468647abb9576511364b31bfbb73d3d1b",
+        "bytes": 2365,
+        "trace_count": 3,
+        "event_count": 12,
+        "traces": [
+          {
+            "source_trace_index": 0,
+            "source_trace_name": "case-0",
+            "sequence": [
+              "A",
+              "B",
+              "A",
+              "C"
+            ],
+            "event_count": 4
+          },
+          {
+            "source_trace_index": 1,
+            "source_trace_name": "case-1",
+            "sequence": [
+              "A",
+              "C"
+            ],
+            "event_count": 2
+          },
+          {
+            "source_trace_index": 2,
+            "source_trace_name": "case-2",
+            "sequence": [
+              "A",
+              "B",
+              "A",
+              "B",
+              "A",
+              "C"
+            ],
+            "event_count": 6
+          }
+        ],
+        "training_log": [
+          {
+            "sequence": [
+              "A",
+              "B",
+              "A",
+              "C"
+            ],
+            "frequency": 1
+          },
+          {
+            "sequence": [
+              "A",
+              "C"
+            ],
+            "frequency": 1
+          },
+          {
+            "sequence": [
+              "A",
+              "B",
+              "A",
+              "B",
+              "A",
+              "C"
+            ],
+            "frequency": 1
+          }
+        ],
+        "heldout_log": null,
+        "designation": "original_miner_training_only_no_new_heldout",
+        "original_training_variants": [
+          "ABAC",
+          "AC",
+          "ABABAC"
+        ]
+      },
+      "carried_actual_outcome": {
+        "status": "diagram_returned",
+        "exception": null,
+        "observation_sha256": "2ad6c063362dcc4cdac8899daae5d86bd0d73d68472d41b602d5aeaa9c5bc05a",
+        "observation_bytes": 3874,
+        "elapsed_mining_nanos": 241085900,
+        "native_exit": 0,
+        "native_proof_sha256": "81e8215e17bd2ac14ddffbaf59f866f6883c8d0d40a5c8ec15b88c4a2fd9d433",
+        "coordinator_result_sha256": "d5bacd6d62ec281d4feb12fa5fccdc902b716de5bb1448010ad11a1eeb8f4e7f",
+        "stdout_complete": true,
+        "stderr_complete": true,
+        "output_limit": false,
+        "capture_fault": false,
+        "drain_timeout": false,
+        "streams": [
+          {
+            "name": "stdout",
+            "sha256": "554af6989f04ae6b9d05c207c2b9b28a3609746246a3cb77926e5050aa059204",
+            "bytes": 35,
+            "original_complete": true,
+            "warning_error_and_fallback_lines": [],
+            "all_console_bytes_retained_in_historical_receipt": true,
+            "raw_console_not_copied": true
+          },
+          {
+            "name": "stderr",
+            "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+            "bytes": 92,
+            "original_complete": true,
+            "warning_error_and_fallback_lines": [],
+            "all_console_bytes_retained_in_historical_receipt": true,
+            "raw_console_not_copied": true
+          }
+        ],
+        "new_miner_execution": false
+      },
+      "raw_bpmn": {
+        "file": "short-loop.bpmn",
+        "sha256": "9705eddd0b88f25f4abca3688696228046c8e99de0edb71f4b9e1375025d745a",
+        "bytes": 3779,
+        "byte_identical_original_export": true
+      },
+      "static_features": {
+        "root_attributes": [
+          {
+            "namespace": "",
+            "local_name": "targetNamespace",
+            "qualified_name": "targetNamespace",
+            "value": "http://www.omg.org/bpmn20"
+          },
+          {
+            "namespace": "",
+            "local_name": "exporter",
+            "qualified_name": "exporter",
+            "value": "ProM. http://www.promtools.org/prom6"
+          },
+          {
+            "namespace": "",
+            "local_name": "exporterVersion",
+            "qualified_name": "exporterVersion",
+            "value": "6.3"
+          },
+          {
+            "namespace": "http://www.w3.org/2001/XMLSchema-instance",
+            "local_name": "schemaLocation",
+            "qualified_name": "xsi:schemaLocation",
+            "value": "http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd"
+          }
+        ],
+        "bpmnlabel_DI_count": 7,
+        "standard_loop_elements": [],
+        "looped_nodes": [],
+        "all_element_localnames": [
+          "Bounds",
+          "BPMNDiagram",
+          "BPMNEdge",
+          "BPMNLabel",
+          "BPMNPlane",
+          "BPMNShape",
+          "definitions",
+          "endEvent",
+          "exclusiveGateway",
+          "incoming",
+          "outgoing",
+          "process",
+          "sequenceFlow",
+          "startEvent",
+          "task",
+          "waypoint"
+        ],
+        "original_graph_semantic_copy": {
+          "label": "eDFGP-diagram",
+          "nodes": [
+            {
+              "id": "node0",
+              "label": "C",
+              "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Activity",
+              "looped": false
+            },
+            {
+              "id": "node1",
+              "label": "",
+              "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Gateway",
+              "gateway_type": "DATABASED"
+            },
+            {
+              "id": "node2",
+              "label": "A",
+              "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Activity",
+              "looped": false
+            },
+            {
+              "id": "node3",
+              "label": "B",
+              "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Activity",
+              "looped": false
+            },
+            {
+              "id": "node4",
+              "label": "",
+              "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Gateway",
+              "gateway_type": "DATABASED"
+            },
+            {
+              "id": "node5",
+              "label": "",
+              "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Event",
+              "event_type": "START",
+              "event_trigger": "NONE",
+              "event_use": "CATCH"
+            },
+            {
+              "id": "node6",
+              "label": "",
+              "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Event",
+              "event_type": "END",
+              "event_trigger": "NONE",
+              "event_use": "THROW"
+            }
+          ],
+          "flows": [
+            {
+              "id": "edge0",
+              "source": "node0",
+              "target": "node6",
+              "label": "",
+              "condition": null
+            },
+            {
+              "id": "edge1",
+              "source": "node2",
+              "target": "node1",
+              "label": "",
+              "condition": null
+            },
+            {
+              "id": "edge2",
+              "source": "node1",
+              "target": "node0",
+              "label": "",
+              "condition": null
+            },
+            {
+              "id": "edge3",
+              "source": "node1",
+              "target": "node3",
+              "label": "",
+              "condition": null
+            },
+            {
+              "id": "edge4",
+              "source": "node4",
+              "target": "node2",
+              "label": "",
+              "condition": null
+            },
+            {
+              "id": "edge5",
+              "source": "node3",
+              "target": "node4",
+              "label": "",
+              "condition": null
+            },
+            {
+              "id": "edge6",
+              "source": "node5",
+              "target": "node4",
+              "label": "",
+              "condition": null
+            }
+          ]
+        },
+        "original_graph_copy_is_not_raw_observation_bytes": true
+      },
+      "expected_admission": {
+        "metric_scalars": "not_frozen_or_invented",
+        "all_outcomes_retained": true,
+        "raw_product_import": "refused",
+        "DI_projection_requires_approved_policy": true,
+        "status": "prospective_pending_admission",
+        "after_DI_only_projection_blocker": "strict_parser_refuses_prefixed_xsi_schemaLocation",
+        "schemaLocation_removal_not_authorized_by_DI_addendum": true,
+        "additional_features_must_remain_visible": true
+      }
+    },
+    {
+      "id": "rare-noise",
+      "source_input": {
+        "file": "../oracle-splitminer/rare-noise.xes",
+        "sha256": "03e909d2de9b618cb6655c5a2e378ddc3277b58f6607f7b6b156758db4b916ad",
+        "bytes": 5816,
+        "trace_count": 10,
+        "event_count": 30,
+        "traces": [
+          {
+            "source_trace_index": 0,
+            "source_trace_name": "case-0",
+            "sequence": [
+              "A",
+              "B",
+              "C"
+            ],
+            "event_count": 3
+          },
+          {
+            "source_trace_index": 1,
+            "source_trace_name": "case-1",
+            "sequence": [
+              "A",
+              "B",
+              "C"
+            ],
+            "event_count": 3
+          },
+          {
+            "source_trace_index": 2,
+            "source_trace_name": "case-2",
+            "sequence": [
+              "A",
+              "B",
+              "C"
+            ],
+            "event_count": 3
+          },
+          {
+            "source_trace_index": 3,
+            "source_trace_name": "case-3",
+            "sequence": [
+              "A",
+              "B",
+              "C"
+            ],
+            "event_count": 3
+          },
+          {
+            "source_trace_index": 4,
+            "source_trace_name": "case-4",
+            "sequence": [
+              "A",
+              "B",
+              "C"
+            ],
+            "event_count": 3
+          },
+          {
+            "source_trace_index": 5,
+            "source_trace_name": "case-5",
+            "sequence": [
+              "A",
+              "B",
+              "C"
+            ],
+            "event_count": 3
+          },
+          {
+            "source_trace_index": 6,
+            "source_trace_name": "case-6",
+            "sequence": [
+              "A",
+              "B",
+              "C"
+            ],
+            "event_count": 3
+          },
+          {
+            "source_trace_index": 7,
+            "source_trace_name": "case-7",
+            "sequence": [
+              "A",
+              "B",
+              "C"
+            ],
+            "event_count": 3
+          },
+          {
+            "source_trace_index": 8,
+            "source_trace_name": "case-8",
+            "sequence": [
+              "A",
+              "B",
+              "C"
+            ],
+            "event_count": 3
+          },
+          {
+            "source_trace_index": 9,
+            "source_trace_name": "case-9",
+            "sequence": [
+              "A",
+              "D",
+              "C"
+            ],
+            "event_count": 3
+          }
+        ],
+        "training_log": [
+          {
+            "sequence": [
+              "A",
+              "B",
+              "C"
+            ],
+            "frequency": 9
+          },
+          {
+            "sequence": [
+              "A",
+              "D",
+              "C"
+            ],
+            "frequency": 1
+          }
+        ],
+        "heldout_log": null,
+        "designation": "original_miner_training_only_no_new_heldout",
+        "original_training_variants": [
+          "ABC",
+          "ABC",
+          "ABC",
+          "ABC",
+          "ABC",
+          "ABC",
+          "ABC",
+          "ABC",
+          "ABC",
+          "ADC"
+        ]
+      },
+      "carried_actual_outcome": {
+        "status": "diagram_returned",
+        "exception": null,
+        "observation_sha256": "5a1d31070940c41ac96172d5911f263c8c7120b1fa6dd4fe95ddb30308b0219c",
+        "observation_bytes": 4185,
+        "elapsed_mining_nanos": 225935000,
+        "native_exit": 0,
+        "native_proof_sha256": "b8511ef9e28e23264a355ae24d6222157cdb932d1269b6b0f1436d8507f6aa96",
+        "coordinator_result_sha256": "a346ad654eef76f92f6b2b592775ddf4888e8b5e36c765600a8079a6013823f5",
+        "stdout_complete": true,
+        "stderr_complete": true,
+        "output_limit": false,
+        "capture_fault": false,
+        "drain_timeout": false,
+        "streams": [
+          {
+            "name": "stdout",
+            "sha256": "554af6989f04ae6b9d05c207c2b9b28a3609746246a3cb77926e5050aa059204",
+            "bytes": 35,
+            "original_complete": true,
+            "warning_error_and_fallback_lines": [],
+            "all_console_bytes_retained_in_historical_receipt": true,
+            "raw_console_not_copied": true
+          },
+          {
+            "name": "stderr",
+            "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+            "bytes": 92,
+            "original_complete": true,
+            "warning_error_and_fallback_lines": [],
+            "all_console_bytes_retained_in_historical_receipt": true,
+            "raw_console_not_copied": true
+          }
+        ],
+        "new_miner_execution": false
+      },
+      "raw_bpmn": {
+        "file": "rare-noise.bpmn",
+        "sha256": "e8c27393fb5deb7739004c7f2ab9c704a116bb5d102ddd0ffff04e20012ab613",
+        "bytes": 4134,
+        "byte_identical_original_export": true
+      },
+      "static_features": {
+        "root_attributes": [
+          {
+            "namespace": "",
+            "local_name": "targetNamespace",
+            "qualified_name": "targetNamespace",
+            "value": "http://www.omg.org/bpmn20"
+          },
+          {
+            "namespace": "",
+            "local_name": "exporter",
+            "qualified_name": "exporter",
+            "value": "ProM. http://www.promtools.org/prom6"
+          },
+          {
+            "namespace": "",
+            "local_name": "exporterVersion",
+            "qualified_name": "exporterVersion",
+            "value": "6.3"
+          },
+          {
+            "namespace": "http://www.w3.org/2001/XMLSchema-instance",
+            "local_name": "schemaLocation",
+            "qualified_name": "xsi:schemaLocation",
+            "value": "http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd"
+          }
+        ],
+        "bpmnlabel_DI_count": 8,
+        "standard_loop_elements": [],
+        "looped_nodes": [],
+        "all_element_localnames": [
+          "Bounds",
+          "BPMNDiagram",
+          "BPMNEdge",
+          "BPMNLabel",
+          "BPMNPlane",
+          "BPMNShape",
+          "definitions",
+          "endEvent",
+          "exclusiveGateway",
+          "incoming",
+          "outgoing",
+          "process",
+          "sequenceFlow",
+          "startEvent",
+          "task",
+          "waypoint"
+        ],
+        "original_graph_semantic_copy": {
+          "label": "eDFGP-diagram",
+          "nodes": [
+            {
+              "id": "node0",
+              "label": "C",
+              "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Activity",
+              "looped": false
+            },
+            {
+              "id": "node1",
+              "label": "D",
+              "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Activity",
+              "looped": false
+            },
+            {
+              "id": "node2",
+              "label": "A",
+              "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Activity",
+              "looped": false
+            },
+            {
+              "id": "node3",
+              "label": "B",
+              "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Activity",
+              "looped": false
+            },
+            {
+              "id": "node4",
+              "label": "",
+              "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Gateway",
+              "gateway_type": "DATABASED"
+            },
+            {
+              "id": "node5",
+              "label": "",
+              "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Gateway",
+              "gateway_type": "DATABASED"
+            },
+            {
+              "id": "node6",
+              "label": "",
+              "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Event",
+              "event_type": "START",
+              "event_trigger": "NONE",
+              "event_use": "CATCH"
+            },
+            {
+              "id": "node7",
+              "label": "",
+              "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Event",
+              "event_type": "END",
+              "event_trigger": "NONE",
+              "event_use": "THROW"
+            }
+          ],
+          "flows": [
+            {
+              "id": "edge0",
+              "source": "node6",
+              "target": "node2",
+              "label": "",
+              "condition": null
+            },
+            {
+              "id": "edge1",
+              "source": "node0",
+              "target": "node7",
+              "label": "",
+              "condition": null
+            },
+            {
+              "id": "edge2",
+              "source": "node2",
+              "target": "node4",
+              "label": "",
+              "condition": null
+            },
+            {
+              "id": "edge3",
+              "source": "node4",
+              "target": "node3",
+              "label": "",
+              "condition": null
+            },
+            {
+              "id": "edge4",
+              "source": "node4",
+              "target": "node1",
+              "label": "",
+              "condition": null
+            },
+            {
+              "id": "edge5",
+              "source": "node5",
+              "target": "node0",
+              "label": "",
+              "condition": null
+            },
+            {
+              "id": "edge6",
+              "source": "node3",
+              "target": "node5",
+              "label": "",
+              "condition": null
+            },
+            {
+              "id": "edge7",
+              "source": "node1",
+              "target": "node5",
+              "label": "",
+              "condition": null
+            }
+          ]
+        },
+        "original_graph_copy_is_not_raw_observation_bytes": true
+      },
+      "expected_admission": {
+        "metric_scalars": "not_frozen_or_invented",
+        "all_outcomes_retained": true,
+        "raw_product_import": "refused",
+        "DI_projection_requires_approved_policy": true,
+        "status": "prospective_pending_admission",
+        "after_DI_only_projection_blocker": "strict_parser_refuses_prefixed_xsi_schemaLocation",
+        "schemaLocation_removal_not_authorized_by_DI_addendum": true,
+        "additional_features_must_remain_visible": true
+      }
+    },
+    {
+      "id": "empty-log",
+      "source_input": {
+        "file": "../oracle-splitminer/empty-log.xes",
+        "sha256": "2dfebdb1c9abcfd2d5f46f592b9d6afb038fd880513e32509c4149914f27efba",
+        "bytes": 165,
+        "trace_count": 0,
+        "event_count": 0,
+        "traces": [],
+        "training_log": [],
+        "heldout_log": null,
+        "designation": "original_miner_training_only_no_new_heldout",
+        "original_training_variants": []
+      },
+      "carried_actual_outcome": {
+        "status": "algorithm_exception",
+        "exception": {
+          "class": "java.util.NoSuchElementException",
+          "message": null
+        },
+        "observation_sha256": "031fef9242fa8fd407bee314ee480056e469d539408b4a8e0d29ae6ec081dacc",
+        "observation_bytes": 1184,
+        "elapsed_mining_nanos": 26740900,
+        "native_exit": 0,
+        "native_proof_sha256": "26c412f14b8e9a70e0d43fff3771848c5c6448fd19802f2e453af8f204bf008b",
+        "coordinator_result_sha256": "b2b236d85caf04d5347afd37ae2bdd7ad50bab5f0ca9651398b044121b9fd6e7",
+        "stdout_complete": true,
+        "stderr_complete": true,
+        "output_limit": false,
+        "capture_fault": false,
+        "drain_timeout": false,
+        "streams": [
+          {
+            "name": "stdout",
+            "sha256": "554af6989f04ae6b9d05c207c2b9b28a3609746246a3cb77926e5050aa059204",
+            "bytes": 35,
+            "original_complete": true,
+            "warning_error_and_fallback_lines": [],
+            "all_console_bytes_retained_in_historical_receipt": true,
+            "raw_console_not_copied": true
+          },
+          {
+            "name": "stderr",
+            "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+            "bytes": 92,
+            "original_complete": true,
+            "warning_error_and_fallback_lines": [],
+            "all_console_bytes_retained_in_historical_receipt": true,
+            "raw_console_not_copied": true
+          }
+        ],
+        "new_miner_execution": false
+      },
+      "raw_bpmn": null,
+      "static_features": null,
+      "expected_admission": {
+        "metric_scalars": "not_frozen_or_invented",
+        "all_outcomes_retained": true,
+        "status": "carried_algorithm_exception",
+        "expected_net_absent": true,
+        "reason": "java.util.NoSuchElementException",
+        "quality_scalar": null
+      }
+    },
+    {
+      "id": "empty-trace",
+      "source_input": {
+        "file": "../oracle-splitminer/empty-trace.xes",
+        "sha256": "5c22ab666b6b3ffae5dd5457a4701f45bbc65bb4dc8deb51491854b157bd3e12",
+        "bytes": 228,
+        "trace_count": 1,
+        "event_count": 0,
+        "traces": [
+          {
+            "source_trace_index": 0,
+            "source_trace_name": "case-0",
+            "sequence": [],
+            "event_count": 0
+          }
+        ],
+        "training_log": [
+          {
+            "sequence": [],
+            "frequency": 1
+          }
+        ],
+        "heldout_log": null,
+        "designation": "original_miner_training_only_no_new_heldout",
+        "original_training_variants": [
+          ""
+        ]
+      },
+      "carried_actual_outcome": {
+        "status": "diagram_returned",
+        "exception": null,
+        "observation_sha256": "79b713dae1e31d1f4b43d967a3be26f53a99b912299e03066bff89f1f87ab9f6",
+        "observation_bytes": 2169,
+        "elapsed_mining_nanos": 168109400,
+        "native_exit": 0,
+        "native_proof_sha256": "14cc4a695528095aae29be61559636d957c9da0becf31dbaf78729a823f7463e",
+        "coordinator_result_sha256": "5c662b5ca87208c6bc007919274d630403408d57dae8faf4fec82c28cc933d1d",
+        "stdout_complete": true,
+        "stderr_complete": true,
+        "output_limit": false,
+        "capture_fault": false,
+        "drain_timeout": false,
+        "streams": [
+          {
+            "name": "stdout",
+            "sha256": "2af832eb929761ad1dc62e00835f39cb2166eb06d1e6a60feb13b1d3118adba0",
+            "bytes": 129,
+            "original_complete": true,
+            "warning_error_and_fallback_lines": [
+              "WARNING - first gateway not found",
+              "ERROR - something went wrong initializing the gateway map"
+            ],
+            "all_console_bytes_retained_in_historical_receipt": true,
+            "raw_console_not_copied": true
+          },
+          {
+            "name": "stderr",
+            "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+            "bytes": 92,
+            "original_complete": true,
+            "warning_error_and_fallback_lines": [],
+            "all_console_bytes_retained_in_historical_receipt": true,
+            "raw_console_not_copied": true
+          }
+        ],
+        "new_miner_execution": false
+      },
+      "raw_bpmn": {
+        "file": "empty-trace.bpmn",
+        "sha256": "aca67b5e5d342b39e095a75a1d74023aebe96947252adf6b8b99319aec77fc73",
+        "bytes": 1290,
+        "byte_identical_original_export": true
+      },
+      "static_features": {
+        "root_attributes": [
+          {
+            "namespace": "",
+            "local_name": "targetNamespace",
+            "qualified_name": "targetNamespace",
+            "value": "http://www.omg.org/bpmn20"
+          },
+          {
+            "namespace": "",
+            "local_name": "exporter",
+            "qualified_name": "exporter",
+            "value": "ProM. http://www.promtools.org/prom6"
+          },
+          {
+            "namespace": "",
+            "local_name": "exporterVersion",
+            "qualified_name": "exporterVersion",
+            "value": "6.3"
+          },
+          {
+            "namespace": "http://www.w3.org/2001/XMLSchema-instance",
+            "local_name": "schemaLocation",
+            "qualified_name": "xsi:schemaLocation",
+            "value": "http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd"
+          }
+        ],
+        "bpmnlabel_DI_count": 2,
+        "standard_loop_elements": [],
+        "looped_nodes": [],
+        "all_element_localnames": [
+          "Bounds",
+          "BPMNDiagram",
+          "BPMNEdge",
+          "BPMNLabel",
+          "BPMNPlane",
+          "BPMNShape",
+          "definitions",
+          "endEvent",
+          "incoming",
+          "outgoing",
+          "process",
+          "sequenceFlow",
+          "startEvent",
+          "waypoint"
+        ],
+        "original_graph_semantic_copy": {
+          "label": "eDFGP-diagram",
+          "nodes": [
+            {
+              "id": "node0",
+              "label": "",
+              "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Event",
+              "event_type": "START",
+              "event_trigger": "NONE",
+              "event_use": "CATCH"
+            },
+            {
+              "id": "node1",
+              "label": "",
+              "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Event",
+              "event_type": "END",
+              "event_trigger": "NONE",
+              "event_use": "THROW"
+            }
+          ],
+          "flows": [
+            {
+              "id": "edge0",
+              "source": "node0",
+              "target": "node1",
+              "label": "",
+              "condition": null
+            }
+          ]
+        },
+        "original_graph_copy_is_not_raw_observation_bytes": true
+      },
+      "expected_admission": {
+        "metric_scalars": "not_frozen_or_invented",
+        "all_outcomes_retained": true,
+        "raw_product_import": "refused",
+        "DI_projection_requires_approved_policy": true,
+        "status": "prospective_pending_admission",
+        "after_DI_only_projection_blocker": "strict_parser_refuses_prefixed_xsi_schemaLocation",
+        "schemaLocation_removal_not_authorized_by_DI_addendum": true,
+        "additional_features_must_remain_visible": true
+      }
+    }
+  ],
+  "expected_quality_thresholds": null,
+  "scope": "All8 historical genuine miner outcomes,7 byte-identical BPMN originals,8 exact original sourceXES and training-only groups. Unsupported/refused/inconclusive are observations, not successes. No invented heldout or scalar. This does not close original R4.",
+  "files": [
+    {
+      "file": "empty-trace.bpmn",
+      "bytes": 1290,
+      "sha256": "aca67b5e5d342b39e095a75a1d74023aebe96947252adf6b8b99319aec77fc73"
+    },
+    {
+      "file": "exclusive-choice.bpmn",
+      "bytes": 4135,
+      "sha256": "887070a89f35c85a315423ef9b30569b220dfa30585a96a06ac39b592032951e"
+    },
+    {
+      "file": "linear.bpmn",
+      "bytes": 2565,
+      "sha256": "427e4dbded59fa732b2cef5b48ab47a414a4461331bdcc4b19b13db338c0eac5"
+    },
+    {
+      "file": "parallel-interleavings.bpmn",
+      "bytes": 4131,
+      "sha256": "56e33beeab413328eb936357be0b508063d9899fdd5087b96910e4812c715c0d"
+    },
+    {
+      "file": "rare-noise.bpmn",
+      "bytes": 4134,
+      "sha256": "e8c27393fb5deb7739004c7f2ab9c704a116bb5d102ddd0ffff04e20012ab613"
+    },
+    {
+      "file": "README.md",
+      "bytes": 3601,
+      "sha256": "643ec1e0ee59c794bf9f6d362499df6146bf6c8782ae54db4894799cda3eeeff"
+    },
+    {
+      "file": "self-loop.bpmn",
+      "bytes": 2192,
+      "sha256": "cc9f4863586d47b9553d41aab8ebd7bc797aeca9597d1524c087a3937cc28463"
+    },
+    {
+      "file": "short-loop.bpmn",
+      "bytes": 3779,
+      "sha256": "9705eddd0b88f25f4abca3688696228046c8e99de0edb71f4b9e1375025d745a"
+    }
+  ]
+}

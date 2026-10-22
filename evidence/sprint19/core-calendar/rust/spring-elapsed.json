@@ -1,0 +1,47 @@
+{
+  "configuration_unchanged": true,
+  "duration_millis": 7200000,
+  "engine": "process_intelligence_rs::calendar::business_millis",
+  "error": null,
+  "iana_tzdb_version": "2025b",
+  "id": "spring-elapsed",
+  "input_sha256": "a74dca4c5dffc14223b88b8437ffc08713881583093fb380af9695072919b9f0",
+  "outcome": "duration",
+  "schema_version": 1,
+  "scope": "Actual existing calendar API; elapsed UTC semantics and refusal policy preserved, not a legacy calendar implementation",
+  "source_input_after": {
+    "calendar": {
+      "end_minute": 240,
+      "holidays": [],
+      "offset_minutes": 0,
+      "start_minute": 60,
+      "timezone": "Europe/Berlin",
+      "weekdays": [
+        7
+      ]
+    },
+    "end": "2026-03-29T02:00:00Z",
+    "id": "spring-elapsed",
+    "schema_version": 1,
+    "start": "2026-03-29T00:00:00Z"
+  },
+  "source_input_after_sha256": "d3a4c62f9124f62fa7cf0206418ae56553ceec58a619e9cc591411e8c0455379",
+  "source_input_before": {
+    "calendar": {
+      "end_minute": 240,
+      "holidays": [],
+      "offset_minutes": 0,
+      "start_minute": 60,
+      "timezone": "Europe/Berlin",
+      "weekdays": [
+        7
+      ]
+    },
+    "end": "2026-03-29T02:00:00Z",
+    "id": "spring-elapsed",
+    "schema_version": 1,
+    "start": "2026-03-29T00:00:00Z"
+  },
+  "source_input_before_sha256": "d3a4c62f9124f62fa7cf0206418ae56553ceec58a619e9cc591411e8c0455379",
+  "status": "ACTUAL_RUST_BUSINESS_CALENDAR_OBSERVED"
+}

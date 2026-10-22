@@ -1,0 +1,175 @@
+{
+  "engine": "process_intelligence_rs::filters::apply",
+  "engine_call_count": 1,
+  "error": null,
+  "filter_spec": {
+    "case_activity": null,
+    "max_events": null,
+    "min_events": null,
+    "remove_activities": [],
+    "retain_activities": [
+      "A"
+    ]
+  },
+  "filter_spec_unchanged": true,
+  "id": "retain-partial",
+  "input_sha256": "eba7bdb6492867d234e6f6827da2a2292d2feb145b06005d450b70bffd75497e",
+  "outcome": "filtered",
+  "schema_version": 1,
+  "scope": "Actual production filter once; source positions derived only from returned exact identities, no selection predicate or legacy export",
+  "selected_event_positions": [
+    [
+      0
+    ],
+    [
+      1,
+      2
+    ]
+  ],
+  "selected_source_indices": [
+    0,
+    1
+  ],
+  "selected_source_log": {
+    "cases": [
+      {
+        "events": [
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          }
+        ],
+        "id": "retain-partial-source-0",
+        "name": "retain-partial-trace-0"
+      },
+      {
+        "events": [
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 10,
+            "timestamp": "2024-01-01T00:00:39.123Z"
+          },
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 17,
+            "timestamp": "2024-01-01T00:00:38.123Z"
+          }
+        ],
+        "id": "retain-partial-source-1",
+        "name": "retain-partial-trace-1"
+      }
+    ],
+    "name": "Extended Core filter retain-partial",
+    "warnings": [
+      "synthetic warning retained for retain-partial"
+    ]
+  },
+  "source_after_sha256": "dc63c54da7ffe05028b96c8a7360a11aeaf36780adf6013ed8dd9ca90160a913",
+  "source_before_sha256": "dc63c54da7ffe05028b96c8a7360a11aeaf36780adf6013ed8dd9ca90160a913",
+  "source_domain_after": {
+    "cases": [
+      {
+        "events": [
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          },
+          {
+            "activity": "B",
+            "lifecycle": "complete",
+            "ordinal": 10,
+            "timestamp": "2024-01-01T00:00:39.123Z"
+          }
+        ],
+        "id": "retain-partial-source-0",
+        "name": "retain-partial-trace-0"
+      },
+      {
+        "events": [
+          {
+            "activity": "B",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          },
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 10,
+            "timestamp": "2024-01-01T00:00:39.123Z"
+          },
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 17,
+            "timestamp": "2024-01-01T00:00:38.123Z"
+          }
+        ],
+        "id": "retain-partial-source-1",
+        "name": "retain-partial-trace-1"
+      }
+    ],
+    "name": "Extended Core filter retain-partial",
+    "warnings": [
+      "synthetic warning retained for retain-partial"
+    ]
+  },
+  "source_domain_before": {
+    "cases": [
+      {
+        "events": [
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          },
+          {
+            "activity": "B",
+            "lifecycle": "complete",
+            "ordinal": 10,
+            "timestamp": "2024-01-01T00:00:39.123Z"
+          }
+        ],
+        "id": "retain-partial-source-0",
+        "name": "retain-partial-trace-0"
+      },
+      {
+        "events": [
+          {
+            "activity": "B",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          },
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 10,
+            "timestamp": "2024-01-01T00:00:39.123Z"
+          },
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 17,
+            "timestamp": "2024-01-01T00:00:38.123Z"
+          }
+        ],
+        "id": "retain-partial-source-1",
+        "name": "retain-partial-trace-1"
+      }
+    ],
+    "name": "Extended Core filter retain-partial",
+    "warnings": [
+      "synthetic warning retained for retain-partial"
+    ]
+  },
+  "source_unchanged": true,
+  "status": "ACTUAL_RUST_EXTENDED_FILTER_OBSERVED"
+}

@@ -1,0 +1,47 @@
+{
+  "configuration_unchanged": true,
+  "duration_millis": 1250,
+  "engine": "process_intelligence_rs::calendar::business_millis",
+  "error": null,
+  "iana_tzdb_version": "2025b",
+  "id": "precision-api",
+  "input_sha256": "cda49f03a2871829ffd822843da68aa0c0f8b8d6a5dd45182beda5942224f7ad",
+  "outcome": "duration",
+  "schema_version": 1,
+  "scope": "Actual existing calendar API; elapsed UTC semantics and refusal policy preserved, not a legacy calendar implementation",
+  "source_input_after": {
+    "calendar": {
+      "end_minute": 1080,
+      "holidays": [],
+      "offset_minutes": 0,
+      "start_minute": 540,
+      "timezone": "UTC",
+      "weekdays": [
+        1
+      ]
+    },
+    "end": "2026-06-01T09:00:01.250Z",
+    "id": "precision-api",
+    "schema_version": 1,
+    "start": "2026-06-01T09:00:00Z"
+  },
+  "source_input_after_sha256": "95d58bf721298e6fb804098beddde07df159f1f46382cf850f7cc1fe6151c77a",
+  "source_input_before": {
+    "calendar": {
+      "end_minute": 1080,
+      "holidays": [],
+      "offset_minutes": 0,
+      "start_minute": 540,
+      "timezone": "UTC",
+      "weekdays": [
+        1
+      ]
+    },
+    "end": "2026-06-01T09:00:01.250Z",
+    "id": "precision-api",
+    "schema_version": 1,
+    "start": "2026-06-01T09:00:00Z"
+  },
+  "source_input_before_sha256": "95d58bf721298e6fb804098beddde07df159f1f46382cf850f7cc1fe6151c77a",
+  "status": "ACTUAL_RUST_BUSINESS_CALENDAR_OBSERVED"
+}

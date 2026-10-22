@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "id": "precision-api",
+  "input_sha256": "cda49f03a2871829ffd822843da68aa0c0f8b8d6a5dd45182beda5942224f7ad",
+  "engine": "org.apromore.calendar.model.CalendarModel",
+  "calendar_identity": {
+    "class": "org.apromore.calendar.model.CalendarModel",
+    "sha256": "875c96a343e48cdc42c613b5f65ba7b35056498e112ebffd865084c4ad8c1e39",
+    "code_source": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+  },
+  "workday_identity": {
+    "class": "org.apromore.calendar.model.WorkDayModel",
+    "sha256": "e9983bdef6b0fe12f0d7db7bb03c326fdb1259a69cdf34bb8e0d279bb3217207",
+    "code_source": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+  },
+  "builder_identity": {
+    "class": "org.apromore.calendar.builder.CalendarModelBuilder",
+    "sha256": "8e2fefee2d943e7e8864d80d9cdfdaf8ce42ebb18e3002639d449a31c81096c5",
+    "code_source": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+  },
+  "factory_identity": {
+    "class": "org.apromore.calendar.model.Calendars",
+    "sha256": "ec2958c284cb6d88b4a69b3ff24668c7311ccd19cfcd4ed396486863252ac5b2",
+    "code_source": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+  },
+  "source_input_before": {
+    "schema_version": 1,
+    "id": "precision-api",
+    "start": "2026-06-01T09:00:00Z",
+    "end": "2026-06-01T09:00:01.250Z",
+    "calendar": {
+      "offset_minutes": 0,
+      "timezone": "UTC",
+      "weekdays": [
+        1
+      ],
+      "start_minute": 540,
+      "end_minute": 1080,
+      "holidays": []
+    }
+  },
+  "source_input_before_sha256": "95d58bf721298e6fb804098beddde07df159f1f46382cf850f7cc1fe6151c77a",
+  "configuration_available": true,
+  "configuration_unchanged": true,
+  "configuration_before": {
+    "zone_id": "UTC",
+    "work_days": [
+      {
+        "weekday": 1,
+        "start_time": "09:00",
+        "end_time": "18:00",
+        "working_day": true,
+        "id": 0,
+        "created_by": "",
+        "updated_by": ""
+      }
+    ],
+    "holidays": [],
+    "id": 0,
+    "name": "CalendarModel",
+    "created": "2026-10-22T02:33:32.401855700Z",
+    "updated": "2026-10-22T02:33:32.402855800Z",
+    "created_by": "",
+    "updated_by": ""
+  },
+  "configuration_after": {
+    "zone_id": "UTC",
+    "work_days": [
+      {
+        "weekday": 1,
+        "start_time": "09:00",
+        "end_time": "18:00",
+        "working_day": true,
+        "id": 0,
+        "created_by": "",
+        "updated_by": ""
+      }
+    ],
+    "holidays": [],
+    "id": 0,
+    "name": "CalendarModel",
+    "created": "2026-10-22T02:33:32.401855700Z",
+    "updated": "2026-10-22T02:33:32.402855800Z",
+    "created_by": "",
+    "updated_by": ""
+  },
+  "java_zone_rules_versions": [
+    "2026b"
+  ],
+  "duration_millis": 1250,
+  "duration_seconds": 1,
+  "duration_nanos": 250000000,
+  "get_duration_millis_secondary": 1251,
+  "duration_method_invoked": true,
+  "secondary_method_invoked": true,
+  "assertions_enabled": false,
+  "main_method": "getDuration(Instant,Instant).toMillis()",
+  "secondary_method": "getDurationMillis(Instant,Instant)",
+  "configuration_before_sha256": "ba8200c32f3863bb10d24aea6909b2ce5e32fc1aeccf601b076f4719e4d541a8",
+  "local_start": "2026-06-01T09:00Z[UTC]",
+  "local_end": "2026-06-01T09:00:01.250Z[UTC]",
+  "outcome": "duration",
+  "configuration_after_main": {
+    "zone_id": "UTC",
+    "work_days": [
+      {
+        "weekday": 1,
+        "start_time": "09:00",
+        "end_time": "18:00",
+        "working_day": true,
+        "id": 0,
+        "created_by": "",
+        "updated_by": ""
+      }
+    ],
+    "holidays": [],
+    "id": 0,
+    "name": "CalendarModel",
+    "created": "2026-10-22T02:33:32.401855700Z",
+    "updated": "2026-10-22T02:33:32.402855800Z",
+    "created_by": "",
+    "updated_by": ""
+  },
+  "configuration_after_main_sha256": "ba8200c32f3863bb10d24aea6909b2ce5e32fc1aeccf601b076f4719e4d541a8",
+  "configuration_after_sha256": "ba8200c32f3863bb10d24aea6909b2ce5e32fc1aeccf601b076f4719e4d541a8",
+  "source_input_after": {
+    "schema_version": 1,
+    "id": "precision-api",
+    "start": "2026-06-01T09:00:00Z",
+    "end": "2026-06-01T09:00:01.250Z",
+    "calendar": {
+      "offset_minutes": 0,
+      "timezone": "UTC",
+      "weekdays": [
+        1
+      ],
+      "start_minute": 540,
+      "end_minute": 1080,
+      "holidays": []
+    }
+  },
+  "source_input_after_sha256": "95d58bf721298e6fb804098beddde07df159f1f46382cf850f7cc1fe6151c77a"
+}

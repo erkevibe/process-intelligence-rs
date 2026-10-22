@@ -1,0 +1,2055 @@
+{
+  "schema_version": 1,
+  "status": "PROSPECTIVE_FROZEN_INPUTS_AWAIT_METHOD_AND_QA_APPROVAL",
+  "scope": "Strict BPMN bridge and named general marking-based fitness/minimum-tau prefix precision/inverse arc degree. Not executed, not original R4 closure.",
+  "model_semantics": "Each manual Petri net is explicit symbolic weighted place-transition graph; null labels are tau; finals is an array of accepting markings. BPMN files and compact manual nets have equal intended visible language, but different tau topology and simplicity may differ.",
+  "caps": {
+    "events": 500,
+    "generated_nodes": 128,
+    "equivalence_subset_pairs": 10000,
+    "prefix_search_states": 100000,
+    "tau_closure_markings": 10000,
+    "reachable_markings": 10000,
+    "events_per_trace": 64,
+    "variants": 32,
+    "fitness_search_states": 100000,
+    "traces": 64,
+    "arcs": 256
+  },
+  "training_policy": "All models are authored synthetic references fixed before evaluation, not mined from heldout. training_log and heldout_log are separately designated below; never tune models or thresholds from either execution. Repeated variants in heldout are not unseen behaviour/generalization evidence.",
+  "manual_nets": {
+    "SEQ": {
+      "places": [
+        "p0",
+        "p1",
+        "p2",
+        "p3"
+      ],
+      "transitions": {
+        "a": "A",
+        "b": "B",
+        "c": "C"
+      },
+      "arcs": [
+        [
+          "p0",
+          "a",
+          1
+        ],
+        [
+          "a",
+          "p1",
+          1
+        ],
+        [
+          "p1",
+          "b",
+          1
+        ],
+        [
+          "b",
+          "p2",
+          1
+        ],
+        [
+          "p2",
+          "c",
+          1
+        ],
+        [
+          "c",
+          "p3",
+          1
+        ]
+      ],
+      "initial": {
+        "p0": 1
+      },
+      "finals": [
+        {
+          "p3": 1
+        }
+      ]
+    },
+    "XOR": {
+      "places": [
+        "p0",
+        "p1",
+        "p2",
+        "p3"
+      ],
+      "transitions": {
+        "a": "A",
+        "b": "B",
+        "c": "C",
+        "d": "D"
+      },
+      "arcs": [
+        [
+          "p0",
+          "a",
+          1
+        ],
+        [
+          "a",
+          "p1",
+          1
+        ],
+        [
+          "p1",
+          "b",
+          1
+        ],
+        [
+          "b",
+          "p2",
+          1
+        ],
+        [
+          "p1",
+          "c",
+          1
+        ],
+        [
+          "c",
+          "p2",
+          1
+        ],
+        [
+          "p2",
+          "d",
+          1
+        ],
+        [
+          "d",
+          "p3",
+          1
+        ]
+      ],
+      "initial": {
+        "p0": 1
+      },
+      "finals": [
+        {
+          "p3": 1
+        }
+      ]
+    },
+    "AND": {
+      "places": [
+        "p0",
+        "p1",
+        "p2",
+        "p3",
+        "p4",
+        "p5",
+        "p6",
+        "p7"
+      ],
+      "transitions": {
+        "a": "A",
+        "split": null,
+        "b": "B",
+        "c": "C",
+        "join": null,
+        "d": "D"
+      },
+      "arcs": [
+        [
+          "p0",
+          "a",
+          1
+        ],
+        [
+          "a",
+          "p1",
+          1
+        ],
+        [
+          "p1",
+          "split",
+          1
+        ],
+        [
+          "split",
+          "p2",
+          1
+        ],
+        [
+          "split",
+          "p3",
+          1
+        ],
+        [
+          "p2",
+          "b",
+          1
+        ],
+        [
+          "b",
+          "p4",
+          1
+        ],
+        [
+          "p3",
+          "c",
+          1
+        ],
+        [
+          "c",
+          "p5",
+          1
+        ],
+        [
+          "p4",
+          "join",
+          1
+        ],
+        [
+          "p5",
+          "join",
+          1
+        ],
+        [
+          "join",
+          "p6",
+          1
+        ],
+        [
+          "p6",
+          "d",
+          1
+        ],
+        [
+          "d",
+          "p7",
+          1
+        ]
+      ],
+      "initial": {
+        "p0": 1
+      },
+      "finals": [
+        {
+          "p7": 1
+        }
+      ]
+    },
+    "LOOP": {
+      "places": [
+        "p0",
+        "p1",
+        "p2"
+      ],
+      "transitions": {
+        "a": "A",
+        "b": "B",
+        "c": "C"
+      },
+      "arcs": [
+        [
+          "p0",
+          "a",
+          1
+        ],
+        [
+          "a",
+          "p1",
+          1
+        ],
+        [
+          "p1",
+          "b",
+          1
+        ],
+        [
+          "b",
+          "p1",
+          1
+        ],
+        [
+          "p1",
+          "c",
+          1
+        ],
+        [
+          "c",
+          "p2",
+          1
+        ]
+      ],
+      "initial": {
+        "p0": 1
+      },
+      "finals": [
+        {
+          "p2": 1
+        }
+      ]
+    },
+    "WEIGHTED": {
+      "places": [
+        "p0",
+        "p1",
+        "p2",
+        "p3"
+      ],
+      "transitions": {
+        "a": "A",
+        "b": "B",
+        "x": "X",
+        "y": "Y",
+        "d": "D"
+      },
+      "arcs": [
+        [
+          "p0",
+          "a",
+          1
+        ],
+        [
+          "a",
+          "p1",
+          1
+        ],
+        [
+          "p0",
+          "b",
+          1
+        ],
+        [
+          "b",
+          "p2",
+          1
+        ],
+        [
+          "p1",
+          "x",
+          1
+        ],
+        [
+          "x",
+          "p2",
+          1
+        ],
+        [
+          "p1",
+          "y",
+          1
+        ],
+        [
+          "y",
+          "p2",
+          1
+        ],
+        [
+          "p2",
+          "d",
+          1
+        ],
+        [
+          "d",
+          "p3",
+          1
+        ]
+      ],
+      "initial": {
+        "p0": 1
+      },
+      "finals": [
+        {
+          "p3": 1
+        }
+      ]
+    },
+    "DUP_EQUAL": {
+      "places": [
+        "p0",
+        "pb",
+        "pc",
+        "pf"
+      ],
+      "transitions": {
+        "a1": "A",
+        "a2": "A",
+        "b": "B",
+        "c": "C"
+      },
+      "arcs": [
+        [
+          "p0",
+          "a1",
+          1
+        ],
+        [
+          "a1",
+          "pb",
+          1
+        ],
+        [
+          "p0",
+          "a2",
+          1
+        ],
+        [
+          "a2",
+          "pc",
+          1
+        ],
+        [
+          "pb",
+          "b",
+          1
+        ],
+        [
+          "b",
+          "pf",
+          1
+        ],
+        [
+          "pc",
+          "c",
+          1
+        ],
+        [
+          "c",
+          "pf",
+          1
+        ]
+      ],
+      "initial": {
+        "p0": 1
+      },
+      "finals": [
+        {
+          "pf": 1
+        }
+      ]
+    },
+    "DUP_UNEQUAL": {
+      "places": [
+        "p0",
+        "pq",
+        "pb",
+        "pc",
+        "pf"
+      ],
+      "transitions": {
+        "a1": "A",
+        "delay": null,
+        "a2": "A",
+        "b": "B",
+        "c": "C"
+      },
+      "arcs": [
+        [
+          "p0",
+          "a1",
+          1
+        ],
+        [
+          "a1",
+          "pb",
+          1
+        ],
+        [
+          "p0",
+          "delay",
+          1
+        ],
+        [
+          "delay",
+          "pq",
+          1
+        ],
+        [
+          "pq",
+          "a2",
+          1
+        ],
+        [
+          "a2",
+          "pc",
+          1
+        ],
+        [
+          "pb",
+          "b",
+          1
+        ],
+        [
+          "b",
+          "pf",
+          1
+        ],
+        [
+          "pc",
+          "c",
+          1
+        ],
+        [
+          "c",
+          "pf",
+          1
+        ]
+      ],
+      "initial": {
+        "p0": 1
+      },
+      "finals": [
+        {
+          "pf": 1
+        }
+      ]
+    },
+    "OPTIONAL": {
+      "places": [
+        "p0",
+        "p1",
+        "pf"
+      ],
+      "transitions": {
+        "a": "A",
+        "b": "B",
+        "skip": null
+      },
+      "arcs": [
+        [
+          "p0",
+          "a",
+          1
+        ],
+        [
+          "a",
+          "p1",
+          1
+        ],
+        [
+          "p1",
+          "b",
+          1
+        ],
+        [
+          "b",
+          "pf",
+          1
+        ],
+        [
+          "p1",
+          "skip",
+          1
+        ],
+        [
+          "skip",
+          "pf",
+          1
+        ]
+      ],
+      "initial": {
+        "p0": 1
+      },
+      "finals": [
+        {
+          "pf": 1
+        }
+      ]
+    },
+    "THREE": {
+      "places": [
+        "p0",
+        "pf"
+      ],
+      "transitions": {
+        "a": "A",
+        "b": "B",
+        "c": "C"
+      },
+      "arcs": [
+        [
+          "p0",
+          "a",
+          1
+        ],
+        [
+          "a",
+          "pf",
+          1
+        ],
+        [
+          "p0",
+          "b",
+          1
+        ],
+        [
+          "b",
+          "pf",
+          1
+        ],
+        [
+          "p0",
+          "c",
+          1
+        ],
+        [
+          "c",
+          "pf",
+          1
+        ]
+      ],
+      "initial": {
+        "p0": 1
+      },
+      "finals": [
+        {
+          "pf": 1
+        }
+      ]
+    },
+    "UNICODE": {
+      "places": [
+        "p0",
+        "pb",
+        "pc",
+        "pf"
+      ],
+      "transitions": {
+        "a1": "Ә & <да> \"go\"",
+        "a2": "Ә & <да> \"go\"",
+        "b": "β",
+        "c": "λ"
+      },
+      "arcs": [
+        [
+          "p0",
+          "a1",
+          1
+        ],
+        [
+          "a1",
+          "pb",
+          1
+        ],
+        [
+          "p0",
+          "a2",
+          1
+        ],
+        [
+          "a2",
+          "pc",
+          1
+        ],
+        [
+          "pb",
+          "b",
+          1
+        ],
+        [
+          "b",
+          "pf",
+          1
+        ],
+        [
+          "pc",
+          "c",
+          1
+        ],
+        [
+          "c",
+          "pf",
+          1
+        ]
+      ],
+      "initial": {
+        "p0": 1
+      },
+      "finals": [
+        {
+          "pf": 1
+        }
+      ]
+    },
+    "TAU_EXIT": {
+      "places": [
+        "p0",
+        "p1",
+        "pf"
+      ],
+      "transitions": {
+        "to": null,
+        "back": null,
+        "exit": null
+      },
+      "arcs": [
+        [
+          "p0",
+          "to",
+          1
+        ],
+        [
+          "to",
+          "p1",
+          1
+        ],
+        [
+          "p1",
+          "back",
+          1
+        ],
+        [
+          "back",
+          "p0",
+          1
+        ],
+        [
+          "p0",
+          "exit",
+          1
+        ],
+        [
+          "exit",
+          "pf",
+          1
+        ]
+      ],
+      "initial": {
+        "p0": 1
+      },
+      "finals": [
+        {
+          "pf": 1
+        }
+      ]
+    },
+    "GROWTH": {
+      "places": [
+        "p0"
+      ],
+      "transitions": {
+        "grow": null
+      },
+      "arcs": [
+        [
+          "grow",
+          "p0",
+          1
+        ]
+      ],
+      "initial": {},
+      "finals": [
+        {}
+      ]
+    },
+    "CLOSED_REGION": {
+      "places": [
+        "p0",
+        "p1",
+        "pf"
+      ],
+      "transitions": {
+        "bad": null,
+        "loop": null,
+        "good": "A"
+      },
+      "arcs": [
+        [
+          "p0",
+          "bad",
+          1
+        ],
+        [
+          "bad",
+          "p1",
+          1
+        ],
+        [
+          "p1",
+          "loop",
+          1
+        ],
+        [
+          "loop",
+          "p1",
+          1
+        ],
+        [
+          "p0",
+          "good",
+          1
+        ],
+        [
+          "good",
+          "pf",
+          1
+        ]
+      ],
+      "initial": {
+        "p0": 1
+      },
+      "finals": [
+        {
+          "pf": 1
+        }
+      ]
+    },
+    "MISSING_FINAL": {
+      "places": [
+        "p0",
+        "pf"
+      ],
+      "transitions": {
+        "a": "A"
+      },
+      "arcs": [
+        [
+          "p0",
+          "a",
+          1
+        ],
+        [
+          "a",
+          "pf",
+          1
+        ]
+      ],
+      "initial": {
+        "p0": 1
+      },
+      "finals": []
+    },
+    "MULTIPLE_FINAL": {
+      "places": [
+        "p0",
+        "pf"
+      ],
+      "transitions": {
+        "a": "A"
+      },
+      "arcs": [
+        [
+          "p0",
+          "a",
+          1
+        ],
+        [
+          "a",
+          "pf",
+          1
+        ]
+      ],
+      "initial": {
+        "p0": 1
+      },
+      "finals": [
+        {
+          "pf": 1
+        },
+        {
+          "p0": 1
+        }
+      ]
+    },
+    "MARKING256": {
+      "places": [
+        "p0",
+        "pf"
+      ],
+      "transitions": {
+        "a": "A"
+      },
+      "arcs": [
+        [
+          "p0",
+          "a",
+          1
+        ],
+        [
+          "a",
+          "pf",
+          1
+        ]
+      ],
+      "initial": {
+        "p0": 256
+      },
+      "finals": [
+        {
+          "pf": 1
+        }
+      ]
+    },
+    "WEIGHT256": {
+      "places": [
+        "p0",
+        "pf"
+      ],
+      "transitions": {
+        "a": "A"
+      },
+      "arcs": [
+        [
+          "p0",
+          "a",
+          256
+        ],
+        [
+          "a",
+          "pf",
+          1
+        ]
+      ],
+      "initial": {
+        "p0": 1
+      },
+      "finals": [
+        {
+          "pf": 1
+        }
+      ]
+    },
+    "MIXED_AND": {
+      "places": [
+        "p0",
+        "pa",
+        "pb",
+        "pA",
+        "pB",
+        "pc",
+        "pd",
+        "pC",
+        "pD",
+        "pf"
+      ],
+      "transitions": {
+        "split": null,
+        "a": "A",
+        "b": "B",
+        "middle": null,
+        "c": "C",
+        "d": "D",
+        "join": null
+      },
+      "arcs": [
+        [
+          "p0",
+          "split",
+          1
+        ],
+        [
+          "split",
+          "pa",
+          1
+        ],
+        [
+          "split",
+          "pb",
+          1
+        ],
+        [
+          "pa",
+          "a",
+          1
+        ],
+        [
+          "a",
+          "pA",
+          1
+        ],
+        [
+          "pb",
+          "b",
+          1
+        ],
+        [
+          "b",
+          "pB",
+          1
+        ],
+        [
+          "pA",
+          "middle",
+          1
+        ],
+        [
+          "pB",
+          "middle",
+          1
+        ],
+        [
+          "middle",
+          "pc",
+          1
+        ],
+        [
+          "middle",
+          "pd",
+          1
+        ],
+        [
+          "pc",
+          "c",
+          1
+        ],
+        [
+          "c",
+          "pC",
+          1
+        ],
+        [
+          "pd",
+          "d",
+          1
+        ],
+        [
+          "d",
+          "pD",
+          1
+        ],
+        [
+          "pC",
+          "join",
+          1
+        ],
+        [
+          "pD",
+          "join",
+          1
+        ],
+        [
+          "join",
+          "pf",
+          1
+        ]
+      ],
+      "initial": {
+        "p0": 1
+      },
+      "finals": [
+        {
+          "pf": 1
+        }
+      ]
+    }
+  },
+  "models": [
+    {
+      "id": "linear",
+      "file": "linear.bpmn",
+      "sha256": "7c144e2c89beca87d733fb7001ac504c32a90969182a752ca2d7e8ca144327bf",
+      "bytes": 639
+    },
+    {
+      "id": "xor",
+      "file": "xor.bpmn",
+      "sha256": "27b31755e8721c0b030d6aa24cd0432ae50a5197bb3825c97ab54825159fa2cf",
+      "bytes": 932
+    },
+    {
+      "id": "parallel",
+      "file": "parallel.bpmn",
+      "sha256": "1a8be11ddcc3f48093694a2b6a392d279bfdfb4e96bd3c9b9b57483bafa0b9c7",
+      "bytes": 930
+    },
+    {
+      "id": "loop",
+      "file": "loop.bpmn",
+      "sha256": "08669fcdf34feb8539564806412500dd9c2bfa7d1820afb23a6eeda0ebf39193",
+      "bytes": 773
+    },
+    {
+      "id": "weighted",
+      "file": "weighted.bpmn",
+      "sha256": "8537a19e324057ea3743ea55168b220a5afdf87b3f4139eae05afcd34007dc0e",
+      "bytes": 1145
+    },
+    {
+      "id": "duplicate_equal",
+      "file": "duplicate_equal.bpmn",
+      "sha256": "44ceeff3a7b336348e8fe93aecd1338b7fa8fe162172423b4621b9fe814933e9",
+      "bytes": 938
+    },
+    {
+      "id": "duplicate_unequal",
+      "file": "duplicate_unequal.bpmn",
+      "sha256": "7431a20449c94f683f94c3dfe3e4fbd3db7761ebc01ee31c023a49408e08bccd",
+      "bytes": 1019
+    },
+    {
+      "id": "optional",
+      "file": "optional.bpmn",
+      "sha256": "15d8e271af090d3139717f75dace43f32d4bd15417cfb24186f017f699847049",
+      "bytes": 776
+    },
+    {
+      "id": "three_choice",
+      "file": "three_choice.bpmn",
+      "sha256": "d14cc382d346f788d09a9005a6c8cfd5b5cde07263916bbde4690dfd29eaf77a",
+      "bytes": 907
+    },
+    {
+      "id": "tau_cycle_exit",
+      "file": "tau_cycle_exit.bpmn",
+      "sha256": "96deb78cf0ed6891673e22bd38c490c70cc8d607bc494668cba2e86757c64a71",
+      "bytes": 620
+    },
+    {
+      "id": "mixed_parallel",
+      "file": "mixed_parallel.bpmn",
+      "sha256": "e947f044040d7c3554f831b1df62a2e5735dccf942be4fdd2e0d61b5b521026d",
+      "bytes": 1063
+    },
+    {
+      "id": "growth",
+      "file": "growth.bpmn",
+      "sha256": "1bf7cb2e50052eb4b5d5f58f08000a7ccedf9e110008ec3f5b7aaaee0227fc4f",
+      "bytes": 619
+    },
+    {
+      "id": "task_branch",
+      "file": "task_branch.bpmn",
+      "sha256": "2a61255a5e44b6a19305359f29275e847e2353a4e0e86dfdc73d34083427893e",
+      "bytes": 773
+    },
+    {
+      "id": "blank_task",
+      "file": "blank_task.bpmn",
+      "sha256": "49d88fed4f8afad315d4682858c554f0a0c103405571aec80413525ca0afe6a7",
+      "bytes": 474
+    },
+    {
+      "id": "condition",
+      "file": "condition.bpmn",
+      "sha256": "e6b61e8fca21e144592dde7b64abe7daed13a95f6c8d939444d9146aa4ffd6dd",
+      "bytes": 706
+    },
+    {
+      "id": "default_flow",
+      "file": "default_flow.bpmn",
+      "sha256": "9d63c93694bced962758f76d8b50032d256a526eab0b3bd2075486c70d10eaf6",
+      "bytes": 945
+    },
+    {
+      "id": "unicode",
+      "file": "unicode.bpmn",
+      "sha256": "eff35e8931ba97c479d7c56a4c29fc4c64a4edbe697e013d96251523c67d9eab",
+      "bytes": 1010
+    },
+    {
+      "id": "unicode_di",
+      "file": "unicode_di.bpmn",
+      "sha256": "04f7c61c73fd691beab79f0a31cab79de013e685ff163825e1d4011a39ac4d86",
+      "bytes": 1241
+    }
+  ],
+  "cases": [
+    {
+      "id": "Q01",
+      "model": "linear",
+      "manual_net": "SEQ",
+      "training_log": [
+        {
+          "sequence": [
+            "A",
+            "B",
+            "C"
+          ],
+          "frequency": 2
+        }
+      ],
+      "heldout_log": [
+        {
+          "sequence": [
+            "A",
+            "B",
+            "C"
+          ],
+          "frequency": 3
+        }
+      ],
+      "expected": {
+        "fitness": "1",
+        "manual_precision": "1",
+        "manual_activated": 9,
+        "manual_escaping": 0,
+        "manual_simplicity": "1",
+        "bridge_status": "measured",
+        "bridge_precision": "1"
+      }
+    },
+    {
+      "id": "Q02",
+      "model": "xor",
+      "manual_net": "XOR",
+      "training_log": [
+        {
+          "sequence": [
+            "A",
+            "B",
+            "D"
+          ],
+          "frequency": 2
+        },
+        {
+          "sequence": [
+            "A",
+            "C",
+            "D"
+          ],
+          "frequency": 2
+        }
+      ],
+      "heldout_log": [
+        {
+          "sequence": [
+            "A",
+            "B",
+            "D"
+          ],
+          "frequency": 3
+        }
+      ],
+      "expected": {
+        "fitness": "1",
+        "manual_precision": "3/4",
+        "manual_activated": 12,
+        "manual_escaping": 3,
+        "bridge_status": "measured",
+        "bridge_precision": "3/4"
+      }
+    },
+    {
+      "id": "Q03",
+      "model": "xor",
+      "manual_net": "XOR",
+      "training_log": [
+        {
+          "sequence": [
+            "A",
+            "B",
+            "D"
+          ],
+          "frequency": 2
+        },
+        {
+          "sequence": [
+            "A",
+            "C",
+            "D"
+          ],
+          "frequency": 2
+        }
+      ],
+      "heldout_log": [
+        {
+          "sequence": [
+            "A",
+            "B",
+            "D"
+          ],
+          "frequency": 3
+        },
+        {
+          "sequence": [
+            "A",
+            "C",
+            "D"
+          ],
+          "frequency": 1
+        }
+      ],
+      "expected": {
+        "fitness": "1",
+        "manual_precision": "1",
+        "manual_activated": 16,
+        "manual_escaping": 0,
+        "bridge_status": "measured",
+        "bridge_precision": "1"
+      }
+    },
+    {
+      "id": "Q04",
+      "model": "parallel",
+      "manual_net": "AND",
+      "training_log": [
+        {
+          "sequence": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "frequency": 2
+        },
+        {
+          "sequence": [
+            "A",
+            "C",
+            "B",
+            "D"
+          ],
+          "frequency": 2
+        }
+      ],
+      "heldout_log": [
+        {
+          "sequence": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "frequency": 2
+        }
+      ],
+      "expected": {
+        "fitness": "1",
+        "manual_precision": "4/5",
+        "manual_activated": 10,
+        "manual_escaping": 2,
+        "bridge_status": "measured",
+        "bridge_precision": "4/5"
+      }
+    },
+    {
+      "id": "Q05",
+      "model": "parallel",
+      "manual_net": "AND",
+      "training_log": [
+        {
+          "sequence": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "frequency": 2
+        },
+        {
+          "sequence": [
+            "A",
+            "C",
+            "B",
+            "D"
+          ],
+          "frequency": 2
+        }
+      ],
+      "heldout_log": [
+        {
+          "sequence": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "frequency": 1
+        },
+        {
+          "sequence": [
+            "A",
+            "C",
+            "B",
+            "D"
+          ],
+          "frequency": 1
+        }
+      ],
+      "expected": {
+        "fitness": "1",
+        "manual_precision": "1",
+        "manual_activated": 10,
+        "manual_escaping": 0,
+        "bridge_status": "measured",
+        "bridge_precision": "1"
+      }
+    },
+    {
+      "id": "Q06",
+      "model": "loop",
+      "manual_net": "LOOP",
+      "training_log": [
+        {
+          "sequence": [
+            "A",
+            "C"
+          ],
+          "frequency": 1
+        },
+        {
+          "sequence": [
+            "A",
+            "B",
+            "C"
+          ],
+          "frequency": 1
+        }
+      ],
+      "heldout_log": [
+        {
+          "sequence": [
+            "A",
+            "B",
+            "C"
+          ],
+          "frequency": 1
+        },
+        {
+          "sequence": [
+            "A",
+            "B",
+            "B",
+            "C"
+          ],
+          "frequency": 1
+        }
+      ],
+      "expected": {
+        "fitness": "1",
+        "manual_precision": "3/4",
+        "manual_activated": 12,
+        "manual_escaping": 3,
+        "bridge_status": "measured",
+        "bridge_precision": "3/4",
+        "visible_language_infinite": true
+      }
+    },
+    {
+      "id": "Q07",
+      "model": "loop",
+      "manual_net": "LOOP",
+      "training_log": [
+        {
+          "sequence": [
+            "A",
+            "B",
+            "C"
+          ],
+          "frequency": 1
+        }
+      ],
+      "heldout_log": [
+        {
+          "sequence": [
+            "A",
+            "C"
+          ],
+          "frequency": 1
+        }
+      ],
+      "expected": {
+        "fitness": "1",
+        "manual_precision": "2/3",
+        "manual_activated": 3,
+        "manual_escaping": 1,
+        "bridge_status": "measured",
+        "bridge_precision": "2/3"
+      }
+    },
+    {
+      "id": "Q08",
+      "model": "weighted",
+      "manual_net": "WEIGHTED",
+      "training_log": [
+        {
+          "sequence": [
+            "A",
+            "X",
+            "D"
+          ],
+          "frequency": 1
+        },
+        {
+          "sequence": [
+            "A",
+            "Y",
+            "D"
+          ],
+          "frequency": 1
+        },
+        {
+          "sequence": [
+            "B",
+            "D"
+          ],
+          "frequency": 1
+        }
+      ],
+      "heldout_log": [
+        {
+          "sequence": [
+            "A",
+            "X",
+            "D"
+          ],
+          "frequency": 3
+        },
+        {
+          "sequence": [
+            "B",
+            "D"
+          ],
+          "frequency": 1
+        }
+      ],
+      "expected": {
+        "fitness": "1",
+        "manual_precision": "5/6",
+        "manual_activated": 18,
+        "manual_escaping": 3,
+        "bridge_status": "measured",
+        "bridge_precision": "5/6"
+      },
+      "subcases": [
+        {
+          "id": "Q08-unit-weights",
+          "heldout_log": [
+            {
+              "sequence": [
+                "A",
+                "X",
+                "D"
+              ],
+              "frequency": 1
+            },
+            {
+              "sequence": [
+                "B",
+                "D"
+              ],
+              "frequency": 1
+            }
+          ],
+          "expected": {
+            "manual_precision": "7/8",
+            "manual_activated": 8,
+            "manual_escaping": 1
+          }
+        }
+      ]
+    },
+    {
+      "id": "Q09",
+      "model": "duplicate_equal",
+      "manual_net": "DUP_EQUAL",
+      "training_log": [
+        {
+          "sequence": [
+            "A",
+            "B"
+          ],
+          "frequency": 1
+        },
+        {
+          "sequence": [
+            "A",
+            "C"
+          ],
+          "frequency": 1
+        }
+      ],
+      "heldout_log": [
+        {
+          "sequence": [
+            "A",
+            "B"
+          ],
+          "frequency": 1
+        }
+      ],
+      "expected": {
+        "fitness": "1",
+        "manual_precision": "2/3",
+        "manual_activated": 3,
+        "manual_escaping": 1,
+        "bridge_status": "measured",
+        "bridge_precision": "2/3",
+        "all_equal_cost_stop_markings_required": true
+      }
+    },
+    {
+      "id": "Q10",
+      "model": "duplicate_unequal",
+      "manual_net": "DUP_UNEQUAL",
+      "training_log": [
+        {
+          "sequence": [
+            "A",
+            "B"
+          ],
+          "frequency": 1
+        },
+        {
+          "sequence": [
+            "A",
+            "C"
+          ],
+          "frequency": 1
+        }
+      ],
+      "heldout_log": [
+        {
+          "sequence": [
+            "A",
+            "B"
+          ],
+          "frequency": 1
+        }
+      ],
+      "expected": {
+        "fitness": "1",
+        "manual_precision": "1",
+        "manual_activated": 2,
+        "manual_escaping": 0,
+        "bridge_status": "measured",
+        "bridge_precision": "1",
+        "incorrect_all_exact_state_union_precision": "2/3"
+      }
+    },
+    {
+      "id": "Q11",
+      "model": "optional",
+      "manual_net": "OPTIONAL",
+      "training_log": [
+        {
+          "sequence": [
+            "A"
+          ],
+          "frequency": 1
+        },
+        {
+          "sequence": [
+            "A",
+            "B"
+          ],
+          "frequency": 1
+        }
+      ],
+      "heldout_log": [
+        {
+          "sequence": [
+            "A"
+          ],
+          "frequency": 1
+        }
+      ],
+      "expected": {
+        "fitness": "1",
+        "manual_precision": "1",
+        "manual_activated": 1,
+        "manual_escaping": 0,
+        "bridge_status": "measured",
+        "bridge_precision": "1",
+        "terminal_prefix_is_not_counted": true
+      }
+    },
+    {
+      "id": "Q12",
+      "model": "three_choice",
+      "manual_net": "THREE",
+      "training_log": [
+        {
+          "sequence": [
+            "A"
+          ],
+          "frequency": 1
+        },
+        {
+          "sequence": [
+            "B"
+          ],
+          "frequency": 1
+        },
+        {
+          "sequence": [
+            "C"
+          ],
+          "frequency": 1
+        }
+      ],
+      "heldout_log": [
+        {
+          "sequence": [
+            "A"
+          ],
+          "frequency": 1
+        }
+      ],
+      "expected": {
+        "fitness": "1",
+        "manual_precision": "1/3",
+        "manual_activated": 3,
+        "manual_escaping": 2,
+        "manual_P": 2,
+        "manual_T": 3,
+        "manual_E": 6,
+        "manual_mean_degree": "12/5",
+        "manual_simplicity": "5/7",
+        "bridge_status": "measured",
+        "bridge_precision": "1/3",
+        "bridge_simplicity_policy": "Compute independently from actual larger bridge P/T/E; never force compact5/7"
+      }
+    },
+    {
+      "id": "Q13",
+      "model": "linear",
+      "manual_net": "SEQ",
+      "training_log": [
+        {
+          "sequence": [
+            "A",
+            "B",
+            "C"
+          ],
+          "frequency": 2
+        }
+      ],
+      "heldout_log": [
+        {
+          "sequence": [
+            "A",
+            "X",
+            "C"
+          ],
+          "frequency": 1
+        },
+        {
+          "sequence": [
+            "A",
+            "C"
+          ],
+          "frequency": 1
+        },
+        {
+          "sequence": [
+            "A",
+            "B",
+            "C"
+          ],
+          "frequency": 1
+        }
+      ],
+      "expected": {
+        "alignment_costs_in_declared_order": [
+          2,
+          1,
+          0
+        ],
+        "fitness": "14/17",
+        "average_trace_fitness": "37/45",
+        "perfect_fraction": "1/3",
+        "precision_status": "requires_fitting_log",
+        "nonfitting_trace_frequency": 2,
+        "unknown_label_X_preserved": true
+      }
+    },
+    {
+      "id": "Q14",
+      "model": "unicode",
+      "manual_net": "UNICODE",
+      "training_log": [
+        {
+          "sequence": [
+            "Ә & <да> \"go\"",
+            "β"
+          ],
+          "frequency": 1
+        },
+        {
+          "sequence": [
+            "Ә & <да> \"go\"",
+            "λ"
+          ],
+          "frequency": 1
+        }
+      ],
+      "heldout_log": [
+        {
+          "sequence": [
+            "Ә & <да> \"go\"",
+            "β"
+          ],
+          "frequency": 1
+        }
+      ],
+      "expected": {
+        "fitness": "1",
+        "manual_precision": "2/3",
+        "bridge_precision": "2/3",
+        "bridge_status": "measured"
+      },
+      "subcases": [
+        {
+          "id": "Q14-renamed-id-DI",
+          "model": "unicode_di",
+          "expected": {
+            "same_metrics_as": "Q14",
+            "DI_bounds_preserved": true,
+            "geometry_inert": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "Q15",
+      "model": "tau_cycle_exit",
+      "manual_net": "TAU_EXIT",
+      "training_log": [
+        {
+          "sequence": [],
+          "frequency": 1
+        }
+      ],
+      "heldout_log": [
+        {
+          "sequence": [],
+          "frequency": 2
+        }
+      ],
+      "expected": {
+        "fitness": "1",
+        "empty_alignment_cost": 0,
+        "precision_status": "not_applicable_no_activated_labels",
+        "precision_scalar": null,
+        "silent_cycle_with_exit_admitted": true
+      },
+      "subcases": [
+        {
+          "id": "Q15-visible-loop",
+          "model": "loop",
+          "manual_net": "LOOP",
+          "heldout_log": [
+            {
+              "sequence": [
+                "A",
+                "B",
+                "B",
+                "C"
+              ],
+              "frequency": 1
+            }
+          ],
+          "expected": {
+            "fitness": "1",
+            "manual_precision": "4/7",
+            "manual_activated": 7,
+            "manual_escaping": 3,
+            "infinite_visible_language": true
+          }
+        },
+        {
+          "id": "Q15-mixed-parallel",
+          "model": "mixed_parallel",
+          "heldout_log": [
+            {
+              "sequence": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "frequency": 1
+            },
+            {
+              "sequence": [
+                "B",
+                "A",
+                "D",
+                "C"
+              ],
+              "frequency": 1
+            }
+          ],
+          "expected": {
+            "fitness": "1",
+            "bridge_precision": "5/6",
+            "bridge_status": "measured",
+            "mixed_AND_join_split": true,
+            "bridge_activated": 12,
+            "bridge_escaping": 2,
+            "manual_precision": "5/6",
+            "manual_activated": 12,
+            "manual_escaping": 2
+          },
+          "manual_net": "MIXED_AND"
+        }
+      ]
+    },
+    {
+      "id": "Q16",
+      "training_log": [
+        {
+          "sequence": [
+            "A"
+          ],
+          "frequency": 1
+        }
+      ],
+      "heldout_log": [
+        {
+          "sequence": [
+            "A"
+          ],
+          "frequency": 1
+        }
+      ],
+      "expected": {
+        "family_has_no_single_scalar": true
+      },
+      "subcases": [
+        {
+          "id": "Q16-missing-final",
+          "manual_net": "MISSING_FINAL",
+          "expected": {
+            "status": "refused",
+            "reason": "missing_final_marking"
+          }
+        },
+        {
+          "id": "Q16-multiple-finals",
+          "manual_net": "MULTIPLE_FINAL",
+          "expected": {
+            "status": "refused",
+            "reason": "exactly_one_final_marking_required"
+          }
+        },
+        {
+          "id": "Q16-closed-nonfinal-region",
+          "manual_net": "CLOSED_REGION",
+          "expected": {
+            "status": "refused",
+            "reason": "reachable_marking_has_no_path_to_final"
+          }
+        },
+        {
+          "id": "Q16-growth",
+          "manual_net": "GROWTH",
+          "model": "growth",
+          "expected": {
+            "status": "inconclusive",
+            "reason": "token_bound_exceeded",
+            "never_truncate_tokens": true
+          }
+        },
+        {
+          "id": "Q16-marking256",
+          "manual_net": "MARKING256",
+          "expected": {
+            "status": "refused",
+            "reason": "marking_count_above255"
+          }
+        },
+        {
+          "id": "Q16-weight256",
+          "manual_net": "WEIGHT256",
+          "expected": {
+            "status": "refused",
+            "reason": "arc_weight_above255"
+          }
+        },
+        {
+          "id": "Q16-reachable-cap",
+          "manual_net": "SEQ",
+          "test_only_lower_caps": {
+            "reachable_markings": 1
+          },
+          "expected": {
+            "status": "inconclusive",
+            "reason": "reachable_marking_budget"
+          }
+        },
+        {
+          "id": "Q16-prefix-cap",
+          "manual_net": "SEQ",
+          "heldout_log": [
+            {
+              "sequence": [
+                "A",
+                "B",
+                "C"
+              ],
+              "frequency": 1
+            }
+          ],
+          "test_only_lower_caps": {
+            "prefix_search_states": 1
+          },
+          "expected": {
+            "precision_status": "inconclusive",
+            "reason": "prefix_search_budget"
+          }
+        },
+        {
+          "id": "Q16-tau-closure-cap",
+          "manual_net": "TAU_EXIT",
+          "heldout_log": [
+            {
+              "sequence": [],
+              "frequency": 1
+            }
+          ],
+          "test_only_lower_caps": {
+            "tau_closure_markings": 1
+          },
+          "expected": {
+            "precision_status": "inconclusive",
+            "reason": "tau_closure_budget"
+          }
+        },
+        {
+          "id": "Q16-equivalence-cap",
+          "model": "parallel",
+          "test_only_lower_caps": {
+            "equivalence_subset_pairs": 1
+          },
+          "expected": {
+            "bridge_equivalence_status": "inconclusive",
+            "reason": "equivalence_subset_pair_budget"
+          }
+        },
+        {
+          "id": "Q16-condition",
+          "model": "condition",
+          "expected": {
+            "status": "refused",
+            "reason": "unsupported_conditionExpression"
+          }
+        },
+        {
+          "id": "Q16-default",
+          "model": "default_flow",
+          "expected": {
+            "status": "refused",
+            "reason": "unsupported_default_flow"
+          }
+        },
+        {
+          "id": "Q16-task-branch",
+          "model": "task_branch",
+          "expected": {
+            "status": "quality_unsupported_semantics",
+            "reason": "ordinary_task_degree"
+          }
+        },
+        {
+          "id": "Q16-blank-task",
+          "model": "blank_task",
+          "expected": {
+            "status": "quality_unsupported_semantics",
+            "reason": "empty_task_activity_label"
+          }
+        },
+        {
+          "id": "Q16-empty-log",
+          "manual_net": "SEQ",
+          "heldout_log": [],
+          "expected": {
+            "fitness_status": "no_data",
+            "precision_status": "no_data",
+            "metric_scalars": null
+          }
+        }
+      ]
+    }
+  ],
+  "expectation_scope": "Manual precision numbers bind the explicit compact/manual Petri net. Bridge precision hypotheses bind the stated BPMN bridge encoding and must be independently reviewed; no expected value was taken from candidate execution. Simplicity is always on its exact graph; Q12compact5/7 is not a bridge target. All positive training logs are fitting reference data; heldout expectations are explicit. No mining or evaluation has occurred."
+}

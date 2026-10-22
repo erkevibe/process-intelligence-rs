@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "bundle_sha256": "fd6be6758dcdbff85bd56465e00516fd450cd93378e1d8d5ad2c15dfc52781f1",
+  "corpus_sha256": "618708791670d89f730282ac0a7e0dd1eb39c59600a5362684bb71fdc3e40410",
+  "phase": "unchanged_pm4py_bpmn_conversion",
+  "source_pins": {
+    "pm4py.algo.evaluation.precision.variants.align_etconformance": "6c29314c049629a38b2bd969b3ae07ab83dc814c4185a56f507dd0b1d161a39e",
+    "pm4py.algo.evaluation.precision.utils": "62a2641b8f9ace1b7e508cc97bde4d8cae5cf57ccb36f3b15f695c0cfbbed524",
+    "pm4py.objects.petri_net.utils.align_utils": "99207fdb93fc442e21761d9296b201d638d60c2bc22ea89d42c5d7fd68e064c2",
+    "pm4py.algo.evaluation.simplicity.variants.arc_degree": "84edf8a85a7cb3e313056b58493b430b960ffc47cbb57efe6559d924b36249f7",
+    "pm4py.objects.conversion.bpmn.variants.to_petri_net": "257441ca99bcede7d9ec356998a8e2b55a8274c8eca52e381f42c471c19ffad1"
+  },
+  "cases": [
+    {
+      "id": "bridge-blank_task",
+      "status": "not_executed_rust_admission_refused",
+      "original_rust_prepared": {
+        "details": null,
+        "reason": "empty_task_activity_label",
+        "status": "quality_unsupported_semantics"
+      }
+    },
+    {
+      "id": "bridge-condition",
+      "status": "not_executed_rust_admission_refused",
+      "original_rust_prepared": {
+        "details": {
+          "message": "Условия sequenceFlow не входят в subset."
+        },
+        "reason": "bpmn_unsupported",
+        "status": "refused"
+      }
+    },
+    {
+      "id": "bridge-default_flow",
+      "status": "not_executed_rust_admission_refused",
+      "original_rust_prepared": {
+        "details": {
+          "message": "Атрибут меняет неподдерживаемую семантику BPMN."
+        },
+        "reason": "bpmn_unsupported",
+        "status": "refused"
+      }
+    },
+    {
+      "id": "bridge-duplicate_equal",
+      "status": "converted",
+      "net_sha256": "d821c9295e20767bc459595699f9b181bc57b2c223302b1a466587627014cf66",
+      "graph_sha256": "4455910aa489fc59cb3062355d06355d0662618b907956990c03fe12fddd5ee3",
+      "net_file": "bridge-duplicate_equal.net.json",
+      "graph_file": "bridge-duplicate_equal.graph.json"
+    },
+    {
+      "id": "bridge-duplicate_unequal",
+      "status": "converted",
+      "net_sha256": "a492e95c762b94b7912105969609d305cb92b3da0d40e9e42ba0d7a200279c36",
+      "graph_sha256": "384ed342d8c06a95e40f326e9497d9339913f583de4822669de867f3594688cd",
+      "net_file": "bridge-duplicate_unequal.net.json",
+      "graph_file": "bridge-duplicate_unequal.graph.json"
+    },
+    {
+      "id": "bridge-growth",
+      "status": "not_executed_rust_admission_refused",
+      "original_rust_prepared": {
+        "admission_reason": "reachable_marking_budget",
+        "admission_status": "inconclusive",
+        "graph_file": "bridge-growth.graph.json",
+        "graph_sha256": "f302dfaa6d637f0fa320c161fd30a616e6afb10be65776591dd06f4ec4c50646",
+        "map_file": "bridge-growth.map.json",
+        "map_sha256": "7012305b6d98a4a784fa7457354ccabd331a21338de1209f9302aac97d6016cf",
+        "net_bytes": 3911,
+        "net_file": "bridge-growth.net.json",
+        "net_sha256": "dea8ce983c470536759a7242ef02f833702c84add79b8105d1fae3681a3e34fe",
+        "status": "net_saved"
+      }
+    },
+    {
+      "id": "bridge-linear",
+      "status": "converted",
+      "net_sha256": "890e0b88d14ab9923b6937adec3035e1ff47fbd4454440f944355eb1daae9f21",
+      "graph_sha256": "43ae7b395c2bd2ed4a2d9e9bce7abbe04ceb68aff5224ed07f77a1b11cfa9c3f",
+      "net_file": "bridge-linear.net.json",
+      "graph_file": "bridge-linear.graph.json"
+    },
+    {
+      "id": "bridge-loop",
+      "status": "converted",
+      "net_sha256": "a6cea36544cc3f9812dd70f266632572df3492c32ca93d3c3942bc0b6c14403f",
+      "graph_sha256": "9561d4c63fc315abb68577603fc6d2810e65d48d15e346ed0ce121c39ecaecf5",
+      "net_file": "bridge-loop.net.json",
+      "graph_file": "bridge-loop.graph.json"
+    },
+    {
+      "id": "bridge-mixed_parallel",
+      "status": "converted",
+      "net_sha256": "ffbca61b5d7125fdd2a89850c3d21826c7bbf7f349669550bc8d9b2c72617f20",
+      "graph_sha256": "b34cb50dd2c0ff486ba78b73cc733d9cc6d08074588f5c7e326aeb587c91995b",
+      "net_file": "bridge-mixed_parallel.net.json",
+      "graph_file": "bridge-mixed_parallel.graph.json"
+    },
+    {
+      "id": "bridge-optional",
+      "status": "converted",
+      "net_sha256": "b187e3f9fb3af118846a2298754f5f5ffcd4b4f14cc5edd6099c567b391f83b8",
+      "graph_sha256": "7c39d8098d082170c2a247734fd81ea31e813457c7afaa664f887fc117f3ff3e",
+      "net_file": "bridge-optional.net.json",
+      "graph_file": "bridge-optional.graph.json"
+    },
+    {
+      "id": "bridge-parallel",
+      "status": "converted",
+      "net_sha256": "47e1ed6a63c0e13db60635c1fe16235d0e37bb54b75a2619c5c09683ce19d68d",
+      "graph_sha256": "f949ed762d3e9f03fa322c55cc288f9cfc0c8f9ee9bedf352c0d9b681391ab08",
+      "net_file": "bridge-parallel.net.json",
+      "graph_file": "bridge-parallel.graph.json"
+    },
+    {
+      "id": "bridge-task_branch",
+      "status": "not_executed_rust_admission_refused",
+      "original_rust_prepared": {
+        "details": null,
+        "reason": "ordinary_task_degree",
+        "status": "quality_unsupported_semantics"
+      }
+    },
+    {
+      "id": "bridge-tau_cycle_exit",
+      "status": "converted",
+      "net_sha256": "e3038fdaef524fbd388d0571f76c5c852e3f48d61497e4d10bf4f1f89b421869",
+      "graph_sha256": "09f0ee7b471faf4dedf5fcc2ab38bf57cbc40bc7185dcc9fff1111d65adb2621",
+      "net_file": "bridge-tau_cycle_exit.net.json",
+      "graph_file": "bridge-tau_cycle_exit.graph.json"
+    },
+    {
+      "id": "bridge-three_choice",
+      "status": "converted",
+      "net_sha256": "fc5d894a59bf36ff26e55eb28f8e116dcd59e0f16f746ab16eebff4b27452e6c",
+      "graph_sha256": "b289d4fa2db0e34508ff7ddf5881de3510dac5d42d1a45f563e8693ea8531c5a",
+      "net_file": "bridge-three_choice.net.json",
+      "graph_file": "bridge-three_choice.graph.json"
+    },
+    {
+      "id": "bridge-unicode",
+      "status": "converted",
+      "net_sha256": "1347924dfa12437a12981ff63770afcf9af1d04d3c98037ffb839515cbac2fff",
+      "graph_sha256": "ec752424b67a8d9e3bb0f78929cd4456efdd8d399d89061dde7acd05ed5a50fb",
+      "net_file": "bridge-unicode.net.json",
+      "graph_file": "bridge-unicode.graph.json"
+    },
+    {
+      "id": "bridge-unicode_di",
+      "status": "converted",
+      "net_sha256": "ca572f754b15880d22882bb4152e99b5cbf27ded6ec97f856c20094cbcbdb5f8",
+      "graph_sha256": "eeb842bfc05879f53ad10e9319e193d08841b05835327afcc9ba2cbc7e6c943b",
+      "net_file": "bridge-unicode_di.net.json",
+      "graph_file": "bridge-unicode_di.graph.json"
+    },
+    {
+      "id": "bridge-weighted",
+      "status": "converted",
+      "net_sha256": "c5fd4ece101954ceaea0f49d53c85e07c74fb30891b4455294b77626935f4867",
+      "graph_sha256": "c3d1487ca10e2144a33d45c25b156e78ce13308b464623bbaa1f35f4d78fefc2",
+      "net_file": "bridge-weighted.net.json",
+      "graph_file": "bridge-weighted.graph.json"
+    },
+    {
+      "id": "bridge-xor",
+      "status": "converted",
+      "net_sha256": "88e247f32201936485856e1c59be275fd75d066d301f4d1b832d73b70ff70383",
+      "graph_sha256": "0cf59a95068e6b64cb0db0c38404cb0d56740088a16d10cc95942e3d80a28672",
+      "net_file": "bridge-xor.net.json",
+      "graph_file": "bridge-xor.graph.json"
+    }
+  ],
+  "not_acceptance": true
+}

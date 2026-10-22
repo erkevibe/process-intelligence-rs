@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "id": "remove-empty-case",
+  "filter_spec": {
+    "case_activity": null,
+    "min_events": null,
+    "max_events": null,
+    "retain_activities": [],
+    "remove_activities": [
+      "A"
+    ]
+  },
+  "source": {
+    "name": "Extended Core filter remove-empty-case",
+    "cases": [
+      {
+        "id": "remove-empty-case-source-0",
+        "name": "remove-empty-case-trace-0",
+        "events": [
+          {
+            "ordinal": 3,
+            "activity": "A",
+            "timestamp": "2024-01-01T00:00:40.123Z",
+            "lifecycle": "complete"
+          }
+        ]
+      },
+      {
+        "id": "remove-empty-case-source-1",
+        "name": "remove-empty-case-trace-1",
+        "events": [
+          {
+            "ordinal": 3,
+            "activity": "B",
+            "timestamp": "2024-01-01T00:00:40.123Z",
+            "lifecycle": "complete"
+          },
+          {
+            "ordinal": 10,
+            "activity": "A",
+            "timestamp": "2024-01-01T00:00:39.123Z",
+            "lifecycle": "complete"
+          }
+        ]
+      }
+    ],
+    "warnings": [
+      "synthetic warning retained for remove-empty-case"
+    ]
+  }
+}

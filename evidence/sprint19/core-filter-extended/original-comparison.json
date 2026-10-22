@@ -1,0 +1,2473 @@
+{
+  "schema_version": 1,
+  "status": "ACTUAL_FINITE_COMPARISON_COMPLETED",
+  "corpus_sha256": "87d9c3731c66eedc0bf54fbb7a6652c8b20f507c9a1000f3d0ffeac46acfe5d3",
+  "java_index_sha256": "222f4e5dc6ff9082af032556661177d3083a743545b5b4480abf8e6889c656ba",
+  "rust_index_sha256": "81dfbc4b5484c1a42f218ab66ac441f0e3a24304b03d540682193f2f84049678",
+  "case_count": 8,
+  "cases": [
+    {
+      "id": "length-closed",
+      "profile": "overlap",
+      "input_sha256": "bde7fc2e70446b3e3c495966f96de6537b4c6ed090a3c437533cc2113c563aa2",
+      "java": {
+        "outcome": "filtered",
+        "engine_invoked": true,
+        "engine_call_count": 1,
+        "selected_source_indices": [
+          1,
+          2
+        ],
+        "selected_event_positions": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            2
+          ]
+        ],
+        "selected_source_log": {
+          "name": "Extended Core filter length-closed",
+          "cases": [
+            {
+              "id": "length-closed-source-1",
+              "name": "length-closed-trace-1",
+              "events": [
+                {
+                  "ordinal": 3,
+                  "activity": "A",
+                  "timestamp": "2024-01-01T00:00:40.123Z",
+                  "lifecycle": "complete"
+                },
+                {
+                  "ordinal": 10,
+                  "activity": "B",
+                  "timestamp": "2024-01-01T00:00:39.123Z",
+                  "lifecycle": "complete"
+                }
+              ]
+            },
+            {
+              "id": "length-closed-source-2",
+              "name": "length-closed-trace-2",
+              "events": [
+                {
+                  "ordinal": 3,
+                  "activity": "A",
+                  "timestamp": "2024-01-01T00:00:40.123Z",
+                  "lifecycle": "complete"
+                },
+                {
+                  "ordinal": 10,
+                  "activity": "B",
+                  "timestamp": "2024-01-01T00:00:39.123Z",
+                  "lifecycle": "complete"
+                },
+                {
+                  "ordinal": 17,
+                  "activity": "C",
+                  "timestamp": "2024-01-01T00:00:38.123Z",
+                  "lifecycle": "complete"
+                }
+              ]
+            }
+          ],
+          "warnings": [
+            "synthetic warning retained for length-closed"
+          ]
+        },
+        "source_domain_unchanged": true,
+        "source_xlog_unchanged": true,
+        "source_apm_unchanged": true
+      },
+      "rust": {
+        "outcome": "filtered",
+        "error_code": null,
+        "selected_source_indices": [
+          1,
+          2
+        ],
+        "selected_event_positions": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            2
+          ]
+        ],
+        "selected_source_log": {
+          "cases": [
+            {
+              "events": [
+                {
+                  "activity": "A",
+                  "lifecycle": "complete",
+                  "ordinal": 3,
+                  "timestamp": "2024-01-01T00:00:40.123Z"
+                },
+                {
+                  "activity": "B",
+                  "lifecycle": "complete",
+                  "ordinal": 10,
+                  "timestamp": "2024-01-01T00:00:39.123Z"
+                }
+              ],
+              "id": "length-closed-source-1",
+              "name": "length-closed-trace-1"
+            },
+            {
+              "events": [
+                {
+                  "activity": "A",
+                  "lifecycle": "complete",
+                  "ordinal": 3,
+                  "timestamp": "2024-01-01T00:00:40.123Z"
+                },
+                {
+                  "activity": "B",
+                  "lifecycle": "complete",
+                  "ordinal": 10,
+                  "timestamp": "2024-01-01T00:00:39.123Z"
+                },
+                {
+                  "activity": "C",
+                  "lifecycle": "complete",
+                  "ordinal": 17,
+                  "timestamp": "2024-01-01T00:00:38.123Z"
+                }
+              ],
+              "id": "length-closed-source-2",
+              "name": "length-closed-trace-2"
+            }
+          ],
+          "name": "Extended Core filter length-closed",
+          "warnings": [
+            "synthetic warning retained for length-closed"
+          ]
+        },
+        "source_domain_unchanged": true
+      },
+      "actual_java_ordered_rules": [
+        {
+          "filter_type": "CASE_LENGTH",
+          "choice": "RETAIN",
+          "section": "CASE",
+          "inclusion": "ANY_VALUE",
+          "key": "case:length",
+          "primary_values": [
+            {
+              "operation": "GREATER_EQUAL",
+              "long_value": 2,
+              "string_set": null
+            },
+            {
+              "operation": "LESS_EQUAL",
+              "long_value": 3,
+              "string_set": null
+            }
+          ]
+        }
+      ],
+      "java_rules_match_frozen_parameters": true,
+      "java_pointer_identity_binds_source": true,
+      "java_selection_conservation": {
+        "source_trace_order_preserved": true,
+        "source_event_order_preserved": true,
+        "complete_selected_fields_preserved": true
+      },
+      "rust_selection_conservation": {
+        "source_trace_order_preserved": true,
+        "source_event_order_preserved": true,
+        "complete_selected_fields_preserved": true
+      },
+      "rust_filter_spec_unchanged": true,
+      "selected_full_log_equal": true,
+      "source_trace_and_event_indices_equal": true,
+      "selected_full_log_differences": [],
+      "original_manual_hypotheses": {
+        "java": {
+          "outcome": "filtered",
+          "engine_invoked": true,
+          "engine_call_count": 1,
+          "selected_source_indices": [
+            1,
+            2
+          ],
+          "selected_event_positions": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              2
+            ]
+          ],
+          "selected_source_log": {
+            "name": "Extended Core filter length-closed",
+            "cases": [
+              {
+                "id": "length-closed-source-1",
+                "name": "length-closed-trace-1",
+                "events": [
+                  {
+                    "ordinal": 3,
+                    "activity": "A",
+                    "timestamp": "2024-01-01T00:00:40.123Z",
+                    "lifecycle": "complete"
+                  },
+                  {
+                    "ordinal": 10,
+                    "activity": "B",
+                    "timestamp": "2024-01-01T00:00:39.123Z",
+                    "lifecycle": "complete"
+                  }
+                ]
+              },
+              {
+                "id": "length-closed-source-2",
+                "name": "length-closed-trace-2",
+                "events": [
+                  {
+                    "ordinal": 3,
+                    "activity": "A",
+                    "timestamp": "2024-01-01T00:00:40.123Z",
+                    "lifecycle": "complete"
+                  },
+                  {
+                    "ordinal": 10,
+                    "activity": "B",
+                    "timestamp": "2024-01-01T00:00:39.123Z",
+                    "lifecycle": "complete"
+                  },
+                  {
+                    "ordinal": 17,
+                    "activity": "C",
+                    "timestamp": "2024-01-01T00:00:38.123Z",
+                    "lifecycle": "complete"
+                  }
+                ]
+              }
+            ],
+            "warnings": [
+              "synthetic warning retained for length-closed"
+            ]
+          },
+          "source_domain_unchanged": true,
+          "source_xlog_unchanged": true,
+          "source_apm_unchanged": true
+        },
+        "rust": {
+          "outcome": "filtered",
+          "error_code": null,
+          "selected_source_indices": [
+            1,
+            2
+          ],
+          "selected_event_positions": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              2
+            ]
+          ],
+          "selected_source_log": {
+            "name": "Extended Core filter length-closed",
+            "cases": [
+              {
+                "id": "length-closed-source-1",
+                "name": "length-closed-trace-1",
+                "events": [
+                  {
+                    "ordinal": 3,
+                    "activity": "A",
+                    "timestamp": "2024-01-01T00:00:40.123Z",
+                    "lifecycle": "complete"
+                  },
+                  {
+                    "ordinal": 10,
+                    "activity": "B",
+                    "timestamp": "2024-01-01T00:00:39.123Z",
+                    "lifecycle": "complete"
+                  }
+                ]
+              },
+              {
+                "id": "length-closed-source-2",
+                "name": "length-closed-trace-2",
+                "events": [
+                  {
+                    "ordinal": 3,
+                    "activity": "A",
+                    "timestamp": "2024-01-01T00:00:40.123Z",
+                    "lifecycle": "complete"
+                  },
+                  {
+                    "ordinal": 10,
+                    "activity": "B",
+                    "timestamp": "2024-01-01T00:00:39.123Z",
+                    "lifecycle": "complete"
+                  },
+                  {
+                    "ordinal": 17,
+                    "activity": "C",
+                    "timestamp": "2024-01-01T00:00:38.123Z",
+                    "lifecycle": "complete"
+                  }
+                ]
+              }
+            ],
+            "warnings": [
+              "synthetic warning retained for length-closed"
+            ]
+          },
+          "source_domain_unchanged": true
+        }
+      },
+      "hypothesis_checks": {
+        "java": {
+          "outcome": true,
+          "engine_invoked": true,
+          "engine_call_count": true,
+          "selected_source_indices": true,
+          "selected_event_positions": true,
+          "selected_source_log": true,
+          "source_domain_unchanged": true,
+          "source_xlog_unchanged": true,
+          "source_apm_unchanged": true
+        },
+        "rust": {
+          "outcome": true,
+          "error_code": true,
+          "selected_source_indices": true,
+          "selected_event_positions": true,
+          "selected_source_log": true,
+          "source_domain_unchanged": true
+        }
+      },
+      "all_frozen_hypotheses_match": true,
+      "full_selection_equality_eligible": true,
+      "overlap_fields_match": true,
+      "diagnostic_difference_is_not_equality_pass": false,
+      "no_whole_Core_filter_parity_claim": true,
+      "java_observation_sha256": "0DFF0E1D2C0D80469ED0D7C64EBA3A29D224E632D203383A849B65E1057B8010",
+      "rust_observation_sha256": "3430BEAE1526206878E97F6901F2CB30A26D119BE0A41A254046C3FD5C4B65D3"
+    },
+    {
+      "id": "length-min-only",
+      "profile": "overlap",
+      "input_sha256": "19fe4532892a617d1d0baee477b8eef8ad34fdd5bff3a34c886c1c80b75cbe9c",
+      "java": {
+        "outcome": "filtered",
+        "engine_invoked": true,
+        "engine_call_count": 1,
+        "selected_source_indices": [
+          1,
+          2,
+          3
+        ],
+        "selected_event_positions": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            2
+          ],
+          [
+            0,
+            1,
+            2,
+            3
+          ]
+        ],
+        "selected_source_log": {
+          "name": "Extended Core filter length-min-only",
+          "cases": [
+            {
+              "id": "length-min-only-source-1",
+              "name": "length-min-only-trace-1",
+              "events": [
+                {
+                  "ordinal": 3,
+                  "activity": "A",
+                  "timestamp": "2024-01-01T00:00:40.123Z",
+                  "lifecycle": "complete"
+                },
+                {
+                  "ordinal": 10,
+                  "activity": "B",
+                  "timestamp": "2024-01-01T00:00:39.123Z",
+                  "lifecycle": "complete"
+                }
+              ]
+            },
+            {
+              "id": "length-min-only-source-2",
+              "name": "length-min-only-trace-2",
+              "events": [
+                {
+                  "ordinal": 3,
+                  "activity": "A",
+                  "timestamp": "2024-01-01T00:00:40.123Z",
+                  "lifecycle": "complete"
+                },
+                {
+                  "ordinal": 10,
+                  "activity": "B",
+                  "timestamp": "2024-01-01T00:00:39.123Z",
+                  "lifecycle": "complete"
+                },
+                {
+                  "ordinal": 17,
+                  "activity": "C",
+                  "timestamp": "2024-01-01T00:00:38.123Z",
+                  "lifecycle": "complete"
+                }
+              ]
+            },
+            {
+              "id": "length-min-only-source-3",
+              "name": "length-min-only-trace-3",
+              "events": [
+                {
+                  "ordinal": 3,
+                  "activity": "A",
+                  "timestamp": "2024-01-01T00:00:40.123Z",
+                  "lifecycle": "complete"
+                },
+                {
+                  "ordinal": 10,
+                  "activity": "B",
+                  "timestamp": "2024-01-01T00:00:39.123Z",
+                  "lifecycle": "complete"
+                },
+                {
+                  "ordinal": 17,
+                  "activity": "C",
+                  "timestamp": "2024-01-01T00:00:38.123Z",
+                  "lifecycle": "complete"
+                },
+                {
+                  "ordinal": 24,
+                  "activity": "D",
+                  "timestamp": "2024-01-01T00:00:37.123Z",
+                  "lifecycle": "complete"
+                }
+              ]
+            }
+          ],
+          "warnings": [
+            "synthetic warning retained for length-min-only"
+          ]
+        },
+        "source_domain_unchanged": true,
+        "source_xlog_unchanged": true,
+        "source_apm_unchanged": true
+      },
+      "rust": {
+        "outcome": "filtered",
+        "error_code": null,
+        "selected_source_indices": [
+          1,
+          2,
+          3
+        ],
+        "selected_event_positions": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            2
+          ],
+          [
+            0,
+            1,
+            2,
+            3
+          ]
+        ],
+        "selected_source_log": {
+          "cases": [
+            {
+              "events": [
+                {
+                  "activity": "A",
+                  "lifecycle": "complete",
+                  "ordinal": 3,
+                  "timestamp": "2024-01-01T00:00:40.123Z"
+                },
+                {
+                  "activity": "B",
+                  "lifecycle": "complete",
+                  "ordinal": 10,
+                  "timestamp": "2024-01-01T00:00:39.123Z"
+                }
+              ],
+              "id": "length-min-only-source-1",
+              "name": "length-min-only-trace-1"
+            },
+            {
+              "events": [
+                {
+                  "activity": "A",
+                  "lifecycle": "complete",
+                  "ordinal": 3,
+                  "timestamp": "2024-01-01T00:00:40.123Z"
+                },
+                {
+                  "activity": "B",
+                  "lifecycle": "complete",
+                  "ordinal": 10,
+                  "timestamp": "2024-01-01T00:00:39.123Z"
+                },
+                {
+                  "activity": "C",
+                  "lifecycle": "complete",
+                  "ordinal": 17,
+                  "timestamp": "2024-01-01T00:00:38.123Z"
+                }
+              ],
+              "id": "length-min-only-source-2",
+              "name": "length-min-only-trace-2"
+            },
+            {
+              "events": [
+                {
+                  "activity": "A",
+                  "lifecycle": "complete",
+                  "ordinal": 3,
+                  "timestamp": "2024-01-01T00:00:40.123Z"
+                },
+                {
+                  "activity": "B",
+                  "lifecycle": "complete",
+                  "ordinal": 10,
+                  "timestamp": "2024-01-01T00:00:39.123Z"
+                },
+                {
+                  "activity": "C",
+                  "lifecycle": "complete",
+                  "ordinal": 17,
+                  "timestamp": "2024-01-01T00:00:38.123Z"
+                },
+                {
+                  "activity": "D",
+                  "lifecycle": "complete",
+                  "ordinal": 24,
+                  "timestamp": "2024-01-01T00:00:37.123Z"
+                }
+              ],
+              "id": "length-min-only-source-3",
+              "name": "length-min-only-trace-3"
+            }
+          ],
+          "name": "Extended Core filter length-min-only",
+          "warnings": [
+            "synthetic warning retained for length-min-only"
+          ]
+        },
+        "source_domain_unchanged": true
+      },
+      "actual_java_ordered_rules": [
+        {
+          "filter_type": "CASE_LENGTH",
+          "choice": "RETAIN",
+          "section": "CASE",
+          "inclusion": "ANY_VALUE",
+          "key": "case:length",
+          "primary_values": [
+            {
+              "operation": "GREATER_EQUAL",
+              "long_value": 2,
+              "string_set": null
+            },
+            {
+              "operation": "LESS_EQUAL",
+              "long_value": 9223372036854775807,
+              "string_set": null
+            }
+          ]
+        }
+      ],
+      "java_rules_match_frozen_parameters": true,
+      "java_pointer_identity_binds_source": true,
+      "java_selection_conservation": {
+        "source_trace_order_preserved": true,
+        "source_event_order_preserved": true,
+        "complete_selected_fields_preserved": true
+      },
+      "rust_selection_conservation": {
+        "source_trace_order_preserved": true,
+        "source_event_order_preserved": true,
+        "complete_selected_fields_preserved": true
+      },
+      "rust_filter_spec_unchanged": true,
+      "selected_full_log_equal": true,
+      "source_trace_and_event_indices_equal": true,
+      "selected_full_log_differences": [],
+      "original_manual_hypotheses": {
+        "java": {
+          "outcome": "filtered",
+          "engine_invoked": true,
+          "engine_call_count": 1,
+          "selected_source_indices": [
+            1,
+            2,
+            3
+          ],
+          "selected_event_positions": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              1,
+              2,
+              3
+            ]
+          ],
+          "selected_source_log": {
+            "name": "Extended Core filter length-min-only",
+            "cases": [
+              {
+                "id": "length-min-only-source-1",
+                "name": "length-min-only-trace-1",
+                "events": [
+                  {
+                    "ordinal": 3,
+                    "activity": "A",
+                    "timestamp": "2024-01-01T00:00:40.123Z",
+                    "lifecycle": "complete"
+                  },
+                  {
+                    "ordinal": 10,
+                    "activity": "B",
+                    "timestamp": "2024-01-01T00:00:39.123Z",
+                    "lifecycle": "complete"
+                  }
+                ]
+              },
+              {
+                "id": "length-min-only-source-2",
+                "name": "length-min-only-trace-2",
+                "events": [
+                  {
+                    "ordinal": 3,
+                    "activity": "A",
+                    "timestamp": "2024-01-01T00:00:40.123Z",
+                    "lifecycle": "complete"
+                  },
+                  {
+                    "ordinal": 10,
+                    "activity": "B",
+                    "timestamp": "2024-01-01T00:00:39.123Z",
+                    "lifecycle": "complete"
+                  },
+                  {
+                    "ordinal": 17,
+                    "activity": "C",
+                    "timestamp": "2024-01-01T00:00:38.123Z",
+                    "lifecycle": "complete"
+                  }
+                ]
+              },
+              {
+                "id": "length-min-only-source-3",
+                "name": "length-min-only-trace-3",
+                "events": [
+                  {
+                    "ordinal": 3,
+                    "activity": "A",
+                    "timestamp": "2024-01-01T00:00:40.123Z",
+                    "lifecycle": "complete"
+                  },
+                  {
+                    "ordinal": 10,
+                    "activity": "B",
+                    "timestamp": "2024-01-01T00:00:39.123Z",
+                    "lifecycle": "complete"
+                  },
+                  {
+                    "ordinal": 17,
+                    "activity": "C",
+                    "timestamp": "2024-01-01T00:00:38.123Z",
+                    "lifecycle": "complete"
+                  },
+                  {
+                    "ordinal": 24,
+                    "activity": "D",
+                    "timestamp": "2024-01-01T00:00:37.123Z",
+                    "lifecycle": "complete"
+                  }
+                ]
+              }
+            ],
+            "warnings": [
+              "synthetic warning retained for length-min-only"
+            ]
+          },
+          "source_domain_unchanged": true,
+          "source_xlog_unchanged": true,
+          "source_apm_unchanged": true
+        },
+        "rust": {
+          "outcome": "filtered",
+          "error_code": null,
+          "selected_source_indices": [
+            1,
+            2,
+            3
+          ],
+          "selected_event_positions": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1,
+              2
+            ],
+            [
+              0,
+              1,
+              2,
+              3
+            ]
+          ],
+          "selected_source_log": {
+            "name": "Extended Core filter length-min-only",
+            "cases": [
+              {
+                "id": "length-min-only-source-1",
+                "name": "length-min-only-trace-1",
+                "events": [
+                  {
+                    "ordinal": 3,
+                    "activity": "A",
+                    "timestamp": "2024-01-01T00:00:40.123Z",
+                    "lifecycle": "complete"
+                  },
+                  {
+                    "ordinal": 10,
+                    "activity": "B",
+                    "timestamp": "2024-01-01T00:00:39.123Z",
+                    "lifecycle": "complete"
+                  }
+                ]
+              },
+              {
+                "id": "length-min-only-source-2",
+                "name": "length-min-only-trace-2",
+                "events": [
+                  {
+                    "ordinal": 3,
+                    "activity": "A",
+                    "timestamp": "2024-01-01T00:00:40.123Z",
+                    "lifecycle": "complete"
+                  },
+                  {
+                    "ordinal": 10,
+                    "activity": "B",
+                    "timestamp": "2024-01-01T00:00:39.123Z",
+                    "lifecycle": "complete"
+                  },
+                  {
+                    "ordinal": 17,
+                    "activity": "C",
+                    "timestamp": "2024-01-01T00:00:38.123Z",
+                    "lifecycle": "complete"
+                  }
+                ]
+              },
+              {
+                "id": "length-min-only-source-3",
+                "name": "length-min-only-trace-3",
+                "events": [
+                  {
+                    "ordinal": 3,
+                    "activity": "A",
+                    "timestamp": "2024-01-01T00:00:40.123Z",
+                    "lifecycle": "complete"
+                  },
+                  {
+                    "ordinal": 10,
+                    "activity": "B",
+                    "timestamp": "2024-01-01T00:00:39.123Z",
+                    "lifecycle": "complete"
+                  },
+                  {
+                    "ordinal": 17,
+                    "activity": "C",
+                    "timestamp": "2024-01-01T00:00:38.123Z",
+                    "lifecycle": "complete"
+                  },
+                  {
+                    "ordinal": 24,
+                    "activity": "D",
+                    "timestamp": "2024-01-01T00:00:37.123Z",
+                    "lifecycle": "complete"
+                  }
+                ]
+              }
+            ],
+            "warnings": [
+              "synthetic warning retained for length-min-only"
+            ]
+          },
+          "source_domain_unchanged": true
+        }
+      },
+      "hypothesis_checks": {
+        "java": {
+          "outcome": true,
+          "engine_invoked": true,
+          "engine_call_count": true,
+          "selected_source_indices": true,
+          "selected_event_positions": true,
+          "selected_source_log": true,
+          "source_domain_unchanged": true,
+          "source_xlog_unchanged": true,
+          "source_apm_unchanged": true
+        },
+        "rust": {
+          "outcome": true,
+          "error_code": true,
+          "selected_source_indices": true,
+          "selected_event_positions": true,
+          "selected_source_log": true,
+          "source_domain_unchanged": true
+        }
+      },
+      "all_frozen_hypotheses_match": true,
+      "full_selection_equality_eligible": true,
+      "overlap_fields_match": true,
+      "diagnostic_difference_is_not_equality_pass": false,
+      "no_whole_Core_filter_parity_claim": true,
+      "java_observation_sha256": "90F36D4B3EB0A83396749DA45F2B68FEB8B314A1B179CEB6BB87C4608180AC52",
+      "rust_observation_sha256": "2884720D4F09D711B6A45B9402276F9F018F2F384D0DE5B68F5614FA10592E76"
+    },
+    {
+      "id": "length-max-only",
+      "profile": "overlap",
+      "input_sha256": "4f4bdfe1146a8ca0a2e0af8ca01a701434989d506de392a435be52a760c262b8",
+      "java": {
+        "outcome": "filtered",
+        "engine_invoked": true,
+        "engine_call_count": 1,
+        "selected_source_indices": [
+          0,
+          1
+        ],
+        "selected_event_positions": [
+          [
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "selected_source_log": {
+          "name": "Extended Core filter length-max-only",
+          "cases": [
+            {
+              "id": "length-max-only-source-0",
+              "name": "length-max-only-trace-0",
+              "events": [
+                {
+                  "ordinal": 3,
+                  "activity": "A",
+                  "timestamp": "2024-01-01T00:00:40.123Z",
+                  "lifecycle": "complete"
+                }
+              ]
+            },
+            {
+              "id": "length-max-only-source-1",
+              "name": "length-max-only-trace-1",
+              "events": [
+                {
+                  "ordinal": 3,
+                  "activity": "A",
+                  "timestamp": "2024-01-01T00:00:40.123Z",
+                  "lifecycle": "complete"
+                },
+                {
+                  "ordinal": 10,
+                  "activity": "B",
+                  "timestamp": "2024-01-01T00:00:39.123Z",
+                  "lifecycle": "complete"
+                }
+              ]
+            }
+          ],
+          "warnings": [
+            "synthetic warning retained for length-max-only"
+          ]
+        },
+        "source_domain_unchanged": true,
+        "source_xlog_unchanged": true,
+        "source_apm_unchanged": true
+      },
+      "rust": {
+        "outcome": "filtered",
+        "error_code": null,
+        "selected_source_indices": [
+          0,
+          1
+        ],
+        "selected_event_positions": [
+          [
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "selected_source_log": {
+          "cases": [
+            {
+              "events": [
+                {
+                  "activity": "A",
+                  "lifecycle": "complete",
+                  "ordinal": 3,
+                  "timestamp": "2024-01-01T00:00:40.123Z"
+                }
+              ],
+              "id": "length-max-only-source-0",
+              "name": "length-max-only-trace-0"
+            },
+            {
+              "events": [
+                {
+                  "activity": "A",
+                  "lifecycle": "complete",
+                  "ordinal": 3,
+                  "timestamp": "2024-01-01T00:00:40.123Z"
+                },
+                {
+                  "activity": "B",
+                  "lifecycle": "complete",
+                  "ordinal": 10,
+                  "timestamp": "2024-01-01T00:00:39.123Z"
+                }
+              ],
+              "id": "length-max-only-source-1",
+              "name": "length-max-only-trace-1"
+            }
+          ],
+          "name": "Extended Core filter length-max-only",
+          "warnings": [
+            "synthetic warning retained for length-max-only"
+          ]
+        },
+        "source_domain_unchanged": true
+      },
+      "actual_java_ordered_rules": [
+        {
+          "filter_type": "CASE_LENGTH",
+          "choice": "RETAIN",
+          "section": "CASE",
+          "inclusion": "ANY_VALUE",
+          "key": "case:length",
+          "primary_values": [
+            {
+              "operation": "GREATER_EQUAL",
+              "long_value": 0,
+              "string_set": null
+            },
+            {
+              "operation": "LESS_EQUAL",
+              "long_value": 2,
+              "string_set": null
+            }
+          ]
+        }
+      ],
+      "java_rules_match_frozen_parameters": true,
+      "java_pointer_identity_binds_source": true,
+      "java_selection_conservation": {
+        "source_trace_order_preserved": true,
+        "source_event_order_preserved": true,
+        "complete_selected_fields_preserved": true
+      },
+      "rust_selection_conservation": {
+        "source_trace_order_preserved": true,
+        "source_event_order_preserved": true,
+        "complete_selected_fields_preserved": true
+      },
+      "rust_filter_spec_unchanged": true,
+      "selected_full_log_equal": true,
+      "source_trace_and_event_indices_equal": true,
+      "selected_full_log_differences": [],
+      "original_manual_hypotheses": {
+        "java": {
+          "outcome": "filtered",
+          "engine_invoked": true,
+          "engine_call_count": 1,
+          "selected_source_indices": [
+            0,
+            1
+          ],
+          "selected_event_positions": [
+            [
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "selected_source_log": {
+            "name": "Extended Core filter length-max-only",
+            "cases": [
+              {
+                "id": "length-max-only-source-0",
+                "name": "length-max-only-trace-0",
+                "events": [
+                  {
+                    "ordinal": 3,
+                    "activity": "A",
+                    "timestamp": "2024-01-01T00:00:40.123Z",
+                    "lifecycle": "complete"
+                  }
+                ]
+              },
+              {
+                "id": "length-max-only-source-1",
+                "name": "length-max-only-trace-1",
+                "events": [
+                  {
+                    "ordinal": 3,
+                    "activity": "A",
+                    "timestamp": "2024-01-01T00:00:40.123Z",
+                    "lifecycle": "complete"
+                  },
+                  {
+                    "ordinal": 10,
+                    "activity": "B",
+                    "timestamp": "2024-01-01T00:00:39.123Z",
+                    "lifecycle": "complete"
+                  }
+                ]
+              }
+            ],
+            "warnings": [
+              "synthetic warning retained for length-max-only"
+            ]
+          },
+          "source_domain_unchanged": true,
+          "source_xlog_unchanged": true,
+          "source_apm_unchanged": true
+        },
+        "rust": {
+          "outcome": "filtered",
+          "error_code": null,
+          "selected_source_indices": [
+            0,
+            1
+          ],
+          "selected_event_positions": [
+            [
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "selected_source_log": {
+            "name": "Extended Core filter length-max-only",
+            "cases": [
+              {
+                "id": "length-max-only-source-0",
+                "name": "length-max-only-trace-0",
+                "events": [
+                  {
+                    "ordinal": 3,
+                    "activity": "A",
+                    "timestamp": "2024-01-01T00:00:40.123Z",
+                    "lifecycle": "complete"
+                  }
+                ]
+              },
+              {
+                "id": "length-max-only-source-1",
+                "name": "length-max-only-trace-1",
+                "events": [
+                  {
+                    "ordinal": 3,
+                    "activity": "A",
+                    "timestamp": "2024-01-01T00:00:40.123Z",
+                    "lifecycle": "complete"
+                  },
+                  {
+                    "ordinal": 10,
+                    "activity": "B",
+                    "timestamp": "2024-01-01T00:00:39.123Z",
+                    "lifecycle": "complete"
+                  }
+                ]
+              }
+            ],
+            "warnings": [
+              "synthetic warning retained for length-max-only"
+            ]
+          },
+          "source_domain_unchanged": true
+        }
+      },
+      "hypothesis_checks": {
+        "java": {
+          "outcome": true,
+          "engine_invoked": true,
+          "engine_call_count": true,
+          "selected_source_indices": true,
+          "selected_event_positions": true,
+          "selected_source_log": true,
+          "source_domain_unchanged": true,
+          "source_xlog_unchanged": true,
+          "source_apm_unchanged": true
+        },
+        "rust": {
+          "outcome": true,
+          "error_code": true,
+          "selected_source_indices": true,
+          "selected_event_positions": true,
+          "selected_source_log": true,
+          "source_domain_unchanged": true
+        }
+      },
+      "all_frozen_hypotheses_match": true,
+      "full_selection_equality_eligible": true,
+      "overlap_fields_match": true,
+      "diagnostic_difference_is_not_equality_pass": false,
+      "no_whole_Core_filter_parity_claim": true,
+      "java_observation_sha256": "E0398184E7D2061EAAF3C69B774313F0EB2E67FA8DA2A70ABCAF693B737D16EF",
+      "rust_observation_sha256": "727488853E1C67BBE75D93EB919696BC126AC3600CC8E97F9B835DF69ABE2DA1"
+    },
+    {
+      "id": "length-invalid",
+      "profile": "diagnostic_range_validation",
+      "input_sha256": "200df1083b74bb03ebd73885528d116b99321836bdc8cdf27c005137ab44109c",
+      "java": {
+        "outcome": "filtered",
+        "engine_invoked": true,
+        "engine_call_count": 1,
+        "selected_source_indices": [],
+        "selected_event_positions": [],
+        "selected_source_log": {
+          "name": "Extended Core filter length-invalid",
+          "cases": [],
+          "warnings": [
+            "synthetic warning retained for length-invalid"
+          ]
+        },
+        "source_domain_unchanged": true,
+        "source_xlog_unchanged": true,
+        "source_apm_unchanged": true
+      },
+      "rust": {
+        "outcome": "refused",
+        "error_code": "filter_range",
+        "selected_source_indices": null,
+        "selected_event_positions": null,
+        "selected_source_log": null,
+        "source_domain_unchanged": true
+      },
+      "actual_java_ordered_rules": [
+        {
+          "filter_type": "CASE_LENGTH",
+          "choice": "RETAIN",
+          "section": "CASE",
+          "inclusion": "ANY_VALUE",
+          "key": "case:length",
+          "primary_values": [
+            {
+              "operation": "GREATER_EQUAL",
+              "long_value": 3,
+              "string_set": null
+            },
+            {
+              "operation": "LESS_EQUAL",
+              "long_value": 2,
+              "string_set": null
+            }
+          ]
+        }
+      ],
+      "java_rules_match_frozen_parameters": true,
+      "java_pointer_identity_binds_source": true,
+      "java_selection_conservation": {
+        "source_trace_order_preserved": true,
+        "source_event_order_preserved": true,
+        "complete_selected_fields_preserved": true
+      },
+      "rust_selection_conservation": null,
+      "rust_filter_spec_unchanged": true,
+      "selected_full_log_equal": false,
+      "source_trace_and_event_indices_equal": false,
+      "selected_full_log_differences": [
+        {
+          "path": "$",
+          "left": {
+            "name": "Extended Core filter length-invalid",
+            "cases": [],
+            "warnings": [
+              "synthetic warning retained for length-invalid"
+            ]
+          },
+          "right": null,
+          "left_missing": false,
+          "right_missing": false
+        }
+      ],
+      "original_manual_hypotheses": {
+        "java": {
+          "outcome": "filtered",
+          "engine_invoked": true,
+          "engine_call_count": 1,
+          "selected_source_indices": [],
+          "selected_event_positions": [],
+          "selected_source_log": {
+            "name": "Extended Core filter length-invalid",
+            "cases": [],
+            "warnings": [
+              "synthetic warning retained for length-invalid"
+            ]
+          },
+          "source_domain_unchanged": true,
+          "source_xlog_unchanged": true,
+          "source_apm_unchanged": true
+        },
+        "rust": {
+          "outcome": "refused",
+          "error_code": "filter_range",
+          "selected_source_indices": null,
+          "selected_event_positions": null,
+          "selected_source_log": null,
+          "source_domain_unchanged": true
+        }
+      },
+      "hypothesis_checks": {
+        "java": {
+          "outcome": true,
+          "engine_invoked": true,
+          "engine_call_count": true,
+          "selected_source_indices": true,
+          "selected_event_positions": true,
+          "selected_source_log": true,
+          "source_domain_unchanged": true,
+          "source_xlog_unchanged": true,
+          "source_apm_unchanged": true
+        },
+        "rust": {
+          "outcome": true,
+          "error_code": true,
+          "selected_source_indices": true,
+          "selected_event_positions": true,
+          "selected_source_log": true,
+          "source_domain_unchanged": true
+        }
+      },
+      "all_frozen_hypotheses_match": true,
+      "full_selection_equality_eligible": false,
+      "overlap_fields_match": null,
+      "diagnostic_difference_is_not_equality_pass": true,
+      "no_whole_Core_filter_parity_claim": true,
+      "java_observation_sha256": "04EA4B230A4D85D89BED11BF21B82433D31DB7DD7FAA2B9EADAF2B9C2D1149A2",
+      "rust_observation_sha256": "AF6B93C55CA3F0053D34A2C4308C35266F2E91137B544E6A970EE4363C1CD118"
+    },
+    {
+      "id": "retain-partial",
+      "profile": "overlap",
+      "input_sha256": "eba7bdb6492867d234e6f6827da2a2292d2feb145b06005d450b70bffd75497e",
+      "java": {
+        "outcome": "filtered",
+        "engine_invoked": true,
+        "engine_call_count": 1,
+        "selected_source_indices": [
+          0,
+          1
+        ],
+        "selected_event_positions": [
+          [
+            0
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "selected_source_log": {
+          "name": "Extended Core filter retain-partial",
+          "cases": [
+            {
+              "id": "retain-partial-source-0",
+              "name": "retain-partial-trace-0",
+              "events": [
+                {
+                  "ordinal": 3,
+                  "activity": "A",
+                  "timestamp": "2024-01-01T00:00:40.123Z",
+                  "lifecycle": "complete"
+                }
+              ]
+            },
+            {
+              "id": "retain-partial-source-1",
+              "name": "retain-partial-trace-1",
+              "events": [
+                {
+                  "ordinal": 10,
+                  "activity": "A",
+                  "timestamp": "2024-01-01T00:00:39.123Z",
+                  "lifecycle": "complete"
+                },
+                {
+                  "ordinal": 17,
+                  "activity": "A",
+                  "timestamp": "2024-01-01T00:00:38.123Z",
+                  "lifecycle": "complete"
+                }
+              ]
+            }
+          ],
+          "warnings": [
+            "synthetic warning retained for retain-partial"
+          ]
+        },
+        "source_domain_unchanged": true,
+        "source_xlog_unchanged": true,
+        "source_apm_unchanged": true
+      },
+      "rust": {
+        "outcome": "filtered",
+        "error_code": null,
+        "selected_source_indices": [
+          0,
+          1
+        ],
+        "selected_event_positions": [
+          [
+            0
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "selected_source_log": {
+          "cases": [
+            {
+              "events": [
+                {
+                  "activity": "A",
+                  "lifecycle": "complete",
+                  "ordinal": 3,
+                  "timestamp": "2024-01-01T00:00:40.123Z"
+                }
+              ],
+              "id": "retain-partial-source-0",
+              "name": "retain-partial-trace-0"
+            },
+            {
+              "events": [
+                {
+                  "activity": "A",
+                  "lifecycle": "complete",
+                  "ordinal": 10,
+                  "timestamp": "2024-01-01T00:00:39.123Z"
+                },
+                {
+                  "activity": "A",
+                  "lifecycle": "complete",
+                  "ordinal": 17,
+                  "timestamp": "2024-01-01T00:00:38.123Z"
+                }
+              ],
+              "id": "retain-partial-source-1",
+              "name": "retain-partial-trace-1"
+            }
+          ],
+          "name": "Extended Core filter retain-partial",
+          "warnings": [
+            "synthetic warning retained for retain-partial"
+          ]
+        },
+        "source_domain_unchanged": true
+      },
+      "actual_java_ordered_rules": [
+        {
+          "filter_type": "EVENT_EVENT_ATTRIBUTE",
+          "choice": "RETAIN",
+          "section": "EVENT",
+          "inclusion": "ANY_VALUE",
+          "key": "concept:name",
+          "primary_values": [
+            {
+              "operation": "EQUAL",
+              "long_value": null,
+              "string_set": [
+                "A"
+              ]
+            }
+          ]
+        }
+      ],
+      "java_rules_match_frozen_parameters": true,
+      "java_pointer_identity_binds_source": true,
+      "java_selection_conservation": {
+        "source_trace_order_preserved": true,
+        "source_event_order_preserved": true,
+        "complete_selected_fields_preserved": true
+      },
+      "rust_selection_conservation": {
+        "source_trace_order_preserved": true,
+        "source_event_order_preserved": true,
+        "complete_selected_fields_preserved": true
+      },
+      "rust_filter_spec_unchanged": true,
+      "selected_full_log_equal": true,
+      "source_trace_and_event_indices_equal": true,
+      "selected_full_log_differences": [],
+      "original_manual_hypotheses": {
+        "java": {
+          "outcome": "filtered",
+          "engine_invoked": true,
+          "engine_call_count": 1,
+          "selected_source_indices": [
+            0,
+            1
+          ],
+          "selected_event_positions": [
+            [
+              0
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "selected_source_log": {
+            "name": "Extended Core filter retain-partial",
+            "cases": [
+              {
+                "id": "retain-partial-source-0",
+                "name": "retain-partial-trace-0",
+                "events": [
+                  {
+                    "ordinal": 3,
+                    "activity": "A",
+                    "timestamp": "2024-01-01T00:00:40.123Z",
+                    "lifecycle": "complete"
+                  }
+                ]
+              },
+              {
+                "id": "retain-partial-source-1",
+                "name": "retain-partial-trace-1",
+                "events": [
+                  {
+                    "ordinal": 10,
+                    "activity": "A",
+                    "timestamp": "2024-01-01T00:00:39.123Z",
+                    "lifecycle": "complete"
+                  },
+                  {
+                    "ordinal": 17,
+                    "activity": "A",
+                    "timestamp": "2024-01-01T00:00:38.123Z",
+                    "lifecycle": "complete"
+                  }
+                ]
+              }
+            ],
+            "warnings": [
+              "synthetic warning retained for retain-partial"
+            ]
+          },
+          "source_domain_unchanged": true,
+          "source_xlog_unchanged": true,
+          "source_apm_unchanged": true
+        },
+        "rust": {
+          "outcome": "filtered",
+          "error_code": null,
+          "selected_source_indices": [
+            0,
+            1
+          ],
+          "selected_event_positions": [
+            [
+              0
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "selected_source_log": {
+            "name": "Extended Core filter retain-partial",
+            "cases": [
+              {
+                "id": "retain-partial-source-0",
+                "name": "retain-partial-trace-0",
+                "events": [
+                  {
+                    "ordinal": 3,
+                    "activity": "A",
+                    "timestamp": "2024-01-01T00:00:40.123Z",
+                    "lifecycle": "complete"
+                  }
+                ]
+              },
+              {
+                "id": "retain-partial-source-1",
+                "name": "retain-partial-trace-1",
+                "events": [
+                  {
+                    "ordinal": 10,
+                    "activity": "A",
+                    "timestamp": "2024-01-01T00:00:39.123Z",
+                    "lifecycle": "complete"
+                  },
+                  {
+                    "ordinal": 17,
+                    "activity": "A",
+                    "timestamp": "2024-01-01T00:00:38.123Z",
+                    "lifecycle": "complete"
+                  }
+                ]
+              }
+            ],
+            "warnings": [
+              "synthetic warning retained for retain-partial"
+            ]
+          },
+          "source_domain_unchanged": true
+        }
+      },
+      "hypothesis_checks": {
+        "java": {
+          "outcome": true,
+          "engine_invoked": true,
+          "engine_call_count": true,
+          "selected_source_indices": true,
+          "selected_event_positions": true,
+          "selected_source_log": true,
+          "source_domain_unchanged": true,
+          "source_xlog_unchanged": true,
+          "source_apm_unchanged": true
+        },
+        "rust": {
+          "outcome": true,
+          "error_code": true,
+          "selected_source_indices": true,
+          "selected_event_positions": true,
+          "selected_source_log": true,
+          "source_domain_unchanged": true
+        }
+      },
+      "all_frozen_hypotheses_match": true,
+      "full_selection_equality_eligible": true,
+      "overlap_fields_match": true,
+      "diagnostic_difference_is_not_equality_pass": false,
+      "no_whole_Core_filter_parity_claim": true,
+      "java_observation_sha256": "8670ED02703BF4DEA6C76025D92F7BD061869F901F885EB34220A79348FE4479",
+      "rust_observation_sha256": "BBA5D0B01E4A9B7A69340A096635F213C53BBAE8E429D623645970E2FA8AEEBA"
+    },
+    {
+      "id": "remove-partial",
+      "profile": "overlap",
+      "input_sha256": "4c0c1a02d112e5157ca4af15aa969f32ed2767dc416f5855e4f69bec00b4c0a3",
+      "java": {
+        "outcome": "filtered",
+        "engine_invoked": true,
+        "engine_call_count": 1,
+        "selected_source_indices": [
+          0,
+          1
+        ],
+        "selected_event_positions": [
+          [
+            1
+          ],
+          [
+            0
+          ]
+        ],
+        "selected_source_log": {
+          "name": "Extended Core filter remove-partial",
+          "cases": [
+            {
+              "id": "remove-partial-source-0",
+              "name": "remove-partial-trace-0",
+              "events": [
+                {
+                  "ordinal": 10,
+                  "activity": "B",
+                  "timestamp": "2024-01-01T00:00:39.123Z",
+                  "lifecycle": "complete"
+                }
+              ]
+            },
+            {
+              "id": "remove-partial-source-1",
+              "name": "remove-partial-trace-1",
+              "events": [
+                {
+                  "ordinal": 3,
+                  "activity": "B",
+                  "timestamp": "2024-01-01T00:00:40.123Z",
+                  "lifecycle": "complete"
+                }
+              ]
+            }
+          ],
+          "warnings": [
+            "synthetic warning retained for remove-partial"
+          ]
+        },
+        "source_domain_unchanged": true,
+        "source_xlog_unchanged": true,
+        "source_apm_unchanged": true
+      },
+      "rust": {
+        "outcome": "filtered",
+        "error_code": null,
+        "selected_source_indices": [
+          0,
+          1
+        ],
+        "selected_event_positions": [
+          [
+            1
+          ],
+          [
+            0
+          ]
+        ],
+        "selected_source_log": {
+          "cases": [
+            {
+              "events": [
+                {
+                  "activity": "B",
+                  "lifecycle": "complete",
+                  "ordinal": 10,
+                  "timestamp": "2024-01-01T00:00:39.123Z"
+                }
+              ],
+              "id": "remove-partial-source-0",
+              "name": "remove-partial-trace-0"
+            },
+            {
+              "events": [
+                {
+                  "activity": "B",
+                  "lifecycle": "complete",
+                  "ordinal": 3,
+                  "timestamp": "2024-01-01T00:00:40.123Z"
+                }
+              ],
+              "id": "remove-partial-source-1",
+              "name": "remove-partial-trace-1"
+            }
+          ],
+          "name": "Extended Core filter remove-partial",
+          "warnings": [
+            "synthetic warning retained for remove-partial"
+          ]
+        },
+        "source_domain_unchanged": true
+      },
+      "actual_java_ordered_rules": [
+        {
+          "filter_type": "EVENT_EVENT_ATTRIBUTE",
+          "choice": "REMOVE",
+          "section": "EVENT",
+          "inclusion": "ANY_VALUE",
+          "key": "concept:name",
+          "primary_values": [
+            {
+              "operation": "EQUAL",
+              "long_value": null,
+              "string_set": [
+                "A"
+              ]
+            }
+          ]
+        }
+      ],
+      "java_rules_match_frozen_parameters": true,
+      "java_pointer_identity_binds_source": true,
+      "java_selection_conservation": {
+        "source_trace_order_preserved": true,
+        "source_event_order_preserved": true,
+        "complete_selected_fields_preserved": true
+      },
+      "rust_selection_conservation": {
+        "source_trace_order_preserved": true,
+        "source_event_order_preserved": true,
+        "complete_selected_fields_preserved": true
+      },
+      "rust_filter_spec_unchanged": true,
+      "selected_full_log_equal": true,
+      "source_trace_and_event_indices_equal": true,
+      "selected_full_log_differences": [],
+      "original_manual_hypotheses": {
+        "java": {
+          "outcome": "filtered",
+          "engine_invoked": true,
+          "engine_call_count": 1,
+          "selected_source_indices": [
+            0,
+            1
+          ],
+          "selected_event_positions": [
+            [
+              1
+            ],
+            [
+              0
+            ]
+          ],
+          "selected_source_log": {
+            "name": "Extended Core filter remove-partial",
+            "cases": [
+              {
+                "id": "remove-partial-source-0",
+                "name": "remove-partial-trace-0",
+                "events": [
+                  {
+                    "ordinal": 10,
+                    "activity": "B",
+                    "timestamp": "2024-01-01T00:00:39.123Z",
+                    "lifecycle": "complete"
+                  }
+                ]
+              },
+              {
+                "id": "remove-partial-source-1",
+                "name": "remove-partial-trace-1",
+                "events": [
+                  {
+                    "ordinal": 3,
+                    "activity": "B",
+                    "timestamp": "2024-01-01T00:00:40.123Z",
+                    "lifecycle": "complete"
+                  }
+                ]
+              }
+            ],
+            "warnings": [
+              "synthetic warning retained for remove-partial"
+            ]
+          },
+          "source_domain_unchanged": true,
+          "source_xlog_unchanged": true,
+          "source_apm_unchanged": true
+        },
+        "rust": {
+          "outcome": "filtered",
+          "error_code": null,
+          "selected_source_indices": [
+            0,
+            1
+          ],
+          "selected_event_positions": [
+            [
+              1
+            ],
+            [
+              0
+            ]
+          ],
+          "selected_source_log": {
+            "name": "Extended Core filter remove-partial",
+            "cases": [
+              {
+                "id": "remove-partial-source-0",
+                "name": "remove-partial-trace-0",
+                "events": [
+                  {
+                    "ordinal": 10,
+                    "activity": "B",
+                    "timestamp": "2024-01-01T00:00:39.123Z",
+                    "lifecycle": "complete"
+                  }
+                ]
+              },
+              {
+                "id": "remove-partial-source-1",
+                "name": "remove-partial-trace-1",
+                "events": [
+                  {
+                    "ordinal": 3,
+                    "activity": "B",
+                    "timestamp": "2024-01-01T00:00:40.123Z",
+                    "lifecycle": "complete"
+                  }
+                ]
+              }
+            ],
+            "warnings": [
+              "synthetic warning retained for remove-partial"
+            ]
+          },
+          "source_domain_unchanged": true
+        }
+      },
+      "hypothesis_checks": {
+        "java": {
+          "outcome": true,
+          "engine_invoked": true,
+          "engine_call_count": true,
+          "selected_source_indices": true,
+          "selected_event_positions": true,
+          "selected_source_log": true,
+          "source_domain_unchanged": true,
+          "source_xlog_unchanged": true,
+          "source_apm_unchanged": true
+        },
+        "rust": {
+          "outcome": true,
+          "error_code": true,
+          "selected_source_indices": true,
+          "selected_event_positions": true,
+          "selected_source_log": true,
+          "source_domain_unchanged": true
+        }
+      },
+      "all_frozen_hypotheses_match": true,
+      "full_selection_equality_eligible": true,
+      "overlap_fields_match": true,
+      "diagnostic_difference_is_not_equality_pass": false,
+      "no_whole_Core_filter_parity_claim": true,
+      "java_observation_sha256": "5D60C4DC3D034FD0EF5DB21C217F06C3418EFD8D091B595F5FC00E11F6051A5A",
+      "rust_observation_sha256": "63845551BBB7810BA66E467579D7398855EFA315AF1AFEA5EFEBFA8C2B0D1889"
+    },
+    {
+      "id": "remove-empty-case",
+      "profile": "diagnostic_empty_case_retention",
+      "input_sha256": "bd8affee6c2117db8fa64fe4e320545c2620f7272e05de0bdf9e25492cd28861",
+      "java": {
+        "outcome": "filtered",
+        "engine_invoked": true,
+        "engine_call_count": 1,
+        "selected_source_indices": [
+          1
+        ],
+        "selected_event_positions": [
+          [
+            0
+          ]
+        ],
+        "selected_source_log": {
+          "name": "Extended Core filter remove-empty-case",
+          "cases": [
+            {
+              "id": "remove-empty-case-source-1",
+              "name": "remove-empty-case-trace-1",
+              "events": [
+                {
+                  "ordinal": 3,
+                  "activity": "B",
+                  "timestamp": "2024-01-01T00:00:40.123Z",
+                  "lifecycle": "complete"
+                }
+              ]
+            }
+          ],
+          "warnings": [
+            "synthetic warning retained for remove-empty-case"
+          ]
+        },
+        "source_domain_unchanged": true,
+        "source_xlog_unchanged": true,
+        "source_apm_unchanged": true
+      },
+      "rust": {
+        "outcome": "filtered",
+        "error_code": null,
+        "selected_source_indices": [
+          0,
+          1
+        ],
+        "selected_event_positions": [
+          [],
+          [
+            0
+          ]
+        ],
+        "selected_source_log": {
+          "cases": [
+            {
+              "events": [],
+              "id": "remove-empty-case-source-0",
+              "name": "remove-empty-case-trace-0"
+            },
+            {
+              "events": [
+                {
+                  "activity": "B",
+                  "lifecycle": "complete",
+                  "ordinal": 3,
+                  "timestamp": "2024-01-01T00:00:40.123Z"
+                }
+              ],
+              "id": "remove-empty-case-source-1",
+              "name": "remove-empty-case-trace-1"
+            }
+          ],
+          "name": "Extended Core filter remove-empty-case",
+          "warnings": [
+            "synthetic warning retained for remove-empty-case"
+          ]
+        },
+        "source_domain_unchanged": true
+      },
+      "actual_java_ordered_rules": [
+        {
+          "filter_type": "EVENT_EVENT_ATTRIBUTE",
+          "choice": "REMOVE",
+          "section": "EVENT",
+          "inclusion": "ANY_VALUE",
+          "key": "concept:name",
+          "primary_values": [
+            {
+              "operation": "EQUAL",
+              "long_value": null,
+              "string_set": [
+                "A"
+              ]
+            }
+          ]
+        }
+      ],
+      "java_rules_match_frozen_parameters": true,
+      "java_pointer_identity_binds_source": true,
+      "java_selection_conservation": {
+        "source_trace_order_preserved": true,
+        "source_event_order_preserved": true,
+        "complete_selected_fields_preserved": true
+      },
+      "rust_selection_conservation": {
+        "source_trace_order_preserved": true,
+        "source_event_order_preserved": true,
+        "complete_selected_fields_preserved": true
+      },
+      "rust_filter_spec_unchanged": true,
+      "selected_full_log_equal": false,
+      "source_trace_and_event_indices_equal": false,
+      "selected_full_log_differences": [
+        {
+          "path": "$.cases.length",
+          "left": 1,
+          "right": 2
+        },
+        {
+          "path": "$.cases[0].events.length",
+          "left": 1,
+          "right": 0
+        },
+        {
+          "path": "$.cases[0].events[0]",
+          "left": {
+            "ordinal": 3,
+            "activity": "B",
+            "timestamp": "2024-01-01T00:00:40.123Z",
+            "lifecycle": "complete"
+          },
+          "right": null,
+          "left_missing": false,
+          "right_missing": true
+        },
+        {
+          "path": "$.cases[0].id",
+          "left": "remove-empty-case-source-1",
+          "right": "remove-empty-case-source-0",
+          "left_missing": false,
+          "right_missing": false
+        },
+        {
+          "path": "$.cases[0].name",
+          "left": "remove-empty-case-trace-1",
+          "right": "remove-empty-case-trace-0",
+          "left_missing": false,
+          "right_missing": false
+        },
+        {
+          "path": "$.cases[1]",
+          "left": null,
+          "right": {
+            "events": [
+              {
+                "activity": "B",
+                "lifecycle": "complete",
+                "ordinal": 3,
+                "timestamp": "2024-01-01T00:00:40.123Z"
+              }
+            ],
+            "id": "remove-empty-case-source-1",
+            "name": "remove-empty-case-trace-1"
+          },
+          "left_missing": true,
+          "right_missing": false
+        }
+      ],
+      "original_manual_hypotheses": {
+        "java": {
+          "outcome": "filtered",
+          "engine_invoked": true,
+          "engine_call_count": 1,
+          "selected_source_indices": [
+            1
+          ],
+          "selected_event_positions": [
+            [
+              0
+            ]
+          ],
+          "selected_source_log": {
+            "name": "Extended Core filter remove-empty-case",
+            "cases": [
+              {
+                "id": "remove-empty-case-source-1",
+                "name": "remove-empty-case-trace-1",
+                "events": [
+                  {
+                    "ordinal": 3,
+                    "activity": "B",
+                    "timestamp": "2024-01-01T00:00:40.123Z",
+                    "lifecycle": "complete"
+                  }
+                ]
+              }
+            ],
+            "warnings": [
+              "synthetic warning retained for remove-empty-case"
+            ]
+          },
+          "source_domain_unchanged": true,
+          "source_xlog_unchanged": true,
+          "source_apm_unchanged": true
+        },
+        "rust": {
+          "outcome": "filtered",
+          "error_code": null,
+          "selected_source_indices": [
+            0,
+            1
+          ],
+          "selected_event_positions": [
+            [],
+            [
+              0
+            ]
+          ],
+          "selected_source_log": {
+            "name": "Extended Core filter remove-empty-case",
+            "cases": [
+              {
+                "id": "remove-empty-case-source-0",
+                "name": "remove-empty-case-trace-0",
+                "events": []
+              },
+              {
+                "id": "remove-empty-case-source-1",
+                "name": "remove-empty-case-trace-1",
+                "events": [
+                  {
+                    "ordinal": 3,
+                    "activity": "B",
+                    "timestamp": "2024-01-01T00:00:40.123Z",
+                    "lifecycle": "complete"
+                  }
+                ]
+              }
+            ],
+            "warnings": [
+              "synthetic warning retained for remove-empty-case"
+            ]
+          },
+          "source_domain_unchanged": true
+        }
+      },
+      "hypothesis_checks": {
+        "java": {
+          "outcome": true,
+          "engine_invoked": true,
+          "engine_call_count": true,
+          "selected_source_indices": true,
+          "selected_event_positions": true,
+          "selected_source_log": true,
+          "source_domain_unchanged": true,
+          "source_xlog_unchanged": true,
+          "source_apm_unchanged": true
+        },
+        "rust": {
+          "outcome": true,
+          "error_code": true,
+          "selected_source_indices": true,
+          "selected_event_positions": true,
+          "selected_source_log": true,
+          "source_domain_unchanged": true
+        }
+      },
+      "all_frozen_hypotheses_match": true,
+      "full_selection_equality_eligible": false,
+      "overlap_fields_match": null,
+      "diagnostic_difference_is_not_equality_pass": true,
+      "no_whole_Core_filter_parity_claim": true,
+      "java_observation_sha256": "A22018454C985B77294A18FD4087C850A36A380D28C155A089B488D061F64A54",
+      "rust_observation_sha256": "AC100E8E477184337B59220C41F4FB8786D5490D80653D6256F426A576B03D5F"
+    },
+    {
+      "id": "length-then-retain",
+      "profile": "overlap",
+      "input_sha256": "a96a482b75decf11e309c5a71efd1f66381ccca9afcc80b7d63bf7bc001fc6a1",
+      "java": {
+        "outcome": "filtered",
+        "engine_invoked": true,
+        "engine_call_count": 1,
+        "selected_source_indices": [
+          0,
+          1
+        ],
+        "selected_event_positions": [
+          [
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "selected_source_log": {
+          "name": "Extended Core filter length-then-retain",
+          "cases": [
+            {
+              "id": "length-then-retain-source-0",
+              "name": "length-then-retain-trace-0",
+              "events": [
+                {
+                  "ordinal": 3,
+                  "activity": "A",
+                  "timestamp": "2024-01-01T00:00:40.123Z",
+                  "lifecycle": "complete"
+                }
+              ]
+            },
+            {
+              "id": "length-then-retain-source-1",
+              "name": "length-then-retain-trace-1",
+              "events": [
+                {
+                  "ordinal": 3,
+                  "activity": "A",
+                  "timestamp": "2024-01-01T00:00:40.123Z",
+                  "lifecycle": "complete"
+                },
+                {
+                  "ordinal": 10,
+                  "activity": "A",
+                  "timestamp": "2024-01-01T00:00:39.123Z",
+                  "lifecycle": "complete"
+                }
+              ]
+            }
+          ],
+          "warnings": [
+            "synthetic warning retained for length-then-retain"
+          ]
+        },
+        "source_domain_unchanged": true,
+        "source_xlog_unchanged": true,
+        "source_apm_unchanged": true
+      },
+      "rust": {
+        "outcome": "filtered",
+        "error_code": null,
+        "selected_source_indices": [
+          0,
+          1
+        ],
+        "selected_event_positions": [
+          [
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "selected_source_log": {
+          "cases": [
+            {
+              "events": [
+                {
+                  "activity": "A",
+                  "lifecycle": "complete",
+                  "ordinal": 3,
+                  "timestamp": "2024-01-01T00:00:40.123Z"
+                }
+              ],
+              "id": "length-then-retain-source-0",
+              "name": "length-then-retain-trace-0"
+            },
+            {
+              "events": [
+                {
+                  "activity": "A",
+                  "lifecycle": "complete",
+                  "ordinal": 3,
+                  "timestamp": "2024-01-01T00:00:40.123Z"
+                },
+                {
+                  "activity": "A",
+                  "lifecycle": "complete",
+                  "ordinal": 10,
+                  "timestamp": "2024-01-01T00:00:39.123Z"
+                }
+              ],
+              "id": "length-then-retain-source-1",
+              "name": "length-then-retain-trace-1"
+            }
+          ],
+          "name": "Extended Core filter length-then-retain",
+          "warnings": [
+            "synthetic warning retained for length-then-retain"
+          ]
+        },
+        "source_domain_unchanged": true
+      },
+      "actual_java_ordered_rules": [
+        {
+          "filter_type": "CASE_LENGTH",
+          "choice": "RETAIN",
+          "section": "CASE",
+          "inclusion": "ANY_VALUE",
+          "key": "case:length",
+          "primary_values": [
+            {
+              "operation": "GREATER_EQUAL",
+              "long_value": 2,
+              "string_set": null
+            },
+            {
+              "operation": "LESS_EQUAL",
+              "long_value": 9223372036854775807,
+              "string_set": null
+            }
+          ]
+        },
+        {
+          "filter_type": "EVENT_EVENT_ATTRIBUTE",
+          "choice": "RETAIN",
+          "section": "EVENT",
+          "inclusion": "ANY_VALUE",
+          "key": "concept:name",
+          "primary_values": [
+            {
+              "operation": "EQUAL",
+              "long_value": null,
+              "string_set": [
+                "A"
+              ]
+            }
+          ]
+        }
+      ],
+      "java_rules_match_frozen_parameters": true,
+      "java_pointer_identity_binds_source": true,
+      "java_selection_conservation": {
+        "source_trace_order_preserved": true,
+        "source_event_order_preserved": true,
+        "complete_selected_fields_preserved": true
+      },
+      "rust_selection_conservation": {
+        "source_trace_order_preserved": true,
+        "source_event_order_preserved": true,
+        "complete_selected_fields_preserved": true
+      },
+      "rust_filter_spec_unchanged": true,
+      "selected_full_log_equal": true,
+      "source_trace_and_event_indices_equal": true,
+      "selected_full_log_differences": [],
+      "original_manual_hypotheses": {
+        "java": {
+          "outcome": "filtered",
+          "engine_invoked": true,
+          "engine_call_count": 1,
+          "selected_source_indices": [
+            0,
+            1
+          ],
+          "selected_event_positions": [
+            [
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "selected_source_log": {
+            "name": "Extended Core filter length-then-retain",
+            "cases": [
+              {
+                "id": "length-then-retain-source-0",
+                "name": "length-then-retain-trace-0",
+                "events": [
+                  {
+                    "ordinal": 3,
+                    "activity": "A",
+                    "timestamp": "2024-01-01T00:00:40.123Z",
+                    "lifecycle": "complete"
+                  }
+                ]
+              },
+              {
+                "id": "length-then-retain-source-1",
+                "name": "length-then-retain-trace-1",
+                "events": [
+                  {
+                    "ordinal": 3,
+                    "activity": "A",
+                    "timestamp": "2024-01-01T00:00:40.123Z",
+                    "lifecycle": "complete"
+                  },
+                  {
+                    "ordinal": 10,
+                    "activity": "A",
+                    "timestamp": "2024-01-01T00:00:39.123Z",
+                    "lifecycle": "complete"
+                  }
+                ]
+              }
+            ],
+            "warnings": [
+              "synthetic warning retained for length-then-retain"
+            ]
+          },
+          "source_domain_unchanged": true,
+          "source_xlog_unchanged": true,
+          "source_apm_unchanged": true
+        },
+        "rust": {
+          "outcome": "filtered",
+          "error_code": null,
+          "selected_source_indices": [
+            0,
+            1
+          ],
+          "selected_event_positions": [
+            [
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "selected_source_log": {
+            "name": "Extended Core filter length-then-retain",
+            "cases": [
+              {
+                "id": "length-then-retain-source-0",
+                "name": "length-then-retain-trace-0",
+                "events": [
+                  {
+                    "ordinal": 3,
+                    "activity": "A",
+                    "timestamp": "2024-01-01T00:00:40.123Z",
+                    "lifecycle": "complete"
+                  }
+                ]
+              },
+              {
+                "id": "length-then-retain-source-1",
+                "name": "length-then-retain-trace-1",
+                "events": [
+                  {
+                    "ordinal": 3,
+                    "activity": "A",
+                    "timestamp": "2024-01-01T00:00:40.123Z",
+                    "lifecycle": "complete"
+                  },
+                  {
+                    "ordinal": 10,
+                    "activity": "A",
+                    "timestamp": "2024-01-01T00:00:39.123Z",
+                    "lifecycle": "complete"
+                  }
+                ]
+              }
+            ],
+            "warnings": [
+              "synthetic warning retained for length-then-retain"
+            ]
+          },
+          "source_domain_unchanged": true
+        }
+      },
+      "hypothesis_checks": {
+        "java": {
+          "outcome": true,
+          "engine_invoked": true,
+          "engine_call_count": true,
+          "selected_source_indices": true,
+          "selected_event_positions": true,
+          "selected_source_log": true,
+          "source_domain_unchanged": true,
+          "source_xlog_unchanged": true,
+          "source_apm_unchanged": true
+        },
+        "rust": {
+          "outcome": true,
+          "error_code": true,
+          "selected_source_indices": true,
+          "selected_event_positions": true,
+          "selected_source_log": true,
+          "source_domain_unchanged": true
+        }
+      },
+      "all_frozen_hypotheses_match": true,
+      "full_selection_equality_eligible": true,
+      "overlap_fields_match": true,
+      "diagnostic_difference_is_not_equality_pass": false,
+      "no_whole_Core_filter_parity_claim": true,
+      "java_observation_sha256": "9078DCE2BDE35973BCD91EADC068E4994ADC8862ACD9C6B65073F54605D05568",
+      "rust_observation_sha256": "FBF9569D044CBD63829E65DCC91B927D2990D2937EE66042EE680623684A18CD"
+    }
+  ],
+  "no_whole_R5_or_Core_parity_claim": true
+}

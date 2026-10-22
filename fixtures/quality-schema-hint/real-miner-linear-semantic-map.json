@@ -1,0 +1,59 @@
+{
+  "process": {
+    "id": "proc_389993238",
+    "isExecutable": false
+  },
+  "nodes": [
+    {
+      "kind": "start",
+      "label": "",
+      "id": "node3"
+    },
+    {
+      "kind": "end",
+      "label": "",
+      "id": "node4"
+    },
+    {
+      "kind": "task",
+      "label": "C",
+      "id": "node0"
+    },
+    {
+      "kind": "task",
+      "label": "A",
+      "id": "node1"
+    },
+    {
+      "kind": "task",
+      "label": "B",
+      "id": "node2"
+    }
+  ],
+  "flows": [
+    {
+      "source": "node2",
+      "label": "",
+      "id": "edge0",
+      "target": "node0"
+    },
+    {
+      "source": "node3",
+      "label": "",
+      "id": "edge1",
+      "target": "node1"
+    },
+    {
+      "source": "node0",
+      "label": "",
+      "id": "edge2",
+      "target": "node4"
+    },
+    {
+      "source": "node1",
+      "label": "",
+      "id": "edge3",
+      "target": "node2"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "against": 0,
+  "delivered": false,
+  "three_failed_exact_reason_hypotheses_remain_false": true,
+  "status": "TECHNICAL_ACCEPTANCE_ADOPTED_DELIVERY_PENDING",
+  "proposal_sha256": "52E353C82D2BD29D94475AA0FE4BFCC402D0B81E8D1B8DDE01ADEBAF449D07FC",
+  "utc": "2026-10-22T02:43:28.8364053+00:00",
+  "technical_pass": [
+    "R4-01",
+    "R4-02",
+    "R4-03",
+    "R5-01",
+    "R5-02"
+  ],
+  "fixed_voters": 5,
+  "invitation_sha256": "2AEC5D8FD7DB2BCB9B4E5355E0EC531801F5E7DEE61B4C54781A45B3CFEEC500",
+  "votes": [
+    {
+      "public_file": "Root.json",
+      "vote": "FOR",
+      "role": "Root",
+      "sha256": "1D28611FE104D5E2E7EAB6171178014883A6FCE3F8831E770FFA19145D5F3FBE"
+    },
+    {
+      "public_file": "QA.json",
+      "vote": "FOR",
+      "role": "QA",
+      "sha256": "96301D2DC7D62086E9F37059D827202092731FB6DC8BD5B192A2ED2B36885AF8"
+    },
+    {
+      "public_file": "TechnicalDebt.json",
+      "vote": "FOR",
+      "role": "TechnicalDebt",
+      "sha256": "715616095F6C319C402773514453E9A0F169882D6BE0B84BE44E688D0AA99753"
+    },
+    {
+      "public_file": "PM.json",
+      "vote": "FOR",
+      "role": "PM",
+      "sha256": "BA2CBBCF9965BC6E6ABFC6FAC98A5E0E676A78B5DC12F0AC64B406BE8EB907E7"
+    },
+    {
+      "public_file": "Customer.json",
+      "vote": "FOR",
+      "role": "Customer",
+      "sha256": "9F18CCA0FDFDA0617E2F7A96E90C06453C80D22A18C7A651D7F5594EF1BFD466"
+    }
+  ],
+  "runtime075_unchanged": true,
+  "required_strict_majority": 3,
+  "delivery_gates": "Exact proposal mandatory current final HEAD CI + Root and independent QA entire anonymous public source/evidence/portable replay + metadata/actual vote readback + final budget/native closure + accurate public PR18",
+  "user_final_acceptance_substituted": false,
+  "abstain": 0,
+  "open": [
+    "R5-03",
+    "R5-04",
+    "enterprise operational/load/security program"
+  ],
+  "for": 5
+}

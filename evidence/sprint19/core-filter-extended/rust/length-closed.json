@@ -1,0 +1,271 @@
+{
+  "engine": "process_intelligence_rs::filters::apply",
+  "engine_call_count": 1,
+  "error": null,
+  "filter_spec": {
+    "case_activity": null,
+    "max_events": 3,
+    "min_events": 2,
+    "remove_activities": [],
+    "retain_activities": []
+  },
+  "filter_spec_unchanged": true,
+  "id": "length-closed",
+  "input_sha256": "bde7fc2e70446b3e3c495966f96de6537b4c6ed090a3c437533cc2113c563aa2",
+  "outcome": "filtered",
+  "schema_version": 1,
+  "scope": "Actual production filter once; source positions derived only from returned exact identities, no selection predicate or legacy export",
+  "selected_event_positions": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      1,
+      2
+    ]
+  ],
+  "selected_source_indices": [
+    1,
+    2
+  ],
+  "selected_source_log": {
+    "cases": [
+      {
+        "events": [
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          },
+          {
+            "activity": "B",
+            "lifecycle": "complete",
+            "ordinal": 10,
+            "timestamp": "2024-01-01T00:00:39.123Z"
+          }
+        ],
+        "id": "length-closed-source-1",
+        "name": "length-closed-trace-1"
+      },
+      {
+        "events": [
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          },
+          {
+            "activity": "B",
+            "lifecycle": "complete",
+            "ordinal": 10,
+            "timestamp": "2024-01-01T00:00:39.123Z"
+          },
+          {
+            "activity": "C",
+            "lifecycle": "complete",
+            "ordinal": 17,
+            "timestamp": "2024-01-01T00:00:38.123Z"
+          }
+        ],
+        "id": "length-closed-source-2",
+        "name": "length-closed-trace-2"
+      }
+    ],
+    "name": "Extended Core filter length-closed",
+    "warnings": [
+      "synthetic warning retained for length-closed"
+    ]
+  },
+  "source_after_sha256": "67728d33c033482379636379bb489a63acfd9fd026eecabe33a3c4a466ddf35e",
+  "source_before_sha256": "67728d33c033482379636379bb489a63acfd9fd026eecabe33a3c4a466ddf35e",
+  "source_domain_after": {
+    "cases": [
+      {
+        "events": [
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          }
+        ],
+        "id": "length-closed-source-0",
+        "name": "length-closed-trace-0"
+      },
+      {
+        "events": [
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          },
+          {
+            "activity": "B",
+            "lifecycle": "complete",
+            "ordinal": 10,
+            "timestamp": "2024-01-01T00:00:39.123Z"
+          }
+        ],
+        "id": "length-closed-source-1",
+        "name": "length-closed-trace-1"
+      },
+      {
+        "events": [
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          },
+          {
+            "activity": "B",
+            "lifecycle": "complete",
+            "ordinal": 10,
+            "timestamp": "2024-01-01T00:00:39.123Z"
+          },
+          {
+            "activity": "C",
+            "lifecycle": "complete",
+            "ordinal": 17,
+            "timestamp": "2024-01-01T00:00:38.123Z"
+          }
+        ],
+        "id": "length-closed-source-2",
+        "name": "length-closed-trace-2"
+      },
+      {
+        "events": [
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          },
+          {
+            "activity": "B",
+            "lifecycle": "complete",
+            "ordinal": 10,
+            "timestamp": "2024-01-01T00:00:39.123Z"
+          },
+          {
+            "activity": "C",
+            "lifecycle": "complete",
+            "ordinal": 17,
+            "timestamp": "2024-01-01T00:00:38.123Z"
+          },
+          {
+            "activity": "D",
+            "lifecycle": "complete",
+            "ordinal": 24,
+            "timestamp": "2024-01-01T00:00:37.123Z"
+          }
+        ],
+        "id": "length-closed-source-3",
+        "name": "length-closed-trace-3"
+      }
+    ],
+    "name": "Extended Core filter length-closed",
+    "warnings": [
+      "synthetic warning retained for length-closed"
+    ]
+  },
+  "source_domain_before": {
+    "cases": [
+      {
+        "events": [
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          }
+        ],
+        "id": "length-closed-source-0",
+        "name": "length-closed-trace-0"
+      },
+      {
+        "events": [
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          },
+          {
+            "activity": "B",
+            "lifecycle": "complete",
+            "ordinal": 10,
+            "timestamp": "2024-01-01T00:00:39.123Z"
+          }
+        ],
+        "id": "length-closed-source-1",
+        "name": "length-closed-trace-1"
+      },
+      {
+        "events": [
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          },
+          {
+            "activity": "B",
+            "lifecycle": "complete",
+            "ordinal": 10,
+            "timestamp": "2024-01-01T00:00:39.123Z"
+          },
+          {
+            "activity": "C",
+            "lifecycle": "complete",
+            "ordinal": 17,
+            "timestamp": "2024-01-01T00:00:38.123Z"
+          }
+        ],
+        "id": "length-closed-source-2",
+        "name": "length-closed-trace-2"
+      },
+      {
+        "events": [
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          },
+          {
+            "activity": "B",
+            "lifecycle": "complete",
+            "ordinal": 10,
+            "timestamp": "2024-01-01T00:00:39.123Z"
+          },
+          {
+            "activity": "C",
+            "lifecycle": "complete",
+            "ordinal": 17,
+            "timestamp": "2024-01-01T00:00:38.123Z"
+          },
+          {
+            "activity": "D",
+            "lifecycle": "complete",
+            "ordinal": 24,
+            "timestamp": "2024-01-01T00:00:37.123Z"
+          }
+        ],
+        "id": "length-closed-source-3",
+        "name": "length-closed-trace-3"
+      }
+    ],
+    "name": "Extended Core filter length-closed",
+    "warnings": [
+      "synthetic warning retained for length-closed"
+    ]
+  },
+  "source_unchanged": true,
+  "status": "ACTUAL_RUST_EXTENDED_FILTER_OBSERVED"
+}

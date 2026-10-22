@@ -1,0 +1,181 @@
+{
+  "places": {
+    "p:edge0": {
+      "id": "p:edge0"
+    },
+    "p:ent_node0": {
+      "id": "p:ent_node0"
+    },
+    "p:ent_node1": {
+      "id": "p:ent_node1"
+    },
+    "p:exi_node0": {
+      "id": "p:exi_node0"
+    },
+    "p:exi_node1": {
+      "id": "p:exi_node1"
+    },
+    "p:sink": {
+      "id": "p:sink"
+    },
+    "p:source": {
+      "id": "p:source"
+    }
+  },
+  "transitions": {
+    "t:b6f97e7c-710c-42d5-a12d-a05791ef34f1": {
+      "id": "t:b6f97e7c-710c-42d5-a12d-a05791ef34f1",
+      "label": null
+    },
+    "t:d9fa81d3-6515-4efb-a6a9-3c5eefefdd88": {
+      "id": "t:d9fa81d3-6515-4efb-a6a9-3c5eefefdd88",
+      "label": null
+    },
+    "t:node0": {
+      "id": "t:node0",
+      "label": null
+    },
+    "t:node1": {
+      "id": "t:node1",
+      "label": null
+    },
+    "t:sfl_edge0": {
+      "id": "t:sfl_edge0",
+      "label": null
+    },
+    "t:tfl_edge0": {
+      "id": "t:tfl_edge0",
+      "label": null
+    }
+  },
+  "arcs": [
+    {
+      "from_to": {
+        "type": "PlaceTransition",
+        "nodes": [
+          "p:edge0",
+          "t:tfl_edge0"
+        ]
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "type": "PlaceTransition",
+        "nodes": [
+          "p:ent_node0",
+          "t:node0"
+        ]
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "type": "PlaceTransition",
+        "nodes": [
+          "p:ent_node1",
+          "t:node1"
+        ]
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "type": "PlaceTransition",
+        "nodes": [
+          "p:exi_node0",
+          "t:sfl_edge0"
+        ]
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "type": "PlaceTransition",
+        "nodes": [
+          "p:exi_node1",
+          "t:b6f97e7c-710c-42d5-a12d-a05791ef34f1"
+        ]
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "type": "PlaceTransition",
+        "nodes": [
+          "p:source",
+          "t:d9fa81d3-6515-4efb-a6a9-3c5eefefdd88"
+        ]
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "type": "TransitionPlace",
+        "nodes": [
+          "t:b6f97e7c-710c-42d5-a12d-a05791ef34f1",
+          "p:sink"
+        ]
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "type": "TransitionPlace",
+        "nodes": [
+          "t:d9fa81d3-6515-4efb-a6a9-3c5eefefdd88",
+          "p:ent_node0"
+        ]
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "type": "TransitionPlace",
+        "nodes": [
+          "t:node0",
+          "p:exi_node0"
+        ]
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "type": "TransitionPlace",
+        "nodes": [
+          "t:node1",
+          "p:exi_node1"
+        ]
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "type": "TransitionPlace",
+        "nodes": [
+          "t:sfl_edge0",
+          "p:edge0"
+        ]
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "type": "TransitionPlace",
+        "nodes": [
+          "t:tfl_edge0",
+          "p:ent_node1"
+        ]
+      },
+      "weight": 1
+    }
+  ],
+  "initial_marking": {
+    "p:source": 1
+  },
+  "final_markings": [
+    {
+      "p:sink": 1
+    }
+  ]
+}

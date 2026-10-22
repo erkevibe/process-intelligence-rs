@@ -1,0 +1,727 @@
+{
+  "schema_version": 1,
+  "id": "remove-empty-case",
+  "input_sha256": "bd8affee6c2117db8fa64fe4e320545c2620f7272e05de0bdf9e25492cd28861",
+  "engine_identity": {
+    "class": "org.apromore.apmlog.filter.APMLogFilter",
+    "sha256": "b07c241d7d5a430f9fd1f6cea5eb696a71eefdee7dc268ee0c81d18c464769b3",
+    "code_source": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+  },
+  "case_length_identity": {
+    "class": "org.apromore.apmlog.filter.typefilters.CaseLengthFilter",
+    "sha256": "1409e5c3cf4e730cf33eae022fc159a29c557eb98106849523ddd1e0f86c64be",
+    "code_source": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+  },
+  "converter_identity": {
+    "class": "org.apromore.apmlog.xes.XLogToImmutableLog",
+    "sha256": "01b0f16bffef26ed24bf3570fcecac0cdf3a21dd1f1757a7b54009c8c331a2e7",
+    "code_source": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+  },
+  "rule_identity": {
+    "class": "org.apromore.apmlog.filter.rules.LogFilterRuleImpl",
+    "sha256": "37bc711f897b54684e4e349c3890a217817202362f7ae1150a4e3253de693315",
+    "code_source": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+  },
+  "rule_value_identity": {
+    "class": "org.apromore.apmlog.filter.rules.RuleValue",
+    "sha256": "3d9fe85b1380bad10801140b9b747159495b3b50aa5423b5a0f8fc71bb1e4e01",
+    "code_source": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+  },
+  "factory": "org.deckfour.xes.factory.XFactoryNaiveImpl",
+  "assertions_enabled": false,
+  "filter_spec": {
+    "case_activity": null,
+    "min_events": null,
+    "max_events": null,
+    "retain_activities": [],
+    "remove_activities": [
+      "A"
+    ]
+  },
+  "one_java_ordered_rule_list": true,
+  "source_domain_before": {
+    "name": "Extended Core filter remove-empty-case",
+    "cases": [
+      {
+        "id": "remove-empty-case-source-0",
+        "name": "remove-empty-case-trace-0",
+        "events": [
+          {
+            "ordinal": 3,
+            "activity": "A",
+            "timestamp": "2024-01-01T00:00:40.123Z",
+            "lifecycle": "complete"
+          }
+        ]
+      },
+      {
+        "id": "remove-empty-case-source-1",
+        "name": "remove-empty-case-trace-1",
+        "events": [
+          {
+            "ordinal": 3,
+            "activity": "B",
+            "timestamp": "2024-01-01T00:00:40.123Z",
+            "lifecycle": "complete"
+          },
+          {
+            "ordinal": 10,
+            "activity": "A",
+            "timestamp": "2024-01-01T00:00:39.123Z",
+            "lifecycle": "complete"
+          }
+        ]
+      }
+    ],
+    "warnings": [
+      "synthetic warning retained for remove-empty-case"
+    ]
+  },
+  "source_domain_before_sha256": "b240e45aa157b317da84314c62385f86f93ff9287d42902292e17e09cccc5401",
+  "source_xlog_before": {
+    "attributes": [
+      {
+        "key": "concept:name",
+        "type": "string",
+        "value": "Extended Core filter remove-empty-case"
+      },
+      {
+        "key": "source:warnings",
+        "type": "string",
+        "value": "[\"synthetic warning retained for remove-empty-case\"]"
+      }
+    ],
+    "classifiers": [],
+    "extensions": [],
+    "global_trace_attributes": [],
+    "global_event_attributes": [],
+    "traces": [
+      {
+        "attributes": [
+          {
+            "key": "case:source_id",
+            "type": "string",
+            "value": "remove-empty-case-source-0"
+          },
+          {
+            "key": "concept:name",
+            "type": "string",
+            "value": "remove-empty-case-trace-0"
+          }
+        ],
+        "events": [
+          {
+            "attributes": [
+              {
+                "key": "concept:name",
+                "type": "string",
+                "value": "A"
+              },
+              {
+                "key": "event:source_ordinal",
+                "type": "int",
+                "value": 3
+              },
+              {
+                "key": "lifecycle:transition",
+                "type": "string",
+                "value": "complete"
+              },
+              {
+                "key": "time:timestamp",
+                "type": "date",
+                "value": 1704067240123,
+                "text": "2024-01-01T00:00:40.123Z"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "attributes": [
+          {
+            "key": "case:source_id",
+            "type": "string",
+            "value": "remove-empty-case-source-1"
+          },
+          {
+            "key": "concept:name",
+            "type": "string",
+            "value": "remove-empty-case-trace-1"
+          }
+        ],
+        "events": [
+          {
+            "attributes": [
+              {
+                "key": "concept:name",
+                "type": "string",
+                "value": "B"
+              },
+              {
+                "key": "event:source_ordinal",
+                "type": "int",
+                "value": 3
+              },
+              {
+                "key": "lifecycle:transition",
+                "type": "string",
+                "value": "complete"
+              },
+              {
+                "key": "time:timestamp",
+                "type": "date",
+                "value": 1704067240123,
+                "text": "2024-01-01T00:00:40.123Z"
+              }
+            ]
+          },
+          {
+            "attributes": [
+              {
+                "key": "concept:name",
+                "type": "string",
+                "value": "A"
+              },
+              {
+                "key": "event:source_ordinal",
+                "type": "int",
+                "value": 10
+              },
+              {
+                "key": "lifecycle:transition",
+                "type": "string",
+                "value": "complete"
+              },
+              {
+                "key": "time:timestamp",
+                "type": "date",
+                "value": 1704067239123,
+                "text": "2024-01-01T00:00:39.123Z"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "trace_count": 2,
+    "event_count": 3
+  },
+  "source_xlog_before_sha256": "e00056a2f9fbd3a65a3d1157c49e8424a3b42510d272d76a6d3bac98db9c5b35",
+  "engine_invoked": true,
+  "source_xlog_after_conversion": {
+    "attributes": [
+      {
+        "key": "concept:name",
+        "type": "string",
+        "value": "Extended Core filter remove-empty-case"
+      },
+      {
+        "key": "source:warnings",
+        "type": "string",
+        "value": "[\"synthetic warning retained for remove-empty-case\"]"
+      }
+    ],
+    "classifiers": [],
+    "extensions": [],
+    "global_trace_attributes": [],
+    "global_event_attributes": [],
+    "traces": [
+      {
+        "attributes": [
+          {
+            "key": "case:source_id",
+            "type": "string",
+            "value": "remove-empty-case-source-0"
+          },
+          {
+            "key": "concept:name",
+            "type": "string",
+            "value": "remove-empty-case-trace-0"
+          }
+        ],
+        "events": [
+          {
+            "attributes": [
+              {
+                "key": "concept:name",
+                "type": "string",
+                "value": "A"
+              },
+              {
+                "key": "event:source_ordinal",
+                "type": "int",
+                "value": 3
+              },
+              {
+                "key": "lifecycle:transition",
+                "type": "string",
+                "value": "complete"
+              },
+              {
+                "key": "time:timestamp",
+                "type": "date",
+                "value": 1704067240123,
+                "text": "2024-01-01T00:00:40.123Z"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "attributes": [
+          {
+            "key": "case:source_id",
+            "type": "string",
+            "value": "remove-empty-case-source-1"
+          },
+          {
+            "key": "concept:name",
+            "type": "string",
+            "value": "remove-empty-case-trace-1"
+          }
+        ],
+        "events": [
+          {
+            "attributes": [
+              {
+                "key": "concept:name",
+                "type": "string",
+                "value": "B"
+              },
+              {
+                "key": "event:source_ordinal",
+                "type": "int",
+                "value": 3
+              },
+              {
+                "key": "lifecycle:transition",
+                "type": "string",
+                "value": "complete"
+              },
+              {
+                "key": "time:timestamp",
+                "type": "date",
+                "value": 1704067240123,
+                "text": "2024-01-01T00:00:40.123Z"
+              }
+            ]
+          },
+          {
+            "attributes": [
+              {
+                "key": "concept:name",
+                "type": "string",
+                "value": "A"
+              },
+              {
+                "key": "event:source_ordinal",
+                "type": "int",
+                "value": 10
+              },
+              {
+                "key": "lifecycle:transition",
+                "type": "string",
+                "value": "complete"
+              },
+              {
+                "key": "time:timestamp",
+                "type": "date",
+                "value": 1704067239123,
+                "text": "2024-01-01T00:00:39.123Z"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "trace_count": 2,
+    "event_count": 3
+  },
+  "source_xlog_after_conversion_sha256": "e00056a2f9fbd3a65a3d1157c49e8424a3b42510d272d76a6d3bac98db9c5b35",
+  "source_apm_before": {
+    "log_name": "Extended Core filter remove-empty-case",
+    "traces": [
+      {
+        "immutable_index": 0,
+        "case_id": "remove-empty-case-trace-0",
+        "immutable_event_count": 1,
+        "attributes": {
+          "case:source_id": "remove-empty-case-source-0"
+        },
+        "activities": [
+          {
+            "immutable_index": 0,
+            "immutable_trace_index": 0,
+            "mutable_trace_index": 0,
+            "parent_case_id": "remove-empty-case-trace-0",
+            "event_indices": [
+              0
+            ],
+            "name": "A",
+            "name_indicator": 0,
+            "start_time_ms": 1704067240123,
+            "end_time_ms": 1704067240123,
+            "attributes": {
+              "concept:name": "A",
+              "event:source_ordinal": "3"
+            }
+          }
+        ]
+      },
+      {
+        "immutable_index": 1,
+        "case_id": "remove-empty-case-trace-1",
+        "immutable_event_count": 2,
+        "attributes": {
+          "case:source_id": "remove-empty-case-source-1"
+        },
+        "activities": [
+          {
+            "immutable_index": 0,
+            "immutable_trace_index": 1,
+            "mutable_trace_index": 1,
+            "parent_case_id": "remove-empty-case-trace-1",
+            "event_indices": [
+              0
+            ],
+            "name": "B",
+            "name_indicator": 1,
+            "start_time_ms": 1704067240123,
+            "end_time_ms": 1704067240123,
+            "attributes": {
+              "concept:name": "B",
+              "event:source_ordinal": "3"
+            }
+          },
+          {
+            "immutable_index": 1,
+            "immutable_trace_index": 1,
+            "mutable_trace_index": 1,
+            "parent_case_id": "remove-empty-case-trace-1",
+            "event_indices": [
+              1
+            ],
+            "name": "A",
+            "name_indicator": 0,
+            "start_time_ms": 1704067239123,
+            "end_time_ms": 1704067239123,
+            "attributes": {
+              "concept:name": "A",
+              "event:source_ordinal": "10"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "source_apm_before_sha256": "6c20fb613d678a880fdafd681c40e3cb2ddddeea8735e050bc60404926334272",
+  "java_ordered_rules": [
+    {
+      "filter_type": "EVENT_EVENT_ATTRIBUTE",
+      "choice": "REMOVE",
+      "section": "EVENT",
+      "inclusion": "ANY_VALUE",
+      "key": "concept:name",
+      "primary_values": [
+        {
+          "operation": "EQUAL",
+          "long_value": null,
+          "string_set": [
+            "A"
+          ]
+        }
+      ]
+    }
+  ],
+  "engine_call_count": 1,
+  "status": "filtered",
+  "outcome": "filtered",
+  "selected_source_indices": [
+    1
+  ],
+  "selected_event_positions": [
+    [
+      0
+    ]
+  ],
+  "selected_pointer_traces": [
+    {
+      "immutable_trace_index": 1,
+      "mutable_pointer_index": 0,
+      "case_id": "remove-empty-case-trace-1",
+      "source_case_id": "remove-empty-case-source-1",
+      "valid_event_indices": [
+        0
+      ],
+      "stored_activity_instance_count": 1
+    }
+  ],
+  "selected_source_log": {
+    "name": "Extended Core filter remove-empty-case",
+    "cases": [
+      {
+        "id": "remove-empty-case-source-1",
+        "name": "remove-empty-case-trace-1",
+        "events": [
+          {
+            "ordinal": 3,
+            "activity": "B",
+            "timestamp": "2024-01-01T00:00:40.123Z",
+            "lifecycle": "complete"
+          }
+        ]
+      }
+    ],
+    "warnings": [
+      "synthetic warning retained for remove-empty-case"
+    ]
+  },
+  "source_apm_after": {
+    "log_name": "Extended Core filter remove-empty-case",
+    "traces": [
+      {
+        "immutable_index": 0,
+        "case_id": "remove-empty-case-trace-0",
+        "immutable_event_count": 1,
+        "attributes": {
+          "case:source_id": "remove-empty-case-source-0"
+        },
+        "activities": [
+          {
+            "immutable_index": 0,
+            "immutable_trace_index": 0,
+            "mutable_trace_index": 0,
+            "parent_case_id": "remove-empty-case-trace-0",
+            "event_indices": [
+              0
+            ],
+            "name": "A",
+            "name_indicator": 0,
+            "start_time_ms": 1704067240123,
+            "end_time_ms": 1704067240123,
+            "attributes": {
+              "concept:name": "A",
+              "event:source_ordinal": "3"
+            }
+          }
+        ]
+      },
+      {
+        "immutable_index": 1,
+        "case_id": "remove-empty-case-trace-1",
+        "immutable_event_count": 2,
+        "attributes": {
+          "case:source_id": "remove-empty-case-source-1"
+        },
+        "activities": [
+          {
+            "immutable_index": 0,
+            "immutable_trace_index": 1,
+            "mutable_trace_index": 1,
+            "parent_case_id": "remove-empty-case-trace-1",
+            "event_indices": [
+              0
+            ],
+            "name": "B",
+            "name_indicator": 1,
+            "start_time_ms": 1704067240123,
+            "end_time_ms": 1704067240123,
+            "attributes": {
+              "concept:name": "B",
+              "event:source_ordinal": "3"
+            }
+          },
+          {
+            "immutable_index": 1,
+            "immutable_trace_index": 1,
+            "mutable_trace_index": 1,
+            "parent_case_id": "remove-empty-case-trace-1",
+            "event_indices": [
+              1
+            ],
+            "name": "A",
+            "name_indicator": 0,
+            "start_time_ms": 1704067239123,
+            "end_time_ms": 1704067239123,
+            "attributes": {
+              "concept:name": "A",
+              "event:source_ordinal": "10"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "source_apm_after_sha256": "6c20fb613d678a880fdafd681c40e3cb2ddddeea8735e050bc60404926334272",
+  "source_xlog_after_filter": {
+    "attributes": [
+      {
+        "key": "concept:name",
+        "type": "string",
+        "value": "Extended Core filter remove-empty-case"
+      },
+      {
+        "key": "source:warnings",
+        "type": "string",
+        "value": "[\"synthetic warning retained for remove-empty-case\"]"
+      }
+    ],
+    "classifiers": [],
+    "extensions": [],
+    "global_trace_attributes": [],
+    "global_event_attributes": [],
+    "traces": [
+      {
+        "attributes": [
+          {
+            "key": "case:source_id",
+            "type": "string",
+            "value": "remove-empty-case-source-0"
+          },
+          {
+            "key": "concept:name",
+            "type": "string",
+            "value": "remove-empty-case-trace-0"
+          }
+        ],
+        "events": [
+          {
+            "attributes": [
+              {
+                "key": "concept:name",
+                "type": "string",
+                "value": "A"
+              },
+              {
+                "key": "event:source_ordinal",
+                "type": "int",
+                "value": 3
+              },
+              {
+                "key": "lifecycle:transition",
+                "type": "string",
+                "value": "complete"
+              },
+              {
+                "key": "time:timestamp",
+                "type": "date",
+                "value": 1704067240123,
+                "text": "2024-01-01T00:00:40.123Z"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "attributes": [
+          {
+            "key": "case:source_id",
+            "type": "string",
+            "value": "remove-empty-case-source-1"
+          },
+          {
+            "key": "concept:name",
+            "type": "string",
+            "value": "remove-empty-case-trace-1"
+          }
+        ],
+        "events": [
+          {
+            "attributes": [
+              {
+                "key": "concept:name",
+                "type": "string",
+                "value": "B"
+              },
+              {
+                "key": "event:source_ordinal",
+                "type": "int",
+                "value": 3
+              },
+              {
+                "key": "lifecycle:transition",
+                "type": "string",
+                "value": "complete"
+              },
+              {
+                "key": "time:timestamp",
+                "type": "date",
+                "value": 1704067240123,
+                "text": "2024-01-01T00:00:40.123Z"
+              }
+            ]
+          },
+          {
+            "attributes": [
+              {
+                "key": "concept:name",
+                "type": "string",
+                "value": "A"
+              },
+              {
+                "key": "event:source_ordinal",
+                "type": "int",
+                "value": 10
+              },
+              {
+                "key": "lifecycle:transition",
+                "type": "string",
+                "value": "complete"
+              },
+              {
+                "key": "time:timestamp",
+                "type": "date",
+                "value": 1704067239123,
+                "text": "2024-01-01T00:00:39.123Z"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "trace_count": 2,
+    "event_count": 3
+  },
+  "source_xlog_after_filter_sha256": "e00056a2f9fbd3a65a3d1157c49e8424a3b42510d272d76a6d3bac98db9c5b35",
+  "source_domain_after": {
+    "name": "Extended Core filter remove-empty-case",
+    "cases": [
+      {
+        "id": "remove-empty-case-source-0",
+        "name": "remove-empty-case-trace-0",
+        "events": [
+          {
+            "ordinal": 3,
+            "activity": "A",
+            "timestamp": "2024-01-01T00:00:40.123Z",
+            "lifecycle": "complete"
+          }
+        ]
+      },
+      {
+        "id": "remove-empty-case-source-1",
+        "name": "remove-empty-case-trace-1",
+        "events": [
+          {
+            "ordinal": 3,
+            "activity": "B",
+            "timestamp": "2024-01-01T00:00:40.123Z",
+            "lifecycle": "complete"
+          },
+          {
+            "ordinal": 10,
+            "activity": "A",
+            "timestamp": "2024-01-01T00:00:39.123Z",
+            "lifecycle": "complete"
+          }
+        ]
+      }
+    ],
+    "warnings": [
+      "synthetic warning retained for remove-empty-case"
+    ]
+  },
+  "source_domain_after_sha256": "b240e45aa157b317da84314c62385f86f93ff9287d42902292e17e09cccc5401",
+  "selection_observation": "Source cases/events projected only by actual returned PTrace immutable indexes and valid-event BitSet; no observer predicate or APM-to-XES export"
+}

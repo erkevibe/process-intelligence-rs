@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "phase": "miner_unchanged_pm4py_original_raw_conversion",
+  "bundle_sha256": "ea7309b02c583e230afb57ccf474d62cdb49c9af61f39a0206a46200cca1b4bf",
+  "cohort_sha256": "6dac7a9b69d553590f342ed4b836140678a9f2c072cc806119f0ecc48ace208d",
+  "base_adapter_sha256": "3088b0d864a21b5946aab207a3a1cf4d89204a817e468f9185c96b72a6a0fd9b",
+  "source_pins": {
+    "pm4py.algo.evaluation.precision.variants.align_etconformance": "6c29314c049629a38b2bd969b3ae07ab83dc814c4185a56f507dd0b1d161a39e",
+    "pm4py.algo.evaluation.precision.utils": "62a2641b8f9ace1b7e508cc97bde4d8cae5cf57ccb36f3b15f695c0cfbbed524",
+    "pm4py.objects.petri_net.utils.align_utils": "99207fdb93fc442e21761d9296b201d638d60c2bc22ea89d42c5d7fd68e064c2",
+    "pm4py.algo.evaluation.simplicity.variants.arc_degree": "84edf8a85a7cb3e313056b58493b430b960ffc47cbb57efe6559d924b36249f7",
+    "pm4py.objects.conversion.bpmn.variants.to_petri_net": "257441ca99bcede7d9ec356998a8e2b55a8274c8eca52e381f42c471c19ffad1"
+  },
+  "cases": [
+    {
+      "id": "linear",
+      "original_rust_prepared": {
+        "admission_reason": null,
+        "admission_status": "admitted",
+        "graph_file": "linear.graph.json",
+        "graph_sha256": "4ff1c4ae4e5ada11592c17e647fe61657b0b6eb584786eed61c452c5364ce51c",
+        "map_file": "linear.map.json",
+        "map_sha256": "a68b67c9b592bb2761576e15ff8dec94f61fc598b83c65e1184fb0f1eaf280e4",
+        "net_file": "linear.net.json",
+        "net_sha256": "0331004c5553727c14337115c349cc8bd557ff17ee5d33ab6291ed9fc2c28cb9",
+        "status": "net_saved"
+      },
+      "status": "converted_original_raw_xml",
+      "original_sha256": "427e4dbded59fa732b2cef5b48ab47a414a4461331bdcc4b19b13db338c0eac5",
+      "net_sha256": "246837322dfcc5c4be08b692602ba36a35b03447349d80ad7538a99b6067c953",
+      "graph_sha256": "640be2566160747c1e4b4ffb6840b54e2e67e24e78aebfc2ce28bf8c72651cf5",
+      "net_file": "linear.net.json",
+      "graph_file": "linear.graph.json"
+    },
+    {
+      "id": "exclusive-choice",
+      "original_rust_prepared": {
+        "admission_reason": null,
+        "admission_status": "admitted",
+        "graph_file": "exclusive-choice.graph.json",
+        "graph_sha256": "dccc5539f43a26471b2bc06e5ced7a21dc7023f1af04788c239587b351950844",
+        "map_file": "exclusive-choice.map.json",
+        "map_sha256": "f1e214b3919a027703dbc631b73a073eab0e07e252d75526685b10ff65e297ee",
+        "net_file": "exclusive-choice.net.json",
+        "net_sha256": "33238732c5b11d2a4f0566c2003c617a77ca092fad376880c9114d2247c51b12",
+        "status": "net_saved"
+      },
+      "status": "converted_original_raw_xml",
+      "original_sha256": "887070a89f35c85a315423ef9b30569b220dfa30585a96a06ac39b592032951e",
+      "net_sha256": "e70fd78551f6e2d6cfe65a2244a41bdd2b182558b5fcbe761f6649718ef3411b",
+      "graph_sha256": "5468b2837edf1dbd31a636c42a169d914020219b296f465e53f328f372bf8783",
+      "net_file": "exclusive-choice.net.json",
+      "graph_file": "exclusive-choice.graph.json"
+    },
+    {
+      "id": "parallel-interleavings",
+      "original_rust_prepared": {
+        "admission_reason": null,
+        "admission_status": "admitted",
+        "graph_file": "parallel-interleavings.graph.json",
+        "graph_sha256": "dc34271ada8a929667ffaa7a7f942c1042efac00fb3911ff056b3e55799d9d85",
+        "map_file": "parallel-interleavings.map.json",
+        "map_sha256": "9d643b361f1bb05c4309638bc4f0bf1a592538594b2b32a00fdd09b32b684bf0",
+        "net_file": "parallel-interleavings.net.json",
+        "net_sha256": "a6c143309766583cbc49ada45bf75f38b218753ec316b5abcc99cc92375448a6",
+        "status": "net_saved"
+      },
+      "status": "converted_original_raw_xml",
+      "original_sha256": "56e33beeab413328eb936357be0b508063d9899fdd5087b96910e4812c715c0d",
+      "net_sha256": "dab089820acd3563955400b18d8e693e78dba5a1346ac87dae0422830d3200a3",
+      "graph_sha256": "608ae8bf14d93cd36e792b350e537ca3167563bc50ce75feec08a304d919ec30",
+      "net_file": "parallel-interleavings.net.json",
+      "graph_file": "parallel-interleavings.graph.json"
+    },
+    {
+      "id": "self-loop",
+      "original_rust_prepared": {
+        "reason": "quality_unsupported_standard_loop_before_both_converters",
+        "status": "quality_unsupported_semantics"
+      },
+      "status": "reference_conversion_refused",
+      "exception_class": "ProjectionRefused",
+      "reason": "quality_unsupported_standard_loop_before_both_converters",
+      "scalar": null
+    },
+    {
+      "id": "short-loop",
+      "original_rust_prepared": {
+        "admission_reason": null,
+        "admission_status": "admitted",
+        "graph_file": "short-loop.graph.json",
+        "graph_sha256": "7b779229cf345547d90a35a1175cb17705edbc174c5a6ceb6b31522e4729a7db",
+        "map_file": "short-loop.map.json",
+        "map_sha256": "8e06bb9ae3aff0a3b82ec239aeb053687fffdde32bfa331c5505c3a48b77f180",
+        "net_file": "short-loop.net.json",
+        "net_sha256": "71c708e9effdce1463b81a6491791d9482cc45c9ccb0875a7bf38d039094f0e7",
+        "status": "net_saved"
+      },
+      "status": "converted_original_raw_xml",
+      "original_sha256": "9705eddd0b88f25f4abca3688696228046c8e99de0edb71f4b9e1375025d745a",
+      "net_sha256": "05a4f7a233bba1e7b09afb0c5d0e90ee765c468a5323f11cfb4e967b395aa966",
+      "graph_sha256": "0e131f3551de6c1c7101bb0eeab1df3d664eb808bfbb4a78b1dc691a648c00b0",
+      "net_file": "short-loop.net.json",
+      "graph_file": "short-loop.graph.json"
+    },
+    {
+      "id": "rare-noise",
+      "original_rust_prepared": {
+        "admission_reason": null,
+        "admission_status": "admitted",
+        "graph_file": "rare-noise.graph.json",
+        "graph_sha256": "233ee3e9ecd603fbfc251497d41b9acf79411f0621d6b796b7b778428632933b",
+        "map_file": "rare-noise.map.json",
+        "map_sha256": "f1e214b3919a027703dbc631b73a073eab0e07e252d75526685b10ff65e297ee",
+        "net_file": "rare-noise.net.json",
+        "net_sha256": "5d98ef74cac74a9ccd08920bc58565fe6d162312e74f2e0fd7c193dbc15e9f6b",
+        "status": "net_saved"
+      },
+      "status": "converted_original_raw_xml",
+      "original_sha256": "e8c27393fb5deb7739004c7f2ab9c704a116bb5d102ddd0ffff04e20012ab613",
+      "net_sha256": "513469a0c643bfb21152636a200b77dd151d8d6869260d2a7dff0a74a209fa76",
+      "graph_sha256": "1e2cb05dc323fe2abe32563261e0ef37bfa6c60ea85b99e3a0f9e2cf9c19d109",
+      "net_file": "rare-noise.net.json",
+      "graph_file": "rare-noise.graph.json"
+    },
+    {
+      "id": "empty-log",
+      "original_rust_prepared": {
+        "exception": {
+          "class": "java.util.NoSuchElementException",
+          "message": null
+        },
+        "status": "carried_algorithm_exception"
+      },
+      "status": "carried_algorithm_exception",
+      "exception": {
+        "class": "java.util.NoSuchElementException",
+        "message": null
+      }
+    },
+    {
+      "id": "empty-trace",
+      "original_rust_prepared": {
+        "admission_reason": null,
+        "admission_status": "admitted",
+        "graph_file": "empty-trace.graph.json",
+        "graph_sha256": "0b79d7da55eb6356bb6fe137f0c3608c0d4af6448234cad9865e26f951ca2e5f",
+        "map_file": "empty-trace.map.json",
+        "map_sha256": "a01c888c642d505f2efcbd366444c49c527f298169eca7bc033ea3514f6646f7",
+        "net_file": "empty-trace.net.json",
+        "net_sha256": "4f72b15d9e484c2b1636a3d07426f9843b6fa499a7314d0d9e71191aa9684a7f",
+        "status": "net_saved"
+      },
+      "status": "converted_original_raw_xml",
+      "original_sha256": "aca67b5e5d342b39e095a75a1d74023aebe96947252adf6b8b99319aec77fc73",
+      "net_sha256": "138cd54d25a1938e8323fec44deab3b9b4b5366b413591e8d175f55c472d29be",
+      "graph_sha256": "5c34a96520d64dd5d95a844e785cc7660ff847f8c2c0f4074107677f6cf171b8",
+      "net_file": "empty-trace.net.json",
+      "graph_file": "empty-trace.graph.json"
+    }
+  ],
+  "not_acceptance": true
+}

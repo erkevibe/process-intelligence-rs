@@ -1,0 +1,55 @@
+{
+  "configuration_unchanged": true,
+  "duration_millis": 7200000,
+  "engine": "process_intelligence_rs::calendar::business_millis",
+  "error": null,
+  "iana_tzdb_version": "2025b",
+  "id": "weekend",
+  "input_sha256": "f823905e7dbd8db5aa7954cb11149a8606e330b9bc86781cedd8d10f3e6af89f",
+  "outcome": "duration",
+  "schema_version": 1,
+  "scope": "Actual existing calendar API; elapsed UTC semantics and refusal policy preserved, not a legacy calendar implementation",
+  "source_input_after": {
+    "calendar": {
+      "end_minute": 1080,
+      "holidays": [],
+      "offset_minutes": 0,
+      "start_minute": 540,
+      "timezone": "UTC",
+      "weekdays": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "end": "2026-06-08T10:00:00Z",
+    "id": "weekend",
+    "schema_version": 1,
+    "start": "2026-06-05T17:00:00Z"
+  },
+  "source_input_after_sha256": "7d288025a89001d67cece7bae0ffc624fc2bbfadf5c1c6f1063ebf0bf1af2b29",
+  "source_input_before": {
+    "calendar": {
+      "end_minute": 1080,
+      "holidays": [],
+      "offset_minutes": 0,
+      "start_minute": 540,
+      "timezone": "UTC",
+      "weekdays": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "end": "2026-06-08T10:00:00Z",
+    "id": "weekend",
+    "schema_version": 1,
+    "start": "2026-06-05T17:00:00Z"
+  },
+  "source_input_before_sha256": "7d288025a89001d67cece7bae0ffc624fc2bbfadf5c1c6f1063ebf0bf1af2b29",
+  "status": "ACTUAL_RUST_BUSINESS_CALENDAR_OBSERVED"
+}

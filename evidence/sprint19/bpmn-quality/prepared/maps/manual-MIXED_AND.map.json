@@ -1,0 +1,126 @@
+{
+  "kind": "frozen_symbolic_manual_net",
+  "symbolic_spec": {
+    "arcs": [
+      [
+        "p0",
+        "split",
+        1
+      ],
+      [
+        "split",
+        "pa",
+        1
+      ],
+      [
+        "split",
+        "pb",
+        1
+      ],
+      [
+        "pa",
+        "a",
+        1
+      ],
+      [
+        "a",
+        "pA",
+        1
+      ],
+      [
+        "pb",
+        "b",
+        1
+      ],
+      [
+        "b",
+        "pB",
+        1
+      ],
+      [
+        "pA",
+        "middle",
+        1
+      ],
+      [
+        "pB",
+        "middle",
+        1
+      ],
+      [
+        "middle",
+        "pc",
+        1
+      ],
+      [
+        "middle",
+        "pd",
+        1
+      ],
+      [
+        "pc",
+        "c",
+        1
+      ],
+      [
+        "c",
+        "pC",
+        1
+      ],
+      [
+        "pd",
+        "d",
+        1
+      ],
+      [
+        "d",
+        "pD",
+        1
+      ],
+      [
+        "pC",
+        "join",
+        1
+      ],
+      [
+        "pD",
+        "join",
+        1
+      ],
+      [
+        "join",
+        "pf",
+        1
+      ]
+    ],
+    "finals": [
+      {
+        "pf": 1
+      }
+    ],
+    "initial": {
+      "p0": 1
+    },
+    "places": [
+      "p0",
+      "pa",
+      "pb",
+      "pA",
+      "pB",
+      "pc",
+      "pd",
+      "pC",
+      "pD",
+      "pf"
+    ],
+    "transitions": {
+      "a": "A",
+      "b": "B",
+      "c": "C",
+      "d": "D",
+      "join": null,
+      "middle": null,
+      "split": null
+    }
+  }
+}

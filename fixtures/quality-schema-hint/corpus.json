@@ -1,0 +1,581 @@
+{
+  "schema_version": 1,
+  "status": "PROSPECTIVE_SCHEMA_HINT_FIXTURE_FREEZE_BEFORE_IMPLEMENTATION",
+  "schema_hint_addendum_sha256": "d49c756db26e952d32ae800ac7847ae9692adf27a71d847f30a8d7eb8a58d39d",
+  "DI_addendum_sha256": "be3ad397a3241405d69bada74f70af9a50f43b6c06a8443a171f49fd3ade9a15",
+  "method_sha256": "8e17394b9e1e79ffd0bcda4b2a55d0454feff5b3c017b91ab8e115d11f9f974d",
+  "canonical_raw_value": "http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd",
+  "never_resolve_schema": true,
+  "construction": "Explicit literal known-attribute insertions/removals and UTF8 byte lengths before any schema-hint projector exists. Not candidate-generated expectations.",
+  "semantic_map_for_linear": "../quality-di/linear-semantic-map.json",
+  "semantic_map_sha256": "f7bc51afd8f181f32cbff5cd80140d9dbef664e4f2e5bb8baa621ad99d0781cf",
+  "real_miner_original_sha256": "427e4dbded59fa732b2cef5b48ab47a414a4461331bdcc4b19b13db338c0eac5",
+  "cases": [
+    {
+      "id": "H01-root-canonical-double",
+      "file": "H01-root-canonical-double.bpmn",
+      "sha256": "4ce49c70bbdd3f38fe6c282dd2348b2652d8544e4adc40bb899b6d3e66fb5749",
+      "bytes": 769,
+      "expected": {
+        "projection_status": "projected",
+        "category": "canonical_root_hint_only",
+        "strict_after_hint": "accepted",
+        "quality_scalars": null,
+        "no_partial_projection_on_refusal": null,
+        "spans": [
+          {
+            "byte_start": 263,
+            "byte_length": 75,
+            "subtree_sha256": "c1020d487b06baf350f62245146b6b5ac92d69d4837e1a11c40e3e283749fece",
+            "raw_utf8": "xsi:schemaLocation=\"http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd\"",
+            "parent": {
+              "root": true,
+              "namespace": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+              "local_name": "definitions"
+            },
+            "expanded_attribute": {
+              "namespace": "http://www.w3.org/2001/XMLSchema-instance",
+              "local_name": "schemaLocation"
+            },
+            "canonical_value": "http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd",
+            "separator_whitespace_not_removed": true
+          }
+        ],
+        "projected_file": "H01-root-canonical-double.expected-projected.bpmn",
+        "projected_sha256": "995310b052e123986b938a6b69c03059eb1d8721a3967f418830a1e97c74f7a0",
+        "all_other_bytes_unchanged": true,
+        "semantic_map_file": "../quality-di/linear-semantic-map.json",
+        "semantic_map_sha256": "f7bc51afd8f181f32cbff5cd80140d9dbef664e4f2e5bb8baa621ad99d0781cf"
+      }
+    },
+    {
+      "id": "H02-alias-single-quotes",
+      "file": "H02-alias-single-quotes.bpmn",
+      "sha256": "8771a16abc5fe9a778c26db9be9e3e0819ac75ba3a57933adbf7880fce709c8b",
+      "bytes": 775,
+      "expected": {
+        "projection_status": "projected",
+        "category": "canonical_root_hint_only",
+        "strict_after_hint": "accepted",
+        "quality_scalars": null,
+        "no_partial_projection_on_refusal": null,
+        "spans": [
+          {
+            "byte_start": 266,
+            "byte_length": 78,
+            "subtree_sha256": "30de79765d932a6f1882682533abb04256a2de86578596ce54a899fa083fd873",
+            "raw_utf8": "schema:schemaLocation='http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd'",
+            "parent": {
+              "root": true,
+              "namespace": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+              "local_name": "definitions"
+            },
+            "expanded_attribute": {
+              "namespace": "http://www.w3.org/2001/XMLSchema-instance",
+              "local_name": "schemaLocation"
+            },
+            "canonical_value": "http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd",
+            "separator_whitespace_not_removed": true
+          }
+        ],
+        "projected_file": "H02-alias-single-quotes.expected-projected.bpmn",
+        "projected_sha256": "f791221d87c4f24c4be664fa7ea7f78c5eceaa2ad9e8edc2e861af536f814c93",
+        "all_other_bytes_unchanged": true,
+        "semantic_map_file": "../quality-di/linear-semantic-map.json",
+        "semantic_map_sha256": "f7bc51afd8f181f32cbff5cd80140d9dbef664e4f2e5bb8baa621ad99d0781cf"
+      }
+    },
+    {
+      "id": "H03-whitespace-around-equals",
+      "file": "H03-whitespace-around-equals.bpmn",
+      "sha256": "049c687e39f59341576de35b301e85d0b78c01027e1797b3988820f9405cd147",
+      "bytes": 771,
+      "expected": {
+        "projection_status": "projected",
+        "category": "canonical_root_hint_only",
+        "strict_after_hint": "accepted",
+        "quality_scalars": null,
+        "no_partial_projection_on_refusal": null,
+        "spans": [
+          {
+            "byte_start": 263,
+            "byte_length": 77,
+            "subtree_sha256": "33e7d1be15fe010487624991e7f40f424dd80a99782c9bd204c07c9f101fe5f4",
+            "raw_utf8": "xsi:schemaLocation = 'http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd'",
+            "parent": {
+              "root": true,
+              "namespace": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+              "local_name": "definitions"
+            },
+            "expanded_attribute": {
+              "namespace": "http://www.w3.org/2001/XMLSchema-instance",
+              "local_name": "schemaLocation"
+            },
+            "canonical_value": "http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd",
+            "separator_whitespace_not_removed": true
+          }
+        ],
+        "projected_file": "H03-whitespace-around-equals.expected-projected.bpmn",
+        "projected_sha256": "995310b052e123986b938a6b69c03059eb1d8721a3967f418830a1e97c74f7a0",
+        "all_other_bytes_unchanged": true,
+        "semantic_map_file": "../quality-di/linear-semantic-map.json",
+        "semantic_map_sha256": "f7bc51afd8f181f32cbff5cd80140d9dbef664e4f2e5bb8baa621ad99d0781cf"
+      }
+    },
+    {
+      "id": "H04-no-hint-identity",
+      "file": "H04-no-hint-identity.bpmn",
+      "sha256": "71ba10e81c9b70a96730fb7aa645dc0db733927661475a36daa9415e9dec33d2",
+      "bytes": 693,
+      "expected": {
+        "projection_status": "projected",
+        "category": "no_hint_noop",
+        "strict_after_hint": "accepted",
+        "quality_scalars": null,
+        "no_partial_projection_on_refusal": null,
+        "spans": [],
+        "projected_file": "H04-no-hint-identity.expected-projected.bpmn",
+        "projected_sha256": "71ba10e81c9b70a96730fb7aa645dc0db733927661475a36daa9415e9dec33d2",
+        "all_other_bytes_unchanged": true,
+        "semantic_map_file": "../quality-di/linear-semantic-map.json",
+        "semantic_map_sha256": "f7bc51afd8f181f32cbff5cd80140d9dbef664e4f2e5bb8baa621ad99d0781cf"
+      }
+    },
+    {
+      "id": "H05-real-miner-retains-DI",
+      "file": "H05-real-miner-retains-DI.bpmn",
+      "sha256": "427e4dbded59fa732b2cef5b48ab47a414a4461331bdcc4b19b13db338c0eac5",
+      "bytes": 2565,
+      "expected": {
+        "projection_status": "projected",
+        "category": "canonical_root_hint_only",
+        "strict_after_hint": "refused_pending_separate_DI_label_projection",
+        "quality_scalars": null,
+        "no_partial_projection_on_refusal": null,
+        "spans": [
+          {
+            "byte_start": 427,
+            "byte_length": 75,
+            "subtree_sha256": "c1020d487b06baf350f62245146b6b5ac92d69d4837e1a11c40e3e283749fece",
+            "raw_utf8": "xsi:schemaLocation=\"http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd\"",
+            "parent": {
+              "root": true,
+              "namespace": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+              "local_name": "definitions"
+            },
+            "expanded_attribute": {
+              "namespace": "http://www.w3.org/2001/XMLSchema-instance",
+              "local_name": "schemaLocation"
+            },
+            "canonical_value": "http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd",
+            "separator_whitespace_not_removed": true
+          }
+        ],
+        "projected_file": "H05-real-miner-retains-DI.expected-projected.bpmn",
+        "projected_sha256": "a069ed02b5e0c9ea873365465118e881a5c6b3ae9c05ee4a81899bcbd27100c2",
+        "all_other_bytes_unchanged": true,
+        "semantic_map_file": "real-miner-linear-semantic-map.json",
+        "semantic_map_sha256": "52d05a90b4984d743874afd3ce3f1471f198ce8b0b574e6bbc132ceb6f2d35f4"
+      }
+    },
+    {
+      "id": "HN01-wrong-namespace-token",
+      "file": "HN01-wrong-namespace-token.bpmn",
+      "sha256": "c1b7354cf7d99523fc4bd1353e9947ecd8bdcf4e7f86b90e19c235dc8c587f48",
+      "bytes": 735,
+      "expected": {
+        "projection_status": "refused",
+        "category": "noncanonical_hint_value",
+        "strict_after_hint": "not_attempted",
+        "quality_scalars": null,
+        "no_partial_projection_on_refusal": true
+      }
+    },
+    {
+      "id": "HN02-remote-schema-url",
+      "file": "HN02-remote-schema-url.bpmn",
+      "sha256": "e36d6a3c930f652585f1ade10c5db8a391d3404b1262ef3d3574bc11336095e9",
+      "bytes": 792,
+      "expected": {
+        "projection_status": "refused",
+        "category": "noncanonical_hint_value",
+        "strict_after_hint": "not_attempted",
+        "quality_scalars": null,
+        "no_partial_projection_on_refusal": true
+      }
+    },
+    {
+      "id": "HN03-extra-token",
+      "file": "HN03-extra-token.bpmn",
+      "sha256": "7b24a2207a9ed612b444456cc37f37877c3e4b7ea76da82c8b6257dbfa68c5c6",
+      "bytes": 779,
+      "expected": {
+        "projection_status": "refused",
+        "category": "noncanonical_hint_value",
+        "strict_after_hint": "not_attempted",
+        "quality_scalars": null,
+        "no_partial_projection_on_refusal": true
+      }
+    },
+    {
+      "id": "HN04-missing-schema-token",
+      "file": "HN04-missing-schema-token.bpmn",
+      "sha256": "fc7ccd88fbebf4b506ea8a9c5175bace201d41c0aa75afd1aeeac4a2ed02837c",
+      "bytes": 758,
+      "expected": {
+        "projection_status": "refused",
+        "category": "noncanonical_hint_value",
+        "strict_after_hint": "not_attempted",
+        "quality_scalars": null,
+        "no_partial_projection_on_refusal": true
+      }
+    },
+    {
+      "id": "HN05-entity-space",
+      "file": "HN05-entity-space.bpmn",
+      "sha256": "3b84091ae787bb3a507ae014aab465011207c0adf64ac6c7d21cd1658aa037f6",
+      "bytes": 773,
+      "expected": {
+        "projection_status": "refused",
+        "category": "noncanonical_raw_hint_lexeme",
+        "strict_after_hint": "not_attempted",
+        "quality_scalars": null,
+        "no_partial_projection_on_refusal": true
+      }
+    },
+    {
+      "id": "HN06-leading-space",
+      "file": "HN06-leading-space.bpmn",
+      "sha256": "5387c30e4278606e7130c13b9dec92479702308eeabcf134b6eb78d083e99ab7",
+      "bytes": 770,
+      "expected": {
+        "projection_status": "refused",
+        "category": "noncanonical_raw_hint_lexeme",
+        "strict_after_hint": "not_attempted",
+        "quality_scalars": null,
+        "no_partial_projection_on_refusal": true
+      }
+    },
+    {
+      "id": "HN07-trailing-space",
+      "file": "HN07-trailing-space.bpmn",
+      "sha256": "590cdec9b6d4ba0f4411c2883f56078ba333f1ba0f918df0b8ab3ee8e4a5704b",
+      "bytes": 770,
+      "expected": {
+        "projection_status": "refused",
+        "category": "noncanonical_raw_hint_lexeme",
+        "strict_after_hint": "not_attempted",
+        "quality_scalars": null,
+        "no_partial_projection_on_refusal": true
+      }
+    },
+    {
+      "id": "HN08-two-token-spaces",
+      "file": "HN08-two-token-spaces.bpmn",
+      "sha256": "b5912ce229cedd094bb3d3a5af01fad5ce99a72ff64d37083aea5ea2f9c952c8",
+      "bytes": 770,
+      "expected": {
+        "projection_status": "refused",
+        "category": "noncanonical_raw_hint_lexeme",
+        "strict_after_hint": "not_attempted",
+        "quality_scalars": null,
+        "no_partial_projection_on_refusal": true
+      }
+    },
+    {
+      "id": "HN09-case-sensitive-schema-token",
+      "file": "HN09-case-sensitive-schema-token.bpmn",
+      "sha256": "00beaf64187ef86d9b1a10c216d1083f90e5a5c5a19a5d0e65ff14f1de47c517",
+      "bytes": 769,
+      "expected": {
+        "projection_status": "refused",
+        "category": "noncanonical_hint_value",
+        "strict_after_hint": "not_attempted",
+        "quality_scalars": null,
+        "no_partial_projection_on_refusal": true
+      }
+    },
+    {
+      "id": "HN10-wrong-XSI-namespace",
+      "file": "HN10-wrong-XSI-namespace.bpmn",
+      "sha256": "2ab6cf6d3b98802faa238d0e543aebda20eeff4fde0e12b70adaf6708a3ae760",
+      "bytes": 737,
+      "expected": {
+        "projection_status": "refused",
+        "category": "wrong_schema_hint_namespace",
+        "strict_after_hint": "not_attempted",
+        "quality_scalars": null,
+        "no_partial_projection_on_refusal": true
+      }
+    },
+    {
+      "id": "HN11-nonroot-process-attribute",
+      "file": "HN11-nonroot-process-attribute.bpmn",
+      "sha256": "235b9eade76303acee8d20e56357482c9e4dbd2e1267cc3ed87ae7b86b4e479f",
+      "bytes": 769,
+      "expected": {
+        "projection_status": "refused",
+        "category": "schema_hint_wrong_parent",
+        "strict_after_hint": "not_attempted",
+        "quality_scalars": null,
+        "no_partial_projection_on_refusal": true
+      }
+    },
+    {
+      "id": "HN12-duplicate-qualified-attribute",
+      "file": "HN12-duplicate-qualified-attribute.bpmn",
+      "sha256": "031f129df449b0ce93e090f520974d0a55a9e50046c8f64a87eef6d2b0d5eb58",
+      "bytes": 845,
+      "expected": {
+        "projection_status": "refused",
+        "category": "duplicate_XML_attribute",
+        "strict_after_hint": "not_attempted",
+        "quality_scalars": null,
+        "no_partial_projection_on_refusal": true
+      }
+    },
+    {
+      "id": "HN13-duplicate-expanded-alias",
+      "file": "HN13-duplicate-expanded-alias.bpmn",
+      "sha256": "ea19c169b31b1a282dbaf5f12fb82d1c3c25ebae7e21e80b5a54e5bc34a2721e",
+      "bytes": 903,
+      "expected": {
+        "projection_status": "refused",
+        "category": "duplicate_expanded_XML_attribute",
+        "strict_after_hint": "not_attempted",
+        "quality_scalars": null,
+        "no_partial_projection_on_refusal": true
+      }
+    },
+    {
+      "id": "HN14-unknown-XSI-type",
+      "file": "HN14-unknown-XSI-type.bpmn",
+      "sha256": "73729a7ef58b4ab5c3b5a73b1600aa750aa1ceeb31b4a3ab92c913828d13fc1c",
+      "bytes": 794,
+      "expected": {
+        "projection_status": "refused",
+        "category": "unsupported_XSI_attribute",
+        "strict_after_hint": "not_attempted",
+        "quality_scalars": null,
+        "no_partial_projection_on_refusal": true
+      }
+    },
+    {
+      "id": "HN15-noNamespaceSchemaLocation",
+      "file": "HN15-noNamespaceSchemaLocation.bpmn",
+      "sha256": "a3c5379456a8b0756b8e4c19a1717a0040e9bb3f32a022e3bbc0830b332feabc",
+      "bytes": 736,
+      "expected": {
+        "projection_status": "refused",
+        "category": "unsupported_XSI_attribute",
+        "strict_after_hint": "not_attempted",
+        "quality_scalars": null,
+        "no_partial_projection_on_refusal": true
+      }
+    },
+    {
+      "id": "HN16-DTD-forbidden",
+      "file": "HN16-DTD-forbidden.bpmn",
+      "sha256": "15a16b3cb3a2b9b9e8a56a5ec7435203ee8539f6a989fb963e1994183a9ad3a3",
+      "bytes": 858,
+      "expected": {
+        "projection_status": "refused",
+        "category": "DTD_forbidden_no_external_access",
+        "strict_after_hint": "not_attempted",
+        "quality_scalars": null,
+        "no_partial_projection_on_refusal": true
+      }
+    },
+    {
+      "id": "HN17-standardLoop-preserved-refusal",
+      "file": "HN17-standardLoop-preserved-refusal.bpmn",
+      "sha256": "792c303b13c857340ae8ad67a5393d3b1a45d27d202d6a81ca97dd114d82f5d0",
+      "bytes": 828,
+      "expected": {
+        "projection_status": "refused",
+        "category": "quality_unsupported_standard_loop_before_both_converters",
+        "strict_after_hint": "not_attempted",
+        "quality_scalars": null,
+        "no_partial_projection_on_refusal": true
+      }
+    },
+    {
+      "id": "HN18-wrong-root-namespace",
+      "file": "HN18-wrong-root-namespace.bpmn",
+      "sha256": "b42e52d09c3506be4a8318fad265f1566efb560e68f80bcc1209fe27872a39ad",
+      "bytes": 740,
+      "expected": {
+        "projection_status": "refused",
+        "category": "BPMN_definitions_namespace_required",
+        "strict_after_hint": "not_attempted",
+        "quality_scalars": null,
+        "no_partial_projection_on_refusal": true
+      }
+    },
+    {
+      "id": "HN19-unbound-prefix",
+      "file": "HN19-unbound-prefix.bpmn",
+      "sha256": "ae0e9817ac06e86ece7ef45e4ea82c5cc512d33fa6e605558fe7adb77b95bb3a",
+      "bytes": 715,
+      "expected": {
+        "projection_status": "refused",
+        "category": "malformed_XML_or_namespace",
+        "strict_after_hint": "not_attempted",
+        "quality_scalars": null,
+        "no_partial_projection_on_refusal": true
+      }
+    }
+  ],
+  "files": [
+    {
+      "file": "H01-root-canonical-double.bpmn",
+      "sha256": "4ce49c70bbdd3f38fe6c282dd2348b2652d8544e4adc40bb899b6d3e66fb5749",
+      "bytes": 769
+    },
+    {
+      "file": "H01-root-canonical-double.expected-projected.bpmn",
+      "sha256": "995310b052e123986b938a6b69c03059eb1d8721a3967f418830a1e97c74f7a0",
+      "bytes": 694
+    },
+    {
+      "file": "H02-alias-single-quotes.bpmn",
+      "sha256": "8771a16abc5fe9a778c26db9be9e3e0819ac75ba3a57933adbf7880fce709c8b",
+      "bytes": 775
+    },
+    {
+      "file": "H02-alias-single-quotes.expected-projected.bpmn",
+      "sha256": "f791221d87c4f24c4be664fa7ea7f78c5eceaa2ad9e8edc2e861af536f814c93",
+      "bytes": 697
+    },
+    {
+      "file": "H03-whitespace-around-equals.bpmn",
+      "sha256": "049c687e39f59341576de35b301e85d0b78c01027e1797b3988820f9405cd147",
+      "bytes": 771
+    },
+    {
+      "file": "H03-whitespace-around-equals.expected-projected.bpmn",
+      "sha256": "995310b052e123986b938a6b69c03059eb1d8721a3967f418830a1e97c74f7a0",
+      "bytes": 694
+    },
+    {
+      "file": "H04-no-hint-identity.bpmn",
+      "sha256": "71ba10e81c9b70a96730fb7aa645dc0db733927661475a36daa9415e9dec33d2",
+      "bytes": 693
+    },
+    {
+      "file": "H04-no-hint-identity.expected-projected.bpmn",
+      "sha256": "71ba10e81c9b70a96730fb7aa645dc0db733927661475a36daa9415e9dec33d2",
+      "bytes": 693
+    },
+    {
+      "file": "H05-real-miner-retains-DI.bpmn",
+      "sha256": "427e4dbded59fa732b2cef5b48ab47a414a4461331bdcc4b19b13db338c0eac5",
+      "bytes": 2565
+    },
+    {
+      "file": "H05-real-miner-retains-DI.expected-projected.bpmn",
+      "sha256": "a069ed02b5e0c9ea873365465118e881a5c6b3ae9c05ee4a81899bcbd27100c2",
+      "bytes": 2490
+    },
+    {
+      "file": "HN01-wrong-namespace-token.bpmn",
+      "sha256": "c1b7354cf7d99523fc4bd1353e9947ecd8bdcf4e7f86b90e19c235dc8c587f48",
+      "bytes": 735
+    },
+    {
+      "file": "HN02-remote-schema-url.bpmn",
+      "sha256": "e36d6a3c930f652585f1ade10c5db8a391d3404b1262ef3d3574bc11336095e9",
+      "bytes": 792
+    },
+    {
+      "file": "HN03-extra-token.bpmn",
+      "sha256": "7b24a2207a9ed612b444456cc37f37877c3e4b7ea76da82c8b6257dbfa68c5c6",
+      "bytes": 779
+    },
+    {
+      "file": "HN04-missing-schema-token.bpmn",
+      "sha256": "fc7ccd88fbebf4b506ea8a9c5175bace201d41c0aa75afd1aeeac4a2ed02837c",
+      "bytes": 758
+    },
+    {
+      "file": "HN05-entity-space.bpmn",
+      "sha256": "3b84091ae787bb3a507ae014aab465011207c0adf64ac6c7d21cd1658aa037f6",
+      "bytes": 773
+    },
+    {
+      "file": "HN06-leading-space.bpmn",
+      "sha256": "5387c30e4278606e7130c13b9dec92479702308eeabcf134b6eb78d083e99ab7",
+      "bytes": 770
+    },
+    {
+      "file": "HN07-trailing-space.bpmn",
+      "sha256": "590cdec9b6d4ba0f4411c2883f56078ba333f1ba0f918df0b8ab3ee8e4a5704b",
+      "bytes": 770
+    },
+    {
+      "file": "HN08-two-token-spaces.bpmn",
+      "sha256": "b5912ce229cedd094bb3d3a5af01fad5ce99a72ff64d37083aea5ea2f9c952c8",
+      "bytes": 770
+    },
+    {
+      "file": "HN09-case-sensitive-schema-token.bpmn",
+      "sha256": "00beaf64187ef86d9b1a10c216d1083f90e5a5c5a19a5d0e65ff14f1de47c517",
+      "bytes": 769
+    },
+    {
+      "file": "HN10-wrong-XSI-namespace.bpmn",
+      "sha256": "2ab6cf6d3b98802faa238d0e543aebda20eeff4fde0e12b70adaf6708a3ae760",
+      "bytes": 737
+    },
+    {
+      "file": "HN11-nonroot-process-attribute.bpmn",
+      "sha256": "235b9eade76303acee8d20e56357482c9e4dbd2e1267cc3ed87ae7b86b4e479f",
+      "bytes": 769
+    },
+    {
+      "file": "HN12-duplicate-qualified-attribute.bpmn",
+      "sha256": "031f129df449b0ce93e090f520974d0a55a9e50046c8f64a87eef6d2b0d5eb58",
+      "bytes": 845
+    },
+    {
+      "file": "HN13-duplicate-expanded-alias.bpmn",
+      "sha256": "ea19c169b31b1a282dbaf5f12fb82d1c3c25ebae7e21e80b5a54e5bc34a2721e",
+      "bytes": 903
+    },
+    {
+      "file": "HN14-unknown-XSI-type.bpmn",
+      "sha256": "73729a7ef58b4ab5c3b5a73b1600aa750aa1ceeb31b4a3ab92c913828d13fc1c",
+      "bytes": 794
+    },
+    {
+      "file": "HN15-noNamespaceSchemaLocation.bpmn",
+      "sha256": "a3c5379456a8b0756b8e4c19a1717a0040e9bb3f32a022e3bbc0830b332feabc",
+      "bytes": 736
+    },
+    {
+      "file": "HN16-DTD-forbidden.bpmn",
+      "sha256": "15a16b3cb3a2b9b9e8a56a5ec7435203ee8539f6a989fb963e1994183a9ad3a3",
+      "bytes": 858
+    },
+    {
+      "file": "HN17-standardLoop-preserved-refusal.bpmn",
+      "sha256": "792c303b13c857340ae8ad67a5393d3b1a45d27d202d6a81ca97dd114d82f5d0",
+      "bytes": 828
+    },
+    {
+      "file": "HN18-wrong-root-namespace.bpmn",
+      "sha256": "b42e52d09c3506be4a8318fad265f1566efb560e68f80bcc1209fe27872a39ad",
+      "bytes": 740
+    },
+    {
+      "file": "HN19-unbound-prefix.bpmn",
+      "sha256": "ae0e9817ac06e86ece7ef45e4ea82c5cc512d33fa6e605558fe7adb77b95bb3a",
+      "bytes": 715
+    },
+    {
+      "file": "real-miner-linear-semantic-map.json",
+      "sha256": "52d05a90b4984d743874afd3ce3f1471f198ce8b0b574e6bbc132ceb6f2d35f4",
+      "bytes": 949
+    }
+  ]
+}

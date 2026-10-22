@@ -1,0 +1,1654 @@
+{
+  "schema_version": 1,
+  "status": "FINITE_NUMERIC_LEXEME_PRESERVING_PUBLIC_FIELD_PROJECTION",
+  "profile": "calendar",
+  "corpus_sha256": "f363e0952bcc8c153b7e269eba6535787a856a7e8693961fdaeaf6cc77de347e",
+  "source_sha256": "f9a548020af768604a9f941d30cfd07c0d419b15d36f6974c854146e5b849d2d",
+  "original_inputs": [
+    {
+      "source_alias": "workspace://fixtures/oracle-core-calendar/corpus.json",
+      "sha256": "f363e0952bcc8c153b7e269eba6535787a856a7e8693961fdaeaf6cc77de347e",
+      "bytes": 22810
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-index.json",
+      "sha256": "0815bfd30064102e2cd7fbac41c73d0c4c9413f3eb1c0165087c4c1c56844658",
+      "bytes": 5828
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-ordinary.json",
+      "sha256": "32ec56ddc6bda9f17f94ba44ee7f0ae4349c185b2ed9c3c561156395a1152503",
+      "bytes": 4957
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-ordinary.process.json",
+      "sha256": "94c57ba1729c8fc2f652e6155943bf7ab9f62d16d1dd56ed3931f0bf39574f6c",
+      "bytes": 1214
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-ordinary.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-ordinary.stderr",
+      "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+      "bytes": 92
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-clip.json",
+      "sha256": "6ffef0a3322edc33a90d550a0faa9d201ace45f3adbfbf44bc0b01b523e14a1e",
+      "bytes": 4942
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-clip.process.json",
+      "sha256": "74ece3c8186dc5cd676baf4f5636c278b73f7d5fd2786f1fe4da7b3ab3eab925",
+      "bytes": 1214
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-clip.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-clip.stderr",
+      "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+      "bytes": 92
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-weekend.json",
+      "sha256": "fd82e8bd84e42029d13103eb4c6f9ede81cb0bf50195344c5caa02de201496c7",
+      "bytes": 7243
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-weekend.process.json",
+      "sha256": "c1325d07597ac941cc4207251c3ab62ad7eb75dd000c1b336654136c513eeed1",
+      "bytes": 1213
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-weekend.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-weekend.stderr",
+      "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+      "bytes": 92
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-holiday.json",
+      "sha256": "c120f8b108bd595a098470bcc00961d96313237043db466044327bc7a76b82ff",
+      "bytes": 5622
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-holiday.process.json",
+      "sha256": "ee1cd38e8eac65b579c569f80f8e6feb87f4074f5e8db7c57cd18267852b82d3",
+      "bytes": 1212
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-holiday.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-holiday.stderr",
+      "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+      "bytes": 92
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-nonhour-zone.json",
+      "sha256": "609aa6aa03f427a90ba2d0c783394aab9f782071da6c81c926c70ba3d0f21ce8",
+      "bytes": 5056
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-nonhour-zone.process.json",
+      "sha256": "b1724fe821826af2649ce049ae833cfbcc17b394c6c258fbaac46e607ab35292",
+      "bytes": 1214
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-nonhour-zone.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-nonhour-zone.stderr",
+      "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+      "bytes": 92
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-spring-elapsed.json",
+      "sha256": "32b04a3f9e1b958e9c22e65ce0e890bc0a7d9f574e55e0d3a18f7e7bcc175d88",
+      "bytes": 5051
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-spring-elapsed.process.json",
+      "sha256": "6ef8ab7ae6613840ab61443cfe20e4a189ff8172fbd56b35599fa93925bdf736",
+      "bytes": 1214
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-spring-elapsed.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-spring-elapsed.stderr",
+      "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+      "bytes": 92
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-fall-elapsed.json",
+      "sha256": "0b8c1877f0db47c38142c9de983edb4d074e2cea063916d4da24d0e53de3afd7",
+      "bytes": 5036
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-fall-elapsed.process.json",
+      "sha256": "739336cff6d44e7e4d044603927a578574bace23e2f8e304c4e8ad10c289be15",
+      "bytes": 1214
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-fall-elapsed.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-fall-elapsed.stderr",
+      "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+      "bytes": 92
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-spring-gap-boundary.json",
+      "sha256": "640834dbafed012bc35c03d422e4a79c8c5584daa3ada6e9b6112efd5e815735",
+      "bytes": 5065
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-spring-gap-boundary.process.json",
+      "sha256": "1bf775614131378a6e234f8856d7d7b54c7a1c9a883eaeb6f57979524fef780a",
+      "bytes": 1214
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-spring-gap-boundary.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-spring-gap-boundary.stderr",
+      "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+      "bytes": 92
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-fall-fold-boundary.json",
+      "sha256": "6950ce50f1ee4857e162e615fdba351a0a0d587696d2b435376cb01401393a69",
+      "bytes": 5062
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-fall-fold-boundary.process.json",
+      "sha256": "f7d1be27555ab6f4c6ba98282c4dd3cffb2ae1f38a82dd763f275a123dc0fcab",
+      "bytes": 1214
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-fall-fold-boundary.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-fall-fold-boundary.stderr",
+      "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+      "bytes": 92
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-invalid-zone.json",
+      "sha256": "865948fcb24f917a55467426baaeeb7d23e63d47dd3ce9fdfce1f0c734f610ea",
+      "bytes": 3545
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-invalid-zone.process.json",
+      "sha256": "82a53b2178343e90b2e78f7ea9b4af35bd3722d44f79a9ce8d247877a60bf30e",
+      "bytes": 1214
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-invalid-zone.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-invalid-zone.stderr",
+      "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+      "bytes": 92
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-overnight-invalid.json",
+      "sha256": "3f5be6cff5bf3c7f789a9e23790044fc02cba031a18ac3dd0729228a3a804d38",
+      "bytes": 4987
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-overnight-invalid.process.json",
+      "sha256": "0c00c29ecf307147c0801c898c96a887f07987ecf5a4b6c67737bf25f511aa32",
+      "bytes": 1214
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-overnight-invalid.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-overnight-invalid.stderr",
+      "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+      "bytes": 92
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-reversed.json",
+      "sha256": "a700d39fba5170e067faf4ead6f52a73e37e73f650ab3bb36a1ce07161319d85",
+      "bytes": 4939
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-reversed.process.json",
+      "sha256": "b63cba9b4cc4895d5b298c6df15271700d09f9516f4b17d582e45ee9f9045c0b",
+      "bytes": 1214
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-reversed.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-reversed.stderr",
+      "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+      "bytes": 92
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-precision-api.json",
+      "sha256": "fa4044d08fb82de394705803dbd496b39ed2ee2557f03b50c1876e6c1d71634a",
+      "bytes": 4983
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-precision-api.process.json",
+      "sha256": "62beed1fc76494b04908370d90b2f038e907b85b8533c1722129c8d6542d80e8",
+      "bytes": 1214
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-precision-api.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-precision-api.stderr",
+      "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+      "bytes": 92
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-index.json",
+      "sha256": "bac2af9534289ca543303a938a0c2780d77b90439ba5978e9931d71ea8eb365b",
+      "bytes": 5854
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-ordinary.stdout",
+      "sha256": "62079e731c210ad252e9a5c95b641fb04e9891157ed81255ca53ff8b04c8d272",
+      "bytes": 1138
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-ordinary.process.json",
+      "sha256": "ce3f27e361cf0eb1379cad98a003ab26140ea3e8ab9fa02db76d8ea8ac790f41",
+      "bytes": 1256
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-ordinary.stdout",
+      "sha256": "62079e731c210ad252e9a5c95b641fb04e9891157ed81255ca53ff8b04c8d272",
+      "bytes": 1138
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-ordinary.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-clip.stdout",
+      "sha256": "bbecf027b0ccebd5bb345e6fda31fb135f8ff6309582ff183545b46a9b7c2697",
+      "bytes": 1125
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-clip.process.json",
+      "sha256": "782c45b9e384a6e9c44288eadac4bc4ef1cec98df9bdec49feda916164bf31f1",
+      "bytes": 1256
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-clip.stdout",
+      "sha256": "bbecf027b0ccebd5bb345e6fda31fb135f8ff6309582ff183545b46a9b7c2697",
+      "bytes": 1125
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-clip.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-weekend.stdout",
+      "sha256": "d9eed8a6abc946b05235264217c6574fa5fb1ea4aa9502db05e298c4db66c29f",
+      "bytes": 1150
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-weekend.process.json",
+      "sha256": "242420270b34e94ae803a4ed352c6bf2b9a72d862bda70bc3ea4a4cf4e675315",
+      "bytes": 1256
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-weekend.stdout",
+      "sha256": "d9eed8a6abc946b05235264217c6574fa5fb1ea4aa9502db05e298c4db66c29f",
+      "bytes": 1150
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-weekend.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-holiday.stdout",
+      "sha256": "e8170d10cedc6f947728f2ebad12c7aaa75d4770942d7427f133b8eb9d33ed22",
+      "bytes": 1152
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-holiday.process.json",
+      "sha256": "cfc607df3fdbf3126678c09f372910445d17d97520bec8bb86b1de0d8de067f9",
+      "bytes": 1256
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-holiday.stdout",
+      "sha256": "e8170d10cedc6f947728f2ebad12c7aaa75d4770942d7427f133b8eb9d33ed22",
+      "bytes": 1152
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-holiday.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-nonhour-zone.stdout",
+      "sha256": "58ce9dfc5f3372c1f8d17c9c78b8ef559c9618e30d90f9e78bd20f72be796972",
+      "bytes": 1172
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-nonhour-zone.process.json",
+      "sha256": "be093f969bcedf9c9b17ca201e1ba85c5604d95f1309bba5f887eae368b6c459",
+      "bytes": 1256
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-nonhour-zone.stdout",
+      "sha256": "58ce9dfc5f3372c1f8d17c9c78b8ef559c9618e30d90f9e78bd20f72be796972",
+      "bytes": 1172
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-nonhour-zone.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-spring-elapsed.stdout",
+      "sha256": "8256e7240df9632de000b3269f6d8bac6654c2ec911e8a6f03ca2d483e8d07b0",
+      "bytes": 1171
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-spring-elapsed.process.json",
+      "sha256": "fcd9e41bbf85a5ad8033eb41052d72db75b19a861923d5f9916bf7de5487cf17",
+      "bytes": 1256
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-spring-elapsed.stdout",
+      "sha256": "8256e7240df9632de000b3269f6d8bac6654c2ec911e8a6f03ca2d483e8d07b0",
+      "bytes": 1171
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-spring-elapsed.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-fall-elapsed.stdout",
+      "sha256": "4ae60c935668388e7336771236480996db75c48f7db41ec11388465fa944b509",
+      "bytes": 1166
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-fall-elapsed.process.json",
+      "sha256": "c7077408c7af47f56e9ce3ecaead3342aed65b09f975848b23c64267d77aa604",
+      "bytes": 1256
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-fall-elapsed.stdout",
+      "sha256": "4ae60c935668388e7336771236480996db75c48f7db41ec11388465fa944b509",
+      "bytes": 1166
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-fall-elapsed.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-spring-gap-boundary.stdout",
+      "sha256": "646c381acdb28966dc600ddf717dc79a66a0996a4bbe7e297984fb8fbd6da128",
+      "bytes": 1431
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-spring-gap-boundary.process.json",
+      "sha256": "f9fdd5946a765ba7b5db20c60ff8c9cc2feba0d5bfc4ce7ddf67c9da11f4d2f4",
+      "bytes": 1255
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-spring-gap-boundary.stdout",
+      "sha256": "646c381acdb28966dc600ddf717dc79a66a0996a4bbe7e297984fb8fbd6da128",
+      "bytes": 1431
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-spring-gap-boundary.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-fall-fold-boundary.stdout",
+      "sha256": "95cd61ca2ff62c30c10e4889d9a083d16bda52a9ef2c7e28e0214878dc79eb1f",
+      "bytes": 1428
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-fall-fold-boundary.process.json",
+      "sha256": "8e42950816e3bebabb2430827f529ec920861827815b6c71b3476c131520a406",
+      "bytes": 1256
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-fall-fold-boundary.stdout",
+      "sha256": "95cd61ca2ff62c30c10e4889d9a083d16bda52a9ef2c7e28e0214878dc79eb1f",
+      "bytes": 1428
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-fall-fold-boundary.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-invalid-zone.stdout",
+      "sha256": "0adbd16ea49082be3d97b4c1319e0748be7519ead108e15686fcbcf1b9bfc036",
+      "bytes": 1313
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-invalid-zone.process.json",
+      "sha256": "db58bce39392cac8f468a57331240bac25b68c0bbce94f129b654ccd8c481761",
+      "bytes": 1256
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-invalid-zone.stdout",
+      "sha256": "0adbd16ea49082be3d97b4c1319e0748be7519ead108e15686fcbcf1b9bfc036",
+      "bytes": 1313
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-invalid-zone.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-overnight-invalid.stdout",
+      "sha256": "4098fc7a7f2e8f0abc0668b79579a605c4c88c5f7992081c2449d9a8005341c6",
+      "bytes": 1292
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-overnight-invalid.process.json",
+      "sha256": "d68dd1f8500a0442940e7864d1fc4c35b4aeda7f9d9e0c7f66d4d2e156611416",
+      "bytes": 1256
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-overnight-invalid.stdout",
+      "sha256": "4098fc7a7f2e8f0abc0668b79579a605c4c88c5f7992081c2449d9a8005341c6",
+      "bytes": 1292
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-overnight-invalid.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-reversed.stdout",
+      "sha256": "b2ee39f53e8e62af347d8266f04ea14fbc9d875175560fc2293a7a376e3aacb9",
+      "bytes": 1265
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-reversed.process.json",
+      "sha256": "b7fcc533d075a568b2544163d20e7a6725d955cbada9dbb6c0b745eb367a0f01",
+      "bytes": 1256
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-reversed.stdout",
+      "sha256": "b2ee39f53e8e62af347d8266f04ea14fbc9d875175560fc2293a7a376e3aacb9",
+      "bytes": 1265
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-reversed.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-precision-api.stdout",
+      "sha256": "86935f279dc0ab825cc5967574c4a4d8d67b4ae950548fe9868a04986b253b48",
+      "bytes": 1157
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-precision-api.process.json",
+      "sha256": "1842da136718d1e734629a8869b3eadb27de15a1de2ec86929306ee17ab9b4a6",
+      "bytes": 1256
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-precision-api.stdout",
+      "sha256": "86935f279dc0ab825cc5967574c4a4d8d67b4ae950548fe9868a04986b253b48",
+      "bytes": 1157
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-precision-api.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-comparison01/comparison.json",
+      "sha256": "e90c8e0abf74c61fb0a88652decf7713a470077bd7d63baa84ecdf947cc31fd3",
+      "bytes": 48874
+    },
+    {
+      "source_alias": "workspace://fixtures/oracle-core-calendar/clip.json",
+      "sha256": "746f00084a5115d747d3d815f2d3bd70a279f1d5d25c596d5f940c09464afe38",
+      "bytes": 280
+    },
+    {
+      "source_alias": "workspace://fixtures/oracle-core-calendar/corpus.json",
+      "sha256": "f363e0952bcc8c153b7e269eba6535787a856a7e8693961fdaeaf6cc77de347e",
+      "bytes": 22810
+    },
+    {
+      "source_alias": "workspace://fixtures/oracle-core-calendar/fall-elapsed.json",
+      "sha256": "90938151507eaa48d0c4ff9799e0d68392aeb4ddb468dd7f39c27d7eb1afd104",
+      "bytes": 296
+    },
+    {
+      "source_alias": "workspace://fixtures/oracle-core-calendar/fall-fold-boundary.json",
+      "sha256": "3d913b63f88026c81eeecd85cd31b155914493b38b5dd8550902137e45bee54a",
+      "bytes": 303
+    },
+    {
+      "source_alias": "workspace://fixtures/oracle-core-calendar/holiday.json",
+      "sha256": "832821ab92726fcb6eef8c306f31202fa6236cdc06101e0125817e3f58fee837",
+      "bytes": 307
+    },
+    {
+      "source_alias": "workspace://fixtures/oracle-core-calendar/invalid-zone.json",
+      "sha256": "af4a5e26ebaac521eb9073a2c709c7d563cc026c507b975aa053a382bbce2ae3",
+      "bytes": 300
+    },
+    {
+      "source_alias": "workspace://fixtures/oracle-core-calendar/nonhour-zone.json",
+      "sha256": "bd574beae44a71338de38ac6d904ca624ab2d9d4e129897c6648eab3668f3014",
+      "bytes": 299
+    },
+    {
+      "source_alias": "workspace://fixtures/oracle-core-calendar/ordinary.json",
+      "sha256": "cb66b92afdcdf61f9e04e76beeb438f5b9848659de484e08eed51706ede85f34",
+      "bytes": 284
+    },
+    {
+      "source_alias": "workspace://fixtures/oracle-core-calendar/overnight-invalid.json",
+      "sha256": "63b95b988dcec9af1455d5825e696df1aa131cdafc148b845817c860a0e9fda8",
+      "bytes": 293
+    },
+    {
+      "source_alias": "workspace://fixtures/oracle-core-calendar/precision-api.json",
+      "sha256": "cda49f03a2871829ffd822843da68aa0c0f8b8d6a5dd45182beda5942224f7ad",
+      "bytes": 293
+    },
+    {
+      "source_alias": "workspace://fixtures/oracle-core-calendar/reversed.json",
+      "sha256": "9f9fcb246c62125dbf193eac8a0183ebaa00ce7b87a87c373072f3d88ca23ee6",
+      "bytes": 284
+    },
+    {
+      "source_alias": "workspace://fixtures/oracle-core-calendar/spring-elapsed.json",
+      "sha256": "a74dca4c5dffc14223b88b8437ffc08713881583093fb380af9695072919b9f0",
+      "bytes": 298
+    },
+    {
+      "source_alias": "workspace://fixtures/oracle-core-calendar/spring-gap-boundary.json",
+      "sha256": "86e5cd57bbf6457cab0541bcd33f12aeba515f9afbd46cfa016e5becf76238a7",
+      "bytes": 304
+    },
+    {
+      "source_alias": "workspace://fixtures/oracle-core-calendar/weekend.json",
+      "sha256": "f823905e7dbd8db5aa7954cb11149a8606e330b9bc86781cedd8d10f3e6af89f",
+      "bytes": 319
+    }
+  ],
+  "products": [
+    {
+      "path": "java/ordinary.json",
+      "sha256": "4d7d17792895ea9538e9bc3994cf4aefc7f7d61306bbd72661427194c5f8d1eb",
+      "bytes": 4644,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-ordinary.json",
+      "original_sha256": "32ec56ddc6bda9f17f94ba44ee7f0ae4349c185b2ed9c3c561156395a1152503",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "native/java-ordinary.json",
+      "sha256": "e63f76c71c13487e245fb62391f028c06d571a38fc918c8ffff1f1313cac7139",
+      "bytes": 1121,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-ordinary.process.json",
+      "original_sha256": "94c57ba1729c8fc2f652e6155943bf7ab9f62d16d1dd56ed3931f0bf39574f6c",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "java/clip.json",
+      "sha256": "fe942d4da243a92afe5738168659ad8188601072fcaa8f5ce712821eab47b42f",
+      "bytes": 4629,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-clip.json",
+      "original_sha256": "6ffef0a3322edc33a90d550a0faa9d201ace45f3adbfbf44bc0b01b523e14a1e",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "native/java-clip.json",
+      "sha256": "50639d6f2b17f160b3e1df74dfda7da8e225067715b80cd9fbebbb6ffbfff3c2",
+      "bytes": 1121,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-clip.process.json",
+      "original_sha256": "74ece3c8186dc5cd676baf4f5636c278b73f7d5fd2786f1fe4da7b3ab3eab925",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "java/weekend.json",
+      "sha256": "6ff128851dbabc8d56a1d364074ad20f4ba49efcc6c6afd9fa435f78c4d4373c",
+      "bytes": 7078,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-weekend.json",
+      "original_sha256": "fd82e8bd84e42029d13103eb4c6f9ede81cb0bf50195344c5caa02de201496c7",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "native/java-weekend.json",
+      "sha256": "42e35546a288c82fd4717f2e249359765bf7bc7a0532560369f5a7ad1ab359fb",
+      "bytes": 1120,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-weekend.process.json",
+      "original_sha256": "c1325d07597ac941cc4207251c3ab62ad7eb75dd000c1b336654136c513eeed1",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "java/holiday.json",
+      "sha256": "aa3cf1a68113d7c1a91678f4ad6dc02e0b09ddf677e8fedd581332f49a38fb2c",
+      "bytes": 5375,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-holiday.json",
+      "original_sha256": "c120f8b108bd595a098470bcc00961d96313237043db466044327bc7a76b82ff",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "native/java-holiday.json",
+      "sha256": "b60723da6a5c3dfb6a395489f98bed80839c44bfcc44a233c3ac45766576e85c",
+      "bytes": 1119,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-holiday.process.json",
+      "original_sha256": "ee1cd38e8eac65b579c569f80f8e6feb87f4074f5e8db7c57cd18267852b82d3",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "java/nonhour-zone.json",
+      "sha256": "dda156ebf2fb22dcc6117f11b867121b32156010a519dc427bdfeb17ec863dcb",
+      "bytes": 4743,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-nonhour-zone.json",
+      "original_sha256": "609aa6aa03f427a90ba2d0c783394aab9f782071da6c81c926c70ba3d0f21ce8",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "native/java-nonhour-zone.json",
+      "sha256": "5a6aef3275f06487dbb49ee4e85d5a983070fe2f66c6e9add98550b5cd7f106f",
+      "bytes": 1121,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-nonhour-zone.process.json",
+      "original_sha256": "b1724fe821826af2649ce049ae833cfbcc17b394c6c258fbaac46e607ab35292",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "java/spring-elapsed.json",
+      "sha256": "f07d5e2092f0a1a5436acd8b3d76d962353ee288d7ffce4aaa1edd92dcca02f4",
+      "bytes": 4738,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-spring-elapsed.json",
+      "original_sha256": "32b04a3f9e1b958e9c22e65ce0e890bc0a7d9f574e55e0d3a18f7e7bcc175d88",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "native/java-spring-elapsed.json",
+      "sha256": "f2cac743e9fbbf44f163d6e705864f017499116d1a97d0a6ddfc888ae37632a8",
+      "bytes": 1121,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-spring-elapsed.process.json",
+      "original_sha256": "6ef8ab7ae6613840ab61443cfe20e4a189ff8172fbd56b35599fa93925bdf736",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "java/fall-elapsed.json",
+      "sha256": "0bb5529a2a12f88860e82dbce27c09ef61ed28f03423266a3551302765881632",
+      "bytes": 4723,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-fall-elapsed.json",
+      "original_sha256": "0b8c1877f0db47c38142c9de983edb4d074e2cea063916d4da24d0e53de3afd7",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "native/java-fall-elapsed.json",
+      "sha256": "af2d21f51475cb7571b2fa60ffbbc87cda68d22fa90a2122f89ff32abe43ac45",
+      "bytes": 1121,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-fall-elapsed.process.json",
+      "original_sha256": "739336cff6d44e7e4d044603927a578574bace23e2f8e304c4e8ad10c289be15",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "java/spring-gap-boundary.json",
+      "sha256": "dc88f3224b77edfc2be30ffcf69c3b59c219c735825abe04833cd5b28d8d4a2f",
+      "bytes": 4752,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-spring-gap-boundary.json",
+      "original_sha256": "640834dbafed012bc35c03d422e4a79c8c5584daa3ada6e9b6112efd5e815735",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "native/java-spring-gap-boundary.json",
+      "sha256": "5b58c4512ccae1e9efa3ac6c22dad9a869351cca3331d4921b317209fde850e7",
+      "bytes": 1121,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-spring-gap-boundary.process.json",
+      "original_sha256": "1bf775614131378a6e234f8856d7d7b54c7a1c9a883eaeb6f57979524fef780a",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "java/fall-fold-boundary.json",
+      "sha256": "3ced8c5716c3deba0fb81f7f48af5dc836a6c0a3a5811b1225f70354d232830e",
+      "bytes": 4749,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-fall-fold-boundary.json",
+      "original_sha256": "6950ce50f1ee4857e162e615fdba351a0a0d587696d2b435376cb01401393a69",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "native/java-fall-fold-boundary.json",
+      "sha256": "0a405a07a0e41de94271d7993e06f24ae0aa98c31e42ff379b72356ad7c0b29e",
+      "bytes": 1121,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-fall-fold-boundary.process.json",
+      "original_sha256": "f7d1be27555ab6f4c6ba98282c4dd3cffb2ae1f38a82dd763f275a123dc0fcab",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "java/invalid-zone.json",
+      "sha256": "e979bb043b59fdae68376a7a372fc181882e75ebaada6114525fee9ffa058d37",
+      "bytes": 3262,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-invalid-zone.json",
+      "original_sha256": "865948fcb24f917a55467426baaeeb7d23e63d47dd3ce9fdfce1f0c734f610ea",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "native/java-invalid-zone.json",
+      "sha256": "8aa9ace5386cc0bad20a98748a5a2adda4b162664394631f9b22be09f3227e5f",
+      "bytes": 1121,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-invalid-zone.process.json",
+      "original_sha256": "82a53b2178343e90b2e78f7ea9b4af35bd3722d44f79a9ce8d247877a60bf30e",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "java/overnight-invalid.json",
+      "sha256": "469c13d1ecb6d53c3fc6bbadacbff8f15df4cbbe9808e638fd865d9a1b9685e5",
+      "bytes": 4674,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-overnight-invalid.json",
+      "original_sha256": "3f5be6cff5bf3c7f789a9e23790044fc02cba031a18ac3dd0729228a3a804d38",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "native/java-overnight-invalid.json",
+      "sha256": "cf236390917939a9fd3dff156b6fe48631e66f0bc321b639db05e42e516306d8",
+      "bytes": 1121,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-overnight-invalid.process.json",
+      "original_sha256": "0c00c29ecf307147c0801c898c96a887f07987ecf5a4b6c67737bf25f511aa32",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "java/reversed.json",
+      "sha256": "6c860513cd983c6b4c3dafb42f7afcf12f2ad20739fd3220e0c9180ec1dce37a",
+      "bytes": 4626,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-reversed.json",
+      "original_sha256": "a700d39fba5170e067faf4ead6f52a73e37e73f650ab3bb36a1ce07161319d85",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "native/java-reversed.json",
+      "sha256": "cfa06ee15ab32aabf2a5068a725ebe02e0d638e1c4c64b908974ca73a70a0f1a",
+      "bytes": 1121,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-reversed.process.json",
+      "original_sha256": "b63cba9b4cc4895d5b298c6df15271700d09f9516f4b17d582e45ee9f9045c0b",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "java/precision-api.json",
+      "sha256": "10b404789ca9bb895ddc636ea7bda000d9abc48eefe5563234b765e141aed3bf",
+      "bytes": 4670,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-precision-api.json",
+      "original_sha256": "fa4044d08fb82de394705803dbd496b39ed2ee2557f03b50c1876e6c1d71634a",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "native/java-precision-api.json",
+      "sha256": "de12f6fc9354227d86ea4c70d440c27c21b55fdb036573be0ab17252e9158546",
+      "bytes": 1121,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-precision-api.process.json",
+      "original_sha256": "62beed1fc76494b04908370d90b2f038e907b85b8533c1722129c8d6542d80e8",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "java-index.json",
+      "sha256": "f6fbb15eda3f491893af51295ba56ab79e2be9ac2939b8b945fc740fce58aec0",
+      "bytes": 8559,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-index.json",
+      "original_sha256": "0815bfd30064102e2cd7fbac41c73d0c4c9413f3eb1c0165087c4c1c56844658",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "rust/ordinary.json",
+      "sha256": "cd22037944b2d641dbc294e89863bbb905cc8fc9c8411d3b369e851f6666e1e8",
+      "bytes": 1403,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-ordinary.stdout",
+      "original_sha256": "62079e731c210ad252e9a5c95b641fb04e9891157ed81255ca53ff8b04c8d272",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "native/rust-ordinary.json",
+      "sha256": "5f25fb7503967fafaf7ab9eb32073e0b67301578b6d5318b1d3b5c0669c69021",
+      "bytes": 1162,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-ordinary.process.json",
+      "original_sha256": "ce3f27e361cf0eb1379cad98a003ab26140ea3e8ab9fa02db76d8ea8ac790f41",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "rust/clip.json",
+      "sha256": "8d2a9157344a78b4cfa38592cfa5255cc253b39dc63d11642bbf1eac71cc0303",
+      "bytes": 1390,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-clip.stdout",
+      "original_sha256": "bbecf027b0ccebd5bb345e6fda31fb135f8ff6309582ff183545b46a9b7c2697",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "native/rust-clip.json",
+      "sha256": "a21acb4a3bc280e74cdc57bfd7b803ea08ad1134ba37be709df2bc34582f8056",
+      "bytes": 1162,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-clip.process.json",
+      "original_sha256": "782c45b9e384a6e9c44288eadac4bc4ef1cec98df9bdec49feda916164bf31f1",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "rust/weekend.json",
+      "sha256": "99353471315bfe1e9d03c00c83ab8ed709c9bd4c70edaff8d71d2e084d9207db",
+      "bytes": 1487,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-weekend.stdout",
+      "original_sha256": "d9eed8a6abc946b05235264217c6574fa5fb1ea4aa9502db05e298c4db66c29f",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "native/rust-weekend.json",
+      "sha256": "1a1bfb68b5585fcb8fa6193b00f7df804c9403ed503b212a2032faf00c794a8b",
+      "bytes": 1162,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-weekend.process.json",
+      "original_sha256": "242420270b34e94ae803a4ed352c6bf2b9a72d862bda70bc3ea4a4cf4e675315",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "rust/holiday.json",
+      "sha256": "ff093bc547114efc91966d9bb6320596f74009c8c805650cc6e4f8787a326bd1",
+      "bytes": 1449,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-holiday.stdout",
+      "original_sha256": "e8170d10cedc6f947728f2ebad12c7aaa75d4770942d7427f133b8eb9d33ed22",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "native/rust-holiday.json",
+      "sha256": "749fafcc21c28df44716fc183027c0c0d99707de05d6737c17a857f1d20eaed5",
+      "bytes": 1162,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-holiday.process.json",
+      "original_sha256": "cfc607df3fdbf3126678c09f372910445d17d97520bec8bb86b1de0d8de067f9",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "rust/nonhour-zone.json",
+      "sha256": "40817b8bfe231134818d8ebfdc60e0671a239f9ceaab9c9b947c3edbbd0cfa9d",
+      "bytes": 1437,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-nonhour-zone.stdout",
+      "original_sha256": "58ce9dfc5f3372c1f8d17c9c78b8ef559c9618e30d90f9e78bd20f72be796972",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "native/rust-nonhour-zone.json",
+      "sha256": "99a895e8f2e1dd892f0df1f0fbe3fe797a2dd840213104f3efba66b227192c92",
+      "bytes": 1162,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-nonhour-zone.process.json",
+      "original_sha256": "be093f969bcedf9c9b17ca201e1ba85c5604d95f1309bba5f887eae368b6c459",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "rust/spring-elapsed.json",
+      "sha256": "fe33b4fed719eb0f76e2d8cea8f6aeb987f64e9d7707a0a4bbf85d59ae2f6821",
+      "bytes": 1436,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-spring-elapsed.stdout",
+      "original_sha256": "8256e7240df9632de000b3269f6d8bac6654c2ec911e8a6f03ca2d483e8d07b0",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "native/rust-spring-elapsed.json",
+      "sha256": "0dae6ee76a536c0b93213178e0e114e04dda10db1061a6460a53619f4f2d29d5",
+      "bytes": 1162,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-spring-elapsed.process.json",
+      "original_sha256": "fcd9e41bbf85a5ad8033eb41052d72db75b19a861923d5f9916bf7de5487cf17",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "rust/fall-elapsed.json",
+      "sha256": "6d844ef869ae38a20f9b1657dfcfec561bc9bc427a3b20fc5ed541e8993d3dd3",
+      "bytes": 1431,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-fall-elapsed.stdout",
+      "original_sha256": "4ae60c935668388e7336771236480996db75c48f7db41ec11388465fa944b509",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "native/rust-fall-elapsed.json",
+      "sha256": "6397f42c60b8d1e5534444f90218ddd52e28430628c1460ecbbb564b6d4cd27c",
+      "bytes": 1162,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-fall-elapsed.process.json",
+      "original_sha256": "c7077408c7af47f56e9ce3ecaead3342aed65b09f975848b23c64267d77aa604",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "rust/spring-gap-boundary.json",
+      "sha256": "84419e9341baf2b1a06acf86fdea773dee78d681ae045e84cf0bdd891759da79",
+      "bytes": 1723,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-spring-gap-boundary.stdout",
+      "original_sha256": "646c381acdb28966dc600ddf717dc79a66a0996a4bbe7e297984fb8fbd6da128",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "native/rust-spring-gap-boundary.json",
+      "sha256": "5a5680e62a9c2d91b58135992b177707696f465bd84145eafe85957f8ef02b05",
+      "bytes": 1161,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-spring-gap-boundary.process.json",
+      "original_sha256": "f9fdd5946a765ba7b5db20c60ff8c9cc2feba0d5bfc4ce7ddf67c9da11f4d2f4",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "rust/fall-fold-boundary.json",
+      "sha256": "ce6856e562b9196205865496055d4b4300b6e6da25f1d38b7bde1726208398a1",
+      "bytes": 1720,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-fall-fold-boundary.stdout",
+      "original_sha256": "95cd61ca2ff62c30c10e4889d9a083d16bda52a9ef2c7e28e0214878dc79eb1f",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "native/rust-fall-fold-boundary.json",
+      "sha256": "5eaa1e15ef2e90eb8fa112924d07a5a10406e26b1f3ec19fe01d3a6e46769d2f",
+      "bytes": 1162,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-fall-fold-boundary.process.json",
+      "original_sha256": "8e42950816e3bebabb2430827f529ec920861827815b6c71b3476c131520a406",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "rust/invalid-zone.json",
+      "sha256": "d80d0b9f653d8226ed6dad35e1962e2bc3657af041d31451e383be468fc2ee79",
+      "bytes": 1605,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-invalid-zone.stdout",
+      "original_sha256": "0adbd16ea49082be3d97b4c1319e0748be7519ead108e15686fcbcf1b9bfc036",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "native/rust-invalid-zone.json",
+      "sha256": "f9ae63b06258e3a8fd5179baf362db27b7fe539cba18384ac2af104fc2e93bc2",
+      "bytes": 1162,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-invalid-zone.process.json",
+      "original_sha256": "db58bce39392cac8f468a57331240bac25b68c0bbce94f129b654ccd8c481761",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "rust/overnight-invalid.json",
+      "sha256": "9354f47fe6eed950e26196f108b3f82b80778e78d9862a5dc01cb37a169a59ba",
+      "bytes": 1584,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-overnight-invalid.stdout",
+      "original_sha256": "4098fc7a7f2e8f0abc0668b79579a605c4c88c5f7992081c2449d9a8005341c6",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "native/rust-overnight-invalid.json",
+      "sha256": "97ae2c3ad7f0e42fdf408d934878d36b280e9f2cdda50c83d15c8f5f2b72ed3b",
+      "bytes": 1162,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-overnight-invalid.process.json",
+      "original_sha256": "d68dd1f8500a0442940e7864d1fc4c35b4aeda7f9d9e0c7f66d4d2e156611416",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "rust/reversed.json",
+      "sha256": "5ab108a8132a85308d1d9d7f040369f7595b56f1e43f49941ed641f8dde99c03",
+      "bytes": 1557,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-reversed.stdout",
+      "original_sha256": "b2ee39f53e8e62af347d8266f04ea14fbc9d875175560fc2293a7a376e3aacb9",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "native/rust-reversed.json",
+      "sha256": "81a5a5af1f52e4700ddcc031176ec271c213caf1794b9f9eae1914af6a06cbfb",
+      "bytes": 1162,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-reversed.process.json",
+      "original_sha256": "b7fcc533d075a568b2544163d20e7a6725d955cbada9dbb6c0b745eb367a0f01",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "rust/precision-api.json",
+      "sha256": "66ae62c74af61d4a59d623d3a0fbcab262d2746aa3e22c4120f6a81b975054a5",
+      "bytes": 1422,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-precision-api.stdout",
+      "original_sha256": "86935f279dc0ab825cc5967574c4a4d8d67b4ae950548fe9868a04986b253b48",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "native/rust-precision-api.json",
+      "sha256": "1876892225905fb1d6fd5824a4880500efa16ee28ba1ede449d256b84bd06d2d",
+      "bytes": 1162,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-precision-api.process.json",
+      "original_sha256": "1842da136718d1e734629a8869b3eadb27de15a1de2ec86929306ee17ab9b4a6",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "rust-index.json",
+      "sha256": "c4bb0d1fe20764f907a6d6822a21a4cd88ce0b75aab796fe2547c14263684e56",
+      "bytes": 8559,
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-index.json",
+      "original_sha256": "bac2af9534289ca543303a938a0c2780d77b90439ba5978e9931d71ea8eb365b",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "original-comparison.json",
+      "sha256": "e90c8e0abf74c61fb0a88652decf7713a470077bd7d63baa84ecdf947cc31fd3",
+      "bytes": 48874,
+      "source_alias": "workspace://.local/sprint19/root/calendar-comparison01/comparison.json",
+      "original_sha256": "e90c8e0abf74c61fb0a88652decf7713a470077bd7d63baa84ecdf947cc31fd3",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "fixtures/oracle-core-calendar/clip.json",
+      "sha256": "746f00084a5115d747d3d815f2d3bd70a279f1d5d25c596d5f940c09464afe38",
+      "bytes": 280,
+      "source_alias": "workspace://fixtures/oracle-core-calendar/clip.json",
+      "original_sha256": "746f00084a5115d747d3d815f2d3bd70a279f1d5d25c596d5f940c09464afe38",
+      "byte_identical_copy": true
+    },
+    {
+      "path": "fixtures/oracle-core-calendar/corpus.json",
+      "sha256": "f363e0952bcc8c153b7e269eba6535787a856a7e8693961fdaeaf6cc77de347e",
+      "bytes": 22810,
+      "source_alias": "workspace://fixtures/oracle-core-calendar/corpus.json",
+      "original_sha256": "f363e0952bcc8c153b7e269eba6535787a856a7e8693961fdaeaf6cc77de347e",
+      "byte_identical_copy": true
+    },
+    {
+      "path": "fixtures/oracle-core-calendar/fall-elapsed.json",
+      "sha256": "90938151507eaa48d0c4ff9799e0d68392aeb4ddb468dd7f39c27d7eb1afd104",
+      "bytes": 296,
+      "source_alias": "workspace://fixtures/oracle-core-calendar/fall-elapsed.json",
+      "original_sha256": "90938151507eaa48d0c4ff9799e0d68392aeb4ddb468dd7f39c27d7eb1afd104",
+      "byte_identical_copy": true
+    },
+    {
+      "path": "fixtures/oracle-core-calendar/fall-fold-boundary.json",
+      "sha256": "3d913b63f88026c81eeecd85cd31b155914493b38b5dd8550902137e45bee54a",
+      "bytes": 303,
+      "source_alias": "workspace://fixtures/oracle-core-calendar/fall-fold-boundary.json",
+      "original_sha256": "3d913b63f88026c81eeecd85cd31b155914493b38b5dd8550902137e45bee54a",
+      "byte_identical_copy": true
+    },
+    {
+      "path": "fixtures/oracle-core-calendar/holiday.json",
+      "sha256": "832821ab92726fcb6eef8c306f31202fa6236cdc06101e0125817e3f58fee837",
+      "bytes": 307,
+      "source_alias": "workspace://fixtures/oracle-core-calendar/holiday.json",
+      "original_sha256": "832821ab92726fcb6eef8c306f31202fa6236cdc06101e0125817e3f58fee837",
+      "byte_identical_copy": true
+    },
+    {
+      "path": "fixtures/oracle-core-calendar/invalid-zone.json",
+      "sha256": "af4a5e26ebaac521eb9073a2c709c7d563cc026c507b975aa053a382bbce2ae3",
+      "bytes": 300,
+      "source_alias": "workspace://fixtures/oracle-core-calendar/invalid-zone.json",
+      "original_sha256": "af4a5e26ebaac521eb9073a2c709c7d563cc026c507b975aa053a382bbce2ae3",
+      "byte_identical_copy": true
+    },
+    {
+      "path": "fixtures/oracle-core-calendar/nonhour-zone.json",
+      "sha256": "bd574beae44a71338de38ac6d904ca624ab2d9d4e129897c6648eab3668f3014",
+      "bytes": 299,
+      "source_alias": "workspace://fixtures/oracle-core-calendar/nonhour-zone.json",
+      "original_sha256": "bd574beae44a71338de38ac6d904ca624ab2d9d4e129897c6648eab3668f3014",
+      "byte_identical_copy": true
+    },
+    {
+      "path": "fixtures/oracle-core-calendar/ordinary.json",
+      "sha256": "cb66b92afdcdf61f9e04e76beeb438f5b9848659de484e08eed51706ede85f34",
+      "bytes": 284,
+      "source_alias": "workspace://fixtures/oracle-core-calendar/ordinary.json",
+      "original_sha256": "cb66b92afdcdf61f9e04e76beeb438f5b9848659de484e08eed51706ede85f34",
+      "byte_identical_copy": true
+    },
+    {
+      "path": "fixtures/oracle-core-calendar/overnight-invalid.json",
+      "sha256": "63b95b988dcec9af1455d5825e696df1aa131cdafc148b845817c860a0e9fda8",
+      "bytes": 293,
+      "source_alias": "workspace://fixtures/oracle-core-calendar/overnight-invalid.json",
+      "original_sha256": "63b95b988dcec9af1455d5825e696df1aa131cdafc148b845817c860a0e9fda8",
+      "byte_identical_copy": true
+    },
+    {
+      "path": "fixtures/oracle-core-calendar/precision-api.json",
+      "sha256": "cda49f03a2871829ffd822843da68aa0c0f8b8d6a5dd45182beda5942224f7ad",
+      "bytes": 293,
+      "source_alias": "workspace://fixtures/oracle-core-calendar/precision-api.json",
+      "original_sha256": "cda49f03a2871829ffd822843da68aa0c0f8b8d6a5dd45182beda5942224f7ad",
+      "byte_identical_copy": true
+    },
+    {
+      "path": "fixtures/oracle-core-calendar/reversed.json",
+      "sha256": "9f9fcb246c62125dbf193eac8a0183ebaa00ce7b87a87c373072f3d88ca23ee6",
+      "bytes": 284,
+      "source_alias": "workspace://fixtures/oracle-core-calendar/reversed.json",
+      "original_sha256": "9f9fcb246c62125dbf193eac8a0183ebaa00ce7b87a87c373072f3d88ca23ee6",
+      "byte_identical_copy": true
+    },
+    {
+      "path": "fixtures/oracle-core-calendar/spring-elapsed.json",
+      "sha256": "a74dca4c5dffc14223b88b8437ffc08713881583093fb380af9695072919b9f0",
+      "bytes": 298,
+      "source_alias": "workspace://fixtures/oracle-core-calendar/spring-elapsed.json",
+      "original_sha256": "a74dca4c5dffc14223b88b8437ffc08713881583093fb380af9695072919b9f0",
+      "byte_identical_copy": true
+    },
+    {
+      "path": "fixtures/oracle-core-calendar/spring-gap-boundary.json",
+      "sha256": "86e5cd57bbf6457cab0541bcd33f12aeba515f9afbd46cfa016e5becf76238a7",
+      "bytes": 304,
+      "source_alias": "workspace://fixtures/oracle-core-calendar/spring-gap-boundary.json",
+      "original_sha256": "86e5cd57bbf6457cab0541bcd33f12aeba515f9afbd46cfa016e5becf76238a7",
+      "byte_identical_copy": true
+    },
+    {
+      "path": "fixtures/oracle-core-calendar/weekend.json",
+      "sha256": "f823905e7dbd8db5aa7954cb11149a8606e330b9bc86781cedd8d10f3e6af89f",
+      "bytes": 319,
+      "source_alias": "workspace://fixtures/oracle-core-calendar/weekend.json",
+      "original_sha256": "f823905e7dbd8db5aa7954cb11149a8606e330b9bc86781cedd8d10f3e6af89f",
+      "byte_identical_copy": true
+    },
+    {
+      "path": "README.txt",
+      "sha256": "5a0c295d7dd0bc93ba8bdd12b75c716ad2f2db407cc3bb85ed3ce3a95b44861f",
+      "bytes": 1837
+    }
+  ],
+  "redactions": [
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-ordinary.json",
+      "json_pointer": "/calendar_identity/code_source",
+      "original_string_sha256": "28e1b09fed620617e43201d532ada895be5669fe5e0c23fc174b745117588297",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-ordinary.json",
+      "json_pointer": "/workday_identity/code_source",
+      "original_string_sha256": "28e1b09fed620617e43201d532ada895be5669fe5e0c23fc174b745117588297",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-ordinary.json",
+      "json_pointer": "/builder_identity/code_source",
+      "original_string_sha256": "28e1b09fed620617e43201d532ada895be5669fe5e0c23fc174b745117588297",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-ordinary.json",
+      "json_pointer": "/factory_identity/code_source",
+      "original_string_sha256": "28e1b09fed620617e43201d532ada895be5669fe5e0c23fc174b745117588297",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-ordinary.process.json",
+      "json_pointer": "/program",
+      "original_string_sha256": "61102b563ce2c2e7ad6fae85349b82f6c50e41f9e65f85fcfcdecb5026dc936d",
+      "published_value": "workspace://.local/sprint03/oracle/jdk/jdk-11.0.32.1+1/bin/java.exe"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-clip.json",
+      "json_pointer": "/calendar_identity/code_source",
+      "original_string_sha256": "28e1b09fed620617e43201d532ada895be5669fe5e0c23fc174b745117588297",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-clip.json",
+      "json_pointer": "/workday_identity/code_source",
+      "original_string_sha256": "28e1b09fed620617e43201d532ada895be5669fe5e0c23fc174b745117588297",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-clip.json",
+      "json_pointer": "/builder_identity/code_source",
+      "original_string_sha256": "28e1b09fed620617e43201d532ada895be5669fe5e0c23fc174b745117588297",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-clip.json",
+      "json_pointer": "/factory_identity/code_source",
+      "original_string_sha256": "28e1b09fed620617e43201d532ada895be5669fe5e0c23fc174b745117588297",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-clip.process.json",
+      "json_pointer": "/program",
+      "original_string_sha256": "61102b563ce2c2e7ad6fae85349b82f6c50e41f9e65f85fcfcdecb5026dc936d",
+      "published_value": "workspace://.local/sprint03/oracle/jdk/jdk-11.0.32.1+1/bin/java.exe"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-weekend.json",
+      "json_pointer": "/calendar_identity/code_source",
+      "original_string_sha256": "28e1b09fed620617e43201d532ada895be5669fe5e0c23fc174b745117588297",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-weekend.json",
+      "json_pointer": "/workday_identity/code_source",
+      "original_string_sha256": "28e1b09fed620617e43201d532ada895be5669fe5e0c23fc174b745117588297",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-weekend.json",
+      "json_pointer": "/builder_identity/code_source",
+      "original_string_sha256": "28e1b09fed620617e43201d532ada895be5669fe5e0c23fc174b745117588297",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-weekend.json",
+      "json_pointer": "/factory_identity/code_source",
+      "original_string_sha256": "28e1b09fed620617e43201d532ada895be5669fe5e0c23fc174b745117588297",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-weekend.process.json",
+      "json_pointer": "/program",
+      "original_string_sha256": "61102b563ce2c2e7ad6fae85349b82f6c50e41f9e65f85fcfcdecb5026dc936d",
+      "published_value": "workspace://.local/sprint03/oracle/jdk/jdk-11.0.32.1+1/bin/java.exe"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-holiday.json",
+      "json_pointer": "/calendar_identity/code_source",
+      "original_string_sha256": "28e1b09fed620617e43201d532ada895be5669fe5e0c23fc174b745117588297",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-holiday.json",
+      "json_pointer": "/workday_identity/code_source",
+      "original_string_sha256": "28e1b09fed620617e43201d532ada895be5669fe5e0c23fc174b745117588297",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-holiday.json",
+      "json_pointer": "/builder_identity/code_source",
+      "original_string_sha256": "28e1b09fed620617e43201d532ada895be5669fe5e0c23fc174b745117588297",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-holiday.json",
+      "json_pointer": "/factory_identity/code_source",
+      "original_string_sha256": "28e1b09fed620617e43201d532ada895be5669fe5e0c23fc174b745117588297",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-holiday.process.json",
+      "json_pointer": "/program",
+      "original_string_sha256": "61102b563ce2c2e7ad6fae85349b82f6c50e41f9e65f85fcfcdecb5026dc936d",
+      "published_value": "workspace://.local/sprint03/oracle/jdk/jdk-11.0.32.1+1/bin/java.exe"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-nonhour-zone.json",
+      "json_pointer": "/calendar_identity/code_source",
+      "original_string_sha256": "28e1b09fed620617e43201d532ada895be5669fe5e0c23fc174b745117588297",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-nonhour-zone.json",
+      "json_pointer": "/workday_identity/code_source",
+      "original_string_sha256": "28e1b09fed620617e43201d532ada895be5669fe5e0c23fc174b745117588297",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-nonhour-zone.json",
+      "json_pointer": "/builder_identity/code_source",
+      "original_string_sha256": "28e1b09fed620617e43201d532ada895be5669fe5e0c23fc174b745117588297",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-nonhour-zone.json",
+      "json_pointer": "/factory_identity/code_source",
+      "original_string_sha256": "28e1b09fed620617e43201d532ada895be5669fe5e0c23fc174b745117588297",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-nonhour-zone.process.json",
+      "json_pointer": "/program",
+      "original_string_sha256": "61102b563ce2c2e7ad6fae85349b82f6c50e41f9e65f85fcfcdecb5026dc936d",
+      "published_value": "workspace://.local/sprint03/oracle/jdk/jdk-11.0.32.1+1/bin/java.exe"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-spring-elapsed.json",
+      "json_pointer": "/calendar_identity/code_source",
+      "original_string_sha256": "28e1b09fed620617e43201d532ada895be5669fe5e0c23fc174b745117588297",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-spring-elapsed.json",
+      "json_pointer": "/workday_identity/code_source",
+      "original_string_sha256": "28e1b09fed620617e43201d532ada895be5669fe5e0c23fc174b745117588297",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-spring-elapsed.json",
+      "json_pointer": "/builder_identity/code_source",
+      "original_string_sha256": "28e1b09fed620617e43201d532ada895be5669fe5e0c23fc174b745117588297",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-spring-elapsed.json",
+      "json_pointer": "/factory_identity/code_source",
+      "original_string_sha256": "28e1b09fed620617e43201d532ada895be5669fe5e0c23fc174b745117588297",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-spring-elapsed.process.json",
+      "json_pointer": "/program",
+      "original_string_sha256": "61102b563ce2c2e7ad6fae85349b82f6c50e41f9e65f85fcfcdecb5026dc936d",
+      "published_value": "workspace://.local/sprint03/oracle/jdk/jdk-11.0.32.1+1/bin/java.exe"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-fall-elapsed.json",
+      "json_pointer": "/calendar_identity/code_source",
+      "original_string_sha256": "28e1b09fed620617e43201d532ada895be5669fe5e0c23fc174b745117588297",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-fall-elapsed.json",
+      "json_pointer": "/workday_identity/code_source",
+      "original_string_sha256": "28e1b09fed620617e43201d532ada895be5669fe5e0c23fc174b745117588297",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-fall-elapsed.json",
+      "json_pointer": "/builder_identity/code_source",
+      "original_string_sha256": "28e1b09fed620617e43201d532ada895be5669fe5e0c23fc174b745117588297",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-fall-elapsed.json",
+      "json_pointer": "/factory_identity/code_source",
+      "original_string_sha256": "28e1b09fed620617e43201d532ada895be5669fe5e0c23fc174b745117588297",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-fall-elapsed.process.json",
+      "json_pointer": "/program",
+      "original_string_sha256": "61102b563ce2c2e7ad6fae85349b82f6c50e41f9e65f85fcfcdecb5026dc936d",
+      "published_value": "workspace://.local/sprint03/oracle/jdk/jdk-11.0.32.1+1/bin/java.exe"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-spring-gap-boundary.json",
+      "json_pointer": "/calendar_identity/code_source",
+      "original_string_sha256": "28e1b09fed620617e43201d532ada895be5669fe5e0c23fc174b745117588297",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-spring-gap-boundary.json",
+      "json_pointer": "/workday_identity/code_source",
+      "original_string_sha256": "28e1b09fed620617e43201d532ada895be5669fe5e0c23fc174b745117588297",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-spring-gap-boundary.json",
+      "json_pointer": "/builder_identity/code_source",
+      "original_string_sha256": "28e1b09fed620617e43201d532ada895be5669fe5e0c23fc174b745117588297",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-spring-gap-boundary.json",
+      "json_pointer": "/factory_identity/code_source",
+      "original_string_sha256": "28e1b09fed620617e43201d532ada895be5669fe5e0c23fc174b745117588297",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-spring-gap-boundary.process.json",
+      "json_pointer": "/program",
+      "original_string_sha256": "61102b563ce2c2e7ad6fae85349b82f6c50e41f9e65f85fcfcdecb5026dc936d",
+      "published_value": "workspace://.local/sprint03/oracle/jdk/jdk-11.0.32.1+1/bin/java.exe"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-fall-fold-boundary.json",
+      "json_pointer": "/calendar_identity/code_source",
+      "original_string_sha256": "28e1b09fed620617e43201d532ada895be5669fe5e0c23fc174b745117588297",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-fall-fold-boundary.json",
+      "json_pointer": "/workday_identity/code_source",
+      "original_string_sha256": "28e1b09fed620617e43201d532ada895be5669fe5e0c23fc174b745117588297",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-fall-fold-boundary.json",
+      "json_pointer": "/builder_identity/code_source",
+      "original_string_sha256": "28e1b09fed620617e43201d532ada895be5669fe5e0c23fc174b745117588297",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-fall-fold-boundary.json",
+      "json_pointer": "/factory_identity/code_source",
+      "original_string_sha256": "28e1b09fed620617e43201d532ada895be5669fe5e0c23fc174b745117588297",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-fall-fold-boundary.process.json",
+      "json_pointer": "/program",
+      "original_string_sha256": "61102b563ce2c2e7ad6fae85349b82f6c50e41f9e65f85fcfcdecb5026dc936d",
+      "published_value": "workspace://.local/sprint03/oracle/jdk/jdk-11.0.32.1+1/bin/java.exe"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-invalid-zone.json",
+      "json_pointer": "/calendar_identity/code_source",
+      "original_string_sha256": "28e1b09fed620617e43201d532ada895be5669fe5e0c23fc174b745117588297",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-invalid-zone.json",
+      "json_pointer": "/workday_identity/code_source",
+      "original_string_sha256": "28e1b09fed620617e43201d532ada895be5669fe5e0c23fc174b745117588297",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-invalid-zone.json",
+      "json_pointer": "/builder_identity/code_source",
+      "original_string_sha256": "28e1b09fed620617e43201d532ada895be5669fe5e0c23fc174b745117588297",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-invalid-zone.json",
+      "json_pointer": "/factory_identity/code_source",
+      "original_string_sha256": "28e1b09fed620617e43201d532ada895be5669fe5e0c23fc174b745117588297",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-invalid-zone.process.json",
+      "json_pointer": "/program",
+      "original_string_sha256": "61102b563ce2c2e7ad6fae85349b82f6c50e41f9e65f85fcfcdecb5026dc936d",
+      "published_value": "workspace://.local/sprint03/oracle/jdk/jdk-11.0.32.1+1/bin/java.exe"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-overnight-invalid.json",
+      "json_pointer": "/calendar_identity/code_source",
+      "original_string_sha256": "28e1b09fed620617e43201d532ada895be5669fe5e0c23fc174b745117588297",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-overnight-invalid.json",
+      "json_pointer": "/workday_identity/code_source",
+      "original_string_sha256": "28e1b09fed620617e43201d532ada895be5669fe5e0c23fc174b745117588297",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-overnight-invalid.json",
+      "json_pointer": "/builder_identity/code_source",
+      "original_string_sha256": "28e1b09fed620617e43201d532ada895be5669fe5e0c23fc174b745117588297",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-overnight-invalid.json",
+      "json_pointer": "/factory_identity/code_source",
+      "original_string_sha256": "28e1b09fed620617e43201d532ada895be5669fe5e0c23fc174b745117588297",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-overnight-invalid.process.json",
+      "json_pointer": "/program",
+      "original_string_sha256": "61102b563ce2c2e7ad6fae85349b82f6c50e41f9e65f85fcfcdecb5026dc936d",
+      "published_value": "workspace://.local/sprint03/oracle/jdk/jdk-11.0.32.1+1/bin/java.exe"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-reversed.json",
+      "json_pointer": "/calendar_identity/code_source",
+      "original_string_sha256": "28e1b09fed620617e43201d532ada895be5669fe5e0c23fc174b745117588297",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-reversed.json",
+      "json_pointer": "/workday_identity/code_source",
+      "original_string_sha256": "28e1b09fed620617e43201d532ada895be5669fe5e0c23fc174b745117588297",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-reversed.json",
+      "json_pointer": "/builder_identity/code_source",
+      "original_string_sha256": "28e1b09fed620617e43201d532ada895be5669fe5e0c23fc174b745117588297",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-reversed.json",
+      "json_pointer": "/factory_identity/code_source",
+      "original_string_sha256": "28e1b09fed620617e43201d532ada895be5669fe5e0c23fc174b745117588297",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-reversed.process.json",
+      "json_pointer": "/program",
+      "original_string_sha256": "61102b563ce2c2e7ad6fae85349b82f6c50e41f9e65f85fcfcdecb5026dc936d",
+      "published_value": "workspace://.local/sprint03/oracle/jdk/jdk-11.0.32.1+1/bin/java.exe"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-precision-api.json",
+      "json_pointer": "/calendar_identity/code_source",
+      "original_string_sha256": "28e1b09fed620617e43201d532ada895be5669fe5e0c23fc174b745117588297",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-precision-api.json",
+      "json_pointer": "/workday_identity/code_source",
+      "original_string_sha256": "28e1b09fed620617e43201d532ada895be5669fe5e0c23fc174b745117588297",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-precision-api.json",
+      "json_pointer": "/builder_identity/code_source",
+      "original_string_sha256": "28e1b09fed620617e43201d532ada895be5669fe5e0c23fc174b745117588297",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-precision-api.json",
+      "json_pointer": "/factory_identity/code_source",
+      "original_string_sha256": "28e1b09fed620617e43201d532ada895be5669fe5e0c23fc174b745117588297",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/java-precision-api.process.json",
+      "json_pointer": "/program",
+      "original_string_sha256": "61102b563ce2c2e7ad6fae85349b82f6c50e41f9e65f85fcfcdecb5026dc936d",
+      "published_value": "workspace://.local/sprint03/oracle/jdk/jdk-11.0.32.1+1/bin/java.exe"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-ordinary.process.json",
+      "json_pointer": "/program",
+      "original_string_sha256": "e322cfd509d9e243df3c8660e02324d860a14af18fa3e09fbe6d7ceab973f674",
+      "published_value": "workspace://.local/sprint19/root/target/debug/examples/core_calendar_observer.exe"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-clip.process.json",
+      "json_pointer": "/program",
+      "original_string_sha256": "e322cfd509d9e243df3c8660e02324d860a14af18fa3e09fbe6d7ceab973f674",
+      "published_value": "workspace://.local/sprint19/root/target/debug/examples/core_calendar_observer.exe"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-weekend.process.json",
+      "json_pointer": "/program",
+      "original_string_sha256": "e322cfd509d9e243df3c8660e02324d860a14af18fa3e09fbe6d7ceab973f674",
+      "published_value": "workspace://.local/sprint19/root/target/debug/examples/core_calendar_observer.exe"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-holiday.process.json",
+      "json_pointer": "/program",
+      "original_string_sha256": "e322cfd509d9e243df3c8660e02324d860a14af18fa3e09fbe6d7ceab973f674",
+      "published_value": "workspace://.local/sprint19/root/target/debug/examples/core_calendar_observer.exe"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-nonhour-zone.process.json",
+      "json_pointer": "/program",
+      "original_string_sha256": "e322cfd509d9e243df3c8660e02324d860a14af18fa3e09fbe6d7ceab973f674",
+      "published_value": "workspace://.local/sprint19/root/target/debug/examples/core_calendar_observer.exe"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-spring-elapsed.process.json",
+      "json_pointer": "/program",
+      "original_string_sha256": "e322cfd509d9e243df3c8660e02324d860a14af18fa3e09fbe6d7ceab973f674",
+      "published_value": "workspace://.local/sprint19/root/target/debug/examples/core_calendar_observer.exe"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-fall-elapsed.process.json",
+      "json_pointer": "/program",
+      "original_string_sha256": "e322cfd509d9e243df3c8660e02324d860a14af18fa3e09fbe6d7ceab973f674",
+      "published_value": "workspace://.local/sprint19/root/target/debug/examples/core_calendar_observer.exe"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-spring-gap-boundary.process.json",
+      "json_pointer": "/program",
+      "original_string_sha256": "e322cfd509d9e243df3c8660e02324d860a14af18fa3e09fbe6d7ceab973f674",
+      "published_value": "workspace://.local/sprint19/root/target/debug/examples/core_calendar_observer.exe"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-fall-fold-boundary.process.json",
+      "json_pointer": "/program",
+      "original_string_sha256": "e322cfd509d9e243df3c8660e02324d860a14af18fa3e09fbe6d7ceab973f674",
+      "published_value": "workspace://.local/sprint19/root/target/debug/examples/core_calendar_observer.exe"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-invalid-zone.process.json",
+      "json_pointer": "/program",
+      "original_string_sha256": "e322cfd509d9e243df3c8660e02324d860a14af18fa3e09fbe6d7ceab973f674",
+      "published_value": "workspace://.local/sprint19/root/target/debug/examples/core_calendar_observer.exe"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-overnight-invalid.process.json",
+      "json_pointer": "/program",
+      "original_string_sha256": "e322cfd509d9e243df3c8660e02324d860a14af18fa3e09fbe6d7ceab973f674",
+      "published_value": "workspace://.local/sprint19/root/target/debug/examples/core_calendar_observer.exe"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-reversed.process.json",
+      "json_pointer": "/program",
+      "original_string_sha256": "e322cfd509d9e243df3c8660e02324d860a14af18fa3e09fbe6d7ceab973f674",
+      "published_value": "workspace://.local/sprint19/root/target/debug/examples/core_calendar_observer.exe"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/calendar-observe01/rust-precision-api.process.json",
+      "json_pointer": "/program",
+      "original_string_sha256": "e322cfd509d9e243df3c8660e02324d860a14af18fa3e09fbe6d7ceab973f674",
+      "published_value": "workspace://.local/sprint19/root/target/debug/examples/core_calendar_observer.exe"
+    }
+  ],
+  "explicit_local_root_aliases": [
+    "workspace"
+  ],
+  "no_engine_or_native_process_started": true,
+  "no_original_input_modified": true,
+  "no_whole_R5_or_Core_parity_claim": true
+}

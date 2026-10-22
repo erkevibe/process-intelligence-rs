@@ -1,0 +1,1149 @@
+{
+  "schema_version": 1,
+  "kind": "SPRINT19_FROZEN_PROSPECTIVE_GENUINE_CORE_EXTENDED_FILTER_REFERENCE",
+  "draft_path": "docs/R5_SPRINT19_DRAFT.md",
+  "draft_sha256": "f90d372f246e4c5aaca251b5e4ab4e1f6bf679c04865bd597523b095133fde36",
+  "core_commit": "bbf24dfd43e72d6992392465f875a4367cbe792b",
+  "canonical_jar_sha256": "4fc0c2cdd170c1f5cbf4fe542250c7b84deb2dfc583dc10631b6562b3894ef81",
+  "engine_class_sha256": "b07c241d7d5a430f9fd1f6cea5eb696a71eefdee7dc268ee0c81d18c464769b3",
+  "case_length_class_sha256": "1409e5c3cf4e730cf33eae022fc159a29c557eb98106849523ddd1e0f86c64be",
+  "input_abi": "exact schema_version/id/filter_spec/source; existingRustFilterSpec and EventLog shapes; manualexpected onlymanifest",
+  "case_count": 8,
+  "cases": [
+    {
+      "id": "length-closed",
+      "file": "length-closed.json",
+      "sha256": "bde7fc2e70446b3e3c495966f96de6537b4c6ed090a3c437533cc2113c563aa2",
+      "profile": "overlap",
+      "java_ordered_rules": [
+        {
+          "filter_type": "CASE_LENGTH",
+          "choice": "RETAIN",
+          "section": "CASE",
+          "primary_values": [
+            {
+              "operation": "GREATER_EQUAL",
+              "long_value": 2
+            },
+            {
+              "operation": "LESS_EQUAL",
+              "long_value": 3
+            }
+          ]
+        }
+      ],
+      "expected_java": {
+        "outcome": "filtered",
+        "engine_invoked": true,
+        "engine_call_count": 1,
+        "selected_source_indices": [
+          1,
+          2
+        ],
+        "selected_event_positions": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            2
+          ]
+        ],
+        "selected_source_log": {
+          "name": "Extended Core filter length-closed",
+          "cases": [
+            {
+              "id": "length-closed-source-1",
+              "name": "length-closed-trace-1",
+              "events": [
+                {
+                  "ordinal": 3,
+                  "activity": "A",
+                  "timestamp": "2024-01-01T00:00:40.123Z",
+                  "lifecycle": "complete"
+                },
+                {
+                  "ordinal": 10,
+                  "activity": "B",
+                  "timestamp": "2024-01-01T00:00:39.123Z",
+                  "lifecycle": "complete"
+                }
+              ]
+            },
+            {
+              "id": "length-closed-source-2",
+              "name": "length-closed-trace-2",
+              "events": [
+                {
+                  "ordinal": 3,
+                  "activity": "A",
+                  "timestamp": "2024-01-01T00:00:40.123Z",
+                  "lifecycle": "complete"
+                },
+                {
+                  "ordinal": 10,
+                  "activity": "B",
+                  "timestamp": "2024-01-01T00:00:39.123Z",
+                  "lifecycle": "complete"
+                },
+                {
+                  "ordinal": 17,
+                  "activity": "C",
+                  "timestamp": "2024-01-01T00:00:38.123Z",
+                  "lifecycle": "complete"
+                }
+              ]
+            }
+          ],
+          "warnings": [
+            "synthetic warning retained for length-closed"
+          ]
+        },
+        "source_domain_unchanged": true,
+        "source_xlog_unchanged": true,
+        "source_apm_unchanged": true
+      },
+      "expected_rust": {
+        "outcome": "filtered",
+        "error_code": null,
+        "selected_source_indices": [
+          1,
+          2
+        ],
+        "selected_event_positions": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            2
+          ]
+        ],
+        "selected_source_log": {
+          "name": "Extended Core filter length-closed",
+          "cases": [
+            {
+              "id": "length-closed-source-1",
+              "name": "length-closed-trace-1",
+              "events": [
+                {
+                  "ordinal": 3,
+                  "activity": "A",
+                  "timestamp": "2024-01-01T00:00:40.123Z",
+                  "lifecycle": "complete"
+                },
+                {
+                  "ordinal": 10,
+                  "activity": "B",
+                  "timestamp": "2024-01-01T00:00:39.123Z",
+                  "lifecycle": "complete"
+                }
+              ]
+            },
+            {
+              "id": "length-closed-source-2",
+              "name": "length-closed-trace-2",
+              "events": [
+                {
+                  "ordinal": 3,
+                  "activity": "A",
+                  "timestamp": "2024-01-01T00:00:40.123Z",
+                  "lifecycle": "complete"
+                },
+                {
+                  "ordinal": 10,
+                  "activity": "B",
+                  "timestamp": "2024-01-01T00:00:39.123Z",
+                  "lifecycle": "complete"
+                },
+                {
+                  "ordinal": 17,
+                  "activity": "C",
+                  "timestamp": "2024-01-01T00:00:38.123Z",
+                  "lifecycle": "complete"
+                }
+              ]
+            }
+          ],
+          "warnings": [
+            "synthetic warning retained for length-closed"
+          ]
+        },
+        "source_domain_unchanged": true
+      },
+      "identity_derivation": "Positions explicitly frozen by hand; full expected source fields copied only at those positions. Adapter must later use actual returned immutable trace/event indexes, never this expectation as predicate.",
+      "full_selection_equality_expected": true
+    },
+    {
+      "id": "length-min-only",
+      "file": "length-min-only.json",
+      "sha256": "19fe4532892a617d1d0baee477b8eef8ad34fdd5bff3a34c886c1c80b75cbe9c",
+      "profile": "overlap",
+      "java_ordered_rules": [
+        {
+          "filter_type": "CASE_LENGTH",
+          "choice": "RETAIN",
+          "section": "CASE",
+          "primary_values": [
+            {
+              "operation": "GREATER_EQUAL",
+              "long_value": 2
+            },
+            {
+              "operation": "LESS_EQUAL",
+              "long_value": 9223372036854775807
+            }
+          ]
+        }
+      ],
+      "expected_java": {
+        "outcome": "filtered",
+        "engine_invoked": true,
+        "engine_call_count": 1,
+        "selected_source_indices": [
+          1,
+          2,
+          3
+        ],
+        "selected_event_positions": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            2
+          ],
+          [
+            0,
+            1,
+            2,
+            3
+          ]
+        ],
+        "selected_source_log": {
+          "name": "Extended Core filter length-min-only",
+          "cases": [
+            {
+              "id": "length-min-only-source-1",
+              "name": "length-min-only-trace-1",
+              "events": [
+                {
+                  "ordinal": 3,
+                  "activity": "A",
+                  "timestamp": "2024-01-01T00:00:40.123Z",
+                  "lifecycle": "complete"
+                },
+                {
+                  "ordinal": 10,
+                  "activity": "B",
+                  "timestamp": "2024-01-01T00:00:39.123Z",
+                  "lifecycle": "complete"
+                }
+              ]
+            },
+            {
+              "id": "length-min-only-source-2",
+              "name": "length-min-only-trace-2",
+              "events": [
+                {
+                  "ordinal": 3,
+                  "activity": "A",
+                  "timestamp": "2024-01-01T00:00:40.123Z",
+                  "lifecycle": "complete"
+                },
+                {
+                  "ordinal": 10,
+                  "activity": "B",
+                  "timestamp": "2024-01-01T00:00:39.123Z",
+                  "lifecycle": "complete"
+                },
+                {
+                  "ordinal": 17,
+                  "activity": "C",
+                  "timestamp": "2024-01-01T00:00:38.123Z",
+                  "lifecycle": "complete"
+                }
+              ]
+            },
+            {
+              "id": "length-min-only-source-3",
+              "name": "length-min-only-trace-3",
+              "events": [
+                {
+                  "ordinal": 3,
+                  "activity": "A",
+                  "timestamp": "2024-01-01T00:00:40.123Z",
+                  "lifecycle": "complete"
+                },
+                {
+                  "ordinal": 10,
+                  "activity": "B",
+                  "timestamp": "2024-01-01T00:00:39.123Z",
+                  "lifecycle": "complete"
+                },
+                {
+                  "ordinal": 17,
+                  "activity": "C",
+                  "timestamp": "2024-01-01T00:00:38.123Z",
+                  "lifecycle": "complete"
+                },
+                {
+                  "ordinal": 24,
+                  "activity": "D",
+                  "timestamp": "2024-01-01T00:00:37.123Z",
+                  "lifecycle": "complete"
+                }
+              ]
+            }
+          ],
+          "warnings": [
+            "synthetic warning retained for length-min-only"
+          ]
+        },
+        "source_domain_unchanged": true,
+        "source_xlog_unchanged": true,
+        "source_apm_unchanged": true
+      },
+      "expected_rust": {
+        "outcome": "filtered",
+        "error_code": null,
+        "selected_source_indices": [
+          1,
+          2,
+          3
+        ],
+        "selected_event_positions": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            1,
+            2
+          ],
+          [
+            0,
+            1,
+            2,
+            3
+          ]
+        ],
+        "selected_source_log": {
+          "name": "Extended Core filter length-min-only",
+          "cases": [
+            {
+              "id": "length-min-only-source-1",
+              "name": "length-min-only-trace-1",
+              "events": [
+                {
+                  "ordinal": 3,
+                  "activity": "A",
+                  "timestamp": "2024-01-01T00:00:40.123Z",
+                  "lifecycle": "complete"
+                },
+                {
+                  "ordinal": 10,
+                  "activity": "B",
+                  "timestamp": "2024-01-01T00:00:39.123Z",
+                  "lifecycle": "complete"
+                }
+              ]
+            },
+            {
+              "id": "length-min-only-source-2",
+              "name": "length-min-only-trace-2",
+              "events": [
+                {
+                  "ordinal": 3,
+                  "activity": "A",
+                  "timestamp": "2024-01-01T00:00:40.123Z",
+                  "lifecycle": "complete"
+                },
+                {
+                  "ordinal": 10,
+                  "activity": "B",
+                  "timestamp": "2024-01-01T00:00:39.123Z",
+                  "lifecycle": "complete"
+                },
+                {
+                  "ordinal": 17,
+                  "activity": "C",
+                  "timestamp": "2024-01-01T00:00:38.123Z",
+                  "lifecycle": "complete"
+                }
+              ]
+            },
+            {
+              "id": "length-min-only-source-3",
+              "name": "length-min-only-trace-3",
+              "events": [
+                {
+                  "ordinal": 3,
+                  "activity": "A",
+                  "timestamp": "2024-01-01T00:00:40.123Z",
+                  "lifecycle": "complete"
+                },
+                {
+                  "ordinal": 10,
+                  "activity": "B",
+                  "timestamp": "2024-01-01T00:00:39.123Z",
+                  "lifecycle": "complete"
+                },
+                {
+                  "ordinal": 17,
+                  "activity": "C",
+                  "timestamp": "2024-01-01T00:00:38.123Z",
+                  "lifecycle": "complete"
+                },
+                {
+                  "ordinal": 24,
+                  "activity": "D",
+                  "timestamp": "2024-01-01T00:00:37.123Z",
+                  "lifecycle": "complete"
+                }
+              ]
+            }
+          ],
+          "warnings": [
+            "synthetic warning retained for length-min-only"
+          ]
+        },
+        "source_domain_unchanged": true
+      },
+      "identity_derivation": "Positions explicitly frozen by hand; full expected source fields copied only at those positions. Adapter must later use actual returned immutable trace/event indexes, never this expectation as predicate.",
+      "full_selection_equality_expected": true
+    },
+    {
+      "id": "length-max-only",
+      "file": "length-max-only.json",
+      "sha256": "4f4bdfe1146a8ca0a2e0af8ca01a701434989d506de392a435be52a760c262b8",
+      "profile": "overlap",
+      "java_ordered_rules": [
+        {
+          "filter_type": "CASE_LENGTH",
+          "choice": "RETAIN",
+          "section": "CASE",
+          "primary_values": [
+            {
+              "operation": "GREATER_EQUAL",
+              "long_value": 0
+            },
+            {
+              "operation": "LESS_EQUAL",
+              "long_value": 2
+            }
+          ]
+        }
+      ],
+      "expected_java": {
+        "outcome": "filtered",
+        "engine_invoked": true,
+        "engine_call_count": 1,
+        "selected_source_indices": [
+          0,
+          1
+        ],
+        "selected_event_positions": [
+          [
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "selected_source_log": {
+          "name": "Extended Core filter length-max-only",
+          "cases": [
+            {
+              "id": "length-max-only-source-0",
+              "name": "length-max-only-trace-0",
+              "events": [
+                {
+                  "ordinal": 3,
+                  "activity": "A",
+                  "timestamp": "2024-01-01T00:00:40.123Z",
+                  "lifecycle": "complete"
+                }
+              ]
+            },
+            {
+              "id": "length-max-only-source-1",
+              "name": "length-max-only-trace-1",
+              "events": [
+                {
+                  "ordinal": 3,
+                  "activity": "A",
+                  "timestamp": "2024-01-01T00:00:40.123Z",
+                  "lifecycle": "complete"
+                },
+                {
+                  "ordinal": 10,
+                  "activity": "B",
+                  "timestamp": "2024-01-01T00:00:39.123Z",
+                  "lifecycle": "complete"
+                }
+              ]
+            }
+          ],
+          "warnings": [
+            "synthetic warning retained for length-max-only"
+          ]
+        },
+        "source_domain_unchanged": true,
+        "source_xlog_unchanged": true,
+        "source_apm_unchanged": true
+      },
+      "expected_rust": {
+        "outcome": "filtered",
+        "error_code": null,
+        "selected_source_indices": [
+          0,
+          1
+        ],
+        "selected_event_positions": [
+          [
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "selected_source_log": {
+          "name": "Extended Core filter length-max-only",
+          "cases": [
+            {
+              "id": "length-max-only-source-0",
+              "name": "length-max-only-trace-0",
+              "events": [
+                {
+                  "ordinal": 3,
+                  "activity": "A",
+                  "timestamp": "2024-01-01T00:00:40.123Z",
+                  "lifecycle": "complete"
+                }
+              ]
+            },
+            {
+              "id": "length-max-only-source-1",
+              "name": "length-max-only-trace-1",
+              "events": [
+                {
+                  "ordinal": 3,
+                  "activity": "A",
+                  "timestamp": "2024-01-01T00:00:40.123Z",
+                  "lifecycle": "complete"
+                },
+                {
+                  "ordinal": 10,
+                  "activity": "B",
+                  "timestamp": "2024-01-01T00:00:39.123Z",
+                  "lifecycle": "complete"
+                }
+              ]
+            }
+          ],
+          "warnings": [
+            "synthetic warning retained for length-max-only"
+          ]
+        },
+        "source_domain_unchanged": true
+      },
+      "identity_derivation": "Positions explicitly frozen by hand; full expected source fields copied only at those positions. Adapter must later use actual returned immutable trace/event indexes, never this expectation as predicate.",
+      "full_selection_equality_expected": true
+    },
+    {
+      "id": "length-invalid",
+      "file": "length-invalid.json",
+      "sha256": "200df1083b74bb03ebd73885528d116b99321836bdc8cdf27c005137ab44109c",
+      "profile": "diagnostic_range_validation",
+      "java_ordered_rules": [
+        {
+          "filter_type": "CASE_LENGTH",
+          "choice": "RETAIN",
+          "section": "CASE",
+          "primary_values": [
+            {
+              "operation": "GREATER_EQUAL",
+              "long_value": 3
+            },
+            {
+              "operation": "LESS_EQUAL",
+              "long_value": 2
+            }
+          ]
+        }
+      ],
+      "expected_java": {
+        "outcome": "filtered",
+        "engine_invoked": true,
+        "engine_call_count": 1,
+        "selected_source_indices": [],
+        "selected_event_positions": [],
+        "selected_source_log": {
+          "name": "Extended Core filter length-invalid",
+          "cases": [],
+          "warnings": [
+            "synthetic warning retained for length-invalid"
+          ]
+        },
+        "source_domain_unchanged": true,
+        "source_xlog_unchanged": true,
+        "source_apm_unchanged": true
+      },
+      "expected_rust": {
+        "outcome": "refused",
+        "error_code": "filter_range",
+        "selected_source_indices": null,
+        "selected_event_positions": null,
+        "selected_source_log": null,
+        "source_domain_unchanged": true
+      },
+      "identity_derivation": "Positions explicitly frozen by hand; full expected source fields copied only at those positions. Adapter must later use actual returned immutable trace/event indexes, never this expectation as predicate.",
+      "full_selection_equality_expected": false
+    },
+    {
+      "id": "retain-partial",
+      "file": "retain-partial.json",
+      "sha256": "eba7bdb6492867d234e6f6827da2a2292d2feb145b06005d450b70bffd75497e",
+      "profile": "overlap",
+      "java_ordered_rules": [
+        {
+          "filter_type": "EVENT_EVENT_ATTRIBUTE",
+          "choice": "RETAIN",
+          "section": "EVENT",
+          "inclusion": "ANY_VALUE",
+          "key": "concept:name",
+          "primary_values": [
+            {
+              "operation": "EQUAL",
+              "string_set": [
+                "A"
+              ]
+            }
+          ]
+        }
+      ],
+      "expected_java": {
+        "outcome": "filtered",
+        "engine_invoked": true,
+        "engine_call_count": 1,
+        "selected_source_indices": [
+          0,
+          1
+        ],
+        "selected_event_positions": [
+          [
+            0
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "selected_source_log": {
+          "name": "Extended Core filter retain-partial",
+          "cases": [
+            {
+              "id": "retain-partial-source-0",
+              "name": "retain-partial-trace-0",
+              "events": [
+                {
+                  "ordinal": 3,
+                  "activity": "A",
+                  "timestamp": "2024-01-01T00:00:40.123Z",
+                  "lifecycle": "complete"
+                }
+              ]
+            },
+            {
+              "id": "retain-partial-source-1",
+              "name": "retain-partial-trace-1",
+              "events": [
+                {
+                  "ordinal": 10,
+                  "activity": "A",
+                  "timestamp": "2024-01-01T00:00:39.123Z",
+                  "lifecycle": "complete"
+                },
+                {
+                  "ordinal": 17,
+                  "activity": "A",
+                  "timestamp": "2024-01-01T00:00:38.123Z",
+                  "lifecycle": "complete"
+                }
+              ]
+            }
+          ],
+          "warnings": [
+            "synthetic warning retained for retain-partial"
+          ]
+        },
+        "source_domain_unchanged": true,
+        "source_xlog_unchanged": true,
+        "source_apm_unchanged": true
+      },
+      "expected_rust": {
+        "outcome": "filtered",
+        "error_code": null,
+        "selected_source_indices": [
+          0,
+          1
+        ],
+        "selected_event_positions": [
+          [
+            0
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "selected_source_log": {
+          "name": "Extended Core filter retain-partial",
+          "cases": [
+            {
+              "id": "retain-partial-source-0",
+              "name": "retain-partial-trace-0",
+              "events": [
+                {
+                  "ordinal": 3,
+                  "activity": "A",
+                  "timestamp": "2024-01-01T00:00:40.123Z",
+                  "lifecycle": "complete"
+                }
+              ]
+            },
+            {
+              "id": "retain-partial-source-1",
+              "name": "retain-partial-trace-1",
+              "events": [
+                {
+                  "ordinal": 10,
+                  "activity": "A",
+                  "timestamp": "2024-01-01T00:00:39.123Z",
+                  "lifecycle": "complete"
+                },
+                {
+                  "ordinal": 17,
+                  "activity": "A",
+                  "timestamp": "2024-01-01T00:00:38.123Z",
+                  "lifecycle": "complete"
+                }
+              ]
+            }
+          ],
+          "warnings": [
+            "synthetic warning retained for retain-partial"
+          ]
+        },
+        "source_domain_unchanged": true
+      },
+      "identity_derivation": "Positions explicitly frozen by hand; full expected source fields copied only at those positions. Adapter must later use actual returned immutable trace/event indexes, never this expectation as predicate.",
+      "full_selection_equality_expected": true
+    },
+    {
+      "id": "remove-partial",
+      "file": "remove-partial.json",
+      "sha256": "4c0c1a02d112e5157ca4af15aa969f32ed2767dc416f5855e4f69bec00b4c0a3",
+      "profile": "overlap",
+      "java_ordered_rules": [
+        {
+          "filter_type": "EVENT_EVENT_ATTRIBUTE",
+          "choice": "REMOVE",
+          "section": "EVENT",
+          "inclusion": "ANY_VALUE",
+          "key": "concept:name",
+          "primary_values": [
+            {
+              "operation": "EQUAL",
+              "string_set": [
+                "A"
+              ]
+            }
+          ]
+        }
+      ],
+      "expected_java": {
+        "outcome": "filtered",
+        "engine_invoked": true,
+        "engine_call_count": 1,
+        "selected_source_indices": [
+          0,
+          1
+        ],
+        "selected_event_positions": [
+          [
+            1
+          ],
+          [
+            0
+          ]
+        ],
+        "selected_source_log": {
+          "name": "Extended Core filter remove-partial",
+          "cases": [
+            {
+              "id": "remove-partial-source-0",
+              "name": "remove-partial-trace-0",
+              "events": [
+                {
+                  "ordinal": 10,
+                  "activity": "B",
+                  "timestamp": "2024-01-01T00:00:39.123Z",
+                  "lifecycle": "complete"
+                }
+              ]
+            },
+            {
+              "id": "remove-partial-source-1",
+              "name": "remove-partial-trace-1",
+              "events": [
+                {
+                  "ordinal": 3,
+                  "activity": "B",
+                  "timestamp": "2024-01-01T00:00:40.123Z",
+                  "lifecycle": "complete"
+                }
+              ]
+            }
+          ],
+          "warnings": [
+            "synthetic warning retained for remove-partial"
+          ]
+        },
+        "source_domain_unchanged": true,
+        "source_xlog_unchanged": true,
+        "source_apm_unchanged": true
+      },
+      "expected_rust": {
+        "outcome": "filtered",
+        "error_code": null,
+        "selected_source_indices": [
+          0,
+          1
+        ],
+        "selected_event_positions": [
+          [
+            1
+          ],
+          [
+            0
+          ]
+        ],
+        "selected_source_log": {
+          "name": "Extended Core filter remove-partial",
+          "cases": [
+            {
+              "id": "remove-partial-source-0",
+              "name": "remove-partial-trace-0",
+              "events": [
+                {
+                  "ordinal": 10,
+                  "activity": "B",
+                  "timestamp": "2024-01-01T00:00:39.123Z",
+                  "lifecycle": "complete"
+                }
+              ]
+            },
+            {
+              "id": "remove-partial-source-1",
+              "name": "remove-partial-trace-1",
+              "events": [
+                {
+                  "ordinal": 3,
+                  "activity": "B",
+                  "timestamp": "2024-01-01T00:00:40.123Z",
+                  "lifecycle": "complete"
+                }
+              ]
+            }
+          ],
+          "warnings": [
+            "synthetic warning retained for remove-partial"
+          ]
+        },
+        "source_domain_unchanged": true
+      },
+      "identity_derivation": "Positions explicitly frozen by hand; full expected source fields copied only at those positions. Adapter must later use actual returned immutable trace/event indexes, never this expectation as predicate.",
+      "full_selection_equality_expected": true
+    },
+    {
+      "id": "remove-empty-case",
+      "file": "remove-empty-case.json",
+      "sha256": "bd8affee6c2117db8fa64fe4e320545c2620f7272e05de0bdf9e25492cd28861",
+      "profile": "diagnostic_empty_case_retention",
+      "java_ordered_rules": [
+        {
+          "filter_type": "EVENT_EVENT_ATTRIBUTE",
+          "choice": "REMOVE",
+          "section": "EVENT",
+          "inclusion": "ANY_VALUE",
+          "key": "concept:name",
+          "primary_values": [
+            {
+              "operation": "EQUAL",
+              "string_set": [
+                "A"
+              ]
+            }
+          ]
+        }
+      ],
+      "expected_java": {
+        "outcome": "filtered",
+        "engine_invoked": true,
+        "engine_call_count": 1,
+        "selected_source_indices": [
+          1
+        ],
+        "selected_event_positions": [
+          [
+            0
+          ]
+        ],
+        "selected_source_log": {
+          "name": "Extended Core filter remove-empty-case",
+          "cases": [
+            {
+              "id": "remove-empty-case-source-1",
+              "name": "remove-empty-case-trace-1",
+              "events": [
+                {
+                  "ordinal": 3,
+                  "activity": "B",
+                  "timestamp": "2024-01-01T00:00:40.123Z",
+                  "lifecycle": "complete"
+                }
+              ]
+            }
+          ],
+          "warnings": [
+            "synthetic warning retained for remove-empty-case"
+          ]
+        },
+        "source_domain_unchanged": true,
+        "source_xlog_unchanged": true,
+        "source_apm_unchanged": true
+      },
+      "expected_rust": {
+        "outcome": "filtered",
+        "error_code": null,
+        "selected_source_indices": [
+          0,
+          1
+        ],
+        "selected_event_positions": [
+          [],
+          [
+            0
+          ]
+        ],
+        "selected_source_log": {
+          "name": "Extended Core filter remove-empty-case",
+          "cases": [
+            {
+              "id": "remove-empty-case-source-0",
+              "name": "remove-empty-case-trace-0",
+              "events": []
+            },
+            {
+              "id": "remove-empty-case-source-1",
+              "name": "remove-empty-case-trace-1",
+              "events": [
+                {
+                  "ordinal": 3,
+                  "activity": "B",
+                  "timestamp": "2024-01-01T00:00:40.123Z",
+                  "lifecycle": "complete"
+                }
+              ]
+            }
+          ],
+          "warnings": [
+            "synthetic warning retained for remove-empty-case"
+          ]
+        },
+        "source_domain_unchanged": true
+      },
+      "identity_derivation": "Positions explicitly frozen by hand; full expected source fields copied only at those positions. Adapter must later use actual returned immutable trace/event indexes, never this expectation as predicate.",
+      "full_selection_equality_expected": false
+    },
+    {
+      "id": "length-then-retain",
+      "file": "length-then-retain.json",
+      "sha256": "a96a482b75decf11e309c5a71efd1f66381ccca9afcc80b7d63bf7bc001fc6a1",
+      "profile": "overlap",
+      "java_ordered_rules": [
+        {
+          "filter_type": "CASE_LENGTH",
+          "choice": "RETAIN",
+          "section": "CASE",
+          "primary_values": [
+            {
+              "operation": "GREATER_EQUAL",
+              "long_value": 2
+            },
+            {
+              "operation": "LESS_EQUAL",
+              "long_value": 9223372036854775807
+            }
+          ]
+        },
+        {
+          "filter_type": "EVENT_EVENT_ATTRIBUTE",
+          "choice": "RETAIN",
+          "section": "EVENT",
+          "inclusion": "ANY_VALUE",
+          "key": "concept:name",
+          "primary_values": [
+            {
+              "operation": "EQUAL",
+              "string_set": [
+                "A"
+              ]
+            }
+          ]
+        }
+      ],
+      "expected_java": {
+        "outcome": "filtered",
+        "engine_invoked": true,
+        "engine_call_count": 1,
+        "selected_source_indices": [
+          0,
+          1
+        ],
+        "selected_event_positions": [
+          [
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "selected_source_log": {
+          "name": "Extended Core filter length-then-retain",
+          "cases": [
+            {
+              "id": "length-then-retain-source-0",
+              "name": "length-then-retain-trace-0",
+              "events": [
+                {
+                  "ordinal": 3,
+                  "activity": "A",
+                  "timestamp": "2024-01-01T00:00:40.123Z",
+                  "lifecycle": "complete"
+                }
+              ]
+            },
+            {
+              "id": "length-then-retain-source-1",
+              "name": "length-then-retain-trace-1",
+              "events": [
+                {
+                  "ordinal": 3,
+                  "activity": "A",
+                  "timestamp": "2024-01-01T00:00:40.123Z",
+                  "lifecycle": "complete"
+                },
+                {
+                  "ordinal": 10,
+                  "activity": "A",
+                  "timestamp": "2024-01-01T00:00:39.123Z",
+                  "lifecycle": "complete"
+                }
+              ]
+            }
+          ],
+          "warnings": [
+            "synthetic warning retained for length-then-retain"
+          ]
+        },
+        "source_domain_unchanged": true,
+        "source_xlog_unchanged": true,
+        "source_apm_unchanged": true
+      },
+      "expected_rust": {
+        "outcome": "filtered",
+        "error_code": null,
+        "selected_source_indices": [
+          0,
+          1
+        ],
+        "selected_event_positions": [
+          [
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "selected_source_log": {
+          "name": "Extended Core filter length-then-retain",
+          "cases": [
+            {
+              "id": "length-then-retain-source-0",
+              "name": "length-then-retain-trace-0",
+              "events": [
+                {
+                  "ordinal": 3,
+                  "activity": "A",
+                  "timestamp": "2024-01-01T00:00:40.123Z",
+                  "lifecycle": "complete"
+                }
+              ]
+            },
+            {
+              "id": "length-then-retain-source-1",
+              "name": "length-then-retain-trace-1",
+              "events": [
+                {
+                  "ordinal": 3,
+                  "activity": "A",
+                  "timestamp": "2024-01-01T00:00:40.123Z",
+                  "lifecycle": "complete"
+                },
+                {
+                  "ordinal": 10,
+                  "activity": "A",
+                  "timestamp": "2024-01-01T00:00:39.123Z",
+                  "lifecycle": "complete"
+                }
+              ]
+            }
+          ],
+          "warnings": [
+            "synthetic warning retained for length-then-retain"
+          ]
+        },
+        "source_domain_unchanged": true
+      },
+      "identity_derivation": "Positions explicitly frozen by hand; full expected source fields copied only at those positions. Adapter must later use actual returned immutable trace/event indexes, never this expectation as predicate.",
+      "full_selection_equality_expected": true
+    }
+  ],
+  "invariants": {
+    "one_java_ordered_rule_list": true,
+    "source_nonempty_traces_unique_case_names": true,
+    "one_complete_event_per_activity_instance": true,
+    "actual_pointer_trace_and_event_bitset_indices_required": true,
+    "preserve_source_id_ordinal_timestamp_lifecycle_and_warning_metadata": true,
+    "no_APM_to_XLog_export_as_identity_evidence": true,
+    "no_source_or_expected_mutation": true,
+    "absent_min_maps_to_java_lower_0": true,
+    "absent_max_maps_to_java_upper_Long_MAX_VALUE": true
+  },
+  "no_engine_execution_before_freeze": true,
+  "no_whole_R5_or_Core_parity_claim": true
+}

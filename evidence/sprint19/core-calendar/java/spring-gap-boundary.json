@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "id": "spring-gap-boundary",
+  "input_sha256": "86e5cd57bbf6457cab0541bcd33f12aeba515f9afbd46cfa016e5becf76238a7",
+  "engine": "org.apromore.calendar.model.CalendarModel",
+  "calendar_identity": {
+    "class": "org.apromore.calendar.model.CalendarModel",
+    "sha256": "875c96a343e48cdc42c613b5f65ba7b35056498e112ebffd865084c4ad8c1e39",
+    "code_source": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+  },
+  "workday_identity": {
+    "class": "org.apromore.calendar.model.WorkDayModel",
+    "sha256": "e9983bdef6b0fe12f0d7db7bb03c326fdb1259a69cdf34bb8e0d279bb3217207",
+    "code_source": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+  },
+  "builder_identity": {
+    "class": "org.apromore.calendar.builder.CalendarModelBuilder",
+    "sha256": "8e2fefee2d943e7e8864d80d9cdfdaf8ce42ebb18e3002639d449a31c81096c5",
+    "code_source": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+  },
+  "factory_identity": {
+    "class": "org.apromore.calendar.model.Calendars",
+    "sha256": "ec2958c284cb6d88b4a69b3ff24668c7311ccd19cfcd4ed396486863252ac5b2",
+    "code_source": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+  },
+  "source_input_before": {
+    "schema_version": 1,
+    "id": "spring-gap-boundary",
+    "start": "2026-03-29T00:00:00Z",
+    "end": "2026-03-29T03:00:00Z",
+    "calendar": {
+      "offset_minutes": 0,
+      "timezone": "Europe/Berlin",
+      "weekdays": [
+        7
+      ],
+      "start_minute": 150,
+      "end_minute": 240,
+      "holidays": []
+    }
+  },
+  "source_input_before_sha256": "3385815e50344500053414f64e608e33ff537e0f9dac75f37cc794b79e59d346",
+  "configuration_available": true,
+  "configuration_unchanged": true,
+  "configuration_before": {
+    "zone_id": "Europe/Berlin",
+    "work_days": [
+      {
+        "weekday": 7,
+        "start_time": "02:30",
+        "end_time": "04:00",
+        "working_day": true,
+        "id": 0,
+        "created_by": "",
+        "updated_by": ""
+      }
+    ],
+    "holidays": [],
+    "id": 0,
+    "name": "CalendarModel",
+    "created": "2026-10-22T02:33:23.739450300Z",
+    "updated": "2026-10-22T02:33:23.739450300Z",
+    "created_by": "",
+    "updated_by": ""
+  },
+  "configuration_after": {
+    "zone_id": "Europe/Berlin",
+    "work_days": [
+      {
+        "weekday": 7,
+        "start_time": "02:30",
+        "end_time": "04:00",
+        "working_day": true,
+        "id": 0,
+        "created_by": "",
+        "updated_by": ""
+      }
+    ],
+    "holidays": [],
+    "id": 0,
+    "name": "CalendarModel",
+    "created": "2026-10-22T02:33:23.739450300Z",
+    "updated": "2026-10-22T02:33:23.739450300Z",
+    "created_by": "",
+    "updated_by": ""
+  },
+  "java_zone_rules_versions": [
+    "2026b"
+  ],
+  "duration_millis": 5400000,
+  "duration_seconds": 5400,
+  "duration_nanos": 0,
+  "get_duration_millis_secondary": 5400000,
+  "duration_method_invoked": true,
+  "secondary_method_invoked": true,
+  "assertions_enabled": false,
+  "main_method": "getDuration(Instant,Instant).toMillis()",
+  "secondary_method": "getDurationMillis(Instant,Instant)",
+  "configuration_before_sha256": "81d0b026755f2451b8164c3a5572871fcbae273632c4a981117ee5334e1e51fb",
+  "local_start": "2026-03-29T01:00+01:00[Europe/Berlin]",
+  "local_end": "2026-03-29T05:00+02:00[Europe/Berlin]",
+  "outcome": "duration",
+  "configuration_after_main": {
+    "zone_id": "Europe/Berlin",
+    "work_days": [
+      {
+        "weekday": 7,
+        "start_time": "02:30",
+        "end_time": "04:00",
+        "working_day": true,
+        "id": 0,
+        "created_by": "",
+        "updated_by": ""
+      }
+    ],
+    "holidays": [],
+    "id": 0,
+    "name": "CalendarModel",
+    "created": "2026-10-22T02:33:23.739450300Z",
+    "updated": "2026-10-22T02:33:23.739450300Z",
+    "created_by": "",
+    "updated_by": ""
+  },
+  "configuration_after_main_sha256": "81d0b026755f2451b8164c3a5572871fcbae273632c4a981117ee5334e1e51fb",
+  "configuration_after_sha256": "81d0b026755f2451b8164c3a5572871fcbae273632c4a981117ee5334e1e51fb",
+  "source_input_after": {
+    "schema_version": 1,
+    "id": "spring-gap-boundary",
+    "start": "2026-03-29T00:00:00Z",
+    "end": "2026-03-29T03:00:00Z",
+    "calendar": {
+      "offset_minutes": 0,
+      "timezone": "Europe/Berlin",
+      "weekdays": [
+        7
+      ],
+      "start_minute": 150,
+      "end_minute": 240,
+      "holidays": []
+    }
+  },
+  "source_input_after_sha256": "3385815e50344500053414f64e608e33ff537e0f9dac75f37cc794b79e59d346"
+}
