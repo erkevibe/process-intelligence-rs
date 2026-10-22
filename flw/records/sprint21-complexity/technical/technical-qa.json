@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "agent_name": "qa_s20_delivery",
+  "status": "ACCEPT_FAILED_INCOMPLETE_EVIDENCE_FOR_PUBLICATION_NOT_STAGE_SUCCESS",
+  "utc": "2026-10-22T22:45:49.2471237Z",
+  "immutable_product_sha256": "4121BD68F1C0C05A61B039FADF20FEC5C2DA4379D8AAAFB170DC3B43861D1525",
+  "stage_success": false,
+  "two_case_acceptance": false,
+  "cmp10k_manual_verified": true,
+  "cmp90k_terminal_outcome": "UNKNOWN",
+  "new_missing_original_child_completions": 3,
+  "all_historical_primary_cap_and_complexity_unknowns": 6,
+  "original_measurement_worker_exit": 1,
+  "original_measurement_status": "FAILED_INCOMPLETE",
+  "private_failure_saved_audit": {
+    "child_exit": 0,
+    "full_eof": true,
+    "outer_command_exit": 0,
+    "meaning": "Successful saved failure-evidence verification only",
+    "sha256": "6B616A0C9EB1FF3946B57F6199E17F3B8006E01E2EB7D1366620ACC03B764F69"
+  },
+  "independent_receipts": {
+    "recovery": "E8C0AFDA026AE1F8DCCC0E3CB843DB460DD800AA4E94A9B35ADD418DDC495984",
+    "partial_failure": "DBE60917E337AEEBDACBF98CB6313E138115D361699DA4995B44BF8CF6414CC7",
+    "cleanup02": "CC43A3C946859A5A0F038AE6E7DC891B9303017085E66F11DC2A9EACE177A426"
+  },
+  "fresh_resource": {
+    "proof_sha256": "5A427533220C583F31CF82B05F7A939261F7D10CD031CE2E6678B82DC67F9EA1",
+    "free_bytes": 27540332544,
+    "closure_sha256": "775E9FC572C8164B541DA506C5062311D5C63B0674370855A9FFEE4F107F9EE2",
+    "global_allocated_bytes": 7735307008,
+    "skips": 0,
+    "root_allocated_bytes": 7467853288,
+    "full_eof": true,
+    "native_exit": 0,
+    "files": 96102,
+    "elapsed_ms": 21097.3648
+  },
+  "limitations": [
+    "No inferred90K state, completed memory trial, CPU span, ordering sensitivity, diversity, SLO, worst-case or RAM cap.",
+    "Cleanup01 timeout -1 remains failed; cleanup02 archives all5029 members before removal of duplicate Root data only.",
+    "Operational recovery uses PostgreSQL own stale PID and WAL handling; new clean stop never supplies old missing exits or EOF.",
+    "Resource timeout underlying cause is unproven; neither resource scanner25s/200k nor any experiment bounds were increased.",
+    "Public projection, exact frozen Council vote and final delivery checks are still separate gates.",
+    "Accepted CAP source delivery remains unchanged; no product tag or merge claimed."
+  ]
+}

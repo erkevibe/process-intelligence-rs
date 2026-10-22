@@ -1,0 +1,39 @@
+{
+  "utc": "2026-10-22T22:28:14.9567985+00:00",
+  "config_sha256": "8E11ABA8E6DFE6E8CC351B634B6416157944314152EA2C4FC56D66286D6A4A30",
+  "scope": "Two fixed repeated-event count/field observations; not graph complexity, ordering sensitivity, diversity or worst case.",
+  "no_converter_invoked": true,
+  "schema_version": 1,
+  "app_sha256": "4121BD68F1C0C05A61B039FADF20FEC5C2DA4379D8AAAFB170DC3B43861D1525",
+  "deterministic_utf8_lf_no_bom": true,
+  "cases": [
+    {
+      "id": "CMP10K",
+      "oracle_file": "CMP10K-oracle.json",
+      "manual_csv_bytes": 500034,
+      "input_file": "CMP10K.xes",
+      "events": 10000,
+      "manual_csv_file": "CMP10K.expected-lf.csv",
+      "oracle_sha256": "72BDCA179C36069FB75060D439E64C8E4DF45622A89FF4190BA215A4CF47E5CC",
+      "manual_csv_sha256": "C225BE2B3D1EE6005054B2B2BA8A481A8DB2A3F1DA381E1641DEFE434117C1B7",
+      "input_sha256": "FEB62E2EBA2469264021333C71074A32049DFD049F58AC2A59B2896437AA7793",
+      "input_bytes": 1210135,
+      "trace_count": 1
+    },
+    {
+      "id": "CMP90K",
+      "oracle_file": "CMP90K-oracle.json",
+      "manual_csv_bytes": 4500034,
+      "input_file": "CMP90K.xes",
+      "events": 90000,
+      "manual_csv_file": "CMP90K.expected-lf.csv",
+      "oracle_sha256": "79E2592012F0A351F7A7611E6EE948D42ADAD7D1EC68B394C7CE64232038E798",
+      "manual_csv_sha256": "044A8E94111E7F164FD600477F388333BB9746816836CA6D7BD929E323EA484E",
+      "input_sha256": "CBBD54489E7058054EBB4FD4091759024EA660129E736EF1F7C640C55F55BD8D",
+      "input_bytes": 10890135,
+      "trace_count": 1
+    }
+  ],
+  "status": "PROSPECTIVE_INPUTS_FROZEN_BEFORE_MEASUREMENT",
+  "generator_source_sha256": "D658F2EC92EA603C3B822C1EAEAF61F03428339E7C9C349EFE4C6467A23FD7A1"
+}

@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "proposal_id": "SPRINT21_COMPLEXITY_FAILED_EVIDENCE_PUBLICATION_01",
+  "utc": "2026-10-22T23:13:30Z",
+  "requested_decision": "Authorize publication of saved FAILED_INCOMPLETE experiment evidence only, conditional on all exact delivery gates",
+  "risk_appetite": "Medium",
+  "fixed_roster": [
+    "Root",
+    "QA",
+    "TD",
+    "PM",
+    "Customer"
+  ],
+  "call_sha256": "756A67C668F72720AA1B654A993B8D1842BDFDA2F31A0AD8145F1B124B3A1943",
+  "frozen_candidate_sha256": "BEB3BC5A3F61467573D494EC52D21A031391B6119E51AE544CDCF2F9D0E13387",
+  "frozen_changed_files": 246,
+  "base_commit": "08371fea317014005ea876667cd095e8608d60f9",
+  "branch": "codex/sprint-21-complexity",
+  "public_projection_sha256": "6EB91A6AD63E9CC1C8527574FF3F0220F28A6833F01373EECB46FE85699F8306",
+  "projection_qa_sha256": "68AD09469A367EFA3FBA1AC7C41E678C052A690AAE003B8F6E389E25196B9214",
+  "stage_status": "FAILED_INCOMPLETE",
+  "stage_success": false,
+  "two_case_acceptance": false,
+  "verified_subscope": "CMP10K_ONLY",
+  "cumulative_historical_unknown_completions": 6,
+  "native_engine_window_closed_utc": "2026-10-22T22:46:12Z",
+  "publication_deadline_utc": "2026-10-22T23:26:12Z",
+  "required_gates": [
+    "Freeze owner actual exit0 and all native captures complete before final acceptance",
+    "No changes to existing accepted CAP sources; exact246 frozen additions plus eight actual Council files only",
+    "Normal new branch commit and PR against codex/sprint-21-capacity; no force, merge or release tag",
+    "Both push and pull_request CI all steps successful for the exact commit",
+    "Root and QA independently download entire exact-commit anonymous source with no credentials or redirects and verify every Git byte",
+    "Both independently extract only verified new subset and run downloaded package, saved failure and typed URI audits; stage_success=false retained",
+    "All product and PostgreSQL processes remain stopped; budgets and publication deadline maintained"
+  ],
+  "boundaries": [
+    "No90K terminal outcome, duration, memory or refusal inferred; missing native completions remain UNKNOWN",
+    "No new app, PostgreSQL, conversion, compiler or measurement execution in this publication phase",
+    "10K wall duration includes setup, polling and validation; process memory sampling is descriptive and not a hard cap",
+    "No enterprise readiness, SLO, speedup, full Apromore equivalence or completed two-case experiment claimed",
+    "Prior failed preparation attempts and original raw hashes preserved; later evidence closure does not retroactively reconstruct missing exits"
+  ],
+  "public_delivery_pending": true
+}

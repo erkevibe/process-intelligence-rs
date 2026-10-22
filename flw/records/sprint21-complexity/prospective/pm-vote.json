@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "role": "PM",
+  "agent_name": "pm_s21",
+  "utc": "2026-10-22T22:24:29.1652453+00:00",
+  "proposal_sha256": "235A2D0208788C250E2B6758E304DD191C6C252D10FBE2F467F43AB357D5D0B6",
+  "vote": "FOR",
+  "decision": "AUTHORIZE_PROSPECTIVE_FINITE_EVIDENCE_STAGE_ONLY_AFTER_RESOLUTION_AND_SOURCE_ADMISSION",
+  "basis": "CAP delivery gate completed22:23:40UTC before22:30 cutoff. Exact proposal preserves accepted081runtime, two fixed10k/90kevent cases, manual expectations before execution, no outcome retuning, and full60-minute delivery budget from fresh resolutionUTC.",
+  "requirements": [
+    "Separate actual source admission before any generator/helper executes.",
+    "Record generator/input/manualoracle/settings/binary hashes before first measurement.",
+    "Exactlyone operation at a time and one actual observation per fixed input; bothreport_byte_limit outcomes remain valid observations.",
+    "Repeated identical rows prove count and core values, not order sensitivity.",
+    "Only actual observed HTTP/poll spans and server memory counters are claimed; no invented CPU/queue spans or hardRAMcap.",
+    "Native work ends min(resolutionUTC+20minutes,00:30:37UTC); all independent/public delivery ends resolutionUTC+60minutes.",
+    "Final public bothCIexactHEAD, RootQAwhole source replay and owned-process/resourceclosure remain required."
+  ],
+  "not_authorized": [
+    "Product/schema/runtime edits or builds",
+    "Format or report limit changes",
+    "Outcome-based fixture retuning",
+    "Enterprise/SLO/RAMhardcap/tag/merge claim"
+  ],
+  "inputs_or_metrics_created_by_PM": false,
+  "human_acceptance": false
+}
