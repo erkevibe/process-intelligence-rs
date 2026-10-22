@@ -1,0 +1,698 @@
+{
+  "sampling_not_continuous": true,
+  "scope": "Owned server process only; excludes PostgreSQL, Python helper and Root; working set includes shared pages, private commit is distinct; no hard RAM limit or SLO established.",
+  "native_peak_scope": "Server process lifetime since creation; includes startup, setup and preceding phases of this same process; not per-operation exclusive.",
+  "intended_poll_ms": 50,
+  "samples": [
+    {
+      "counters": {
+        "current_working_set_bytes": 14970880,
+        "peak_private_commit_bytes": 3448832,
+        "peak_working_set_bytes": 15077376,
+        "page_faults": 3778,
+        "scope": "OS process counters since process creation, observed at caller snapshot; a terminal pre-exit snapshot excludes subsequent teardown. Working set may include shared pages; commit is not working set.",
+        "current_private_commit_bytes": 3395584
+      },
+      "utc": "2026-10-22T21:15:47.3417683+00:00",
+      "pid": 26616,
+      "phase_elapsed_ms": 6.6788,
+      "native_creation_utc": "2026-10-22T21:15:46.3437568Z",
+      "stage": "warm_before"
+    },
+    {
+      "counters": {
+        "current_working_set_bytes": 14970880,
+        "peak_private_commit_bytes": 3448832,
+        "peak_working_set_bytes": 15077376,
+        "page_faults": 3778,
+        "scope": "OS process counters since process creation, observed at caller snapshot; a terminal pre-exit snapshot excludes subsequent teardown. Working set may include shared pages; commit is not working set.",
+        "current_private_commit_bytes": 3395584
+      },
+      "utc": "2026-10-22T21:15:47.4042859+00:00",
+      "pid": 26616,
+      "phase_elapsed_ms": 69.1972,
+      "native_creation_utc": "2026-10-22T21:15:46.3437568Z",
+      "stage": "warm_before"
+    },
+    {
+      "counters": {
+        "current_working_set_bytes": 14970880,
+        "peak_private_commit_bytes": 3448832,
+        "peak_working_set_bytes": 15077376,
+        "page_faults": 3778,
+        "scope": "OS process counters since process creation, observed at caller snapshot; a terminal pre-exit snapshot excludes subsequent teardown. Working set may include shared pages; commit is not working set.",
+        "current_private_commit_bytes": 3395584
+      },
+      "utc": "2026-10-22T21:15:47.4680204+00:00",
+      "pid": 26616,
+      "phase_elapsed_ms": 132.9319,
+      "native_creation_utc": "2026-10-22T21:15:46.3437568Z",
+      "stage": "warm_before"
+    },
+    {
+      "counters": {
+        "current_working_set_bytes": 14970880,
+        "peak_private_commit_bytes": 3448832,
+        "peak_working_set_bytes": 15077376,
+        "page_faults": 3778,
+        "scope": "OS process counters since process creation, observed at caller snapshot; a terminal pre-exit snapshot excludes subsequent teardown. Working set may include shared pages; commit is not working set.",
+        "current_private_commit_bytes": 3395584
+      },
+      "utc": "2026-10-22T21:15:47.5320930+00:00",
+      "pid": 26616,
+      "phase_elapsed_ms": 197.0047,
+      "native_creation_utc": "2026-10-22T21:15:46.3437568Z",
+      "stage": "warm_before"
+    },
+    {
+      "counters": {
+        "current_working_set_bytes": 14970880,
+        "peak_private_commit_bytes": 3448832,
+        "peak_working_set_bytes": 15077376,
+        "page_faults": 3778,
+        "scope": "OS process counters since process creation, observed at caller snapshot; a terminal pre-exit snapshot excludes subsequent teardown. Working set may include shared pages; commit is not working set.",
+        "current_private_commit_bytes": 3395584
+      },
+      "utc": "2026-10-22T21:15:47.5939067+00:00",
+      "pid": 26616,
+      "phase_elapsed_ms": 258.8169,
+      "native_creation_utc": "2026-10-22T21:15:46.3437568Z",
+      "stage": "warm_before"
+    },
+    {
+      "counters": {
+        "current_working_set_bytes": 14970880,
+        "peak_private_commit_bytes": 3448832,
+        "peak_working_set_bytes": 15077376,
+        "page_faults": 3778,
+        "scope": "OS process counters since process creation, observed at caller snapshot; a terminal pre-exit snapshot excludes subsequent teardown. Working set may include shared pages; commit is not working set.",
+        "current_private_commit_bytes": 3395584
+      },
+      "utc": "2026-10-22T21:15:47.6585268+00:00",
+      "pid": 26616,
+      "phase_elapsed_ms": 323.4366,
+      "native_creation_utc": "2026-10-22T21:15:46.3437568Z",
+      "stage": "warm_before"
+    },
+    {
+      "counters": {
+        "current_working_set_bytes": 14970880,
+        "peak_private_commit_bytes": 3448832,
+        "peak_working_set_bytes": 15077376,
+        "page_faults": 3778,
+        "scope": "OS process counters since process creation, observed at caller snapshot; a terminal pre-exit snapshot excludes subsequent teardown. Working set may include shared pages; commit is not working set.",
+        "current_private_commit_bytes": 3395584
+      },
+      "utc": "2026-10-22T21:15:47.7223005+00:00",
+      "pid": 26616,
+      "phase_elapsed_ms": 387.2124,
+      "native_creation_utc": "2026-10-22T21:15:46.3437568Z",
+      "stage": "warm_before"
+    },
+    {
+      "counters": {
+        "current_working_set_bytes": 14970880,
+        "peak_private_commit_bytes": 3448832,
+        "peak_working_set_bytes": 15077376,
+        "page_faults": 3778,
+        "scope": "OS process counters since process creation, observed at caller snapshot; a terminal pre-exit snapshot excludes subsequent teardown. Working set may include shared pages; commit is not working set.",
+        "current_private_commit_bytes": 3395584
+      },
+      "utc": "2026-10-22T21:15:47.8006486+00:00",
+      "pid": 26616,
+      "phase_elapsed_ms": 465.56,
+      "native_creation_utc": "2026-10-22T21:15:46.3437568Z",
+      "stage": "warm_before"
+    },
+    {
+      "counters": {
+        "current_working_set_bytes": 14970880,
+        "peak_private_commit_bytes": 3448832,
+        "peak_working_set_bytes": 15077376,
+        "page_faults": 3778,
+        "scope": "OS process counters since process creation, observed at caller snapshot; a terminal pre-exit snapshot excludes subsequent teardown. Working set may include shared pages; commit is not working set.",
+        "current_private_commit_bytes": 3395584
+      },
+      "utc": "2026-10-22T21:15:47.8808630+00:00",
+      "pid": 26616,
+      "phase_elapsed_ms": 545.7743,
+      "native_creation_utc": "2026-10-22T21:15:46.3437568Z",
+      "stage": "warm_before"
+    },
+    {
+      "counters": {
+        "current_working_set_bytes": 14970880,
+        "peak_private_commit_bytes": 3448832,
+        "peak_working_set_bytes": 15077376,
+        "page_faults": 3778,
+        "scope": "OS process counters since process creation, observed at caller snapshot; a terminal pre-exit snapshot excludes subsequent teardown. Working set may include shared pages; commit is not working set.",
+        "current_private_commit_bytes": 3395584
+      },
+      "utc": "2026-10-22T21:15:47.9600106+00:00",
+      "pid": 26616,
+      "phase_elapsed_ms": 624.9221,
+      "native_creation_utc": "2026-10-22T21:15:46.3437568Z",
+      "stage": "warm_before"
+    },
+    {
+      "counters": {
+        "current_working_set_bytes": 14970880,
+        "peak_private_commit_bytes": 3448832,
+        "peak_working_set_bytes": 15077376,
+        "page_faults": 3778,
+        "scope": "OS process counters since process creation, observed at caller snapshot; a terminal pre-exit snapshot excludes subsequent teardown. Working set may include shared pages; commit is not working set.",
+        "current_private_commit_bytes": 3395584
+      },
+      "utc": "2026-10-22T21:15:48.0389816+00:00",
+      "pid": 26616,
+      "phase_elapsed_ms": 703.8929,
+      "native_creation_utc": "2026-10-22T21:15:46.3437568Z",
+      "stage": "warm_before"
+    },
+    {
+      "counters": {
+        "current_working_set_bytes": 14970880,
+        "peak_private_commit_bytes": 3448832,
+        "peak_working_set_bytes": 15077376,
+        "page_faults": 3778,
+        "scope": "OS process counters since process creation, observed at caller snapshot; a terminal pre-exit snapshot excludes subsequent teardown. Working set may include shared pages; commit is not working set.",
+        "current_private_commit_bytes": 3395584
+      },
+      "utc": "2026-10-22T21:15:48.1156389+00:00",
+      "pid": 26616,
+      "phase_elapsed_ms": 780.5491,
+      "native_creation_utc": "2026-10-22T21:15:46.3437568Z",
+      "stage": "warm_before"
+    },
+    {
+      "counters": {
+        "current_working_set_bytes": 14970880,
+        "peak_private_commit_bytes": 3448832,
+        "peak_working_set_bytes": 15077376,
+        "page_faults": 3778,
+        "scope": "OS process counters since process creation, observed at caller snapshot; a terminal pre-exit snapshot excludes subsequent teardown. Working set may include shared pages; commit is not working set.",
+        "current_private_commit_bytes": 3395584
+      },
+      "utc": "2026-10-22T21:15:48.1952958+00:00",
+      "pid": 26616,
+      "phase_elapsed_ms": 860.207,
+      "native_creation_utc": "2026-10-22T21:15:46.3437568Z",
+      "stage": "warm_before"
+    },
+    {
+      "counters": {
+        "current_working_set_bytes": 14970880,
+        "peak_private_commit_bytes": 3448832,
+        "peak_working_set_bytes": 15077376,
+        "page_faults": 3778,
+        "scope": "OS process counters since process creation, observed at caller snapshot; a terminal pre-exit snapshot excludes subsequent teardown. Working set may include shared pages; commit is not working set.",
+        "current_private_commit_bytes": 3395584
+      },
+      "utc": "2026-10-22T21:15:48.2747728+00:00",
+      "pid": 26616,
+      "phase_elapsed_ms": 939.6841,
+      "native_creation_utc": "2026-10-22T21:15:46.3437568Z",
+      "stage": "warm_before"
+    },
+    {
+      "counters": {
+        "current_working_set_bytes": 14970880,
+        "peak_private_commit_bytes": 3448832,
+        "peak_working_set_bytes": 15077376,
+        "page_faults": 3778,
+        "scope": "OS process counters since process creation, observed at caller snapshot; a terminal pre-exit snapshot excludes subsequent teardown. Working set may include shared pages; commit is not working set.",
+        "current_private_commit_bytes": 3395584
+      },
+      "utc": "2026-10-22T21:15:48.4374319+00:00",
+      "pid": 26616,
+      "phase_elapsed_ms": 1102.3436,
+      "native_creation_utc": "2026-10-22T21:15:46.3437568Z",
+      "stage": "during_http_child"
+    },
+    {
+      "counters": {
+        "current_working_set_bytes": 14970880,
+        "peak_private_commit_bytes": 3448832,
+        "peak_working_set_bytes": 15077376,
+        "page_faults": 3778,
+        "scope": "OS process counters since process creation, observed at caller snapshot; a terminal pre-exit snapshot excludes subsequent teardown. Working set may include shared pages; commit is not working set.",
+        "current_private_commit_bytes": 3395584
+      },
+      "utc": "2026-10-22T21:15:48.4998636+00:00",
+      "pid": 26616,
+      "phase_elapsed_ms": 1164.7743,
+      "native_creation_utc": "2026-10-22T21:15:46.3437568Z",
+      "stage": "during_http_child"
+    },
+    {
+      "counters": {
+        "current_working_set_bytes": 14970880,
+        "peak_private_commit_bytes": 3448832,
+        "peak_working_set_bytes": 15077376,
+        "page_faults": 3778,
+        "scope": "OS process counters since process creation, observed at caller snapshot; a terminal pre-exit snapshot excludes subsequent teardown. Working set may include shared pages; commit is not working set.",
+        "current_private_commit_bytes": 3395584
+      },
+      "utc": "2026-10-22T21:15:48.5628728+00:00",
+      "pid": 26616,
+      "phase_elapsed_ms": 1227.7844,
+      "native_creation_utc": "2026-10-22T21:15:46.3437568Z",
+      "stage": "during_http_child"
+    },
+    {
+      "counters": {
+        "current_working_set_bytes": 14970880,
+        "peak_private_commit_bytes": 3448832,
+        "peak_working_set_bytes": 15077376,
+        "page_faults": 3778,
+        "scope": "OS process counters since process creation, observed at caller snapshot; a terminal pre-exit snapshot excludes subsequent teardown. Working set may include shared pages; commit is not working set.",
+        "current_private_commit_bytes": 3395584
+      },
+      "utc": "2026-10-22T21:15:48.6233256+00:00",
+      "pid": 26616,
+      "phase_elapsed_ms": 1288.2367,
+      "native_creation_utc": "2026-10-22T21:15:46.3437568Z",
+      "stage": "during_http_child"
+    },
+    {
+      "counters": {
+        "current_working_set_bytes": 14970880,
+        "peak_private_commit_bytes": 3448832,
+        "peak_working_set_bytes": 15077376,
+        "page_faults": 3778,
+        "scope": "OS process counters since process creation, observed at caller snapshot; a terminal pre-exit snapshot excludes subsequent teardown. Working set may include shared pages; commit is not working set.",
+        "current_private_commit_bytes": 3395584
+      },
+      "utc": "2026-10-22T21:15:48.6876319+00:00",
+      "pid": 26616,
+      "phase_elapsed_ms": 1352.5434,
+      "native_creation_utc": "2026-10-22T21:15:46.3437568Z",
+      "stage": "during_http_child"
+    },
+    {
+      "counters": {
+        "current_working_set_bytes": 35930112,
+        "peak_private_commit_bytes": 23695360,
+        "peak_working_set_bytes": 35930112,
+        "page_faults": 8927,
+        "scope": "OS process counters since process creation, observed at caller snapshot; a terminal pre-exit snapshot excludes subsequent teardown. Working set may include shared pages; commit is not working set.",
+        "current_private_commit_bytes": 23674880
+      },
+      "utc": "2026-10-22T21:15:48.7499579+00:00",
+      "pid": 26616,
+      "phase_elapsed_ms": 1414.8689,
+      "native_creation_utc": "2026-10-22T21:15:46.3437568Z",
+      "stage": "during_http_child"
+    },
+    {
+      "counters": {
+        "current_working_set_bytes": 35930112,
+        "peak_private_commit_bytes": 23695360,
+        "peak_working_set_bytes": 35930112,
+        "page_faults": 8927,
+        "scope": "OS process counters since process creation, observed at caller snapshot; a terminal pre-exit snapshot excludes subsequent teardown. Working set may include shared pages; commit is not working set.",
+        "current_private_commit_bytes": 23674880
+      },
+      "utc": "2026-10-22T21:15:48.8109100+00:00",
+      "pid": 26616,
+      "phase_elapsed_ms": 1475.8211,
+      "native_creation_utc": "2026-10-22T21:15:46.3437568Z",
+      "stage": "during_http_child"
+    },
+    {
+      "counters": {
+        "current_working_set_bytes": 35930112,
+        "peak_private_commit_bytes": 23695360,
+        "peak_working_set_bytes": 35930112,
+        "page_faults": 8927,
+        "scope": "OS process counters since process creation, observed at caller snapshot; a terminal pre-exit snapshot excludes subsequent teardown. Working set may include shared pages; commit is not working set.",
+        "current_private_commit_bytes": 23674880
+      },
+      "utc": "2026-10-22T21:15:48.8751066+00:00",
+      "pid": 26616,
+      "phase_elapsed_ms": 1540.0188,
+      "native_creation_utc": "2026-10-22T21:15:46.3437568Z",
+      "stage": "during_http_child"
+    },
+    {
+      "counters": {
+        "current_working_set_bytes": 35930112,
+        "peak_private_commit_bytes": 23695360,
+        "peak_working_set_bytes": 35930112,
+        "page_faults": 8927,
+        "scope": "OS process counters since process creation, observed at caller snapshot; a terminal pre-exit snapshot excludes subsequent teardown. Working set may include shared pages; commit is not working set.",
+        "current_private_commit_bytes": 23674880
+      },
+      "utc": "2026-10-22T21:15:48.9355669+00:00",
+      "pid": 26616,
+      "phase_elapsed_ms": 1600.4782,
+      "native_creation_utc": "2026-10-22T21:15:46.3437568Z",
+      "stage": "during_http_child"
+    },
+    {
+      "counters": {
+        "current_working_set_bytes": 35930112,
+        "peak_private_commit_bytes": 23695360,
+        "peak_working_set_bytes": 35930112,
+        "page_faults": 8927,
+        "scope": "OS process counters since process creation, observed at caller snapshot; a terminal pre-exit snapshot excludes subsequent teardown. Working set may include shared pages; commit is not working set.",
+        "current_private_commit_bytes": 23674880
+      },
+      "utc": "2026-10-22T21:15:48.9999315+00:00",
+      "pid": 26616,
+      "phase_elapsed_ms": 1664.8427,
+      "native_creation_utc": "2026-10-22T21:15:46.3437568Z",
+      "stage": "during_http_child"
+    },
+    {
+      "counters": {
+        "current_working_set_bytes": 35930112,
+        "peak_private_commit_bytes": 23695360,
+        "peak_working_set_bytes": 35930112,
+        "page_faults": 8927,
+        "scope": "OS process counters since process creation, observed at caller snapshot; a terminal pre-exit snapshot excludes subsequent teardown. Working set may include shared pages; commit is not working set.",
+        "current_private_commit_bytes": 23674880
+      },
+      "utc": "2026-10-22T21:15:49.0613622+00:00",
+      "pid": 26616,
+      "phase_elapsed_ms": 1726.2738,
+      "native_creation_utc": "2026-10-22T21:15:46.3437568Z",
+      "stage": "during_http_child"
+    },
+    {
+      "counters": {
+        "current_working_set_bytes": 35930112,
+        "peak_private_commit_bytes": 23695360,
+        "peak_working_set_bytes": 35930112,
+        "page_faults": 8927,
+        "scope": "OS process counters since process creation, observed at caller snapshot; a terminal pre-exit snapshot excludes subsequent teardown. Working set may include shared pages; commit is not working set.",
+        "current_private_commit_bytes": 23674880
+      },
+      "utc": "2026-10-22T21:15:49.1273004+00:00",
+      "pid": 26616,
+      "phase_elapsed_ms": 1792.2147,
+      "native_creation_utc": "2026-10-22T21:15:46.3437568Z",
+      "stage": "during_http_child"
+    },
+    {
+      "counters": {
+        "current_working_set_bytes": 35930112,
+        "peak_private_commit_bytes": 23695360,
+        "peak_working_set_bytes": 35930112,
+        "page_faults": 8927,
+        "scope": "OS process counters since process creation, observed at caller snapshot; a terminal pre-exit snapshot excludes subsequent teardown. Working set may include shared pages; commit is not working set.",
+        "current_private_commit_bytes": 23674880
+      },
+      "utc": "2026-10-22T21:15:49.1938966+00:00",
+      "pid": 26616,
+      "phase_elapsed_ms": 1858.8097,
+      "native_creation_utc": "2026-10-22T21:15:46.3437568Z",
+      "stage": "during_http_child"
+    },
+    {
+      "counters": {
+        "current_working_set_bytes": 35930112,
+        "peak_private_commit_bytes": 23695360,
+        "peak_working_set_bytes": 35930112,
+        "page_faults": 8927,
+        "scope": "OS process counters since process creation, observed at caller snapshot; a terminal pre-exit snapshot excludes subsequent teardown. Working set may include shared pages; commit is not working set.",
+        "current_private_commit_bytes": 23674880
+      },
+      "utc": "2026-10-22T21:15:49.2695909+00:00",
+      "pid": 26616,
+      "phase_elapsed_ms": 1934.5019,
+      "native_creation_utc": "2026-10-22T21:15:46.3437568Z",
+      "stage": "during_http_child"
+    },
+    {
+      "counters": {
+        "current_working_set_bytes": 35930112,
+        "peak_private_commit_bytes": 23695360,
+        "peak_working_set_bytes": 35930112,
+        "page_faults": 8927,
+        "scope": "OS process counters since process creation, observed at caller snapshot; a terminal pre-exit snapshot excludes subsequent teardown. Working set may include shared pages; commit is not working set.",
+        "current_private_commit_bytes": 23674880
+      },
+      "utc": "2026-10-22T21:15:49.3523178+00:00",
+      "pid": 26616,
+      "phase_elapsed_ms": 2017.2302,
+      "native_creation_utc": "2026-10-22T21:15:46.3437568Z",
+      "stage": "during_http_child"
+    },
+    {
+      "counters": {
+        "current_working_set_bytes": 16920576,
+        "peak_private_commit_bytes": 23695360,
+        "peak_working_set_bytes": 35930112,
+        "page_faults": 9171,
+        "scope": "OS process counters since process creation, observed at caller snapshot; a terminal pre-exit snapshot excludes subsequent teardown. Working set may include shared pages; commit is not working set.",
+        "current_private_commit_bytes": 3747840
+      },
+      "utc": "2026-10-22T21:15:49.4242864+00:00",
+      "pid": 26616,
+      "phase_elapsed_ms": 2089.1979,
+      "native_creation_utc": "2026-10-22T21:15:46.3437568Z",
+      "stage": "during_http_child"
+    },
+    {
+      "counters": {
+        "current_working_set_bytes": 16920576,
+        "peak_private_commit_bytes": 23695360,
+        "peak_working_set_bytes": 35930112,
+        "page_faults": 9171,
+        "scope": "OS process counters since process creation, observed at caller snapshot; a terminal pre-exit snapshot excludes subsequent teardown. Working set may include shared pages; commit is not working set.",
+        "current_private_commit_bytes": 3747840
+      },
+      "utc": "2026-10-22T21:15:49.4313499+00:00",
+      "pid": 26616,
+      "phase_elapsed_ms": 2096.2612,
+      "native_creation_utc": "2026-10-22T21:15:46.3437568Z",
+      "stage": "http_child_exited"
+    },
+    {
+      "counters": {
+        "current_working_set_bytes": 16920576,
+        "peak_private_commit_bytes": 23695360,
+        "peak_working_set_bytes": 35930112,
+        "page_faults": 9171,
+        "scope": "OS process counters since process creation, observed at caller snapshot; a terminal pre-exit snapshot excludes subsequent teardown. Working set may include shared pages; commit is not working set.",
+        "current_private_commit_bytes": 3747840
+      },
+      "utc": "2026-10-22T21:15:49.4514053+00:00",
+      "pid": 26616,
+      "phase_elapsed_ms": 2116.316,
+      "native_creation_utc": "2026-10-22T21:15:46.3437568Z",
+      "stage": "after_http"
+    },
+    {
+      "counters": {
+        "current_working_set_bytes": 16920576,
+        "peak_private_commit_bytes": 23695360,
+        "peak_working_set_bytes": 35930112,
+        "page_faults": 9171,
+        "scope": "OS process counters since process creation, observed at caller snapshot; a terminal pre-exit snapshot excludes subsequent teardown. Working set may include shared pages; commit is not working set.",
+        "current_private_commit_bytes": 3747840
+      },
+      "utc": "2026-10-22T21:15:49.5133519+00:00",
+      "pid": 26616,
+      "phase_elapsed_ms": 2178.2629,
+      "native_creation_utc": "2026-10-22T21:15:46.3437568Z",
+      "stage": "after_http"
+    },
+    {
+      "counters": {
+        "current_working_set_bytes": 16920576,
+        "peak_private_commit_bytes": 23695360,
+        "peak_working_set_bytes": 35930112,
+        "page_faults": 9171,
+        "scope": "OS process counters since process creation, observed at caller snapshot; a terminal pre-exit snapshot excludes subsequent teardown. Working set may include shared pages; commit is not working set.",
+        "current_private_commit_bytes": 3747840
+      },
+      "utc": "2026-10-22T21:15:49.5750603+00:00",
+      "pid": 26616,
+      "phase_elapsed_ms": 2239.9715,
+      "native_creation_utc": "2026-10-22T21:15:46.3437568Z",
+      "stage": "after_http"
+    },
+    {
+      "counters": {
+        "current_working_set_bytes": 16920576,
+        "peak_private_commit_bytes": 23695360,
+        "peak_working_set_bytes": 35930112,
+        "page_faults": 9171,
+        "scope": "OS process counters since process creation, observed at caller snapshot; a terminal pre-exit snapshot excludes subsequent teardown. Working set may include shared pages; commit is not working set.",
+        "current_private_commit_bytes": 3747840
+      },
+      "utc": "2026-10-22T21:15:49.6374261+00:00",
+      "pid": 26616,
+      "phase_elapsed_ms": 2302.3371,
+      "native_creation_utc": "2026-10-22T21:15:46.3437568Z",
+      "stage": "after_http"
+    },
+    {
+      "counters": {
+        "current_working_set_bytes": 16920576,
+        "peak_private_commit_bytes": 23695360,
+        "peak_working_set_bytes": 35930112,
+        "page_faults": 9171,
+        "scope": "OS process counters since process creation, observed at caller snapshot; a terminal pre-exit snapshot excludes subsequent teardown. Working set may include shared pages; commit is not working set.",
+        "current_private_commit_bytes": 3747840
+      },
+      "utc": "2026-10-22T21:15:49.6992209+00:00",
+      "pid": 26616,
+      "phase_elapsed_ms": 2364.1319,
+      "native_creation_utc": "2026-10-22T21:15:46.3437568Z",
+      "stage": "after_http"
+    },
+    {
+      "counters": {
+        "current_working_set_bytes": 16920576,
+        "peak_private_commit_bytes": 23695360,
+        "peak_working_set_bytes": 35930112,
+        "page_faults": 9171,
+        "scope": "OS process counters since process creation, observed at caller snapshot; a terminal pre-exit snapshot excludes subsequent teardown. Working set may include shared pages; commit is not working set.",
+        "current_private_commit_bytes": 3747840
+      },
+      "utc": "2026-10-22T21:15:49.7638364+00:00",
+      "pid": 26616,
+      "phase_elapsed_ms": 2428.7488,
+      "native_creation_utc": "2026-10-22T21:15:46.3437568Z",
+      "stage": "after_http"
+    },
+    {
+      "counters": {
+        "current_working_set_bytes": 16920576,
+        "peak_private_commit_bytes": 23695360,
+        "peak_working_set_bytes": 35930112,
+        "page_faults": 9171,
+        "scope": "OS process counters since process creation, observed at caller snapshot; a terminal pre-exit snapshot excludes subsequent teardown. Working set may include shared pages; commit is not working set.",
+        "current_private_commit_bytes": 3747840
+      },
+      "utc": "2026-10-22T21:15:49.8271807+00:00",
+      "pid": 26616,
+      "phase_elapsed_ms": 2492.093,
+      "native_creation_utc": "2026-10-22T21:15:46.3437568Z",
+      "stage": "after_http"
+    },
+    {
+      "counters": {
+        "current_working_set_bytes": 16920576,
+        "peak_private_commit_bytes": 23695360,
+        "peak_working_set_bytes": 35930112,
+        "page_faults": 9171,
+        "scope": "OS process counters since process creation, observed at caller snapshot; a terminal pre-exit snapshot excludes subsequent teardown. Working set may include shared pages; commit is not working set.",
+        "current_private_commit_bytes": 3747840
+      },
+      "utc": "2026-10-22T21:15:49.8918781+00:00",
+      "pid": 26616,
+      "phase_elapsed_ms": 2556.7914,
+      "native_creation_utc": "2026-10-22T21:15:46.3437568Z",
+      "stage": "after_http"
+    },
+    {
+      "counters": {
+        "current_working_set_bytes": 16920576,
+        "peak_private_commit_bytes": 23695360,
+        "peak_working_set_bytes": 35930112,
+        "page_faults": 9171,
+        "scope": "OS process counters since process creation, observed at caller snapshot; a terminal pre-exit snapshot excludes subsequent teardown. Working set may include shared pages; commit is not working set.",
+        "current_private_commit_bytes": 3747840
+      },
+      "utc": "2026-10-22T21:15:49.9570255+00:00",
+      "pid": 26616,
+      "phase_elapsed_ms": 2621.9374,
+      "native_creation_utc": "2026-10-22T21:15:46.3437568Z",
+      "stage": "after_http"
+    },
+    {
+      "counters": {
+        "current_working_set_bytes": 16920576,
+        "peak_private_commit_bytes": 23695360,
+        "peak_working_set_bytes": 35930112,
+        "page_faults": 9171,
+        "scope": "OS process counters since process creation, observed at caller snapshot; a terminal pre-exit snapshot excludes subsequent teardown. Working set may include shared pages; commit is not working set.",
+        "current_private_commit_bytes": 3747840
+      },
+      "utc": "2026-10-22T21:15:50.0330917+00:00",
+      "pid": 26616,
+      "phase_elapsed_ms": 2698.0043,
+      "native_creation_utc": "2026-10-22T21:15:46.3437568Z",
+      "stage": "after_http"
+    },
+    {
+      "counters": {
+        "current_working_set_bytes": 16920576,
+        "peak_private_commit_bytes": 23695360,
+        "peak_working_set_bytes": 35930112,
+        "page_faults": 9171,
+        "scope": "OS process counters since process creation, observed at caller snapshot; a terminal pre-exit snapshot excludes subsequent teardown. Working set may include shared pages; commit is not working set.",
+        "current_private_commit_bytes": 3747840
+      },
+      "utc": "2026-10-22T21:15:50.0997143+00:00",
+      "pid": 26616,
+      "phase_elapsed_ms": 2764.6313,
+      "native_creation_utc": "2026-10-22T21:15:46.3437568Z",
+      "stage": "after_http"
+    },
+    {
+      "counters": {
+        "current_working_set_bytes": 16920576,
+        "peak_private_commit_bytes": 23695360,
+        "peak_working_set_bytes": 35930112,
+        "page_faults": 9171,
+        "scope": "OS process counters since process creation, observed at caller snapshot; a terminal pre-exit snapshot excludes subsequent teardown. Working set may include shared pages; commit is not working set.",
+        "current_private_commit_bytes": 3747840
+      },
+      "utc": "2026-10-22T21:15:50.1733864+00:00",
+      "pid": 26616,
+      "phase_elapsed_ms": 2838.2971,
+      "native_creation_utc": "2026-10-22T21:15:46.3437568Z",
+      "stage": "after_http"
+    },
+    {
+      "counters": {
+        "current_working_set_bytes": 16920576,
+        "peak_private_commit_bytes": 23695360,
+        "peak_working_set_bytes": 35930112,
+        "page_faults": 9171,
+        "scope": "OS process counters since process creation, observed at caller snapshot; a terminal pre-exit snapshot excludes subsequent teardown. Working set may include shared pages; commit is not working set.",
+        "current_private_commit_bytes": 3747840
+      },
+      "utc": "2026-10-22T21:15:50.2381213+00:00",
+      "pid": 26616,
+      "phase_elapsed_ms": 2903.033,
+      "native_creation_utc": "2026-10-22T21:15:46.3437568Z",
+      "stage": "after_http"
+    },
+    {
+      "counters": {
+        "current_working_set_bytes": 16920576,
+        "peak_private_commit_bytes": 23695360,
+        "peak_working_set_bytes": 35930112,
+        "page_faults": 9171,
+        "scope": "OS process counters since process creation, observed at caller snapshot; a terminal pre-exit snapshot excludes subsequent teardown. Working set may include shared pages; commit is not working set.",
+        "current_private_commit_bytes": 3747840
+      },
+      "utc": "2026-10-22T21:15:50.3177690+00:00",
+      "pid": 26616,
+      "phase_elapsed_ms": 2982.6808,
+      "native_creation_utc": "2026-10-22T21:15:46.3437568Z",
+      "stage": "after_http"
+    },
+    {
+      "counters": {
+        "current_working_set_bytes": 16920576,
+        "peak_private_commit_bytes": 23695360,
+        "peak_working_set_bytes": 35930112,
+        "page_faults": 9171,
+        "scope": "OS process counters since process creation, observed at caller snapshot; a terminal pre-exit snapshot excludes subsequent teardown. Working set may include shared pages; commit is not working set.",
+        "current_private_commit_bytes": 3747840
+      },
+      "utc": "2026-10-22T21:15:50.3938476+00:00",
+      "pid": 26616,
+      "phase_elapsed_ms": 3058.7587,
+      "native_creation_utc": "2026-10-22T21:15:46.3437568Z",
+      "stage": "after_http"
+    }
+  ]
+}

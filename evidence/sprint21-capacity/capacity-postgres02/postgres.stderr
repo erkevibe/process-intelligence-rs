@@ -1,0 +1,17 @@
+2026-10-23 02:05:49.569 +05 [22076] LOG:  starting PostgreSQL 18.6 on x86_64-windows, compiled by msvc-19.44.35229, 64-bit
+2026-10-23 02:05:49.571 +05 [22076] LOG:  listening on IPv4 address "127.0.0.1", port 55449
+2026-10-23 02:05:49.699 +05 [35908] LOG:  database system was shut down at 2026-10-23 02:05:48 +05
+2026-10-23 02:05:49.715 +05 [22076] LOG:  database system is ready to accept connections
+2026-10-23 02:06:09.979 +05 [6212] ERROR:  s21 intentional payload publication failure
+2026-10-23 02:06:09.979 +05 [6212] CONTEXT:  PL/pgSQL function s21_reject_conversion_payload() line 1 at RAISE
+2026-10-23 02:06:09.979 +05 [6212] STATEMENT:  INSERT INTO public.pi_records(project_id,kind,resource_id,version,document) VALUES($1,$2,$3,1,$4) ON CONFLICT(project_id,kind,resource_id) DO UPDATE SET version=pi_records.version+1,document=EXCLUDED.document
+2026-10-23 02:06:13.087 +05 [17544] ERROR:  intentional capacity admission rollback
+2026-10-23 02:06:13.087 +05 [17544] CONTEXT:  PL/pgSQL function s21_capacity_reject_accept() line 1 at RAISE
+2026-10-23 02:06:13.087 +05 [17544] STATEMENT:  INSERT INTO public.pi_records(project_id,kind,resource_id,version,document) VALUES($1,$2,$3,1,$4) ON CONFLICT(project_id,kind,resource_id) DO UPDATE SET version=pi_records.version+1,document=EXCLUDED.document
+2026-10-23 02:06:13.479 +05 [22076] LOG:  received fast shutdown request
+2026-10-23 02:06:13.482 +05 [22076] LOG:  aborting any active transactions
+2026-10-23 02:06:13.490 +05 [22076] LOG:  background worker "logical replication launcher" (PID 34460) exited with exit code 1
+2026-10-23 02:06:13.698 +05 [33664] LOG:  shutting down
+2026-10-23 02:06:13.701 +05 [33664] LOG:  checkpoint starting: shutdown immediate
+2026-10-23 02:06:15.367 +05 [33664] LOG:  checkpoint complete: wrote 1533 buffers (37.4%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 2 recycled; write=0.070 s, sync=1.577 s, total=1.670 s; sync files=1913, longest=0.005 s, average=0.001 s; distance=29035 kB, estimate=29035 kB; lsn=0/344E0F0, redo lsn=0/344E0F0
+2026-10-23 02:06:15.422 +05 [22076] LOG:  database system is shut down

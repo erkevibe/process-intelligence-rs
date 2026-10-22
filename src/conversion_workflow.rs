@@ -7,7 +7,7 @@ use crate::{
 };
 use axum::{
     Json, Router,
-    extract::{Multipart, Path},
+    extract::{FromRequest, Multipart, Path, Request},
     http::{StatusCode, header},
     response::{IntoResponse, Redirect, Response, Sse, sse::Event},
     routing::{get, post},
@@ -16,14 +16,22 @@ use serde::{Deserialize, Serialize};
 use std::{
     collections::{BTreeMap, BTreeSet},
     convert::Infallible,
-    sync::Arc,
+    sync::{
+        Arc,
+        atomic::{AtomicBool, Ordering},
+    },
 };
 
 const MAX_RETAINED: usize = 8;
+#[cfg(test)]
+static HEAVY_FETCHES: std::sync::atomic::AtomicUsize = std::sync::atomic::AtomicUsize::new(0);
 const MAX_REPORT: usize = 4 * 1024 * 1024;
 #[cfg(test)]
 #[path = "conversion_adversarial_tests.rs"]
 mod adversarial_tests;
+#[cfg(test)]
+#[path = "conversion_capacity_tests.rs"]
+mod capacity_tests;
 #[cfg(test)]
 #[path = "conversion_workflow_tests.rs"]
 mod regression_tests;
@@ -205,6 +213,8 @@ pub(crate) fn load_artifact(
     project: &str,
     m: &ConversionMeta,
 ) -> Result<Arc<ConversionArtifact>, ImportError> {
+    #[cfg(test)]
+    HEAVY_FETCHES.fetch_add(1, Ordering::SeqCst);
     let records = db.resource_records(project, &m.artifact_id, &["conversion"])?;
     if records.len() != 1 || records[0].0 != "conversion" || records[0].1 == 0 {
         return Err(corrupt());
@@ -243,6 +253,7 @@ fn response_error(e: ImportError) -> Response {
         "access_denied" => StatusCode::FORBIDDEN,
         "not_found" => StatusCode::NOT_FOUND,
         "job_queue_full" => StatusCode::TOO_MANY_REQUESTS,
+        "job_reservation_pool" | "job_admission_failed" => StatusCode::INTERNAL_SERVER_ERROR,
         "project_capacity" | "byte_limit" => StatusCode::PAYLOAD_TOO_LARGE,
         "storage_unavailable" | "storage_busy" => StatusCode::SERVICE_UNAVAILABLE,
         _ => StatusCode::UNPROCESSABLE_ENTITY,
@@ -309,6 +320,63 @@ fn persist(
     *repo = next;
     Ok(())
 }
+struct Submission {
+    from: String,
+    to: String,
+    input: Arc<str>,
+    filename: String,
+    allow_loss: bool,
+    retry_of: Option<String>,
+}
+
+fn reserve_conversion(state: &AppState) -> Result<crate::jobs::JobReservation, ImportError> {
+    write_access(state)?;
+    if state
+        .repository
+        .lock()
+        .expect("repository mutex")
+        .conversions
+        .len()
+        >= MAX_RETAINED
+    {
+        return Err(error(
+            "conversion_capacity",
+            "Сохранено восемь преобразований. Удалите ненужное завершённое преобразование перед новым запуском.",
+        ));
+    }
+    state.conversion_jobs.reserve().map_err(|_| error("job_queue_full", "Уже приняты две операции. Новая задача не создана. Дождитесь свободного места и повторите отправку."))
+}
+
+struct RequestLifetime(Arc<AtomicBool>);
+impl Drop for RequestLifetime {
+    fn drop(&mut self) {
+        self.0.store(false, Ordering::Release);
+    }
+}
+
+fn accept_and_launch(
+    state: AppState,
+    reservation: crate::jobs::JobReservation,
+    submission: Submission,
+    live: Arc<AtomicBool>,
+    runtime: tokio::runtime::Handle,
+) -> Result<(), ImportError> {
+    if !live.load(Ordering::Acquire) {
+        return Err(error(
+            "request_cancelled",
+            "Загрузка прервана до принятия задачи.",
+        ));
+    }
+    // From this boundary the complete validated request is owned by acceptance.
+    // Dropping the HTTP waiter cannot drop a committed job before launch.
+    let input = submission.input.clone();
+    let (lease, meta) = accept_reserved(&state, reservation, submission)?;
+    let _entered = runtime.enter();
+    launch(state, lease, meta, input);
+    Ok(())
+}
+
+#[cfg(test)]
 fn accept(
     state: &AppState,
     from: String,
@@ -318,6 +386,34 @@ fn accept(
     allow_loss: bool,
     retry_of: Option<String>,
 ) -> Result<(crate::jobs::JobLease, ConversionMeta), ImportError> {
+    let reservation = reserve_conversion(state)?;
+    accept_reserved(
+        state,
+        reservation,
+        Submission {
+            from,
+            to,
+            input,
+            filename,
+            allow_loss,
+            retry_of,
+        },
+    )
+}
+
+fn accept_reserved(
+    state: &AppState,
+    reservation: crate::jobs::JobReservation,
+    submission: Submission,
+) -> Result<(crate::jobs::JobLease, ConversionMeta), ImportError> {
+    let Submission {
+        from,
+        to,
+        input,
+        filename,
+        allow_loss,
+        retry_of,
+    } = submission;
     write_access(state)?;
     if !direction(&from, &to) {
         return Err(error(
@@ -343,16 +439,22 @@ fn accept(
             "Сохранено восемь преобразований. Удалите ненужное завершённое преобразование перед новым запуском.",
         ));
     }
-    let id = format!("job-{}", state.next_id(repo.sequence + 1)?);
-    let artifact_id = format!("conversion-{}", state.next_id(repo.sequence + 2)?);
+    let artifact_sequence = repo.sequence.checked_add(2).ok_or_else(|| {
+        error(
+            "sequence_exhausted",
+            "Исчерпан диапазон идентификаторов. Задача не создана.",
+        )
+    })?;
+    let id = format!("job-{}", state.next_id(artifact_sequence - 1)?);
+    let artifact_id = format!("conversion-{}", state.next_id(artifact_sequence)?);
     let lease = state
         .conversion_jobs
-        .create_with_id(Some(id.clone()))
-        .map_err(|_| {
-            error(
-                "job_queue_full",
-                "Уже приняты две задачи. Дождитесь освобождения обработчика.",
-            )
+        .create_reserved(reservation, Some(id.clone()))
+        .map_err(|code| match code {
+            "job_sequence_exhausted" => error("sequence_exhausted", "Исчерпан диапазон идентификаторов. Задача не создана; обратитесь к администратору."),
+            "job_queue_full" => error("job_queue_full", "Уже приняты две задачи. Дождитесь освобождения обработчика."),
+            "job_reservation_pool" => error("job_reservation_pool", "Ошибка принадлежности резерва обработчика. Задача не создана."),
+            _ => error("job_admission_failed", "Не удалось передать резерв обработчику. Задача не создана."),
         })?;
     let meta = ConversionMeta {
         snapshot: lease.job.snapshot(),
@@ -370,7 +472,7 @@ fn accept(
         report_sha256: None,
     };
     let mut next = repo.clone();
-    next.sequence += 2;
+    next.sequence = artifact_sequence;
     next.conversions.insert(id, meta.clone());
     next.conversion_artifacts.insert(
         artifact_id.clone(),
@@ -487,15 +589,49 @@ fn launch(
         }
     });
 }
-async fn upload(Workspace(state): Workspace, mut multipart: Multipart) -> Response {
+fn multipart_failure(cause: axum::extract::multipart::MultipartError) -> Response {
+    if cause.status() == StatusCode::PAYLOAD_TOO_LARGE {
+        response_error(error(
+            "byte_limit",
+            "Загрузка вместе с полями формы превышает допустимый размер.",
+        ))
+    } else {
+        response_error(error(
+            "multipart",
+            "Загрузка прервана или имеет неверный формат.",
+        ))
+    }
+}
+async fn upload(Workspace(state): Workspace, request: Request) -> Response {
     if let Err(e) = write_access(&state) {
         return response_error(e);
     }
+    let form_limit = crate::event_io::Limits::default().max_bytes + 64 * 1024;
+    if request
+        .headers()
+        .get(header::CONTENT_LENGTH)
+        .and_then(|v| v.to_str().ok())
+        .and_then(|v| v.parse::<u64>().ok())
+        .is_some_and(|n| n > form_limit as u64)
+    {
+        return response_error(error(
+            "byte_limit",
+            "Загрузка вместе с полями формы превышает допустимый размер.",
+        ));
+    }
+    let reservation = match reserve_conversion(&state) {
+        Ok(p) => p,
+        Err(e) => return response_error(e),
+    };
     let _upload = match state.uploads.clone().try_acquire_owned() {
         Ok(p) => p,
         Err(_) => {
             return response_error(error("job_queue_full", "Другие загрузки ещё выполняются."));
         }
+    };
+    let mut multipart = match Multipart::from_request(request, &()).await {
+        Ok(m) => m,
+        Err(_) => return response_error(error("multipart", "Нужна загрузка multipart/form-data.")),
     };
     let mut from = None;
     let mut to = None;
@@ -507,7 +643,7 @@ async fn upload(Workspace(state): Workspace, mut multipart: Multipart) -> Respon
         let field = match multipart.next_field().await {
             Ok(Some(f)) => f,
             Ok(None) => break,
-            Err(_) => return response_error(error("multipart", "Не удалось прочитать загрузку.")),
+            Err(cause) => return multipart_failure(cause),
         };
         let name = field.name().unwrap_or("").to_string();
         if !seen.insert(name.clone())
@@ -525,7 +661,8 @@ async fn upload(Workspace(state): Workspace, mut multipart: Multipart) -> Respon
                 .collect();
             let bytes = match field.bytes().await {
                 Ok(b) if b.len() <= crate::conversion::MAX_BYTES => b,
-                _ => return response_error(error("byte_limit", "Файл превышает 20 MiB.")),
+                Ok(_) => return response_error(error("byte_limit", "Файл превышает 20 MiB.")),
+                Err(cause) => return multipart_failure(cause),
             };
             file = match std::str::from_utf8(&bytes) {
                 Ok(s) => Some(Arc::<str>::from(s)),
@@ -536,7 +673,8 @@ async fn upload(Workspace(state): Workspace, mut multipart: Multipart) -> Respon
         } else {
             let value = match field.text().await {
                 Ok(v) if v.len() <= 32 => v,
-                _ => return response_error(error("multipart", "Неверное поле формы.")),
+                Ok(_) => return response_error(error("multipart", "Неверное поле формы.")),
+                Err(cause) => return multipart_failure(cause),
             };
             match name.as_str() {
                 "from" => from = Some(value),
@@ -549,13 +687,28 @@ async fn upload(Workspace(state): Workspace, mut multipart: Multipart) -> Respon
     let (Some(from), Some(to), Some(input)) = (from, to, file) else {
         return response_error(error("multipart", "Выберите направление и файл."));
     };
-    let saved = state.clone();
-    let copy = input.clone();
-    match blocking(move || accept(&saved, from, to, copy, filename, allow, None)).await {
-        Ok((lease, meta)) => {
-            launch(state, lease, meta, input);
-            Redirect::to("/conversions").into_response()
-        }
+    let live = Arc::new(AtomicBool::new(true));
+    let _request_lifetime = RequestLifetime(live.clone());
+    let runtime = tokio::runtime::Handle::current();
+    match blocking(move || {
+        accept_and_launch(
+            state,
+            reservation,
+            Submission {
+                from,
+                to,
+                input,
+                filename,
+                allow_loss: allow,
+                retry_of: None,
+            },
+            live,
+            runtime,
+        )
+    })
+    .await
+    {
+        Ok(()) => Redirect::to("/conversions").into_response(),
         Err(e) => response_error(e),
     }
 }
@@ -619,8 +772,9 @@ async fn index(Workspace(state): Workspace) -> Response {
         state.validate_resource_actor()?;
         let repo=state.repository.lock().expect("repository mutex");
         let editable=state.actor.as_ref().is_some_and(|a|a.role.can_write());
-        let mut body=String::from("<h1>Преобразования файлов</h1><p>До 20 MiB на исходник и результат. В проекте сохраняется до восьми преобразований. Старые результаты автоматически не удаляются. Отмена запрещает публикацию; обработчик может завершить текущий шаг позже. После сбоя повторите операцию из сохранённого исходника.</p>");
-        if editable{body.push_str("<form method=\"post\" action=\"/conversions\" data-conversion-submit enctype=\"multipart/form-data\"><label>Из <select name=\"from\" aria-label=\"Из\"><option>xes</option><option>csv</option><option>petri-json</option><option>pnml</option></select></label><label>В <select name=\"to\" aria-label=\"В\"><option>csv</option><option>xes</option><option>pnml</option><option>petri-json</option></select></label><label>Исходный файл <input required type=\"file\" name=\"file\"></label><label><input type=\"checkbox\" name=\"allow_loss\"> Разрешить перечисленные в отчёте потери атрибутов XES/CSV</label><p>Поддерживаются только XES ↔ CSV и Petri JSON ↔ PNML. Потери без явного согласия отклоняются. Каждая отправка — новая задача.</p><button>Запустить преобразование</button></form>");}
+        let mut body=String::from("<h1>Преобразования файлов</h1><p>Исходник и результат — до 20 MiB каждый; отчёт — до 4 MiB. В проекте сохраняется до восьми преобразований. Старые результаты автоматически не удаляются. Отмена запрещает публикацию; обработчик может завершить текущий шаг позже. После сбоя повторите операцию из сохранённого исходника. Если ответ на отправку потерян, сначала проверьте список: задача могла быть принята.</p>");
+        if editable{body.push_str("<form class=\"platform-form platform-card\" method=\"post\" action=\"/conversions\" data-conversion-submit enctype=\"multipart/form-data\"><label>Из <select name=\"from\" aria-label=\"Из\"><option>xes</option><option>csv</option><option>petri-json</option><option>pnml</option></select></label><label>В <select name=\"to\" aria-label=\"В\"><option>csv</option><option>xes</option><option>pnml</option><option>petri-json</option></select></label><label>Исходный файл <input required type=\"file\" name=\"file\"></label><label class=\"inline-check\"><input type=\"checkbox\" name=\"allow_loss\"> Разрешить перечисленные в отчёте потери атрибутов XES/CSV</label><p>Поддерживаются только XES ↔ CSV и Petri JSON ↔ PNML. Потери без явного согласия отклоняются. Каждая отправка — новая задача.</p><button class=\"button\">Запустить преобразование</button></form>");}
+        if editable && repo.conversions.len() >= MAX_RETAINED { body.push_str("<p class=\"platform-alert\">Сохранены все восемь попыток. Для нового запуска удалите ненужное завершённое преобразование. Сначала скачайте файлы, которые хотите сохранить.</p>"); }
         body.push_str(&format!("<p>Сохранено: {} / 8</p>",repo.conversions.len()));
         let mut ordered=repo.conversions.values().collect::<Vec<_>>();
         ordered.sort_by(|left,right| right.created_at.cmp(&left.created_at).then_with(|| {
@@ -671,9 +825,12 @@ async fn cancel(Workspace(state): Workspace, Path(id): Path<String>) -> Response
 }
 async fn retry(Workspace(state): Workspace, Path(id): Path<String>) -> Response {
     let saved = state.clone();
+    let live = Arc::new(AtomicBool::new(true));
+    let _request_lifetime = RequestLifetime(live.clone());
+    let runtime = tokio::runtime::Handle::current();
     match blocking(move || {
         write_access(&saved)?;
-        let (m, a) = {
+        let m = {
             let repo = saved.repository.lock().expect("repository mutex");
             let m = repo
                 .conversions
@@ -686,26 +843,31 @@ async fn retry(Workspace(state): Workspace, Path(id): Path<String>) -> Response 
                     "Дождитесь завершения или отмены задачи.",
                 ));
             }
-            let a = artifact(&saved, &repo, &m)?;
-            (m, a)
+            m
         };
-        let (lease, meta) = accept(
-            &saved,
-            m.from,
-            m.to,
-            a.input.clone(),
-            m.filename,
-            m.allow_loss,
-            Some(id),
-        )?;
-        Ok((lease, meta, a.input.clone()))
+        let reservation = reserve_conversion(&saved)?;
+        let input = {
+            let repo = saved.repository.lock().expect("repository mutex");
+            artifact(&saved, &repo, &m)?.input.clone()
+        };
+        accept_and_launch(
+            saved,
+            reservation,
+            Submission {
+                from: m.from,
+                to: m.to,
+                input,
+                filename: m.filename,
+                allow_loss: m.allow_loss,
+                retry_of: Some(id),
+            },
+            live,
+            runtime,
+        )
     })
     .await
     {
-        Ok((lease, meta, input)) => {
-            launch(state, lease, meta, input);
-            Redirect::to("/conversions").into_response()
-        }
+        Ok(()) => Redirect::to("/conversions").into_response(),
         Err(e) => response_error(e),
     }
 }

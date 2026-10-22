@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "role": "Independent TD architecture and technical debt",
+  "agent_name": "td_s20_delivery",
+  "utc": "2026-10-22T21:53:21.6265836+00:00",
+  "position": "FINITE_TECHNICAL_SCOPE_ACCEPTABLE_PENDING_FROZEN_COUNCIL_AND_DELIVERY",
+  "source_review_receipt_sha256": "8C75BF6F6C876C28D64B9B1AD842B6F989E86D5BB7FD5028FCEE5730E13A42E3",
+  "stock_sha256": "4121BD68F1C0C05A61B039FADF20FEC5C2DA4379D8AAAFB170DC3B43861D1525",
+  "sources": [
+    {
+      "path": "src/jobs.rs",
+      "sha256": "CB620CF25DD4864D891945D97BE9651C76E2C4BDBF75896F37F0C4041E9FC553"
+    },
+    {
+      "path": "src/conversion_workflow.rs",
+      "sha256": "7F682702C696E1D3A530EAE828266F75E456F5AAE49BC1AB059E0F9491331C1D"
+    }
+  ],
+  "qa_receipts": {
+    "postgres": "883CC343CDCD678509A9222B184AD910D3163A0A706EC4B8ECCAA81D5AC5DC85",
+    "crash_and_type_contracts": "BA9299F0F3B15F9522F1C1857F283638C8C096C776D100C0A337FFEFE6B85336",
+    "browser": "78AF4A392A7C97D6471C3AA6537FD9309F650A09E561A0E10D96E3F6BB2C6247",
+    "multi_attempt_measurement": "7677A57D5FC9041212BB946DCC972A3B446B2B2348E411FAC763D4C47DC6012B"
+  },
+  "technical_assessment": [
+    "No material blocker found in scoped integrated review. Noncloneable origin-checked reservation transfers the same shared permit once to worker lease; rejected requests release it by RAII.",
+    "Authorization, lightweight retention and declared-size preflight precede multipart body reads. Retry reserves before retained-input fetch; acceptance rechecks authorization and retention.",
+    "Detached acceptance owns both durable commit and launch. HTTP response loss during commit cannot drop an accepted job before launch; restart interruption remains explicit.",
+    "Identifier exhaustion produces controlled distinct errors, while only genuine capacity exhaustion returns retryable busy. Conversion codec and PostgreSQL schema V3 remain unchanged in 0.8.1."
+  ],
+  "finite_limits": {
+    "retained_attempts_per_project": 8,
+    "report_MiB": 4,
+    "input_and_result_MiB_each": 20,
+    "shared_admitted_operations": 2,
+    "CPU_workers": 1
+  },
+  "debt_and_limits": [
+    "These document and admission limits are not a hard RAM ceiling or global storage quota.",
+    "Form submission is not exactly-once. Acceptance may complete after response loss; inspect saved attempts before explicit retry.",
+    "Unknown-length body may consume one supplied frame beyond the limit; actual instrumented excess was80bytes. TCP bytes sent do not establish server bytes consumed.",
+    "The fixed18MiB/two-event case measures byte volume, not worst-case event/report expansion. Ordered sampled process observations do not establish production RAM bounds, throughput SLO or speedup.",
+    "Storage or authorization failures can leave the last durable Running state until owner action or restart. Cooperative cancellation can wait for a third-party call to exit."
+  ],
+  "preserved_history": [
+    "Original measurement whole trial remains FAILED; later TCP/restart success uses separate process lifetimes, not a rewritten whole successful trial. Original TCP errno remains UNKNOWN.",
+    "Primary compile04 child exit/EOF, capacity compile11 clippy capture and capacity browser01 PostgreSQL exit/EOF remain UNKNOWN. Outer EOF does not prove child EOF."
+  ],
+  "remaining": [
+    "Exact frozen-candidate Council vote.",
+    "Both exact-commit CI runs, independent whole anonymous archive verification and downloaded-source audits by Root and QA, plus actual owned-process and resource closure."
+  ],
+  "council_vote": false,
+  "enterprise_or_release_tag_claim": false
+}

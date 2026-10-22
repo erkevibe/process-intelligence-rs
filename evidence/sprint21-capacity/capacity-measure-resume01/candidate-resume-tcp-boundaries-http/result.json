@@ -1,0 +1,176 @@
+{
+  "control_job": "job-7",
+  "control_payload_sha256": "F14031CC8FCDF5119AFFAF1C2490D54B779A0929754DEE6DDF8D6280971E2905",
+  "control_source_sha256": "6BE15ABCC35C4BDF755F27307C93B0B5E4E5F90C7D715FCC4B57DC07A503516F",
+  "control_states": [
+    "completed"
+  ],
+  "events": [
+    {
+      "actual_status": 200,
+      "finished_seconds": 0.05901430000085384,
+      "label": "before-probes",
+      "method": "GET",
+      "response_bytes": 6029,
+      "response_headers": {
+        "content-type": "text/html; charset=utf-8",
+        "x-content-type-options": "nosniff"
+      },
+      "response_sha256": "8C53D2FF06445DD1467182E4765DC4B83A675BC8283837B82AA231F7A1A99576",
+      "route": "/conversions",
+      "started_seconds": 0.02830299999914132
+    },
+    {
+      "actual_status": 413,
+      "declared_content_length": 21037057,
+      "file_bytes_sent": 0,
+      "finished_seconds": 0.08642759999929694,
+      "headers_only": true,
+      "label": "declared-overcap",
+      "method": "POST",
+      "response_bytes": 144,
+      "response_headers": {
+        "content-type": "application/json",
+        "x-content-type-options": "nosniff"
+      },
+      "response_sha256": "2E3C4E75588A527E2C6C98D7886E0C72C6351AFB71C391461FA3BE97D383DFD3",
+      "route": "/conversions",
+      "started_seconds": 0.06263589999798569
+    },
+    {
+      "actual_status": 200,
+      "finished_seconds": 0.09367539999948349,
+      "label": "after-declared-overcap",
+      "method": "GET",
+      "response_bytes": 6029,
+      "response_headers": {
+        "content-type": "text/html; charset=utf-8",
+        "x-content-type-options": "nosniff"
+      },
+      "response_sha256": "4DBC1EE5A4BE23D4D4C92E88DDB6663919DC5469364E2487CC3AC026EFAAEC34",
+      "route": "/conversions",
+      "started_seconds": 0.08978600000045844
+    },
+    {
+      "actual_status": 303,
+      "content_length_present": false,
+      "file_bytes_sent": 430,
+      "file_chunks_sent": 1,
+      "finished_seconds": 0.13365669999984675,
+      "label": "chunked-control",
+      "method": "POST",
+      "multipart_suffix_sent": true,
+      "response_bytes": 0,
+      "response_headers": {
+        "x-content-type-options": "nosniff"
+      },
+      "response_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "route": "/conversions",
+      "started_seconds": 0.09622830000080285,
+      "terminal_chunk_sent": true,
+      "transfer_encoding": "chunked"
+    },
+    {
+      "actual_status": 200,
+      "finished_seconds": 0.16025679999802378,
+      "label": "after-chunked-control",
+      "method": "GET",
+      "response_bytes": 6731,
+      "response_headers": {
+        "content-type": "text/html; charset=utf-8",
+        "x-content-type-options": "nosniff"
+      },
+      "response_sha256": "0FF281A91B0DB69F6C582A9256302012DD0DBCD0D91FFAA26DE6D53411FBC8B0",
+      "route": "/conversions",
+      "started_seconds": 0.1360863000008976
+    },
+    {
+      "actual_status": 200,
+      "finished_seconds": 0.18390639999779523,
+      "label": "control-snapshot-0",
+      "method": "GET",
+      "response_bytes": 636,
+      "response_headers": {
+        "content-type": "application/json",
+        "x-content-type-options": "nosniff"
+      },
+      "response_sha256": "8FAA6DDED2CB66F47B63A66A4C1BFB9CC0DB7CFC3505DB3B2EEC156FF58362C5",
+      "route": "/conversions/jobs/job-7",
+      "started_seconds": 0.16417169999840553
+    },
+    {
+      "actual_status": 200,
+      "finished_seconds": 0.21757529999740655,
+      "label": "control-payload",
+      "method": "GET",
+      "response_bytes": 125,
+      "response_headers": {
+        "content-disposition": "attachment; filename=\"payload.csv\"",
+        "content-type": "application/octet-stream",
+        "x-content-type-options": "nosniff"
+      },
+      "response_sha256": "F14031CC8FCDF5119AFFAF1C2490D54B779A0929754DEE6DDF8D6280971E2905",
+      "route": "/conversions/jobs/job-7/payload",
+      "started_seconds": 0.18790420000004815
+    },
+    {
+      "actual_status": 200,
+      "finished_seconds": 0.22892069999943487,
+      "label": "control-report",
+      "method": "GET",
+      "response_bytes": 4075,
+      "response_headers": {
+        "content-disposition": "attachment; filename=\"conversion-report.json\"",
+        "content-type": "application/octet-stream",
+        "x-content-type-options": "nosniff"
+      },
+      "response_sha256": "E544722F17E13847864B6B8843AC015A1272B4AF5C6B475ADDFB024C20CE7104",
+      "route": "/conversions/jobs/job-7/report",
+      "started_seconds": 0.22180899999875692
+    },
+    {
+      "actual_status": 413,
+      "content_length_present": false,
+      "file_bytes_sent": 21102592,
+      "file_chunks_sent": 322,
+      "finished_seconds": 0.45665849999932107,
+      "label": "chunked-overcap",
+      "method": "POST",
+      "multipart_suffix_sent": true,
+      "response_bytes": 144,
+      "response_headers": {
+        "content-type": "application/json",
+        "x-content-type-options": "nosniff"
+      },
+      "response_sha256": "2E3C4E75588A527E2C6C98D7886E0C72C6351AFB71C391461FA3BE97D383DFD3",
+      "route": "/conversions",
+      "started_seconds": 0.23652609999771812,
+      "terminal_chunk_sent": true,
+      "transfer_encoding": "chunked"
+    },
+    {
+      "actual_status": 200,
+      "finished_seconds": 0.4703860999979952,
+      "label": "after-chunked-overcap",
+      "method": "GET",
+      "response_bytes": 6731,
+      "response_headers": {
+        "content-type": "text/html; charset=utf-8",
+        "x-content-type-options": "nosniff"
+      },
+      "response_sha256": "C9B1CD21BED88BA17A04DC99515D786F0CEB5A53A6AEC37B885D13EC09F5E5CD",
+      "route": "/conversions",
+      "started_seconds": 0.4630503999978828
+    }
+  ],
+  "input_manifest_sha256": "514F66245638176F87A635AEC2771610C0708A42E68349878C91A3B545E8C340",
+  "multipart_body_cap": 21037056,
+  "observation_gets": 7,
+  "post_probes": 3,
+  "request_timeout_seconds": 10,
+  "response_cap": 1048576,
+  "scope": "actual TCP framing and semantic control only; no memory/throughput/browser/recovery claim",
+  "status": "PASSED",
+  "total_wall_seconds": 0.4777049000003899,
+  "unknown_length_producer_file_cap": 21102592
+}

@@ -1,0 +1,153 @@
+{
+  "status": "ACTUAL_GUARD_CONTROLS_AND_FULL_SCAN_COMPLETED",
+  "synthetic_nonreparse_fixtures_retained": true,
+  "config_sha256": "C8503AA857DFAAABCF284B1804A2573172BBEA49F189C8685A0AD8D60F76B0E4",
+  "locks_released_and_reparse_links_removed": true,
+  "cases": [
+    {
+      "native_hresult": -2147023582,
+      "no_reparse_pass_claim": true,
+      "status": "SKIP",
+      "reason": "OS denied or lacks symbolic-link capability",
+      "name": "actual-reparse-parent",
+      "exception_type": "System.IO.IOException"
+    },
+    {
+      "path_relative_to_fixture": "synthetic-root\\root\\pgdata11\\base\\8\\pg_internal.init",
+      "status": "PASS",
+      "original_exception_origin": "actual exclusive-handle/OpenRead sharing failure within post-sample window",
+      "actual": false,
+      "original_exception_type": "System.IO.IOException",
+      "name": "actual-sharing-error-existing-file",
+      "expected": false
+    },
+    {
+      "path_relative_to_fixture": "synthetic-root\\root\\pgdata11\\base\\8\\pg_internal.init",
+      "status": "PASS",
+      "original_exception_origin": "actual earlier absence replay; file now exists and is locked",
+      "actual": false,
+      "original_exception_type": "System.IO.FileNotFoundException",
+      "name": "locked-existing-file-original-missing",
+      "expected": false
+    },
+    {
+      "path_relative_to_fixture": "synthetic-root\\root\\pgdata11\\base\\5\\pg_internal.init",
+      "status": "PASS",
+      "original_exception_origin": "actual GetAttributes absence",
+      "actual": true,
+      "original_exception_type": "System.IO.FileNotFoundException",
+      "name": "actual-missing-exact-oid-file",
+      "expected": true
+    },
+    {
+      "path_relative_to_fixture": "synthetic-root\\root\\pgdata11\\base\\5\\pg_internal.init",
+      "status": "PASS",
+      "original_exception_origin": "controlled exception constructor; fresh absence is actually probed",
+      "actual": true,
+      "original_exception_type": "System.IO.DirectoryNotFoundException",
+      "name": "actual-directory-missing-error-type-valid-file",
+      "expected": true
+    },
+    {
+      "path_relative_to_fixture": "synthetic-root\\root\\pgdata11\\base\\5\\pg_internal.init",
+      "status": "PASS",
+      "original_exception_origin": "actual earlier GetAttributes absence replay; file now exists",
+      "actual": false,
+      "original_exception_type": "System.IO.FileNotFoundException",
+      "name": "file-now-exists-after-original-missing",
+      "expected": false
+    },
+    {
+      "path_relative_to_fixture": "synthetic-root\\root\\pgdata11\\base\\6\\pg_internal.init",
+      "status": "PASS",
+      "original_exception_origin": "controlled exception constructor; no OS access-denial claim",
+      "actual": false,
+      "original_exception_type": "System.UnauthorizedAccessException",
+      "name": "unauthorized-original-error-even-absent",
+      "expected": false
+    },
+    {
+      "path_relative_to_fixture": "synthetic-root\\root\\pgdata11\\base\\6\\pg_internal.init",
+      "status": "PASS",
+      "original_exception_origin": "controlled exception constructor; no OS sharing-error claim",
+      "actual": false,
+      "original_exception_type": "System.IO.IOException",
+      "name": "generic-io-original-error-even-absent",
+      "expected": false
+    },
+    {
+      "path_relative_to_fixture": "synthetic-root\\root\\pgdata12\\base\\5\\pg_internal.init",
+      "status": "PASS",
+      "original_exception_origin": "actual GetAttributes absence at disallowed path",
+      "actual": false,
+      "original_exception_type": "System.IO.FileNotFoundException",
+      "name": "wrong-cluster",
+      "expected": false
+    },
+    {
+      "path_relative_to_fixture": "synthetic-root\\root\\pgdata11\\base\\5\\pg_internal.init.tmp",
+      "status": "PASS",
+      "original_exception_origin": "actual GetAttributes absence at disallowed path",
+      "actual": false,
+      "original_exception_type": "System.IO.FileNotFoundException",
+      "name": "wrong-basename",
+      "expected": false
+    },
+    {
+      "path_relative_to_fixture": "synthetic-root\\root\\pgdata11\\base\\0\\pg_internal.init",
+      "status": "PASS",
+      "original_exception_origin": "actual GetAttributes absence at disallowed path",
+      "actual": false,
+      "original_exception_type": "System.IO.FileNotFoundException",
+      "name": "zero-oid",
+      "expected": false
+    },
+    {
+      "path_relative_to_fixture": "synthetic-root\\root\\pgdata11\\base\\05\\pg_internal.init",
+      "status": "PASS",
+      "original_exception_origin": "actual GetAttributes absence at disallowed path",
+      "actual": false,
+      "original_exception_type": "System.IO.FileNotFoundException",
+      "name": "leading-zero-oid",
+      "expected": false
+    },
+    {
+      "path_relative_to_fixture": "synthetic-root\\root\\pgdata11\\base\\4294967296\\pg_internal.init",
+      "status": "PASS",
+      "original_exception_origin": "actual GetAttributes absence at disallowed path",
+      "actual": false,
+      "original_exception_type": "System.IO.FileNotFoundException",
+      "name": "overflow-oid",
+      "expected": false
+    },
+    {
+      "path_relative_to_fixture": "synthetic-root\\root\\pgdata11\\base\\5\\nested\\pg_internal.init",
+      "status": "PASS",
+      "original_exception_origin": "actual GetAttributes absence at disallowed path",
+      "actual": false,
+      "original_exception_type": "System.IO.FileNotFoundException",
+      "name": "extra-nesting",
+      "expected": false
+    },
+    {
+      "path_relative_to_fixture": "outside-root\\root\\pgdata11\\base\\5\\pg_internal.init",
+      "status": "PASS",
+      "original_exception_origin": "actual GetAttributes absence outside trusted synthetic root",
+      "actual": false,
+      "original_exception_type": "System.IO.FileNotFoundException",
+      "name": "outside-synthetic-root",
+      "expected": false
+    },
+    {
+      "path_relative_to_fixture": "synthetic-root\\root\\pgdata11\\base\\7\\pg_internal.init",
+      "status": "PASS",
+      "original_exception_origin": "actual missing parent; parent-presence guard must refuse",
+      "actual": false,
+      "original_exception_type": "System.IO.DirectoryNotFoundException",
+      "name": "missing-parent-directory",
+      "expected": false
+    }
+  ],
+  "real_pgdata_modified": false,
+  "timeout_entry_caps_byte_budgets_unchanged": true
+}

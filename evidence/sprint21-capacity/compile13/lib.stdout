@@ -1,0 +1,63 @@
+
+running 58 tests
+test audit::tests::client_backup_history_cannot_keep_committed_trust_or_promote_on_reimport ... ok
+test audit::tests::legacy_events_remain_unknown_and_business_policy_tampering_refuses ... ok
+test audit::tests::other_project_cannot_evict_auth_history_and_foreign_entries_refuse ... ok
+test audit::tests::retention_is_explicit_monotonic_and_invalid_append_is_atomic ... ok
+test auth::project_list_operations::tests::persisted_placement_requires_project_owner_and_keeps_legacy_auth_compatible ... ok
+test auth::sprint08_contracts::actual_archive_publication_gate_serializes_and_refuses_late_worker ... ignored, requires fresh isolated S8_QA_AUTH_DATABASE_URL; controlled actual database archive/publication ordering
+test auth::sprint08_contracts::deletion_witness_validation_rejects_resurrection_and_unknown_owner ... ok
+test auth::sprint08_contracts::old_project_json_is_unchanged_and_current_session_checks_fail_closed ... ok
+test auth::sprint12_tests::actual_publication_then_archive_delete_and_no_resurrection ... ignored, requires a fresh isolated S12_DELETE_DATABASE_URL
+test auth::sprint12_tests::actual_switch_and_revocation_serialize_with_publication ... ignored, requires a fresh isolated S12_AUTH_DATABASE_URL
+test cleanup::tests::post_oracle_removes_only_exact_candidate_kv_and_preserves_every_other_field ... ok
+test cleanup::tests::receipt_snapshot_digest_public_calibration ... ok
+test cleanup::tests::streaming_eligibility_equals_existing_serde_hash_domain ... ok
+test conversion_workflow::adversarial_tests::postgres_failure_rolls_back_pair_and_failed_worker_reopens_recovered ... ignored, fresh owned pi_s21_fault DB; S21_FAULT_DATABASE_URL and empty S21_FAULT_EVIDENCE
+test conversion_workflow::adversarial_tests::revoked_archived_publication_backup_semantics_and_exact_delete ... ignored, fresh owned pi_s21_adversarial DB; S21_ADVERSARIAL_DATABASE_URL and empty S21_ADVERSARIAL_EVIDENCE
+test conversion_workflow::capacity_tests::prebody_reservations_disconnect_handoff_and_retention_races ... ignored, fresh owned pi_s21_capacity DB and S21_CAPACITY_DATABASE_URL/S21_CAPACITY_EVIDENCE
+test conversion_workflow::regression_tests::durable_conversion_http_queue_artifacts_permissions_and_fences ... ignored, fresh owned pi_s21_workflow DB; S21_WORKFLOW_DATABASE_URL and empty S21_WORKFLOW_EVIDENCE
+test conversion_workflow::tests::artifact_metadata_and_backup_require_exact_key_set ... ok
+test conversion_workflow::tests::artifact_pair_cannot_be_forged_or_exposed_before_completion ... ok
+test conversion_workflow::tests::conversion_and_import_share_actual_capacity_until_worker_exit ... ok
+test conversion_workflow::tests::restart_retains_source_and_produces_explicit_retryable_interruption ... ok
+test conversion_workflow::tests::untrusted_recovery_revision_is_checked_before_mutation ... ok
+test migration_v3::tests::populated_v2_upgrade_is_explicit_atomic_and_idempotent ... ignored, requires fresh isolated S21_MIGRATION_DATABASE_URL database pi_s21_migration
+test normalized::tests::duplicate_batch_key_and_out_of_range_revision_refuse_before_sql ... ok
+test normalized::tests::empty_repository_roundtrips_without_losing_metadata ... ok
+test normalized::tests::orphan_payload_and_duplicate_identifiers_refuse ... ok
+test platform_render::c06_tests::duplicate_names_show_distinct_ids_utc_or_unknown_and_saved_state ... ok
+test platform_render::project_list_tests::archived_project_keeps_path_and_owner_move_while_viewer_has_no_mutations ... ok
+test platform_render::project_list_tests::destinations_exclude_foreign_archived_branches_and_moving_subtree ... ok
+test platform_render::projection_report_tests::preview_discloses_omissions_before_consent_and_escapes_keys_without_values ... ok
+test project_list::tests::archive_blocks_destinations_but_allows_project_escape_and_safe_delete ... ok
+test project_list::tests::depth_and_utf8_bounds_refuse_without_discarding_state ... ok
+test project_list::tests::folder_capacity_refusal_preserves_all_existing_folders ... ok
+test project_list::tests::no_op_and_overflow_do_not_advance_revision ... ok
+test project_list::tests::stale_foreign_cycles_and_duplicates_are_atomic ... ok
+test project_list::tests::storage_rejects_noncanonical_ids_missing_links_and_zero_revision_content ... ok
+test project_list::tests::strict_decode_and_external_links_are_validated ... ok
+test project_list::tests::visibility_includes_only_own_and_accessible_ancestors ... ok
+test projection_loss::tests::metadata_scan_can_be_cancelled_midway_without_changing_source ... ok
+test repository_v2::lazy_tests::c06_saved_date_survives_state_delta_without_heavy_rewrite ... ok
+test repository_v2::lazy_tests::comparison_tokens_do_not_keep_heavy_owners_alive ... ok
+test repository_v2::lazy_tests::immutable_provenance_envelope_changes_no_heavy_records_on_view_edit ... ok
+test repository_v2::lazy_tests::metadata_delta_preserves_unloaded_catalog_and_only_explicit_deletion_removes ... ok
+test repository_v2::lazy_tests::restored_provenance_uses_same_immutable_encoding_as_new_import ... ok
+test resource_cache::tests::entry_limit_evicts_without_aliasing_projects_or_versions ... ok
+test resource_cache::tests::flight_results_are_weak_and_capacity_charge_counts_reserved_strings ... ok
+test resource_cache::tests::invalidation_prevents_late_publication_and_flight_registry_prunes ... ok
+test resource_cache::tests::named_flow_charge_includes_allocated_label_capacity ... ok
+test resource_cache::tests::postgres_oversize_concurrent_singleflight_uses_one_actual_load ... ignored, requires an explicitly owned pi_s5_* database and an existing oversized valid log
+test storage::capacity_tests::finite_numeric_extremes_and_empty_containers_are_bounded ... ok
+test storage::capacity_tests::short_numbers_need_more_space_than_their_json_text ... ok
+test storage::capacity_tests::utf8_keys_and_nested_container_entries_consume_the_budget ... ok
+test web::admission_tests::c06_metadata_date_uses_the_same_strict_utc_decoder ... ok
+test web::admission_tests::c06_publication_sets_server_time_and_restore_is_strict ... ok
+test web::admission_tests::large_output_is_incremental_and_unyielded_tail_keeps_admission ... ok
+test web::admission_tests::transport_frame_and_slices_keep_admission_after_body_eof ... ok
+test web::sprint12_tests::actual_http_queue_cancel_and_project_safety ... ignored, requires fresh owned S12_HTTP_DATABASE_URL and private S12_HTTP_EVIDENCE
+test web::sprint12_tests::actual_job_caller_per_commit_and_startup_recovery ... ignored, requires fresh isolated S12_JOB_DATABASE_URL and private S12_JOB_EVIDENCE
+
+test result: ok. 47 passed; 0 failed; 11 ignored; 0 measured; 0 filtered out; finished in 3.59s
+

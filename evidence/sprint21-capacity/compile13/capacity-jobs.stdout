@@ -1,0 +1,13 @@
+
+running 8 tests
+test actual_shared_import_conversion_pool_accepts_transfer_without_double_acquisition ... ok
+test dropping_unpublished_reservation_preserves_existing_current_and_sequence ... ok
+test explicit_maximum_id_at_last_sequence_boundary_also_exhausts_without_wrapping ... ok
+test foreign_pool_is_rejected_before_even_an_exhausted_target_sequence ... ok
+test foreign_pool_rejection_restores_origin_without_touching_target_metadata ... ok
+test last_representable_auto_id_is_created_once_then_all_further_attempts_fail_closed ... ok
+test reservations_hold_both_slots_without_phantom_jobs_or_id_advancement ... ok
+test restored_maximum_sequence_refuses_auto_and_explicit_without_metadata_or_permit_change ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

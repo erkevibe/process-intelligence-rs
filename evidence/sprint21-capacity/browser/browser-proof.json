@@ -1,0 +1,79 @@
+{
+  "status": "ACTUAL_BROWSER_OBSERVATIONS_PENDING_INDEPENDENT_AUDIT",
+  "utc": "2026-10-22T21:46:29.726Z",
+  "app_version": "0.8.1",
+  "app_sha256": "4121BD68F1C0C05A61B039FADF20FEC5C2DA4379D8AAAFB170DC3B43861D1525",
+  "four_directions": [
+    "xes-csv",
+    "csv-xes",
+    "json-pnml",
+    "pnml-json"
+  ],
+  "small_jobs_running_not_observed": true,
+  "metadata_refusal_job": "job-9",
+  "metadata_explicit_allow_job": "job-11",
+  "stored_unicode_scalars": 64,
+  "stored_unicode_utf8_bytes": 256,
+  "cancel_running_and_cancelled_observed": "job-13",
+  "retry_running_and_failed_report_byte_limit_observed": "job-15",
+  "retry_without_reload": true,
+  "initial_running_revision": "1",
+  "terminal_revision": "2",
+  "watchers_running": 1,
+  "watchers_terminal": 1,
+  "terminal_update_templates": 0,
+  "retained_panels": 8,
+  "downloads": 19,
+  "after_restart_pairs": [
+    {
+      "job": "job-1",
+      "part": "payload",
+      "sha256": "f14031cc8fcdf5119affaf1c2490d54b779a0929754dee6ddf8d6280971e2905",
+      "matchesInitial": true
+    },
+    {
+      "job": "job-1",
+      "part": "report",
+      "sha256": "e544722f17e13847864b6b8843ac015a1272b4af5c6b475addfb024c20ce7104",
+      "matchesInitial": true
+    },
+    {
+      "job": "job-3",
+      "part": "payload",
+      "sha256": "6be15abcc35c4bdf755f27307c93b0b5e4e5f90c7d715fcc4b57dc07a503516f",
+      "matchesInitial": true
+    },
+    {
+      "job": "job-3",
+      "part": "report",
+      "sha256": "daeb467da1c3fd128e5aac8b9ca12b8409221348858c876efb592ef1324bc67d",
+      "matchesInitial": true
+    },
+    {
+      "job": "job-5",
+      "part": "payload",
+      "sha256": "1f8b6b2909e15995f98a9a3ab94c1bcd04bbe60f03b0578271ca23722d4fb416",
+      "matchesInitial": true
+    },
+    {
+      "job": "job-5",
+      "part": "report",
+      "sha256": "df3b1e0cba32e4cbb3b05d313e753c91cfeb0ac6780c52091c398a8d43a6529e",
+      "matchesInitial": true
+    },
+    {
+      "job": "job-7",
+      "part": "payload",
+      "sha256": "3de79e42ad15716012cfe274260883694c3047f64bae22304cea50604fb3b798",
+      "matchesInitial": true
+    },
+    {
+      "job": "job-7",
+      "part": "report",
+      "sha256": "9fc08c0bba719924df67bfa8b2e151fe695efd67c31854ebfd65e2933c6ed5ac",
+      "matchesInitial": true
+    }
+  ],
+  "old_misnamed_terminal_snapshot_is_intermediate_running": true,
+  "fixture_full_native_closure_pending": true
+}
