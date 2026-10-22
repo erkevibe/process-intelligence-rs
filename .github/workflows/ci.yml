@@ -58,7 +58,7 @@ jobs:
           python3 -B tools/sprint19/verify-core-projection.py evidence/sprint19/core-filter-extended
           node tools/oracle/compare-core-calendar.mjs evidence/sprint19/core-calendar/java-index.json evidence/sprint19/core-calendar/rust-index.json .local/sprint19/ci-audit/calendar.json
           node tools/oracle/compare-core-filter-extended.mjs evidence/sprint19/core-filter-extended/java-index.json evidence/sprint19/core-filter-extended/rust-index.json .local/sprint19/ci-audit/filter.json
-          node -e "for (const f of ['calendar','filter']) { const r=require('./.local/sprint19/ci-audit/'+f+'.json'); if(r.cases.some(c=>!c.all_frozen_hypotheses_match || (c.profile==='overlap' && (c.main_overlap_fields_match ?? c.overlap_fields_match)!==true))) process.exit(1); }"
+          node -e "for (const [f,n] of [['calendar',13],['filter',8]]) { const r=require('./.local/sprint19/ci-audit/'+f+'.json'); if(r.case_count!==n || r.cases.length!==n || r.cases.some(c=>!c.all_frozen_hypotheses_match || (f==='calendar' ? c.main_equality_eligible && c.main_overlap_fields_match!==true : c.profile==='overlap' && c.overlap_fields_match!==true))) process.exit(1); }"
           node --test tools/oracle/compare-core-calendar.test.mjs tools/oracle/compare-core-filter-extended.test.mjs
           TMPDIR="$PWD/.local/sprint19/ci-temp" python3 -B tools/oracle/core-calendar-public-projection-tests.py
           python3 -B tools/sprint19/verify-quality-manifest.py evidence/sprint19/bpmn-quality
