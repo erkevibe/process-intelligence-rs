@@ -1,0 +1,25 @@
+{
+  "role": "Customer",
+  "agent_name": "customer_s20_delivery",
+  "utc": "2026-10-22T22:05:03.9534464Z",
+  "kind": "ACTUAL_CAPACITY_FINAL_COUNCIL_VOTE",
+  "proposal_sha256": "F5277464E09152978653D551FF620BF0988ECD847D26BEF6FD0D76CEF9181F51",
+  "frozen_candidate_sha256": "268421E0DF9C5016A71E01AF0E85849A241FD1E773B438359C2223BDDF0CDE86",
+  "candidate_version": "0.8.1",
+  "vote": "FOR",
+  "scope": "Bounded local technical candidate and conditional separate public PR delivery",
+  "reason": "Read exact proposal and CAP report and viewed actual capacity UI screenshot. Customer wishes UX01 aligned controls, UX02 separate4MiB report limit and UX03 explicit safe retained-results handling are addressed in the finite interface. Lost-response wording now correctly directs users to inspect accepted tasks before resubmission. Report preserves genuine four-direction browser behavior, explicit loss consent, cancellation/retry/restart evidence and measured early admission behavior without asserting a RAM hard cap.",
+  "conditions": [
+    "Actual Root public manifest/memory/browser replay must succeed with complete captures",
+    "Both exact finalHEAD push and pull_request CI must pass",
+    "Root and independent QA must each verify whole anonymous exact-commit source and actually replay downloaded-source audits",
+    "Owned current processes and capacity/free-space/deadline checks must close, while permanent historical unknown coverage remains explicitly unknown",
+    "No non-Council mutation of frozen source, no tag or merge, no enterprise/SLO/hardRAMcap/exactly-once/general powerloss claim"
+  ],
+  "known_limits": "18MiB two-event input measures byte volume, not worst-case semantic complexity. Failed trials, lost TCP errno and unknown historical native coverage remain preserved; no whole-trial-success invention.",
+  "next_stage": "Complexity draft02 is not approved by this vote. Any follow-on requires primary CAP public delivery first and separate prospective criteria within the original reserve.",
+  "human_acceptance": false,
+  "final_public_delivery_acceptance": false,
+  "native_execution": false,
+  "source_edits": false
+}

@@ -1,0 +1,9 @@
+    Finished `test` profile [unoptimized] target(s) in 0.44s
+     Running unittests src\lib.rs (.local\sprint21\root\target\debug\deps\process_intelligence_rs-3647c61c11c9973f.exe)
+
+thread 'conversion_workflow::capacity_tests::prebody_reservations_disconnect_handoff_and_retention_races' (36068) panicked at src\conversion_capacity_tests.rs:465:9:
+assertion `left == right` failed
+  left: 503
+ right: 303
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+error: test failed, to rerun pass `--lib`

@@ -1,0 +1,100 @@
+{
+  "places": {
+    "5921891d-0751-4559-ba53-2ffec9ce83e1": {
+      "id": "5921891d-0751-4559-ba53-2ffec9ce83e1"
+    },
+    "ca60e0a6-43ac-4a30-9df1-a3f29c2e7f78": {
+      "id": "ca60e0a6-43ac-4a30-9df1-a3f29c2e7f78"
+    }
+  },
+  "transitions": {
+    "e1dd5391-8019-491b-817f-6e4725c65972": {
+      "label": "A & β",
+      "id": "e1dd5391-8019-491b-817f-6e4725c65972"
+    },
+    "5ef42d50-157a-4af1-8810-78a8660c487b": {
+      "label": null,
+      "id": "5ef42d50-157a-4af1-8810-78a8660c487b"
+    },
+    "0e3eee68-a4e0-4b81-aaec-466d4de535ac": {
+      "label": "A & β",
+      "id": "0e3eee68-a4e0-4b81-aaec-466d4de535ac"
+    }
+  },
+  "arcs": [
+    {
+      "from_to": {
+        "type": "PlaceTransition",
+        "nodes": [
+          "ca60e0a6-43ac-4a30-9df1-a3f29c2e7f78",
+          "e1dd5391-8019-491b-817f-6e4725c65972"
+        ]
+      },
+      "weight": 2
+    },
+    {
+      "from_to": {
+        "type": "TransitionPlace",
+        "nodes": [
+          "e1dd5391-8019-491b-817f-6e4725c65972",
+          "5921891d-0751-4559-ba53-2ffec9ce83e1"
+        ]
+      },
+      "weight": 3
+    },
+    {
+      "from_to": {
+        "type": "PlaceTransition",
+        "nodes": [
+          "5921891d-0751-4559-ba53-2ffec9ce83e1",
+          "0e3eee68-a4e0-4b81-aaec-466d4de535ac"
+        ]
+      },
+      "weight": 3
+    },
+    {
+      "from_to": {
+        "type": "TransitionPlace",
+        "nodes": [
+          "0e3eee68-a4e0-4b81-aaec-466d4de535ac",
+          "ca60e0a6-43ac-4a30-9df1-a3f29c2e7f78"
+        ]
+      },
+      "weight": 2
+    },
+    {
+      "from_to": {
+        "type": "PlaceTransition",
+        "nodes": [
+          "5921891d-0751-4559-ba53-2ffec9ce83e1",
+          "5ef42d50-157a-4af1-8810-78a8660c487b"
+        ]
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "type": "TransitionPlace",
+        "nodes": [
+          "5ef42d50-157a-4af1-8810-78a8660c487b",
+          "5921891d-0751-4559-ba53-2ffec9ce83e1"
+        ]
+      },
+      "weight": 1
+    }
+  ],
+  "initial_marking": {
+    "ca60e0a6-43ac-4a30-9df1-a3f29c2e7f78": 2,
+    "5921891d-0751-4559-ba53-2ffec9ce83e1": 0
+  },
+  "final_markings": [
+    {
+      "5921891d-0751-4559-ba53-2ffec9ce83e1": 3
+    },
+    {},
+    {
+      "ca60e0a6-43ac-4a30-9df1-a3f29c2e7f78": 0,
+      "5921891d-0751-4559-ba53-2ffec9ce83e1": 0
+    }
+  ]
+}

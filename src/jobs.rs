@@ -242,6 +242,27 @@ pub struct JobLease {
     _permit: OwnedSemaphorePermit,
 }
 
+/// An unpublished admission slot. Dropping it releases capacity without creating
+/// a job, advancing an ID, or changing the store's current job.
+///
+/// A reservation transfers exactly once and cannot be cloned:
+/// ```compile_fail
+/// use process_intelligence_rs::jobs::JobStore;
+/// let store = JobStore::new();
+/// let reservation = store.reserve().unwrap();
+/// let _first = store.create_reserved(reservation, None).unwrap();
+/// let _second = store.create_reserved(reservation, None).unwrap();
+/// ```
+/// ```compile_fail
+/// use process_intelligence_rs::jobs::JobStore;
+/// let reservation = JobStore::new().reserve().unwrap();
+/// let _duplicate = reservation.clone();
+/// ```
+pub struct JobReservation {
+    pool: Arc<Semaphore>,
+    permit: OwnedSemaphorePermit,
+}
+
 #[derive(Default)]
 struct Entries {
     sequence: u64,
@@ -284,15 +305,41 @@ impl JobStore {
         self.create_with_id(None)
     }
     pub fn create_with_id(&self, explicit: Option<String>) -> Result<JobLease, &'static str> {
+        self.create_reserved(self.reserve()?, explicit)
+    }
+    /// Reserves global capacity before reading or allocating a job payload.
+    /// This does not publish any in-memory job metadata.
+    pub fn reserve(&self) -> Result<JobReservation, &'static str> {
         let permit = self
             .slots
             .clone()
             .try_acquire_owned()
             .map_err(|_| "job_queue_full")?;
+        Ok(JobReservation {
+            pool: self.slots.clone(),
+            permit,
+        })
+    }
+    /// Converts one reservation from this exact shared pool into a worker lease.
+    /// Shared import/conversion stores may transfer reservations; an unrelated
+    /// pool is rejected before IDs or entries change and releases its own slot.
+    pub fn create_reserved(
+        &self,
+        reservation: JobReservation,
+        explicit: Option<String>,
+    ) -> Result<JobLease, &'static str> {
+        if !Arc::ptr_eq(&self.slots, &reservation.pool) {
+            return Err("job_reservation_pool");
+        }
+        let JobReservation { pool: _, permit } = reservation;
         let mut entries = self.entries.lock().expect("jobs mutex");
-        entries.sequence += 1;
-        let id = explicit.unwrap_or_else(|| format!("job-{}", entries.sequence));
+        let sequence = entries
+            .sequence
+            .checked_add(1)
+            .ok_or("job_sequence_exhausted")?;
+        let id = explicit.unwrap_or_else(|| format!("job-{sequence}"));
         let job = Arc::new(Job::new(id.clone()));
+        entries.sequence = sequence;
         entries.jobs.insert(id.clone(), job.clone());
         entries.current = Some(id);
         Ok(JobLease {

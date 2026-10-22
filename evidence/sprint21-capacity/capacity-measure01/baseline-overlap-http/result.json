@@ -1,0 +1,228 @@
+{
+  "events": [
+    {
+      "label": "health-headers",
+      "phase_elapsed_seconds": 0.0648680999984208,
+      "status": 200
+    },
+    {
+      "label": "health",
+      "phase_elapsed_seconds": 0.06493359999876702,
+      "response_bytes": 36,
+      "response_sha256": "9B657A30CB3BC29DA8DBDE6BDB05F82EFC4CEA816D44629B8BFF900A69A66307",
+      "response_wall_seconds": 0.002419299999019131,
+      "status": 200
+    },
+    {
+      "label": "conversion-list-headers",
+      "phase_elapsed_seconds": 0.08058579999851645,
+      "status": 200
+    },
+    {
+      "label": "conversion-list",
+      "phase_elapsed_seconds": 0.08064739999826998,
+      "response_bytes": 5050,
+      "response_sha256": "DABE19F162B37F07EF89BDF5081E9D23A9C3ADEB7068BAFFE2617E90AE09692C",
+      "response_wall_seconds": 0.0031214000009640586,
+      "status": 200
+    },
+    {
+      "label": "overlap-third-response-headers",
+      "phase_elapsed_seconds": 0.37884029999986524,
+      "status": 503
+    },
+    {
+      "label": "overlap-third-response",
+      "phase_elapsed_seconds": 0.37888699999894015,
+      "response_bytes": 138,
+      "response_sha256": "552DEE75F184C8724B72104905DA9E591388B16C30B8223E4B17F77DB5F95D0D",
+      "response_wall_seconds": 0.0008323000001837499,
+      "status": 503
+    },
+    {
+      "classification": "existing heavy gate or actual observed response; not new admission proof",
+      "declared_content_length": 809,
+      "file_bytes_sent": 430,
+      "file_finished_phase_seconds": 0.3780077999981586,
+      "filename": "capacity-third-control.xes",
+      "input_bytes": 430,
+      "input_sha256": "6BE15ABCC35C4BDF755F27307C93B0B5E4E5F90C7D715FCC4B57DC07A503516F",
+      "label": "overlap-third-stream",
+      "multipart_suffix_sent": true,
+      "status": 503
+    },
+    {
+      "label": "conversion-list-headers",
+      "phase_elapsed_seconds": 2.246829899999284,
+      "status": 200
+    },
+    {
+      "label": "conversion-list",
+      "phase_elapsed_seconds": 2.246902599999885,
+      "response_bytes": 5050,
+      "response_sha256": "FD168D3A56B2E06EF4055F6EB57D98D9F53B3327C98D5BA1E44F637C6ECEB241",
+      "response_wall_seconds": 0.003908999999111984,
+      "status": 200
+    },
+    {
+      "label": "conversion-list-headers",
+      "phase_elapsed_seconds": 2.2758625999995274,
+      "status": 200
+    },
+    {
+      "label": "conversion-list",
+      "phase_elapsed_seconds": 2.2759275999997044,
+      "response_bytes": 5050,
+      "response_sha256": "6E8474F8E96E1311CC189C2D7A41A67F120C66B519B5AF74C1BEA48AA6390C15",
+      "response_wall_seconds": 0.0029518000010284595,
+      "status": 200
+    },
+    {
+      "label": "control-after-overlap-upload-headers",
+      "phase_elapsed_seconds": 2.3023303000009037,
+      "status": 303
+    },
+    {
+      "label": "control-after-overlap-upload",
+      "phase_elapsed_seconds": 2.302395599999727,
+      "response_bytes": 0,
+      "response_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "response_wall_seconds": 0.013969799998449162,
+      "status": 303
+    },
+    {
+      "after_file_send_wall_seconds": 0.01402290000260109,
+      "declared_content_length": 817,
+      "file_bytes_sent": 430,
+      "file_finished_phase_seconds": 2.2883815999994113,
+      "filename": "capacity-control-after-overlap.xes",
+      "input_bytes": 430,
+      "input_sha256": "6BE15ABCC35C4BDF755F27307C93B0B5E4E5F90C7D715FCC4B57DC07A503516F",
+      "label": "control-after-overlap-upload-stream",
+      "multipart_suffix_sent": true
+    },
+    {
+      "label": "conversion-list-headers",
+      "phase_elapsed_seconds": 2.332948299997952,
+      "status": 200
+    },
+    {
+      "label": "conversion-list",
+      "phase_elapsed_seconds": 2.333033799997793,
+      "response_bytes": 5763,
+      "response_sha256": "D00FB707E2C03A09E78B26F931E727541A394F644BD485F383D54B6EADD3E151",
+      "response_wall_seconds": 0.01336970000193105,
+      "status": 200
+    },
+    {
+      "label": "accepted-job-metadata-headers",
+      "phase_elapsed_seconds": 2.35442939999848,
+      "status": 200
+    },
+    {
+      "label": "accepted-job-metadata",
+      "phase_elapsed_seconds": 2.354494100000011,
+      "response_bytes": 647,
+      "response_sha256": "AA2C834564E6E97A886B172AC1EB83299010CE8DC127F935F879523226128CA8",
+      "response_wall_seconds": 0.0029797999995935243,
+      "status": 200
+    },
+    {
+      "label": "job-snapshot-headers",
+      "phase_elapsed_seconds": 2.369665199999872,
+      "status": 200
+    },
+    {
+      "label": "job-snapshot",
+      "phase_elapsed_seconds": 2.3697265000009793,
+      "response_bytes": 647,
+      "response_sha256": "AA2C834564E6E97A886B172AC1EB83299010CE8DC127F935F879523226128CA8",
+      "response_wall_seconds": 0.003177200000209268,
+      "status": 200
+    },
+    {
+      "label": "control-after-overlap-payload-headers",
+      "phase_elapsed_seconds": 2.3876793999988877,
+      "status": 200
+    },
+    {
+      "label": "control-after-overlap-payload",
+      "phase_elapsed_seconds": 2.3877657000011823,
+      "response_bytes": 125,
+      "response_sha256": "F14031CC8FCDF5119AFFAF1C2490D54B779A0929754DEE6DDF8D6280971E2905",
+      "response_wall_seconds": 0.005311400000209687,
+      "status": 200
+    },
+    {
+      "label": "control-after-overlap-report-headers",
+      "phase_elapsed_seconds": 2.419023599999491,
+      "status": 200
+    },
+    {
+      "label": "control-after-overlap-report",
+      "phase_elapsed_seconds": 2.419112799998402,
+      "response_bytes": 4075,
+      "response_sha256": "B76B75C8E14E2D7CB516246CA2C504B79FC0DDA2D6A7FE6E0C72C24ABF4EB750",
+      "response_wall_seconds": 0.006579100001545157,
+      "status": 200
+    }
+  ],
+  "input_manifest_sha256": "514F66245638176F87A635AEC2771610C0708A42E68349878C91A3B545E8C340",
+  "phase_wall_seconds": 2.423045399998955,
+  "result": {
+    "case": "overlap",
+    "followup": {
+      "artifact_id": "conversion-6",
+      "case": "control",
+      "input_bytes": 430,
+      "job_id": "job-5",
+      "loss_consent": false,
+      "manual_csv_and_independent_core_match": true,
+      "outcome": "CONVERTED_AND_MANUALLY_VERIFIED",
+      "payload_bytes": 125,
+      "payload_sha256": "F14031CC8FCDF5119AFFAF1C2490D54B779A0929754DEE6DDF8D6280971E2905",
+      "report_bytes": 4075,
+      "report_sha256": "B76B75C8E14E2D7CB516246CA2C504B79FC0DDA2D6A7FE6E0C72C24ABF4EB750",
+      "source_sha256": "6BE15ABCC35C4BDF755F27307C93B0B5E4E5F90C7D715FCC4B57DC07A503516F",
+      "stage": "completed",
+      "state": "completed",
+      "states": [
+        {
+          "phase_elapsed_seconds": 2.3699119000011706,
+          "revision": 2,
+          "state": "completed"
+        }
+      ]
+    },
+    "incomplete_clients_closed": [
+      {
+        "client_closed_without_multipart_suffix": true,
+        "closed_phase_seconds": 2.2198690000004717,
+        "declared_content_length": 18874746,
+        "file_bytes_sent": 18874368,
+        "file_finished_phase_seconds": 0.21942800000033458,
+        "filename": "capacity-incomplete-1.xes",
+        "input_bytes": 18874368,
+        "input_sha256": "60ED0F346CFE59D6800D992A4BA8090109A97B7D90410721392FD00625190420",
+        "multipart_suffix_sent": false
+      },
+      {
+        "client_closed_without_multipart_suffix": true,
+        "closed_phase_seconds": 2.2199317999984487,
+        "declared_content_length": 18874746,
+        "file_bytes_sent": 18874368,
+        "file_finished_phase_seconds": 0.3658785999978136,
+        "filename": "capacity-incomplete-2.xes",
+        "input_bytes": 18874368,
+        "input_sha256": "60ED0F346CFE59D6800D992A4BA8090109A97B7D90410721392FD00625190420",
+        "multipart_suffix_sent": false
+      }
+    ],
+    "incomplete_clients_created_no_durable_jobs_observed": true,
+    "maximum_clients": 3,
+    "scope": "finite byte-volume observation; existing 503/429 codes retain actual meaning; not body-poll-zero or RAM hard-cap proof",
+    "third_status": 503
+  },
+  "server_memory_latency_slo_or_browser_acceptance_not_claimed": true,
+  "status": "OBSERVATION_COMPLETED"
+}

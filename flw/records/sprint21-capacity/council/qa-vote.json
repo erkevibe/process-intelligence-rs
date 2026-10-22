@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "agent_name": "qa_s20_delivery",
+  "role": "QA",
+  "utc": "2026-10-22T22:03:58.1038912+00:00",
+  "vote": "FOR",
+  "proposal_sha256": "F5277464E09152978653D551FF620BF0988ECD847D26BEF6FD0D76CEF9181F51",
+  "freeze_sha256": "268421E0DF9C5016A71E01AF0E85849A241FD1E773B438359C2223BDDF0CDE86",
+  "technical_receipt_sha256": "C320C3EAEE4BA3457327CF4496F1D591D0FE0FA111D3E1C8EF9A6659937A0445",
+  "projection_receipt_sha256": "A4B7598B4669FAACA101EE440F635554C3707A7E17B5CFDE7365DDFE15541DBB",
+  "independent_frozen_inventory_verification": {
+    "workspace_bytes": 2793523,
+    "all_public_evidence_raw_git_blobs_verified": 843,
+    "all_workspace_sha256_lengths_and_staged_git_blobs_match": true,
+    "non_Council_extra_staged_files": 0,
+    "unstaged_changes": 0,
+    "changed_files": 880,
+    "declared_only_CRLF_to_LF_files": [
+      "Cargo.lock",
+      "Cargo.toml",
+      "README.md"
+    ]
+  },
+  "reason": "Exact bounded CAP candidate satisfies independently reviewed actual body reservation, durable handoff, current auth, retention, crash, real browser and explicit multi-attempt finite measurement criteria. Scientific public bytes and all other fields/numeric lexemes preserved; failed trials and permanent unknown coverage remain honest.",
+  "conditions": [
+    "All seven proposal required gates remain mandatory, including actual direct public replay.",
+    "No non-Council source changes beyond exact frozen inventory and accepted base.",
+    "Both exact-commit push and PR CI must succeed.",
+    "Root and QA each independently anonymously verify whole exact-commit source then execute downloaded primary conversion/counterfactual and CAP manifest/memory/browser audits.",
+    "Owned-process closure, actual resource bounds and original sprint deadline remain enforced."
+  ],
+  "not_claimed": [
+    "Final public delivery already complete",
+    "Release tag or merge",
+    "Hard RAM cap or production SLO",
+    "Whole original measurement trial success",
+    "Retroactive known exits or EOF for three missing native receipts"
+  ],
+  "final_delivery": "PENDING"
+}
