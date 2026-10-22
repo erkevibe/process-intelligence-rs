@@ -1,0 +1,3898 @@
+{
+  "bundle_sha256": "ea7309b02c583e230afb57ccf474d62cdb49c9af61f39a0206a46200cca1b4bf",
+  "cases": [
+    {
+      "id": "linear",
+      "net_sha256": "0331004c5553727c14337115c349cc8bd557ff17ee5d33ab6291ed9fc2c28cb9",
+      "result": {
+        "graph": {
+          "edges": [
+            {
+              "from": 0,
+              "label": null,
+              "to": 1,
+              "transition": "00000000-0000-0000-0000-000000002711"
+            },
+            {
+              "from": 1,
+              "label": "A",
+              "to": 2,
+              "transition": "00000000-0000-0000-0000-000000002714"
+            },
+            {
+              "from": 2,
+              "label": "B",
+              "to": 3,
+              "transition": "00000000-0000-0000-0000-000000002715"
+            },
+            {
+              "from": 3,
+              "label": "C",
+              "to": 4,
+              "transition": "00000000-0000-0000-0000-000000002713"
+            },
+            {
+              "from": 4,
+              "label": null,
+              "to": 5,
+              "transition": "00000000-0000-0000-0000-000000002712"
+            }
+          ],
+          "final_states": [
+            5
+          ],
+          "initial_state": 0,
+          "net_sha256": "0331004c5553727c14337115c349cc8bd557ff17ee5d33ab6291ed9fc2c28cb9",
+          "places": [
+            "00000000-0000-0000-0000-000000000001",
+            "00000000-0000-0000-0000-000000000002",
+            "00000000-0000-0000-0000-000000000003",
+            "00000000-0000-0000-0000-000000000004",
+            "00000000-0000-0000-0000-000000000005",
+            "00000000-0000-0000-0000-000000000006"
+          ],
+          "schema_version": 1,
+          "states": [
+            [
+              0,
+              0,
+              0,
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          ],
+          "transitions": [
+            {
+              "id": "00000000-0000-0000-0000-000000002711",
+              "label": null
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000002712",
+              "label": null
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000002713",
+              "label": "C"
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000002714",
+              "label": "A"
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000002715",
+              "label": "B"
+            }
+          ]
+        },
+        "groups": [
+          {
+            "group": "training_log",
+            "input": [
+              {
+                "frequency": 2,
+                "sequence": [
+                  "A",
+                  "B",
+                  "C"
+                ]
+              }
+            ],
+            "metrics": {
+              "fitness": {
+                "alignments": [
+                  {
+                    "activities": [
+                      "A",
+                      "B",
+                      "C"
+                    ],
+                    "frequency": 2,
+                    "result": {
+                      "Ok": {
+                        "cost": 0,
+                        "moves": [
+                          {
+                            "ModelMove": {
+                              "transition": "00000000-0000-0000-0000-000000002711"
+                            }
+                          },
+                          {
+                            "SyncMove": {
+                              "trace_event_index": 0,
+                              "transition": "00000000-0000-0000-0000-000000002714"
+                            }
+                          },
+                          {
+                            "SyncMove": {
+                              "trace_event_index": 1,
+                              "transition": "00000000-0000-0000-0000-000000002715"
+                            }
+                          },
+                          {
+                            "SyncMove": {
+                              "trace_event_index": 2,
+                              "transition": "00000000-0000-0000-0000-000000002713"
+                            }
+                          },
+                          {
+                            "ModelMove": {
+                              "transition": "00000000-0000-0000-0000-000000002712"
+                            }
+                          }
+                        ],
+                        "states_visited": 6
+                      }
+                    }
+                  }
+                ],
+                "costs": {
+                  "log": 1,
+                  "model": 1,
+                  "sync": 0,
+                  "tau": 0
+                },
+                "empty_alignment": {
+                  "cost": 3,
+                  "moves": [
+                    {
+                      "ModelMove": {
+                        "transition": "00000000-0000-0000-0000-000000002711"
+                      }
+                    },
+                    {
+                      "ModelMove": {
+                        "transition": "00000000-0000-0000-0000-000000002714"
+                      }
+                    },
+                    {
+                      "ModelMove": {
+                        "transition": "00000000-0000-0000-0000-000000002715"
+                      }
+                    },
+                    {
+                      "ModelMove": {
+                        "transition": "00000000-0000-0000-0000-000000002713"
+                      }
+                    },
+                    {
+                      "ModelMove": {
+                        "transition": "00000000-0000-0000-0000-000000002712"
+                      }
+                    }
+                  ],
+                  "states_visited": 6
+                },
+                "fitness": {
+                  "average_fitness": 1.0,
+                  "log_fitness": 1.0,
+                  "perfectly_fitting_frac": 1.0,
+                  "total_costs": 0
+                },
+                "integer_components": {
+                  "empty_cost": 3,
+                  "events": 6,
+                  "log_denominator": 12,
+                  "traces": 2,
+                  "weighted_total_cost": 0
+                },
+                "projection": {
+                  "act_to_index": {
+                    "A": 0,
+                    "B": 1,
+                    "C": 2
+                  },
+                  "activities": [
+                    "A",
+                    "B",
+                    "C"
+                  ],
+                  "traces": [
+                    [
+                      [
+                        0,
+                        1,
+                        2
+                      ],
+                      2
+                    ]
+                  ]
+                },
+                "status": "measured"
+              },
+              "precision": {
+                "activated_weight": 6,
+                "denominator": 6,
+                "escaping_weight": 0,
+                "numerator": 6,
+                "policy": "proper_prefix_all_min_tau_stop_states_label_union_fitting_log_v1",
+                "prefixes": [
+                  {
+                    "activated_labels": [
+                      "A"
+                    ],
+                    "escaping_labels": [],
+                    "observed_next_labels": [
+                      "A"
+                    ],
+                    "prefix": [],
+                    "search": {
+                      "minimum_tau_cost": 0,
+                      "policy": "empty_prefix_initial_marking"
+                    },
+                    "stop_markings": [
+                      0
+                    ],
+                    "tau_closure_markings": [
+                      0,
+                      1
+                    ],
+                    "weight": 2
+                  },
+                  {
+                    "activated_labels": [
+                      "B"
+                    ],
+                    "escaping_labels": [],
+                    "observed_next_labels": [
+                      "B"
+                    ],
+                    "prefix": [
+                      "A"
+                    ],
+                    "search": {
+                      "minimum_tau_cost": 1,
+                      "search_states": [
+                        {
+                          "marking_state": 0,
+                          "minimum_tau_cost": 0,
+                          "position": 0,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 1,
+                          "minimum_tau_cost": 1,
+                          "position": 0,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 2,
+                          "minimum_tau_cost": 1,
+                          "position": 1,
+                          "settled": true
+                        }
+                      ]
+                    },
+                    "stop_markings": [
+                      2
+                    ],
+                    "tau_closure_markings": [
+                      2
+                    ],
+                    "weight": 2
+                  },
+                  {
+                    "activated_labels": [
+                      "C"
+                    ],
+                    "escaping_labels": [],
+                    "observed_next_labels": [
+                      "C"
+                    ],
+                    "prefix": [
+                      "A",
+                      "B"
+                    ],
+                    "search": {
+                      "minimum_tau_cost": 1,
+                      "search_states": [
+                        {
+                          "marking_state": 0,
+                          "minimum_tau_cost": 0,
+                          "position": 0,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 1,
+                          "minimum_tau_cost": 1,
+                          "position": 0,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 2,
+                          "minimum_tau_cost": 1,
+                          "position": 1,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 3,
+                          "minimum_tau_cost": 1,
+                          "position": 2,
+                          "settled": true
+                        }
+                      ]
+                    },
+                    "stop_markings": [
+                      3
+                    ],
+                    "tau_closure_markings": [
+                      3
+                    ],
+                    "weight": 2
+                  }
+                ],
+                "scalar": 1.0,
+                "status": "measured"
+              },
+              "simplicity": {
+                "arcs": 10,
+                "denominator": 1,
+                "k": 2,
+                "mean_degree_denominator": 11,
+                "mean_degree_numerator": 20,
+                "metric": "inverse_mean_arc_degree",
+                "numerator": 1,
+                "places": 6,
+                "representation": "exact_hashed_net_no_reduction",
+                "scalar": 1.0,
+                "status": "measured",
+                "transitions": 5
+              }
+            }
+          }
+        ],
+        "status": "admitted"
+      }
+    },
+    {
+      "id": "exclusive-choice",
+      "net_sha256": "33238732c5b11d2a4f0566c2003c617a77ca092fad376880c9114d2247c51b12",
+      "result": {
+        "graph": {
+          "edges": [
+            {
+              "from": 0,
+              "label": null,
+              "to": 1,
+              "transition": "00000000-0000-0000-0000-000000002711"
+            },
+            {
+              "from": 1,
+              "label": "A",
+              "to": 2,
+              "transition": "00000000-0000-0000-0000-000000002715"
+            },
+            {
+              "from": 2,
+              "label": null,
+              "to": 3,
+              "transition": "00000000-0000-0000-0000-000000002717"
+            },
+            {
+              "from": 2,
+              "label": null,
+              "to": 4,
+              "transition": "00000000-0000-0000-0000-000000002718"
+            },
+            {
+              "from": 3,
+              "label": "B",
+              "to": 5,
+              "transition": "00000000-0000-0000-0000-000000002716"
+            },
+            {
+              "from": 4,
+              "label": "C",
+              "to": 6,
+              "transition": "00000000-0000-0000-0000-000000002713"
+            },
+            {
+              "from": 5,
+              "label": null,
+              "to": 7,
+              "transition": "00000000-0000-0000-0000-00000000271a"
+            },
+            {
+              "from": 6,
+              "label": null,
+              "to": 7,
+              "transition": "00000000-0000-0000-0000-000000002719"
+            },
+            {
+              "from": 7,
+              "label": "D",
+              "to": 8,
+              "transition": "00000000-0000-0000-0000-000000002714"
+            },
+            {
+              "from": 8,
+              "label": null,
+              "to": 9,
+              "transition": "00000000-0000-0000-0000-000000002712"
+            }
+          ],
+          "final_states": [
+            9
+          ],
+          "initial_state": 0,
+          "net_sha256": "33238732c5b11d2a4f0566c2003c617a77ca092fad376880c9114d2247c51b12",
+          "places": [
+            "00000000-0000-0000-0000-000000000001",
+            "00000000-0000-0000-0000-000000000002",
+            "00000000-0000-0000-0000-000000000003",
+            "00000000-0000-0000-0000-000000000004",
+            "00000000-0000-0000-0000-000000000005",
+            "00000000-0000-0000-0000-000000000006",
+            "00000000-0000-0000-0000-000000000007",
+            "00000000-0000-0000-0000-000000000008",
+            "00000000-0000-0000-0000-000000000009",
+            "00000000-0000-0000-0000-00000000000a"
+          ],
+          "schema_version": 1,
+          "states": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0
+            ],
+            [
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          ],
+          "transitions": [
+            {
+              "id": "00000000-0000-0000-0000-000000002711",
+              "label": null
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000002712",
+              "label": null
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000002713",
+              "label": "C"
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000002714",
+              "label": "D"
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000002715",
+              "label": "A"
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000002716",
+              "label": "B"
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000002717",
+              "label": null
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000002718",
+              "label": null
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000002719",
+              "label": null
+            },
+            {
+              "id": "00000000-0000-0000-0000-00000000271a",
+              "label": null
+            }
+          ]
+        },
+        "groups": [
+          {
+            "group": "training_log",
+            "input": [
+              {
+                "frequency": 2,
+                "sequence": [
+                  "A",
+                  "B",
+                  "D"
+                ]
+              },
+              {
+                "frequency": 2,
+                "sequence": [
+                  "A",
+                  "C",
+                  "D"
+                ]
+              }
+            ],
+            "metrics": {
+              "fitness": {
+                "alignments": [
+                  {
+                    "activities": [
+                      "A",
+                      "B",
+                      "D"
+                    ],
+                    "frequency": 2,
+                    "result": {
+                      "Ok": {
+                        "cost": 0,
+                        "moves": [
+                          {
+                            "ModelMove": {
+                              "transition": "00000000-0000-0000-0000-000000002711"
+                            }
+                          },
+                          {
+                            "SyncMove": {
+                              "trace_event_index": 0,
+                              "transition": "00000000-0000-0000-0000-000000002715"
+                            }
+                          },
+                          {
+                            "ModelMove": {
+                              "transition": "00000000-0000-0000-0000-000000002717"
+                            }
+                          },
+                          {
+                            "SyncMove": {
+                              "trace_event_index": 1,
+                              "transition": "00000000-0000-0000-0000-000000002716"
+                            }
+                          },
+                          {
+                            "ModelMove": {
+                              "transition": "00000000-0000-0000-0000-00000000271a"
+                            }
+                          },
+                          {
+                            "SyncMove": {
+                              "trace_event_index": 2,
+                              "transition": "00000000-0000-0000-0000-000000002714"
+                            }
+                          },
+                          {
+                            "ModelMove": {
+                              "transition": "00000000-0000-0000-0000-000000002712"
+                            }
+                          }
+                        ],
+                        "states_visited": 9
+                      }
+                    }
+                  },
+                  {
+                    "activities": [
+                      "A",
+                      "C",
+                      "D"
+                    ],
+                    "frequency": 2,
+                    "result": {
+                      "Ok": {
+                        "cost": 0,
+                        "moves": [
+                          {
+                            "ModelMove": {
+                              "transition": "00000000-0000-0000-0000-000000002711"
+                            }
+                          },
+                          {
+                            "SyncMove": {
+                              "trace_event_index": 0,
+                              "transition": "00000000-0000-0000-0000-000000002715"
+                            }
+                          },
+                          {
+                            "ModelMove": {
+                              "transition": "00000000-0000-0000-0000-000000002718"
+                            }
+                          },
+                          {
+                            "SyncMove": {
+                              "trace_event_index": 1,
+                              "transition": "00000000-0000-0000-0000-000000002713"
+                            }
+                          },
+                          {
+                            "ModelMove": {
+                              "transition": "00000000-0000-0000-0000-000000002719"
+                            }
+                          },
+                          {
+                            "SyncMove": {
+                              "trace_event_index": 2,
+                              "transition": "00000000-0000-0000-0000-000000002714"
+                            }
+                          },
+                          {
+                            "ModelMove": {
+                              "transition": "00000000-0000-0000-0000-000000002712"
+                            }
+                          }
+                        ],
+                        "states_visited": 9
+                      }
+                    }
+                  }
+                ],
+                "costs": {
+                  "log": 1,
+                  "model": 1,
+                  "sync": 0,
+                  "tau": 0
+                },
+                "empty_alignment": {
+                  "cost": 3,
+                  "moves": [
+                    {
+                      "ModelMove": {
+                        "transition": "00000000-0000-0000-0000-000000002711"
+                      }
+                    },
+                    {
+                      "ModelMove": {
+                        "transition": "00000000-0000-0000-0000-000000002715"
+                      }
+                    },
+                    {
+                      "ModelMove": {
+                        "transition": "00000000-0000-0000-0000-000000002718"
+                      }
+                    },
+                    {
+                      "ModelMove": {
+                        "transition": "00000000-0000-0000-0000-000000002713"
+                      }
+                    },
+                    {
+                      "ModelMove": {
+                        "transition": "00000000-0000-0000-0000-000000002719"
+                      }
+                    },
+                    {
+                      "ModelMove": {
+                        "transition": "00000000-0000-0000-0000-000000002714"
+                      }
+                    },
+                    {
+                      "ModelMove": {
+                        "transition": "00000000-0000-0000-0000-000000002712"
+                      }
+                    }
+                  ],
+                  "states_visited": 10
+                },
+                "fitness": {
+                  "average_fitness": 1.0,
+                  "log_fitness": 1.0,
+                  "perfectly_fitting_frac": 1.0,
+                  "total_costs": 0
+                },
+                "integer_components": {
+                  "empty_cost": 3,
+                  "events": 12,
+                  "log_denominator": 24,
+                  "traces": 4,
+                  "weighted_total_cost": 0
+                },
+                "projection": {
+                  "act_to_index": {
+                    "A": 0,
+                    "B": 1,
+                    "C": 2,
+                    "D": 3
+                  },
+                  "activities": [
+                    "A",
+                    "B",
+                    "C",
+                    "D"
+                  ],
+                  "traces": [
+                    [
+                      [
+                        0,
+                        1,
+                        3
+                      ],
+                      2
+                    ],
+                    [
+                      [
+                        0,
+                        2,
+                        3
+                      ],
+                      2
+                    ]
+                  ]
+                },
+                "status": "measured"
+              },
+              "precision": {
+                "activated_weight": 16,
+                "denominator": 16,
+                "escaping_weight": 0,
+                "numerator": 16,
+                "policy": "proper_prefix_all_min_tau_stop_states_label_union_fitting_log_v1",
+                "prefixes": [
+                  {
+                    "activated_labels": [
+                      "A"
+                    ],
+                    "escaping_labels": [],
+                    "observed_next_labels": [
+                      "A"
+                    ],
+                    "prefix": [],
+                    "search": {
+                      "minimum_tau_cost": 0,
+                      "policy": "empty_prefix_initial_marking"
+                    },
+                    "stop_markings": [
+                      0
+                    ],
+                    "tau_closure_markings": [
+                      0,
+                      1
+                    ],
+                    "weight": 4
+                  },
+                  {
+                    "activated_labels": [
+                      "B",
+                      "C"
+                    ],
+                    "escaping_labels": [],
+                    "observed_next_labels": [
+                      "B",
+                      "C"
+                    ],
+                    "prefix": [
+                      "A"
+                    ],
+                    "search": {
+                      "minimum_tau_cost": 1,
+                      "search_states": [
+                        {
+                          "marking_state": 0,
+                          "minimum_tau_cost": 0,
+                          "position": 0,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 1,
+                          "minimum_tau_cost": 1,
+                          "position": 0,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 2,
+                          "minimum_tau_cost": 1,
+                          "position": 1,
+                          "settled": true
+                        }
+                      ]
+                    },
+                    "stop_markings": [
+                      2
+                    ],
+                    "tau_closure_markings": [
+                      2,
+                      3,
+                      4
+                    ],
+                    "weight": 4
+                  },
+                  {
+                    "activated_labels": [
+                      "D"
+                    ],
+                    "escaping_labels": [],
+                    "observed_next_labels": [
+                      "D"
+                    ],
+                    "prefix": [
+                      "A",
+                      "B"
+                    ],
+                    "search": {
+                      "minimum_tau_cost": 2,
+                      "search_states": [
+                        {
+                          "marking_state": 0,
+                          "minimum_tau_cost": 0,
+                          "position": 0,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 1,
+                          "minimum_tau_cost": 1,
+                          "position": 0,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 2,
+                          "minimum_tau_cost": 1,
+                          "position": 1,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 3,
+                          "minimum_tau_cost": 2,
+                          "position": 1,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 4,
+                          "minimum_tau_cost": 2,
+                          "position": 1,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 5,
+                          "minimum_tau_cost": 2,
+                          "position": 2,
+                          "settled": true
+                        }
+                      ]
+                    },
+                    "stop_markings": [
+                      5
+                    ],
+                    "tau_closure_markings": [
+                      5,
+                      7
+                    ],
+                    "weight": 2
+                  },
+                  {
+                    "activated_labels": [
+                      "D"
+                    ],
+                    "escaping_labels": [],
+                    "observed_next_labels": [
+                      "D"
+                    ],
+                    "prefix": [
+                      "A",
+                      "C"
+                    ],
+                    "search": {
+                      "minimum_tau_cost": 2,
+                      "search_states": [
+                        {
+                          "marking_state": 0,
+                          "minimum_tau_cost": 0,
+                          "position": 0,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 1,
+                          "minimum_tau_cost": 1,
+                          "position": 0,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 2,
+                          "minimum_tau_cost": 1,
+                          "position": 1,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 3,
+                          "minimum_tau_cost": 2,
+                          "position": 1,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 4,
+                          "minimum_tau_cost": 2,
+                          "position": 1,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 6,
+                          "minimum_tau_cost": 2,
+                          "position": 2,
+                          "settled": true
+                        }
+                      ]
+                    },
+                    "stop_markings": [
+                      6
+                    ],
+                    "tau_closure_markings": [
+                      6,
+                      7
+                    ],
+                    "weight": 2
+                  }
+                ],
+                "scalar": 1.0,
+                "status": "measured"
+              },
+              "simplicity": {
+                "arcs": 20,
+                "denominator": 1,
+                "k": 2,
+                "mean_degree_denominator": 20,
+                "mean_degree_numerator": 40,
+                "metric": "inverse_mean_arc_degree",
+                "numerator": 1,
+                "places": 10,
+                "representation": "exact_hashed_net_no_reduction",
+                "scalar": 1.0,
+                "status": "measured",
+                "transitions": 10
+              }
+            }
+          }
+        ],
+        "status": "admitted"
+      }
+    },
+    {
+      "id": "parallel-interleavings",
+      "net_sha256": "a6c143309766583cbc49ada45bf75f38b218753ec316b5abcc99cc92375448a6",
+      "result": {
+        "graph": {
+          "edges": [
+            {
+              "from": 0,
+              "label": null,
+              "to": 1,
+              "transition": "00000000-0000-0000-0000-000000002711"
+            },
+            {
+              "from": 1,
+              "label": "A",
+              "to": 2,
+              "transition": "00000000-0000-0000-0000-000000002715"
+            },
+            {
+              "from": 2,
+              "label": null,
+              "to": 3,
+              "transition": "00000000-0000-0000-0000-000000002717"
+            },
+            {
+              "from": 3,
+              "label": "C",
+              "to": 4,
+              "transition": "00000000-0000-0000-0000-000000002713"
+            },
+            {
+              "from": 3,
+              "label": "B",
+              "to": 5,
+              "transition": "00000000-0000-0000-0000-000000002716"
+            },
+            {
+              "from": 4,
+              "label": "B",
+              "to": 6,
+              "transition": "00000000-0000-0000-0000-000000002716"
+            },
+            {
+              "from": 5,
+              "label": "C",
+              "to": 6,
+              "transition": "00000000-0000-0000-0000-000000002713"
+            },
+            {
+              "from": 6,
+              "label": null,
+              "to": 7,
+              "transition": "00000000-0000-0000-0000-000000002718"
+            },
+            {
+              "from": 7,
+              "label": "D",
+              "to": 8,
+              "transition": "00000000-0000-0000-0000-000000002714"
+            },
+            {
+              "from": 8,
+              "label": null,
+              "to": 9,
+              "transition": "00000000-0000-0000-0000-000000002712"
+            }
+          ],
+          "final_states": [
+            9
+          ],
+          "initial_state": 0,
+          "net_sha256": "a6c143309766583cbc49ada45bf75f38b218753ec316b5abcc99cc92375448a6",
+          "places": [
+            "00000000-0000-0000-0000-000000000001",
+            "00000000-0000-0000-0000-000000000002",
+            "00000000-0000-0000-0000-000000000003",
+            "00000000-0000-0000-0000-000000000004",
+            "00000000-0000-0000-0000-000000000005",
+            "00000000-0000-0000-0000-000000000006",
+            "00000000-0000-0000-0000-000000000007",
+            "00000000-0000-0000-0000-000000000008",
+            "00000000-0000-0000-0000-000000000009",
+            "00000000-0000-0000-0000-00000000000a"
+          ],
+          "schema_version": 1,
+          "states": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              1,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          ],
+          "transitions": [
+            {
+              "id": "00000000-0000-0000-0000-000000002711",
+              "label": null
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000002712",
+              "label": null
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000002713",
+              "label": "C"
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000002714",
+              "label": "D"
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000002715",
+              "label": "A"
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000002716",
+              "label": "B"
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000002717",
+              "label": null
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000002718",
+              "label": null
+            }
+          ]
+        },
+        "groups": [
+          {
+            "group": "training_log",
+            "input": [
+              {
+                "frequency": 3,
+                "sequence": [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ]
+              },
+              {
+                "frequency": 3,
+                "sequence": [
+                  "A",
+                  "C",
+                  "B",
+                  "D"
+                ]
+              }
+            ],
+            "metrics": {
+              "fitness": {
+                "alignments": [
+                  {
+                    "activities": [
+                      "A",
+                      "B",
+                      "C",
+                      "D"
+                    ],
+                    "frequency": 3,
+                    "result": {
+                      "Ok": {
+                        "cost": 0,
+                        "moves": [
+                          {
+                            "ModelMove": {
+                              "transition": "00000000-0000-0000-0000-000000002711"
+                            }
+                          },
+                          {
+                            "SyncMove": {
+                              "trace_event_index": 0,
+                              "transition": "00000000-0000-0000-0000-000000002715"
+                            }
+                          },
+                          {
+                            "ModelMove": {
+                              "transition": "00000000-0000-0000-0000-000000002717"
+                            }
+                          },
+                          {
+                            "SyncMove": {
+                              "trace_event_index": 1,
+                              "transition": "00000000-0000-0000-0000-000000002716"
+                            }
+                          },
+                          {
+                            "SyncMove": {
+                              "trace_event_index": 2,
+                              "transition": "00000000-0000-0000-0000-000000002713"
+                            }
+                          },
+                          {
+                            "ModelMove": {
+                              "transition": "00000000-0000-0000-0000-000000002718"
+                            }
+                          },
+                          {
+                            "SyncMove": {
+                              "trace_event_index": 3,
+                              "transition": "00000000-0000-0000-0000-000000002714"
+                            }
+                          },
+                          {
+                            "ModelMove": {
+                              "transition": "00000000-0000-0000-0000-000000002712"
+                            }
+                          }
+                        ],
+                        "states_visited": 9
+                      }
+                    }
+                  },
+                  {
+                    "activities": [
+                      "A",
+                      "C",
+                      "B",
+                      "D"
+                    ],
+                    "frequency": 3,
+                    "result": {
+                      "Ok": {
+                        "cost": 0,
+                        "moves": [
+                          {
+                            "ModelMove": {
+                              "transition": "00000000-0000-0000-0000-000000002711"
+                            }
+                          },
+                          {
+                            "SyncMove": {
+                              "trace_event_index": 0,
+                              "transition": "00000000-0000-0000-0000-000000002715"
+                            }
+                          },
+                          {
+                            "ModelMove": {
+                              "transition": "00000000-0000-0000-0000-000000002717"
+                            }
+                          },
+                          {
+                            "SyncMove": {
+                              "trace_event_index": 1,
+                              "transition": "00000000-0000-0000-0000-000000002713"
+                            }
+                          },
+                          {
+                            "SyncMove": {
+                              "trace_event_index": 2,
+                              "transition": "00000000-0000-0000-0000-000000002716"
+                            }
+                          },
+                          {
+                            "ModelMove": {
+                              "transition": "00000000-0000-0000-0000-000000002718"
+                            }
+                          },
+                          {
+                            "SyncMove": {
+                              "trace_event_index": 3,
+                              "transition": "00000000-0000-0000-0000-000000002714"
+                            }
+                          },
+                          {
+                            "ModelMove": {
+                              "transition": "00000000-0000-0000-0000-000000002712"
+                            }
+                          }
+                        ],
+                        "states_visited": 9
+                      }
+                    }
+                  }
+                ],
+                "costs": {
+                  "log": 1,
+                  "model": 1,
+                  "sync": 0,
+                  "tau": 0
+                },
+                "empty_alignment": {
+                  "cost": 4,
+                  "moves": [
+                    {
+                      "ModelMove": {
+                        "transition": "00000000-0000-0000-0000-000000002711"
+                      }
+                    },
+                    {
+                      "ModelMove": {
+                        "transition": "00000000-0000-0000-0000-000000002715"
+                      }
+                    },
+                    {
+                      "ModelMove": {
+                        "transition": "00000000-0000-0000-0000-000000002717"
+                      }
+                    },
+                    {
+                      "ModelMove": {
+                        "transition": "00000000-0000-0000-0000-000000002716"
+                      }
+                    },
+                    {
+                      "ModelMove": {
+                        "transition": "00000000-0000-0000-0000-000000002713"
+                      }
+                    },
+                    {
+                      "ModelMove": {
+                        "transition": "00000000-0000-0000-0000-000000002718"
+                      }
+                    },
+                    {
+                      "ModelMove": {
+                        "transition": "00000000-0000-0000-0000-000000002714"
+                      }
+                    },
+                    {
+                      "ModelMove": {
+                        "transition": "00000000-0000-0000-0000-000000002712"
+                      }
+                    }
+                  ],
+                  "states_visited": 10
+                },
+                "fitness": {
+                  "average_fitness": 1.0,
+                  "log_fitness": 1.0,
+                  "perfectly_fitting_frac": 1.0,
+                  "total_costs": 0
+                },
+                "integer_components": {
+                  "empty_cost": 4,
+                  "events": 24,
+                  "log_denominator": 48,
+                  "traces": 6,
+                  "weighted_total_cost": 0
+                },
+                "projection": {
+                  "act_to_index": {
+                    "A": 0,
+                    "B": 1,
+                    "C": 2,
+                    "D": 3
+                  },
+                  "activities": [
+                    "A",
+                    "B",
+                    "C",
+                    "D"
+                  ],
+                  "traces": [
+                    [
+                      [
+                        0,
+                        1,
+                        2,
+                        3
+                      ],
+                      3
+                    ],
+                    [
+                      [
+                        0,
+                        2,
+                        1,
+                        3
+                      ],
+                      3
+                    ]
+                  ]
+                },
+                "status": "measured"
+              },
+              "precision": {
+                "activated_weight": 30,
+                "denominator": 30,
+                "escaping_weight": 0,
+                "numerator": 30,
+                "policy": "proper_prefix_all_min_tau_stop_states_label_union_fitting_log_v1",
+                "prefixes": [
+                  {
+                    "activated_labels": [
+                      "A"
+                    ],
+                    "escaping_labels": [],
+                    "observed_next_labels": [
+                      "A"
+                    ],
+                    "prefix": [],
+                    "search": {
+                      "minimum_tau_cost": 0,
+                      "policy": "empty_prefix_initial_marking"
+                    },
+                    "stop_markings": [
+                      0
+                    ],
+                    "tau_closure_markings": [
+                      0,
+                      1
+                    ],
+                    "weight": 6
+                  },
+                  {
+                    "activated_labels": [
+                      "B",
+                      "C"
+                    ],
+                    "escaping_labels": [],
+                    "observed_next_labels": [
+                      "B",
+                      "C"
+                    ],
+                    "prefix": [
+                      "A"
+                    ],
+                    "search": {
+                      "minimum_tau_cost": 1,
+                      "search_states": [
+                        {
+                          "marking_state": 0,
+                          "minimum_tau_cost": 0,
+                          "position": 0,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 1,
+                          "minimum_tau_cost": 1,
+                          "position": 0,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 2,
+                          "minimum_tau_cost": 1,
+                          "position": 1,
+                          "settled": true
+                        }
+                      ]
+                    },
+                    "stop_markings": [
+                      2
+                    ],
+                    "tau_closure_markings": [
+                      2,
+                      3
+                    ],
+                    "weight": 6
+                  },
+                  {
+                    "activated_labels": [
+                      "C"
+                    ],
+                    "escaping_labels": [],
+                    "observed_next_labels": [
+                      "C"
+                    ],
+                    "prefix": [
+                      "A",
+                      "B"
+                    ],
+                    "search": {
+                      "minimum_tau_cost": 2,
+                      "search_states": [
+                        {
+                          "marking_state": 0,
+                          "minimum_tau_cost": 0,
+                          "position": 0,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 1,
+                          "minimum_tau_cost": 1,
+                          "position": 0,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 2,
+                          "minimum_tau_cost": 1,
+                          "position": 1,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 3,
+                          "minimum_tau_cost": 2,
+                          "position": 1,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 5,
+                          "minimum_tau_cost": 2,
+                          "position": 2,
+                          "settled": true
+                        }
+                      ]
+                    },
+                    "stop_markings": [
+                      5
+                    ],
+                    "tau_closure_markings": [
+                      5
+                    ],
+                    "weight": 3
+                  },
+                  {
+                    "activated_labels": [
+                      "D"
+                    ],
+                    "escaping_labels": [],
+                    "observed_next_labels": [
+                      "D"
+                    ],
+                    "prefix": [
+                      "A",
+                      "B",
+                      "C"
+                    ],
+                    "search": {
+                      "minimum_tau_cost": 2,
+                      "search_states": [
+                        {
+                          "marking_state": 0,
+                          "minimum_tau_cost": 0,
+                          "position": 0,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 1,
+                          "minimum_tau_cost": 1,
+                          "position": 0,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 2,
+                          "minimum_tau_cost": 1,
+                          "position": 1,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 3,
+                          "minimum_tau_cost": 2,
+                          "position": 1,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 5,
+                          "minimum_tau_cost": 2,
+                          "position": 2,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 6,
+                          "minimum_tau_cost": 2,
+                          "position": 3,
+                          "settled": true
+                        }
+                      ]
+                    },
+                    "stop_markings": [
+                      6
+                    ],
+                    "tau_closure_markings": [
+                      6,
+                      7
+                    ],
+                    "weight": 3
+                  },
+                  {
+                    "activated_labels": [
+                      "B"
+                    ],
+                    "escaping_labels": [],
+                    "observed_next_labels": [
+                      "B"
+                    ],
+                    "prefix": [
+                      "A",
+                      "C"
+                    ],
+                    "search": {
+                      "minimum_tau_cost": 2,
+                      "search_states": [
+                        {
+                          "marking_state": 0,
+                          "minimum_tau_cost": 0,
+                          "position": 0,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 1,
+                          "minimum_tau_cost": 1,
+                          "position": 0,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 2,
+                          "minimum_tau_cost": 1,
+                          "position": 1,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 3,
+                          "minimum_tau_cost": 2,
+                          "position": 1,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 4,
+                          "minimum_tau_cost": 2,
+                          "position": 2,
+                          "settled": true
+                        }
+                      ]
+                    },
+                    "stop_markings": [
+                      4
+                    ],
+                    "tau_closure_markings": [
+                      4
+                    ],
+                    "weight": 3
+                  },
+                  {
+                    "activated_labels": [
+                      "D"
+                    ],
+                    "escaping_labels": [],
+                    "observed_next_labels": [
+                      "D"
+                    ],
+                    "prefix": [
+                      "A",
+                      "C",
+                      "B"
+                    ],
+                    "search": {
+                      "minimum_tau_cost": 2,
+                      "search_states": [
+                        {
+                          "marking_state": 0,
+                          "minimum_tau_cost": 0,
+                          "position": 0,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 1,
+                          "minimum_tau_cost": 1,
+                          "position": 0,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 2,
+                          "minimum_tau_cost": 1,
+                          "position": 1,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 3,
+                          "minimum_tau_cost": 2,
+                          "position": 1,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 4,
+                          "minimum_tau_cost": 2,
+                          "position": 2,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 6,
+                          "minimum_tau_cost": 2,
+                          "position": 3,
+                          "settled": true
+                        }
+                      ]
+                    },
+                    "stop_markings": [
+                      6
+                    ],
+                    "tau_closure_markings": [
+                      6,
+                      7
+                    ],
+                    "weight": 3
+                  }
+                ],
+                "scalar": 1.0,
+                "status": "measured"
+              },
+              "simplicity": {
+                "arcs": 18,
+                "denominator": 1,
+                "k": 2,
+                "mean_degree_denominator": 18,
+                "mean_degree_numerator": 36,
+                "metric": "inverse_mean_arc_degree",
+                "numerator": 1,
+                "places": 10,
+                "representation": "exact_hashed_net_no_reduction",
+                "scalar": 1.0,
+                "status": "measured",
+                "transitions": 8
+              }
+            }
+          }
+        ],
+        "status": "admitted"
+      }
+    },
+    {
+      "id": "self-loop",
+      "result": {
+        "reason": "quality_unsupported_standard_loop_before_both_converters",
+        "status": "quality_unsupported_semantics"
+      }
+    },
+    {
+      "id": "short-loop",
+      "net_sha256": "71c708e9effdce1463b81a6491791d9482cc45c9ccb0875a7bf38d039094f0e7",
+      "result": {
+        "graph": {
+          "edges": [
+            {
+              "from": 0,
+              "label": null,
+              "to": 1,
+              "transition": "00000000-0000-0000-0000-000000002711"
+            },
+            {
+              "from": 1,
+              "label": null,
+              "to": 2,
+              "transition": "00000000-0000-0000-0000-000000002719"
+            },
+            {
+              "from": 2,
+              "label": "A",
+              "to": 3,
+              "transition": "00000000-0000-0000-0000-000000002714"
+            },
+            {
+              "from": 3,
+              "label": null,
+              "to": 4,
+              "transition": "00000000-0000-0000-0000-000000002716"
+            },
+            {
+              "from": 3,
+              "label": null,
+              "to": 5,
+              "transition": "00000000-0000-0000-0000-000000002717"
+            },
+            {
+              "from": 4,
+              "label": "C",
+              "to": 6,
+              "transition": "00000000-0000-0000-0000-000000002713"
+            },
+            {
+              "from": 5,
+              "label": "B",
+              "to": 7,
+              "transition": "00000000-0000-0000-0000-000000002715"
+            },
+            {
+              "from": 6,
+              "label": null,
+              "to": 8,
+              "transition": "00000000-0000-0000-0000-000000002712"
+            },
+            {
+              "from": 7,
+              "label": null,
+              "to": 2,
+              "transition": "00000000-0000-0000-0000-000000002718"
+            }
+          ],
+          "final_states": [
+            8
+          ],
+          "initial_state": 0,
+          "net_sha256": "71c708e9effdce1463b81a6491791d9482cc45c9ccb0875a7bf38d039094f0e7",
+          "places": [
+            "00000000-0000-0000-0000-000000000001",
+            "00000000-0000-0000-0000-000000000002",
+            "00000000-0000-0000-0000-000000000003",
+            "00000000-0000-0000-0000-000000000004",
+            "00000000-0000-0000-0000-000000000005",
+            "00000000-0000-0000-0000-000000000006",
+            "00000000-0000-0000-0000-000000000007",
+            "00000000-0000-0000-0000-000000000008",
+            "00000000-0000-0000-0000-000000000009"
+          ],
+          "schema_version": 1,
+          "states": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          ],
+          "transitions": [
+            {
+              "id": "00000000-0000-0000-0000-000000002711",
+              "label": null
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000002712",
+              "label": null
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000002713",
+              "label": "C"
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000002714",
+              "label": "A"
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000002715",
+              "label": "B"
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000002716",
+              "label": null
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000002717",
+              "label": null
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000002718",
+              "label": null
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000002719",
+              "label": null
+            }
+          ]
+        },
+        "groups": [
+          {
+            "group": "training_log",
+            "input": [
+              {
+                "frequency": 1,
+                "sequence": [
+                  "A",
+                  "B",
+                  "A",
+                  "C"
+                ]
+              },
+              {
+                "frequency": 1,
+                "sequence": [
+                  "A",
+                  "C"
+                ]
+              },
+              {
+                "frequency": 1,
+                "sequence": [
+                  "A",
+                  "B",
+                  "A",
+                  "B",
+                  "A",
+                  "C"
+                ]
+              }
+            ],
+            "metrics": {
+              "fitness": {
+                "alignments": [
+                  {
+                    "activities": [
+                      "A",
+                      "B",
+                      "A",
+                      "B",
+                      "A",
+                      "C"
+                    ],
+                    "frequency": 1,
+                    "result": {
+                      "Ok": {
+                        "cost": 0,
+                        "moves": [
+                          {
+                            "ModelMove": {
+                              "transition": "00000000-0000-0000-0000-000000002711"
+                            }
+                          },
+                          {
+                            "ModelMove": {
+                              "transition": "00000000-0000-0000-0000-000000002719"
+                            }
+                          },
+                          {
+                            "SyncMove": {
+                              "trace_event_index": 0,
+                              "transition": "00000000-0000-0000-0000-000000002714"
+                            }
+                          },
+                          {
+                            "ModelMove": {
+                              "transition": "00000000-0000-0000-0000-000000002717"
+                            }
+                          },
+                          {
+                            "SyncMove": {
+                              "trace_event_index": 1,
+                              "transition": "00000000-0000-0000-0000-000000002715"
+                            }
+                          },
+                          {
+                            "ModelMove": {
+                              "transition": "00000000-0000-0000-0000-000000002718"
+                            }
+                          },
+                          {
+                            "SyncMove": {
+                              "trace_event_index": 2,
+                              "transition": "00000000-0000-0000-0000-000000002714"
+                            }
+                          },
+                          {
+                            "ModelMove": {
+                              "transition": "00000000-0000-0000-0000-000000002717"
+                            }
+                          },
+                          {
+                            "SyncMove": {
+                              "trace_event_index": 3,
+                              "transition": "00000000-0000-0000-0000-000000002715"
+                            }
+                          },
+                          {
+                            "ModelMove": {
+                              "transition": "00000000-0000-0000-0000-000000002718"
+                            }
+                          },
+                          {
+                            "SyncMove": {
+                              "trace_event_index": 4,
+                              "transition": "00000000-0000-0000-0000-000000002714"
+                            }
+                          },
+                          {
+                            "ModelMove": {
+                              "transition": "00000000-0000-0000-0000-000000002716"
+                            }
+                          },
+                          {
+                            "SyncMove": {
+                              "trace_event_index": 5,
+                              "transition": "00000000-0000-0000-0000-000000002713"
+                            }
+                          },
+                          {
+                            "ModelMove": {
+                              "transition": "00000000-0000-0000-0000-000000002712"
+                            }
+                          }
+                        ],
+                        "states_visited": 18
+                      }
+                    }
+                  },
+                  {
+                    "activities": [
+                      "A",
+                      "B",
+                      "A",
+                      "C"
+                    ],
+                    "frequency": 1,
+                    "result": {
+                      "Ok": {
+                        "cost": 0,
+                        "moves": [
+                          {
+                            "ModelMove": {
+                              "transition": "00000000-0000-0000-0000-000000002711"
+                            }
+                          },
+                          {
+                            "ModelMove": {
+                              "transition": "00000000-0000-0000-0000-000000002719"
+                            }
+                          },
+                          {
+                            "SyncMove": {
+                              "trace_event_index": 0,
+                              "transition": "00000000-0000-0000-0000-000000002714"
+                            }
+                          },
+                          {
+                            "ModelMove": {
+                              "transition": "00000000-0000-0000-0000-000000002717"
+                            }
+                          },
+                          {
+                            "SyncMove": {
+                              "trace_event_index": 1,
+                              "transition": "00000000-0000-0000-0000-000000002715"
+                            }
+                          },
+                          {
+                            "ModelMove": {
+                              "transition": "00000000-0000-0000-0000-000000002718"
+                            }
+                          },
+                          {
+                            "SyncMove": {
+                              "trace_event_index": 2,
+                              "transition": "00000000-0000-0000-0000-000000002714"
+                            }
+                          },
+                          {
+                            "ModelMove": {
+                              "transition": "00000000-0000-0000-0000-000000002716"
+                            }
+                          },
+                          {
+                            "SyncMove": {
+                              "trace_event_index": 3,
+                              "transition": "00000000-0000-0000-0000-000000002713"
+                            }
+                          },
+                          {
+                            "ModelMove": {
+                              "transition": "00000000-0000-0000-0000-000000002712"
+                            }
+                          }
+                        ],
+                        "states_visited": 13
+                      }
+                    }
+                  },
+                  {
+                    "activities": [
+                      "A",
+                      "C"
+                    ],
+                    "frequency": 1,
+                    "result": {
+                      "Ok": {
+                        "cost": 0,
+                        "moves": [
+                          {
+                            "ModelMove": {
+                              "transition": "00000000-0000-0000-0000-000000002711"
+                            }
+                          },
+                          {
+                            "ModelMove": {
+                              "transition": "00000000-0000-0000-0000-000000002719"
+                            }
+                          },
+                          {
+                            "SyncMove": {
+                              "trace_event_index": 0,
+                              "transition": "00000000-0000-0000-0000-000000002714"
+                            }
+                          },
+                          {
+                            "ModelMove": {
+                              "transition": "00000000-0000-0000-0000-000000002716"
+                            }
+                          },
+                          {
+                            "SyncMove": {
+                              "trace_event_index": 1,
+                              "transition": "00000000-0000-0000-0000-000000002713"
+                            }
+                          },
+                          {
+                            "ModelMove": {
+                              "transition": "00000000-0000-0000-0000-000000002712"
+                            }
+                          }
+                        ],
+                        "states_visited": 8
+                      }
+                    }
+                  }
+                ],
+                "costs": {
+                  "log": 1,
+                  "model": 1,
+                  "sync": 0,
+                  "tau": 0
+                },
+                "empty_alignment": {
+                  "cost": 2,
+                  "moves": [
+                    {
+                      "ModelMove": {
+                        "transition": "00000000-0000-0000-0000-000000002711"
+                      }
+                    },
+                    {
+                      "ModelMove": {
+                        "transition": "00000000-0000-0000-0000-000000002719"
+                      }
+                    },
+                    {
+                      "ModelMove": {
+                        "transition": "00000000-0000-0000-0000-000000002714"
+                      }
+                    },
+                    {
+                      "ModelMove": {
+                        "transition": "00000000-0000-0000-0000-000000002716"
+                      }
+                    },
+                    {
+                      "ModelMove": {
+                        "transition": "00000000-0000-0000-0000-000000002713"
+                      }
+                    },
+                    {
+                      "ModelMove": {
+                        "transition": "00000000-0000-0000-0000-000000002712"
+                      }
+                    }
+                  ],
+                  "states_visited": 9
+                },
+                "fitness": {
+                  "average_fitness": 1.0,
+                  "log_fitness": 1.0,
+                  "perfectly_fitting_frac": 1.0,
+                  "total_costs": 0
+                },
+                "integer_components": {
+                  "empty_cost": 2,
+                  "events": 12,
+                  "log_denominator": 18,
+                  "traces": 3,
+                  "weighted_total_cost": 0
+                },
+                "projection": {
+                  "act_to_index": {
+                    "A": 0,
+                    "B": 1,
+                    "C": 2
+                  },
+                  "activities": [
+                    "A",
+                    "B",
+                    "C"
+                  ],
+                  "traces": [
+                    [
+                      [
+                        0,
+                        1,
+                        0,
+                        1,
+                        0,
+                        2
+                      ],
+                      1
+                    ],
+                    [
+                      [
+                        0,
+                        1,
+                        0,
+                        2
+                      ],
+                      1
+                    ],
+                    [
+                      [
+                        0,
+                        2
+                      ],
+                      1
+                    ]
+                  ]
+                },
+                "status": "measured"
+              },
+              "precision": {
+                "activated_weight": 18,
+                "denominator": 18,
+                "escaping_weight": 1,
+                "numerator": 17,
+                "policy": "proper_prefix_all_min_tau_stop_states_label_union_fitting_log_v1",
+                "prefixes": [
+                  {
+                    "activated_labels": [
+                      "A"
+                    ],
+                    "escaping_labels": [],
+                    "observed_next_labels": [
+                      "A"
+                    ],
+                    "prefix": [],
+                    "search": {
+                      "minimum_tau_cost": 0,
+                      "policy": "empty_prefix_initial_marking"
+                    },
+                    "stop_markings": [
+                      0
+                    ],
+                    "tau_closure_markings": [
+                      0,
+                      1,
+                      2
+                    ],
+                    "weight": 3
+                  },
+                  {
+                    "activated_labels": [
+                      "B",
+                      "C"
+                    ],
+                    "escaping_labels": [],
+                    "observed_next_labels": [
+                      "B",
+                      "C"
+                    ],
+                    "prefix": [
+                      "A"
+                    ],
+                    "search": {
+                      "minimum_tau_cost": 2,
+                      "search_states": [
+                        {
+                          "marking_state": 0,
+                          "minimum_tau_cost": 0,
+                          "position": 0,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 1,
+                          "minimum_tau_cost": 1,
+                          "position": 0,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 2,
+                          "minimum_tau_cost": 2,
+                          "position": 0,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 3,
+                          "minimum_tau_cost": 2,
+                          "position": 1,
+                          "settled": true
+                        }
+                      ]
+                    },
+                    "stop_markings": [
+                      3
+                    ],
+                    "tau_closure_markings": [
+                      3,
+                      4,
+                      5
+                    ],
+                    "weight": 3
+                  },
+                  {
+                    "activated_labels": [
+                      "A"
+                    ],
+                    "escaping_labels": [],
+                    "observed_next_labels": [
+                      "A"
+                    ],
+                    "prefix": [
+                      "A",
+                      "B"
+                    ],
+                    "search": {
+                      "minimum_tau_cost": 3,
+                      "search_states": [
+                        {
+                          "marking_state": 0,
+                          "minimum_tau_cost": 0,
+                          "position": 0,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 1,
+                          "minimum_tau_cost": 1,
+                          "position": 0,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 2,
+                          "minimum_tau_cost": 2,
+                          "position": 0,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 3,
+                          "minimum_tau_cost": 2,
+                          "position": 1,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 4,
+                          "minimum_tau_cost": 3,
+                          "position": 1,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 5,
+                          "minimum_tau_cost": 3,
+                          "position": 1,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 7,
+                          "minimum_tau_cost": 3,
+                          "position": 2,
+                          "settled": true
+                        }
+                      ]
+                    },
+                    "stop_markings": [
+                      7
+                    ],
+                    "tau_closure_markings": [
+                      2,
+                      7
+                    ],
+                    "weight": 2
+                  },
+                  {
+                    "activated_labels": [
+                      "B",
+                      "C"
+                    ],
+                    "escaping_labels": [],
+                    "observed_next_labels": [
+                      "B",
+                      "C"
+                    ],
+                    "prefix": [
+                      "A",
+                      "B",
+                      "A"
+                    ],
+                    "search": {
+                      "minimum_tau_cost": 4,
+                      "search_states": [
+                        {
+                          "marking_state": 0,
+                          "minimum_tau_cost": 0,
+                          "position": 0,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 1,
+                          "minimum_tau_cost": 1,
+                          "position": 0,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 2,
+                          "minimum_tau_cost": 2,
+                          "position": 0,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 2,
+                          "minimum_tau_cost": 4,
+                          "position": 2,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 3,
+                          "minimum_tau_cost": 2,
+                          "position": 1,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 3,
+                          "minimum_tau_cost": 4,
+                          "position": 3,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 4,
+                          "minimum_tau_cost": 3,
+                          "position": 1,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 5,
+                          "minimum_tau_cost": 3,
+                          "position": 1,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 7,
+                          "minimum_tau_cost": 3,
+                          "position": 2,
+                          "settled": true
+                        }
+                      ]
+                    },
+                    "stop_markings": [
+                      3
+                    ],
+                    "tau_closure_markings": [
+                      3,
+                      4,
+                      5
+                    ],
+                    "weight": 2
+                  },
+                  {
+                    "activated_labels": [
+                      "A"
+                    ],
+                    "escaping_labels": [],
+                    "observed_next_labels": [
+                      "A"
+                    ],
+                    "prefix": [
+                      "A",
+                      "B",
+                      "A",
+                      "B"
+                    ],
+                    "search": {
+                      "minimum_tau_cost": 5,
+                      "search_states": [
+                        {
+                          "marking_state": 0,
+                          "minimum_tau_cost": 0,
+                          "position": 0,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 1,
+                          "minimum_tau_cost": 1,
+                          "position": 0,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 2,
+                          "minimum_tau_cost": 2,
+                          "position": 0,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 2,
+                          "minimum_tau_cost": 4,
+                          "position": 2,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 3,
+                          "minimum_tau_cost": 2,
+                          "position": 1,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 3,
+                          "minimum_tau_cost": 4,
+                          "position": 3,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 4,
+                          "minimum_tau_cost": 3,
+                          "position": 1,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 4,
+                          "minimum_tau_cost": 5,
+                          "position": 3,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 5,
+                          "minimum_tau_cost": 3,
+                          "position": 1,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 5,
+                          "minimum_tau_cost": 5,
+                          "position": 3,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 7,
+                          "minimum_tau_cost": 3,
+                          "position": 2,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 7,
+                          "minimum_tau_cost": 5,
+                          "position": 4,
+                          "settled": true
+                        }
+                      ]
+                    },
+                    "stop_markings": [
+                      7
+                    ],
+                    "tau_closure_markings": [
+                      2,
+                      7
+                    ],
+                    "weight": 1
+                  },
+                  {
+                    "activated_labels": [
+                      "B",
+                      "C"
+                    ],
+                    "escaping_labels": [
+                      "B"
+                    ],
+                    "observed_next_labels": [
+                      "C"
+                    ],
+                    "prefix": [
+                      "A",
+                      "B",
+                      "A",
+                      "B",
+                      "A"
+                    ],
+                    "search": {
+                      "minimum_tau_cost": 6,
+                      "search_states": [
+                        {
+                          "marking_state": 0,
+                          "minimum_tau_cost": 0,
+                          "position": 0,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 1,
+                          "minimum_tau_cost": 1,
+                          "position": 0,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 2,
+                          "minimum_tau_cost": 2,
+                          "position": 0,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 2,
+                          "minimum_tau_cost": 4,
+                          "position": 2,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 2,
+                          "minimum_tau_cost": 6,
+                          "position": 4,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 3,
+                          "minimum_tau_cost": 2,
+                          "position": 1,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 3,
+                          "minimum_tau_cost": 4,
+                          "position": 3,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 3,
+                          "minimum_tau_cost": 6,
+                          "position": 5,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 4,
+                          "minimum_tau_cost": 3,
+                          "position": 1,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 4,
+                          "minimum_tau_cost": 5,
+                          "position": 3,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 5,
+                          "minimum_tau_cost": 3,
+                          "position": 1,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 5,
+                          "minimum_tau_cost": 5,
+                          "position": 3,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 7,
+                          "minimum_tau_cost": 3,
+                          "position": 2,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 7,
+                          "minimum_tau_cost": 5,
+                          "position": 4,
+                          "settled": true
+                        }
+                      ]
+                    },
+                    "stop_markings": [
+                      3
+                    ],
+                    "tau_closure_markings": [
+                      3,
+                      4,
+                      5
+                    ],
+                    "weight": 1
+                  }
+                ],
+                "scalar": 0.9444444444444444,
+                "status": "measured"
+              },
+              "simplicity": {
+                "arcs": 18,
+                "denominator": 1,
+                "k": 2,
+                "mean_degree_denominator": 18,
+                "mean_degree_numerator": 36,
+                "metric": "inverse_mean_arc_degree",
+                "numerator": 1,
+                "places": 9,
+                "representation": "exact_hashed_net_no_reduction",
+                "scalar": 1.0,
+                "status": "measured",
+                "transitions": 9
+              }
+            }
+          }
+        ],
+        "status": "admitted"
+      }
+    },
+    {
+      "id": "rare-noise",
+      "net_sha256": "5d98ef74cac74a9ccd08920bc58565fe6d162312e74f2e0fd7c193dbc15e9f6b",
+      "result": {
+        "graph": {
+          "edges": [
+            {
+              "from": 0,
+              "label": null,
+              "to": 1,
+              "transition": "00000000-0000-0000-0000-000000002711"
+            },
+            {
+              "from": 1,
+              "label": "A",
+              "to": 2,
+              "transition": "00000000-0000-0000-0000-000000002715"
+            },
+            {
+              "from": 2,
+              "label": null,
+              "to": 3,
+              "transition": "00000000-0000-0000-0000-000000002717"
+            },
+            {
+              "from": 2,
+              "label": null,
+              "to": 4,
+              "transition": "00000000-0000-0000-0000-000000002718"
+            },
+            {
+              "from": 3,
+              "label": "B",
+              "to": 5,
+              "transition": "00000000-0000-0000-0000-000000002716"
+            },
+            {
+              "from": 4,
+              "label": "D",
+              "to": 6,
+              "transition": "00000000-0000-0000-0000-000000002714"
+            },
+            {
+              "from": 5,
+              "label": null,
+              "to": 7,
+              "transition": "00000000-0000-0000-0000-000000002719"
+            },
+            {
+              "from": 6,
+              "label": null,
+              "to": 7,
+              "transition": "00000000-0000-0000-0000-00000000271a"
+            },
+            {
+              "from": 7,
+              "label": "C",
+              "to": 8,
+              "transition": "00000000-0000-0000-0000-000000002713"
+            },
+            {
+              "from": 8,
+              "label": null,
+              "to": 9,
+              "transition": "00000000-0000-0000-0000-000000002712"
+            }
+          ],
+          "final_states": [
+            9
+          ],
+          "initial_state": 0,
+          "net_sha256": "5d98ef74cac74a9ccd08920bc58565fe6d162312e74f2e0fd7c193dbc15e9f6b",
+          "places": [
+            "00000000-0000-0000-0000-000000000001",
+            "00000000-0000-0000-0000-000000000002",
+            "00000000-0000-0000-0000-000000000003",
+            "00000000-0000-0000-0000-000000000004",
+            "00000000-0000-0000-0000-000000000005",
+            "00000000-0000-0000-0000-000000000006",
+            "00000000-0000-0000-0000-000000000007",
+            "00000000-0000-0000-0000-000000000008",
+            "00000000-0000-0000-0000-000000000009",
+            "00000000-0000-0000-0000-00000000000a"
+          ],
+          "schema_version": 1,
+          "states": [
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0
+            ],
+            [
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          ],
+          "transitions": [
+            {
+              "id": "00000000-0000-0000-0000-000000002711",
+              "label": null
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000002712",
+              "label": null
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000002713",
+              "label": "C"
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000002714",
+              "label": "D"
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000002715",
+              "label": "A"
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000002716",
+              "label": "B"
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000002717",
+              "label": null
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000002718",
+              "label": null
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000002719",
+              "label": null
+            },
+            {
+              "id": "00000000-0000-0000-0000-00000000271a",
+              "label": null
+            }
+          ]
+        },
+        "groups": [
+          {
+            "group": "training_log",
+            "input": [
+              {
+                "frequency": 9,
+                "sequence": [
+                  "A",
+                  "B",
+                  "C"
+                ]
+              },
+              {
+                "frequency": 1,
+                "sequence": [
+                  "A",
+                  "D",
+                  "C"
+                ]
+              }
+            ],
+            "metrics": {
+              "fitness": {
+                "alignments": [
+                  {
+                    "activities": [
+                      "A",
+                      "B",
+                      "C"
+                    ],
+                    "frequency": 9,
+                    "result": {
+                      "Ok": {
+                        "cost": 0,
+                        "moves": [
+                          {
+                            "ModelMove": {
+                              "transition": "00000000-0000-0000-0000-000000002711"
+                            }
+                          },
+                          {
+                            "SyncMove": {
+                              "trace_event_index": 0,
+                              "transition": "00000000-0000-0000-0000-000000002715"
+                            }
+                          },
+                          {
+                            "ModelMove": {
+                              "transition": "00000000-0000-0000-0000-000000002717"
+                            }
+                          },
+                          {
+                            "SyncMove": {
+                              "trace_event_index": 1,
+                              "transition": "00000000-0000-0000-0000-000000002716"
+                            }
+                          },
+                          {
+                            "ModelMove": {
+                              "transition": "00000000-0000-0000-0000-000000002719"
+                            }
+                          },
+                          {
+                            "SyncMove": {
+                              "trace_event_index": 2,
+                              "transition": "00000000-0000-0000-0000-000000002713"
+                            }
+                          },
+                          {
+                            "ModelMove": {
+                              "transition": "00000000-0000-0000-0000-000000002712"
+                            }
+                          }
+                        ],
+                        "states_visited": 9
+                      }
+                    }
+                  },
+                  {
+                    "activities": [
+                      "A",
+                      "D",
+                      "C"
+                    ],
+                    "frequency": 1,
+                    "result": {
+                      "Ok": {
+                        "cost": 0,
+                        "moves": [
+                          {
+                            "ModelMove": {
+                              "transition": "00000000-0000-0000-0000-000000002711"
+                            }
+                          },
+                          {
+                            "SyncMove": {
+                              "trace_event_index": 0,
+                              "transition": "00000000-0000-0000-0000-000000002715"
+                            }
+                          },
+                          {
+                            "ModelMove": {
+                              "transition": "00000000-0000-0000-0000-000000002718"
+                            }
+                          },
+                          {
+                            "SyncMove": {
+                              "trace_event_index": 1,
+                              "transition": "00000000-0000-0000-0000-000000002714"
+                            }
+                          },
+                          {
+                            "ModelMove": {
+                              "transition": "00000000-0000-0000-0000-00000000271a"
+                            }
+                          },
+                          {
+                            "SyncMove": {
+                              "trace_event_index": 2,
+                              "transition": "00000000-0000-0000-0000-000000002713"
+                            }
+                          },
+                          {
+                            "ModelMove": {
+                              "transition": "00000000-0000-0000-0000-000000002712"
+                            }
+                          }
+                        ],
+                        "states_visited": 9
+                      }
+                    }
+                  }
+                ],
+                "costs": {
+                  "log": 1,
+                  "model": 1,
+                  "sync": 0,
+                  "tau": 0
+                },
+                "empty_alignment": {
+                  "cost": 3,
+                  "moves": [
+                    {
+                      "ModelMove": {
+                        "transition": "00000000-0000-0000-0000-000000002711"
+                      }
+                    },
+                    {
+                      "ModelMove": {
+                        "transition": "00000000-0000-0000-0000-000000002715"
+                      }
+                    },
+                    {
+                      "ModelMove": {
+                        "transition": "00000000-0000-0000-0000-000000002717"
+                      }
+                    },
+                    {
+                      "ModelMove": {
+                        "transition": "00000000-0000-0000-0000-000000002716"
+                      }
+                    },
+                    {
+                      "ModelMove": {
+                        "transition": "00000000-0000-0000-0000-000000002719"
+                      }
+                    },
+                    {
+                      "ModelMove": {
+                        "transition": "00000000-0000-0000-0000-000000002713"
+                      }
+                    },
+                    {
+                      "ModelMove": {
+                        "transition": "00000000-0000-0000-0000-000000002712"
+                      }
+                    }
+                  ],
+                  "states_visited": 10
+                },
+                "fitness": {
+                  "average_fitness": 1.0,
+                  "log_fitness": 1.0,
+                  "perfectly_fitting_frac": 1.0,
+                  "total_costs": 0
+                },
+                "integer_components": {
+                  "empty_cost": 3,
+                  "events": 30,
+                  "log_denominator": 60,
+                  "traces": 10,
+                  "weighted_total_cost": 0
+                },
+                "projection": {
+                  "act_to_index": {
+                    "A": 0,
+                    "B": 1,
+                    "C": 2,
+                    "D": 3
+                  },
+                  "activities": [
+                    "A",
+                    "B",
+                    "C",
+                    "D"
+                  ],
+                  "traces": [
+                    [
+                      [
+                        0,
+                        1,
+                        2
+                      ],
+                      9
+                    ],
+                    [
+                      [
+                        0,
+                        3,
+                        2
+                      ],
+                      1
+                    ]
+                  ]
+                },
+                "status": "measured"
+              },
+              "precision": {
+                "activated_weight": 40,
+                "denominator": 40,
+                "escaping_weight": 0,
+                "numerator": 40,
+                "policy": "proper_prefix_all_min_tau_stop_states_label_union_fitting_log_v1",
+                "prefixes": [
+                  {
+                    "activated_labels": [
+                      "A"
+                    ],
+                    "escaping_labels": [],
+                    "observed_next_labels": [
+                      "A"
+                    ],
+                    "prefix": [],
+                    "search": {
+                      "minimum_tau_cost": 0,
+                      "policy": "empty_prefix_initial_marking"
+                    },
+                    "stop_markings": [
+                      0
+                    ],
+                    "tau_closure_markings": [
+                      0,
+                      1
+                    ],
+                    "weight": 10
+                  },
+                  {
+                    "activated_labels": [
+                      "B",
+                      "D"
+                    ],
+                    "escaping_labels": [],
+                    "observed_next_labels": [
+                      "B",
+                      "D"
+                    ],
+                    "prefix": [
+                      "A"
+                    ],
+                    "search": {
+                      "minimum_tau_cost": 1,
+                      "search_states": [
+                        {
+                          "marking_state": 0,
+                          "minimum_tau_cost": 0,
+                          "position": 0,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 1,
+                          "minimum_tau_cost": 1,
+                          "position": 0,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 2,
+                          "minimum_tau_cost": 1,
+                          "position": 1,
+                          "settled": true
+                        }
+                      ]
+                    },
+                    "stop_markings": [
+                      2
+                    ],
+                    "tau_closure_markings": [
+                      2,
+                      3,
+                      4
+                    ],
+                    "weight": 10
+                  },
+                  {
+                    "activated_labels": [
+                      "C"
+                    ],
+                    "escaping_labels": [],
+                    "observed_next_labels": [
+                      "C"
+                    ],
+                    "prefix": [
+                      "A",
+                      "B"
+                    ],
+                    "search": {
+                      "minimum_tau_cost": 2,
+                      "search_states": [
+                        {
+                          "marking_state": 0,
+                          "minimum_tau_cost": 0,
+                          "position": 0,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 1,
+                          "minimum_tau_cost": 1,
+                          "position": 0,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 2,
+                          "minimum_tau_cost": 1,
+                          "position": 1,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 3,
+                          "minimum_tau_cost": 2,
+                          "position": 1,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 4,
+                          "minimum_tau_cost": 2,
+                          "position": 1,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 5,
+                          "minimum_tau_cost": 2,
+                          "position": 2,
+                          "settled": true
+                        }
+                      ]
+                    },
+                    "stop_markings": [
+                      5
+                    ],
+                    "tau_closure_markings": [
+                      5,
+                      7
+                    ],
+                    "weight": 9
+                  },
+                  {
+                    "activated_labels": [
+                      "C"
+                    ],
+                    "escaping_labels": [],
+                    "observed_next_labels": [
+                      "C"
+                    ],
+                    "prefix": [
+                      "A",
+                      "D"
+                    ],
+                    "search": {
+                      "minimum_tau_cost": 2,
+                      "search_states": [
+                        {
+                          "marking_state": 0,
+                          "minimum_tau_cost": 0,
+                          "position": 0,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 1,
+                          "minimum_tau_cost": 1,
+                          "position": 0,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 2,
+                          "minimum_tau_cost": 1,
+                          "position": 1,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 3,
+                          "minimum_tau_cost": 2,
+                          "position": 1,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 4,
+                          "minimum_tau_cost": 2,
+                          "position": 1,
+                          "settled": true
+                        },
+                        {
+                          "marking_state": 6,
+                          "minimum_tau_cost": 2,
+                          "position": 2,
+                          "settled": true
+                        }
+                      ]
+                    },
+                    "stop_markings": [
+                      6
+                    ],
+                    "tau_closure_markings": [
+                      6,
+                      7
+                    ],
+                    "weight": 1
+                  }
+                ],
+                "scalar": 1.0,
+                "status": "measured"
+              },
+              "simplicity": {
+                "arcs": 20,
+                "denominator": 1,
+                "k": 2,
+                "mean_degree_denominator": 20,
+                "mean_degree_numerator": 40,
+                "metric": "inverse_mean_arc_degree",
+                "numerator": 1,
+                "places": 10,
+                "representation": "exact_hashed_net_no_reduction",
+                "scalar": 1.0,
+                "status": "measured",
+                "transitions": 10
+              }
+            }
+          }
+        ],
+        "status": "admitted"
+      }
+    },
+    {
+      "id": "empty-log",
+      "result": {
+        "exception": {
+          "class": "java.util.NoSuchElementException",
+          "message": null
+        },
+        "status": "carried_algorithm_exception"
+      }
+    },
+    {
+      "id": "empty-trace",
+      "net_sha256": "4f72b15d9e484c2b1636a3d07426f9843b6fa499a7314d0d9e71191aa9684a7f",
+      "result": {
+        "graph": {
+          "edges": [
+            {
+              "from": 0,
+              "label": null,
+              "to": 1,
+              "transition": "00000000-0000-0000-0000-000000002711"
+            },
+            {
+              "from": 1,
+              "label": null,
+              "to": 2,
+              "transition": "00000000-0000-0000-0000-000000002712"
+            }
+          ],
+          "final_states": [
+            2
+          ],
+          "initial_state": 0,
+          "net_sha256": "4f72b15d9e484c2b1636a3d07426f9843b6fa499a7314d0d9e71191aa9684a7f",
+          "places": [
+            "00000000-0000-0000-0000-000000000001",
+            "00000000-0000-0000-0000-000000000002",
+            "00000000-0000-0000-0000-000000000003"
+          ],
+          "schema_version": 1,
+          "states": [
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "transitions": [
+            {
+              "id": "00000000-0000-0000-0000-000000002711",
+              "label": null
+            },
+            {
+              "id": "00000000-0000-0000-0000-000000002712",
+              "label": null
+            }
+          ]
+        },
+        "groups": [
+          {
+            "group": "training_log",
+            "input": [
+              {
+                "frequency": 1,
+                "sequence": []
+              }
+            ],
+            "metrics": {
+              "fitness": {
+                "alignments": [
+                  {
+                    "activities": [],
+                    "frequency": 1,
+                    "result": {
+                      "Ok": {
+                        "cost": 0,
+                        "moves": [
+                          {
+                            "ModelMove": {
+                              "transition": "00000000-0000-0000-0000-000000002711"
+                            }
+                          },
+                          {
+                            "ModelMove": {
+                              "transition": "00000000-0000-0000-0000-000000002712"
+                            }
+                          }
+                        ],
+                        "states_visited": 3
+                      }
+                    }
+                  }
+                ],
+                "costs": {
+                  "log": 1,
+                  "model": 1,
+                  "sync": 0,
+                  "tau": 0
+                },
+                "empty_alignment": {
+                  "cost": 0,
+                  "moves": [
+                    {
+                      "ModelMove": {
+                        "transition": "00000000-0000-0000-0000-000000002711"
+                      }
+                    },
+                    {
+                      "ModelMove": {
+                        "transition": "00000000-0000-0000-0000-000000002712"
+                      }
+                    }
+                  ],
+                  "states_visited": 3
+                },
+                "fitness": {
+                  "average_fitness": 1.0,
+                  "log_fitness": 1.0,
+                  "perfectly_fitting_frac": 1.0,
+                  "total_costs": 0
+                },
+                "integer_components": {
+                  "empty_cost": 0,
+                  "events": 0,
+                  "log_denominator": 0,
+                  "traces": 1,
+                  "weighted_total_cost": 0
+                },
+                "projection": {
+                  "act_to_index": {},
+                  "activities": [],
+                  "traces": [
+                    [
+                      [],
+                      1
+                    ]
+                  ]
+                },
+                "status": "measured"
+              },
+              "precision": {
+                "activated_weight": 0,
+                "escaping_weight": 0,
+                "prefixes": [
+                  {
+                    "activated_labels": [],
+                    "escaping_labels": [],
+                    "observed_next_labels": [],
+                    "prefix": [],
+                    "search": {
+                      "minimum_tau_cost": 0,
+                      "policy": "empty_prefix_initial_marking"
+                    },
+                    "stop_markings": [
+                      0
+                    ],
+                    "tau_closure_markings": [
+                      0,
+                      1,
+                      2
+                    ],
+                    "weight": 1
+                  }
+                ],
+                "scalar": null,
+                "status": "not_applicable_no_activated_labels"
+              },
+              "simplicity": {
+                "arcs": 4,
+                "denominator": 1,
+                "k": 2,
+                "mean_degree_denominator": 5,
+                "mean_degree_numerator": 8,
+                "metric": "inverse_mean_arc_degree",
+                "numerator": 1,
+                "places": 3,
+                "representation": "exact_hashed_net_no_reduction",
+                "scalar": 1.0,
+                "status": "measured",
+                "transitions": 2
+              }
+            }
+          }
+        ],
+        "status": "admitted"
+      }
+    }
+  ],
+  "cohort_sha256": "6dac7a9b69d553590f342ed4b836140678a9f2c072cc806119f0ecc48ace208d",
+  "not_acceptance": true,
+  "phase": "miner_score_saved_only_no_conversion_or_mining",
+  "schema_version": 1,
+  "sources": {
+    "base": {
+      "Cargo.lock": "9005a089ccd3ec721e6d3209600c4cea10e0efc76c7ea4111406fb28c99f29b6",
+      "examples/bpmn_quality.rs": "08b33d75f08cb634d8e64535478083ffcb032609ac1af9e8e5352bd20c1be325",
+      "examples/quality/bridge.rs": "d62d33268e946bacaf5d59c31186be6759498547e5a3e0775072e7bc69fba057",
+      "examples/quality/metrics.rs": "855b14993b564758d7c439e75bd63d9608975e60cc67c7386bac0738fb554360",
+      "examples/quality/mod.rs": "080b426438a8890c5f3bd64f25d522346d159c9e133222ba0ff70e72e6f26fad",
+      "examples/quality/pipeline.rs": "36cd5f710274c0b2b6e7c5673e77224a6eed1fe0494499f9dc266b8b948e7b01",
+      "examples/quality/state.rs": "6583a429d932866f7e592ccedb0c0e4667326e15192217855a2c08048f8de858"
+    },
+    "examples/bpmn_quality_cohort.rs": "7d5a3e996b4b48ab1810128c1d99c00ae75e5008889c68ea1efa4f3b1a65458a",
+    "examples/quality/cohort.rs": "7d251f2848514f24b7c5e436ab8752d928be45b5bdd35f2bb6a3d9cea879ece1",
+    "tools/sprint19/quality-di.py": "1a02819cec37c3ebeb9a29aceccc562041d32601f3e16f8e1bbf0f9b8f13c729",
+    "tools/sprint19/quality-miner-project.py": "2c506461876155191833db8c8b1e098e96b722e04be48cb4e4543ef1236e2cbb",
+    "tools/sprint19/schema-hint.py": "971157628baf7b4fd7653da2e1dbe5c74dbfc09415f9fb5dafc287e28bc127c0"
+  }
+}

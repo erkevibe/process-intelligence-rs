@@ -52,6 +52,10 @@ jobs:
           TMPDIR="$PWD/.local/sprint19/ci-temp" python3 -B tests/sprint19_quality_di.py
           TMPDIR="$PWD/.local/sprint19/ci-temp" python3 -B tests/sprint19_schema_hint.py
           TMPDIR="$PWD/.local/sprint19/ci-temp" python3 -B tests/sprint19_quality_miner_project.py
+          python3 -B tools/sprint19/verify-quality-manifest.py evidence/sprint19/miner-quality
+          python3 -B tools/oracle/audit-quality-cohort.py --corpus fixtures/quality-miner/corpus.json --prepared evidence/sprint19/miner-quality/prepared --conversion evidence/sprint19/miner-quality/reference-conversion --rust evidence/sprint19/miner-quality/rust-metrics.json --reference evidence/sprint19/miner-quality/reference-metrics.json --output .local/sprint19/ci-audit/miner-audit.json
+          node --test tools/oracle/compare-core-calendar.test.mjs tools/oracle/compare-core-filter-extended.test.mjs
+          TMPDIR="$PWD/.local/sprint19/ci-temp" python3 -B tools/oracle/core-calendar-public-projection-tests.py
           python3 -B tools/sprint19/verify-quality-manifest.py evidence/sprint19/bpmn-quality
           python3 -B tools/oracle/audit-quality-evidence.py --rust evidence/sprint19/bpmn-quality/rust-metrics.json --reference evidence/sprint19/bpmn-quality/reference-metrics.json --prepared evidence/sprint19/bpmn-quality/prepared --corpus fixtures/quality/corpus.json --output .local/sprint19/ci-audit/independent-audit.json
       - name: Diagnostic protocol and state oracle regressions

@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "net_sha256": "138cd54d25a1938e8323fec44deab3b9b4b5366b413591e8d175f55c472d29be",
+  "places": [
+    "p:edge0",
+    "p:ent_node0",
+    "p:ent_node1",
+    "p:exi_node0",
+    "p:exi_node1",
+    "p:sink",
+    "p:source"
+  ],
+  "transitions": [
+    {
+      "id": "t:b6f97e7c-710c-42d5-a12d-a05791ef34f1",
+      "label": null
+    },
+    {
+      "id": "t:d9fa81d3-6515-4efb-a6a9-3c5eefefdd88",
+      "label": null
+    },
+    {
+      "id": "t:node0",
+      "label": null
+    },
+    {
+      "id": "t:node1",
+      "label": null
+    },
+    {
+      "id": "t:sfl_edge0",
+      "label": null
+    },
+    {
+      "id": "t:tfl_edge0",
+      "label": null
+    }
+  ],
+  "initial_state": 0,
+  "final_states": [
+    6
+  ],
+  "states": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0
+    ]
+  ],
+  "edges": [
+    {
+      "from": 0,
+      "to": 1,
+      "transition": "t:d9fa81d3-6515-4efb-a6a9-3c5eefefdd88",
+      "label": null
+    },
+    {
+      "from": 1,
+      "to": 2,
+      "transition": "t:node0",
+      "label": null
+    },
+    {
+      "from": 2,
+      "to": 3,
+      "transition": "t:sfl_edge0",
+      "label": null
+    },
+    {
+      "from": 3,
+      "to": 4,
+      "transition": "t:tfl_edge0",
+      "label": null
+    },
+    {
+      "from": 4,
+      "to": 5,
+      "transition": "t:node1",
+      "label": null
+    },
+    {
+      "from": 5,
+      "to": 6,
+      "transition": "t:b6f97e7c-710c-42d5-a12d-a05791ef34f1",
+      "label": null
+    }
+  ]
+}

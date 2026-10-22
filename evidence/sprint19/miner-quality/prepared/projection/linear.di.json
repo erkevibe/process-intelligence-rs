@@ -1,0 +1,598 @@
+{
+  "schema_version": 1,
+  "projection_status": "projected",
+  "original_sha256": "a069ed02b5e0c9ea873365465118e881a5c6b3ae9c05ee4a81899bcbd27100c2",
+  "original_bytes": 2490,
+  "projected_sha256": "7aa8a3a800be34950fa51efea20f9f70ac950e623bc664aceb06ae66f46c899b",
+  "projected_bytes": 2395,
+  "removed_spans": [
+    {
+      "byte_start": 1339,
+      "byte_length": 19,
+      "subtree_sha256": "64b3ca55c117f876d0f03bf820ea87374b9be12d5e99672789d8b4824b6cdd96",
+      "raw_utf8": "<bpmndi:BPMNLabel/>",
+      "parent": {
+        "namespace": "http://www.omg.org/spec/BPMN/20100524/DI",
+        "local_name": "BPMNShape",
+        "id": null,
+        "bpmnElement": "node4",
+        "direct": true
+      },
+      "label_namespace": "http://www.omg.org/spec/BPMN/20100524/DI",
+      "bounds": null
+    },
+    {
+      "byte_start": 1477,
+      "byte_length": 19,
+      "subtree_sha256": "64b3ca55c117f876d0f03bf820ea87374b9be12d5e99672789d8b4824b6cdd96",
+      "raw_utf8": "<bpmndi:BPMNLabel/>",
+      "parent": {
+        "namespace": "http://www.omg.org/spec/BPMN/20100524/DI",
+        "local_name": "BPMNShape",
+        "id": null,
+        "bpmnElement": "node1",
+        "direct": true
+      },
+      "label_namespace": "http://www.omg.org/spec/BPMN/20100524/DI",
+      "bounds": null
+    },
+    {
+      "byte_start": 1616,
+      "byte_length": 19,
+      "subtree_sha256": "64b3ca55c117f876d0f03bf820ea87374b9be12d5e99672789d8b4824b6cdd96",
+      "raw_utf8": "<bpmndi:BPMNLabel/>",
+      "parent": {
+        "namespace": "http://www.omg.org/spec/BPMN/20100524/DI",
+        "local_name": "BPMNShape",
+        "id": null,
+        "bpmnElement": "node0",
+        "direct": true
+      },
+      "label_namespace": "http://www.omg.org/spec/BPMN/20100524/DI",
+      "bounds": null
+    },
+    {
+      "byte_start": 1752,
+      "byte_length": 19,
+      "subtree_sha256": "64b3ca55c117f876d0f03bf820ea87374b9be12d5e99672789d8b4824b6cdd96",
+      "raw_utf8": "<bpmndi:BPMNLabel/>",
+      "parent": {
+        "namespace": "http://www.omg.org/spec/BPMN/20100524/DI",
+        "local_name": "BPMNShape",
+        "id": null,
+        "bpmnElement": "node3",
+        "direct": true
+      },
+      "label_namespace": "http://www.omg.org/spec/BPMN/20100524/DI",
+      "bounds": null
+    },
+    {
+      "byte_start": 1891,
+      "byte_length": 19,
+      "subtree_sha256": "64b3ca55c117f876d0f03bf820ea87374b9be12d5e99672789d8b4824b6cdd96",
+      "raw_utf8": "<bpmndi:BPMNLabel/>",
+      "parent": {
+        "namespace": "http://www.omg.org/spec/BPMN/20100524/DI",
+        "local_name": "BPMNShape",
+        "id": null,
+        "bpmnElement": "node2",
+        "direct": true
+      },
+      "label_namespace": "http://www.omg.org/spec/BPMN/20100524/DI",
+      "bounds": null
+    }
+  ],
+  "raw_construct_inventory": [
+    {
+      "namespace": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+      "local_name": "definitions",
+      "attributes": {
+        "targetNamespace": "http://www.omg.org/bpmn20",
+        "exporter": "ProM. http://www.promtools.org/prom6",
+        "exporterVersion": "6.3"
+      },
+      "byte_start": 38,
+      "start_tag_sha256": "8f6d7a82e46d3e05da2a08f4c5e37dc45a14162749262684743a14bf60072d89"
+    },
+    {
+      "namespace": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+      "local_name": "process",
+      "attributes": {
+        "id": "proc_389993238"
+      },
+      "byte_start": 428,
+      "start_tag_sha256": "f132292f9b79a091435207e7eb4e2a90417398b2df0bab46358b68042cc19faa"
+    },
+    {
+      "namespace": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+      "local_name": "startEvent",
+      "attributes": {
+        "id": "node3",
+        "name": ""
+      },
+      "byte_start": 457,
+      "start_tag_sha256": "851b02233c4ee011cb712712c7bd9cbd86f9d151ab41b80c348fd92e5cec3d78"
+    },
+    {
+      "namespace": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+      "local_name": "outgoing",
+      "attributes": {},
+      "byte_start": 488,
+      "start_tag_sha256": "06c7bec2d8810b5f976ab26965410f096419a23f452d0c39916f2fe1e5d5b740"
+    },
+    {
+      "namespace": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+      "local_name": "endEvent",
+      "attributes": {
+        "id": "node4",
+        "name": ""
+      },
+      "byte_start": 529,
+      "start_tag_sha256": "177d506bc2e45b75a4d26db9a84280e0b3b70ab996a2c647c68c01b67b6c6988"
+    },
+    {
+      "namespace": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+      "local_name": "incoming",
+      "attributes": {},
+      "byte_start": 558,
+      "start_tag_sha256": "718be80dad1fd2e19f7dcd7d37bb6107180bb544fe84d150356cdfdc9c0b3311"
+    },
+    {
+      "namespace": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+      "local_name": "task",
+      "attributes": {
+        "id": "node0",
+        "name": "C"
+      },
+      "byte_start": 597,
+      "start_tag_sha256": "dd167b2e50d5c1ae9e4f241fc380300266470890d94c332a395a68abe22d5656"
+    },
+    {
+      "namespace": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+      "local_name": "incoming",
+      "attributes": {},
+      "byte_start": 623,
+      "start_tag_sha256": "718be80dad1fd2e19f7dcd7d37bb6107180bb544fe84d150356cdfdc9c0b3311"
+    },
+    {
+      "namespace": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+      "local_name": "outgoing",
+      "attributes": {},
+      "byte_start": 650,
+      "start_tag_sha256": "06c7bec2d8810b5f976ab26965410f096419a23f452d0c39916f2fe1e5d5b740"
+    },
+    {
+      "namespace": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+      "local_name": "task",
+      "attributes": {
+        "id": "node1",
+        "name": "A"
+      },
+      "byte_start": 685,
+      "start_tag_sha256": "b72d002310a5db1299631eaeeb8a0d5758c37e4dc8f72206d9aa9b463e777f9d"
+    },
+    {
+      "namespace": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+      "local_name": "incoming",
+      "attributes": {},
+      "byte_start": 711,
+      "start_tag_sha256": "718be80dad1fd2e19f7dcd7d37bb6107180bb544fe84d150356cdfdc9c0b3311"
+    },
+    {
+      "namespace": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+      "local_name": "outgoing",
+      "attributes": {},
+      "byte_start": 738,
+      "start_tag_sha256": "06c7bec2d8810b5f976ab26965410f096419a23f452d0c39916f2fe1e5d5b740"
+    },
+    {
+      "namespace": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+      "local_name": "task",
+      "attributes": {
+        "id": "node2",
+        "name": "B"
+      },
+      "byte_start": 773,
+      "start_tag_sha256": "cffb11adbf5de52884450d698b82e0a48ba8a9c5fac8550f7c796a910547556f"
+    },
+    {
+      "namespace": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+      "local_name": "incoming",
+      "attributes": {},
+      "byte_start": 799,
+      "start_tag_sha256": "718be80dad1fd2e19f7dcd7d37bb6107180bb544fe84d150356cdfdc9c0b3311"
+    },
+    {
+      "namespace": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+      "local_name": "outgoing",
+      "attributes": {},
+      "byte_start": 826,
+      "start_tag_sha256": "06c7bec2d8810b5f976ab26965410f096419a23f452d0c39916f2fe1e5d5b740"
+    },
+    {
+      "namespace": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+      "local_name": "sequenceFlow",
+      "attributes": {
+        "id": "edge0",
+        "name": "",
+        "sourceRef": "node2",
+        "targetRef": "node0"
+      },
+      "byte_start": 861,
+      "start_tag_sha256": "28dc8b576cefadad3cca7cdcd087266b0e7873478276d17c780e6cad90098d35"
+    },
+    {
+      "namespace": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+      "local_name": "sequenceFlow",
+      "attributes": {
+        "id": "edge1",
+        "name": "",
+        "sourceRef": "node3",
+        "targetRef": "node1"
+      },
+      "byte_start": 932,
+      "start_tag_sha256": "79927bf3278c2718a10581c89fc8ec4dc09080e068cd8fe59ed28b77d0b20076"
+    },
+    {
+      "namespace": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+      "local_name": "sequenceFlow",
+      "attributes": {
+        "id": "edge2",
+        "name": "",
+        "sourceRef": "node0",
+        "targetRef": "node4"
+      },
+      "byte_start": 1003,
+      "start_tag_sha256": "47cc603a39b02e09921a0fd6dae43f7d700aca25952876feadb9539882f16b1c"
+    },
+    {
+      "namespace": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+      "local_name": "sequenceFlow",
+      "attributes": {
+        "id": "edge3",
+        "name": "",
+        "sourceRef": "node1",
+        "targetRef": "node2"
+      },
+      "byte_start": 1074,
+      "start_tag_sha256": "7cf2c585616b7e63fba6fdb76bc571ef906e3f745c3c4ceac290cc2d9410c4b4"
+    },
+    {
+      "namespace": "http://www.omg.org/spec/BPMN/20100524/DI",
+      "local_name": "BPMNDiagram",
+      "attributes": {
+        "id": "id_-85574306"
+      },
+      "byte_start": 1156,
+      "start_tag_sha256": "34b870e30f9d10b99d6ef5f0c67e07e054157bcedd28794a4ff1fd36aeb6189c"
+    },
+    {
+      "namespace": "http://www.omg.org/spec/BPMN/20100524/DI",
+      "local_name": "BPMNPlane",
+      "attributes": {
+        "bpmnElement": "proc_389993238"
+      },
+      "byte_start": 1194,
+      "start_tag_sha256": "955d6cbf87a8ee5bb60d617cd94ba656717cc29bc0cbafd8b3de6603bc55fbfd"
+    },
+    {
+      "namespace": "http://www.omg.org/spec/BPMN/20100524/DI",
+      "local_name": "BPMNShape",
+      "attributes": {
+        "bpmnElement": "node4"
+      },
+      "byte_start": 1241,
+      "start_tag_sha256": "be25c7868752e219fc20e8e79dd175e0199d9d81a3f995ba720f97eadb4f2309"
+    },
+    {
+      "namespace": "http://www.omg.org/spec/DD/20100524/DC",
+      "local_name": "Bounds",
+      "attributes": {
+        "x": "526.0",
+        "y": "109.0",
+        "width": "25.0",
+        "height": "25.0"
+      },
+      "byte_start": 1279,
+      "start_tag_sha256": "1a33063a4a83a1cd80fe80704b69167e4d44a8dc7bbd16012e98045ff1830a32"
+    },
+    {
+      "namespace": "http://www.omg.org/spec/BPMN/20100524/DI",
+      "local_name": "BPMNLabel",
+      "attributes": {},
+      "byte_start": 1339,
+      "start_tag_sha256": "64b3ca55c117f876d0f03bf820ea87374b9be12d5e99672789d8b4824b6cdd96"
+    },
+    {
+      "namespace": "http://www.omg.org/spec/BPMN/20100524/DI",
+      "local_name": "BPMNShape",
+      "attributes": {
+        "bpmnElement": "node1"
+      },
+      "byte_start": 1379,
+      "start_tag_sha256": "bff3e2a40a3d8b70e1e6610d2e54e82bebac45fff3111ce9f798422e7cc1e311"
+    },
+    {
+      "namespace": "http://www.omg.org/spec/DD/20100524/DC",
+      "local_name": "Bounds",
+      "attributes": {
+        "x": "76.0",
+        "y": "101.5",
+        "width": "100.0",
+        "height": "40.0"
+      },
+      "byte_start": 1417,
+      "start_tag_sha256": "52f3fe7bd0d89f41ece0b1c73ac1a36665cb8192e6509a37f0c4e9a5e56ce3e8"
+    },
+    {
+      "namespace": "http://www.omg.org/spec/BPMN/20100524/DI",
+      "local_name": "BPMNLabel",
+      "attributes": {},
+      "byte_start": 1477,
+      "start_tag_sha256": "64b3ca55c117f876d0f03bf820ea87374b9be12d5e99672789d8b4824b6cdd96"
+    },
+    {
+      "namespace": "http://www.omg.org/spec/BPMN/20100524/DI",
+      "local_name": "BPMNShape",
+      "attributes": {
+        "bpmnElement": "node0"
+      },
+      "byte_start": 1517,
+      "start_tag_sha256": "6e013ec49bd0cb830decaf4a78d2d5b728cbd2aea1f2532df2fbd8611512598a"
+    },
+    {
+      "namespace": "http://www.omg.org/spec/DD/20100524/DC",
+      "local_name": "Bounds",
+      "attributes": {
+        "x": "376.0",
+        "y": "101.5",
+        "width": "100.0",
+        "height": "40.0"
+      },
+      "byte_start": 1555,
+      "start_tag_sha256": "30d87656171a94b78e12ff1ca2a13626ce2458cc59b0d91e1892feb44dc5ac27"
+    },
+    {
+      "namespace": "http://www.omg.org/spec/BPMN/20100524/DI",
+      "local_name": "BPMNLabel",
+      "attributes": {},
+      "byte_start": 1616,
+      "start_tag_sha256": "64b3ca55c117f876d0f03bf820ea87374b9be12d5e99672789d8b4824b6cdd96"
+    },
+    {
+      "namespace": "http://www.omg.org/spec/BPMN/20100524/DI",
+      "local_name": "BPMNShape",
+      "attributes": {
+        "bpmnElement": "node3"
+      },
+      "byte_start": 1656,
+      "start_tag_sha256": "12cd06436a2221d40bce32a45c646a1cb7d3ca8d39494a6cfb0beaf767a16aa5"
+    },
+    {
+      "namespace": "http://www.omg.org/spec/DD/20100524/DC",
+      "local_name": "Bounds",
+      "attributes": {
+        "x": "1.0",
+        "y": "109.0",
+        "width": "25.0",
+        "height": "25.0"
+      },
+      "byte_start": 1694,
+      "start_tag_sha256": "2a7c6b070319e30a7253d8a3eed97395337a2b4b0ebe26e64027c761ed419566"
+    },
+    {
+      "namespace": "http://www.omg.org/spec/BPMN/20100524/DI",
+      "local_name": "BPMNLabel",
+      "attributes": {},
+      "byte_start": 1752,
+      "start_tag_sha256": "64b3ca55c117f876d0f03bf820ea87374b9be12d5e99672789d8b4824b6cdd96"
+    },
+    {
+      "namespace": "http://www.omg.org/spec/BPMN/20100524/DI",
+      "local_name": "BPMNShape",
+      "attributes": {
+        "bpmnElement": "node2"
+      },
+      "byte_start": 1792,
+      "start_tag_sha256": "4f3c953e1e9c2acf649617dcd304a89c3cd932664cb9c8263ce0cc6692c505c9"
+    },
+    {
+      "namespace": "http://www.omg.org/spec/DD/20100524/DC",
+      "local_name": "Bounds",
+      "attributes": {
+        "x": "226.0",
+        "y": "101.5",
+        "width": "100.0",
+        "height": "40.0"
+      },
+      "byte_start": 1830,
+      "start_tag_sha256": "985993ef935acddba27b455e8527b4231f3776d938448d7b28455bc46ab064f7"
+    },
+    {
+      "namespace": "http://www.omg.org/spec/BPMN/20100524/DI",
+      "local_name": "BPMNLabel",
+      "attributes": {},
+      "byte_start": 1891,
+      "start_tag_sha256": "64b3ca55c117f876d0f03bf820ea87374b9be12d5e99672789d8b4824b6cdd96"
+    },
+    {
+      "namespace": "http://www.omg.org/spec/BPMN/20100524/DI",
+      "local_name": "BPMNEdge",
+      "attributes": {
+        "bpmnElement": "edge1"
+      },
+      "byte_start": 1931,
+      "start_tag_sha256": "bb34ba8f1631f996c04f27ce2f5a562a4363fe355ff4c04f6451d879c3565c7d"
+    },
+    {
+      "namespace": "http://www.omg.org/spec/DD/20100524/DI",
+      "local_name": "waypoint",
+      "attributes": {
+        "x": "13.5",
+        "y": "121.5"
+      },
+      "byte_start": 1968,
+      "start_tag_sha256": "503d50b265020adadb44b1c20f10e07a446290a975258804a52d9dbc08cfac9e"
+    },
+    {
+      "namespace": "http://www.omg.org/spec/DD/20100524/DI",
+      "local_name": "waypoint",
+      "attributes": {
+        "x": "126.0",
+        "y": "121.5"
+      },
+      "byte_start": 2002,
+      "start_tag_sha256": "3ab8a651fea0291c32f68e1c3f7d64ea00abac7374bd7850d7941ad10f49be39"
+    },
+    {
+      "namespace": "http://www.omg.org/spec/BPMN/20100524/DI",
+      "local_name": "BPMNEdge",
+      "attributes": {
+        "bpmnElement": "edge2"
+      },
+      "byte_start": 2056,
+      "start_tag_sha256": "6a4fff8e49f10a9b726c21b99dd1221e1f98a7b9fac5850461c39619825db148"
+    },
+    {
+      "namespace": "http://www.omg.org/spec/DD/20100524/DI",
+      "local_name": "waypoint",
+      "attributes": {
+        "x": "426.0",
+        "y": "121.5"
+      },
+      "byte_start": 2093,
+      "start_tag_sha256": "78e8b330518ff85ed23b189013e11acc5ec153d2a5f2a74260b0a10f280369f9"
+    },
+    {
+      "namespace": "http://www.omg.org/spec/DD/20100524/DI",
+      "local_name": "waypoint",
+      "attributes": {
+        "x": "538.5",
+        "y": "121.5"
+      },
+      "byte_start": 2128,
+      "start_tag_sha256": "ff448c016a549be8507dc4cb5bc339740d2dd1669dd8c671d6cc12b44c7eca01"
+    },
+    {
+      "namespace": "http://www.omg.org/spec/BPMN/20100524/DI",
+      "local_name": "BPMNEdge",
+      "attributes": {
+        "bpmnElement": "edge3"
+      },
+      "byte_start": 2182,
+      "start_tag_sha256": "8aa3c7a5f8dea19c8a15e376f32017e81ee4496dd45a9bc866a0f874112a0737"
+    },
+    {
+      "namespace": "http://www.omg.org/spec/DD/20100524/DI",
+      "local_name": "waypoint",
+      "attributes": {
+        "x": "126.0",
+        "y": "121.5"
+      },
+      "byte_start": 2219,
+      "start_tag_sha256": "3ab8a651fea0291c32f68e1c3f7d64ea00abac7374bd7850d7941ad10f49be39"
+    },
+    {
+      "namespace": "http://www.omg.org/spec/DD/20100524/DI",
+      "local_name": "waypoint",
+      "attributes": {
+        "x": "276.0",
+        "y": "121.5"
+      },
+      "byte_start": 2254,
+      "start_tag_sha256": "308481726e920af8feadc03bfcd1b9f2b32e573132b0c0d98ac6e4d81da8cc60"
+    },
+    {
+      "namespace": "http://www.omg.org/spec/BPMN/20100524/DI",
+      "local_name": "BPMNEdge",
+      "attributes": {
+        "bpmnElement": "edge0"
+      },
+      "byte_start": 2308,
+      "start_tag_sha256": "a7e87bb2db44328c6b762b36b7f7604abe560b66418a3efef814d4a33467991d"
+    },
+    {
+      "namespace": "http://www.omg.org/spec/DD/20100524/DI",
+      "local_name": "waypoint",
+      "attributes": {
+        "x": "276.0",
+        "y": "121.5"
+      },
+      "byte_start": 2345,
+      "start_tag_sha256": "308481726e920af8feadc03bfcd1b9f2b32e573132b0c0d98ac6e4d81da8cc60"
+    },
+    {
+      "namespace": "http://www.omg.org/spec/DD/20100524/DI",
+      "local_name": "waypoint",
+      "attributes": {
+        "x": "426.0",
+        "y": "121.5"
+      },
+      "byte_start": 2380,
+      "start_tag_sha256": "78e8b330518ff85ed23b189013e11acc5ec153d2a5f2a74260b0a10f280369f9"
+    }
+  ],
+  "semantic_map": {
+    "process": {
+      "id": "proc_389993238",
+      "isExecutable": false
+    },
+    "nodes": [
+      {
+        "id": "node3",
+        "kind": "start",
+        "label": ""
+      },
+      {
+        "id": "node4",
+        "kind": "end",
+        "label": ""
+      },
+      {
+        "id": "node0",
+        "kind": "task",
+        "label": "C"
+      },
+      {
+        "id": "node1",
+        "kind": "task",
+        "label": "A"
+      },
+      {
+        "id": "node2",
+        "kind": "task",
+        "label": "B"
+      }
+    ],
+    "flows": [
+      {
+        "id": "edge0",
+        "source": "node2",
+        "target": "node0",
+        "label": ""
+      },
+      {
+        "id": "edge1",
+        "source": "node3",
+        "target": "node1",
+        "label": ""
+      },
+      {
+        "id": "edge2",
+        "source": "node0",
+        "target": "node4",
+        "label": ""
+      },
+      {
+        "id": "edge3",
+        "source": "node1",
+        "target": "node2",
+        "label": ""
+      }
+    ]
+  },
+  "strict_projected_reparse_required": true,
+  "original_product_import_not_claimed": true,
+  "reference_must_receive_original_xml": true,
+  "not_metric_or_acceptance": true
+}

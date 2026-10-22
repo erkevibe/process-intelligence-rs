@@ -1,0 +1,1002 @@
+{
+  "schema_version": 1,
+  "phase": "cohort_projection_only_no_converter",
+  "cohort_sha256": "6dac7a9b69d553590f342ed4b836140678a9f2c072cc806119f0ecc48ace208d",
+  "sources": {
+    "tools/sprint19/schema-hint.py": "971157628baf7b4fd7653da2e1dbe5c74dbfc09415f9fb5dafc287e28bc127c0",
+    "tools/sprint19/quality-di.py": "1a02819cec37c3ebeb9a29aceccc562041d32601f3e16f8e1bbf0f9b8f13c729",
+    "tools/sprint19/quality-miner-project.py": "2c506461876155191833db8c8b1e098e96b722e04be48cb4e4543ef1236e2cbb"
+  },
+  "schema_policy_sha256": "d49c756db26e952d32ae800ac7847ae9692adf27a71d847f30a8d7eb8a58d39d",
+  "di_policy_sha256": "BE3AD397A3241405D69BADA74F70AF9A50F43B6C06A8443A171F49FD3ADE9A15",
+  "cases": [
+    {
+      "id": "linear",
+      "source_xes_file": "linear.xes",
+      "source_xes_sha256": "e322a6d8ff750b39022ca4a83c77cefe1dfcf0fd7f9c140cb07a56ce4ee1239d",
+      "trace_lineage_verified": true,
+      "source_input": {
+        "file": "../oracle-splitminer/linear.xes",
+        "sha256": "e322a6d8ff750b39022ca4a83c77cefe1dfcf0fd7f9c140cb07a56ce4ee1239d",
+        "bytes": 1292,
+        "trace_count": 2,
+        "event_count": 6,
+        "traces": [
+          {
+            "source_trace_index": 0,
+            "source_trace_name": "case-0",
+            "sequence": [
+              "A",
+              "B",
+              "C"
+            ],
+            "event_count": 3
+          },
+          {
+            "source_trace_index": 1,
+            "source_trace_name": "case-1",
+            "sequence": [
+              "A",
+              "B",
+              "C"
+            ],
+            "event_count": 3
+          }
+        ],
+        "training_log": [
+          {
+            "sequence": [
+              "A",
+              "B",
+              "C"
+            ],
+            "frequency": 2
+          }
+        ],
+        "heldout_log": null,
+        "designation": "original_miner_training_only_no_new_heldout",
+        "original_training_variants": [
+          "ABC",
+          "ABC"
+        ]
+      },
+      "carried_actual_outcome": {
+        "status": "diagram_returned",
+        "exception": null,
+        "observation_sha256": "87ec5411fbecd760dcdb95af31a004feeb2031fb90da5d10c6359c8ca3abec2f",
+        "observation_bytes": 3099,
+        "elapsed_mining_nanos": 218793300,
+        "native_exit": 0,
+        "native_proof_sha256": "4cbcf48732604f16095f25bc9db82ec17d43985fb54a9d49b5824f47f270cc73",
+        "coordinator_result_sha256": "c0a0b6d848f303ec9fb2487091f8cbe789f2ffb3257a6d7b62f17b13addd8223",
+        "stdout_complete": true,
+        "stderr_complete": true,
+        "output_limit": false,
+        "capture_fault": false,
+        "drain_timeout": false,
+        "streams": [
+          {
+            "name": "stdout",
+            "sha256": "2af832eb929761ad1dc62e00835f39cb2166eb06d1e6a60feb13b1d3118adba0",
+            "bytes": 129,
+            "original_complete": true,
+            "warning_error_and_fallback_lines": [
+              "WARNING - first gateway not found",
+              "ERROR - something went wrong initializing the gateway map"
+            ],
+            "all_console_bytes_retained_in_historical_receipt": true,
+            "raw_console_not_copied": true
+          },
+          {
+            "name": "stderr",
+            "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+            "bytes": 92,
+            "original_complete": true,
+            "warning_error_and_fallback_lines": [],
+            "all_console_bytes_retained_in_historical_receipt": true,
+            "raw_console_not_copied": true
+          }
+        ],
+        "new_miner_execution": false
+      },
+      "raw_file": "linear.raw.bpmn",
+      "raw_sha256": "427e4dbded59fa732b2cef5b48ab47a414a4461331bdcc4b19b13db338c0eac5",
+      "raw_bytes": 2565,
+      "status": "projected_pending_strict_prepare",
+      "hint_file": "linear.hint.bpmn",
+      "hint_sha256": "a069ed02b5e0c9ea873365465118e881a5c6b3ae9c05ee4a81899bcbd27100c2",
+      "hint_report_file": "linear.hint.json",
+      "hint_report_sha256": "67db5e65fbb6d742c936f10b1b9440eee28301e5b81dbc5a98a15ede6be1b8a3",
+      "projected_file": "linear.projected.bpmn",
+      "projected_sha256": "7aa8a3a800be34950fa51efea20f9f70ac950e623bc664aceb06ae66f46c899b",
+      "di_report_file": "linear.di.json",
+      "di_report_sha256": "aa3ac36afef979a3d247b6f8ef2f6ce7320e07b377dd32d5d30de9416e203866"
+    },
+    {
+      "id": "exclusive-choice",
+      "source_xes_file": "exclusive-choice.xes",
+      "source_xes_sha256": "2304ae0ed58ce8ba6996476b147c0c1cb23fb7aa8bbab27dd0d65578f58cfdf5",
+      "trace_lineage_verified": true,
+      "source_input": {
+        "file": "../oracle-splitminer/exclusive-choice.xes",
+        "sha256": "2304ae0ed58ce8ba6996476b147c0c1cb23fb7aa8bbab27dd0d65578f58cfdf5",
+        "bytes": 2432,
+        "trace_count": 4,
+        "event_count": 12,
+        "traces": [
+          {
+            "source_trace_index": 0,
+            "source_trace_name": "case-0",
+            "sequence": [
+              "A",
+              "B",
+              "D"
+            ],
+            "event_count": 3
+          },
+          {
+            "source_trace_index": 1,
+            "source_trace_name": "case-1",
+            "sequence": [
+              "A",
+              "C",
+              "D"
+            ],
+            "event_count": 3
+          },
+          {
+            "source_trace_index": 2,
+            "source_trace_name": "case-2",
+            "sequence": [
+              "A",
+              "B",
+              "D"
+            ],
+            "event_count": 3
+          },
+          {
+            "source_trace_index": 3,
+            "source_trace_name": "case-3",
+            "sequence": [
+              "A",
+              "C",
+              "D"
+            ],
+            "event_count": 3
+          }
+        ],
+        "training_log": [
+          {
+            "sequence": [
+              "A",
+              "B",
+              "D"
+            ],
+            "frequency": 2
+          },
+          {
+            "sequence": [
+              "A",
+              "C",
+              "D"
+            ],
+            "frequency": 2
+          }
+        ],
+        "heldout_log": null,
+        "designation": "original_miner_training_only_no_new_heldout",
+        "original_training_variants": [
+          "ABD",
+          "ACD",
+          "ABD",
+          "ACD"
+        ]
+      },
+      "carried_actual_outcome": {
+        "status": "diagram_returned",
+        "exception": null,
+        "observation_sha256": "4a8bf1ebc62875cb0efaf0eb09acf34c3e243464f724182dd2daa0954ebaf623",
+        "observation_bytes": 4184,
+        "elapsed_mining_nanos": 276719800,
+        "native_exit": 0,
+        "native_proof_sha256": "4bf29532b9b774bf49e5d4a0ea85f896613ff25a5c0a10dd2e33fb8018b5dbbe",
+        "coordinator_result_sha256": "d6b6d57195994056c281739c6cd3f0b99a2c97360065f0cace008468dda3621c",
+        "stdout_complete": true,
+        "stderr_complete": true,
+        "output_limit": false,
+        "capture_fault": false,
+        "drain_timeout": false,
+        "streams": [
+          {
+            "name": "stdout",
+            "sha256": "554af6989f04ae6b9d05c207c2b9b28a3609746246a3cb77926e5050aa059204",
+            "bytes": 35,
+            "original_complete": true,
+            "warning_error_and_fallback_lines": [],
+            "all_console_bytes_retained_in_historical_receipt": true,
+            "raw_console_not_copied": true
+          },
+          {
+            "name": "stderr",
+            "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+            "bytes": 92,
+            "original_complete": true,
+            "warning_error_and_fallback_lines": [],
+            "all_console_bytes_retained_in_historical_receipt": true,
+            "raw_console_not_copied": true
+          }
+        ],
+        "new_miner_execution": false
+      },
+      "raw_file": "exclusive-choice.raw.bpmn",
+      "raw_sha256": "887070a89f35c85a315423ef9b30569b220dfa30585a96a06ac39b592032951e",
+      "raw_bytes": 4135,
+      "status": "projected_pending_strict_prepare",
+      "hint_file": "exclusive-choice.hint.bpmn",
+      "hint_sha256": "582bd8f05812bacad86e60ec101ca01b60f31c87351d4fd1988a4b51863501ec",
+      "hint_report_file": "exclusive-choice.hint.json",
+      "hint_report_sha256": "99bcb0536e2d47bc429edc351316de2177f9d311fbafa294bbd27ad15e457e94",
+      "projected_file": "exclusive-choice.projected.bpmn",
+      "projected_sha256": "cca22d9acc0591f78b1d7ad63d8f4b889cd1895264f22be53fbd9e1f346d9745",
+      "di_report_file": "exclusive-choice.di.json",
+      "di_report_sha256": "394f613ac1e67509b681c3b330e39d2d4c231051bcad55fe6bdb5e8614328931"
+    },
+    {
+      "id": "parallel-interleavings",
+      "source_xes_file": "parallel-interleavings.xes",
+      "source_xes_sha256": "0765643359e6e28b24e16123ca136d726f9e3ff49388f98b9a8aab4120f08c20",
+      "trace_lineage_verified": true,
+      "source_input": {
+        "file": "../oracle-splitminer/parallel-interleavings.xes",
+        "sha256": "0765643359e6e28b24e16123ca136d726f9e3ff49388f98b9a8aab4120f08c20",
+        "bytes": 4576,
+        "trace_count": 6,
+        "event_count": 24,
+        "traces": [
+          {
+            "source_trace_index": 0,
+            "source_trace_name": "case-0",
+            "sequence": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ],
+            "event_count": 4
+          },
+          {
+            "source_trace_index": 1,
+            "source_trace_name": "case-1",
+            "sequence": [
+              "A",
+              "C",
+              "B",
+              "D"
+            ],
+            "event_count": 4
+          },
+          {
+            "source_trace_index": 2,
+            "source_trace_name": "case-2",
+            "sequence": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ],
+            "event_count": 4
+          },
+          {
+            "source_trace_index": 3,
+            "source_trace_name": "case-3",
+            "sequence": [
+              "A",
+              "C",
+              "B",
+              "D"
+            ],
+            "event_count": 4
+          },
+          {
+            "source_trace_index": 4,
+            "source_trace_name": "case-4",
+            "sequence": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ],
+            "event_count": 4
+          },
+          {
+            "source_trace_index": 5,
+            "source_trace_name": "case-5",
+            "sequence": [
+              "A",
+              "C",
+              "B",
+              "D"
+            ],
+            "event_count": 4
+          }
+        ],
+        "training_log": [
+          {
+            "sequence": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ],
+            "frequency": 3
+          },
+          {
+            "sequence": [
+              "A",
+              "C",
+              "B",
+              "D"
+            ],
+            "frequency": 3
+          }
+        ],
+        "heldout_log": null,
+        "designation": "original_miner_training_only_no_new_heldout",
+        "original_training_variants": [
+          "ABCD",
+          "ACBD",
+          "ABCD",
+          "ACBD",
+          "ABCD",
+          "ACBD"
+        ]
+      },
+      "carried_actual_outcome": {
+        "status": "diagram_returned",
+        "exception": null,
+        "observation_sha256": "44d8464c714b4160f16e96df59de4b6979edf17124d3769366c91c7929e2ee97",
+        "observation_bytes": 4182,
+        "elapsed_mining_nanos": 283916000,
+        "native_exit": 0,
+        "native_proof_sha256": "c221ac308e6bd708d0adfeea06a35aff85b2fa51c2812342ce5cdbaf3eafb4ed",
+        "coordinator_result_sha256": "59a5b498f64edf685f649456f6d91348d7a7eb0f066ced734a2f5388fef322e2",
+        "stdout_complete": true,
+        "stderr_complete": true,
+        "output_limit": false,
+        "capture_fault": false,
+        "drain_timeout": false,
+        "streams": [
+          {
+            "name": "stdout",
+            "sha256": "554af6989f04ae6b9d05c207c2b9b28a3609746246a3cb77926e5050aa059204",
+            "bytes": 35,
+            "original_complete": true,
+            "warning_error_and_fallback_lines": [],
+            "all_console_bytes_retained_in_historical_receipt": true,
+            "raw_console_not_copied": true
+          },
+          {
+            "name": "stderr",
+            "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+            "bytes": 92,
+            "original_complete": true,
+            "warning_error_and_fallback_lines": [],
+            "all_console_bytes_retained_in_historical_receipt": true,
+            "raw_console_not_copied": true
+          }
+        ],
+        "new_miner_execution": false
+      },
+      "raw_file": "parallel-interleavings.raw.bpmn",
+      "raw_sha256": "56e33beeab413328eb936357be0b508063d9899fdd5087b96910e4812c715c0d",
+      "raw_bytes": 4131,
+      "status": "projected_pending_strict_prepare",
+      "hint_file": "parallel-interleavings.hint.bpmn",
+      "hint_sha256": "aa8741fbba4b513472211016a1499c761babe4f8cbf6fe790a23a0159b955f85",
+      "hint_report_file": "parallel-interleavings.hint.json",
+      "hint_report_sha256": "01796ae46709bfa9a63b7776bb9fc6c238f1d8e356d75117fefb074262c1017c",
+      "projected_file": "parallel-interleavings.projected.bpmn",
+      "projected_sha256": "c3b278907b3cf67bb62f2fc0e76427c6b33be0a01dec3aa14245237536beb29e",
+      "di_report_file": "parallel-interleavings.di.json",
+      "di_report_sha256": "d64f9d82e391ccf8310f6bf0d9eaa564d99d68218dda72140298c37a08d6beb3"
+    },
+    {
+      "id": "self-loop",
+      "source_xes_file": "self-loop.xes",
+      "source_xes_sha256": "4d0caf82f37113cefdb9caeefbae81292dcb874e6750ba244cec3e8e45a9a0dc",
+      "trace_lineage_verified": true,
+      "source_input": {
+        "file": "../oracle-splitminer/self-loop.xes",
+        "sha256": "4d0caf82f37113cefdb9caeefbae81292dcb874e6750ba244cec3e8e45a9a0dc",
+        "bytes": 1860,
+        "trace_count": 3,
+        "event_count": 9,
+        "traces": [
+          {
+            "source_trace_index": 0,
+            "source_trace_name": "case-0",
+            "sequence": [
+              "A",
+              "A",
+              "B"
+            ],
+            "event_count": 3
+          },
+          {
+            "source_trace_index": 1,
+            "source_trace_name": "case-1",
+            "sequence": [
+              "A",
+              "B"
+            ],
+            "event_count": 2
+          },
+          {
+            "source_trace_index": 2,
+            "source_trace_name": "case-2",
+            "sequence": [
+              "A",
+              "A",
+              "A",
+              "B"
+            ],
+            "event_count": 4
+          }
+        ],
+        "training_log": [
+          {
+            "sequence": [
+              "A",
+              "A",
+              "B"
+            ],
+            "frequency": 1
+          },
+          {
+            "sequence": [
+              "A",
+              "B"
+            ],
+            "frequency": 1
+          },
+          {
+            "sequence": [
+              "A",
+              "A",
+              "A",
+              "B"
+            ],
+            "frequency": 1
+          }
+        ],
+        "heldout_log": null,
+        "designation": "original_miner_training_only_no_new_heldout",
+        "original_training_variants": [
+          "AAB",
+          "AB",
+          "AAAB"
+        ]
+      },
+      "carried_actual_outcome": {
+        "status": "diagram_returned",
+        "exception": null,
+        "observation_sha256": "5dd45a8dba93f571c9e685d53b404d531959f70e9d5a349faef4500cede578f3",
+        "observation_bytes": 2788,
+        "elapsed_mining_nanos": 179061300,
+        "native_exit": 0,
+        "native_proof_sha256": "f57e263a13bcaf8f279e78f8289f6c26bbdfa9a057c83f9ab6ac21f26f2ef338",
+        "coordinator_result_sha256": "e166b3164aaecdc8e47f91fe17dec15d6535b05dc22995f9be7fa6f00a85b8df",
+        "stdout_complete": true,
+        "stderr_complete": true,
+        "output_limit": false,
+        "capture_fault": false,
+        "drain_timeout": false,
+        "streams": [
+          {
+            "name": "stdout",
+            "sha256": "2af832eb929761ad1dc62e00835f39cb2166eb06d1e6a60feb13b1d3118adba0",
+            "bytes": 129,
+            "original_complete": true,
+            "warning_error_and_fallback_lines": [
+              "WARNING - first gateway not found",
+              "ERROR - something went wrong initializing the gateway map"
+            ],
+            "all_console_bytes_retained_in_historical_receipt": true,
+            "raw_console_not_copied": true
+          },
+          {
+            "name": "stderr",
+            "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+            "bytes": 92,
+            "original_complete": true,
+            "warning_error_and_fallback_lines": [],
+            "all_console_bytes_retained_in_historical_receipt": true,
+            "raw_console_not_copied": true
+          }
+        ],
+        "new_miner_execution": false
+      },
+      "raw_file": "self-loop.raw.bpmn",
+      "raw_sha256": "cc9f4863586d47b9553d41aab8ebd7bc797aeca9597d1524c087a3937cc28463",
+      "raw_bytes": 2192,
+      "status": "raw_compatibility_refused",
+      "category": "quality_unsupported_standard_loop_before_both_converters",
+      "no_partial_projection": true
+    },
+    {
+      "id": "short-loop",
+      "source_xes_file": "short-loop.xes",
+      "source_xes_sha256": "4b941524e45d72353e69d61e6f5a600468647abb9576511364b31bfbb73d3d1b",
+      "trace_lineage_verified": true,
+      "source_input": {
+        "file": "../oracle-splitminer/short-loop.xes",
+        "sha256": "4b941524e45d72353e69d61e6f5a600468647abb9576511364b31bfbb73d3d1b",
+        "bytes": 2365,
+        "trace_count": 3,
+        "event_count": 12,
+        "traces": [
+          {
+            "source_trace_index": 0,
+            "source_trace_name": "case-0",
+            "sequence": [
+              "A",
+              "B",
+              "A",
+              "C"
+            ],
+            "event_count": 4
+          },
+          {
+            "source_trace_index": 1,
+            "source_trace_name": "case-1",
+            "sequence": [
+              "A",
+              "C"
+            ],
+            "event_count": 2
+          },
+          {
+            "source_trace_index": 2,
+            "source_trace_name": "case-2",
+            "sequence": [
+              "A",
+              "B",
+              "A",
+              "B",
+              "A",
+              "C"
+            ],
+            "event_count": 6
+          }
+        ],
+        "training_log": [
+          {
+            "sequence": [
+              "A",
+              "B",
+              "A",
+              "C"
+            ],
+            "frequency": 1
+          },
+          {
+            "sequence": [
+              "A",
+              "C"
+            ],
+            "frequency": 1
+          },
+          {
+            "sequence": [
+              "A",
+              "B",
+              "A",
+              "B",
+              "A",
+              "C"
+            ],
+            "frequency": 1
+          }
+        ],
+        "heldout_log": null,
+        "designation": "original_miner_training_only_no_new_heldout",
+        "original_training_variants": [
+          "ABAC",
+          "AC",
+          "ABABAC"
+        ]
+      },
+      "carried_actual_outcome": {
+        "status": "diagram_returned",
+        "exception": null,
+        "observation_sha256": "2ad6c063362dcc4cdac8899daae5d86bd0d73d68472d41b602d5aeaa9c5bc05a",
+        "observation_bytes": 3874,
+        "elapsed_mining_nanos": 241085900,
+        "native_exit": 0,
+        "native_proof_sha256": "81e8215e17bd2ac14ddffbaf59f866f6883c8d0d40a5c8ec15b88c4a2fd9d433",
+        "coordinator_result_sha256": "d5bacd6d62ec281d4feb12fa5fccdc902b716de5bb1448010ad11a1eeb8f4e7f",
+        "stdout_complete": true,
+        "stderr_complete": true,
+        "output_limit": false,
+        "capture_fault": false,
+        "drain_timeout": false,
+        "streams": [
+          {
+            "name": "stdout",
+            "sha256": "554af6989f04ae6b9d05c207c2b9b28a3609746246a3cb77926e5050aa059204",
+            "bytes": 35,
+            "original_complete": true,
+            "warning_error_and_fallback_lines": [],
+            "all_console_bytes_retained_in_historical_receipt": true,
+            "raw_console_not_copied": true
+          },
+          {
+            "name": "stderr",
+            "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+            "bytes": 92,
+            "original_complete": true,
+            "warning_error_and_fallback_lines": [],
+            "all_console_bytes_retained_in_historical_receipt": true,
+            "raw_console_not_copied": true
+          }
+        ],
+        "new_miner_execution": false
+      },
+      "raw_file": "short-loop.raw.bpmn",
+      "raw_sha256": "9705eddd0b88f25f4abca3688696228046c8e99de0edb71f4b9e1375025d745a",
+      "raw_bytes": 3779,
+      "status": "projected_pending_strict_prepare",
+      "hint_file": "short-loop.hint.bpmn",
+      "hint_sha256": "bf7ec955e33a7bd6abe6de0c6d1474b993dc34f932b7724a4fff1c8f6c15c985",
+      "hint_report_file": "short-loop.hint.json",
+      "hint_report_sha256": "1237b86648da38a20e89146cece1877c99d2064c8cc2cfefcb57fce844bfa0bd",
+      "projected_file": "short-loop.projected.bpmn",
+      "projected_sha256": "e7817a609756f65dafed2ec34ca5b46e81fb6999b9e30abcb1ea2c4812005839",
+      "di_report_file": "short-loop.di.json",
+      "di_report_sha256": "1aa9422c70e09c4f4f3c140ce9c05ee3fe5b9042b5a406dd84d4a8688ad24e84"
+    },
+    {
+      "id": "rare-noise",
+      "source_xes_file": "rare-noise.xes",
+      "source_xes_sha256": "03e909d2de9b618cb6655c5a2e378ddc3277b58f6607f7b6b156758db4b916ad",
+      "trace_lineage_verified": true,
+      "source_input": {
+        "file": "../oracle-splitminer/rare-noise.xes",
+        "sha256": "03e909d2de9b618cb6655c5a2e378ddc3277b58f6607f7b6b156758db4b916ad",
+        "bytes": 5816,
+        "trace_count": 10,
+        "event_count": 30,
+        "traces": [
+          {
+            "source_trace_index": 0,
+            "source_trace_name": "case-0",
+            "sequence": [
+              "A",
+              "B",
+              "C"
+            ],
+            "event_count": 3
+          },
+          {
+            "source_trace_index": 1,
+            "source_trace_name": "case-1",
+            "sequence": [
+              "A",
+              "B",
+              "C"
+            ],
+            "event_count": 3
+          },
+          {
+            "source_trace_index": 2,
+            "source_trace_name": "case-2",
+            "sequence": [
+              "A",
+              "B",
+              "C"
+            ],
+            "event_count": 3
+          },
+          {
+            "source_trace_index": 3,
+            "source_trace_name": "case-3",
+            "sequence": [
+              "A",
+              "B",
+              "C"
+            ],
+            "event_count": 3
+          },
+          {
+            "source_trace_index": 4,
+            "source_trace_name": "case-4",
+            "sequence": [
+              "A",
+              "B",
+              "C"
+            ],
+            "event_count": 3
+          },
+          {
+            "source_trace_index": 5,
+            "source_trace_name": "case-5",
+            "sequence": [
+              "A",
+              "B",
+              "C"
+            ],
+            "event_count": 3
+          },
+          {
+            "source_trace_index": 6,
+            "source_trace_name": "case-6",
+            "sequence": [
+              "A",
+              "B",
+              "C"
+            ],
+            "event_count": 3
+          },
+          {
+            "source_trace_index": 7,
+            "source_trace_name": "case-7",
+            "sequence": [
+              "A",
+              "B",
+              "C"
+            ],
+            "event_count": 3
+          },
+          {
+            "source_trace_index": 8,
+            "source_trace_name": "case-8",
+            "sequence": [
+              "A",
+              "B",
+              "C"
+            ],
+            "event_count": 3
+          },
+          {
+            "source_trace_index": 9,
+            "source_trace_name": "case-9",
+            "sequence": [
+              "A",
+              "D",
+              "C"
+            ],
+            "event_count": 3
+          }
+        ],
+        "training_log": [
+          {
+            "sequence": [
+              "A",
+              "B",
+              "C"
+            ],
+            "frequency": 9
+          },
+          {
+            "sequence": [
+              "A",
+              "D",
+              "C"
+            ],
+            "frequency": 1
+          }
+        ],
+        "heldout_log": null,
+        "designation": "original_miner_training_only_no_new_heldout",
+        "original_training_variants": [
+          "ABC",
+          "ABC",
+          "ABC",
+          "ABC",
+          "ABC",
+          "ABC",
+          "ABC",
+          "ABC",
+          "ABC",
+          "ADC"
+        ]
+      },
+      "carried_actual_outcome": {
+        "status": "diagram_returned",
+        "exception": null,
+        "observation_sha256": "5a1d31070940c41ac96172d5911f263c8c7120b1fa6dd4fe95ddb30308b0219c",
+        "observation_bytes": 4185,
+        "elapsed_mining_nanos": 225935000,
+        "native_exit": 0,
+        "native_proof_sha256": "b8511ef9e28e23264a355ae24d6222157cdb932d1269b6b0f1436d8507f6aa96",
+        "coordinator_result_sha256": "a346ad654eef76f92f6b2b592775ddf4888e8b5e36c765600a8079a6013823f5",
+        "stdout_complete": true,
+        "stderr_complete": true,
+        "output_limit": false,
+        "capture_fault": false,
+        "drain_timeout": false,
+        "streams": [
+          {
+            "name": "stdout",
+            "sha256": "554af6989f04ae6b9d05c207c2b9b28a3609746246a3cb77926e5050aa059204",
+            "bytes": 35,
+            "original_complete": true,
+            "warning_error_and_fallback_lines": [],
+            "all_console_bytes_retained_in_historical_receipt": true,
+            "raw_console_not_copied": true
+          },
+          {
+            "name": "stderr",
+            "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+            "bytes": 92,
+            "original_complete": true,
+            "warning_error_and_fallback_lines": [],
+            "all_console_bytes_retained_in_historical_receipt": true,
+            "raw_console_not_copied": true
+          }
+        ],
+        "new_miner_execution": false
+      },
+      "raw_file": "rare-noise.raw.bpmn",
+      "raw_sha256": "e8c27393fb5deb7739004c7f2ab9c704a116bb5d102ddd0ffff04e20012ab613",
+      "raw_bytes": 4134,
+      "status": "projected_pending_strict_prepare",
+      "hint_file": "rare-noise.hint.bpmn",
+      "hint_sha256": "976a31088c4aad49d227bb5ad0ab873d0e19cb6f0e028a69bff276598bb5039a",
+      "hint_report_file": "rare-noise.hint.json",
+      "hint_report_sha256": "ab3874d4842ccf7ac57670d07642ca8b4dd8f8e30227bfa0c2fda8101220154d",
+      "projected_file": "rare-noise.projected.bpmn",
+      "projected_sha256": "71be679d5a6edea5790af1395c9a73c11fbf0d3618c6e1516cd30e8af5c62446",
+      "di_report_file": "rare-noise.di.json",
+      "di_report_sha256": "3f275f16966b274c9609301898a512816411365b29d299bb4eb9e8ed89214865"
+    },
+    {
+      "id": "empty-log",
+      "source_xes_file": "empty-log.xes",
+      "source_xes_sha256": "2dfebdb1c9abcfd2d5f46f592b9d6afb038fd880513e32509c4149914f27efba",
+      "trace_lineage_verified": true,
+      "source_input": {
+        "file": "../oracle-splitminer/empty-log.xes",
+        "sha256": "2dfebdb1c9abcfd2d5f46f592b9d6afb038fd880513e32509c4149914f27efba",
+        "bytes": 165,
+        "trace_count": 0,
+        "event_count": 0,
+        "traces": [],
+        "training_log": [],
+        "heldout_log": null,
+        "designation": "original_miner_training_only_no_new_heldout",
+        "original_training_variants": []
+      },
+      "carried_actual_outcome": {
+        "status": "algorithm_exception",
+        "exception": {
+          "class": "java.util.NoSuchElementException",
+          "message": null
+        },
+        "observation_sha256": "031fef9242fa8fd407bee314ee480056e469d539408b4a8e0d29ae6ec081dacc",
+        "observation_bytes": 1184,
+        "elapsed_mining_nanos": 26740900,
+        "native_exit": 0,
+        "native_proof_sha256": "26c412f14b8e9a70e0d43fff3771848c5c6448fd19802f2e453af8f204bf008b",
+        "coordinator_result_sha256": "b2b236d85caf04d5347afd37ae2bdd7ad50bab5f0ca9651398b044121b9fd6e7",
+        "stdout_complete": true,
+        "stderr_complete": true,
+        "output_limit": false,
+        "capture_fault": false,
+        "drain_timeout": false,
+        "streams": [
+          {
+            "name": "stdout",
+            "sha256": "554af6989f04ae6b9d05c207c2b9b28a3609746246a3cb77926e5050aa059204",
+            "bytes": 35,
+            "original_complete": true,
+            "warning_error_and_fallback_lines": [],
+            "all_console_bytes_retained_in_historical_receipt": true,
+            "raw_console_not_copied": true
+          },
+          {
+            "name": "stderr",
+            "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+            "bytes": 92,
+            "original_complete": true,
+            "warning_error_and_fallback_lines": [],
+            "all_console_bytes_retained_in_historical_receipt": true,
+            "raw_console_not_copied": true
+          }
+        ],
+        "new_miner_execution": false
+      },
+      "status": "carried_algorithm_exception",
+      "raw_file": null,
+      "exception": {
+        "class": "java.util.NoSuchElementException",
+        "message": null
+      }
+    },
+    {
+      "id": "empty-trace",
+      "source_xes_file": "empty-trace.xes",
+      "source_xes_sha256": "5c22ab666b6b3ffae5dd5457a4701f45bbc65bb4dc8deb51491854b157bd3e12",
+      "trace_lineage_verified": true,
+      "source_input": {
+        "file": "../oracle-splitminer/empty-trace.xes",
+        "sha256": "5c22ab666b6b3ffae5dd5457a4701f45bbc65bb4dc8deb51491854b157bd3e12",
+        "bytes": 228,
+        "trace_count": 1,
+        "event_count": 0,
+        "traces": [
+          {
+            "source_trace_index": 0,
+            "source_trace_name": "case-0",
+            "sequence": [],
+            "event_count": 0
+          }
+        ],
+        "training_log": [
+          {
+            "sequence": [],
+            "frequency": 1
+          }
+        ],
+        "heldout_log": null,
+        "designation": "original_miner_training_only_no_new_heldout",
+        "original_training_variants": [
+          ""
+        ]
+      },
+      "carried_actual_outcome": {
+        "status": "diagram_returned",
+        "exception": null,
+        "observation_sha256": "79b713dae1e31d1f4b43d967a3be26f53a99b912299e03066bff89f1f87ab9f6",
+        "observation_bytes": 2169,
+        "elapsed_mining_nanos": 168109400,
+        "native_exit": 0,
+        "native_proof_sha256": "14cc4a695528095aae29be61559636d957c9da0becf31dbaf78729a823f7463e",
+        "coordinator_result_sha256": "5c662b5ca87208c6bc007919274d630403408d57dae8faf4fec82c28cc933d1d",
+        "stdout_complete": true,
+        "stderr_complete": true,
+        "output_limit": false,
+        "capture_fault": false,
+        "drain_timeout": false,
+        "streams": [
+          {
+            "name": "stdout",
+            "sha256": "2af832eb929761ad1dc62e00835f39cb2166eb06d1e6a60feb13b1d3118adba0",
+            "bytes": 129,
+            "original_complete": true,
+            "warning_error_and_fallback_lines": [
+              "WARNING - first gateway not found",
+              "ERROR - something went wrong initializing the gateway map"
+            ],
+            "all_console_bytes_retained_in_historical_receipt": true,
+            "raw_console_not_copied": true
+          },
+          {
+            "name": "stderr",
+            "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+            "bytes": 92,
+            "original_complete": true,
+            "warning_error_and_fallback_lines": [],
+            "all_console_bytes_retained_in_historical_receipt": true,
+            "raw_console_not_copied": true
+          }
+        ],
+        "new_miner_execution": false
+      },
+      "raw_file": "empty-trace.raw.bpmn",
+      "raw_sha256": "aca67b5e5d342b39e095a75a1d74023aebe96947252adf6b8b99319aec77fc73",
+      "raw_bytes": 1290,
+      "status": "projected_pending_strict_prepare",
+      "hint_file": "empty-trace.hint.bpmn",
+      "hint_sha256": "7a6d0a609314b334a7b38664a6b64f127d8a01a581ad99a5232e87170ddb6eb4",
+      "hint_report_file": "empty-trace.hint.json",
+      "hint_report_sha256": "1473414bc3ee34cace964a6123c1afd367a07b733887360c87878d0be9cc7d90",
+      "projected_file": "empty-trace.projected.bpmn",
+      "projected_sha256": "23211ab2068ac0551cd7cf58f3cd0ccf1e7323722c64b25f4b39e50c4909962c",
+      "di_report_file": "empty-trace.di.json",
+      "di_report_sha256": "950b999c552bfd72f55d74ef766c7415c61ab673b8657b9d9eac12a4ca18a0b8"
+    }
+  ],
+  "not_acceptance": true,
+  "no_metric_or_conversion_executed": true
+}
