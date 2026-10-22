@@ -1,0 +1,25 @@
+{
+  "role": "QA",
+  "agent": "/root/qa_finish074",
+  "utc": "2026-10-22T09:56:26.2421299+00:00",
+  "status": "FINITE_GENUINE_SPLITMINER_MEASUREMENT_EVIDENCE_ACCEPTED",
+  "benchmark_index_sha256": "3F92E22D7651F79DD5F65D0E5477BD648DFE2EA90F68BCCDDCAE015400B2A28E",
+  "aggregate_sha256": "134E37202205C88DB700394448D295B7C31E9EB88DF66BB826ACD220C9D5096A",
+  "counterfactual_result_sha256": "1D703E73AA13592E197B91BB5F21FD48DAAF6E58D2CD3DB928ADA350105E9C36",
+  "real_benchmark_records_full_verified": 33,
+  "audit_native_records_full_verified": 5,
+  "processes": 32,
+  "calls": 64,
+  "semantic_maps": 56,
+  "quality_historical_carries": 6,
+  "negative_controls_specific_gates": 7,
+  "timing_success_failure_groups_independently_recomputed": 32,
+  "canonical_resource_extraction_independent": true,
+  "scope": [
+    "Original pinned Core SplitMiner in fresh and warmed JVM regimes",
+    "Historical training metrics only after full semantic bijections",
+    "Terminal process peaks exclude later teardown; Job assignment interval separate",
+    "No per-call warm memory, cold OS-cache, production capacity or Rust speedup claim",
+    "No whole R5 or delivery acceptance; public evidence/current CI/resource gates pending"
+  ]
+}

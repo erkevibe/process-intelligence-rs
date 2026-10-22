@@ -1,0 +1,429 @@
+{
+  "allow_metadata_loss": false,
+  "evidence": {
+    "actual_inverse_conversion_not_claimed": true,
+    "actual_upstream_api": "import_pnml_reader",
+    "bijection_partial_assignments": 5,
+    "metadata_loss_count": 0,
+    "node_bijection": {
+      "00000000-0000-0000-0000-000000000001": "7879b90c-3fd4-4a34-81fe-6c6b5e0b4256",
+      "00000000-0000-0000-0000-000000000002": "e9a8af0c-36e0-41bf-97ee-b084b3385a81",
+      "00000000-0000-0000-0000-000000000003": "845d8bfd-4ae7-4d1f-b4ed-0857e18b0338",
+      "00000000-0000-0000-0000-000000000004": "ba7fafb4-ede2-44a0-9148-80718d53695a",
+      "00000000-0000-0000-0000-000000000005": "2af60d7e-f7dc-4803-bb7c-d9cd1e3184c1"
+    },
+    "normalization_inventory": {
+      "counts": {
+        "arc_id": 6,
+        "net_id": 1,
+        "node_id_bijection": 5,
+        "page_id": 1,
+        "place_display_name": 1,
+        "tau_local_node_id": 1
+      },
+      "entries": [
+        {
+          "action": "omitted_format_field",
+          "kind": "net_id",
+          "locator": {
+            "attribute": "id",
+            "path": "/pnml/net[0]",
+            "syntax": "xml"
+          },
+          "normalized_value": null,
+          "original_value": "manual",
+          "side": "source"
+        },
+        {
+          "action": "omitted_format_field",
+          "kind": "page_id",
+          "locator": {
+            "attribute": "id",
+            "path": "/pnml/net[0]/page[0]",
+            "syntax": "xml"
+          },
+          "normalized_value": null,
+          "original_value": "n0",
+          "side": "source"
+        },
+        {
+          "action": "omitted_format_field",
+          "kind": "place_display_name",
+          "locator": {
+            "path": "/pnml/net[0]/page[0]/place[0]/name[0]/text[0]",
+            "syntax": "xml"
+          },
+          "normalized_value": null,
+          "original_value": "00000000-0000-0000-0000-000000000001",
+          "side": "source"
+        },
+        {
+          "action": "omitted_format_field",
+          "kind": "tau_local_node_id",
+          "locator": {
+            "attribute": "localNodeID",
+            "path": "/pnml/net[0]/page[0]/transition[2]/toolspecific[0]",
+            "syntax": "xml"
+          },
+          "normalized_value": null,
+          "original_value": "00000000-0000-0000-0000-000000000099",
+          "side": "source"
+        },
+        {
+          "action": "omitted_format_field",
+          "kind": "arc_id",
+          "locator": {
+            "attribute": "id",
+            "path": "/pnml/net[0]/page[0]/arc[0]",
+            "syntax": "xml"
+          },
+          "normalized_value": null,
+          "original_value": "a0",
+          "side": "source"
+        },
+        {
+          "action": "omitted_format_field",
+          "kind": "arc_id",
+          "locator": {
+            "attribute": "id",
+            "path": "/pnml/net[0]/page[0]/arc[1]",
+            "syntax": "xml"
+          },
+          "normalized_value": null,
+          "original_value": "a1",
+          "side": "source"
+        },
+        {
+          "action": "omitted_format_field",
+          "kind": "arc_id",
+          "locator": {
+            "attribute": "id",
+            "path": "/pnml/net[0]/page[0]/arc[2]",
+            "syntax": "xml"
+          },
+          "normalized_value": null,
+          "original_value": "a2",
+          "side": "source"
+        },
+        {
+          "action": "omitted_format_field",
+          "kind": "arc_id",
+          "locator": {
+            "attribute": "id",
+            "path": "/pnml/net[0]/page[0]/arc[3]",
+            "syntax": "xml"
+          },
+          "normalized_value": null,
+          "original_value": "a3",
+          "side": "source"
+        },
+        {
+          "action": "omitted_format_field",
+          "kind": "arc_id",
+          "locator": {
+            "attribute": "id",
+            "path": "/pnml/net[0]/page[0]/arc[4]",
+            "syntax": "xml"
+          },
+          "normalized_value": null,
+          "original_value": "a4",
+          "side": "source"
+        },
+        {
+          "action": "omitted_format_field",
+          "kind": "arc_id",
+          "locator": {
+            "attribute": "id",
+            "path": "/pnml/net[0]/page[0]/arc[5]",
+            "syntax": "xml"
+          },
+          "normalized_value": null,
+          "original_value": "a5",
+          "side": "source"
+        },
+        {
+          "action": "verified_id_renaming",
+          "changed": true,
+          "counterpart_locator": {
+            "path": "/places/7879b90c-3fd4-4a34-81fe-6c6b5e0b4256/id",
+            "syntax": "json"
+          },
+          "kind": "node_id_bijection",
+          "locator": {
+            "attribute": "id",
+            "path": "/pnml/net[0]/page[0]/place[0]",
+            "syntax": "xml"
+          },
+          "normalized_value": "7879b90c-3fd4-4a34-81fe-6c6b5e0b4256",
+          "original_value": "00000000-0000-0000-0000-000000000001",
+          "side": "source_to_target",
+          "source_graph_id": "00000000-0000-0000-0000-000000000001",
+          "target_graph_id": "7879b90c-3fd4-4a34-81fe-6c6b5e0b4256"
+        },
+        {
+          "action": "verified_id_renaming",
+          "changed": true,
+          "counterpart_locator": {
+            "path": "/places/e9a8af0c-36e0-41bf-97ee-b084b3385a81/id",
+            "syntax": "json"
+          },
+          "kind": "node_id_bijection",
+          "locator": {
+            "attribute": "id",
+            "path": "/pnml/net[0]/page[0]/place[1]",
+            "syntax": "xml"
+          },
+          "normalized_value": "e9a8af0c-36e0-41bf-97ee-b084b3385a81",
+          "original_value": "00000000-0000-0000-0000-000000000002",
+          "side": "source_to_target",
+          "source_graph_id": "00000000-0000-0000-0000-000000000002",
+          "target_graph_id": "e9a8af0c-36e0-41bf-97ee-b084b3385a81"
+        },
+        {
+          "action": "verified_id_renaming",
+          "changed": true,
+          "counterpart_locator": {
+            "path": "/transitions/845d8bfd-4ae7-4d1f-b4ed-0857e18b0338/id",
+            "syntax": "json"
+          },
+          "kind": "node_id_bijection",
+          "locator": {
+            "attribute": "id",
+            "path": "/pnml/net[0]/page[0]/transition[0]",
+            "syntax": "xml"
+          },
+          "normalized_value": "845d8bfd-4ae7-4d1f-b4ed-0857e18b0338",
+          "original_value": "00000000-0000-0000-0000-000000000003",
+          "side": "source_to_target",
+          "source_graph_id": "00000000-0000-0000-0000-000000000003",
+          "target_graph_id": "845d8bfd-4ae7-4d1f-b4ed-0857e18b0338"
+        },
+        {
+          "action": "verified_id_renaming",
+          "changed": true,
+          "counterpart_locator": {
+            "path": "/transitions/ba7fafb4-ede2-44a0-9148-80718d53695a/id",
+            "syntax": "json"
+          },
+          "kind": "node_id_bijection",
+          "locator": {
+            "attribute": "id",
+            "path": "/pnml/net[0]/page[0]/transition[1]",
+            "syntax": "xml"
+          },
+          "normalized_value": "ba7fafb4-ede2-44a0-9148-80718d53695a",
+          "original_value": "00000000-0000-0000-0000-000000000004",
+          "side": "source_to_target",
+          "source_graph_id": "00000000-0000-0000-0000-000000000004",
+          "target_graph_id": "ba7fafb4-ede2-44a0-9148-80718d53695a"
+        },
+        {
+          "action": "verified_id_renaming",
+          "changed": true,
+          "counterpart_locator": {
+            "path": "/transitions/2af60d7e-f7dc-4803-bb7c-d9cd1e3184c1/id",
+            "syntax": "json"
+          },
+          "kind": "node_id_bijection",
+          "locator": {
+            "attribute": "id",
+            "path": "/pnml/net[0]/page[0]/transition[2]",
+            "syntax": "xml"
+          },
+          "normalized_value": "2af60d7e-f7dc-4803-bb7c-d9cd1e3184c1",
+          "original_value": "00000000-0000-0000-0000-000000000005",
+          "side": "source_to_target",
+          "source_graph_id": "00000000-0000-0000-0000-000000000005",
+          "target_graph_id": "2af60d7e-f7dc-4803-bb7c-d9cd1e3184c1"
+        }
+      ],
+      "entry_count": 15,
+      "json_pointer_escaping": "RFC6901 ~0 and ~1",
+      "schema_version": 1,
+      "value_scope": "actual decoded XML attribute/text or JSON string values; exact lexical bytes remain SHA-bound payloads",
+      "xml_path_indexing": "zero_based_siblings_per_element_name"
+    },
+    "normalizations": [
+      "arc_id",
+      "net_id",
+      "node_id_bijection",
+      "page_id",
+      "place_display_name",
+      "tau_local_node_id"
+    ],
+    "profile": "process_mining_0.6.2_native-json-pnml-v1",
+    "source_graph": {
+      "arcs": [
+        {
+          "source": "00000000-0000-0000-0000-000000000001",
+          "target": "00000000-0000-0000-0000-000000000003",
+          "weight": 2
+        },
+        {
+          "source": "00000000-0000-0000-0000-000000000002",
+          "target": "00000000-0000-0000-0000-000000000004",
+          "weight": 3
+        },
+        {
+          "source": "00000000-0000-0000-0000-000000000002",
+          "target": "00000000-0000-0000-0000-000000000005",
+          "weight": 1
+        },
+        {
+          "source": "00000000-0000-0000-0000-000000000003",
+          "target": "00000000-0000-0000-0000-000000000002",
+          "weight": 3
+        },
+        {
+          "source": "00000000-0000-0000-0000-000000000004",
+          "target": "00000000-0000-0000-0000-000000000001",
+          "weight": 2
+        },
+        {
+          "source": "00000000-0000-0000-0000-000000000005",
+          "target": "00000000-0000-0000-0000-000000000002",
+          "weight": 1
+        }
+      ],
+      "finals": [
+        {
+          "00000000-0000-0000-0000-000000000002": 3
+        },
+        {},
+        {
+          "00000000-0000-0000-0000-000000000001": 0,
+          "00000000-0000-0000-0000-000000000002": 0
+        }
+      ],
+      "initial": {
+        "00000000-0000-0000-0000-000000000001": 2,
+        "00000000-0000-0000-0000-000000000002": 0
+      },
+      "nodes": {
+        "00000000-0000-0000-0000-000000000001": {
+          "id": "00000000-0000-0000-0000-000000000001",
+          "kind": "place",
+          "label": null
+        },
+        "00000000-0000-0000-0000-000000000002": {
+          "id": "00000000-0000-0000-0000-000000000002",
+          "kind": "place",
+          "label": null
+        },
+        "00000000-0000-0000-0000-000000000003": {
+          "id": "00000000-0000-0000-0000-000000000003",
+          "kind": "transition",
+          "label": "Tau"
+        },
+        "00000000-0000-0000-0000-000000000004": {
+          "id": "00000000-0000-0000-0000-000000000004",
+          "kind": "transition",
+          "label": "A & β"
+        },
+        "00000000-0000-0000-0000-000000000005": {
+          "id": "00000000-0000-0000-0000-000000000005",
+          "kind": "transition",
+          "label": null
+        }
+      }
+    },
+    "target_graph": {
+      "arcs": [
+        {
+          "source": "2af60d7e-f7dc-4803-bb7c-d9cd1e3184c1",
+          "target": "e9a8af0c-36e0-41bf-97ee-b084b3385a81",
+          "weight": 1
+        },
+        {
+          "source": "7879b90c-3fd4-4a34-81fe-6c6b5e0b4256",
+          "target": "845d8bfd-4ae7-4d1f-b4ed-0857e18b0338",
+          "weight": 2
+        },
+        {
+          "source": "845d8bfd-4ae7-4d1f-b4ed-0857e18b0338",
+          "target": "e9a8af0c-36e0-41bf-97ee-b084b3385a81",
+          "weight": 3
+        },
+        {
+          "source": "ba7fafb4-ede2-44a0-9148-80718d53695a",
+          "target": "7879b90c-3fd4-4a34-81fe-6c6b5e0b4256",
+          "weight": 2
+        },
+        {
+          "source": "e9a8af0c-36e0-41bf-97ee-b084b3385a81",
+          "target": "2af60d7e-f7dc-4803-bb7c-d9cd1e3184c1",
+          "weight": 1
+        },
+        {
+          "source": "e9a8af0c-36e0-41bf-97ee-b084b3385a81",
+          "target": "ba7fafb4-ede2-44a0-9148-80718d53695a",
+          "weight": 3
+        }
+      ],
+      "finals": [
+        {
+          "e9a8af0c-36e0-41bf-97ee-b084b3385a81": 3
+        },
+        {},
+        {
+          "7879b90c-3fd4-4a34-81fe-6c6b5e0b4256": 0,
+          "e9a8af0c-36e0-41bf-97ee-b084b3385a81": 0
+        }
+      ],
+      "initial": {
+        "7879b90c-3fd4-4a34-81fe-6c6b5e0b4256": 2,
+        "e9a8af0c-36e0-41bf-97ee-b084b3385a81": 0
+      },
+      "nodes": {
+        "2af60d7e-f7dc-4803-bb7c-d9cd1e3184c1": {
+          "id": "2af60d7e-f7dc-4803-bb7c-d9cd1e3184c1",
+          "kind": "transition",
+          "label": null
+        },
+        "7879b90c-3fd4-4a34-81fe-6c6b5e0b4256": {
+          "id": "7879b90c-3fd4-4a34-81fe-6c6b5e0b4256",
+          "kind": "place",
+          "label": null
+        },
+        "845d8bfd-4ae7-4d1f-b4ed-0857e18b0338": {
+          "id": "845d8bfd-4ae7-4d1f-b4ed-0857e18b0338",
+          "kind": "transition",
+          "label": "Tau"
+        },
+        "ba7fafb4-ede2-44a0-9148-80718d53695a": {
+          "id": "ba7fafb4-ede2-44a0-9148-80718d53695a",
+          "kind": "transition",
+          "label": "A & β"
+        },
+        "e9a8af0c-36e0-41bf-97ee-b084b3385a81": {
+          "id": "e9a8af0c-36e0-41bf-97ee-b084b3385a81",
+          "kind": "place",
+          "label": null
+        }
+      }
+    }
+  },
+  "from": "pnml",
+  "input_bytes": 2021,
+  "input_sha256": "a838ffb200d034c01fa5cbe16ad73d2ff6203fa59eb49aa2b581729d8eb09c39",
+  "method_sha256": "49dc32d1f4219965ea57cc79caa9355974269fab989cc38d09173c8e734e619b",
+  "not_general_format_support": true,
+  "payload_file": "payload.json",
+  "reason": "full_graph_bijection",
+  "schema_version": 1,
+  "sources": {
+    "Cargo.lock": "9005a089ccd3ec721e6d3209600c4cea10e0efc76c7ea4111406fb28c99f29b6",
+    "examples/conversion/logs.rs": "6765fc8a72c47c72b548689ed3f1249ca8e56ff560f08b04b25aef75177c94fe",
+    "examples/conversion/mod.rs": "0dee3aad92715daedc1d37164c911762cf519152e6fb8276e40e05af0b3051b5",
+    "examples/conversion/net.rs": "0850a692536f428facef5e2763c313781f75e42f8ed27d2f3ee8f4b80508d750",
+    "examples/conversion/xml.rs": "a1ff196c278638d3b63f395ad09ea8c8135a2f0021163cd73f30001c4fb21846",
+    "examples/pi_convert.rs": "f3935a0c1926c78807a9a94e7526062107c612093bf81680ff98e1d8bae51d4d",
+    "locked_process_mining": "0.6.2",
+    "src/csv_io.rs": "3eed3d20c0262e3cbf2bb2bf4666c33581f13ad61a9834da2b186e6623ab469d",
+    "src/event_io.rs": "e2f96e3ceb1f4af7d69492d0a7433259e6205397e219fc837b0adb30c4330fc8"
+  },
+  "status": "converted",
+  "target_bytes": 2305,
+  "target_sha256": "d63f201a5765e53a5402ff712e7742e66854a9ba71845db0443adcccb9de5cd8",
+  "to": "petri-json"
+}

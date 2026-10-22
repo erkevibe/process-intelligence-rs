@@ -1,0 +1,1557 @@
+{
+  "schema_version": 1,
+  "status": "PROSPECTIVE_MANUAL_INPUTS_AND_TARGETS_BEFORE_CANDIDATE_CODE",
+  "method_file": "../../docs/R5_CONVERSION_CONTRACT_DRAFT.md",
+  "method_sha256": "49dc32d1f4219965ea57cc79caa9355974269fab989cc38d09173c8e734e619b",
+  "manual_oracle": "Direct authored core event fields or complete Petri weighted graph; candidate output never used to choose expectations",
+  "cases": [
+    {
+      "id": "X01",
+      "from": "xes",
+      "to": "csv",
+      "input": "flat-unicode.xes",
+      "allow_metadata_loss": false,
+      "expected": {
+        "status": "converted",
+        "reason": "lossless_core",
+        "manual_semantics": {
+          "core_file": "flat-unicode.manual-core.json",
+          "trace_count": 1,
+          "event_count": 2,
+          "metadata_loss_count": 0,
+          "timestamp_normalization_count": 0
+        },
+        "direct_target_file": "flat-unicode.csv",
+        "requires_separate_actual_inverse": true,
+        "source": "prospective human-authored expectation before candidate code"
+      },
+      "input_sha256": "6be15abcc35c4bdf755f27307c93b0b5e4e5f90c7d715fcc4b57dc07a503516f",
+      "input_bytes": 430
+    },
+    {
+      "id": "X02",
+      "from": "csv",
+      "to": "xes",
+      "input": "flat-unicode.csv",
+      "allow_metadata_loss": false,
+      "expected": {
+        "status": "converted",
+        "reason": "lossless_core",
+        "manual_semantics": {
+          "core_file": "flat-unicode.manual-core.json",
+          "trace_count": 1,
+          "event_count": 2,
+          "metadata_loss_count": 0
+        },
+        "direct_target_file": "flat-unicode.xes",
+        "requires_separate_actual_inverse": true,
+        "source": "prospective human-authored expectation before candidate code"
+      },
+      "input_sha256": "f14031cc8fcdf5119affaf1c2490d54b779a0929754dee6ddf8d6280971e2905",
+      "input_bytes": 125
+    },
+    {
+      "id": "X03",
+      "from": "xes",
+      "to": "csv",
+      "input": "offset.xes",
+      "allow_metadata_loss": false,
+      "expected": {
+        "status": "loss_refused",
+        "reason": "nonzero_timestamp_offset",
+        "manual_semantics": {
+          "loss_count": 1
+        },
+        "direct_target_file": null,
+        "requires_separate_actual_inverse": false,
+        "source": "prospective human-authored expectation before candidate code"
+      },
+      "input_sha256": "876cdebe3163814d77ac71e6354121c1e6764998622b5eb88ee8018a70989efe",
+      "input_bytes": 246
+    },
+    {
+      "id": "X04",
+      "from": "xes",
+      "to": "csv",
+      "input": "offset.xes",
+      "allow_metadata_loss": true,
+      "expected": {
+        "status": "converted",
+        "reason": "explicit_metadata_loss",
+        "manual_semantics": {
+          "core_file": "offset.manual-core.json",
+          "metadata_loss_count": 1,
+          "losses": [
+            {
+              "kind": "timestamp_offset",
+              "event": 0,
+              "scope": "event",
+              "trace": 0,
+              "offset_seconds": 18000,
+              "original": "2026-10-22T06:02:03.123456789+05:00"
+            }
+          ]
+        },
+        "direct_target_file": "offset.manual.csv",
+        "requires_separate_actual_inverse": true,
+        "source": "prospective human-authored expectation before candidate code"
+      },
+      "input_sha256": "876cdebe3163814d77ac71e6354121c1e6764998622b5eb88ee8018a70989efe",
+      "input_bytes": 246
+    },
+    {
+      "id": "X05",
+      "from": "xes",
+      "to": "csv",
+      "input": "rich.xes",
+      "allow_metadata_loss": false,
+      "expected": {
+        "status": "loss_refused",
+        "reason": "extra_metadata",
+        "manual_semantics": {
+          "metadata_loss_count": 6,
+          "losses": [
+            {
+              "key": "concept:name",
+              "type": "string",
+              "scope": "log",
+              "value": "Rich"
+            },
+            {
+              "trace": 0,
+              "key": "customer",
+              "type": "string",
+              "scope": "trace",
+              "value": "C"
+            },
+            {
+              "value": "R",
+              "event": 0,
+              "key": "org:resource",
+              "scope": "event",
+              "trace": 0,
+              "type": "string"
+            },
+            {
+              "value": "7",
+              "event": 0,
+              "key": "cost",
+              "scope": "event",
+              "trace": 0,
+              "type": "int"
+            },
+            {
+              "value": "1.5",
+              "event": 0,
+              "key": "score",
+              "scope": "event",
+              "trace": 0,
+              "type": "float"
+            },
+            {
+              "value": "true",
+              "event": 0,
+              "key": "approved",
+              "scope": "event",
+              "trace": 0,
+              "type": "boolean"
+            }
+          ]
+        },
+        "direct_target_file": null,
+        "requires_separate_actual_inverse": false,
+        "source": "prospective human-authored expectation before candidate code"
+      },
+      "input_sha256": "7baaeabe3190192d422009ec57f812dd822f9be3cb3fde7e381091bf9c39fe54",
+      "input_bytes": 384
+    },
+    {
+      "id": "X06",
+      "from": "xes",
+      "to": "csv",
+      "input": "rich.xes",
+      "allow_metadata_loss": true,
+      "expected": {
+        "status": "converted",
+        "reason": "explicit_metadata_loss",
+        "manual_semantics": {
+          "core_file": "rich.manual-core.json",
+          "metadata_loss_count": 6,
+          "losses": [
+            {
+              "key": "concept:name",
+              "type": "string",
+              "scope": "log",
+              "value": "Rich"
+            },
+            {
+              "trace": 0,
+              "key": "customer",
+              "type": "string",
+              "scope": "trace",
+              "value": "C"
+            },
+            {
+              "value": "R",
+              "event": 0,
+              "key": "org:resource",
+              "scope": "event",
+              "trace": 0,
+              "type": "string"
+            },
+            {
+              "value": "7",
+              "event": 0,
+              "key": "cost",
+              "scope": "event",
+              "trace": 0,
+              "type": "int"
+            },
+            {
+              "value": "1.5",
+              "event": 0,
+              "key": "score",
+              "scope": "event",
+              "trace": 0,
+              "type": "float"
+            },
+            {
+              "value": "true",
+              "event": 0,
+              "key": "approved",
+              "scope": "event",
+              "trace": 0,
+              "type": "boolean"
+            }
+          ]
+        },
+        "direct_target_file": "rich.manual.csv",
+        "requires_separate_actual_inverse": true,
+        "source": "prospective human-authored expectation before candidate code"
+      },
+      "input_sha256": "7baaeabe3190192d422009ec57f812dd822f9be3cb3fde7e381091bf9c39fe54",
+      "input_bytes": 384
+    },
+    {
+      "id": "X07",
+      "from": "xes",
+      "to": "csv",
+      "input": "missing-trace-name.xes",
+      "allow_metadata_loss": true,
+      "expected": {
+        "status": "refused",
+        "reason": "trace_identity_missing",
+        "manual_semantics": null,
+        "direct_target_file": null,
+        "requires_separate_actual_inverse": false,
+        "source": "prospective human-authored expectation before candidate code"
+      },
+      "input_sha256": "cd9ad3589b8d812085107e53a78eb3a14d719d7962f0acc6b0e1dcba299ff5e1",
+      "input_bytes": 134
+    },
+    {
+      "id": "X08",
+      "from": "xes",
+      "to": "csv",
+      "input": "duplicate-traces.xes",
+      "allow_metadata_loss": true,
+      "expected": {
+        "status": "refused",
+        "reason": "trace_identity_duplicate",
+        "manual_semantics": null,
+        "direct_target_file": null,
+        "requires_separate_actual_inverse": false,
+        "source": "prospective human-authored expectation before candidate code"
+      },
+      "input_sha256": "0d18d834dfe92781696f7eb2857a173e156eeebb322afa8e14103331306e794d",
+      "input_bytes": 794
+    },
+    {
+      "id": "X09",
+      "from": "xes",
+      "to": "csv",
+      "input": "empty-trace.xes",
+      "allow_metadata_loss": true,
+      "expected": {
+        "status": "refused",
+        "reason": "empty_trace_unrepresentable",
+        "manual_semantics": null,
+        "direct_target_file": null,
+        "requires_separate_actual_inverse": false,
+        "source": "prospective human-authored expectation before candidate code"
+      },
+      "input_sha256": "e4a86917d125ebdc47f54d3abf578fc065d7555c212828f6b7e15a99e859399f",
+      "input_bytes": 121
+    },
+    {
+      "id": "X15",
+      "from": "xes",
+      "to": "csv",
+      "input": "dtd.xes",
+      "allow_metadata_loss": true,
+      "expected": {
+        "status": "refused",
+        "reason": "xml_declaration_unsupported",
+        "manual_semantics": null,
+        "direct_target_file": null,
+        "requires_separate_actual_inverse": false,
+        "source": "prospective human-authored expectation before candidate code"
+      },
+      "input_sha256": "b9bdf42462fb90e350b5c462b9d0271f8622327a3c9fd8d72b2bbfc45f22ee81",
+      "input_bytes": 153
+    },
+    {
+      "id": "X17",
+      "from": "xes",
+      "to": "csv",
+      "input": "excess-precision.xes",
+      "allow_metadata_loss": true,
+      "expected": {
+        "status": "refused",
+        "reason": "timestamp_precision",
+        "manual_semantics": null,
+        "direct_target_file": null,
+        "requires_separate_actual_inverse": false,
+        "source": "prospective human-authored expectation before candidate code"
+      },
+      "input_sha256": "e7ece93eeb7d93a3beab5db71e67c3e07758a4ce8b0d5eaa47c7e5aeaef573e9",
+      "input_bytes": 431
+    },
+    {
+      "id": "X20",
+      "from": "xes",
+      "to": "csv",
+      "input": "empty-lifecycle.xes",
+      "allow_metadata_loss": true,
+      "expected": {
+        "status": "refused",
+        "reason": "empty_lifecycle_unrepresentable",
+        "manual_semantics": null,
+        "direct_target_file": null,
+        "requires_separate_actual_inverse": false,
+        "source": "prospective human-authored expectation before candidate code"
+      },
+      "input_sha256": "e4fbdb4396b494b194a2e6f023161a315f1bb21138b61c0c8fb2de66fb69ea80",
+      "input_bytes": 425
+    },
+    {
+      "id": "X21",
+      "from": "xes",
+      "to": "csv",
+      "input": "duplicate-event-key.xes",
+      "allow_metadata_loss": true,
+      "expected": {
+        "status": "refused",
+        "reason": "duplicate_attribute_key",
+        "manual_semantics": null,
+        "direct_target_file": null,
+        "requires_separate_actual_inverse": false,
+        "source": "prospective human-authored expectation before candidate code"
+      },
+      "input_sha256": "e25d53ddc660b16dbaa3eeaf7659f250693e4101b5b4088461de88340528d0d1",
+      "input_bytes": 483
+    },
+    {
+      "id": "X10",
+      "from": "xes",
+      "to": "csv",
+      "input": "empty-log.xes",
+      "allow_metadata_loss": false,
+      "expected": {
+        "status": "converted",
+        "reason": "empty_log",
+        "manual_semantics": {
+          "core_file": "empty-log.manual-core.json",
+          "trace_count": 0,
+          "event_count": 0,
+          "metadata_loss_count": 0
+        },
+        "direct_target_file": "empty-log.csv",
+        "requires_separate_actual_inverse": true,
+        "source": "prospective human-authored expectation before candidate code"
+      },
+      "input_sha256": "68070326419cd77012d0d8159b2754bc89bb8b06f52aafdc49ad55cb1d03ff22",
+      "input_bytes": 66
+    },
+    {
+      "id": "X11",
+      "from": "csv",
+      "to": "xes",
+      "input": "empty-log.csv",
+      "allow_metadata_loss": false,
+      "expected": {
+        "status": "converted",
+        "reason": "empty_log",
+        "manual_semantics": {
+          "core_file": "empty-log.manual-core.json",
+          "trace_count": 0,
+          "event_count": 0,
+          "metadata_loss_count": 0
+        },
+        "direct_target_file": "empty-log.xes",
+        "requires_separate_actual_inverse": true,
+        "source": "prospective human-authored expectation before candidate code"
+      },
+      "input_sha256": "3223289f6b27230d5220743174d3453e3092a5cc81e7eb64b6a53c7f117bd246",
+      "input_bytes": 35
+    },
+    {
+      "id": "X12",
+      "from": "csv",
+      "to": "xes",
+      "input": "interleaved.csv",
+      "allow_metadata_loss": true,
+      "expected": {
+        "status": "refused",
+        "reason": "interleaved_case_rows",
+        "manual_semantics": null,
+        "direct_target_file": null,
+        "requires_separate_actual_inverse": false,
+        "source": "prospective human-authored expectation before candidate code"
+      },
+      "input_sha256": "3ab05c3ddabe664f881f3332d4434a315fc9cce350d8ab298a37369564668472",
+      "input_bytes": 56
+    },
+    {
+      "id": "X13",
+      "from": "csv",
+      "to": "xes",
+      "input": "duplicate-header.csv",
+      "allow_metadata_loss": true,
+      "expected": {
+        "status": "refused",
+        "reason": "duplicate_csv_header",
+        "manual_semantics": null,
+        "direct_target_file": null,
+        "requires_separate_actual_inverse": false,
+        "source": "prospective human-authored expectation before candidate code"
+      },
+      "input_sha256": "76771851dacc27102491733af459db264e94bff08137e38b2062cd8b48f0e036",
+      "input_bytes": 49
+    },
+    {
+      "id": "X14",
+      "from": "csv",
+      "to": "xes",
+      "input": "bad-quote.csv",
+      "allow_metadata_loss": true,
+      "expected": {
+        "status": "refused",
+        "reason": "csv_lexical",
+        "manual_semantics": null,
+        "direct_target_file": null,
+        "requires_separate_actual_inverse": false,
+        "source": "prospective human-authored expectation before candidate code"
+      },
+      "input_sha256": "97998a77349b92983212f49398b3706f3cb8139bb34e9f8df81718c6e8d3a22b",
+      "input_bytes": 53
+    },
+    {
+      "id": "X23",
+      "from": "csv",
+      "to": "xes",
+      "input": "blank-record.csv",
+      "allow_metadata_loss": true,
+      "expected": {
+        "status": "refused",
+        "reason": "blank_csv_record",
+        "manual_semantics": null,
+        "direct_target_file": null,
+        "requires_separate_actual_inverse": false,
+        "source": "prospective human-authored expectation before candidate code"
+      },
+      "input_sha256": "3900959a88f4df93e6a398a02498bdbc4aa9accbabfd9fc209c85614aa0f7443",
+      "input_bytes": 44
+    },
+    {
+      "id": "X18",
+      "from": "csv",
+      "to": "xes",
+      "input": "extra-column.csv",
+      "allow_metadata_loss": false,
+      "expected": {
+        "status": "loss_refused",
+        "reason": "extra_metadata",
+        "manual_semantics": {
+          "metadata_loss_count": 1
+        },
+        "direct_target_file": null,
+        "requires_separate_actual_inverse": false,
+        "source": "prospective human-authored expectation before candidate code"
+      },
+      "input_sha256": "d88609e7e1a1d4a2059033e1c5facd405b28c6889445b3dd8b02b02c8dcc1d17",
+      "input_bytes": 52
+    },
+    {
+      "id": "X19",
+      "from": "csv",
+      "to": "xes",
+      "input": "extra-column.csv",
+      "allow_metadata_loss": true,
+      "expected": {
+        "status": "converted",
+        "reason": "explicit_metadata_loss",
+        "manual_semantics": {
+          "core_file": "rich.manual-core.json",
+          "metadata_loss_count": 1,
+          "losses": [
+            {
+              "column": "owner",
+              "kind": "csv_extra_cell",
+              "row": 0,
+              "value": "R"
+            }
+          ]
+        },
+        "direct_target_file": null,
+        "requires_separate_actual_inverse": true,
+        "source": "prospective human-authored expectation before candidate code"
+      },
+      "input_sha256": "d88609e7e1a1d4a2059033e1c5facd405b28c6889445b3dd8b02b02c8dcc1d17",
+      "input_bytes": 52
+    },
+    {
+      "id": "X22",
+      "from": "xes",
+      "to": "csv",
+      "input": "invalid-metadata-number.xes",
+      "allow_metadata_loss": true,
+      "expected": {
+        "status": "refused",
+        "reason": "invalid_scalar_metadata",
+        "manual_semantics": null,
+        "direct_target_file": null,
+        "requires_separate_actual_inverse": false,
+        "source": "prospective human-authored expectation before candidate code"
+      },
+      "input_sha256": "e6355c67cc6d7e65e97309d0ee6fc461f3d96ce0b0471a672b44bd4f3c8bc071",
+      "input_bytes": 393
+    },
+    {
+      "id": "P01",
+      "from": "petri-json",
+      "to": "pnml",
+      "input": "weighted-cycle.json",
+      "allow_metadata_loss": false,
+      "expected": {
+        "status": "converted",
+        "reason": "full_graph_bijection",
+        "manual_semantics": {
+          "transitions": 3,
+          "arcs": 6,
+          "graph_file": "weighted-cycle.manual-graph.json",
+          "uuid_identity_not_promised": true,
+          "duplicate_visible_labels": 2,
+          "places": 2,
+          "tau": 1,
+          "final_marking_count": 3,
+          "explicit_zero_entries": 3
+        },
+        "direct_target_file": "weighted-cycle.pnml",
+        "requires_separate_actual_inverse": true,
+        "source": "prospective human-authored expectation before candidate code"
+      },
+      "input_sha256": "2edc8cf756f63f62cc9bd469ae5f9f46be389bf08f516784affbe21b8dfdd57a",
+      "input_bytes": 2407
+    },
+    {
+      "id": "P02",
+      "from": "pnml",
+      "to": "petri-json",
+      "input": "weighted-cycle.pnml",
+      "allow_metadata_loss": false,
+      "expected": {
+        "status": "converted",
+        "reason": "full_graph_bijection",
+        "manual_semantics": {
+          "graph_file": "weighted-cycle.manual-graph.json",
+          "final_marking_count": 3,
+          "transitions": 3,
+          "arcs": 6,
+          "uuid_identity_not_promised": true,
+          "places": 2
+        },
+        "direct_target_file": "weighted-cycle.json",
+        "requires_separate_actual_inverse": true,
+        "source": "prospective human-authored expectation before candidate code"
+      },
+      "input_sha256": "e17dfb6ef9f93b2324e05942c85922de659c04725d8e0d3098a9397368e47e29",
+      "input_bytes": 2028
+    },
+    {
+      "id": "P03",
+      "from": "petri-json",
+      "to": "pnml",
+      "input": "absent-markings.json",
+      "allow_metadata_loss": false,
+      "expected": {
+        "status": "converted",
+        "reason": "full_graph_bijection",
+        "manual_semantics": {
+          "finals_are_missing": true,
+          "graph_file": "absent-markings.manual-graph.json",
+          "initial_is_missing": true
+        },
+        "direct_target_file": null,
+        "requires_separate_actual_inverse": true,
+        "source": "prospective human-authored expectation before candidate code"
+      },
+      "input_sha256": "5fbea2d84e7eeca8ae608cb2dd1279f08122fa9051b80f49cf2dd0425b0a2df8",
+      "input_bytes": 2122
+    },
+    {
+      "id": "P04",
+      "from": "petri-json",
+      "to": "pnml",
+      "input": "empty-initial.json",
+      "allow_metadata_loss": true,
+      "expected": {
+        "status": "refused",
+        "reason": "empty_initial_marking",
+        "manual_semantics": null,
+        "direct_target_file": null,
+        "requires_separate_actual_inverse": false,
+        "source": "prospective human-authored expectation before candidate code"
+      },
+      "input_sha256": "e78342952718e0ba3796b6fbe3dbfa34c0b6d8907686abe16b8a6ca2220b969d",
+      "input_bytes": 2308
+    },
+    {
+      "id": "P05",
+      "from": "petri-json",
+      "to": "pnml",
+      "input": "empty-finals.json",
+      "allow_metadata_loss": true,
+      "expected": {
+        "status": "refused",
+        "reason": "empty_final_markings",
+        "manual_semantics": null,
+        "direct_target_file": null,
+        "requires_separate_actual_inverse": false,
+        "source": "prospective human-authored expectation before candidate code"
+      },
+      "input_sha256": "ade2b50c4c6378f566e99aa585e752d552380405ace247c433f75fc2e6ebffaf",
+      "input_bytes": 2217
+    },
+    {
+      "id": "P06",
+      "from": "petri-json",
+      "to": "pnml",
+      "input": "dangling-json.json",
+      "allow_metadata_loss": true,
+      "expected": {
+        "status": "refused",
+        "reason": "dangling_arc",
+        "manual_semantics": null,
+        "direct_target_file": null,
+        "requires_separate_actual_inverse": false,
+        "source": "prospective human-authored expectation before candidate code"
+      },
+      "input_sha256": "d3b302cecd54b8ac538e162a75c5d2708e55a4d17c998263b76d5a42b01d1bef",
+      "input_bytes": 2407
+    },
+    {
+      "id": "P07",
+      "from": "petri-json",
+      "to": "pnml",
+      "input": "weight-zero.json",
+      "allow_metadata_loss": true,
+      "expected": {
+        "status": "refused",
+        "reason": "invalid_arc_weight",
+        "manual_semantics": null,
+        "direct_target_file": null,
+        "requires_separate_actual_inverse": false,
+        "source": "prospective human-authored expectation before candidate code"
+      },
+      "input_sha256": "f473e44c8672c9c032f499afae7aaf14f7cdfea272976add1f25edfdfc157e47",
+      "input_bytes": 2407
+    },
+    {
+      "id": "P08",
+      "from": "petri-json",
+      "to": "pnml",
+      "input": "label-trim.json",
+      "allow_metadata_loss": true,
+      "expected": {
+        "status": "refused",
+        "reason": "trim_sensitive_label",
+        "manual_semantics": null,
+        "direct_target_file": null,
+        "requires_separate_actual_inverse": false,
+        "source": "prospective human-authored expectation before candidate code"
+      },
+      "input_sha256": "d355fc174409211f361f73e04b0f05c74144319d280bc2064032d9189c6fa894",
+      "input_bytes": 2404
+    },
+    {
+      "id": "P09",
+      "from": "petri-json",
+      "to": "pnml",
+      "input": "duplicate-arc.json",
+      "allow_metadata_loss": true,
+      "expected": {
+        "status": "refused",
+        "reason": "duplicate_arc_endpoints",
+        "manual_semantics": null,
+        "direct_target_file": null,
+        "requires_separate_actual_inverse": false,
+        "source": "prospective human-authored expectation before candidate code"
+      },
+      "input_sha256": "abe47df056715549f5b87ecee7dd367be2203227e84eb4ffe064874e34e67df0",
+      "input_bytes": 2639
+    },
+    {
+      "id": "P10",
+      "from": "petri-json",
+      "to": "pnml",
+      "input": "unknown-json.json",
+      "allow_metadata_loss": true,
+      "expected": {
+        "status": "refused",
+        "reason": "unknown_json_field",
+        "manual_semantics": null,
+        "direct_target_file": null,
+        "requires_separate_actual_inverse": false,
+        "source": "prospective human-authored expectation before candidate code"
+      },
+      "input_sha256": "bf551022cf586d12a0c930997224ff433965143d807bcbcaadb5f97e9d753472",
+      "input_bytes": 2425
+    },
+    {
+      "id": "P11",
+      "from": "petri-json",
+      "to": "pnml",
+      "input": "mismatched-id.json",
+      "allow_metadata_loss": true,
+      "expected": {
+        "status": "refused",
+        "reason": "node_id_mismatch",
+        "manual_semantics": null,
+        "direct_target_file": null,
+        "requires_separate_actual_inverse": false,
+        "source": "prospective human-authored expectation before candidate code"
+      },
+      "input_sha256": "9a06826d46f336cfe8f5195b644a201e89bc33d069d0a3e005d3fff6ae2ebdda",
+      "input_bytes": 2407
+    },
+    {
+      "id": "P12",
+      "from": "petri-json",
+      "to": "pnml",
+      "input": "duplicate-key.json",
+      "allow_metadata_loss": false,
+      "expected": {
+        "status": "refused",
+        "reason": "duplicate_json_key",
+        "manual_semantics": null,
+        "direct_target_file": null,
+        "requires_separate_actual_inverse": false,
+        "source": "prospective human-authored expectation before candidate code"
+      },
+      "input_sha256": "5b688550ff23f4610f3fd087270a02d3a218e6ea31129a7be780dc62e7d530e3",
+      "input_bytes": 97
+    },
+    {
+      "id": "P13",
+      "from": "pnml",
+      "to": "petri-json",
+      "input": "bad-weight.pnml",
+      "allow_metadata_loss": true,
+      "expected": {
+        "status": "refused",
+        "reason": "invalid_arc_weight",
+        "manual_semantics": null,
+        "direct_target_file": null,
+        "requires_separate_actual_inverse": false,
+        "source": "prospective human-authored expectation before candidate code"
+      },
+      "input_sha256": "f2d24b9732288bb2c8885f4abe02dfee4e90b15aff24322f326aaa79f9bb7706",
+      "input_bytes": 2032
+    },
+    {
+      "id": "P14",
+      "from": "pnml",
+      "to": "petri-json",
+      "input": "bad-token.pnml",
+      "allow_metadata_loss": true,
+      "expected": {
+        "status": "refused",
+        "reason": "invalid_marking_number",
+        "manual_semantics": null,
+        "direct_target_file": null,
+        "requires_separate_actual_inverse": false,
+        "source": "prospective human-authored expectation before candidate code"
+      },
+      "input_sha256": "88f5335f0a2a4a92e7f51209ff5ee68989064c82058b561330fd36f9c99624b5",
+      "input_bytes": 2029
+    },
+    {
+      "id": "P15",
+      "from": "pnml",
+      "to": "petri-json",
+      "input": "unknown-xml.pnml",
+      "allow_metadata_loss": true,
+      "expected": {
+        "status": "refused",
+        "reason": "unsupported_pnml_construct",
+        "manual_semantics": null,
+        "direct_target_file": null,
+        "requires_separate_actual_inverse": false,
+        "source": "prospective human-authored expectation before candidate code"
+      },
+      "input_sha256": "dc903f7c51fdcb3c1c6954540d0cdbb3641ac48cecdf0bee04314e088da685de",
+      "input_bytes": 2040
+    },
+    {
+      "id": "P16",
+      "from": "pnml",
+      "to": "petri-json",
+      "input": "duplicate-id.pnml",
+      "allow_metadata_loss": true,
+      "expected": {
+        "status": "refused",
+        "reason": "duplicate_xml_id",
+        "manual_semantics": null,
+        "direct_target_file": null,
+        "requires_separate_actual_inverse": false,
+        "source": "prospective human-authored expectation before candidate code"
+      },
+      "input_sha256": "e498bb04f67a3ad607cf631d2802e02c61407a0e5b1375402265473867ca1a8b",
+      "input_bytes": 2028
+    },
+    {
+      "id": "P17",
+      "from": "pnml",
+      "to": "petri-json",
+      "input": "dangling-pnml.pnml",
+      "allow_metadata_loss": true,
+      "expected": {
+        "status": "refused",
+        "reason": "dangling_arc",
+        "manual_semantics": null,
+        "direct_target_file": null,
+        "requires_separate_actual_inverse": false,
+        "source": "prospective human-authored expectation before candidate code"
+      },
+      "input_sha256": "82cc16eb5e97a18f9130f5e01dc0d4af044b58ef0e7c94bf55528e7dd18c5f0c",
+      "input_bytes": 1999
+    },
+    {
+      "id": "P18",
+      "from": "pnml",
+      "to": "petri-json",
+      "input": "pnml-dtd.pnml",
+      "allow_metadata_loss": true,
+      "expected": {
+        "status": "refused",
+        "reason": "xml_declaration_unsupported",
+        "manual_semantics": null,
+        "direct_target_file": null,
+        "requires_separate_actual_inverse": false,
+        "source": "prospective human-authored expectation before candidate code"
+      },
+      "input_sha256": "150dea8f560680c4315d0707abf43f79376aff9f835373ac9a58f4c5f376dbaa",
+      "input_bytes": 2081
+    },
+    {
+      "id": "P19",
+      "from": "pnml",
+      "to": "petri-json",
+      "input": "label-whitespace.pnml",
+      "allow_metadata_loss": true,
+      "expected": {
+        "status": "refused",
+        "reason": "trim_sensitive_label",
+        "manual_semantics": null,
+        "direct_target_file": null,
+        "requires_separate_actual_inverse": false,
+        "source": "prospective human-authored expectation before candidate code"
+      },
+      "input_sha256": "16814b65c072bc090122b84efdf5efbdd8d0dd6cc1bb6e3cc805693b47af75ad",
+      "input_bytes": 2032
+    },
+    {
+      "id": "P20",
+      "from": "pnml",
+      "to": "petri-json",
+      "input": "place-name-loss.pnml",
+      "allow_metadata_loss": true,
+      "expected": {
+        "status": "refused",
+        "reason": "unsupported_place_name",
+        "manual_semantics": null,
+        "direct_target_file": null,
+        "requires_separate_actual_inverse": false,
+        "source": "prospective human-authored expectation before candidate code"
+      },
+      "input_sha256": "023d27e36ede965247d0ecef037ce996be6a0f784b23165d57fa5a7726c2ef0d",
+      "input_bytes": 2006
+    },
+    {
+      "id": "P21",
+      "from": "pnml",
+      "to": "petri-json",
+      "input": "missing-inscription.pnml",
+      "allow_metadata_loss": true,
+      "expected": {
+        "status": "refused",
+        "reason": "missing_arc_weight",
+        "manual_semantics": null,
+        "direct_target_file": null,
+        "requires_separate_actual_inverse": false,
+        "source": "prospective human-authored expectation before candidate code"
+      },
+      "input_sha256": "51239aa98844bc616718b22c1eaf2c8755e3605b23b12093c07dc007023ed043",
+      "input_bytes": 1946
+    },
+    {
+      "id": "P22",
+      "from": "pnml",
+      "to": "petri-json",
+      "input": "pnml-extra-page.pnml",
+      "allow_metadata_loss": true,
+      "expected": {
+        "status": "refused",
+        "reason": "unsupported_pnml_construct",
+        "manual_semantics": null,
+        "direct_target_file": null,
+        "requires_separate_actual_inverse": false,
+        "source": "prospective human-authored expectation before candidate code"
+      },
+      "input_sha256": "35b5aaaf8ebec9b72b2db5fb3eab146f1b26f7f48a153415857d4b86e117cb95",
+      "input_bytes": 2046
+    },
+    {
+      "id": "X24",
+      "from": "xes",
+      "to": "csv",
+      "input": "global-default.xes",
+      "allow_metadata_loss": true,
+      "expected": {
+        "status": "refused",
+        "reason": "global_defaults_unsupported",
+        "manual_semantics": null,
+        "direct_target_file": null,
+        "requires_separate_actual_inverse": false,
+        "source": "prospective human-authored supplement before candidate code"
+      },
+      "input_sha256": "3797dda8f9dc5d86cf144631545bf736f5028140be8b032251f72e6c95871ff0",
+      "input_bytes": 258
+    },
+    {
+      "id": "X25",
+      "from": "xes",
+      "to": "csv",
+      "input": "extension-classifier.xes",
+      "allow_metadata_loss": false,
+      "expected": {
+        "status": "loss_refused",
+        "reason": "extra_metadata",
+        "manual_semantics": {
+          "metadata_loss_count": 2,
+          "losses": [
+            {
+              "prefix": "concept",
+              "uri": "http://www.xes-standard.org/concept.xesext",
+              "name": "Concept",
+              "kind": "extension_declaration"
+            },
+            {
+              "keys": "concept:name",
+              "name": "Activity",
+              "kind": "classifier_declaration"
+            }
+          ]
+        },
+        "direct_target_file": null,
+        "requires_separate_actual_inverse": false,
+        "source": "prospective human-authored supplement before candidate code"
+      },
+      "input_sha256": "38e806f1b22320be06626487138f43dea67d564f7c755e5736612873fdcc411a",
+      "input_bytes": 316
+    },
+    {
+      "id": "X26",
+      "from": "xes",
+      "to": "csv",
+      "input": "extension-classifier.xes",
+      "allow_metadata_loss": true,
+      "expected": {
+        "status": "converted",
+        "reason": "explicit_metadata_loss",
+        "manual_semantics": {
+          "core_file": "rich.manual-core.json",
+          "losses": [
+            {
+              "prefix": "concept",
+              "uri": "http://www.xes-standard.org/concept.xesext",
+              "name": "Concept",
+              "kind": "extension_declaration"
+            },
+            {
+              "keys": "concept:name",
+              "name": "Activity",
+              "kind": "classifier_declaration"
+            }
+          ],
+          "metadata_loss_count": 2
+        },
+        "direct_target_file": "rich.manual.csv",
+        "requires_separate_actual_inverse": true,
+        "source": "prospective human-authored supplement before candidate code"
+      },
+      "input_sha256": "38e806f1b22320be06626487138f43dea67d564f7c755e5736612873fdcc411a",
+      "input_bytes": 316
+    },
+    {
+      "id": "X27",
+      "from": "xes",
+      "to": "csv",
+      "input": "i64-extrema.xes",
+      "allow_metadata_loss": true,
+      "expected": {
+        "status": "converted",
+        "reason": "explicit_metadata_loss",
+        "manual_semantics": {
+          "core_file": "rich.manual-core.json",
+          "losses": [
+            {
+              "event": 0,
+              "scope": "event",
+              "key": "min",
+              "value": "-9223372036854775808",
+              "type": "int",
+              "trace": 0
+            },
+            {
+              "event": 0,
+              "scope": "event",
+              "key": "max",
+              "value": "9223372036854775807",
+              "type": "int",
+              "trace": 0
+            },
+            {
+              "event": 0,
+              "scope": "event",
+              "key": "minuszero",
+              "value": "-0",
+              "type": "int",
+              "trace": 0
+            }
+          ],
+          "metadata_loss_count": 3
+        },
+        "direct_target_file": "rich.manual.csv",
+        "requires_separate_actual_inverse": true,
+        "source": "prospective human-authored supplement before candidate code"
+      },
+      "input_sha256": "9001d61d3e0278eb2a1c0cc754b16a3efaa8e695c3d606e584ebb1b0919f87b7",
+      "input_bytes": 296
+    },
+    {
+      "id": "X28",
+      "from": "xes",
+      "to": "csv",
+      "input": "invalid-boolean.xes",
+      "allow_metadata_loss": true,
+      "expected": {
+        "status": "refused",
+        "reason": "invalid_scalar_metadata",
+        "manual_semantics": null,
+        "direct_target_file": null,
+        "requires_separate_actual_inverse": false,
+        "source": "prospective human-authored supplement before candidate code"
+      },
+      "input_sha256": "4ced167b42c027a5e8b7b54c8d7430b0334867b41c6af04c16e2219ac999670f",
+      "input_bytes": 208
+    },
+    {
+      "id": "X29",
+      "from": "xes",
+      "to": "csv",
+      "input": "i64-overflow.xes",
+      "allow_metadata_loss": true,
+      "expected": {
+        "status": "refused",
+        "reason": "invalid_scalar_metadata",
+        "manual_semantics": null,
+        "direct_target_file": null,
+        "requires_separate_actual_inverse": false,
+        "source": "prospective human-authored supplement before candidate code"
+      },
+      "input_sha256": "50d1bc0c7985597773ebaade1a1078be2a2e315b7d1b6994f01d64dde90445cd",
+      "input_bytes": 222
+    },
+    {
+      "id": "X30",
+      "from": "xes",
+      "to": "csv",
+      "input": "nonfinite-float.xes",
+      "allow_metadata_loss": true,
+      "expected": {
+        "status": "refused",
+        "reason": "invalid_scalar_metadata",
+        "manual_semantics": null,
+        "direct_target_file": null,
+        "requires_separate_actual_inverse": false,
+        "source": "prospective human-authored supplement before candidate code"
+      },
+      "input_sha256": "dd7b5e2b1ef8f72926034aced5c141a77795ceccabd57fa6cf922b1d5ffbd3af",
+      "input_bytes": 206
+    },
+    {
+      "id": "P23",
+      "from": "petri-json",
+      "to": "pnml",
+      "input": "integer-maxima.json",
+      "allow_metadata_loss": false,
+      "expected": {
+        "status": "converted",
+        "reason": "full_graph_bijection",
+        "manual_semantics": {
+          "maximum_token_count": "18446744073709551615",
+          "graph_file": "integer-maxima.manual-graph.json",
+          "final_marking_count": 3,
+          "maximum_arc_weight": "4294967295",
+          "initial_zero_entry_preserved": true
+        },
+        "direct_target_file": "integer-maxima.pnml",
+        "requires_separate_actual_inverse": true,
+        "source": "prospective human-authored supplement before candidate code"
+      },
+      "input_sha256": "73a28a1c7f8da856c03bca2c8d71e058ed89d7a8b3b24da4cfbb7444e4d171f3",
+      "input_bytes": 2454
+    },
+    {
+      "id": "P24",
+      "from": "pnml",
+      "to": "petri-json",
+      "input": "integer-maxima.pnml",
+      "allow_metadata_loss": false,
+      "expected": {
+        "status": "converted",
+        "reason": "full_graph_bijection",
+        "manual_semantics": {
+          "maximum_token_count": "18446744073709551615",
+          "graph_file": "integer-maxima.manual-graph.json",
+          "final_marking_count": 3,
+          "maximum_arc_weight": "4294967295",
+          "initial_zero_entry_preserved": true
+        },
+        "direct_target_file": "integer-maxima.json",
+        "requires_separate_actual_inverse": true,
+        "source": "prospective human-authored supplement before candidate code"
+      },
+      "input_sha256": "e32fc596ae00ef69c13d8c12a4b9928c7551236122d61d8b790fadabeacc23fc",
+      "input_bytes": 2075
+    },
+    {
+      "id": "P25",
+      "from": "petri-json",
+      "to": "pnml",
+      "input": "u32-overflow.json",
+      "allow_metadata_loss": false,
+      "expected": {
+        "status": "refused",
+        "reason": "invalid_arc_weight",
+        "manual_semantics": null,
+        "direct_target_file": null,
+        "requires_separate_actual_inverse": false,
+        "source": "prospective human-authored supplement before candidate code"
+      },
+      "input_sha256": "81551a7bc15baf681a19be1e21d44f0ebf11ed5ea676e72580bafefbb0533b8a",
+      "input_bytes": 2454
+    },
+    {
+      "id": "P26",
+      "from": "pnml",
+      "to": "petri-json",
+      "input": "u64-overflow.pnml",
+      "allow_metadata_loss": false,
+      "expected": {
+        "status": "refused",
+        "reason": "invalid_marking_number",
+        "manual_semantics": null,
+        "direct_target_file": null,
+        "requires_separate_actual_inverse": false,
+        "source": "prospective human-authored supplement before candidate code"
+      },
+      "input_sha256": "9ef5931feff25b7d6d1ae46f06fd2a941c2bd15dd5ff3ca451d39d9d45d60ea6",
+      "input_bytes": 2075
+    },
+    {
+      "id": "P27",
+      "from": "petri-json",
+      "to": "pnml",
+      "input": "visible-Tau.json",
+      "allow_metadata_loss": false,
+      "expected": {
+        "status": "converted",
+        "reason": "full_graph_bijection",
+        "manual_semantics": {
+          "graph_file": "visible-Tau.manual-graph.json",
+          "silent_tau_count": 1,
+          "visible_literal_Tau_count": 1,
+          "not_equated_by_label_text": true
+        },
+        "direct_target_file": "visible-Tau.pnml",
+        "requires_separate_actual_inverse": true,
+        "source": "prospective human-authored supplement before candidate code"
+      },
+      "input_sha256": "b19f39bc6be79ffdc2af7520372629e8519a3c40cfab2302b6a0280e10465d1d",
+      "input_bytes": 2404
+    },
+    {
+      "id": "P28",
+      "from": "pnml",
+      "to": "petri-json",
+      "input": "visible-Tau.pnml",
+      "allow_metadata_loss": false,
+      "expected": {
+        "status": "converted",
+        "reason": "full_graph_bijection",
+        "manual_semantics": {
+          "graph_file": "visible-Tau.manual-graph.json",
+          "silent_tau_count": 1,
+          "visible_literal_Tau_count": 1,
+          "not_equated_by_label_text": true
+        },
+        "direct_target_file": "visible-Tau.json",
+        "requires_separate_actual_inverse": true,
+        "source": "prospective human-authored supplement before candidate code"
+      },
+      "input_sha256": "a838ffb200d034c01fa5cbe16ad73d2ff6203fa59eb49aa2b581729d8eb09c39",
+      "input_bytes": 2021
+    }
+  ],
+  "files": [
+    {
+      "file": "absent-markings.json",
+      "bytes": 2122,
+      "sha256": "5fbea2d84e7eeca8ae608cb2dd1279f08122fa9051b80f49cf2dd0425b0a2df8"
+    },
+    {
+      "file": "absent-markings.manual-graph.json",
+      "bytes": 1358,
+      "sha256": "98ae12f6338eb04f88bb1b05cff2382633e1d1ad61dc061c3613ca041c4ee548"
+    },
+    {
+      "file": "bad-quote.csv",
+      "bytes": 53,
+      "sha256": "97998a77349b92983212f49398b3706f3cb8139bb34e9f8df81718c6e8d3a22b"
+    },
+    {
+      "file": "bad-token.pnml",
+      "bytes": 2029,
+      "sha256": "88f5335f0a2a4a92e7f51209ff5ee68989064c82058b561330fd36f9c99624b5"
+    },
+    {
+      "file": "bad-weight.pnml",
+      "bytes": 2032,
+      "sha256": "f2d24b9732288bb2c8885f4abe02dfee4e90b15aff24322f326aaa79f9bb7706"
+    },
+    {
+      "file": "blank-record.csv",
+      "bytes": 44,
+      "sha256": "3900959a88f4df93e6a398a02498bdbc4aa9accbabfd9fc209c85614aa0f7443"
+    },
+    {
+      "file": "dangling-json.json",
+      "bytes": 2407,
+      "sha256": "d3b302cecd54b8ac538e162a75c5d2708e55a4d17c998263b76d5a42b01d1bef"
+    },
+    {
+      "file": "dangling-pnml.pnml",
+      "bytes": 1999,
+      "sha256": "82cc16eb5e97a18f9130f5e01dc0d4af044b58ef0e7c94bf55528e7dd18c5f0c"
+    },
+    {
+      "file": "dtd.xes",
+      "bytes": 153,
+      "sha256": "b9bdf42462fb90e350b5c462b9d0271f8622327a3c9fd8d72b2bbfc45f22ee81"
+    },
+    {
+      "file": "duplicate-arc.json",
+      "bytes": 2639,
+      "sha256": "abe47df056715549f5b87ecee7dd367be2203227e84eb4ffe064874e34e67df0"
+    },
+    {
+      "file": "duplicate-event-key.xes",
+      "bytes": 483,
+      "sha256": "e25d53ddc660b16dbaa3eeaf7659f250693e4101b5b4088461de88340528d0d1"
+    },
+    {
+      "file": "duplicate-header.csv",
+      "bytes": 49,
+      "sha256": "76771851dacc27102491733af459db264e94bff08137e38b2062cd8b48f0e036"
+    },
+    {
+      "file": "duplicate-id.pnml",
+      "bytes": 2028,
+      "sha256": "e498bb04f67a3ad607cf631d2802e02c61407a0e5b1375402265473867ca1a8b"
+    },
+    {
+      "file": "duplicate-key.json",
+      "bytes": 97,
+      "sha256": "5b688550ff23f4610f3fd087270a02d3a218e6ea31129a7be780dc62e7d530e3"
+    },
+    {
+      "file": "duplicate-traces.xes",
+      "bytes": 794,
+      "sha256": "0d18d834dfe92781696f7eb2857a173e156eeebb322afa8e14103331306e794d"
+    },
+    {
+      "file": "empty-finals.json",
+      "bytes": 2217,
+      "sha256": "ade2b50c4c6378f566e99aa585e752d552380405ace247c433f75fc2e6ebffaf"
+    },
+    {
+      "file": "empty-initial.json",
+      "bytes": 2308,
+      "sha256": "e78342952718e0ba3796b6fbe3dbfa34c0b6d8907686abe16b8a6ca2220b969d"
+    },
+    {
+      "file": "empty-lifecycle.xes",
+      "bytes": 425,
+      "sha256": "e4fbdb4396b494b194a2e6f023161a315f1bb21138b61c0c8fb2de66fb69ea80"
+    },
+    {
+      "file": "empty-log.csv",
+      "bytes": 35,
+      "sha256": "3223289f6b27230d5220743174d3453e3092a5cc81e7eb64b6a53c7f117bd246"
+    },
+    {
+      "file": "empty-log.manual-core.json",
+      "bytes": 20,
+      "sha256": "6d1d32144816f362dda78fc28194aa620621d97b6f8d90448f6dcf4184e5b8fb"
+    },
+    {
+      "file": "empty-log.xes",
+      "bytes": 66,
+      "sha256": "68070326419cd77012d0d8159b2754bc89bb8b06f52aafdc49ad55cb1d03ff22"
+    },
+    {
+      "file": "empty-trace.xes",
+      "bytes": 121,
+      "sha256": "e4a86917d125ebdc47f54d3abf578fc065d7555c212828f6b7e15a99e859399f"
+    },
+    {
+      "file": "excess-precision.xes",
+      "bytes": 431,
+      "sha256": "e7ece93eeb7d93a3beab5db71e67c3e07758a4ce8b0d5eaa47c7e5aeaef573e9"
+    },
+    {
+      "file": "extension-classifier.xes",
+      "bytes": 316,
+      "sha256": "38e806f1b22320be06626487138f43dea67d564f7c755e5736612873fdcc411a"
+    },
+    {
+      "file": "extra-column.csv",
+      "bytes": 52,
+      "sha256": "d88609e7e1a1d4a2059033e1c5facd405b28c6889445b3dd8b02b02c8dcc1d17"
+    },
+    {
+      "file": "flat-unicode.csv",
+      "bytes": 125,
+      "sha256": "f14031cc8fcdf5119affaf1c2490d54b779a0929754dee6ddf8d6280971e2905"
+    },
+    {
+      "file": "flat-unicode.manual-core.json",
+      "bytes": 366,
+      "sha256": "6e50b95cd9ce56d2b52c099bbcfb59e20aebf128466bda76acd3697d7d7fb64b"
+    },
+    {
+      "file": "flat-unicode.xes",
+      "bytes": 430,
+      "sha256": "6be15abcc35c4bdf755f27307c93b0b5e4e5f90c7d715fcc4b57dc07a503516f"
+    },
+    {
+      "file": "global-default.xes",
+      "bytes": 258,
+      "sha256": "3797dda8f9dc5d86cf144631545bf736f5028140be8b032251f72e6c95871ff0"
+    },
+    {
+      "file": "i64-extrema.xes",
+      "bytes": 296,
+      "sha256": "9001d61d3e0278eb2a1c0cc754b16a3efaa8e695c3d606e584ebb1b0919f87b7"
+    },
+    {
+      "file": "i64-overflow.xes",
+      "bytes": 222,
+      "sha256": "50d1bc0c7985597773ebaade1a1078be2a2e315b7d1b6994f01d64dde90445cd"
+    },
+    {
+      "file": "integer-maxima.json",
+      "bytes": 2454,
+      "sha256": "73a28a1c7f8da856c03bca2c8d71e058ed89d7a8b3b24da4cfbb7444e4d171f3"
+    },
+    {
+      "file": "integer-maxima.manual-graph.json",
+      "bytes": 1690,
+      "sha256": "586f7670f9f32f5fa97562f0e0e5563a62c4c0606729b7d8517509939cb6a98f"
+    },
+    {
+      "file": "integer-maxima.pnml",
+      "bytes": 2075,
+      "sha256": "e32fc596ae00ef69c13d8c12a4b9928c7551236122d61d8b790fadabeacc23fc"
+    },
+    {
+      "file": "interleaved.csv",
+      "bytes": 56,
+      "sha256": "3ab05c3ddabe664f881f3332d4434a315fc9cce350d8ab298a37369564668472"
+    },
+    {
+      "file": "invalid-boolean.xes",
+      "bytes": 208,
+      "sha256": "4ced167b42c027a5e8b7b54c8d7430b0334867b41c6af04c16e2219ac999670f"
+    },
+    {
+      "file": "invalid-metadata-number.xes",
+      "bytes": 393,
+      "sha256": "e6355c67cc6d7e65e97309d0ee6fc461f3d96ce0b0471a672b44bd4f3c8bc071"
+    },
+    {
+      "file": "label-trim.json",
+      "bytes": 2404,
+      "sha256": "d355fc174409211f361f73e04b0f05c74144319d280bc2064032d9189c6fa894"
+    },
+    {
+      "file": "label-whitespace.pnml",
+      "bytes": 2032,
+      "sha256": "16814b65c072bc090122b84efdf5efbdd8d0dd6cc1bb6e3cc805693b47af75ad"
+    },
+    {
+      "file": "mismatched-id.json",
+      "bytes": 2407,
+      "sha256": "9a06826d46f336cfe8f5195b644a201e89bc33d069d0a3e005d3fff6ae2ebdda"
+    },
+    {
+      "file": "missing-inscription.pnml",
+      "bytes": 1946,
+      "sha256": "51239aa98844bc616718b22c1eaf2c8755e3605b23b12093c07dc007023ed043"
+    },
+    {
+      "file": "missing-trace-name.xes",
+      "bytes": 134,
+      "sha256": "cd9ad3589b8d812085107e53a78eb3a14d719d7962f0acc6b0e1dcba299ff5e1"
+    },
+    {
+      "file": "nonfinite-float.xes",
+      "bytes": 206,
+      "sha256": "dd7b5e2b1ef8f72926034aced5c141a77795ceccabd57fa6cf922b1d5ffbd3af"
+    },
+    {
+      "file": "offset.manual-core.json",
+      "bytes": 225,
+      "sha256": "71d7fd95e58821c8873d80affb9046f300104c8a61f9d73e69800872cad8a58a"
+    },
+    {
+      "file": "offset.manual.csv",
+      "bytes": 74,
+      "sha256": "f32a281ed31863d4806aec211ca4396c125538ac6a205a0bbf32889717fa77f8"
+    },
+    {
+      "file": "offset.xes",
+      "bytes": 246,
+      "sha256": "876cdebe3163814d77ac71e6354121c1e6764998622b5eb88ee8018a70989efe"
+    },
+    {
+      "file": "place-name-loss.pnml",
+      "bytes": 2006,
+      "sha256": "023d27e36ede965247d0ecef037ce996be6a0f784b23165d57fa5a7726c2ef0d"
+    },
+    {
+      "file": "pnml-dtd.pnml",
+      "bytes": 2081,
+      "sha256": "150dea8f560680c4315d0707abf43f79376aff9f835373ac9a58f4c5f376dbaa"
+    },
+    {
+      "file": "pnml-extra-page.pnml",
+      "bytes": 2046,
+      "sha256": "35b5aaaf8ebec9b72b2db5fb3eab146f1b26f7f48a153415857d4b86e117cb95"
+    },
+    {
+      "file": "rich.manual-core.json",
+      "bytes": 197,
+      "sha256": "7d83064b3fbf5fad0135065441fce37d52f7a6a96405d78b25e84137cd785010"
+    },
+    {
+      "file": "rich.manual.csv",
+      "bytes": 44,
+      "sha256": "a29a988731a414efef7fc74350cf2ab22871eaa0b09cc4e555c24364c414703b"
+    },
+    {
+      "file": "rich.xes",
+      "bytes": 384,
+      "sha256": "7baaeabe3190192d422009ec57f812dd822f9be3cb3fde7e381091bf9c39fe54"
+    },
+    {
+      "file": "u32-overflow.json",
+      "bytes": 2454,
+      "sha256": "81551a7bc15baf681a19be1e21d44f0ebf11ed5ea676e72580bafefbb0533b8a"
+    },
+    {
+      "file": "u64-overflow.pnml",
+      "bytes": 2075,
+      "sha256": "9ef5931feff25b7d6d1ae46f06fd2a941c2bd15dd5ff3ca451d39d9d45d60ea6"
+    },
+    {
+      "file": "unknown-json.json",
+      "bytes": 2425,
+      "sha256": "bf551022cf586d12a0c930997224ff433965143d807bcbcaadb5f97e9d753472"
+    },
+    {
+      "file": "unknown-xml.pnml",
+      "bytes": 2040,
+      "sha256": "dc903f7c51fdcb3c1c6954540d0cdbb3641ac48cecdf0bee04314e088da685de"
+    },
+    {
+      "file": "visible-Tau.json",
+      "bytes": 2404,
+      "sha256": "b19f39bc6be79ffdc2af7520372629e8519a3c40cfab2302b6a0280e10465d1d"
+    },
+    {
+      "file": "visible-Tau.manual-graph.json",
+      "bytes": 1640,
+      "sha256": "f6ae59b21612c4126bb7e42d7ca6be7cc2e7f019110b06a74b5b5cc3b113edc0"
+    },
+    {
+      "file": "visible-Tau.pnml",
+      "bytes": 2021,
+      "sha256": "a838ffb200d034c01fa5cbe16ad73d2ff6203fa59eb49aa2b581729d8eb09c39"
+    },
+    {
+      "file": "weight-zero.json",
+      "bytes": 2407,
+      "sha256": "f473e44c8672c9c032f499afae7aaf14f7cdfea272976add1f25edfdfc157e47"
+    },
+    {
+      "file": "weighted-cycle.json",
+      "bytes": 2407,
+      "sha256": "2edc8cf756f63f62cc9bd469ae5f9f46be389bf08f516784affbe21b8dfdd57a"
+    },
+    {
+      "file": "weighted-cycle.manual-graph.json",
+      "bytes": 1643,
+      "sha256": "df9395d4c2473e420bc582a764fa9642ab4644433164a85021b31390fdb6c4f0"
+    },
+    {
+      "file": "weighted-cycle.pnml",
+      "bytes": 2028,
+      "sha256": "e17dfb6ef9f93b2324e05942c85922de659c04725d8e0d3098a9397368e47e29"
+    }
+  ],
+  "limits": {
+    "report_bytes": 4194304,
+    "events": 100000,
+    "cases": 20000,
+    "bytes": 20971520,
+    "net_nodes": 256,
+    "net_arcs": 1024,
+    "isomorphism_partial_assignments": 100000
+  },
+  "not_algorithm_execution": true,
+  "not_acceptance": true
+}

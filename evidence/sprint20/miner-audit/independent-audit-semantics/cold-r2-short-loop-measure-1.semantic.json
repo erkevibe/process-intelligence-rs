@@ -1,0 +1,1558 @@
+{
+  "schema_version": 1,
+  "baseline_sha256": "9705eddd0b88f25f4abca3688696228046c8e99de0edb71f4b9e1375025d745a",
+  "candidate_sha256": "356b94e5271c6a5c634cce030c1bcb0216a6064cd97d8cf8848f0c327de6ad74",
+  "semantic_equal": true,
+  "semantic_carry_gate_passed": true,
+  "quality_carry_permitted": false,
+  "quality_carry_requires_separate_historical_case_admission_and_metric_source_binding": true,
+  "not_a_quality_evaluator": true,
+  "no_hash_only_isomorphism_claim": true,
+  "baseline_semantics": {
+    "raw_sha256": "9705eddd0b88f25f4abca3688696228046c8e99de0edb71f4b9e1375025d745a",
+    "vertices": [
+      {
+        "index": 0,
+        "id": null,
+        "has_id": false,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}definitions",
+        "attributes": [
+          [
+            "exporter",
+            "ProM. http://www.promtools.org/prom6"
+          ],
+          [
+            "exporterVersion",
+            "6.3"
+          ],
+          [
+            "targetNamespace",
+            "http://www.omg.org/bpmn20"
+          ],
+          [
+            "{http://www.w3.org/2001/XMLSchema-instance}schemaLocation",
+            "http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd"
+          ]
+        ],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 1,
+        "id": "proc_1345483087",
+        "has_id": true,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}process",
+        "attributes": [],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 2,
+        "id": "node5",
+        "has_id": true,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}startEvent",
+        "attributes": [
+          [
+            "name",
+            ""
+          ]
+        ],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 3,
+        "id": null,
+        "has_id": false,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}outgoing",
+        "attributes": [],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 4,
+        "id": "node6",
+        "has_id": true,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}endEvent",
+        "attributes": [
+          [
+            "name",
+            ""
+          ]
+        ],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 5,
+        "id": null,
+        "has_id": false,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}incoming",
+        "attributes": [],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 6,
+        "id": "node0",
+        "has_id": true,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}task",
+        "attributes": [
+          [
+            "name",
+            "C"
+          ]
+        ],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 7,
+        "id": null,
+        "has_id": false,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}incoming",
+        "attributes": [],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 8,
+        "id": null,
+        "has_id": false,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}outgoing",
+        "attributes": [],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 9,
+        "id": "node2",
+        "has_id": true,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}task",
+        "attributes": [
+          [
+            "name",
+            "A"
+          ]
+        ],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 10,
+        "id": null,
+        "has_id": false,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}incoming",
+        "attributes": [],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 11,
+        "id": null,
+        "has_id": false,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}outgoing",
+        "attributes": [],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 12,
+        "id": "node3",
+        "has_id": true,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}task",
+        "attributes": [
+          [
+            "name",
+            "B"
+          ]
+        ],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 13,
+        "id": null,
+        "has_id": false,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}incoming",
+        "attributes": [],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 14,
+        "id": null,
+        "has_id": false,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}outgoing",
+        "attributes": [],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 15,
+        "id": "node1",
+        "has_id": true,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}exclusiveGateway",
+        "attributes": [
+          [
+            "name",
+            ""
+          ]
+        ],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 16,
+        "id": null,
+        "has_id": false,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}incoming",
+        "attributes": [],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 17,
+        "id": null,
+        "has_id": false,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}outgoing",
+        "attributes": [],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 18,
+        "id": null,
+        "has_id": false,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}outgoing",
+        "attributes": [],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 19,
+        "id": "node4",
+        "has_id": true,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}exclusiveGateway",
+        "attributes": [
+          [
+            "name",
+            ""
+          ]
+        ],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 20,
+        "id": null,
+        "has_id": false,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}incoming",
+        "attributes": [],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 21,
+        "id": null,
+        "has_id": false,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}incoming",
+        "attributes": [],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 22,
+        "id": null,
+        "has_id": false,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}outgoing",
+        "attributes": [],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 23,
+        "id": "edge0",
+        "has_id": true,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}sequenceFlow",
+        "attributes": [
+          [
+            "name",
+            ""
+          ]
+        ],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 24,
+        "id": "edge1",
+        "has_id": true,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}sequenceFlow",
+        "attributes": [
+          [
+            "name",
+            ""
+          ]
+        ],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 25,
+        "id": "edge2",
+        "has_id": true,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}sequenceFlow",
+        "attributes": [
+          [
+            "name",
+            ""
+          ]
+        ],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 26,
+        "id": "edge3",
+        "has_id": true,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}sequenceFlow",
+        "attributes": [
+          [
+            "name",
+            ""
+          ]
+        ],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 27,
+        "id": "edge4",
+        "has_id": true,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}sequenceFlow",
+        "attributes": [
+          [
+            "name",
+            ""
+          ]
+        ],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 28,
+        "id": "edge5",
+        "has_id": true,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}sequenceFlow",
+        "attributes": [
+          [
+            "name",
+            ""
+          ]
+        ],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 29,
+        "id": "edge6",
+        "has_id": true,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}sequenceFlow",
+        "attributes": [
+          [
+            "name",
+            ""
+          ]
+        ],
+        "text": "",
+        "significant_tails": []
+      }
+    ],
+    "edges": [
+      {
+        "source": 0,
+        "target": 1,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 1,
+        "target": 2,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 2,
+        "target": 3,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 1,
+        "target": 4,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 4,
+        "target": 5,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 1,
+        "target": 6,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 6,
+        "target": 7,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 6,
+        "target": 8,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 1,
+        "target": 9,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 9,
+        "target": 10,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 9,
+        "target": 11,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 1,
+        "target": 12,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 12,
+        "target": 13,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 12,
+        "target": 14,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 1,
+        "target": 15,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 15,
+        "target": 16,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 15,
+        "target": 17,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 15,
+        "target": 18,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 1,
+        "target": 19,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 19,
+        "target": 20,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 19,
+        "target": 21,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 19,
+        "target": 22,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 1,
+        "target": 23,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 1,
+        "target": 24,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 1,
+        "target": 25,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 1,
+        "target": 26,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 1,
+        "target": 27,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 1,
+        "target": 28,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 1,
+        "target": 29,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 3,
+        "target": 29,
+        "role": "text-reference:outgoing"
+      },
+      {
+        "source": 5,
+        "target": 23,
+        "role": "text-reference:incoming"
+      },
+      {
+        "source": 7,
+        "target": 25,
+        "role": "text-reference:incoming"
+      },
+      {
+        "source": 8,
+        "target": 23,
+        "role": "text-reference:outgoing"
+      },
+      {
+        "source": 10,
+        "target": 27,
+        "role": "text-reference:incoming"
+      },
+      {
+        "source": 11,
+        "target": 24,
+        "role": "text-reference:outgoing"
+      },
+      {
+        "source": 13,
+        "target": 26,
+        "role": "text-reference:incoming"
+      },
+      {
+        "source": 14,
+        "target": 28,
+        "role": "text-reference:outgoing"
+      },
+      {
+        "source": 16,
+        "target": 24,
+        "role": "text-reference:incoming"
+      },
+      {
+        "source": 17,
+        "target": 25,
+        "role": "text-reference:outgoing"
+      },
+      {
+        "source": 18,
+        "target": 26,
+        "role": "text-reference:outgoing"
+      },
+      {
+        "source": 20,
+        "target": 28,
+        "role": "text-reference:incoming"
+      },
+      {
+        "source": 21,
+        "target": 29,
+        "role": "text-reference:incoming"
+      },
+      {
+        "source": 22,
+        "target": 27,
+        "role": "text-reference:outgoing"
+      },
+      {
+        "source": 23,
+        "target": 6,
+        "role": "attribute-reference:sourceRef"
+      },
+      {
+        "source": 23,
+        "target": 4,
+        "role": "attribute-reference:targetRef"
+      },
+      {
+        "source": 24,
+        "target": 9,
+        "role": "attribute-reference:sourceRef"
+      },
+      {
+        "source": 24,
+        "target": 15,
+        "role": "attribute-reference:targetRef"
+      },
+      {
+        "source": 25,
+        "target": 15,
+        "role": "attribute-reference:sourceRef"
+      },
+      {
+        "source": 25,
+        "target": 6,
+        "role": "attribute-reference:targetRef"
+      },
+      {
+        "source": 26,
+        "target": 15,
+        "role": "attribute-reference:sourceRef"
+      },
+      {
+        "source": 26,
+        "target": 12,
+        "role": "attribute-reference:targetRef"
+      },
+      {
+        "source": 27,
+        "target": 19,
+        "role": "attribute-reference:sourceRef"
+      },
+      {
+        "source": 27,
+        "target": 9,
+        "role": "attribute-reference:targetRef"
+      },
+      {
+        "source": 28,
+        "target": 12,
+        "role": "attribute-reference:sourceRef"
+      },
+      {
+        "source": 28,
+        "target": 19,
+        "role": "attribute-reference:targetRef"
+      },
+      {
+        "source": 29,
+        "target": 2,
+        "role": "attribute-reference:sourceRef"
+      },
+      {
+        "source": 29,
+        "target": 19,
+        "role": "attribute-reference:targetRef"
+      }
+    ],
+    "excluded_layout": [
+      {
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/DI}BPMNDiagram",
+        "parent_index": 0,
+        "parsed_subtree_serialization_sha256": "8d1e3a9be983d6919453dd48f7b9229bb06497ed78143353a01588f582643691",
+        "parsed_subtree_utf8": "<ns0:BPMNDiagram xmlns:ns0=\"http://www.omg.org/spec/BPMN/20100524/DI\" xmlns:ns1=\"http://www.omg.org/spec/DD/20100524/DC\" xmlns:ns2=\"http://www.omg.org/spec/DD/20100524/DI\" id=\"id_-1472997931\"><ns0:BPMNPlane bpmnElement=\"proc_1345483087\"><ns0:BPMNShape bpmnElement=\"node2\"><ns1:Bounds x=\"151.0\" y=\"127.0\" width=\"100.0\" height=\"40.0\" />\n<ns0:BPMNLabel />\n</ns0:BPMNShape>\n<ns0:BPMNShape bpmnElement=\"node1\"><ns1:Bounds x=\"301.0\" y=\"139.5\" width=\"25.0\" height=\"25.0\" />\n<ns0:BPMNLabel />\n</ns0:BPMNShape>\n<ns0:BPMNShape bpmnElement=\"node6\"><ns1:Bounds x=\"526.0\" y=\"108.5\" width=\"25.0\" height=\"25.0\" />\n<ns0:BPMNLabel />\n</ns0:BPMNShape>\n<ns0:BPMNShape bpmnElement=\"node0\"><ns1:Bounds x=\"376.0\" y=\"101.0\" width=\"100.0\" height=\"40.0\" />\n<ns0:BPMNLabel />\n</ns0:BPMNShape>\n<ns0:BPMNShape bpmnElement=\"node3\"><ns1:Bounds x=\"376.0\" y=\"171.0\" width=\"100.0\" height=\"40.0\" />\n<ns0:BPMNLabel />\n</ns0:BPMNShape>\n<ns0:BPMNShape bpmnElement=\"node4\"><ns1:Bounds x=\"76.0\" y=\"157.5\" width=\"25.0\" height=\"25.0\" />\n<ns0:BPMNLabel />\n</ns0:BPMNShape>\n<ns0:BPMNShape bpmnElement=\"node5\"><ns1:Bounds x=\"1.0\" y=\"157.5\" width=\"25.0\" height=\"25.0\" />\n<ns0:BPMNLabel />\n</ns0:BPMNShape>\n<ns0:BPMNEdge bpmnElement=\"edge0\"><ns2:waypoint x=\"426.0\" y=\"121.0\" />\n<ns2:waypoint x=\"538.5\" y=\"121.0\" />\n</ns0:BPMNEdge>\n<ns0:BPMNEdge bpmnElement=\"edge5\"><ns2:waypoint x=\"426.0\" y=\"191.0\" />\n<ns2:waypoint x=\"313.5\" y=\"197.0\" />\n<ns2:waypoint x=\"201.0\" y=\"197.0\" />\n<ns2:waypoint x=\"88.5\" y=\"170.0\" />\n</ns0:BPMNEdge>\n<ns0:BPMNEdge bpmnElement=\"edge6\"><ns2:waypoint x=\"13.5\" y=\"170.0\" />\n<ns2:waypoint x=\"88.5\" y=\"170.0\" />\n</ns0:BPMNEdge>\n<ns0:BPMNEdge bpmnElement=\"edge1\"><ns2:waypoint x=\"201.0\" y=\"147.0\" />\n<ns2:waypoint x=\"313.5\" y=\"152.0\" />\n</ns0:BPMNEdge>\n<ns0:BPMNEdge bpmnElement=\"edge3\"><ns2:waypoint x=\"313.5\" y=\"152.0\" />\n<ns2:waypoint x=\"426.0\" y=\"191.0\" />\n</ns0:BPMNEdge>\n<ns0:BPMNEdge bpmnElement=\"edge4\"><ns2:waypoint x=\"88.5\" y=\"170.0\" />\n<ns2:waypoint x=\"201.0\" y=\"147.0\" />\n</ns0:BPMNEdge>\n<ns0:BPMNEdge bpmnElement=\"edge2\"><ns2:waypoint x=\"313.5\" y=\"152.0\" />\n<ns2:waypoint x=\"426.0\" y=\"121.0\" />\n</ns0:BPMNEdge>\n</ns0:BPMNPlane>\n</ns0:BPMNDiagram>\n",
+        "hash_is_not_claimed_as_original_raw_byte_span": true
+      }
+    ]
+  },
+  "candidate_semantics": {
+    "raw_sha256": "356b94e5271c6a5c634cce030c1bcb0216a6064cd97d8cf8848f0c327de6ad74",
+    "vertices": [
+      {
+        "index": 0,
+        "id": null,
+        "has_id": false,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}definitions",
+        "attributes": [
+          [
+            "exporter",
+            "ProM. http://www.promtools.org/prom6"
+          ],
+          [
+            "exporterVersion",
+            "6.3"
+          ],
+          [
+            "targetNamespace",
+            "http://www.omg.org/bpmn20"
+          ],
+          [
+            "{http://www.w3.org/2001/XMLSchema-instance}schemaLocation",
+            "http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd"
+          ]
+        ],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 1,
+        "id": "proc_1119622337",
+        "has_id": true,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}process",
+        "attributes": [],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 2,
+        "id": "node5",
+        "has_id": true,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}startEvent",
+        "attributes": [
+          [
+            "name",
+            ""
+          ]
+        ],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 3,
+        "id": null,
+        "has_id": false,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}outgoing",
+        "attributes": [],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 4,
+        "id": "node6",
+        "has_id": true,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}endEvent",
+        "attributes": [
+          [
+            "name",
+            ""
+          ]
+        ],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 5,
+        "id": null,
+        "has_id": false,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}incoming",
+        "attributes": [],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 6,
+        "id": "node0",
+        "has_id": true,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}task",
+        "attributes": [
+          [
+            "name",
+            "C"
+          ]
+        ],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 7,
+        "id": null,
+        "has_id": false,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}incoming",
+        "attributes": [],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 8,
+        "id": null,
+        "has_id": false,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}outgoing",
+        "attributes": [],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 9,
+        "id": "node2",
+        "has_id": true,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}task",
+        "attributes": [
+          [
+            "name",
+            "A"
+          ]
+        ],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 10,
+        "id": null,
+        "has_id": false,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}incoming",
+        "attributes": [],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 11,
+        "id": null,
+        "has_id": false,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}outgoing",
+        "attributes": [],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 12,
+        "id": "node3",
+        "has_id": true,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}task",
+        "attributes": [
+          [
+            "name",
+            "B"
+          ]
+        ],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 13,
+        "id": null,
+        "has_id": false,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}incoming",
+        "attributes": [],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 14,
+        "id": null,
+        "has_id": false,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}outgoing",
+        "attributes": [],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 15,
+        "id": "node1",
+        "has_id": true,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}exclusiveGateway",
+        "attributes": [
+          [
+            "name",
+            ""
+          ]
+        ],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 16,
+        "id": null,
+        "has_id": false,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}incoming",
+        "attributes": [],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 17,
+        "id": null,
+        "has_id": false,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}outgoing",
+        "attributes": [],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 18,
+        "id": null,
+        "has_id": false,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}outgoing",
+        "attributes": [],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 19,
+        "id": "node4",
+        "has_id": true,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}exclusiveGateway",
+        "attributes": [
+          [
+            "name",
+            ""
+          ]
+        ],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 20,
+        "id": null,
+        "has_id": false,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}incoming",
+        "attributes": [],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 21,
+        "id": null,
+        "has_id": false,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}incoming",
+        "attributes": [],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 22,
+        "id": null,
+        "has_id": false,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}outgoing",
+        "attributes": [],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 23,
+        "id": "edge0",
+        "has_id": true,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}sequenceFlow",
+        "attributes": [
+          [
+            "name",
+            ""
+          ]
+        ],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 24,
+        "id": "edge1",
+        "has_id": true,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}sequenceFlow",
+        "attributes": [
+          [
+            "name",
+            ""
+          ]
+        ],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 25,
+        "id": "edge2",
+        "has_id": true,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}sequenceFlow",
+        "attributes": [
+          [
+            "name",
+            ""
+          ]
+        ],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 26,
+        "id": "edge3",
+        "has_id": true,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}sequenceFlow",
+        "attributes": [
+          [
+            "name",
+            ""
+          ]
+        ],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 27,
+        "id": "edge4",
+        "has_id": true,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}sequenceFlow",
+        "attributes": [
+          [
+            "name",
+            ""
+          ]
+        ],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 28,
+        "id": "edge5",
+        "has_id": true,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}sequenceFlow",
+        "attributes": [
+          [
+            "name",
+            ""
+          ]
+        ],
+        "text": "",
+        "significant_tails": []
+      },
+      {
+        "index": 29,
+        "id": "edge6",
+        "has_id": true,
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}sequenceFlow",
+        "attributes": [
+          [
+            "name",
+            ""
+          ]
+        ],
+        "text": "",
+        "significant_tails": []
+      }
+    ],
+    "edges": [
+      {
+        "source": 0,
+        "target": 1,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 1,
+        "target": 2,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 2,
+        "target": 3,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 1,
+        "target": 4,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 4,
+        "target": 5,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 1,
+        "target": 6,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 6,
+        "target": 7,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 6,
+        "target": 8,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 1,
+        "target": 9,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 9,
+        "target": 10,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 9,
+        "target": 11,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 1,
+        "target": 12,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 12,
+        "target": 13,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 12,
+        "target": 14,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 1,
+        "target": 15,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 15,
+        "target": 16,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 15,
+        "target": 17,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 15,
+        "target": 18,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 1,
+        "target": 19,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 19,
+        "target": 20,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 19,
+        "target": 21,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 19,
+        "target": 22,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 1,
+        "target": 23,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 1,
+        "target": 24,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 1,
+        "target": 25,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 1,
+        "target": 26,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 1,
+        "target": 27,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 1,
+        "target": 28,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 1,
+        "target": 29,
+        "role": "contains-unordered"
+      },
+      {
+        "source": 3,
+        "target": 29,
+        "role": "text-reference:outgoing"
+      },
+      {
+        "source": 5,
+        "target": 23,
+        "role": "text-reference:incoming"
+      },
+      {
+        "source": 7,
+        "target": 26,
+        "role": "text-reference:incoming"
+      },
+      {
+        "source": 8,
+        "target": 23,
+        "role": "text-reference:outgoing"
+      },
+      {
+        "source": 10,
+        "target": 27,
+        "role": "text-reference:incoming"
+      },
+      {
+        "source": 11,
+        "target": 24,
+        "role": "text-reference:outgoing"
+      },
+      {
+        "source": 13,
+        "target": 25,
+        "role": "text-reference:incoming"
+      },
+      {
+        "source": 14,
+        "target": 28,
+        "role": "text-reference:outgoing"
+      },
+      {
+        "source": 16,
+        "target": 24,
+        "role": "text-reference:incoming"
+      },
+      {
+        "source": 17,
+        "target": 25,
+        "role": "text-reference:outgoing"
+      },
+      {
+        "source": 18,
+        "target": 26,
+        "role": "text-reference:outgoing"
+      },
+      {
+        "source": 20,
+        "target": 28,
+        "role": "text-reference:incoming"
+      },
+      {
+        "source": 21,
+        "target": 29,
+        "role": "text-reference:incoming"
+      },
+      {
+        "source": 22,
+        "target": 27,
+        "role": "text-reference:outgoing"
+      },
+      {
+        "source": 23,
+        "target": 6,
+        "role": "attribute-reference:sourceRef"
+      },
+      {
+        "source": 23,
+        "target": 4,
+        "role": "attribute-reference:targetRef"
+      },
+      {
+        "source": 24,
+        "target": 9,
+        "role": "attribute-reference:sourceRef"
+      },
+      {
+        "source": 24,
+        "target": 15,
+        "role": "attribute-reference:targetRef"
+      },
+      {
+        "source": 25,
+        "target": 15,
+        "role": "attribute-reference:sourceRef"
+      },
+      {
+        "source": 25,
+        "target": 12,
+        "role": "attribute-reference:targetRef"
+      },
+      {
+        "source": 26,
+        "target": 15,
+        "role": "attribute-reference:sourceRef"
+      },
+      {
+        "source": 26,
+        "target": 6,
+        "role": "attribute-reference:targetRef"
+      },
+      {
+        "source": 27,
+        "target": 19,
+        "role": "attribute-reference:sourceRef"
+      },
+      {
+        "source": 27,
+        "target": 9,
+        "role": "attribute-reference:targetRef"
+      },
+      {
+        "source": 28,
+        "target": 12,
+        "role": "attribute-reference:sourceRef"
+      },
+      {
+        "source": 28,
+        "target": 19,
+        "role": "attribute-reference:targetRef"
+      },
+      {
+        "source": 29,
+        "target": 2,
+        "role": "attribute-reference:sourceRef"
+      },
+      {
+        "source": 29,
+        "target": 19,
+        "role": "attribute-reference:targetRef"
+      }
+    ],
+    "excluded_layout": [
+      {
+        "qname": "{http://www.omg.org/spec/BPMN/20100524/DI}BPMNDiagram",
+        "parent_index": 0,
+        "parsed_subtree_serialization_sha256": "04a3526fd70d1e3c43c81d335ff414c9fc1c385cfc0e98bc4ac70160e59a5668",
+        "parsed_subtree_utf8": "<ns0:BPMNDiagram xmlns:ns0=\"http://www.omg.org/spec/BPMN/20100524/DI\" xmlns:ns1=\"http://www.omg.org/spec/DD/20100524/DC\" xmlns:ns2=\"http://www.omg.org/spec/DD/20100524/DI\" id=\"id_-726957042\"><ns0:BPMNPlane bpmnElement=\"proc_1119622337\"><ns0:BPMNShape bpmnElement=\"node6\"><ns1:Bounds x=\"526.0\" y=\"109.0\" width=\"25.0\" height=\"25.0\" />\n<ns0:BPMNLabel />\n</ns0:BPMNShape>\n<ns0:BPMNShape bpmnElement=\"node1\"><ns1:Bounds x=\"301.0\" y=\"140.0\" width=\"25.0\" height=\"25.0\" />\n<ns0:BPMNLabel />\n</ns0:BPMNShape>\n<ns0:BPMNShape bpmnElement=\"node2\"><ns1:Bounds x=\"151.0\" y=\"127.5\" width=\"100.0\" height=\"40.0\" />\n<ns0:BPMNLabel />\n</ns0:BPMNShape>\n<ns0:BPMNShape bpmnElement=\"node5\"><ns1:Bounds x=\"1.0\" y=\"158.0\" width=\"25.0\" height=\"25.0\" />\n<ns0:BPMNLabel />\n</ns0:BPMNShape>\n<ns0:BPMNShape bpmnElement=\"node3\"><ns1:Bounds x=\"376.0\" y=\"171.5\" width=\"100.0\" height=\"40.0\" />\n<ns0:BPMNLabel />\n</ns0:BPMNShape>\n<ns0:BPMNShape bpmnElement=\"node4\"><ns1:Bounds x=\"76.0\" y=\"158.0\" width=\"25.0\" height=\"25.0\" />\n<ns0:BPMNLabel />\n</ns0:BPMNShape>\n<ns0:BPMNShape bpmnElement=\"node0\"><ns1:Bounds x=\"376.0\" y=\"101.5\" width=\"100.0\" height=\"40.0\" />\n<ns0:BPMNLabel />\n</ns0:BPMNShape>\n<ns0:BPMNEdge bpmnElement=\"edge3\"><ns2:waypoint x=\"313.5\" y=\"152.5\" />\n<ns2:waypoint x=\"426.0\" y=\"121.5\" />\n</ns0:BPMNEdge>\n<ns0:BPMNEdge bpmnElement=\"edge5\"><ns2:waypoint x=\"426.0\" y=\"191.5\" />\n<ns2:waypoint x=\"313.5\" y=\"197.5\" />\n<ns2:waypoint x=\"201.0\" y=\"197.5\" />\n<ns2:waypoint x=\"88.5\" y=\"170.5\" />\n</ns0:BPMNEdge>\n<ns0:BPMNEdge bpmnElement=\"edge2\"><ns2:waypoint x=\"313.5\" y=\"152.5\" />\n<ns2:waypoint x=\"426.0\" y=\"191.5\" />\n</ns0:BPMNEdge>\n<ns0:BPMNEdge bpmnElement=\"edge6\"><ns2:waypoint x=\"13.5\" y=\"170.5\" />\n<ns2:waypoint x=\"88.5\" y=\"170.5\" />\n</ns0:BPMNEdge>\n<ns0:BPMNEdge bpmnElement=\"edge4\"><ns2:waypoint x=\"88.5\" y=\"170.5\" />\n<ns2:waypoint x=\"201.0\" y=\"147.5\" />\n</ns0:BPMNEdge>\n<ns0:BPMNEdge bpmnElement=\"edge1\"><ns2:waypoint x=\"201.0\" y=\"147.5\" />\n<ns2:waypoint x=\"313.5\" y=\"152.5\" />\n</ns0:BPMNEdge>\n<ns0:BPMNEdge bpmnElement=\"edge0\"><ns2:waypoint x=\"426.0\" y=\"121.5\" />\n<ns2:waypoint x=\"538.5\" y=\"121.5\" />\n</ns0:BPMNEdge>\n</ns0:BPMNPlane>\n</ns0:BPMNDiagram>\n",
+        "hash_is_not_claimed_as_original_raw_byte_span": true
+      }
+    ]
+  },
+  "status": "exact_full_semantic_bijection",
+  "complete_element_map": [
+    {
+      "baseline_index": 0,
+      "candidate_index": 0,
+      "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}definitions"
+    },
+    {
+      "baseline_index": 1,
+      "candidate_index": 1,
+      "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}process"
+    },
+    {
+      "baseline_index": 2,
+      "candidate_index": 2,
+      "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}startEvent"
+    },
+    {
+      "baseline_index": 3,
+      "candidate_index": 3,
+      "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}outgoing"
+    },
+    {
+      "baseline_index": 4,
+      "candidate_index": 4,
+      "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}endEvent"
+    },
+    {
+      "baseline_index": 5,
+      "candidate_index": 5,
+      "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}incoming"
+    },
+    {
+      "baseline_index": 6,
+      "candidate_index": 6,
+      "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}task"
+    },
+    {
+      "baseline_index": 7,
+      "candidate_index": 7,
+      "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}incoming"
+    },
+    {
+      "baseline_index": 8,
+      "candidate_index": 8,
+      "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}outgoing"
+    },
+    {
+      "baseline_index": 9,
+      "candidate_index": 9,
+      "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}task"
+    },
+    {
+      "baseline_index": 10,
+      "candidate_index": 10,
+      "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}incoming"
+    },
+    {
+      "baseline_index": 11,
+      "candidate_index": 11,
+      "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}outgoing"
+    },
+    {
+      "baseline_index": 12,
+      "candidate_index": 12,
+      "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}task"
+    },
+    {
+      "baseline_index": 13,
+      "candidate_index": 13,
+      "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}incoming"
+    },
+    {
+      "baseline_index": 14,
+      "candidate_index": 14,
+      "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}outgoing"
+    },
+    {
+      "baseline_index": 15,
+      "candidate_index": 15,
+      "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}exclusiveGateway"
+    },
+    {
+      "baseline_index": 16,
+      "candidate_index": 16,
+      "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}incoming"
+    },
+    {
+      "baseline_index": 17,
+      "candidate_index": 18,
+      "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}outgoing"
+    },
+    {
+      "baseline_index": 18,
+      "candidate_index": 17,
+      "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}outgoing"
+    },
+    {
+      "baseline_index": 19,
+      "candidate_index": 19,
+      "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}exclusiveGateway"
+    },
+    {
+      "baseline_index": 20,
+      "candidate_index": 20,
+      "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}incoming"
+    },
+    {
+      "baseline_index": 21,
+      "candidate_index": 21,
+      "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}incoming"
+    },
+    {
+      "baseline_index": 22,
+      "candidate_index": 22,
+      "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}outgoing"
+    },
+    {
+      "baseline_index": 23,
+      "candidate_index": 23,
+      "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}sequenceFlow"
+    },
+    {
+      "baseline_index": 24,
+      "candidate_index": 24,
+      "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}sequenceFlow"
+    },
+    {
+      "baseline_index": 25,
+      "candidate_index": 26,
+      "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}sequenceFlow"
+    },
+    {
+      "baseline_index": 26,
+      "candidate_index": 25,
+      "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}sequenceFlow"
+    },
+    {
+      "baseline_index": 27,
+      "candidate_index": 27,
+      "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}sequenceFlow"
+    },
+    {
+      "baseline_index": 28,
+      "candidate_index": 28,
+      "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}sequenceFlow"
+    },
+    {
+      "baseline_index": 29,
+      "candidate_index": 29,
+      "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}sequenceFlow"
+    }
+  ],
+  "complete_id_map": [
+    {
+      "baseline_id": "edge0",
+      "candidate_id": "edge0",
+      "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}sequenceFlow"
+    },
+    {
+      "baseline_id": "edge1",
+      "candidate_id": "edge1",
+      "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}sequenceFlow"
+    },
+    {
+      "baseline_id": "edge2",
+      "candidate_id": "edge3",
+      "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}sequenceFlow"
+    },
+    {
+      "baseline_id": "edge3",
+      "candidate_id": "edge2",
+      "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}sequenceFlow"
+    },
+    {
+      "baseline_id": "edge4",
+      "candidate_id": "edge4",
+      "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}sequenceFlow"
+    },
+    {
+      "baseline_id": "edge5",
+      "candidate_id": "edge5",
+      "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}sequenceFlow"
+    },
+    {
+      "baseline_id": "edge6",
+      "candidate_id": "edge6",
+      "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}sequenceFlow"
+    },
+    {
+      "baseline_id": "node0",
+      "candidate_id": "node0",
+      "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}task"
+    },
+    {
+      "baseline_id": "node1",
+      "candidate_id": "node1",
+      "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}exclusiveGateway"
+    },
+    {
+      "baseline_id": "node2",
+      "candidate_id": "node2",
+      "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}task"
+    },
+    {
+      "baseline_id": "node3",
+      "candidate_id": "node3",
+      "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}task"
+    },
+    {
+      "baseline_id": "node4",
+      "candidate_id": "node4",
+      "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}exclusiveGateway"
+    },
+    {
+      "baseline_id": "node5",
+      "candidate_id": "node5",
+      "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}startEvent"
+    },
+    {
+      "baseline_id": "node6",
+      "candidate_id": "node6",
+      "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}endEvent"
+    },
+    {
+      "baseline_id": "proc_1345483087",
+      "candidate_id": "proc_1119622337",
+      "qname": "{http://www.omg.org/spec/BPMN/20100524/MODEL}process"
+    }
+  ],
+  "candidate_assignments": 30
+}

@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "utc": "2026-10-22T08:37:41.5200250Z",
+  "role": "QA",
+  "agent": "/root/qa_finish074",
+  "status": "ACTUAL_BOUNDED_MEMORY_CALIBRATION_ACCEPTED",
+  "config_sha256": "3433BC4517B742C49D0CF851058357706295FBE3FC3012D91DA3EC53C6091ACE",
+  "calibration_sha256": "D76F8F475EB4379E36EC4914600AE3CD52853C9362E340E20228FB4F191CF79E",
+  "live_counters_sha256": "6950E102797F6C87A81FFEC6A4195AA0D76B2E5ED4A41F3828C8C59E1CF87D6A",
+  "actual": {
+    "python_pid": 15804,
+    "python_creation_utc": "2026-10-22T08:36:49.1547263Z",
+    "outer_pid": 1428,
+    "native_closed_records": 2,
+    "all_stream_bytes_and_hashes_verified": true,
+    "allocation_bytes": 33554432,
+    "current_private_commit_before": 7462912,
+    "current_private_commit_after": 41091072,
+    "current_private_commit_delta": 33628160,
+    "peak_working_set_bytes": 46927872,
+    "job_peak_commit_bytes": 41103360,
+    "postexit_job_active": 0,
+    "postexit_job_total": 1,
+    "invalid_handle_refused": true
+  },
+  "limits": [
+    "No mining performance or GetProcessTimes processCPU acceptance.",
+    "Terminal process snapshot excludes subsequent teardown; current-value delta is a positive control, not exact allocation-to-peak equality.",
+    "Reviewed source before launch and inspected scoped resulting artifacts during/after the short run; no independent claim of a sampled live CIM identity."
+  ]
+}

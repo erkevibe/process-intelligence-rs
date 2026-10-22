@@ -1,0 +1,440 @@
+{
+  "allow_metadata_loss": false,
+  "evidence": {
+    "actual_inverse_conversion_not_claimed": true,
+    "actual_upstream_api": "import_pnml_reader",
+    "bijection_partial_assignments": 5,
+    "metadata_loss_count": 0,
+    "node_bijection": {
+      "00000000-0000-0000-0000-000000000001": "c9b7ec09-9800-40a9-a48e-4f018cdf3a5c",
+      "00000000-0000-0000-0000-000000000002": "9d016ec4-9529-436f-85de-d66b255e465b",
+      "00000000-0000-0000-0000-000000000003": "a2c3da42-832e-4795-a262-e92b72081c59",
+      "00000000-0000-0000-0000-000000000004": "38f2f268-8b38-4b8d-9f5d-8d2206065128",
+      "00000000-0000-0000-0000-000000000005": "3ee96443-74de-433e-b4b9-972b6477c1ce"
+    },
+    "normalization_inventory": {
+      "counts": {
+        "arc_id": 6,
+        "net_id": 1,
+        "node_id_bijection": 5,
+        "page_id": 1,
+        "place_display_name": 2,
+        "tau_local_node_id": 1
+      },
+      "entries": [
+        {
+          "action": "omitted_format_field",
+          "kind": "net_id",
+          "locator": {
+            "attribute": "id",
+            "path": "/pnml/net[0]",
+            "syntax": "xml"
+          },
+          "normalized_value": null,
+          "original_value": "Rust PetriNet Export",
+          "side": "source"
+        },
+        {
+          "action": "omitted_format_field",
+          "kind": "page_id",
+          "locator": {
+            "attribute": "id",
+            "path": "/pnml/net[0]/page[0]",
+            "syntax": "xml"
+          },
+          "normalized_value": null,
+          "original_value": "n0",
+          "side": "source"
+        },
+        {
+          "action": "omitted_format_field",
+          "kind": "place_display_name",
+          "locator": {
+            "path": "/pnml/net[0]/page[0]/place[0]/name[0]/text[0]",
+            "syntax": "xml"
+          },
+          "normalized_value": null,
+          "original_value": "00000000-0000-0000-0000-000000000001",
+          "side": "source"
+        },
+        {
+          "action": "omitted_format_field",
+          "kind": "place_display_name",
+          "locator": {
+            "path": "/pnml/net[0]/page[0]/place[1]/name[0]/text[0]",
+            "syntax": "xml"
+          },
+          "normalized_value": null,
+          "original_value": "00000000-0000-0000-0000-000000000002",
+          "side": "source"
+        },
+        {
+          "action": "omitted_format_field",
+          "kind": "tau_local_node_id",
+          "locator": {
+            "attribute": "localNodeID",
+            "path": "/pnml/net[0]/page[0]/transition[2]/toolspecific[0]",
+            "syntax": "xml"
+          },
+          "normalized_value": null,
+          "original_value": "0c807257-3e20-4b23-a8d5-cb952827da37",
+          "side": "source"
+        },
+        {
+          "action": "omitted_format_field",
+          "kind": "arc_id",
+          "locator": {
+            "attribute": "id",
+            "path": "/pnml/net[0]/page[0]/arc[0]",
+            "syntax": "xml"
+          },
+          "normalized_value": null,
+          "original_value": "00000000-0000-0000-0000-00000000000100000000-0000-0000-0000-000000000003",
+          "side": "source"
+        },
+        {
+          "action": "omitted_format_field",
+          "kind": "arc_id",
+          "locator": {
+            "attribute": "id",
+            "path": "/pnml/net[0]/page[0]/arc[1]",
+            "syntax": "xml"
+          },
+          "normalized_value": null,
+          "original_value": "00000000-0000-0000-0000-00000000000300000000-0000-0000-0000-000000000002",
+          "side": "source"
+        },
+        {
+          "action": "omitted_format_field",
+          "kind": "arc_id",
+          "locator": {
+            "attribute": "id",
+            "path": "/pnml/net[0]/page[0]/arc[2]",
+            "syntax": "xml"
+          },
+          "normalized_value": null,
+          "original_value": "00000000-0000-0000-0000-00000000000200000000-0000-0000-0000-000000000004",
+          "side": "source"
+        },
+        {
+          "action": "omitted_format_field",
+          "kind": "arc_id",
+          "locator": {
+            "attribute": "id",
+            "path": "/pnml/net[0]/page[0]/arc[3]",
+            "syntax": "xml"
+          },
+          "normalized_value": null,
+          "original_value": "00000000-0000-0000-0000-00000000000400000000-0000-0000-0000-000000000001",
+          "side": "source"
+        },
+        {
+          "action": "omitted_format_field",
+          "kind": "arc_id",
+          "locator": {
+            "attribute": "id",
+            "path": "/pnml/net[0]/page[0]/arc[4]",
+            "syntax": "xml"
+          },
+          "normalized_value": null,
+          "original_value": "00000000-0000-0000-0000-00000000000200000000-0000-0000-0000-000000000005",
+          "side": "source"
+        },
+        {
+          "action": "omitted_format_field",
+          "kind": "arc_id",
+          "locator": {
+            "attribute": "id",
+            "path": "/pnml/net[0]/page[0]/arc[5]",
+            "syntax": "xml"
+          },
+          "normalized_value": null,
+          "original_value": "00000000-0000-0000-0000-00000000000500000000-0000-0000-0000-000000000002",
+          "side": "source"
+        },
+        {
+          "action": "verified_id_renaming",
+          "changed": true,
+          "counterpart_locator": {
+            "path": "/places/c9b7ec09-9800-40a9-a48e-4f018cdf3a5c/id",
+            "syntax": "json"
+          },
+          "kind": "node_id_bijection",
+          "locator": {
+            "attribute": "id",
+            "path": "/pnml/net[0]/page[0]/place[0]",
+            "syntax": "xml"
+          },
+          "normalized_value": "c9b7ec09-9800-40a9-a48e-4f018cdf3a5c",
+          "original_value": "00000000-0000-0000-0000-000000000001",
+          "side": "source_to_target",
+          "source_graph_id": "00000000-0000-0000-0000-000000000001",
+          "target_graph_id": "c9b7ec09-9800-40a9-a48e-4f018cdf3a5c"
+        },
+        {
+          "action": "verified_id_renaming",
+          "changed": true,
+          "counterpart_locator": {
+            "path": "/places/9d016ec4-9529-436f-85de-d66b255e465b/id",
+            "syntax": "json"
+          },
+          "kind": "node_id_bijection",
+          "locator": {
+            "attribute": "id",
+            "path": "/pnml/net[0]/page[0]/place[1]",
+            "syntax": "xml"
+          },
+          "normalized_value": "9d016ec4-9529-436f-85de-d66b255e465b",
+          "original_value": "00000000-0000-0000-0000-000000000002",
+          "side": "source_to_target",
+          "source_graph_id": "00000000-0000-0000-0000-000000000002",
+          "target_graph_id": "9d016ec4-9529-436f-85de-d66b255e465b"
+        },
+        {
+          "action": "verified_id_renaming",
+          "changed": true,
+          "counterpart_locator": {
+            "path": "/transitions/a2c3da42-832e-4795-a262-e92b72081c59/id",
+            "syntax": "json"
+          },
+          "kind": "node_id_bijection",
+          "locator": {
+            "attribute": "id",
+            "path": "/pnml/net[0]/page[0]/transition[0]",
+            "syntax": "xml"
+          },
+          "normalized_value": "a2c3da42-832e-4795-a262-e92b72081c59",
+          "original_value": "00000000-0000-0000-0000-000000000003",
+          "side": "source_to_target",
+          "source_graph_id": "00000000-0000-0000-0000-000000000003",
+          "target_graph_id": "a2c3da42-832e-4795-a262-e92b72081c59"
+        },
+        {
+          "action": "verified_id_renaming",
+          "changed": true,
+          "counterpart_locator": {
+            "path": "/transitions/38f2f268-8b38-4b8d-9f5d-8d2206065128/id",
+            "syntax": "json"
+          },
+          "kind": "node_id_bijection",
+          "locator": {
+            "attribute": "id",
+            "path": "/pnml/net[0]/page[0]/transition[1]",
+            "syntax": "xml"
+          },
+          "normalized_value": "38f2f268-8b38-4b8d-9f5d-8d2206065128",
+          "original_value": "00000000-0000-0000-0000-000000000004",
+          "side": "source_to_target",
+          "source_graph_id": "00000000-0000-0000-0000-000000000004",
+          "target_graph_id": "38f2f268-8b38-4b8d-9f5d-8d2206065128"
+        },
+        {
+          "action": "verified_id_renaming",
+          "changed": true,
+          "counterpart_locator": {
+            "path": "/transitions/3ee96443-74de-433e-b4b9-972b6477c1ce/id",
+            "syntax": "json"
+          },
+          "kind": "node_id_bijection",
+          "locator": {
+            "attribute": "id",
+            "path": "/pnml/net[0]/page[0]/transition[2]",
+            "syntax": "xml"
+          },
+          "normalized_value": "3ee96443-74de-433e-b4b9-972b6477c1ce",
+          "original_value": "00000000-0000-0000-0000-000000000005",
+          "side": "source_to_target",
+          "source_graph_id": "00000000-0000-0000-0000-000000000005",
+          "target_graph_id": "3ee96443-74de-433e-b4b9-972b6477c1ce"
+        }
+      ],
+      "entry_count": 16,
+      "json_pointer_escaping": "RFC6901 ~0 and ~1",
+      "schema_version": 1,
+      "value_scope": "actual decoded XML attribute/text or JSON string values; exact lexical bytes remain SHA-bound payloads",
+      "xml_path_indexing": "zero_based_siblings_per_element_name"
+    },
+    "normalizations": [
+      "arc_id",
+      "net_id",
+      "node_id_bijection",
+      "page_id",
+      "place_display_name",
+      "tau_local_node_id"
+    ],
+    "profile": "process_mining_0.6.2_native-json-pnml-v1",
+    "source_graph": {
+      "arcs": [
+        {
+          "source": "00000000-0000-0000-0000-000000000001",
+          "target": "00000000-0000-0000-0000-000000000003",
+          "weight": 2
+        },
+        {
+          "source": "00000000-0000-0000-0000-000000000002",
+          "target": "00000000-0000-0000-0000-000000000004",
+          "weight": 3
+        },
+        {
+          "source": "00000000-0000-0000-0000-000000000002",
+          "target": "00000000-0000-0000-0000-000000000005",
+          "weight": 1
+        },
+        {
+          "source": "00000000-0000-0000-0000-000000000003",
+          "target": "00000000-0000-0000-0000-000000000002",
+          "weight": 3
+        },
+        {
+          "source": "00000000-0000-0000-0000-000000000004",
+          "target": "00000000-0000-0000-0000-000000000001",
+          "weight": 2
+        },
+        {
+          "source": "00000000-0000-0000-0000-000000000005",
+          "target": "00000000-0000-0000-0000-000000000002",
+          "weight": 1
+        }
+      ],
+      "finals": [
+        {
+          "00000000-0000-0000-0000-000000000002": 3
+        },
+        {},
+        {
+          "00000000-0000-0000-0000-000000000001": 0,
+          "00000000-0000-0000-0000-000000000002": 0
+        }
+      ],
+      "initial": {
+        "00000000-0000-0000-0000-000000000001": 2,
+        "00000000-0000-0000-0000-000000000002": 0
+      },
+      "nodes": {
+        "00000000-0000-0000-0000-000000000001": {
+          "id": "00000000-0000-0000-0000-000000000001",
+          "kind": "place",
+          "label": null
+        },
+        "00000000-0000-0000-0000-000000000002": {
+          "id": "00000000-0000-0000-0000-000000000002",
+          "kind": "place",
+          "label": null
+        },
+        "00000000-0000-0000-0000-000000000003": {
+          "id": "00000000-0000-0000-0000-000000000003",
+          "kind": "transition",
+          "label": "Tau"
+        },
+        "00000000-0000-0000-0000-000000000004": {
+          "id": "00000000-0000-0000-0000-000000000004",
+          "kind": "transition",
+          "label": "A & β"
+        },
+        "00000000-0000-0000-0000-000000000005": {
+          "id": "00000000-0000-0000-0000-000000000005",
+          "kind": "transition",
+          "label": null
+        }
+      }
+    },
+    "target_graph": {
+      "arcs": [
+        {
+          "source": "38f2f268-8b38-4b8d-9f5d-8d2206065128",
+          "target": "c9b7ec09-9800-40a9-a48e-4f018cdf3a5c",
+          "weight": 2
+        },
+        {
+          "source": "3ee96443-74de-433e-b4b9-972b6477c1ce",
+          "target": "9d016ec4-9529-436f-85de-d66b255e465b",
+          "weight": 1
+        },
+        {
+          "source": "9d016ec4-9529-436f-85de-d66b255e465b",
+          "target": "38f2f268-8b38-4b8d-9f5d-8d2206065128",
+          "weight": 3
+        },
+        {
+          "source": "9d016ec4-9529-436f-85de-d66b255e465b",
+          "target": "3ee96443-74de-433e-b4b9-972b6477c1ce",
+          "weight": 1
+        },
+        {
+          "source": "a2c3da42-832e-4795-a262-e92b72081c59",
+          "target": "9d016ec4-9529-436f-85de-d66b255e465b",
+          "weight": 3
+        },
+        {
+          "source": "c9b7ec09-9800-40a9-a48e-4f018cdf3a5c",
+          "target": "a2c3da42-832e-4795-a262-e92b72081c59",
+          "weight": 2
+        }
+      ],
+      "finals": [
+        {
+          "9d016ec4-9529-436f-85de-d66b255e465b": 3
+        },
+        {},
+        {
+          "9d016ec4-9529-436f-85de-d66b255e465b": 0,
+          "c9b7ec09-9800-40a9-a48e-4f018cdf3a5c": 0
+        }
+      ],
+      "initial": {
+        "9d016ec4-9529-436f-85de-d66b255e465b": 0,
+        "c9b7ec09-9800-40a9-a48e-4f018cdf3a5c": 2
+      },
+      "nodes": {
+        "38f2f268-8b38-4b8d-9f5d-8d2206065128": {
+          "id": "38f2f268-8b38-4b8d-9f5d-8d2206065128",
+          "kind": "transition",
+          "label": "A & β"
+        },
+        "3ee96443-74de-433e-b4b9-972b6477c1ce": {
+          "id": "3ee96443-74de-433e-b4b9-972b6477c1ce",
+          "kind": "transition",
+          "label": null
+        },
+        "9d016ec4-9529-436f-85de-d66b255e465b": {
+          "id": "9d016ec4-9529-436f-85de-d66b255e465b",
+          "kind": "place",
+          "label": null
+        },
+        "a2c3da42-832e-4795-a262-e92b72081c59": {
+          "id": "a2c3da42-832e-4795-a262-e92b72081c59",
+          "kind": "transition",
+          "label": "Tau"
+        },
+        "c9b7ec09-9800-40a9-a48e-4f018cdf3a5c": {
+          "id": "c9b7ec09-9800-40a9-a48e-4f018cdf3a5c",
+          "kind": "place",
+          "label": null
+        }
+      }
+    }
+  },
+  "from": "pnml",
+  "input_bytes": 2517,
+  "input_sha256": "fe11fdd76c95032e7aa851fa1b2bb26a34592e0c0fd7ed71db4335da8cb3df9a",
+  "method_sha256": "49dc32d1f4219965ea57cc79caa9355974269fab989cc38d09173c8e734e619b",
+  "not_general_format_support": true,
+  "payload_file": "payload.json",
+  "reason": "full_graph_bijection",
+  "schema_version": 1,
+  "sources": {
+    "Cargo.lock": "9005a089ccd3ec721e6d3209600c4cea10e0efc76c7ea4111406fb28c99f29b6",
+    "examples/conversion/logs.rs": "6765fc8a72c47c72b548689ed3f1249ca8e56ff560f08b04b25aef75177c94fe",
+    "examples/conversion/mod.rs": "0dee3aad92715daedc1d37164c911762cf519152e6fb8276e40e05af0b3051b5",
+    "examples/conversion/net.rs": "0850a692536f428facef5e2763c313781f75e42f8ed27d2f3ee8f4b80508d750",
+    "examples/conversion/xml.rs": "a1ff196c278638d3b63f395ad09ea8c8135a2f0021163cd73f30001c4fb21846",
+    "examples/pi_convert.rs": "f3935a0c1926c78807a9a94e7526062107c612093bf81680ff98e1d8bae51d4d",
+    "locked_process_mining": "0.6.2",
+    "src/csv_io.rs": "3eed3d20c0262e3cbf2bb2bf4666c33581f13ad61a9834da2b186e6623ab469d",
+    "src/event_io.rs": "e2f96e3ceb1f4af7d69492d0a7433259e6205397e219fc837b0adb30c4330fc8"
+  },
+  "status": "converted",
+  "target_bytes": 2305,
+  "target_sha256": "af1a8f075f3744dbe0bb50a5b273a899d32dfb3e3268a048312d314f1aa83458",
+  "to": "petri-json"
+}
