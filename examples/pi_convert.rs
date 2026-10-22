@@ -1,7 +1,7 @@
 //! Standalone generic, bounded converter; no product runtime or external engine changes.
 mod conversion;
 use conversion::{Failure, MAX_BYTES, require, sha};
-use serde_json::json;
+
 use std::{
     fs,
     io::{Read, Write},
@@ -124,29 +124,10 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let conversion = conversion::convert(from, to, &source, allow);
     // Re-read the actual input before publication. No original bytes are written as a sidecar.
     require(sha(&read(input)?) == source_hash, "source_changed")?;
-    let mut report = json!({"schema_version":1,"method_sha256":conversion::METHOD,"from":from,"to":to,"allow_metadata_loss":allow,"input_sha256":source_hash,"input_bytes":source.len(),"sources":conversion::sources(),"target_sha256":null,"target_bytes":null,"payload_file":null,"not_general_format_support":true});
+    let bytes = conversion::report_bytes(from, to, &source, allow, &conversion)?;
     match conversion {
-        Ok(result) => {
-            report["status"] = json!("converted");
-            report["reason"] = result
-                .evidence
-                .get("reason")
-                .cloned()
-                .unwrap_or_else(|| json!("full_graph_bijection"));
-            report["target_sha256"] = json!(sha(&result.payload));
-            report["target_bytes"] = json!(result.payload.len());
-            report["payload_file"] = json!(format!("payload.{}", result.extension));
-            report["evidence"] = result.evidence;
-            let bytes = serde_json::to_vec_pretty(&report)?;
-            require(bytes.len() <= 4 * 1024 * 1024, "report_byte_limit")?;
-            publish(output, Some((result.extension, &result.payload)), &bytes)?;
-        }
-        Err(error) => {
-            report["status"] = json!(error.status);
-            report["reason"] = json!(error.reason);
-            report["details"] = error.details;
-            let bytes = serde_json::to_vec_pretty(&report)?;
-            require(bytes.len() <= 4 * 1024 * 1024, "report_byte_limit")?;
+        Ok(result) => publish(output, Some((result.extension, &result.payload)), &bytes)?,
+        Err(_) => {
             publish(output, None, &bytes)?;
             std::process::exit(2);
         }

@@ -1,0 +1,231 @@
+{
+  "cases": [
+    {
+      "allow_metadata_loss": false,
+      "timed_out_or_capture_stopped": false,
+      "to": "xes",
+      "expected_exit": 0,
+      "input_path": "inputs/external.csv",
+      "from": "csv",
+      "native_exit": 0,
+      "expected": {
+        "no_fixture_lookup": true,
+        "core": {
+          "traces": [
+            {
+              "events": [
+                {
+                  "timestamp": "2026-10-22T00:00:00.000000001Z",
+                  "lifecycle": "complete",
+                  "activity": "Review, café"
+                }
+              ],
+              "name": "case-external"
+            }
+          ]
+        },
+        "status": "converted"
+      },
+      "output_directory": "cases/novel-xes",
+      "native_record_path": "cases/B01-capture/converter.process.json",
+      "files": [
+        {
+          "path": "payload.xes",
+          "sha256": "E364B698E34FA32AEB6F63065D99AD5DB8282055DE4E33CBE14EF960DF39D769",
+          "bytes": 316
+        },
+        {
+          "path": "report.json",
+          "sha256": "2D7C20669D3F0F51FADAB715EC62C90AC1161D7074658199F9BE561AC4A17D5D",
+          "bytes": 3812
+        }
+      ],
+      "id": "B01"
+    },
+    {
+      "allow_metadata_loss": false,
+      "timed_out_or_capture_stopped": false,
+      "to": "csv",
+      "expected_exit": 0,
+      "input_path": "cases/novel-xes/payload.xes",
+      "from": "xes",
+      "native_exit": 0,
+      "expected": {
+        "separate_actual_inverse": true,
+        "exact_csv_sha256": "206A6259F715CB801B165B9B6D12382380D0741F88BBB2295A30BC87EF98666B",
+        "core": {
+          "traces": [
+            {
+              "events": [
+                {
+                  "timestamp": "2026-10-22T00:00:00.000000001Z",
+                  "lifecycle": "complete",
+                  "activity": "Review, café"
+                }
+              ],
+              "name": "case-external"
+            }
+          ]
+        },
+        "status": "converted"
+      },
+      "output_directory": "cases/novel-csv",
+      "native_record_path": "cases/B02-capture/converter.process.json",
+      "files": [
+        {
+          "path": "payload.csv",
+          "sha256": "206A6259F715CB801B165B9B6D12382380D0741F88BBB2295A30BC87EF98666B",
+          "bytes": 106
+        },
+        {
+          "path": "report.json",
+          "sha256": "A73D65A194477E9D0C392636E01B42777ABE38265E038E2126B3611F8FCCE7C6",
+          "bytes": 3812
+        }
+      ],
+      "id": "B02"
+    },
+    {
+      "allow_metadata_loss": false,
+      "timed_out_or_capture_stopped": false,
+      "to": "xes",
+      "expected_exit": 1,
+      "input_path": "inputs/external.csv",
+      "from": "csv",
+      "native_exit": 1,
+      "expected": {
+        "unchanged_marker_sha256": "07A61BF1BDBA1F8061B97415C9410E3F722A545E9DD3B7A1C56A4332529049EE",
+        "only_file": "keep.txt"
+      },
+      "output_directory": "cases/existing-output",
+      "native_record_path": "cases/B03-capture/converter.process.json",
+      "files": [
+        {
+          "path": "keep.txt",
+          "sha256": "07A61BF1BDBA1F8061B97415C9410E3F722A545E9DD3B7A1C56A4332529049EE",
+          "bytes": 21
+        }
+      ],
+      "id": "B03"
+    },
+    {
+      "allow_metadata_loss": false,
+      "timed_out_or_capture_stopped": false,
+      "to": "xes",
+      "expected_exit": 1,
+      "input_path": "inputs/oversized.csv",
+      "from": "csv",
+      "native_exit": 1,
+      "expected": {
+        "input_bytes": 20971521,
+        "no_output_directory": true
+      },
+      "output_directory": "cases/oversized-result",
+      "native_record_path": "cases/B04-capture/converter.process.json",
+      "files": [],
+      "id": "B04"
+    },
+    {
+      "allow_metadata_loss": false,
+      "timed_out_or_capture_stopped": false,
+      "to": "xes",
+      "expected_exit": 1,
+      "input_path": "inputs/absent.csv",
+      "from": "csv",
+      "native_exit": 1,
+      "expected": {
+        "no_output_directory": true
+      },
+      "output_directory": "cases/missing-result",
+      "native_record_path": "cases/B05-capture/converter.process.json",
+      "files": [],
+      "id": "B05"
+    },
+    {
+      "allow_metadata_loss": false,
+      "timed_out_or_capture_stopped": false,
+      "to": "xes",
+      "expected_exit": 1,
+      "input_path": "inputs",
+      "from": "csv",
+      "native_exit": 1,
+      "expected": {
+        "no_output_directory": true
+      },
+      "output_directory": "cases/directory-result",
+      "native_record_path": "cases/B06-capture/converter.process.json",
+      "files": [],
+      "id": "B06"
+    },
+    {
+      "allow_metadata_loss": false,
+      "timed_out_or_capture_stopped": false,
+      "to": "xes",
+      "expected_exit": 1,
+      "input_path": "inputs/external.csv",
+      "from": "csv",
+      "native_exit": 1,
+      "expected": {
+        "no_parent_created": true,
+        "no_output_directory": true
+      },
+      "output_directory": "cases/absent-parent/result",
+      "native_record_path": "cases/B07-capture/converter.process.json",
+      "files": [],
+      "id": "B07"
+    },
+    {
+      "allow_metadata_loss": false,
+      "timed_out_or_capture_stopped": false,
+      "to": "xes",
+      "expected_exit": 2,
+      "input_path": "inputs/whitespace.csv",
+      "from": "csv",
+      "native_exit": 2,
+      "expected": {
+        "only_report": true,
+        "reason": "production_xes_parser_refused",
+        "status": "refused"
+      },
+      "output_directory": "cases/whitespace-default",
+      "native_record_path": "cases/B08-capture/converter.process.json",
+      "files": [
+        {
+          "path": "report.json",
+          "sha256": "9969604B38119532C99B2FCE7A7D8DC223A3CCFA0560DD9829044D8471AD8769",
+          "bytes": 1484
+        }
+      ],
+      "id": "B08"
+    },
+    {
+      "allow_metadata_loss": true,
+      "timed_out_or_capture_stopped": false,
+      "to": "xes",
+      "expected_exit": 2,
+      "input_path": "inputs/whitespace.csv",
+      "from": "csv",
+      "native_exit": 2,
+      "expected": {
+        "only_report": true,
+        "reason": "production_xes_parser_refused",
+        "status": "refused"
+      },
+      "output_directory": "cases/whitespace-allow",
+      "native_record_path": "cases/B09-capture/converter.process.json",
+      "files": [
+        {
+          "path": "report.json",
+          "sha256": "AF10D84CCB126B7379FC22BF3A71A1EE6A06C0E5727411484FA2750F573802E3",
+          "bytes": 1483
+        }
+      ],
+      "id": "B09"
+    }
+  ],
+  "external_input_sha256": "206A6259F715CB801B165B9B6D12382380D0741F88BBB2295A30BC87EF98666B",
+  "scope": "Additional independently specified external-file/boundary observations; not part of the frozen57 and not self-asserted acceptance",
+  "inputs_unchanged": true,
+  "schema_version": 1,
+  "converter_sha256": "11820AC81B8562B45DE0FC27BBF16DC7ADF788D4C297A238F6E5E069653E675D"
+}

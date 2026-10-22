@@ -18,6 +18,7 @@ use std::{
 pub(crate) struct Baseline {
     logs: BTreeMap<String, LogToken>,
     models: BTreeMap<String, Weak<StoredModel>>,
+    conversions: BTreeMap<String, Weak<crate::conversion_workflow::ConversionArtifact>>,
 }
 #[derive(Clone)]
 struct LogToken {
@@ -41,6 +42,8 @@ pub(crate) struct Header {
     pub(crate) sequence: u64,
     pub(crate) user_views: BTreeMap<String, BTreeMap<String, UserView>>,
     pub(crate) durable_jobs: BTreeMap<String, JobSnapshot>,
+    #[serde(default, skip_serializing_if = "BTreeMap::is_empty")]
+    pub(crate) conversions: BTreeMap<String, crate::conversion_workflow::ConversionMeta>,
     pub(crate) log_ids: Vec<String>,
     pub(crate) model_ids: Vec<String>,
 }
@@ -58,6 +61,7 @@ impl Header {
     }
     pub(crate) fn validate(&self) -> Result<(), ImportError> {
         self.audit.validate().map_err(|_| corrupt())?;
+        crate::conversion_workflow::validate_metadata(&self.conversions)?;
         self.organization
             .validate(
                 &self
@@ -75,6 +79,10 @@ impl Header {
             || logs.len() > 8
             || models.len() > 64
             || self.durable_jobs.len() > 10
+            || self
+                .conversions
+                .keys()
+                .any(|id| self.durable_jobs.contains_key(id))
             || self.log_ids.iter().any(|id| !valid_id(id, "log-"))
             || self.model_ids.iter().any(|id| !valid_id(id, "model-"))
             || self.current.values().any(|id| !logs.contains(id))
@@ -86,6 +94,7 @@ impl Header {
             || self.durable_jobs.iter().any(|(id, j)| {
                 id != &j.id
                     || !valid_id(id, "job-")
+                    || (!j.is_terminal() && j.job_revision == u64::MAX)
                     || (j.state == JobState::Completed
                         && !j.result_id.as_ref().is_some_and(|id| logs.contains(id)))
                     || (j.state != JobState::Completed && j.result_id.is_some())
@@ -110,6 +119,16 @@ impl Header {
                 changed = true;
             }
         }
+        for meta in self.conversions.values_mut() {
+            if !meta.snapshot.is_terminal() {
+                meta.snapshot.state = JobState::Failed;
+                meta.snapshot.stage = "interrupted".into();
+                meta.snapshot.result_id = None;
+                meta.snapshot.error = Some(crate::jobs::JobError {code:"interrupted".into(),message:"Операция прервана перезапуском. Исходный файл сохранён — нажмите «Повторить».".into()});
+                meta.snapshot.job_revision += 1;
+                changed = true;
+            }
+        }
         changed
     }
 }
@@ -126,6 +145,7 @@ pub(crate) fn header(repo: &Repository) -> Header {
         sequence: repo.sequence,
         user_views: repo.user_views.clone(),
         durable_jobs: repo.durable_jobs.clone(),
+        conversions: repo.conversions.clone(),
         log_ids: repo
             .log_ids
             .iter()
@@ -224,6 +244,32 @@ pub(crate) fn prepare(
             ));
         }
     }
+    for (id, artifact) in &next.conversion_artifacts {
+        let meta = next
+            .conversions
+            .values()
+            .find(|m| &m.artifact_id == id)
+            .ok_or_else(corrupt)?;
+        crate::conversion_workflow::validate_artifact(meta, artifact)?;
+        if next.deleted_conversion_ids.contains(id) {
+            return Err(corrupt());
+        }
+        if next
+            .persisted
+            .conversions
+            .get(id)
+            .is_none_or(|old| !Weak::ptr_eq(old, &Arc::downgrade(artifact)))
+        {
+            puts.push((
+                "conversion".into(),
+                id.clone(),
+                serde_json::to_value(artifact).map_err(|_| corrupt())?,
+            ));
+        }
+    }
+    for id in &next.deleted_conversion_ids {
+        deletes.push(("conversion".into(), id.clone()));
+    }
     for id in &next.deleted_log_ids {
         for kind in ["log_state", "log_data", "log_source", "log_analysis"] {
             deletes.push((kind.into(), id.clone()));
@@ -250,6 +296,14 @@ pub(crate) fn mark_persisted(repo: &mut Repository) {
     let baseline = Arc::make_mut(&mut repo.persisted);
     baseline.logs.retain(|id, _| repo.log_ids.contains(id));
     baseline.models.retain(|id, _| repo.model_ids.contains(id));
+    baseline
+        .conversions
+        .retain(|id, _| repo.conversions.values().any(|m| &m.artifact_id == id));
+    for (id, artifact) in &repo.conversion_artifacts {
+        baseline
+            .conversions
+            .insert(id.clone(), Arc::downgrade(artifact));
+    }
     for (id, log) in &repo.logs {
         baseline.logs.insert(id.clone(), token(log));
     }
@@ -258,9 +312,11 @@ pub(crate) fn mark_persisted(repo: &mut Repository) {
     }
     repo.deleted_log_ids.clear();
     repo.deleted_model_ids.clear();
+    repo.deleted_conversion_ids.clear();
     if repo.lazy_resources {
         repo.logs.clear();
         repo.models.clear();
+        repo.conversion_artifacts.clear();
     }
 }
 fn token(log: &StoredLog) -> LogToken {
@@ -312,6 +368,11 @@ pub(crate) fn load_metadata(database: &Database, project: &str) -> Result<Reposi
                 .map(move |kind| (kind.to_string(), id.clone()))
         })
         .chain(h.model_ids.iter().map(|id| ("model".into(), id.clone())))
+        .chain(
+            h.conversions
+                .values()
+                .map(|m| ("conversion".into(), m.artifact_id.clone())),
+        )
         .collect();
     let actual: BTreeSet<_> = database.record_keys(project)?.into_iter().collect();
     if actual != expected {
@@ -324,6 +385,7 @@ pub(crate) fn load_metadata(database: &Database, project: &str) -> Result<Reposi
         sequence: h.sequence,
         user_views: h.user_views,
         durable_jobs: h.durable_jobs,
+        conversions: h.conversions,
         storage_revision: revision,
         log_ids: h.log_ids.into_iter().collect(),
         model_ids: h.model_ids.into_iter().collect(),
@@ -461,6 +523,11 @@ pub(crate) fn load(database: &Database, project: &str) -> Result<Repository, Imp
     for id in repo.model_ids.clone() {
         repo.models
             .insert(id.clone(), load_model(database, project, &id)?.0);
+    }
+    for meta in repo.conversions.values() {
+        let artifact = crate::conversion_workflow::load_artifact(database, project, meta)?;
+        repo.conversion_artifacts
+            .insert(meta.artifact_id.clone(), artifact);
     }
     mark_persisted(&mut repo);
     Ok(repo)

@@ -1,0 +1,162 @@
+[
+  {
+    "job": "job-1",
+    "part": "payload",
+    "route": "/conversions/jobs/job-1/payload",
+    "file": "xes-csv.payload.csv",
+    "bytes": 125,
+    "sha256": "f14031cc8fcdf5119affaf1c2490d54b779a0929754dee6ddf8d6280971e2905"
+  },
+  {
+    "job": "job-1",
+    "part": "report",
+    "route": "/conversions/jobs/job-1/report",
+    "file": "xes-csv.report.json",
+    "bytes": 4075,
+    "sha256": "b76b75c8e14e2d7cb516246ca2c504b79fc0dda2d6a7fe6e0c72c24abf4eb750"
+  },
+  {
+    "job": "job-3",
+    "part": "payload",
+    "route": "/conversions/jobs/job-3/payload",
+    "file": "csv-xes.payload.xes",
+    "bytes": 430,
+    "sha256": "6be15abcc35c4bdf755f27307c93b0b5e4e5f90c7d715fcc4b57dc07a503516f"
+  },
+  {
+    "job": "job-3",
+    "part": "report",
+    "route": "/conversions/jobs/job-3/report",
+    "file": "csv-xes.report.json",
+    "bytes": 4075,
+    "sha256": "a863e97186e673cfac43aa77e8fe77dcc1ac65e64f2879acc16b5c9e3bd01cb6"
+  },
+  {
+    "job": "job-5",
+    "part": "payload",
+    "route": "/conversions/jobs/job-5/payload",
+    "file": "json-pnml.payload.pnml",
+    "bytes": 2524,
+    "sha256": "1f0de5363e62c78beb35a8bed4f81ef07b7bc663919cff779cb0366b64b28b41"
+  },
+  {
+    "job": "job-5",
+    "part": "report",
+    "route": "/conversions/jobs/job-5/report",
+    "file": "json-pnml.report.json",
+    "bytes": 15335,
+    "sha256": "15d94e20f9381cb77c0aff82f44aa8f235bd4770a1347e12487ea87cb9285d7b"
+  },
+  {
+    "job": "job-7",
+    "part": "payload",
+    "route": "/conversions/jobs/job-7/payload",
+    "file": "pnml-json.payload.json",
+    "bytes": 2308,
+    "sha256": "530c55097e81467d914ac44f63046a7838121ca75ca2b41eaf3be139830c5afb"
+  },
+  {
+    "job": "job-7",
+    "part": "report",
+    "route": "/conversions/jobs/job-7/report",
+    "file": "pnml-json.report.json",
+    "bytes": 14519,
+    "sha256": "4a3ec8fdef25ad76ebf45d6aa8a19fc666a59fe3158d75c516a76dc58da9758f"
+  },
+  {
+    "job": "job-9",
+    "part": "report",
+    "route": "/conversions/jobs/job-9/report",
+    "file": "rich-refused.report.json",
+    "bytes": 3111,
+    "sha256": "0c63cb490b316a1ef4684bed42a75fcbd889740332ff7b84e5e73fbedd691cd6"
+  },
+  {
+    "job": "job-11",
+    "part": "payload",
+    "route": "/conversions/jobs/job-11/payload",
+    "file": "rich-allowed.payload.csv",
+    "bytes": 44,
+    "sha256": "a29a988731a414efef7fc74350cf2ab22871eaa0b09cc4e555c24364c414703b"
+  },
+  {
+    "job": "job-11",
+    "part": "report",
+    "route": "/conversions/jobs/job-11/report",
+    "file": "rich-allowed.report.json",
+    "bytes": 5216,
+    "sha256": "cdc902b16bd8527d35e7571c2c026fe760b3cad5f99d4b2a1b42cf8abdf25f8e"
+  },
+  {
+    "job": "job-1",
+    "part": "payload",
+    "route": "/conversions/jobs/job-1/payload",
+    "file": "restart-xes-csv.payload.csv",
+    "bytes": 125,
+    "sha256": "f14031cc8fcdf5119affaf1c2490d54b779a0929754dee6ddf8d6280971e2905",
+    "stage": "after_actual_process_restart"
+  },
+  {
+    "job": "job-1",
+    "part": "report",
+    "route": "/conversions/jobs/job-1/report",
+    "file": "restart-xes-csv.report.json",
+    "bytes": 4075,
+    "sha256": "b76b75c8e14e2d7cb516246ca2c504b79fc0dda2d6a7fe6e0c72c24abf4eb750",
+    "stage": "after_actual_process_restart"
+  },
+  {
+    "job": "job-3",
+    "part": "payload",
+    "route": "/conversions/jobs/job-3/payload",
+    "file": "restart-csv-xes.payload.xes",
+    "bytes": 430,
+    "sha256": "6be15abcc35c4bdf755f27307c93b0b5e4e5f90c7d715fcc4b57dc07a503516f",
+    "stage": "after_actual_process_restart"
+  },
+  {
+    "job": "job-3",
+    "part": "report",
+    "route": "/conversions/jobs/job-3/report",
+    "file": "restart-csv-xes.report.json",
+    "bytes": 4075,
+    "sha256": "a863e97186e673cfac43aa77e8fe77dcc1ac65e64f2879acc16b5c9e3bd01cb6",
+    "stage": "after_actual_process_restart"
+  },
+  {
+    "job": "job-5",
+    "part": "payload",
+    "route": "/conversions/jobs/job-5/payload",
+    "file": "restart-json-pnml.payload.pnml",
+    "bytes": 2524,
+    "sha256": "1f0de5363e62c78beb35a8bed4f81ef07b7bc663919cff779cb0366b64b28b41",
+    "stage": "after_actual_process_restart"
+  },
+  {
+    "job": "job-5",
+    "part": "report",
+    "route": "/conversions/jobs/job-5/report",
+    "file": "restart-json-pnml.report.json",
+    "bytes": 15335,
+    "sha256": "15d94e20f9381cb77c0aff82f44aa8f235bd4770a1347e12487ea87cb9285d7b",
+    "stage": "after_actual_process_restart"
+  },
+  {
+    "job": "job-7",
+    "part": "payload",
+    "route": "/conversions/jobs/job-7/payload",
+    "file": "restart-pnml-json.payload.json",
+    "bytes": 2308,
+    "sha256": "530c55097e81467d914ac44f63046a7838121ca75ca2b41eaf3be139830c5afb",
+    "stage": "after_actual_process_restart"
+  },
+  {
+    "job": "job-7",
+    "part": "report",
+    "route": "/conversions/jobs/job-7/report",
+    "file": "restart-pnml-json.report.json",
+    "bytes": 14519,
+    "sha256": "4a3ec8fdef25ad76ebf45d6aa8a19fc666a59fe3158d75c516a76dc58da9758f",
+    "stage": "after_actual_process_restart"
+  }
+]

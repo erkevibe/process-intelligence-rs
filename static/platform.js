@@ -234,3 +234,15 @@
     document.querySelectorAll('.activity-picker').forEach(initActivityPicker);
   });
 })();
+
+// A browser submission is one intentional attempt; server retries remain explicit.
+document.addEventListener('submit', event => {
+  const form = event.target;
+  if (!(form instanceof HTMLFormElement) || !form.hasAttribute('data-conversion-submit')) return;
+  if (form.dataset.submitted === 'yes') { event.preventDefault(); return; }
+  form.dataset.submitted = 'yes';
+  for (const button of form.querySelectorAll('button[type="submit"], button:not([type])')) {
+    button.disabled = true;
+    button.textContent = 'Отправляем…';
+  }
+});

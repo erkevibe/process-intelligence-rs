@@ -35,6 +35,7 @@ pub struct AppState {
     pub(crate) cpu: Arc<Semaphore>,
     pub(crate) uploads: Arc<Semaphore>,
     pub(crate) jobs: Arc<JobStore>,
+    pub(crate) conversion_jobs: Arc<JobStore>,
     pub port: u16,
     pub(crate) platform: Option<Arc<crate::platform::Platform>>,
     pub(crate) actor: Option<crate::auth::Actor>,
@@ -58,6 +59,13 @@ pub(crate) struct Repository {
     pub(crate) user_views: BTreeMap<String, BTreeMap<String, UserView>>,
     pub(crate) models: BTreeMap<String, Arc<crate::platform::StoredModel>>,
     pub(crate) durable_jobs: BTreeMap<String, JobSnapshot>,
+    #[serde(default, skip_serializing_if = "BTreeMap::is_empty")]
+    pub(crate) conversions: BTreeMap<String, crate::conversion_workflow::ConversionMeta>,
+    #[serde(default, skip_serializing_if = "BTreeMap::is_empty")]
+    pub(crate) conversion_artifacts:
+        BTreeMap<String, Arc<crate::conversion_workflow::ConversionArtifact>>,
+    #[serde(skip)]
+    pub(crate) deleted_conversion_ids: BTreeSet<String>,
     #[serde(skip)]
     pub(crate) storage_revision: u64,
     #[serde(skip)]
@@ -268,11 +276,14 @@ impl AppState {
         Ok(state)
     }
     pub fn new(port: u16) -> Self {
+        let jobs = Arc::new(JobStore::new());
+        let conversion_jobs = Arc::new(JobStore::restore_with_slots(&[], jobs.shared_slots()));
         Self {
             repository: Arc::new(Mutex::new(Repository::default())),
             cpu: Arc::new(Semaphore::new(1)),
             uploads: Arc::new(Semaphore::new(2)),
-            jobs: Arc::new(JobStore::new()),
+            jobs,
+            conversion_jobs,
             port,
             platform: None,
             actor: None,
@@ -303,7 +314,7 @@ impl AppState {
     ) -> Result<(), crate::domain::ImportError> {
         self.commit_with_action(next, true, action, resources)
     }
-    fn commit_with_action(
+    pub(crate) fn commit_with_action(
         &self,
         next: &mut Repository,
         importing: bool,
@@ -363,7 +374,7 @@ impl AppState {
                     "model_sha256":crate::storage::sha256(&serde_json::to_vec(&model.model)
                         .map_err(|_|crate::domain::ImportError::new("audit_policy","Политика модели не сохранена."))?)}))
             }).collect::<Result<Vec<serde_json::Value>,crate::domain::ImportError>>()?;
-            let parameters = serde_json::json!({
+            let mut parameters = serde_json::json!({
                 "action":action, "expected_repository_revision":next.storage_revision,
                 "resources":resources,
                 "validated_action_parameters":action_parameters,
@@ -378,6 +389,20 @@ impl AppState {
                 "jobs":next.durable_jobs.iter().filter(|(id,j)|job_action && (affected_ids.contains(id.as_str()) || j.result_id.as_ref().is_some_and(|r|affected_ids.contains(r.as_str())))).collect::<BTreeMap<_,_>>(),
                 "models":model_parameters,"actor_current":if action == "view_changed" {next.current.get(&actor.id)} else {None},"actor_views":if action == "view_changed" {next.user_views.get(&actor.id)} else {None}
             });
+            if action.starts_with("conversion_") {
+                parameters["conversions"] = serde_json::to_value(
+                    next.conversions
+                        .iter()
+                        .filter(|(id, _)| affected_ids.contains(id.as_str()))
+                        .collect::<BTreeMap<_, _>>(),
+                )
+                .map_err(|_| {
+                    crate::domain::ImportError::new(
+                        "audit_policy",
+                        "Не удалось сохранить политику преобразования.",
+                    )
+                })?;
+            }
             next.audit.append_business(
                 &actor.id,
                 &actor.project_id,
@@ -459,6 +484,7 @@ pub fn router(state: AppState) -> Router {
         .route("/logs/{id}/export", get(export))
         .route("/logs/{id}/graph", get(graph))
         .merge(crate::platform::routes())
+        .merge(crate::conversion_workflow::routes())
         .nest_service("/static", ServeDir::new("static"))
         .layer(DefaultBodyLimit::max(
             Limits::default().max_bytes + 64 * 1024,
@@ -619,6 +645,11 @@ async fn guard_inner(State(state): State<AppState>, mut request: Request, next: 
             let method = request.method();
             let heavy = path == "/"
                 || path.starts_with("/xes")
+                || path.starts_with("/conversions/jobs/")
+                    && (path.ends_with("/payload")
+                        || path.ends_with("/report")
+                        || path.ends_with("/retry"))
+                || path == "/conversions" && method != axum::http::Method::GET
                 || path == "/logs" && method != axum::http::Method::GET
                 || path.starts_with("/logs/")
                 || path.starts_with("/models/")

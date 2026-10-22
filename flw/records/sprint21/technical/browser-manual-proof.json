@@ -1,0 +1,44 @@
+{
+  "status": "INDEPENDENT_ACTUAL_BROWSER_DOWNLOAD_MANUAL_SEMANTICS_PASS",
+  "directions": 4,
+  "browser_downloads": 19,
+  "restart_downloads": 8,
+  "rich_loss_policy_pairs": 2,
+  "http_status_or_headers_claimed": false,
+  "checked_actual_pairs": [
+    {
+      "job": "job-1",
+      "case": "X01",
+      "from": "xes",
+      "to": "csv",
+      "payload_sha256": "f14031cc8fcdf5119affaf1c2490d54b779a0929754dee6ddf8d6280971e2905",
+      "report_sha256": "b76b75c8e14e2d7cb516246ca2c504b79fc0dda2d6a7fe6e0c72c24abf4eb750"
+    },
+    {
+      "job": "job-3",
+      "case": "X02",
+      "from": "csv",
+      "to": "xes",
+      "payload_sha256": "6be15abcc35c4bdf755f27307c93b0b5e4e5f90c7d715fcc4b57dc07a503516f",
+      "report_sha256": "a863e97186e673cfac43aa77e8fe77dcc1ac65e64f2879acc16b5c9e3bd01cb6"
+    },
+    {
+      "job": "job-5",
+      "case": "P01",
+      "from": "petri-json",
+      "to": "pnml",
+      "payload_sha256": "1f0de5363e62c78beb35a8bed4f81ef07b7bc663919cff779cb0366b64b28b41",
+      "report_sha256": "15d94e20f9381cb77c0aff82f44aa8f235bd4770a1347e12487ea87cb9285d7b"
+    },
+    {
+      "job": "job-7",
+      "case": "P02",
+      "from": "pnml",
+      "to": "petri-json",
+      "payload_sha256": "530c55097e81467d914ac44f63046a7838121ca75ca2b41eaf3be139830c5afb",
+      "report_sha256": "4a3ec8fdef25ad76ebf45d6aa8a19fc666a59fe3158d75c516a76dc58da9758f"
+    }
+  ],
+  "source": "Frozen preimplementation manual core and full weighted graph/marking files",
+  "converter_or_engine_executed": false
+}

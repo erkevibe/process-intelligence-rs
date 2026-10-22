@@ -1,0 +1,14 @@
+2026-10-23 00:45:55.082 +05 [28208] LOG:  starting PostgreSQL 18.6 on x86_64-windows, compiled by msvc-19.44.35229, 64-bit
+2026-10-23 00:45:55.084 +05 [28208] LOG:  listening on IPv4 address "127.0.0.1", port 55448
+2026-10-23 00:45:55.192 +05 [18704] LOG:  database system was shut down at 2026-10-23 00:45:53 +05
+2026-10-23 00:45:55.205 +05 [28208] LOG:  database system is ready to accept connections
+2026-10-23 00:46:15.566 +05 [24912] ERROR:  s21 intentional payload publication failure
+2026-10-23 00:46:15.566 +05 [24912] CONTEXT:  PL/pgSQL function s21_reject_conversion_payload() line 1 at RAISE
+2026-10-23 00:46:15.566 +05 [24912] STATEMENT:  INSERT INTO public.pi_records(project_id,kind,resource_id,version,document) VALUES($1,$2,$3,1,$4) ON CONFLICT(project_id,kind,resource_id) DO UPDATE SET version=pi_records.version+1,document=EXCLUDED.document
+2026-10-23 00:46:18.422 +05 [28208] LOG:  received fast shutdown request
+2026-10-23 00:46:18.425 +05 [28208] LOG:  aborting any active transactions
+2026-10-23 00:46:18.435 +05 [28208] LOG:  background worker "logical replication launcher" (PID 32548) exited with exit code 1
+2026-10-23 00:46:18.638 +05 [32192] LOG:  shutting down
+2026-10-23 00:46:18.650 +05 [32192] LOG:  checkpoint starting: shutdown immediate
+2026-10-23 00:46:20.302 +05 [32192] LOG:  checkpoint complete: wrote 2232 buffers (54.5%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 1 recycled; write=0.135 s, sync=1.498 s, total=1.664 s; sync files=1593, longest=0.007 s, average=0.001 s; distance=24203 kB, estimate=24203 kB; lsn=0/2F96040, redo lsn=0/2F96040
+2026-10-23 00:46:20.419 +05 [28208] LOG:  database system is shut down
