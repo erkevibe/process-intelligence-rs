@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "role": "Independent QA and live ProcessLogAuditor",
+  "agent_name": "qa_s20_delivery",
+  "utc": "2026-10-22T23:42:46.5946444+00:00",
+  "decision": "TARGETED_TECHNICAL_ACCEPTANCE_CONDITIONAL_PUBLIC_DELIVERY",
+  "scope": "Bounded worker-configuration preflight only",
+  "proposal_sha256": "6DB9AD39B11A1DD5563A0174E81E3BF3A5DA2A778B1753E8A8C68FE03D9F7A1D",
+  "validator_sha256": "A4699B9F67D3C03A0469E56152A79FDAB843E0BD2C75B9D8E56FC0919488FA6D",
+  "wrapper_sha256": "8AD4AA5DFB0DC01401D6889523D6DF0C5868E66EB2FB34AF6DB2B2E9B6AB1B92",
+  "actual_controls": {
+    "all_negative_delegation_markers_absent": true,
+    "original_proof_sha256": "955B452A7CFDE82FEBD726522CC805E022EA03AEEA6D1332A84A59EE719741A1",
+    "config_before_after_unchanged": true,
+    "feature_processes_started": false,
+    "negative_exit": 2,
+    "negative_default_mode_count": 5,
+    "codes": [
+      "required_field_linker_self",
+      "pin_sha_hex",
+      "pin_sha_hex",
+      "duplicate_normalized_pin",
+      "pin_identity"
+    ],
+    "positive_check_only_exit": 0,
+    "count": 6
+  },
+  "independent_capture_review": {
+    "capture_faults": 0,
+    "all_stream_actual_lengths_and_sha256_verified": true,
+    "direct_evidence_records": 6,
+    "direct_controls_records": 7,
+    "all_13_native_exits_and_full_pipe_eof_verified": true,
+    "outer_evidence_runner_final_result_not_yet_claimed": true
+  },
+  "public_projection": {
+    "data_bytes": 17204,
+    "exact_file_set_verified": true,
+    "all_14_alias_records_other_fields_and_raw_numeric_lexemes_unchanged": true,
+    "all_source_and_public_sha256_and_lengths_independently_checked": true,
+    "program_only_alias_records": 14,
+    "manifest_sha256": "9562E8C1AC757F515D2BD7D6074A5B3D1250BFB46BEBC71713A1EC51D4C6BC0F",
+    "omitted_configs": "Six private synthetic fixture-config.json files retain original byte lengths and SHA256; public content audit is not claimed.",
+    "files_including_manifest": 44,
+    "omits": 6,
+    "entries": 49
+  },
+  "saved_audits": {
+    "private_proof_sha256": "AAE62D4E62DA34B4529ED5BACAEBD0A654888C051A2932BB45D046F9522F7819",
+    "public_proof_sha256": "8490B18C7AB7A4BB327E16C7FBBA8E397EFE3BF484045BCBA4AF08A60C71DFEC",
+    "package_proof_sha256": "07FCFD4BF760F95CF2DD28DFDCDD64C0A7524E7E541CA885745D2636C72CAA1E",
+    "checker_sha256": "D69151283DC43DB1EF920278E97E50B209E08FA0A01A80ED2118BE16607A3565"
+  },
+  "limitations": [
+    "Validator Python pipes are inherited through synchronous captured wrappers; separate validator PID identity records are not claimed.",
+    "Default-mode versus CheckOnly binding uses reviewed control-source dominance plus saved reports; raw invocation arguments are not independently recorded.",
+    "This preflight does not validate generic phase logic, ACL policy, product semantics, PostgreSQL, resource timeout causes or repair any of six historical native exit/EOF UNKNOWN records.",
+    "Actual default operational handoff ACCEPTED and RUNNER_DELEGATION observations are retained console chunks, not an additional synthetic acceptance control or fabricated per-process capture."
+  ],
+  "remaining_delivery_gates": [
+    "Outer evidence runner actual closure and unchanged resource budgets",
+    "Reviewed additions-only exact source commit and normal push",
+    "Exact HEAD CI and independent anonymous entire-Git verification then downloaded package and saved-control audits",
+    "Hard stage deadline 2026-10-23T00:06:30Z; no merge or tag"
+  ]
+}

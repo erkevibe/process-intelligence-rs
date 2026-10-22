@@ -1,0 +1,119 @@
+{
+  "status": "INDEPENDENT_SIX_SAVED_WRAPPER_CONTROLS_VERIFIED",
+  "controls": [
+    {
+      "id": "PREFLIGHT01",
+      "actual_exit": 0,
+      "code": "ACCEPTED",
+      "check_only": true,
+      "delegate_marker_absent": true,
+      "private_fixture_content_independently_checked": false,
+      "fixture_config_sha256": "B28354DA5259FC600396AAE1FA18B1B5C7586FEFBF3B2B955EF5833BA9F40D9D"
+    },
+    {
+      "id": "PREFLIGHT02",
+      "actual_exit": 2,
+      "code": "required_field_linker_self",
+      "check_only": false,
+      "delegate_marker_absent": true,
+      "private_fixture_content_independently_checked": false,
+      "fixture_config_sha256": "C13555A999B1ACC0AF34A0D4FEEB0A9FAFCB8B3D17C20F6C0CA3C9C940647006"
+    },
+    {
+      "id": "PREFLIGHT03",
+      "actual_exit": 2,
+      "code": "pin_sha_hex",
+      "check_only": false,
+      "delegate_marker_absent": true,
+      "private_fixture_content_independently_checked": false,
+      "fixture_config_sha256": "A78DB31EC2A98318E3D2966E432842847F0535AAF9BB3EA01B19E30957EF4A70"
+    },
+    {
+      "id": "PREFLIGHT04",
+      "actual_exit": 2,
+      "code": "pin_sha_hex",
+      "check_only": false,
+      "delegate_marker_absent": true,
+      "private_fixture_content_independently_checked": false,
+      "fixture_config_sha256": "03FFAD6877388AF3CCE3B1EA7C28646B09B84FDAED8DEE809A38EEB520B83E85"
+    },
+    {
+      "id": "PREFLIGHT05",
+      "actual_exit": 2,
+      "code": "duplicate_normalized_pin",
+      "check_only": false,
+      "delegate_marker_absent": true,
+      "private_fixture_content_independently_checked": false,
+      "fixture_config_sha256": "D431B07BC30BD4D51E443E6C861E59F3E33634132A33605E66E6378BBD5B87B3"
+    },
+    {
+      "id": "PREFLIGHT06",
+      "actual_exit": 2,
+      "code": "pin_identity",
+      "check_only": false,
+      "delegate_marker_absent": true,
+      "private_fixture_content_independently_checked": false,
+      "fixture_config_sha256": "B8CF9CEDA394E93977875226B7A6DE9FBBC8F2765E175F078EEBFAAC4A1A1232"
+    }
+  ],
+  "direct_phase_and_wrapper_captures": [
+    {
+      "label": "command",
+      "pid": 33604,
+      "creation_utc": "2026-10-22T23:34:08.3935750Z",
+      "native_exit": 0
+    },
+    {
+      "label": "wrapper",
+      "pid": 44076,
+      "creation_utc": "2026-10-22T23:34:32.4164403Z",
+      "native_exit": 0
+    },
+    {
+      "label": "wrapper",
+      "pid": 44484,
+      "creation_utc": "2026-10-22T23:34:33.4650701Z",
+      "native_exit": 2
+    },
+    {
+      "label": "wrapper",
+      "pid": 44684,
+      "creation_utc": "2026-10-22T23:34:34.3262182Z",
+      "native_exit": 2
+    },
+    {
+      "label": "wrapper",
+      "pid": 44884,
+      "creation_utc": "2026-10-22T23:34:35.1989038Z",
+      "native_exit": 2
+    },
+    {
+      "label": "wrapper",
+      "pid": 39596,
+      "creation_utc": "2026-10-22T23:34:36.0708461Z",
+      "native_exit": 2
+    },
+    {
+      "label": "wrapper",
+      "pid": 44224,
+      "creation_utc": "2026-10-22T23:34:36.9483807Z",
+      "native_exit": 2
+    }
+  ],
+  "all_direct_capture_stream_lengths_hashes_and_eof_verified": true,
+  "public_original_omissions": [
+    "PREFLIGHT01/fixture-config.json",
+    "PREFLIGHT02/fixture-config.json",
+    "PREFLIGHT03/fixture-config.json",
+    "PREFLIGHT04/fixture-config.json",
+    "PREFLIGHT05/fixture-config.json",
+    "PREFLIGHT06/fixture-config.json"
+  ],
+  "native_or_network_executed_by_auditor": false,
+  "limitations": [
+    "Validator Python stdout/stderr is inherited through each synchronous wrapper; no separate validator PID identity record is claimed.",
+    "Default-mode versus CheckOnly binding combines reviewed control-source dominance and saved control report; private invocation arguments are not independently recorded.",
+    "Omitted public fixture configs are hash-linked only; their contents are not claimed publicly audited.",
+    "No product, PostgreSQL, phase logic, ACL, resource timeout cause or historical UNKNOWN repair is established."
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "agent_name": "qa_s20_delivery",
+  "role": "QA and ProcessLogAuditor",
+  "utc": "2026-10-22T23:27:56.5799203Z",
+  "vote": "FOR",
+  "proposal_sha256": "6DB9AD39B11A1DD5563A0174E81E3BF3A5DA2A778B1753E8A8C68FE03D9F7A1D",
+  "reason": "A bounded non-mutating preflight directly prevents two demonstrated pre-phase configuration failures without changing accepted runtime, product or limits. Proportionate source review and six pure controls fit low technical risk.",
+  "conditions": [
+    "All mandatory CAP runner/worker field names and types, strict duplicate keys, Windows-normalized duplicate paths and canonical uppercase64hex pins must be checked.",
+    "Original configs remain immutable; lowercase pins are rejected, not silently repaired.",
+    "Positive control uses bounded synthetic fresh-future deadline and CheckOnly; no existing runner delegate or feature process is executed.",
+    "Five negative controls prove refusal before delegation with actual complete captures.",
+    "Preflight success proves schema and pinned bytes only, not arbitrary phase correctness, ACLs, resource timeout cause or reconstruction of six UNKNOWN exits.",
+    "No accepted CAP/runtime/threshold/product/database/compiler changes, no engine reruns; harddeadline00:06:30 and original8h budgets remain.",
+    "Final targetedQA/TDsourceacceptance plus exactHEADCI and independentpublicsourceverification required; draftfixes use proportional review."
+  ]
+}
