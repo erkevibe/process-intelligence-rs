@@ -1,0 +1,449 @@
+{
+  "schema_version": 1,
+  "projection": "Exact original non-program fields; program absolute path replaced by basename; original record SHA retained.",
+  "receipts": [
+    {
+      "phase": "quality-build01",
+      "label": "fmt",
+      "original_record_sha256": "df71fa222fdc35b35600d824c4c1b2e614c36c7c6ddf9496bbfcc086b9cb1670",
+      "record": {
+        "pid": 3232,
+        "native_creation_utc": "2026-10-22T01:41:54.4958675Z",
+        "started_utc": "2026-10-22T01:41:54.3205604Z",
+        "program_sha256": "EF158B64CFEDC443156B060D61C18D05298D1D4C010857B0623333963524FD1B",
+        "native_exit": 0,
+        "stdout_complete": true,
+        "stderr_complete": true,
+        "environment_names": [],
+        "parent_stdio_before": [
+          1,
+          1
+        ],
+        "parent_stdio_masked": [
+          0,
+          0
+        ],
+        "parent_stdio_restored": [
+          1,
+          1
+        ],
+        "scope_stdio": "Parent capture inheritance disabled only during redirected child creation; original parent flags restored",
+        "completed_utc": "2026-10-22T01:41:56.3965732Z",
+        "output_limit": false,
+        "stdout_bytes_persisted": 0,
+        "stderr_bytes_persisted": 0,
+        "drain_timeout": false,
+        "capture_fault": false,
+        "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+        "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+        "program_basename": "cargo.exe"
+      }
+    },
+    {
+      "phase": "quality-build01",
+      "label": "quality-tests",
+      "original_record_sha256": "a38a5ff0b8583d76166e23f9ea334b529623b083df53addaa54be7847237b9e0",
+      "record": {
+        "pid": 34120,
+        "native_creation_utc": "2026-10-22T01:41:56.7715110Z",
+        "started_utc": "2026-10-22T01:41:56.6232848Z",
+        "program_sha256": "EF158B64CFEDC443156B060D61C18D05298D1D4C010857B0623333963524FD1B",
+        "native_exit": 0,
+        "stdout_complete": true,
+        "stderr_complete": true,
+        "environment_names": [
+          "RAYON_NUM_THREADS"
+        ],
+        "parent_stdio_before": [
+          1,
+          1
+        ],
+        "parent_stdio_masked": [
+          0,
+          0
+        ],
+        "parent_stdio_restored": [
+          1,
+          1
+        ],
+        "scope_stdio": "Parent capture inheritance disabled only during redirected child creation; original parent flags restored",
+        "completed_utc": "2026-10-22T01:44:53.3576280Z",
+        "output_limit": false,
+        "stdout_bytes_persisted": 384,
+        "stderr_bytes_persisted": 5954,
+        "drain_timeout": false,
+        "capture_fault": false,
+        "stdout_sha256": "0A0E7C6ED41ADA593F556BA610703991A1DE5F450E01E7FBC0F69267E21A2681",
+        "stderr_sha256": "70F3709052587950B0584EE9477697B0DD95F1FB1BB832B914864A93354FD772",
+        "program_basename": "cargo.exe"
+      }
+    },
+    {
+      "phase": "quality-build01",
+      "label": "quality-build",
+      "original_record_sha256": "a703f792e8fc1e4261042030b371b408f8b54ddc82002be041a6981858701814",
+      "record": {
+        "pid": 24464,
+        "native_creation_utc": "2026-10-22T01:44:53.6901345Z",
+        "started_utc": "2026-10-22T01:44:53.5335948Z",
+        "program_sha256": "EF158B64CFEDC443156B060D61C18D05298D1D4C010857B0623333963524FD1B",
+        "native_exit": 0,
+        "stdout_complete": true,
+        "stderr_complete": true,
+        "environment_names": [
+          "RAYON_NUM_THREADS"
+        ],
+        "parent_stdio_before": [
+          1,
+          1
+        ],
+        "parent_stdio_masked": [
+          0,
+          0
+        ],
+        "parent_stdio_restored": [
+          1,
+          1
+        ],
+        "scope_stdio": "Parent capture inheritance disabled only during redirected child creation; original parent flags restored",
+        "completed_utc": "2026-10-22T01:44:58.3009277Z",
+        "output_limit": false,
+        "stdout_bytes_persisted": 0,
+        "stderr_bytes_persisted": 192,
+        "drain_timeout": false,
+        "capture_fault": false,
+        "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+        "stderr_sha256": "2104DF04F3F42CA1E2C666250A1EA74513E84F724009F0FC8D44E43354FB87B1",
+        "program_basename": "cargo.exe"
+      }
+    },
+    {
+      "phase": "quality-build01",
+      "label": "quality-clippy",
+      "original_record_sha256": "a36e5a843e329dd3e07eafd31add1d7dfd63765bc47073c559c4d929d47aa2e7",
+      "record": {
+        "pid": 3924,
+        "native_creation_utc": "2026-10-22T01:44:58.6300921Z",
+        "started_utc": "2026-10-22T01:44:58.4818835Z",
+        "program_sha256": "EF158B64CFEDC443156B060D61C18D05298D1D4C010857B0623333963524FD1B",
+        "native_exit": 0,
+        "stdout_complete": true,
+        "stderr_complete": true,
+        "environment_names": [
+          "RAYON_NUM_THREADS"
+        ],
+        "parent_stdio_before": [
+          1,
+          1
+        ],
+        "parent_stdio_masked": [
+          0,
+          0
+        ],
+        "parent_stdio_restored": [
+          1,
+          1
+        ],
+        "scope_stdio": "Parent capture inheritance disabled only during redirected child creation; original parent flags restored",
+        "completed_utc": "2026-10-22T01:46:19.1004438Z",
+        "output_limit": false,
+        "stdout_bytes_persisted": 0,
+        "stderr_bytes_persisted": 4970,
+        "drain_timeout": false,
+        "capture_fault": false,
+        "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+        "stderr_sha256": "319A2E0DCC31B16747525E27EB393C5AA7EFFD85902E9A864A70F295AF278C40",
+        "program_basename": "cargo.exe"
+      }
+    },
+    {
+      "phase": "quality-build01",
+      "label": "command",
+      "original_record_sha256": "726d3351b6e165e0abbf6a2c75c343710f7d7110c19c170ae82ad72f2c2eecb5",
+      "record": {
+        "pid": 39256,
+        "native_creation_utc": "2026-10-22T01:41:39.0517759Z",
+        "started_utc": "2026-10-22T01:41:39.0322970Z",
+        "program_sha256": "362A356CE7F0940EC74F73A8FC2C990A2CC24A38A11C90BBD8ECA947110AD139",
+        "native_exit": 0,
+        "stdout_complete": true,
+        "stderr_complete": true,
+        "environment_names": [],
+        "parent_stdio_before": [
+          1,
+          1
+        ],
+        "parent_stdio_masked": [
+          0,
+          0
+        ],
+        "parent_stdio_restored": [
+          1,
+          1
+        ],
+        "scope_stdio": "Parent capture inheritance disabled only during redirected child creation; original parent flags restored",
+        "completed_utc": "2026-10-22T01:46:22.2005321Z",
+        "output_limit": false,
+        "stdout_bytes_persisted": 0,
+        "stderr_bytes_persisted": 0,
+        "drain_timeout": false,
+        "capture_fault": false,
+        "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+        "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+        "program_basename": "pwsh.exe"
+      }
+    },
+    {
+      "phase": "quality-prepare01",
+      "label": "rust-prepare",
+      "original_record_sha256": "cb8c7f152f8c06e3a9c74735caaaad98277f11c9465adce22c2ecf338b40e671",
+      "record": {
+        "pid": 45456,
+        "native_creation_utc": "2026-10-22T01:47:58.1820317Z",
+        "started_utc": "2026-10-22T01:47:57.9962462Z",
+        "program_sha256": "20E1EEDB193169B0A19EBD98A8A5191358618E205FA5DDD131052DDED366DD4B",
+        "native_exit": 0,
+        "stdout_complete": true,
+        "stderr_complete": true,
+        "environment_names": [
+          "RAYON_NUM_THREADS"
+        ],
+        "parent_stdio_before": [
+          1,
+          1
+        ],
+        "parent_stdio_masked": [
+          0,
+          0
+        ],
+        "parent_stdio_restored": [
+          1,
+          1
+        ],
+        "scope_stdio": "Parent capture inheritance disabled only during redirected child creation; original parent flags restored",
+        "completed_utc": "2026-10-22T01:47:59.4335043Z",
+        "output_limit": false,
+        "stdout_bytes_persisted": 0,
+        "stderr_bytes_persisted": 0,
+        "drain_timeout": false,
+        "capture_fault": false,
+        "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+        "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+        "program_basename": "bpmn_quality.exe"
+      }
+    },
+    {
+      "phase": "quality-prepare01",
+      "label": "pm4py-convert",
+      "original_record_sha256": "46b18716e88ce0e3f21b21ccc867935ccdc79da7cfc720e25477e4358e168968",
+      "record": {
+        "pid": 34496,
+        "native_creation_utc": "2026-10-22T01:47:59.5978858Z",
+        "started_utc": "2026-10-22T01:47:59.5955607Z",
+        "program_sha256": "72B29481593C5DA37C99248C82777FBFB56217EA7809B771BC760D0A9ECB179B",
+        "native_exit": 0,
+        "stdout_complete": true,
+        "stderr_complete": true,
+        "environment_names": [
+          "BLIS_NUM_THREADS",
+          "MKL_NUM_THREADS",
+          "MPLBACKEND",
+          "MPLCONFIGDIR",
+          "NUMEXPR_MAX_THREADS",
+          "NUMEXPR_NUM_THREADS",
+          "OMP_NUM_THREADS",
+          "OPENBLAS_NUM_THREADS",
+          "PYTHONDONTWRITEBYTECODE",
+          "PYTHONNOUSERSITE",
+          "VECLIB_MAXIMUM_THREADS",
+          "XDG_CACHE_HOME"
+        ],
+        "parent_stdio_before": [
+          1,
+          1
+        ],
+        "parent_stdio_masked": [
+          0,
+          0
+        ],
+        "parent_stdio_restored": [
+          1,
+          1
+        ],
+        "scope_stdio": "Parent capture inheritance disabled only during redirected child creation; original parent flags restored",
+        "completed_utc": "2026-10-22T01:48:08.3584072Z",
+        "output_limit": false,
+        "stdout_bytes_persisted": 0,
+        "stderr_bytes_persisted": 0,
+        "drain_timeout": false,
+        "capture_fault": false,
+        "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+        "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+        "program_basename": "python.exe"
+      }
+    },
+    {
+      "phase": "quality-prepare01",
+      "label": "command",
+      "original_record_sha256": "dc71ac1f14c2255180fc28d00b9373e35c353011b179b1ef9e62c13a563e8975",
+      "record": {
+        "pid": 39736,
+        "native_creation_utc": "2026-10-22T01:47:42.4947828Z",
+        "started_utc": "2026-10-22T01:47:42.4813534Z",
+        "program_sha256": "362A356CE7F0940EC74F73A8FC2C990A2CC24A38A11C90BBD8ECA947110AD139",
+        "native_exit": 0,
+        "stdout_complete": true,
+        "stderr_complete": true,
+        "environment_names": [],
+        "parent_stdio_before": [
+          1,
+          1
+        ],
+        "parent_stdio_masked": [
+          0,
+          0
+        ],
+        "parent_stdio_restored": [
+          1,
+          1
+        ],
+        "scope_stdio": "Parent capture inheritance disabled only during redirected child creation; original parent flags restored",
+        "completed_utc": "2026-10-22T01:48:11.6349379Z",
+        "output_limit": false,
+        "stdout_bytes_persisted": 0,
+        "stderr_bytes_persisted": 0,
+        "drain_timeout": false,
+        "capture_fault": false,
+        "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+        "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+        "program_basename": "pwsh.exe"
+      }
+    },
+    {
+      "phase": "quality-score02",
+      "label": "rust-score",
+      "original_record_sha256": "e1a5c75d5eb6b789633c84905ce7613d8c35741348a928806019bc0355341226",
+      "record": {
+        "pid": 37240,
+        "native_creation_utc": "2026-10-22T01:53:01.2815652Z",
+        "started_utc": "2026-10-22T01:53:01.1297720Z",
+        "program_sha256": "20E1EEDB193169B0A19EBD98A8A5191358618E205FA5DDD131052DDED366DD4B",
+        "native_exit": 0,
+        "stdout_complete": true,
+        "stderr_complete": true,
+        "environment_names": [
+          "RAYON_NUM_THREADS"
+        ],
+        "parent_stdio_before": [
+          1,
+          1
+        ],
+        "parent_stdio_masked": [
+          0,
+          0
+        ],
+        "parent_stdio_restored": [
+          1,
+          1
+        ],
+        "scope_stdio": "Parent capture inheritance disabled only during redirected child creation; original parent flags restored",
+        "completed_utc": "2026-10-22T01:53:02.2733520Z",
+        "output_limit": false,
+        "stdout_bytes_persisted": 0,
+        "stderr_bytes_persisted": 0,
+        "drain_timeout": false,
+        "capture_fault": false,
+        "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+        "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+        "program_basename": "bpmn_quality.exe"
+      }
+    },
+    {
+      "phase": "quality-score02",
+      "label": "pm4py-score",
+      "original_record_sha256": "2f8a7a6748d3c3a9327e3e89782ad0f43f0696f913320d5b64720a4f68ff85bb",
+      "record": {
+        "pid": 45968,
+        "native_creation_utc": "2026-10-22T01:53:05.0865561Z",
+        "started_utc": "2026-10-22T01:53:05.0840054Z",
+        "program_sha256": "72B29481593C5DA37C99248C82777FBFB56217EA7809B771BC760D0A9ECB179B",
+        "native_exit": 0,
+        "stdout_complete": true,
+        "stderr_complete": true,
+        "environment_names": [
+          "BLIS_NUM_THREADS",
+          "MKL_NUM_THREADS",
+          "MPLBACKEND",
+          "MPLCONFIGDIR",
+          "NUMEXPR_MAX_THREADS",
+          "NUMEXPR_NUM_THREADS",
+          "OMP_NUM_THREADS",
+          "OPENBLAS_NUM_THREADS",
+          "PYTHONDONTWRITEBYTECODE",
+          "PYTHONNOUSERSITE",
+          "VECLIB_MAXIMUM_THREADS",
+          "XDG_CACHE_HOME"
+        ],
+        "parent_stdio_before": [
+          1,
+          1
+        ],
+        "parent_stdio_masked": [
+          0,
+          0
+        ],
+        "parent_stdio_restored": [
+          1,
+          1
+        ],
+        "scope_stdio": "Parent capture inheritance disabled only during redirected child creation; original parent flags restored",
+        "completed_utc": "2026-10-22T01:53:14.4052175Z",
+        "output_limit": false,
+        "stdout_bytes_persisted": 0,
+        "stderr_bytes_persisted": 0,
+        "drain_timeout": false,
+        "capture_fault": false,
+        "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+        "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+        "program_basename": "python.exe"
+      }
+    },
+    {
+      "phase": "quality-score02",
+      "label": "command",
+      "original_record_sha256": "f57e5a523d95d2d11e1cf4c9c13213189bb2a71bb854b3b61434606eaac65816",
+      "record": {
+        "pid": 41504,
+        "native_creation_utc": "2026-10-22T01:52:44.0239787Z",
+        "started_utc": "2026-10-22T01:52:44.0027656Z",
+        "program_sha256": "362A356CE7F0940EC74F73A8FC2C990A2CC24A38A11C90BBD8ECA947110AD139",
+        "native_exit": 0,
+        "stdout_complete": true,
+        "stderr_complete": true,
+        "environment_names": [],
+        "parent_stdio_before": [
+          1,
+          1
+        ],
+        "parent_stdio_masked": [
+          0,
+          0
+        ],
+        "parent_stdio_restored": [
+          1,
+          1
+        ],
+        "scope_stdio": "Parent capture inheritance disabled only during redirected child creation; original parent flags restored",
+        "completed_utc": "2026-10-22T01:53:17.2698767Z",
+        "output_limit": false,
+        "stdout_bytes_persisted": 0,
+        "stderr_bytes_persisted": 0,
+        "drain_timeout": false,
+        "capture_fault": false,
+        "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+        "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+        "program_basename": "pwsh.exe"
+      }
+    }
+  ]
+}

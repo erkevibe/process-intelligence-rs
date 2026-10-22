@@ -1,0 +1,79 @@
+{
+  "kind": "frozen_symbolic_manual_net",
+  "symbolic_spec": {
+    "arcs": [
+      [
+        "p0",
+        "a1",
+        1
+      ],
+      [
+        "a1",
+        "pb",
+        1
+      ],
+      [
+        "p0",
+        "delay",
+        1
+      ],
+      [
+        "delay",
+        "pq",
+        1
+      ],
+      [
+        "pq",
+        "a2",
+        1
+      ],
+      [
+        "a2",
+        "pc",
+        1
+      ],
+      [
+        "pb",
+        "b",
+        1
+      ],
+      [
+        "b",
+        "pf",
+        1
+      ],
+      [
+        "pc",
+        "c",
+        1
+      ],
+      [
+        "c",
+        "pf",
+        1
+      ]
+    ],
+    "finals": [
+      {
+        "pf": 1
+      }
+    ],
+    "initial": {
+      "p0": 1
+    },
+    "places": [
+      "p0",
+      "pq",
+      "pb",
+      "pc",
+      "pf"
+    ],
+    "transitions": {
+      "a1": "A",
+      "a2": "A",
+      "b": "B",
+      "c": "C",
+      "delay": null
+    }
+  }
+}

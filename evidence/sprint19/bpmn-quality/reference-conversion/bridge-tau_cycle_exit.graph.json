@@ -1,0 +1,394 @@
+{
+  "schema_version": 1,
+  "net_sha256": "e3038fdaef524fbd388d0571f76c5c852e3f48d61497e4d10bf4f1f89b421869",
+  "places": [
+    "p:ent_e",
+    "p:ent_g",
+    "p:ent_h",
+    "p:ent_s",
+    "p:exi_e",
+    "p:exi_g",
+    "p:exi_h",
+    "p:exi_s",
+    "p:f0",
+    "p:f1",
+    "p:f2",
+    "p:f3",
+    "p:sink",
+    "p:source"
+  ],
+  "transitions": [
+    {
+      "id": "t:68e4f841-0f74-43f1-bc63-227a438e9fb6",
+      "label": null
+    },
+    {
+      "id": "t:9fca369a-468c-490e-8f47-1c96aef7e918",
+      "label": null
+    },
+    {
+      "id": "t:e",
+      "label": null
+    },
+    {
+      "id": "t:g",
+      "label": null
+    },
+    {
+      "id": "t:h",
+      "label": null
+    },
+    {
+      "id": "t:s",
+      "label": null
+    },
+    {
+      "id": "t:sfl_f0",
+      "label": null
+    },
+    {
+      "id": "t:sfl_f1",
+      "label": null
+    },
+    {
+      "id": "t:sfl_f2",
+      "label": null
+    },
+    {
+      "id": "t:sfl_f3",
+      "label": null
+    },
+    {
+      "id": "t:tfl_f0",
+      "label": null
+    },
+    {
+      "id": "t:tfl_f1",
+      "label": null
+    },
+    {
+      "id": "t:tfl_f2",
+      "label": null
+    },
+    {
+      "id": "t:tfl_f3",
+      "label": null
+    }
+  ],
+  "initial_state": 0,
+  "final_states": [
+    13
+  ],
+  "states": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0
+    ]
+  ],
+  "edges": [
+    {
+      "from": 0,
+      "to": 1,
+      "transition": "t:9fca369a-468c-490e-8f47-1c96aef7e918",
+      "label": null
+    },
+    {
+      "from": 1,
+      "to": 2,
+      "transition": "t:s",
+      "label": null
+    },
+    {
+      "from": 2,
+      "to": 3,
+      "transition": "t:sfl_f0",
+      "label": null
+    },
+    {
+      "from": 3,
+      "to": 4,
+      "transition": "t:tfl_f0",
+      "label": null
+    },
+    {
+      "from": 4,
+      "to": 5,
+      "transition": "t:g",
+      "label": null
+    },
+    {
+      "from": 5,
+      "to": 6,
+      "transition": "t:sfl_f1",
+      "label": null
+    },
+    {
+      "from": 5,
+      "to": 7,
+      "transition": "t:sfl_f3",
+      "label": null
+    },
+    {
+      "from": 6,
+      "to": 8,
+      "transition": "t:tfl_f1",
+      "label": null
+    },
+    {
+      "from": 7,
+      "to": 9,
+      "transition": "t:tfl_f3",
+      "label": null
+    },
+    {
+      "from": 8,
+      "to": 10,
+      "transition": "t:h",
+      "label": null
+    },
+    {
+      "from": 9,
+      "to": 11,
+      "transition": "t:e",
+      "label": null
+    },
+    {
+      "from": 10,
+      "to": 12,
+      "transition": "t:sfl_f2",
+      "label": null
+    },
+    {
+      "from": 11,
+      "to": 13,
+      "transition": "t:68e4f841-0f74-43f1-bc63-227a438e9fb6",
+      "label": null
+    },
+    {
+      "from": 12,
+      "to": 4,
+      "transition": "t:tfl_f2",
+      "label": null
+    }
+  ]
+}

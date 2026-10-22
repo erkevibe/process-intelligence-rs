@@ -44,6 +44,16 @@ jobs:
           mkdir -p .local/sprint18/alignment-tools
           python3 -B tools/oracle/verify-alignment-evidence.py evidence/sprint18/alignment-fitness
           python3 -B tests/alignment_evidence_tools.py --workroot .local/sprint18/alignment-tools
+      - name: Sprint19 BPMN quality and independent saved-evidence audit
+        run: |
+          mkdir -p .local/sprint19/ci-temp .local/sprint19/ci-audit
+          python3 -B tests/quality_graph_comparator.py
+          python3 -B tests/quality_net_conservation.py
+          TMPDIR="$PWD/.local/sprint19/ci-temp" python3 -B tests/sprint19_quality_di.py
+          TMPDIR="$PWD/.local/sprint19/ci-temp" python3 -B tests/sprint19_schema_hint.py
+          TMPDIR="$PWD/.local/sprint19/ci-temp" python3 -B tests/sprint19_quality_miner_project.py
+          python3 -B tools/sprint19/verify-quality-manifest.py evidence/sprint19/bpmn-quality
+          python3 -B tools/oracle/audit-quality-evidence.py --rust evidence/sprint19/bpmn-quality/rust-metrics.json --reference evidence/sprint19/bpmn-quality/reference-metrics.json --prepared evidence/sprint19/bpmn-quality/prepared --corpus fixtures/quality/corpus.json --output .local/sprint19/ci-audit/independent-audit.json
       - name: Diagnostic protocol and state oracle regressions
         run: |
           node tests/sql5-cycle-regression.cjs
