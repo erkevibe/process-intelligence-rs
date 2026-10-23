@@ -107,6 +107,10 @@ jobs:
             python3 -I -B tools/sprint23/evidence-transport.py verify "$PWD/evidence/sprint23" --workspace "$PWD" --selection-sha 0E723F7BE2B611F69B2851B19812848DEF54C5B4A3BEBA773232E31945DEB858 --auditor "$PWD/tools/sprint23/audit-compact.py"
             mkdir -p .local/sprint21/root/sprint23/ci-selfcheck-kit
             python3 -I -B tools/sprint23/check-selfcheck-kit.py "$PWD/evidence/sprint23-kit/checker-kit.zip" 020D9517DF44BF7EC5D97BD81945729FD71C2EA9E181900E1FBF6D4406BF1509 "$PWD/.local/sprint21/root/sprint23/ci-selfcheck-kit" --doc-sha 68836A12BB2A3F6D7058D4675795FC8418DAC497778C465A16851C182E71ADE2 --workspace "$PWD" --source "$PWD/fixtures/conversions/flat-unicode.xes" --default-report "$PWD/.local/sprint21/root/sprint23/ci-corpus/X01.default.json" --compact-report "$PWD/.local/sprint21/root/sprint23/ci-corpus/X01.compact.json" --payload "$PWD/.local/sprint21/root/sprint23/ci-corpus/X01.payload"
+      - name: Sprint23 saved SplitMiner scale evidence
+        run: |
+          mkdir -p .local/sprint21/root/sprint23/ci-miner-controls
+          python3 -I -B tools/sprint23-miner/check-controls.py "$PWD/tools/sprint23-miner/check-evidence.py" "$PWD/evidence/sprint23-miner/observations.zip" "$PWD/.local/sprint21/root/sprint23/ci-miner-controls" "$PWD/.local/sprint21/root/sprint23/ci-miner-controls.json"
       - name: Diagnostic protocol and state oracle regressions
         run: |
           node tests/sql5-cycle-regression.cjs
@@ -181,6 +185,11 @@ jobs:
           cp tools/sprint23/decode-report.py tools/sprint23/audit-compact.py dist/tools/sprint23/
             cp tools/oracle/audit-conversion-evidence.py dist/tools/oracle/
           cp docs/SPRINT_23_REPORT.md dist/CANDIDATE_STATUS.md
+          mkdir -p dist/tools/sprint23-miner dist/evidence
+          cp tools/sprint23-miner/*.py dist/tools/sprint23-miner/
+          cp tools/oracle/audit-miner-benchmark-evidence.py tools/oracle/audit-miner-performance.py dist/tools/oracle/
+          cp -r evidence/sprint23-miner dist/evidence/
+          cp docs/SPRINT_23_MINER_REPORT.md dist/docs/
           tar -czf process-intelligence-rs-linux.tar.gz -C dist .
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         with:
