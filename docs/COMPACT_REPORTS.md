@@ -25,6 +25,9 @@ checks the expected codec source identity. Without it, decoding verifies framing
 and integrity but does not authenticate provenance. The output file must not
 already exist.
 
+[Русская инструкция автономной проверки исходника, результата и отчёта](SELF_CHECK_RU.md).
+The distribution includes the mandatory semantic oracle under `tools/oracle/`.
+
 ## Limits and integrity
 
 The stored report limit remains 4 MiB. The decoded JSON limit is 64 MiB. Input
