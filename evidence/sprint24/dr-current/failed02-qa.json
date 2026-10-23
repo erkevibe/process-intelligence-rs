@@ -1,0 +1,336 @@
+{
+  "schema_version": 1,
+  "kind": "S24_DR_ATTEMPT02_ACTUAL_FAILURE_REVIEW",
+  "utc": "2026-10-23T19:24:18.238Z",
+  "decision": "FAILED_BEFORE_DUMP_START_NO_RESTORE",
+  "config_sha256": "166C758EFB2D64EC1190065D769EBD37FB650A3E296267AFB1C870460C738436",
+  "first_cause": {
+    "failure": "input_sha_mismatch",
+    "primary_exception": {
+      "message": "input_sha_mismatch",
+      "hresult": -2146233087,
+      "utc": "2026-10-23T19:23:01.0197337+00:00",
+      "type": "System.Management.Automation.RuntimeException"
+    },
+    "request_start_sequence": 49,
+    "label": "dump-current",
+    "reason": "Malformed62hex command.sha256/config.pg_dump_sha differs from actual64hex and correct pins row.",
+    "command_sha256": "9414DAC0554065AA6EDF739D7126B6E6D6FC3B56B9706B72CEE47CEE45B22C",
+    "actual_and_pin_sha256": "9414DAC0554065AA6EDF739D7126B6E6E6D6FC3B56B9706B72CEE47CEE45B22C",
+    "actual_executable_bytes": 633344,
+    "binary_change_not_claimed": true
+  },
+  "native_inventory": [
+    {
+      "path": ".local/sprint21/root/sprint24/current-compact-dr02/collector.process.json",
+      "sha256": "84E015EAF639F527A8FB3EC2BE89B11A7484A81C210A9B2F68C6688E68EC2580",
+      "pid": 67404,
+      "exit": 1,
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true
+        },
+        {
+          "side": "stderr",
+          "bytes": 309,
+          "sha256": "C275B87A08275B8FBE1EC3482A3E0AC4B547C83579F4E2653BDBF3C6A7F57C40",
+          "match": true,
+          "complete": true
+        }
+      ]
+    },
+    {
+      "path": ".local/sprint21/root/sprint24/current-compact-dr02/session/app10k.process.json",
+      "sha256": "E4EE187D9A2EDA0CE6C69E3623F1E32C99796FBD0970E65A32904A262F1EBD59",
+      "pid": 55776,
+      "birth": "134372569787465554",
+      "exit": 0,
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 9457,
+          "sha256": "9804C17A89A99EDC13FA14A5AA4C6E1B6CB049DC4DA5F6534D58DC106A9E30C8",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "path": ".local/sprint21/root/sprint24/current-compact-dr02/session/check-cohort.process.json",
+      "sha256": "F0AB1408453B431F01D761B69E10DAE2560E1601B887BAF1C3A16357686FE378",
+      "pid": 74796,
+      "birth": "134372569765130547",
+      "exit": 0,
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 54,
+          "sha256": "04606A07FB1ABD28C581E27B6E732CB55451DDAD97A07B064A7A06B06A077F3B",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "path": ".local/sprint21/root/sprint24/current-compact-dr02/session/postgres.process.json",
+      "sha256": "3EEC690E2A8BC394339D42C2886E168F764C57989C56DDD449F99C298C087AD6",
+      "pid": 63344,
+      "birth": "134372569672472071",
+      "exit": 137,
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 485,
+          "sha256": "00869DBFC4FE94191E884EEC03274B15D9E86703B051D5C32BA1E0CDA6A9F2F8",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "path": ".local/sprint21/root/sprint24/current-compact-dr02/session/ready-01.process.json",
+      "sha256": "ABF96C86F60CE785A87F5CB414E1CA8748F54817787C65FC0BFE8732FBAFB9F1",
+      "pid": 74784,
+      "birth": "134372569674109899",
+      "exit": 1,
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 41,
+          "sha256": "62285DBF9A623B155EF5FBB74B1E0BB1AAC8583FF3EDECDF23D4EE6D4804EC5B",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "path": ".local/sprint21/root/sprint24/current-compact-dr02/session/ready-02.process.json",
+      "sha256": "6172205570B19CAEF48F3B9CA1DE10CEF3E4644C8438721D493DDC5F5CF2DB07",
+      "pid": 68952,
+      "birth": "134372569696733371",
+      "exit": 0,
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 41,
+          "sha256": "48F05044D763F65E81DF5FA8BE71F5A81EC224D0B419A9BFA6132B7FBC62D7F4",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "path": ".local/sprint21/root/sprint24/current-compact-dr02/session/source-cohort.process.json",
+      "sha256": "A00E68CBC73F70A10A52882CC08AC022118EA99C26757EB32217A06D8B146D7A",
+      "pid": 76604,
+      "birth": "134372569742533193",
+      "exit": 0,
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 3926,
+          "sha256": "CA26F25532C489D21CCDBF053563797C424BACFB0E1E56FD2784962A8D976C72",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "path": ".local/sprint21/root/sprint24/current-compact-dr02/session/source10k.process.json",
+      "sha256": "859E2E562DCA9AB4F354463771DF4DCF0848023359217B6413EF5BB91EE3F8D0",
+      "pid": 76392,
+      "birth": "134372569719301585",
+      "exit": 0,
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 226,
+          "sha256": "F931CF04BE9D828CBB210B9D7909CF0CF43018FD2151A43A3955B2936CBC21A1",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "path": ".local/sprint21/root/sprint24/current-compact-dr02/session/worker.process.json",
+      "sha256": "8D4767BB3217FF265DF4EC0436C7C316E1A9BD6882CB511041EBFC6D2FBB9928",
+      "pid": 71696,
+      "birth": "134372569664522213",
+      "exit": 137,
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "path": ".local/sprint21/root/sprint24/dr-launch-external02/dr-launch.process.json",
+      "sha256": "5DF785F1B8884C4BA8971DE60D698960AC3396EEEC43ADBEB69033DC9DB74E17",
+      "pid": 56576,
+      "exit": 1,
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true
+        },
+        {
+          "side": "stderr",
+          "bytes": 304,
+          "sha256": "055DE82DB89EED3FE6B27823DA76069E0C0D04D2F626579345A87EFBDB11638B",
+          "match": true,
+          "complete": true
+        }
+      ]
+    }
+  ],
+  "native_count": 10,
+  "full_stream_count": 20,
+  "raw_mismatches": 0,
+  "closure": {
+    "PG_exit": 137,
+    "worker_exit": 137,
+    "collector_exit": 1,
+    "external_exit": 1,
+    "guard_failure": null,
+    "kill_fault": false,
+    "stop_reason": "broker_exception"
+  },
+  "partial_only": {
+    "source_identity_cohort_check_snapshot_before_native0": true,
+    "dump_created": false,
+    "target_created": false,
+    "restore_started": false,
+    "target_app_started": false,
+    "HTTP_started": false,
+    "no_DR_acceptance": true
+  },
+  "command_crosspin_after_failure": {
+    "all31_checked": true,
+    "only_mismatch": "dump-current",
+    "remaining30format64_and_pin_equal": true
+  },
+  "QA_debt": "Prior emulation matchedcommandsha toconfigsha but omitted64hexformat and actualpin cross-binding; pinslist independentlycorrect did not cover malformedduplicatefield. Root/QA/TD review miss not product defect or UNKNOWN.",
+  "live_journal": "dr02-live-observations01.jsonl",
+  "conditions_before_any_futureattempt": [
+    "Root exactownedPGstaleidentity recovery with fullcapturedreadiness/cleanstop, no manualPID/WAL.",
+    "Preservefailed02/sourceconfig/rawbytes; freshconfig/output/sourcepath mapping reviewed.",
+    "Allcommandsha64+pinrow+actualbinary crossvalidation including new programs, allguardpredicates.",
+    "No automaticretry; fresh independent source/runtime/resource admission required."
+  ],
+  "no_native_by_QA": true
+}

@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "utc": "2026-10-23T19:36:38.186Z",
+  "role": "Customer",
+  "agent_name": "customer_s23_delivery",
+  "decision": "ACCEPT_FINITE_LOCAL_DR_AND_DOC_SCOPE_PUBLIC_DELIVERY_PENDING",
+  "root_actual_sha256": "8165F39A81280F74F410B1C98064E36CF91E337C962B3A1F540F8D4CFCA000C4",
+  "qa_actual_sha256": "591402A418404EECFE9F221CF71AF13D300B363321AC1EDEDD2A133EFDB2B779",
+  "own_reading": "Read both exact actual receipts and SHA, full scoped assertions/chronology, no privateauthraw/dump access. Read completeupdatedrestore1E4D andfuturequota6879 docs.",
+  "dispositions": [
+    {
+      "id": "C24-DR-01",
+      "status": "ACCEPT_LOCAL",
+      "basis": "Private full174424B currentDATABASE dump43E7/list andactualsingletransactionrestore0 to fresh target; sourcefailed02/recovered/pre/post/final fullfive-table+sequence equality."
+    },
+    {
+      "id": "C24-DR-02",
+      "status": "ACCEPT_LOCAL",
+      "basis": "Fullpreapp source/target rowschema/key/version/len identity; mixed3metadata andsixactualHTTPpayload/report hashes; strict90000/inverse andlegacy2-event audits. Savedinput covered by DBrow/sourcehash andfixedinputaudit, NOTHTTPsourceendpoint."
+    },
+    {
+      "id": "C24-DR-03",
+      "status": "ACCEPT_LOCAL_OWNER_ONLY",
+      "basis": "Actualemptycookieownerlogin303/twoprojects, non-sessionauth stable and sessionhousekeeping separated. No restoredviewer/editor/cancelled/interrupted claim."
+    },
+    {
+      "id": "C24-DR-04",
+      "status": "ACCEPT_DOC_AND_PRIVATE_SCOPE",
+      "basis": "UpdatedRussianrecipe explicitly onePG18DATABASE/preexistingroles, privatearchive/authdigests, noPITR/cluster/physicalpowerloss/HA/RTO; healthnotcontentproof."
+    },
+    {
+      "id": "C24-DR-05",
+      "status": "LOCAL_CAPTURE_ACCEPTED_PUBLIC_GATES_OPEN",
+      "basis": "IndependentliveQA/raw28native56full/stockredo+cleanPG0/PIDabsent; failures01/02 preserved. Publicprivacy/exactCI/download/finalquiet still required within original21:03:12deadline."
+    }
+  ],
+  "documents": [
+    {
+      "path": "docs/CURRENT_DATABASE_RESTORE.md",
+      "sha256": "1E4D52427871FC99278B0647A8AE1580085A56C2D298E055583111509B659652",
+      "decision": "APPROVE",
+      "note": "Accurate sourcecoverage clarification resolves absenceHTTPinputendpoint without weakening exact restoredpairaudit."
+    },
+    {
+      "path": "docs/ENTERPRISE_QUOTA_PLAN.md",
+      "sha256": "687913799ECD08E8FF83F08006292FF0316A88DDC4CA00AF02CF4E8A28AA168A",
+      "decision": "APPROVE_AS_FUTURE_PLAN_ONLY",
+      "note": "Explicitnotimplemented/nochosenproductionlimit; atomicallwritepaths/terminalheadroom/oldbinarygate meaningful. Proposedmetric/defaultoff requirefutureexactpolicyadoption, not authorizedimplementation from this review."
+    }
+  ],
+  "nonblocking_note": {
+    "id": "C24-QUOTA-SCOPE-01",
+    "proposal": "When next quota scope is adopted, explicitly distinguish per-project combinedlogicaldocuments from wholeinstallation/database physicalquota; this plan covers projectquota, not allenterprise capacity."
+  },
+  "public_delivery_accepted": false,
+  "human_acceptance": false
+}
