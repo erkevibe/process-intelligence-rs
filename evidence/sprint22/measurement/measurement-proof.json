@@ -1,0 +1,32 @@
+{
+  "historical_unknowns": 6,
+  "browser_checked": false,
+  "status": "ROOT_OBSERVED_TWO_FIXED_TERMINAL_OBSERVATIONS_REQUIRES_INDEPENDENT_AUDIT",
+  "native_records": 13,
+  "postgres_stopped": true,
+  "utc": "2026-10-23T04:51:07.7528485+00:00",
+  "broker_result_sha256": "668CD1CCE8C7F414A8B4968CC8D13789CF907594A9187398C8DCB11DF0B3A88C",
+  "worker_proof_sha256": "FA2A3A5EA36BD8BA9F1B5C2ED1BE4C9BE8B8BA318DD843D64797B4126529ED15",
+  "historical_unknowns_repaired": false,
+  "after": {
+    "root_allocation_bytes": 6839383448,
+    "logical_bytes": 7026884535,
+    "allocation_bytes": 7080786232,
+    "skipped_vanished_pg_internal_init_entries": 0,
+    "files": 41446,
+    "skipped_vanished_target_entries": 0,
+    "root_logical_bytes": 6802549263,
+    "scope": "non-atomic read-only sampling; vanished compiler-target entries or exact owned pgdata11/base/nonzero-decimal-OID/pg_internal.init only; second genuine absence required; 512MiB headroom mandatory"
+  },
+  "before": {
+    "root_allocation_bytes": 6808916704,
+    "logical_bytes": 6996536972,
+    "allocation_bytes": 7050303104,
+    "skipped_vanished_pg_internal_init_entries": 0,
+    "files": 40706,
+    "skipped_vanished_target_entries": 0,
+    "root_logical_bytes": 6772216011,
+    "scope": "non-atomic read-only sampling; vanished compiler-target entries or exact owned pgdata11/base/nonzero-decimal-OID/pg_internal.init only; second genuine absence required; 512MiB headroom mandatory"
+  },
+  "all_native_streams_eof": true
+}

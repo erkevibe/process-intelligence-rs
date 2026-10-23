@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "role": "Independent QA and live ProcessLogAuditor",
+  "agent_name": "qa_s20_delivery",
+  "utc": "2026-10-23T03:56:27.9316224+00:00",
+  "decision": "SCOPED_OWNERSHIP_MECHANISM_TECHNICAL_ACCEPTANCE",
+  "scope": "Exact controls04 runtime for worker death, bounded timeout/output and real resource-guard STOP; collector or host death excluded",
+  "config_sha256": "8F63115F636FAD118D3D901B394B07B0734BCC94ABF56E5F7F08E8A53A31DAF5",
+  "runtime_sha256": "AEE15C33307143CB905571E375D87DFEED4D00A1DF5126417C7FCA8B99DF86B9",
+  "broker_sha256": "F6F98E9B02251BCB0AE013FDDA16DA701ABD31223D87C83702A6BF38DA30C89B",
+  "all_10_source_pins_rechecked_unchanged": true,
+  "actual_controls": {
+    "guard_failure_is_actual_not_injected": true,
+    "genuine_guard_exact_owned_file": "guard-denial.bin",
+    "genuine_guard_hresult": -2147024864,
+    "families": 6,
+    "actual_two_successful_job_API_receipts_all_7": true,
+    "partial_spawn_negative": "OWN-06B actualpostidentity retainedchildexit, uninitializedpipes explicitnullobserved/noEOF",
+    "no_resume_negative": "OWN-06 initializedemptycaptures",
+    "mandatory_full_exit_both_EOF": [
+      "OWN-01",
+      "OWN-02",
+      "OWN-03",
+      "OWN-05"
+    ],
+    "actual_post_STOP_admission_refusal_all_7": true,
+    "scenarios": 7,
+    "genuine_guard_type": "System.IO.IOException",
+    "output_truncation_negative": "OWN-04 actual4096X bytes and explicittruncation"
+  },
+  "native_inventory": {
+    "all_existing_raw_stream_bytes_lengths_SHA256_verified": true,
+    "outer_tool_exit_observed": 0,
+    "stream_sources": 30,
+    "control_native_process_records": 15,
+    "outer_collector_records": 1,
+    "intentional_uninitialized_sources": 2,
+    "top_level_launcher_PID_identity_not_separately_claimed": true,
+    "full_captured_sources": 27,
+    "intentional_truncated_sources": 1,
+    "worker_and_child_records": 14,
+    "accidental_missing_native_exit_or_EOF": 0
+  },
+  "independent_manual_audit": {
+    "proof_sha256": "3E88A47078CE0F555149B0E046E7B291A768970187070448B1B8F32525C96C67",
+    "actual_python_pid": 61256,
+    "both_EOF": true,
+    "capture_faults": 0,
+    "captured_process_sha256": "ED346B0CC5AEE92D8759E0B09DD9DC6E258548AA523A7BE72E0203F48C237596",
+    "actual_native_exit": 0,
+    "Root_pass_booleans_not_acceptance_oracles": true,
+    "checker_sha256": "E8099D6D75E2F221C7B6AB032026B186AE9948BB32A1E9700F1D6B952403ABAF"
+  },
+  "bindings": {
+    "TD_source_admission_sha256": "5F9AF8089F559AA6D048F5C8F5EB013394C1C14E6A157EBBD0C5FC753924A0F6",
+    "collector_native_creation_UTC": "2026-10-23T03:51:02.8125896Z",
+    "controls_report_sha256": "1829C8C3AB036C1C9D4D57E2C41BEBF43D2694702B478C7E188B2024CA676864",
+    "outer_launch_result_sha256": "A9834560D675337B7537469DCEA33784963FD2439672CB4F8413E9AAF6A7E772",
+    "QA_source_GO": "Actual independent message before04launch; no invented earlier receipt timestamp",
+    "TD_source_UTC": "2026-10-23T03:50:42.4820235Z"
+  },
+  "resources": {
+    "after_files": 87485,
+    "Root8_global12_free8GiB_and512MiB_headroom_preserved": true,
+    "after_Root_allocated": 7568193488,
+    "after_global_logical": 7721976974,
+    "vanished_skips": 0,
+    "unchanged_25second_200k_scan": true,
+    "after_global_allocated": 7809338224
+  },
+  "failed_history": [
+    "Controls01 actualCS0136 compilefailure beforeOWN; collector1/fullEOF, no newUNKNOWN.",
+    "Controls02 actualmetadatahelperexportfailure beforeguard/OWN; collector1/fullEOF, no newUNKNOWN.",
+    "Controls03 actualOWN01full/OWN02KillFault rejection despitefullnativeexits/streams; exactoriginalfailedWin32operationcause remainsunproven.",
+    "Controls03 latestTDdelta review followedlaunch; retainedhonestly, neverbackdated. Controls04 bothactualsourceGO precededlaunch."
+  ],
+  "historical_UNKNOWN_unchanged": 6,
+  "gate": {
+    "technical_acceptance_before_gate": true,
+    "any_changed_mechanism_source_requires_new_affected_review": true,
+    "deadline": "2026-10-23T07:23:31Z",
+    "measurement_execution_authorized_by_this_receipt": false,
+    "new_prospective_fixed_input_protocol_and_exact_source_config_admission_required": true
+  },
+  "remaining": [
+    "TD independentactualmechanismacceptance",
+    "Separate prospective measurementprotocol before observations",
+    "Finalexactcandidate/publicdelivery gates and original09:53:31nativefreeze/11:23:31end remainmandatory"
+  ],
+  "limitations": [
+    "No survival or reconstruction under arbitrary collector, tool or host death.",
+    "No generic unrestricted launch-service security or enterprise readiness claim.",
+    "Deliberate OWN06B missingcaptures are a negative refusal case, never counted as fullcapture.",
+    "No historicalnativeUNKNOWN, resource-timeoutcause or failed90k outcome is repaired."
+  ]
+}

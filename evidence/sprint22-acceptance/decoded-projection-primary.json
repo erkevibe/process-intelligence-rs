@@ -1,0 +1,19 @@
+{
+  "status": "INDEPENDENT_LOGICAL_PUBLIC_PROJECTION_HASH_NUMERIC_ALIAS_POLICY_VERIFIED",
+  "policy_sha256": "E29223B3CB01729BAB84A1979D80C6F7EAEE1A8CCAF6EE90C4FDAD8DD2EBFB88",
+  "selection_sha256": "024B8F6290A0CE26589D2140F549B0E2B42BFE9D9467082873BD2BC486FFC50E",
+  "projection_manifest_sha256": "11456EAFF8EBAFF78DF047D2082379CBBAD6D0941D551C617F7EB5FA343ACACD",
+  "entries": 349,
+  "byteexact_original_files": 273,
+  "projected_files": 74,
+  "private_omissions": [
+    "measurement/private-credentials.json",
+    "measurement/http-10k/private-setup-request.json"
+  ],
+  "all_logical_files": 348,
+  "actual_private_original_bytes_checked": false,
+  "native_raw_descriptor_entries_checked": true,
+  "all_private_original_fields_compared": false,
+  "bundle_kind": "primary",
+  "scope": "Private mode checks every actual original and independent selected-pointer diff; public mode checks fixed manifest/hash/numeric/policy chain without claiming inaccessible private originals were reread. No child/native/PG/network execution."
+}

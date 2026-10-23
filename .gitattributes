@@ -116,3 +116,13 @@ evidence/sprint21-capacity/** -text whitespace=blank-at-eol,blank-at-eof,space-b
 flw/records/sprint21-capacity/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 evidence/sprint21-capacity/**/*.stdout -whitespace
 evidence/sprint21-capacity/**/*.stderr -whitespace
+
+# Sprint22 source and evidence hashes bind the exact observed bytes.
+tools/sprint22/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+evidence/sprint22/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+evidence/sprint22-process/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+evidence/sprint22-acceptance/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+evidence/sprint22-council/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/SPRINT_22* -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+evidence/sprint22/**/*.stdout -whitespace
+evidence/sprint22/**/*.stderr -whitespace

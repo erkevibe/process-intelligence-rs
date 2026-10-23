@@ -1,0 +1,99 @@
+{
+  "status": "ROOT_OBSERVED_SIX_CONTROL_FAMILIES_SEVEN_SCENARIOS_REQUIRES_INDEPENDENT_ACCEPTANCE",
+  "utc": "2026-10-23T03:52:06.8186036+00:00",
+  "before": {
+    "root_logical_bytes": 7497745569,
+    "allocation_bytes": 7809170312,
+    "skipped_vanished_pg_internal_init_entries": 0,
+    "files": 87308,
+    "logical_bytes": 7721906803,
+    "root_allocation_bytes": 7568037864,
+    "skipped_vanished_target_entries": 0,
+    "scope": "non-atomic read-only sampling; vanished compiler-target entries or exact owned pgdata11/base/nonzero-decimal-OID/pg_internal.init only; second genuine absence required; 512MiB headroom mandatory"
+  },
+  "historical_unknowns": 6,
+  "rows": [
+    {
+      "broker_sha256": "A49143AF7508448CBFA1E4F3D2AD7B71A551330A6884B359758230757A85A75A",
+      "full_capture": true,
+      "root_observed_pass": true,
+      "output_relative": "own-01",
+      "id": "OWN-01",
+      "mandatory_full_capture": true,
+      "stop_reason": "worker_exit",
+      "actual_child_record_saved": true
+    },
+    {
+      "broker_sha256": "C34E0D66DDFE2E6B5359B6FD204897889EB3D73DD5AABDE81F5CFF22ECD822DA",
+      "full_capture": true,
+      "root_observed_pass": true,
+      "output_relative": "own-02",
+      "id": "OWN-02",
+      "mandatory_full_capture": true,
+      "stop_reason": "worker_exit",
+      "actual_child_record_saved": true
+    },
+    {
+      "broker_sha256": "D2CA3ACB0902129ADAEB662267762BE18D04285483166615BC04671CF47079A0",
+      "full_capture": true,
+      "root_observed_pass": true,
+      "output_relative": "own-03",
+      "id": "OWN-03",
+      "mandatory_full_capture": true,
+      "stop_reason": "child_timeout",
+      "actual_child_record_saved": true
+    },
+    {
+      "broker_sha256": "3FF817ABCCE1D38847425D63B080E8660F5C7D9788483F24F8C2E80AA5B294EE",
+      "full_capture": false,
+      "root_observed_pass": true,
+      "output_relative": "own-04",
+      "id": "OWN-04",
+      "mandatory_full_capture": false,
+      "stop_reason": "output_or_capture_fault",
+      "actual_child_record_saved": true
+    },
+    {
+      "broker_sha256": "649B3662480B66ABA46CAF67441FC9F938254C0255CF6F860A5C18014ED0F386",
+      "full_capture": true,
+      "root_observed_pass": true,
+      "output_relative": "own-05",
+      "id": "OWN-05",
+      "mandatory_full_capture": true,
+      "stop_reason": "resource_guard_failure",
+      "actual_child_record_saved": true
+    },
+    {
+      "broker_sha256": "4543960A9511C1EA429042EB9CD256AB65C5CAD1BE8951C2909FDB4C3B16EAE8",
+      "full_capture": true,
+      "root_observed_pass": true,
+      "output_relative": "own-06",
+      "id": "OWN-06",
+      "mandatory_full_capture": false,
+      "stop_reason": "ownership_confirmation_withheld",
+      "actual_child_record_saved": true
+    },
+    {
+      "broker_sha256": "44A2BC0C078F83F179C5DFB272CD822641CCE9119E06A607676C54120436D39A",
+      "full_capture": false,
+      "root_observed_pass": true,
+      "output_relative": "own-06b",
+      "id": "OWN-06B",
+      "mandatory_full_capture": false,
+      "stop_reason": "spawn_admission_failure",
+      "actual_child_record_saved": true
+    }
+  ],
+  "measurement_admitted": false,
+  "historical_unknowns_repaired": false,
+  "after": {
+    "root_logical_bytes": 7497802856,
+    "allocation_bytes": 7809338224,
+    "skipped_vanished_pg_internal_init_entries": 0,
+    "files": 87485,
+    "logical_bytes": 7721976974,
+    "root_allocation_bytes": 7568193488,
+    "skipped_vanished_target_entries": 0,
+    "scope": "non-atomic read-only sampling; vanished compiler-target entries or exact owned pgdata11/base/nonzero-decimal-OID/pg_internal.init only; second genuine absence required; 512MiB headroom mandatory"
+  }
+}

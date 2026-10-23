@@ -1,0 +1,41 @@
+{
+  "status": "INDEPENDENT_PUBLIC_TWO_FIXED_OBSERVATIONS_WITH_ONE_EXPLICIT_PROJECTED_NATIVE_REPRESENTATION",
+  "cases": [
+    {
+      "case": "CMP10K",
+      "events": 10000,
+      "state": "completed",
+      "manual_source_pair_or_refusal_verified": true,
+      "memory_samples": 132,
+      "sampled_max_working_set": 62902272,
+      "sampled_max_private_commit": 52883456,
+      "native_lifetime_peak_working_set_through_final_alive_sample": 68030464,
+      "native_lifetime_peak_commit_through_final_alive_sample": 57044992
+    },
+    {
+      "case": "CMP90K",
+      "events": 90000,
+      "state": "failed",
+      "manual_source_pair_or_refusal_verified": true,
+      "memory_samples": 370,
+      "sampled_max_working_set": 377430016,
+      "sampled_max_private_commit": 384221184,
+      "native_lifetime_peak_working_set_through_final_alive_sample": 379592704,
+      "native_lifetime_peak_commit_through_final_alive_sample": 392650752
+    }
+  ],
+  "session_native_records": 13,
+  "session_full_source_stream_slots": 26,
+  "session_exact_original_raw_streams": 25,
+  "projected_native_representations": 1,
+  "all_exact_original_public_raw_streams_including_outer": 27,
+  "outer_native_exit_and_both_eof": true,
+  "historical_unknowns_unchanged": 6,
+  "limits": [
+    "Server memory excludes PG/client; sampled maxima are not lifetime peaks or RAM limits.",
+    "Fixed repeated values do not prove ordering sensitivity or graph diversity.",
+    "No CPU/SLO/browser/enterprise claim or historical UNKNOWN repair.",
+    "One cluster-identity stdout is a manifest-bound path-projected representation; native descriptor retains its original private full-capture SHA/length. Other27public raw streams remain exact original bytes.",
+    "Saved-data audit performs no product/PG/native/network execution."
+  ]
+}

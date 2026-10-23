@@ -1,0 +1,811 @@
+{
+  "absolute_stop_timer_fired": false,
+  "kill_requests_completed_utc": "2026-10-23T04:50:54.3670634Z",
+  "kill_fault": false,
+  "collector_host_death_supported": false,
+  "stop_reason": "worker_exit",
+  "native_kill_operations": [
+    {
+      "operation": "TerminateJobObject",
+      "utc": "2026-10-23T04:50:54.3635150Z",
+      "job_label": "worker",
+      "pid": 0,
+      "success": true,
+      "already_stopped": false,
+      "native_error": 0
+    },
+    {
+      "operation": "TerminateJobObject",
+      "utc": "2026-10-23T04:50:54.3645389Z",
+      "job_label": "postgres",
+      "pid": 0,
+      "success": true,
+      "already_stopped": false,
+      "native_error": 0
+    },
+    {
+      "operation": "TerminateJobObject",
+      "utc": "2026-10-23T04:50:54.3645715Z",
+      "job_label": "ready-01",
+      "pid": 0,
+      "success": true,
+      "already_stopped": false,
+      "native_error": 0
+    },
+    {
+      "operation": "TerminateJobObject",
+      "utc": "2026-10-23T04:50:54.3645807Z",
+      "job_label": "ready-02",
+      "pid": 0,
+      "success": true,
+      "already_stopped": false,
+      "native_error": 0
+    },
+    {
+      "operation": "TerminateJobObject",
+      "utc": "2026-10-23T04:50:54.3645893Z",
+      "job_label": "cluster-identity",
+      "pid": 0,
+      "success": true,
+      "already_stopped": false,
+      "native_error": 0
+    },
+    {
+      "operation": "TerminateJobObject",
+      "utc": "2026-10-23T04:50:54.3645978Z",
+      "job_label": "create-db",
+      "pid": 0,
+      "success": true,
+      "already_stopped": false,
+      "native_error": 0
+    },
+    {
+      "operation": "TerminateJobObject",
+      "utc": "2026-10-23T04:50:16.1851476Z",
+      "job_label": "app10k",
+      "pid": 0,
+      "success": true,
+      "already_stopped": true,
+      "native_error": 0
+    },
+    {
+      "operation": "TerminateJobObject",
+      "utc": "2026-10-23T04:50:54.3646070Z",
+      "job_label": "child",
+      "pid": 0,
+      "success": true,
+      "already_stopped": false,
+      "native_error": 0
+    },
+    {
+      "operation": "TerminateJobObject",
+      "utc": "2026-10-23T04:50:54.3646145Z",
+      "job_label": "source10k",
+      "pid": 0,
+      "success": true,
+      "already_stopped": false,
+      "native_error": 0
+    },
+    {
+      "operation": "TerminateJobObject",
+      "utc": "2026-10-23T04:50:40.9866787Z",
+      "job_label": "app90k",
+      "pid": 0,
+      "success": true,
+      "already_stopped": true,
+      "native_error": 0
+    },
+    {
+      "operation": "TerminateJobObject",
+      "utc": "2026-10-23T04:50:54.3646225Z",
+      "job_label": "http90k",
+      "pid": 0,
+      "success": true,
+      "already_stopped": false,
+      "native_error": 0
+    },
+    {
+      "operation": "TerminateJobObject",
+      "utc": "2026-10-23T04:50:54.3646305Z",
+      "job_label": "source90k",
+      "pid": 0,
+      "success": true,
+      "already_stopped": false,
+      "native_error": 0
+    },
+    {
+      "operation": "TerminateJobObject",
+      "utc": "2026-10-23T04:50:54.3646382Z",
+      "job_label": "pg-stop",
+      "pid": 0,
+      "success": true,
+      "already_stopped": false,
+      "native_error": 0
+    }
+  ],
+  "guard_failure": null,
+  "service_watchers": {
+    "app10k": {
+      "attached_utc": "2026-10-23T04:50:07.0130747Z",
+      "expected_exit": true,
+      "triggered": false
+    },
+    "postgres": {
+      "attached_utc": "2026-10-23T04:50:01.5627294Z",
+      "expected_exit": true,
+      "triggered": false
+    },
+    "app90k": {
+      "attached_utc": "2026-10-23T04:50:16.5224959Z",
+      "expected_exit": true,
+      "triggered": false
+    }
+  },
+  "control_triggered": false,
+  "completed_count": 13,
+  "events": [
+    {
+      "label": "worker",
+      "event": "OWNED_SUSPENDED_CAPTURE_READY",
+      "utc": "2026-10-23T04:50:00.2470316+00:00",
+      "sequence": 1,
+      "stop_latched": false
+    },
+    {
+      "label": "worker",
+      "event": "RESUMED",
+      "utc": "2026-10-23T04:50:00.2545187+00:00",
+      "sequence": 2,
+      "stop_latched": false
+    },
+    {
+      "label": "postgres",
+      "event": "REQUEST_START",
+      "utc": "2026-10-23T04:50:01.4778181+00:00",
+      "sequence": 3,
+      "stop_latched": false
+    },
+    {
+      "label": "postgres",
+      "event": "OWNED_SUSPENDED_CAPTURE_READY",
+      "utc": "2026-10-23T04:50:01.5508375+00:00",
+      "sequence": 4,
+      "stop_latched": false
+    },
+    {
+      "label": "postgres",
+      "event": "SERVICE_EXIT_WATCH_ATTACHED",
+      "utc": "2026-10-23T04:50:01.5663478+00:00",
+      "sequence": 5,
+      "stop_latched": false
+    },
+    {
+      "label": "postgres",
+      "event": "RESUMED",
+      "utc": "2026-10-23T04:50:01.5715560+00:00",
+      "sequence": 6,
+      "stop_latched": false
+    },
+    {
+      "label": "ready-01",
+      "event": "REQUEST_START",
+      "utc": "2026-10-23T04:50:01.6608163+00:00",
+      "sequence": 7,
+      "stop_latched": false
+    },
+    {
+      "label": "ready-01",
+      "event": "OWNED_SUSPENDED_CAPTURE_READY",
+      "utc": "2026-10-23T04:50:01.7099498+00:00",
+      "sequence": 8,
+      "stop_latched": false
+    },
+    {
+      "label": "ready-01",
+      "event": "RESUMED",
+      "utc": "2026-10-23T04:50:01.7101704+00:00",
+      "sequence": 9,
+      "stop_latched": false
+    },
+    {
+      "label": "ready-01",
+      "event": "REQUEST_STATUS",
+      "utc": "2026-10-23T04:50:01.7690467+00:00",
+      "sequence": 10,
+      "stop_latched": false
+    },
+    {
+      "label": "ready-01",
+      "event": "ACTUAL_EXIT_AND_CAPTURE_SAVED",
+      "utc": "2026-10-23T04:50:01.8989641+00:00",
+      "sequence": 11,
+      "stop_latched": false
+    },
+    {
+      "label": "ready-01",
+      "event": "REQUEST_STATUS",
+      "utc": "2026-10-23T04:50:02.8696246+00:00",
+      "sequence": 12,
+      "stop_latched": false
+    },
+    {
+      "label": "ready-02",
+      "event": "REQUEST_START",
+      "utc": "2026-10-23T04:50:03.0385469+00:00",
+      "sequence": 13,
+      "stop_latched": false
+    },
+    {
+      "label": "ready-02",
+      "event": "OWNED_SUSPENDED_CAPTURE_READY",
+      "utc": "2026-10-23T04:50:03.0730489+00:00",
+      "sequence": 14,
+      "stop_latched": false
+    },
+    {
+      "label": "ready-02",
+      "event": "RESUMED",
+      "utc": "2026-10-23T04:50:03.0732420+00:00",
+      "sequence": 15,
+      "stop_latched": false
+    },
+    {
+      "label": "ready-02",
+      "event": "REQUEST_STATUS",
+      "utc": "2026-10-23T04:50:03.1358101+00:00",
+      "sequence": 16,
+      "stop_latched": false
+    },
+    {
+      "label": "ready-02",
+      "event": "ACTUAL_EXIT_AND_CAPTURE_SAVED",
+      "utc": "2026-10-23T04:50:03.1973885+00:00",
+      "sequence": 17,
+      "stop_latched": false
+    },
+    {
+      "label": "ready-02",
+      "event": "REQUEST_STATUS",
+      "utc": "2026-10-23T04:50:04.2148794+00:00",
+      "sequence": 18,
+      "stop_latched": false
+    },
+    {
+      "label": "cluster-identity",
+      "event": "REQUEST_START",
+      "utc": "2026-10-23T04:50:04.2606604+00:00",
+      "sequence": 19,
+      "stop_latched": false
+    },
+    {
+      "label": "cluster-identity",
+      "event": "OWNED_SUSPENDED_CAPTURE_READY",
+      "utc": "2026-10-23T04:50:04.3139906+00:00",
+      "sequence": 20,
+      "stop_latched": false
+    },
+    {
+      "label": "cluster-identity",
+      "event": "RESUMED",
+      "utc": "2026-10-23T04:50:04.3141581+00:00",
+      "sequence": 21,
+      "stop_latched": false
+    },
+    {
+      "label": "cluster-identity",
+      "event": "REQUEST_STATUS",
+      "utc": "2026-10-23T04:50:04.3880107+00:00",
+      "sequence": 22,
+      "stop_latched": false
+    },
+    {
+      "label": "cluster-identity",
+      "event": "ACTUAL_EXIT_AND_CAPTURE_SAVED",
+      "utc": "2026-10-23T04:50:04.4407551+00:00",
+      "sequence": 23,
+      "stop_latched": false
+    },
+    {
+      "label": "cluster-identity",
+      "event": "REQUEST_STATUS",
+      "utc": "2026-10-23T04:50:05.4557125+00:00",
+      "sequence": 24,
+      "stop_latched": false
+    },
+    {
+      "label": "postgres",
+      "event": "REQUEST_STATUS",
+      "utc": "2026-10-23T04:50:05.5040088+00:00",
+      "sequence": 25,
+      "stop_latched": false
+    },
+    {
+      "label": "create-db",
+      "event": "REQUEST_START",
+      "utc": "2026-10-23T04:50:05.5678158+00:00",
+      "sequence": 26,
+      "stop_latched": false
+    },
+    {
+      "label": "create-db",
+      "event": "OWNED_SUSPENDED_CAPTURE_READY",
+      "utc": "2026-10-23T04:50:05.6178230+00:00",
+      "sequence": 27,
+      "stop_latched": false
+    },
+    {
+      "label": "create-db",
+      "event": "RESUMED",
+      "utc": "2026-10-23T04:50:05.6180001+00:00",
+      "sequence": 28,
+      "stop_latched": false
+    },
+    {
+      "label": "create-db",
+      "event": "REQUEST_STATUS",
+      "utc": "2026-10-23T04:50:05.6761872+00:00",
+      "sequence": 29,
+      "stop_latched": false
+    },
+    {
+      "label": "create-db",
+      "event": "ACTUAL_EXIT_AND_CAPTURE_SAVED",
+      "utc": "2026-10-23T04:50:06.2675487+00:00",
+      "sequence": 30,
+      "stop_latched": false
+    },
+    {
+      "label": "create-db",
+      "event": "REQUEST_STATUS",
+      "utc": "2026-10-23T04:50:06.7396499+00:00",
+      "sequence": 31,
+      "stop_latched": false
+    },
+    {
+      "label": "app10k",
+      "event": "REQUEST_START",
+      "utc": "2026-10-23T04:50:06.8017872+00:00",
+      "sequence": 32,
+      "stop_latched": false
+    },
+    {
+      "label": "app10k",
+      "event": "OWNED_SUSPENDED_CAPTURE_READY",
+      "utc": "2026-10-23T04:50:07.0126786+00:00",
+      "sequence": 33,
+      "stop_latched": false
+    },
+    {
+      "label": "app10k",
+      "event": "SERVICE_EXIT_WATCH_ATTACHED",
+      "utc": "2026-10-23T04:50:07.0137249+00:00",
+      "sequence": 34,
+      "stop_latched": false
+    },
+    {
+      "label": "app10k",
+      "event": "RESUMED",
+      "utc": "2026-10-23T04:50:07.0138922+00:00",
+      "sequence": 35,
+      "stop_latched": false
+    },
+    {
+      "label": "child",
+      "event": "REQUEST_START",
+      "utc": "2026-10-23T04:50:08.8196974+00:00",
+      "sequence": 36,
+      "stop_latched": false
+    },
+    {
+      "label": "child",
+      "event": "OWNED_SUSPENDED_CAPTURE_READY",
+      "utc": "2026-10-23T04:50:08.8873527+00:00",
+      "sequence": 37,
+      "stop_latched": false
+    },
+    {
+      "label": "child",
+      "event": "RESUMED",
+      "utc": "2026-10-23T04:50:08.8875139+00:00",
+      "sequence": 38,
+      "stop_latched": false
+    },
+    {
+      "label": "child",
+      "event": "REQUEST_STATUS",
+      "utc": "2026-10-23T04:50:08.9634895+00:00",
+      "sequence": 39,
+      "stop_latched": false
+    },
+    {
+      "label": "child",
+      "event": "REQUEST_STATUS",
+      "utc": "2026-10-23T04:50:10.0112479+00:00",
+      "sequence": 40,
+      "stop_latched": false
+    },
+    {
+      "label": "child",
+      "event": "REQUEST_STATUS",
+      "utc": "2026-10-23T04:50:11.0657077+00:00",
+      "sequence": 41,
+      "stop_latched": false
+    },
+    {
+      "label": "child",
+      "event": "REQUEST_STATUS",
+      "utc": "2026-10-23T04:50:12.1000953+00:00",
+      "sequence": 42,
+      "stop_latched": false
+    },
+    {
+      "label": "child",
+      "event": "REQUEST_STATUS",
+      "utc": "2026-10-23T04:50:13.1654963+00:00",
+      "sequence": 43,
+      "stop_latched": false
+    },
+    {
+      "label": "child",
+      "event": "ACTUAL_EXIT_AND_CAPTURE_SAVED",
+      "utc": "2026-10-23T04:50:13.8119373+00:00",
+      "sequence": 44,
+      "stop_latched": false
+    },
+    {
+      "label": "child",
+      "event": "REQUEST_STATUS",
+      "utc": "2026-10-23T04:50:14.2171783+00:00",
+      "sequence": 45,
+      "stop_latched": false
+    },
+    {
+      "label": "source10k",
+      "event": "REQUEST_START",
+      "utc": "2026-10-23T04:50:15.3646659+00:00",
+      "sequence": 46,
+      "stop_latched": false
+    },
+    {
+      "label": "source10k",
+      "event": "OWNED_SUSPENDED_CAPTURE_READY",
+      "utc": "2026-10-23T04:50:15.4319075+00:00",
+      "sequence": 47,
+      "stop_latched": false
+    },
+    {
+      "label": "source10k",
+      "event": "RESUMED",
+      "utc": "2026-10-23T04:50:15.4320739+00:00",
+      "sequence": 48,
+      "stop_latched": false
+    },
+    {
+      "label": "source10k",
+      "event": "ACTUAL_EXIT_AND_CAPTURE_SAVED",
+      "utc": "2026-10-23T04:50:15.9146527+00:00",
+      "sequence": 49,
+      "stop_latched": false
+    },
+    {
+      "label": "source10k",
+      "event": "REQUEST_STATUS",
+      "utc": "2026-10-23T04:50:15.9219306+00:00",
+      "sequence": 50,
+      "stop_latched": false
+    },
+    {
+      "label": "app10k",
+      "event": "REQUEST_KILL",
+      "utc": "2026-10-23T04:50:16.1796376+00:00",
+      "sequence": 51,
+      "stop_latched": false
+    },
+    {
+      "label": "app10k",
+      "event": "REQUESTED_JOB_STOP",
+      "utc": "2026-10-23T04:50:16.1866432+00:00",
+      "sequence": 52,
+      "stop_latched": false
+    },
+    {
+      "label": "app10k",
+      "event": "ACTUAL_EXIT_AND_CAPTURE_SAVED",
+      "utc": "2026-10-23T04:50:16.2474664+00:00",
+      "sequence": 53,
+      "stop_latched": false
+    },
+    {
+      "label": "app10k",
+      "event": "REQUEST_STATUS",
+      "utc": "2026-10-23T04:50:16.2530773+00:00",
+      "sequence": 54,
+      "stop_latched": false
+    },
+    {
+      "label": "app90k",
+      "event": "REQUEST_START",
+      "utc": "2026-10-23T04:50:16.3079685+00:00",
+      "sequence": 55,
+      "stop_latched": false
+    },
+    {
+      "label": "app90k",
+      "event": "OWNED_SUSPENDED_CAPTURE_READY",
+      "utc": "2026-10-23T04:50:16.5220184+00:00",
+      "sequence": 56,
+      "stop_latched": false
+    },
+    {
+      "label": "app90k",
+      "event": "SERVICE_EXIT_WATCH_ATTACHED",
+      "utc": "2026-10-23T04:50:16.5231527+00:00",
+      "sequence": 57,
+      "stop_latched": false
+    },
+    {
+      "label": "app90k",
+      "event": "RESUMED",
+      "utc": "2026-10-23T04:50:16.5234293+00:00",
+      "sequence": 58,
+      "stop_latched": false
+    },
+    {
+      "label": "http90k",
+      "event": "REQUEST_START",
+      "utc": "2026-10-23T04:50:18.1145278+00:00",
+      "sequence": 59,
+      "stop_latched": false
+    },
+    {
+      "label": "http90k",
+      "event": "OWNED_SUSPENDED_CAPTURE_READY",
+      "utc": "2026-10-23T04:50:18.1838397+00:00",
+      "sequence": 60,
+      "stop_latched": false
+    },
+    {
+      "label": "http90k",
+      "event": "RESUMED",
+      "utc": "2026-10-23T04:50:18.1840558+00:00",
+      "sequence": 61,
+      "stop_latched": false
+    },
+    {
+      "label": "http90k",
+      "event": "REQUEST_STATUS",
+      "utc": "2026-10-23T04:50:18.2375714+00:00",
+      "sequence": 62,
+      "stop_latched": false
+    },
+    {
+      "label": "http90k",
+      "event": "REQUEST_STATUS",
+      "utc": "2026-10-23T04:50:19.2942352+00:00",
+      "sequence": 63,
+      "stop_latched": false
+    },
+    {
+      "label": "http90k",
+      "event": "REQUEST_STATUS",
+      "utc": "2026-10-23T04:50:33.2728181+00:00",
+      "sequence": 64,
+      "stop_latched": false
+    },
+    {
+      "label": "http90k",
+      "event": "REQUEST_STATUS",
+      "utc": "2026-10-23T04:50:34.3226029+00:00",
+      "sequence": 65,
+      "stop_latched": false
+    },
+    {
+      "label": "http90k",
+      "event": "REQUEST_STATUS",
+      "utc": "2026-10-23T04:50:35.3689804+00:00",
+      "sequence": 66,
+      "stop_latched": false
+    },
+    {
+      "label": "http90k",
+      "event": "REQUEST_STATUS",
+      "utc": "2026-10-23T04:50:36.4203089+00:00",
+      "sequence": 67,
+      "stop_latched": false
+    },
+    {
+      "label": "http90k",
+      "event": "REQUEST_STATUS",
+      "utc": "2026-10-23T04:50:37.4778616+00:00",
+      "sequence": 68,
+      "stop_latched": false
+    },
+    {
+      "label": "http90k",
+      "event": "ACTUAL_EXIT_AND_CAPTURE_SAVED",
+      "utc": "2026-10-23T04:50:37.8117789+00:00",
+      "sequence": 69,
+      "stop_latched": false
+    },
+    {
+      "label": "http90k",
+      "event": "REQUEST_STATUS",
+      "utc": "2026-10-23T04:50:38.5181989+00:00",
+      "sequence": 70,
+      "stop_latched": false
+    },
+    {
+      "label": "source90k",
+      "event": "REQUEST_START",
+      "utc": "2026-10-23T04:50:39.5913661+00:00",
+      "sequence": 71,
+      "stop_latched": false
+    },
+    {
+      "label": "source90k",
+      "event": "OWNED_SUSPENDED_CAPTURE_READY",
+      "utc": "2026-10-23T04:50:39.6312453+00:00",
+      "sequence": 72,
+      "stop_latched": false
+    },
+    {
+      "label": "source90k",
+      "event": "RESUMED",
+      "utc": "2026-10-23T04:50:39.6314177+00:00",
+      "sequence": 73,
+      "stop_latched": false
+    },
+    {
+      "label": "source90k",
+      "event": "REQUEST_STATUS",
+      "utc": "2026-10-23T04:50:39.6874347+00:00",
+      "sequence": 74,
+      "stop_latched": false
+    },
+    {
+      "label": "source90k",
+      "event": "ACTUAL_EXIT_AND_CAPTURE_SAVED",
+      "utc": "2026-10-23T04:50:39.9550433+00:00",
+      "sequence": 75,
+      "stop_latched": false
+    },
+    {
+      "label": "source90k",
+      "event": "REQUEST_STATUS",
+      "utc": "2026-10-23T04:50:40.7522501+00:00",
+      "sequence": 76,
+      "stop_latched": false
+    },
+    {
+      "label": "app90k",
+      "event": "REQUEST_KILL",
+      "utc": "2026-10-23T04:50:40.9866363+00:00",
+      "sequence": 77,
+      "stop_latched": false
+    },
+    {
+      "label": "app90k",
+      "event": "REQUESTED_JOB_STOP",
+      "utc": "2026-10-23T04:50:40.9871608+00:00",
+      "sequence": 78,
+      "stop_latched": false
+    },
+    {
+      "label": "app90k",
+      "event": "ACTUAL_EXIT_AND_CAPTURE_SAVED",
+      "utc": "2026-10-23T04:50:41.0351436+00:00",
+      "sequence": 79,
+      "stop_latched": false
+    },
+    {
+      "label": "app90k",
+      "event": "REQUEST_STATUS",
+      "utc": "2026-10-23T04:50:41.0414126+00:00",
+      "sequence": 80,
+      "stop_latched": false
+    },
+    {
+      "label": "postgres",
+      "event": "REQUEST_SAMPLE",
+      "utc": "2026-10-23T04:50:41.0959455+00:00",
+      "sequence": 81,
+      "stop_latched": false
+    },
+    {
+      "label": "postgres",
+      "event": "ACTUAL_FRESH_RESOURCE_BARRIER",
+      "utc": "2026-10-23T04:50:52.9876130+00:00",
+      "sequence": 82,
+      "stop_latched": false
+    },
+    {
+      "label": "pg-stop",
+      "event": "REQUEST_START",
+      "utc": "2026-10-23T04:50:53.0406699+00:00",
+      "sequence": 83,
+      "stop_latched": false
+    },
+    {
+      "label": "pg-stop",
+      "event": "OWNED_SUSPENDED_CAPTURE_READY",
+      "utc": "2026-10-23T04:50:53.0733666+00:00",
+      "sequence": 84,
+      "stop_latched": false
+    },
+    {
+      "label": "pg-stop",
+      "event": "RESUMED",
+      "utc": "2026-10-23T04:50:53.0769197+00:00",
+      "sequence": 85,
+      "stop_latched": false
+    },
+    {
+      "label": "pg-stop",
+      "event": "REQUEST_STATUS",
+      "utc": "2026-10-23T04:50:53.1188215+00:00",
+      "sequence": 86,
+      "stop_latched": false
+    },
+    {
+      "label": "postgres",
+      "event": "ACTUAL_EXIT_AND_CAPTURE_SAVED",
+      "utc": "2026-10-23T04:50:53.6130744+00:00",
+      "sequence": 87,
+      "stop_latched": false
+    },
+    {
+      "label": "pg-stop",
+      "event": "ACTUAL_EXIT_AND_CAPTURE_SAVED",
+      "utc": "2026-10-23T04:50:53.6916152+00:00",
+      "sequence": 88,
+      "stop_latched": false
+    },
+    {
+      "label": "pg-stop",
+      "event": "REQUEST_STATUS",
+      "utc": "2026-10-23T04:50:54.1575928+00:00",
+      "sequence": 89,
+      "stop_latched": false
+    },
+    {
+      "label": "postgres",
+      "event": "REQUEST_STATUS",
+      "utc": "2026-10-23T04:50:54.2220680+00:00",
+      "sequence": 90,
+      "stop_latched": false
+    },
+    {
+      "label": "worker",
+      "event": "ACTUAL_EXIT_AND_CAPTURE_SAVED",
+      "utc": "2026-10-23T04:50:54.3727770+00:00",
+      "sequence": 91,
+      "stop_latched": true
+    }
+  ],
+  "no_new_go_after_stop": true,
+  "control": "none",
+  "cleanup_completed_utc": "2026-10-23T04:50:54.5112615+00:00",
+  "sample_barrier": {
+    "completed_ticks": 520885221213,
+    "frequency": 10000000,
+    "completed_utc": "2026-10-23T04:50:52.9793048+00:00",
+    "scanner_unchanged": true,
+    "absolute_deadline_ticks": 521075221213,
+    "window_seconds": 19,
+    "periodic_seconds": 20
+  },
+  "requests": 46,
+  "process_count": 13,
+  "post_stop_probe": {
+    "process_count_before": 13,
+    "refused": true,
+    "process_count_after": 13,
+    "attempted": true,
+    "resume_unchanged": true,
+    "exception_code": "stop_latched_no_admission"
+  },
+  "receipt_write_hard_timer_still_armed": true,
+  "stop_utc": "2026-10-23T04:50:54.3601595Z",
+  "collector_finalization_deadline": "2026-10-23T04:51:19.3606175+00:00",
+  "failure": null
+}

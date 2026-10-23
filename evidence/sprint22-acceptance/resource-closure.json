@@ -1,0 +1,33 @@
+{
+  "scope": "Point-in-time owned workspace workload and resource check; no claim arbitrary unrelated processes or collector/host failures are covered",
+  "historical_unknowns": 6,
+  "ports": [
+    {
+      "bind_free": true,
+      "port": 3139
+    },
+    {
+      "bind_free": true,
+      "port": 55449
+    }
+  ],
+  "pgdata11_pid_absent": true,
+  "guard_sha256": "8EC87E1E91F07514C18B2698F5E77B35CD7A02AB8DCEEA4FF7268FB8609C3EC6",
+  "utc": "2026-10-23T05:26:45.9441300+00:00",
+  "historical_unknowns_repaired": false,
+  "status": "ACTUAL_UNCHANGED_GUARD_AND_OWNED_NATIVE_QUIET_POINT",
+  "thresholds_unchanged": true,
+  "free_bytes": 29169270784,
+  "scan_ms": 12341,
+  "workspace_native_workloads": [],
+  "snapshot": {
+    "scope": "non-atomic read-only sampling; vanished compiler-target entries or exact owned pgdata11/base/nonzero-decimal-OID/pg_internal.init only; second genuine absence required; 512MiB headroom mandatory",
+    "skipped_vanished_target_entries": 0,
+    "allocation_bytes": 7203069808,
+    "files": 42847,
+    "skipped_vanished_pg_internal_init_entries": 0,
+    "root_allocation_bytes": 6961515472,
+    "root_logical_bytes": 6923716684,
+    "logical_bytes": 7148157384
+  }
+}

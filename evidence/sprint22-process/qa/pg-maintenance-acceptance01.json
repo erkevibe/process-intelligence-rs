@@ -1,0 +1,64 @@
+{
+  "utc": "2026-10-23T04:38:50.4948632+00:00",
+  "expanded_bytes": 1009620838,
+  "qa_native_execution": false,
+  "resource": {
+    "root_allocated": 6856731160,
+    "files": 62018,
+    "unchanged_limits": true,
+    "margin_to25s_ms": 1593,
+    "elapsed_ms": 23407,
+    "global_allocated": 7098056120,
+    "skips": 0
+  },
+  "schema": 1,
+  "historical_unknowns_unchanged": 6,
+  "agent_name": "qa_s20_delivery",
+  "excluded01_11_preserved": true,
+  "decision": "ACCEPT_BYTE_PRESERVING_STOPPED_PG_MAINTENANCE_AND_ONE_RESOURCE_SAMPLE",
+  "clusters": 9,
+  "compressed_bytes": 214824694,
+  "files": 25630,
+  "archive_result_sha256": "FFF66707908B7AC09DCE620604D7D8CA65C593E971593A1D5B61C60F23BD44C9",
+  "auditor_proof_sha256": "7057905D37E0826E187250CFCBAED6FA61A4BFDE00D3EEACFF3C7B0A532C372B",
+  "limits": [
+    "Byte preservation and recorded metadata only, no actual PG restore/ACL/NTFS fidelity.",
+    "One23.407s sample does not prove stable future scanner margin.",
+    "No measurement GO yet; additional finite cleanup is prospective."
+  ],
+  "actual": [
+    {
+      "parent": "archive-saved-audit02",
+      "creation_utc": "2026-10-23T04:37:09.6477276Z",
+      "exit": 0,
+      "sha256": "9F76A584911E5568CCFEFFC39D0DF5A4C356634F1DACD5EF5F98B18DB9A7A698",
+      "record": "audit.process.json",
+      "pid": 57452,
+      "both_eof": true
+    },
+    {
+      "parent": "archive-native02",
+      "creation_utc": "2026-10-23T04:29:31.0855176Z",
+      "exit": 0,
+      "sha256": "558A0B766FEB218CBECE90FE5BD0753DD25B2949D8BA2260D2718CE022C18CFF",
+      "record": "archive.process.json",
+      "pid": 55628,
+      "both_eof": true
+    },
+    {
+      "parent": "resource-native01",
+      "creation_utc": "2026-10-23T04:34:17.6748818Z",
+      "exit": 0,
+      "sha256": "2CFE60BEBE9B1079D37F9000A0B9080FAC575BAA2C5A2DC2F762452A2C117439",
+      "record": "resource.process.json",
+      "pid": 60560,
+      "both_eof": true
+    }
+  ],
+  "prior_failures": [
+    "Adapter01 final guard FAILED_GUARD unchanged.",
+    "Archive01 own64MiB cap failure retained, no deletion.",
+    "QA archive auditor01 returned anchor and failed; original source/captures preserved."
+  ],
+  "auditor_source_sha256": "6FDB81AD6A7F0F26C05F468A94A72C72DDFE98B6A9A3A28D507B6917699EB53B"
+}

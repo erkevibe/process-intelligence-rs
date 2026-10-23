@@ -1,0 +1,51 @@
+{
+  "independent_qa_saved_audit_sha256": "C34E76AF6EEA9EEF29A837381819315D7C2C52A564933C0034C10CED62C44398",
+  "agent_name": "td_s20_delivery",
+  "actual_resource_after": {
+    "vanished_skips": 0,
+    "global_allocation_bytes": 7080786232,
+    "root_allocation_bytes": 6839383448,
+    "files": 41446
+  },
+  "cases": [
+    {
+      "outcome": "completed",
+      "native_lifetime_peak_working_set_through_final_alive_sample": 68030464,
+      "case": "CMP10K",
+      "events": 10000,
+      "http_case_wall_seconds": 4.600525,
+      "payload_bytes": 510035,
+      "report_bytes": 3222364,
+      "memory_samples": 132
+    },
+    {
+      "outcome": "failed_report_byte_limit",
+      "payload_status": 404,
+      "native_lifetime_peak_working_set_through_final_alive_sample": 379592704,
+      "report_status": 404,
+      "case": "CMP90K",
+      "events": 90000,
+      "http_case_wall_seconds": 19.3557646,
+      "memory_samples": 370
+    }
+  ],
+  "decision": "ACCEPT_SCOPED_TWO_FIXED_TERMINAL_OBSERVATIONS_NOT_TWO_SUCCESSFUL_CONVERSIONS",
+  "config_sha256": "8EF8139AB5C9564DD9C38050A0E8FF29704BE07F1B75421E182CA50CEF55631C",
+  "utc": "2026-10-23T04:53:26.4962485+00:00",
+  "debt": [
+    "Worker STATUS reports native exit before immutable complete process receipt; current full captures and saved audit verify this run, but future worker should wait capture-complete receipt before consuming command stdout. No executed source edit or input rerun required.",
+    "Saved Python full metadata dictionary equality is value equality; actual pinned worker enforces type-sensitive equality."
+  ],
+  "limits": [
+    "Finite fixed repeated-event observations; no graph diversity or ordering sensitivity proof",
+    "Server lifetime peaks are as of final alive sample before SQL/teardown, not RAM caps; HTTP wall is not CPU/SLO",
+    "Historical sixUNKNOWN unchanged and adapter wholeFAILED_GUARD retained",
+    "No browser, enterprise, arbitrary collector/host-death guarantee or public delivery claim"
+  ],
+  "own_readback": {
+    "session_full_streams": 26,
+    "raw_stream_hash_length_mismatches": 0,
+    "pg_pidfile_absent": true,
+    "session_native_records": 13
+  }
+}

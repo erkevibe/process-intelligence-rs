@@ -1,0 +1,58 @@
+{
+  "kind": "ACTUAL_FIXED_ROSTER_CANDIDATE_RESOLUTION",
+  "actual_utc": "2026-10-23T05:37:32.4189451+00:00",
+  "proposal_sha256": "3D6E9855174F128768DE83881C1C3F6EFA5592F8CC51D70DCCDD9A897500E139",
+  "freeze_sha256": "E9E92055279228F5D519AAAC25326108F6A98B8E4D761938A3E4E855D4616743",
+  "fixed_voters": [
+    "Root",
+    "PM",
+    "Customer",
+    "QA",
+    "TD"
+  ],
+  "actual_for": 5,
+  "actual_against": 0,
+  "actual_abstain": 0,
+  "votes": [
+    {
+      "public_path": "evidence/sprint22-council/root-vote.json",
+      "role": "Root",
+      "vote": "FOR",
+      "sha256": "EA5DB0AF2109C1C27874544C08945E65B5309D60A9A5D165581EB749731C205B"
+    },
+    {
+      "public_path": "evidence/sprint22-council/pm-vote.json",
+      "role": "PM",
+      "vote": "FOR",
+      "sha256": "FE457DA200676D55E69CDEF793B2A4A37F99CC9AD6493CB31699ECFBDB37ED5D"
+    },
+    {
+      "public_path": "evidence/sprint22-council/customer-vote.json",
+      "role": "Customer",
+      "vote": "FOR",
+      "sha256": "1BA50F4FA8B24055726DD60E7F0EA927323702E488F386ECAAB280B62B2D965A"
+    },
+    {
+      "public_path": "evidence/sprint22-council/qa-vote.json",
+      "role": "QA",
+      "vote": "FOR",
+      "sha256": "4B75D7F9A8BF4020DB7B83DF460A65864F06B2BD6DB2427447A31B924A8EB6E1"
+    },
+    {
+      "public_path": "evidence/sprint22-council/td-vote.json",
+      "role": "TD",
+      "vote": "FOR",
+      "sha256": "3140B87469FDEFE8C76B7AA75D0C1745FDC4FC0D61EEEDC086373F37E424E0E3"
+    }
+  ],
+  "decision": "ACCEPT_SCOPED_LOCAL_TECHNICAL_CANDIDATE_AND_ADMIT_CONDITIONAL_SEPARATE_PR_PUBLICATION",
+  "scope": "Unchanged425core plus byteexactactualCouncilenvelope only",
+  "future_ci_and_download_gates_passed": false,
+  "future_delivery_accepted": false,
+  "tag_or_merge": false,
+  "optional_next_r5_included": false,
+  "private_initial_customer_draft_published": false,
+  "conditions": "Every mandatory exactHEAD CI, distinctRootQAwholeGit/downloaded-code replay and finalclosure gate remains required before public delivery acceptance; preserve all failurehistory and90kreportlimitrefusal",
+  "supersedes_private_resolution_sha256": "974466F51031966A6686A4D385A9BF1E7ACFBF5BC000D37B42ECCCCEC2E86C9F",
+  "root_vote_source": "Actual newly authored Root vote02; same proposal/decision with public-safe actor name; original vote01/resolution01 remain private immutable records."
+}

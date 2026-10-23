@@ -1,0 +1,57 @@
+{
+  "status": "FINITE_S22_PRIVACY_CONTROLS_VERIFIED",
+  "projector_sha256": "784D9E34EA1367CEBDDFF03E1672828CCB028A1EAB0C0D2A68C9D538D705E90D",
+  "actual_own05_original_sha256": "649B3662480B66ABA46CAF67441FC9F938254C0255CF6F860A5C18014ED0F386",
+  "positive_known_guard_projection": true,
+  "rejected_controls": [
+    "wrong_hresult",
+    "hresult_string_not_number",
+    "wrong_exception_type",
+    "wrong_sharing_marker",
+    "wrong_target",
+    "extra_message_text",
+    "second_embedded_path",
+    "missing_target_alias_pointer",
+    "overlapping_path_pointer",
+    "overlapping_uri_pointer",
+    "unknown_guard_pointer",
+    "refused_route_11",
+    "refused_route_12",
+    "refused_route_13",
+    "refused_route_14",
+    "refused_route_15",
+    "refused_route_16",
+    "refused_route_17",
+    "memory_10k_wrong_source",
+    "memory_10k_wrong_public",
+    "memory_10k_missing_final_lf",
+    "memory_10k_bad_json",
+    "memory_10k_missing_footer",
+    "memory_10k_absolute_path",
+    "memory_10k_sensitive_key",
+    "memory_90k_wrong_source",
+    "memory_90k_wrong_public",
+    "memory_90k_missing_final_lf",
+    "memory_90k_bad_json",
+    "memory_90k_missing_footer",
+    "memory_90k_absolute_path",
+    "memory_90k_sensitive_key"
+  ],
+  "positive_relative_routes": 4,
+  "native_records_original_numbers_and_capture_hashes_unchanged": 14,
+  "memory_ndjson_sources": [
+    {
+      "tag": "10k",
+      "bytes": 29998,
+      "sha256": "FB40E255CC7B5B3BB64C351471E3A12ACC00A97979E0BAA96F4161D36E13019D",
+      "lines": 134
+    },
+    {
+      "tag": "90k",
+      "bytes": 85467,
+      "sha256": "96CFA2342AA511978531F35A3D300DBAE09A5944CFD8F50FC1FFED5F69250B56",
+      "lines": 372
+    }
+  ],
+  "publication_performed": false
+}
