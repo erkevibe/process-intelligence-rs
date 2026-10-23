@@ -90,6 +90,9 @@ jobs:
         run: |
           mkdir -p "$RUNNER_TEMP/sprint22-calendar-controls"
           python3 -I -B tools/sprint22-calendar/check-package-controls.py evidence/sprint22-calendar tools/sprint22-calendar "$RUNNER_TEMP/sprint22-calendar-controls" CA16825641A98A31D4DE0777371358D79711DD7A51663D5379A63ADBBD390573
+      - name: Sprint22 calendar form saved HTTP audit
+        run: |
+          python3 -I -B tools/sprint22-calendar-form/audit-http.py evidence/sprint22-calendar-form/http-c02 evidence/sprint22-calendar-form/http-c03 "$RUNNER_TEMP/sprint22-calendar-form-audit.json"
       - name: Diagnostic protocol and state oracle regressions
         run: |
           node tests/sql5-cycle-regression.cjs

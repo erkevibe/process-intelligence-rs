@@ -877,39 +877,67 @@ pub(crate) fn log_tools(
         .map(ToString::to_string)
         .collect::<Vec<_>>()
         .join(",");
+    html.push_str(&calendar_form_raw_id(
+        &id,
+        &CalendarDraft {
+            timezone: calendar.timezone.as_deref().unwrap_or(""),
+            offset_minutes: calendar.offset_minutes,
+            weekdays: &weekdays,
+            start_minute: calendar.start_minute,
+            end_minute: calendar.end_minute,
+            holidays: &holidays,
+        },
+    ));
+    html
+}
+
+pub(crate) struct CalendarDraft<'a> {
+    pub timezone: &'a str,
+    pub offset_minutes: i32,
+    pub weekdays: &'a str,
+    pub start_minute: u32,
+    pub end_minute: u32,
+    pub holidays: &'a str,
+}
+pub(crate) fn calendar_form(id: &str, draft: &CalendarDraft<'_>) -> String {
+    calendar_form_raw_id(&route_id(id), draft)
+}
+// Internal caller already encoded its route ID; never encode it twice.
+fn calendar_form_raw_id(id: &str, draft: &CalendarDraft<'_>) -> String {
+    let mut html = String::new();
     html.push_str(&format!("<section class=\"platform-card\"><h2>Рабочее время</h2><form class=\"platform-form\" method=\"post\" action=\"/logs/{id}/calendar\"><label>Фиксированное смещение UTC<select name=\"offset_minutes\">"));
     // Named zone input is rendered below the fixed offset selector.
     let mut offsets: Vec<i32> = (-840..=840).step_by(30).collect();
-    if !offsets.contains(&calendar.offset_minutes) {
-        offsets.push(calendar.offset_minutes);
+    if !offsets.contains(&draft.offset_minutes) {
+        offsets.push(draft.offset_minutes);
         offsets.sort_unstable();
     }
     for offset in offsets {
         html.push_str(&format!(
             "<option value=\"{offset}\" {}>UTC{}{:02}:{:02}</option>",
-            if offset == calendar.offset_minutes {
+            if offset == draft.offset_minutes {
                 "selected"
             } else {
                 ""
             },
             if offset >= 0 { "+" } else { "−" },
-            offset.abs() / 60,
-            offset.abs() % 60
+            offset.unsigned_abs() / 60,
+            offset.unsigned_abs() % 60
         ));
     }
-    html.push_str(&format!("</select></label><label>Рабочие дни недели<input name=\"weekdays\" value=\"{}\" required></label><small>1 — понедельник, 2 — вторник, …, 7 — воскресенье. Например: 1,2,3,4,5.</small><div class=\"platform-fields\">", html_escape(&weekdays)));
-    html.push_str(&format!("<label>Именованная зона IANA (необязательно)<input name=\"timezone\" value=\"{}\" maxlength=\"128\" placeholder=\"Europe/Berlin\"></label>", html_escape(calendar.timezone.as_deref().unwrap_or(""))));
+    html.push_str(&format!("</select></label><label>Рабочие дни недели<input name=\"weekdays\" value=\"{}\" required></label><small>1 — понедельник, 2 — вторник, …, 7 — воскресенье. Например: 1,2,3,4,5.</small><div class=\"platform-fields\">", html_escape(draft.weekdays)));
+    html.push_str(&format!("<label>Именованная зона IANA (необязательно)<input name=\"timezone\" value=\"{}\" maxlength=\"128\" placeholder=\"Europe/Berlin\"></label>", html_escape(draft.timezone)));
     html.push_str(&minute_select(
         "start_minute",
         "Начало работы",
-        calendar.start_minute,
+        draft.start_minute,
     ));
     html.push_str(&minute_select(
         "end_minute",
         "Конец работы",
-        calendar.end_minute,
+        draft.end_minute,
     ));
-    html.push_str(&format!("</div><label>Нерабочие даты<input name=\"holidays\" value=\"{}\" placeholder=\"2026-12-31,2027-01-01\"></label><small>Считается пересечение интервала между первым и последним временем трассы с рабочими часами. Начало включается, конец не включается. Без именованной зоны смещение UTC фиксировано. При именованной зоне учитываются сезонные переходы; несуществующие и неоднозначные рабочие границы отклоняются. Для именованной зоны выберите фиксированное смещение UTC+00:00.</small><button class=\"button\" type=\"submit\">Рассчитать рабочее время</button></form></section>", html_escape(&holidays)));
+    html.push_str(&format!("</div><label>Нерабочие даты<input name=\"holidays\" value=\"{}\" placeholder=\"2026-12-31,2027-01-01\"></label><small>Считается пересечение интервала между первым и последним временем трассы с рабочими часами. Начало включается, конец не включается. Без именованной зоны смещение UTC фиксировано. При именованной зоне учитываются сезонные переходы; несуществующие и неоднозначные рабочие границы отклоняются. Для именованной зоны выберите фиксированное смещение UTC+00:00.</small><button class=\"button\" type=\"submit\">Рассчитать рабочее время</button></form></section>", html_escape(draft.holidays)));
     html
 }
 

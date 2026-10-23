@@ -1,0 +1,36 @@
+{
+  "negotiation": "All Accept header values: HTML only explicit text/html with validpositive q and no explicit positive application/json; any malformed q falls backJSON; anypositiveJSON takes precedence independentweights; wildcardalone neveroptsHTML; text/htmlq0 neveroptsHTML",
+  "resource": "Existing Root8GiB/global12GiB minus512MiB headroom/free8GiB unchanged; soleRootserializednative/cachetarget; no new caches",
+  "criteria": [
+    "NEG1 focused negotiation matrix default/JSON/HTML/wildcard/mixedweights/q0/malformed/multiheader",
+    "NEG2 only calendar/calendar_policy/calendar_timezone rerender semantic422; HTML-escape all submitted values and messages, rolealert + notsaved marker; separate LAST SAVED calendar results, no data/audit/revision mutation",
+    "NEG3 freshly validate actor and writable role + authorized getlog before rendering; denied/revoked/missing/storage conflict/unavailable retain original status/JSON and no draft/log disclosure",
+    "NEG4 valid correction retains303/tools/reload/manual2h4h; compare saved calendar/export/audit beforeafter invalid submissions",
+    "NEG5 actual browser reject→retained draft→correct→reload; malicious input escaped; malformed Axum Form extractor remains original behavior"
+  ],
+  "files": "New forward commit may change src/platform.rs and src/platform_render.rs plus focused tests/docs/newcalendar02 evidence and necessary CI/attributes for this stage. Prior PR26 commit467912, its calendar01 evidence/tools/docs and all earlier history remain untouched; no rewriting old evidence. Product files naturally evolve in the new commit.",
+  "ownership": {
+    "TD": "Independent source/security/process/resource review",
+    "Root": "Only product changes, native/build/PG/browser/integration",
+    "PM": "Scope and acceptance criteria",
+    "QA": "Independent focused test/checker author sourceonly, reviews Root candidate",
+    "Customer": "Saved UI review/copy and acceptance"
+  },
+  "delivery": "Separate stackedPR after targeted local/browser checks; normal CI, narrow exactpublic source validation; no historical matrix republication",
+  "prerequisite": "PR26 actual delivery complete; all product/PG/native closed",
+  "call_sha256": "C1CB59C066469F115D83E045561150B2629DBE62F937296640DFB0CD05131BFD",
+  "baseline": "467912e7aeb3e871019cf183193cf53e83b3b994",
+  "fixed_voters": [
+    "Root",
+    "PM",
+    "Customer",
+    "QA",
+    "TD"
+  ],
+  "version": 2,
+  "scope": "Well-formed CalendarForm semantic failures only; preserve normal valid303 and existing engine/API/schema/extractor behavior",
+  "kind": "PROSPECTIVE_CALENDAR_FORM_STAGE_PROPOSAL",
+  "stop": "No native development after09:53:31; preserve final90min. If proof incomplete do not claim delivered. No new8h/no broadR5/90k success/release/merge.",
+  "actual_utc": "2026-10-23T07:13:18.4951162+00:00",
+  "previous_proposal_sha256": "BEDBA6B7743C0AA43EA603ACE39F8CD7361319D537CD723473B2352FF8652065"
+}

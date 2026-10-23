@@ -1,0 +1,543 @@
+{
+  "status": "FINITE_ACTUAL_CALENDAR_FORM_HTTP_PASS",
+  "candidate": "C03",
+  "baseline_compared": true,
+  "project_id": "project-90fbf7d3af17496188907edbbaba96b2",
+  "log_id": "log-2",
+  "comparison": {
+    "calendar": {
+      "end_minute": 240,
+      "holidays": [],
+      "offset_minutes": 0,
+      "start_minute": 60,
+      "timezone": "Europe/Berlin",
+      "weekdays": [
+        7
+      ]
+    },
+    "business_durations": [
+      {
+        "business_millis": 7200000,
+        "case_id": "case-0",
+        "end": "2026-03-29T22:00:00Z",
+        "start": "2026-03-28T23:00:00Z",
+        "status": "computed"
+      },
+      {
+        "business_millis": 14400000,
+        "case_id": "case-1",
+        "end": "2026-10-25T23:00:00Z",
+        "start": "2026-10-24T22:00:00Z",
+        "status": "computed"
+      }
+    ]
+  },
+  "saved_export_unchanged_after_invalid": true,
+  "default_json_sha256": "905DE25CAB21D0AD7A47E89AEB6494F1D6E615B0E873ABE797A3B22D49E87D9E",
+  "audit_unchanged_after_invalid": true,
+  "security": [
+    "viewer_denied_without_draft",
+    "write_role_revoked_fresh_request_denied",
+    "cross_project_not_found_without_draft"
+  ],
+  "requests": [
+    {
+      "method": "POST",
+      "path": "/projects",
+      "status": 303,
+      "wall_seconds": 0.01854319999984,
+      "response": {
+        "file": "http-01.bin",
+        "bytes": 0,
+        "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+      },
+      "accept": null,
+      "selected_response_headers": {
+        "cache-control": "no-store"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/project-list/json",
+      "status": 200,
+      "wall_seconds": 0.017054699994332623,
+      "response": {
+        "file": "http-02.bin",
+        "bytes": 480,
+        "sha256": "8B9C727BD8BA94DBA481BCF61AE88E8DB84DC876E353F08BCB21DF1E6159CCDD"
+      },
+      "accept": null,
+      "selected_response_headers": {
+        "content-type": "application/json",
+        "cache-control": "no-store"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/projects/project-90fbf7d3af17496188907edbbaba96b2/open",
+      "status": 303,
+      "wall_seconds": 0.031601700000464916,
+      "response": {
+        "file": "http-03.bin",
+        "bytes": 0,
+        "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+      },
+      "accept": null,
+      "selected_response_headers": {
+        "cache-control": "no-store"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/csv/preview",
+      "status": 200,
+      "wall_seconds": 0.006015700004354585,
+      "response": {
+        "file": "http-04.bin",
+        "bytes": 5068,
+        "sha256": "4BB25739A4A8A7C760D3B305EDC493FA7ADC0C2E6486EB12E8256A3831371118"
+      },
+      "accept": null,
+      "selected_response_headers": {
+        "content-type": "text/html; charset=utf-8",
+        "cache-control": "no-store"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/csv/import",
+      "status": 303,
+      "wall_seconds": 0.02817940000386443,
+      "response": {
+        "file": "http-05.bin",
+        "bytes": 0,
+        "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+      },
+      "accept": null,
+      "selected_response_headers": {
+        "cache-control": "no-store"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/logs/log-2/calendar",
+      "status": 303,
+      "wall_seconds": 0.01317669999843929,
+      "response": {
+        "file": "http-06.bin",
+        "bytes": 0,
+        "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+      },
+      "accept": null,
+      "selected_response_headers": {
+        "cache-control": "no-store"
+      },
+      "calendar_form": {
+        "timezone": "Europe/Berlin",
+        "offset_minutes": "0",
+        "weekdays": "7",
+        "start_minute": "60",
+        "end_minute": "240",
+        "holidays": ""
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/logs/log-2/export",
+      "status": 200,
+      "wall_seconds": 0.02822100000048522,
+      "response": {
+        "file": "http-07.bin",
+        "bytes": 1851,
+        "sha256": "466C45BC4AAC4ADAD871EE7A9B7969E4EAA3FADB280D6B9F830E231AFC7D3F5F"
+      },
+      "accept": null,
+      "selected_response_headers": {
+        "content-type": "application/json",
+        "cache-control": "no-store"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/audit/export",
+      "status": 200,
+      "wall_seconds": 0.005026200000429526,
+      "response": {
+        "file": "http-08.bin",
+        "bytes": 1906,
+        "sha256": "497B875511672272D28E44887EEAA9C4AD48B6130400C443BC68143B5936E18B"
+      },
+      "accept": null,
+      "selected_response_headers": {
+        "content-type": "application/json",
+        "cache-control": "no-store"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/logs/log-2/calendar",
+      "status": 422,
+      "wall_seconds": 0.02170230000047013,
+      "response": {
+        "file": "http-09.bin",
+        "bytes": 111,
+        "sha256": "905DE25CAB21D0AD7A47E89AEB6494F1D6E615B0E873ABE797A3B22D49E87D9E"
+      },
+      "accept": null,
+      "selected_response_headers": {
+        "content-type": "application/json",
+        "cache-control": "no-store"
+      },
+      "calendar_form": {
+        "timezone": "Unknown/calendar_security_probe",
+        "offset_minutes": "0",
+        "weekdays": "7",
+        "start_minute": "60",
+        "end_minute": "240",
+        "holidays": ""
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/logs/log-2/calendar",
+      "status": 422,
+      "wall_seconds": 0.016940999994403683,
+      "response": {
+        "file": "http-10.bin",
+        "bytes": 10897,
+        "sha256": "3F4CFDC3779D177A1EE590C3C06F15D61A9214A0CFFB35F9886A4B11440C6205"
+      },
+      "accept": "text/html",
+      "selected_response_headers": {
+        "content-type": "text/html; charset=utf-8",
+        "cache-control": "no-store",
+        "vary": "Accept"
+      },
+      "calendar_form": {
+        "timezone": "Unknown/calendar_security_probe",
+        "offset_minutes": "0",
+        "weekdays": "7",
+        "start_minute": "60",
+        "end_minute": "240",
+        "holidays": ""
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/logs/log-2/export",
+      "status": 200,
+      "wall_seconds": 0.0298590999955195,
+      "response": {
+        "file": "http-11.bin",
+        "bytes": 1851,
+        "sha256": "466C45BC4AAC4ADAD871EE7A9B7969E4EAA3FADB280D6B9F830E231AFC7D3F5F"
+      },
+      "accept": null,
+      "selected_response_headers": {
+        "content-type": "application/json",
+        "cache-control": "no-store"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/audit/export",
+      "status": 200,
+      "wall_seconds": 0.014382300003489945,
+      "response": {
+        "file": "http-12.bin",
+        "bytes": 1906,
+        "sha256": "497B875511672272D28E44887EEAA9C4AD48B6130400C443BC68143B5936E18B"
+      },
+      "accept": null,
+      "selected_response_headers": {
+        "content-type": "application/json",
+        "cache-control": "no-store"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/logs/log-2/calendar",
+      "status": 303,
+      "wall_seconds": 0.008212300002924167,
+      "response": {
+        "file": "http-13.bin",
+        "bytes": 0,
+        "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+      },
+      "accept": "text/html",
+      "selected_response_headers": {
+        "cache-control": "no-store"
+      },
+      "calendar_form": {
+        "timezone": "Europe/Berlin",
+        "offset_minutes": "0",
+        "weekdays": "7",
+        "start_minute": "60",
+        "end_minute": "240",
+        "holidays": ""
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/logs/log-2/export",
+      "status": 200,
+      "wall_seconds": 0.023739799995382782,
+      "response": {
+        "file": "http-14.bin",
+        "bytes": 1851,
+        "sha256": "466C45BC4AAC4ADAD871EE7A9B7969E4EAA3FADB280D6B9F830E231AFC7D3F5F"
+      },
+      "accept": null,
+      "selected_response_headers": {
+        "content-type": "application/json",
+        "cache-control": "no-store"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/users",
+      "status": 303,
+      "wall_seconds": 0.5865077000053134,
+      "response": null,
+      "accept": null,
+      "selected_response_headers": {
+        "cache-control": "no-store"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/projects/project-90fbf7d3af17496188907edbbaba96b2/members",
+      "status": 303,
+      "wall_seconds": 0.007050500003970228,
+      "response": {
+        "file": "http-16.bin",
+        "bytes": 0,
+        "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+      },
+      "accept": null,
+      "selected_response_headers": {
+        "cache-control": "no-store"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/login",
+      "status": 303,
+      "wall_seconds": 0.5713927999968291,
+      "response": null,
+      "accept": null,
+      "selected_response_headers": {
+        "cache-control": "no-store"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/projects/project-90fbf7d3af17496188907edbbaba96b2/open",
+      "status": 303,
+      "wall_seconds": 0.029646999995748047,
+      "response": {
+        "file": "http-18.bin",
+        "bytes": 0,
+        "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+      },
+      "accept": null,
+      "selected_response_headers": {
+        "cache-control": "no-store"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/logs/log-2/calendar",
+      "status": 403,
+      "wall_seconds": 0.02681280000251718,
+      "response": {
+        "file": "http-19.bin",
+        "bytes": 98,
+        "sha256": "E8B39EE28961F0F537F279B9F0E78C1F5C418D406CA9B614EB472B96E1B07C60"
+      },
+      "accept": "text/html",
+      "selected_response_headers": {
+        "content-type": "application/json",
+        "cache-control": "no-store"
+      },
+      "calendar_form": {
+        "timezone": "Unknown/calendar_security_probe",
+        "offset_minutes": "0",
+        "weekdays": "7",
+        "start_minute": "60",
+        "end_minute": "240",
+        "holidays": ""
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/projects/project-90fbf7d3af17496188907edbbaba96b2/members",
+      "status": 303,
+      "wall_seconds": 0.017570800002431497,
+      "response": {
+        "file": "http-20.bin",
+        "bytes": 0,
+        "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+      },
+      "accept": null,
+      "selected_response_headers": {
+        "cache-control": "no-store"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/logs/log-2/calendar",
+      "status": 422,
+      "wall_seconds": 0.03147270000044955,
+      "response": {
+        "file": "http-21.bin",
+        "bytes": 10897,
+        "sha256": "B5D92967F7C21E7008E23BA2CE6122512890837C6767039B3C58B96B99EB8DFB"
+      },
+      "accept": "text/html",
+      "selected_response_headers": {
+        "content-type": "text/html; charset=utf-8",
+        "cache-control": "no-store",
+        "vary": "Accept"
+      },
+      "calendar_form": {
+        "timezone": "Unknown/calendar_security_probe",
+        "offset_minutes": "0",
+        "weekdays": "7",
+        "start_minute": "60",
+        "end_minute": "240",
+        "holidays": ""
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/projects/project-90fbf7d3af17496188907edbbaba96b2/members",
+      "status": 303,
+      "wall_seconds": 0.0074463999990257435,
+      "response": {
+        "file": "http-22.bin",
+        "bytes": 0,
+        "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+      },
+      "accept": null,
+      "selected_response_headers": {
+        "cache-control": "no-store"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/logs/log-2/calendar",
+      "status": 403,
+      "wall_seconds": 0.0036209000027156435,
+      "response": {
+        "file": "http-23.bin",
+        "bytes": 98,
+        "sha256": "E8B39EE28961F0F537F279B9F0E78C1F5C418D406CA9B614EB472B96E1B07C60"
+      },
+      "accept": "text/html",
+      "selected_response_headers": {
+        "content-type": "application/json",
+        "cache-control": "no-store"
+      },
+      "calendar_form": {
+        "timezone": "Unknown/calendar_security_probe",
+        "offset_minutes": "0",
+        "weekdays": "7",
+        "start_minute": "60",
+        "end_minute": "240",
+        "holidays": ""
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/projects",
+      "status": 303,
+      "wall_seconds": 0.006720700002915692,
+      "response": {
+        "file": "http-24.bin",
+        "bytes": 0,
+        "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+      },
+      "accept": null,
+      "selected_response_headers": {
+        "cache-control": "no-store"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/project-list/json",
+      "status": 200,
+      "wall_seconds": 0.004657299999962561,
+      "response": {
+        "file": "http-25.bin",
+        "bytes": 627,
+        "sha256": "898EFD394CB343C146D2E4919A744452F772630413EC3F325506163103EC6124"
+      },
+      "accept": null,
+      "selected_response_headers": {
+        "content-type": "application/json",
+        "cache-control": "no-store"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/projects/project-d8d35ec39ba5446bb7b2bc9eaa5c02d5/open",
+      "status": 303,
+      "wall_seconds": 0.021667200002411846,
+      "response": {
+        "file": "http-26.bin",
+        "bytes": 0,
+        "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+      },
+      "accept": null,
+      "selected_response_headers": {
+        "cache-control": "no-store"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/logs/log-2/calendar",
+      "status": 404,
+      "wall_seconds": 0.0150735999995959,
+      "response": {
+        "file": "http-27.bin",
+        "bytes": 64,
+        "sha256": "9A26619CA259C94137672F4379695EE52FDB864520F260F4B8716521A155AF40"
+      },
+      "accept": "text/html",
+      "selected_response_headers": {
+        "content-type": "application/json",
+        "cache-control": "no-store"
+      },
+      "calendar_form": {
+        "timezone": "Unknown/calendar_security_probe",
+        "offset_minutes": "0",
+        "weekdays": "7",
+        "start_minute": "60",
+        "end_minute": "240",
+        "holidays": ""
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/projects/project-90fbf7d3af17496188907edbbaba96b2/open",
+      "status": 303,
+      "wall_seconds": 0.015997900001821108,
+      "response": {
+        "file": "http-28.bin",
+        "bytes": 0,
+        "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+      },
+      "accept": null,
+      "selected_response_headers": {
+        "cache-control": "no-store"
+      }
+    }
+  ],
+  "browser_observed": false,
+  "limits": [
+    "HTTP only; browser acceptance is separate.",
+    "Auth grants are intentional mutations outside the invalid-form audit comparison.",
+    "No engine/timezone/duration/schema/filter changes or broad R5 claim."
+  ]
+}

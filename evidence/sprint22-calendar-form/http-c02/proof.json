@@ -1,0 +1,309 @@
+{
+  "status": "FINITE_ACTUAL_CALENDAR_FORM_HTTP_PASS",
+  "candidate": "C02",
+  "baseline_compared": false,
+  "project_id": "project-ee0706ef2d2b440988fd6e41eb75dd65",
+  "log_id": "log-1",
+  "comparison": {
+    "calendar": {
+      "end_minute": 240,
+      "holidays": [],
+      "offset_minutes": 0,
+      "start_minute": 60,
+      "timezone": "Europe/Berlin",
+      "weekdays": [
+        7
+      ]
+    },
+    "business_durations": [
+      {
+        "business_millis": 7200000,
+        "case_id": "case-0",
+        "end": "2026-03-29T22:00:00Z",
+        "start": "2026-03-28T23:00:00Z",
+        "status": "computed"
+      },
+      {
+        "business_millis": 14400000,
+        "case_id": "case-1",
+        "end": "2026-10-25T23:00:00Z",
+        "start": "2026-10-24T22:00:00Z",
+        "status": "computed"
+      }
+    ]
+  },
+  "saved_export_unchanged_after_invalid": true,
+  "default_json_sha256": "905DE25CAB21D0AD7A47E89AEB6494F1D6E615B0E873ABE797A3B22D49E87D9E",
+  "audit_unchanged_after_invalid": true,
+  "security": [],
+  "requests": [
+    {
+      "method": "POST",
+      "path": "/setup",
+      "status": 303,
+      "wall_seconds": 0.5654400999992504,
+      "response": null,
+      "accept": null,
+      "selected_response_headers": {
+        "cache-control": "no-store"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/projects",
+      "status": 303,
+      "wall_seconds": 0.007846600004995707,
+      "response": {
+        "file": "http-02.bin",
+        "bytes": 0,
+        "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+      },
+      "accept": null,
+      "selected_response_headers": {
+        "cache-control": "no-store"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/project-list/json",
+      "status": 200,
+      "wall_seconds": 0.01454869999724906,
+      "response": {
+        "file": "http-03.bin",
+        "bytes": 341,
+        "sha256": "1402574FC3713784FF6F142C399B472AD311D3EA86B76D8F8E8E58379804420C"
+      },
+      "accept": null,
+      "selected_response_headers": {
+        "content-type": "application/json",
+        "cache-control": "no-store"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/projects/project-ee0706ef2d2b440988fd6e41eb75dd65/open",
+      "status": 303,
+      "wall_seconds": 0.016160999999556225,
+      "response": {
+        "file": "http-04.bin",
+        "bytes": 0,
+        "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+      },
+      "accept": null,
+      "selected_response_headers": {
+        "cache-control": "no-store"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/csv/preview",
+      "status": 200,
+      "wall_seconds": 0.029767700005322695,
+      "response": {
+        "file": "http-05.bin",
+        "bytes": 5068,
+        "sha256": "F529E14866D3905DE57793D342395652D6177E3DDEBFE21D154C72E7A0F83B0E"
+      },
+      "accept": null,
+      "selected_response_headers": {
+        "content-type": "text/html; charset=utf-8",
+        "cache-control": "no-store"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/csv/import",
+      "status": 303,
+      "wall_seconds": 0.022994099999777973,
+      "response": {
+        "file": "http-06.bin",
+        "bytes": 0,
+        "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+      },
+      "accept": null,
+      "selected_response_headers": {
+        "cache-control": "no-store"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/logs/log-1/calendar",
+      "status": 303,
+      "wall_seconds": 0.011389499995857477,
+      "response": {
+        "file": "http-07.bin",
+        "bytes": 0,
+        "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+      },
+      "accept": null,
+      "selected_response_headers": {
+        "cache-control": "no-store"
+      },
+      "calendar_form": {
+        "timezone": "Europe/Berlin",
+        "offset_minutes": "0",
+        "weekdays": "7",
+        "start_minute": "60",
+        "end_minute": "240",
+        "holidays": ""
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/logs/log-1/export",
+      "status": 200,
+      "wall_seconds": 0.030522100001689978,
+      "response": {
+        "file": "http-08.bin",
+        "bytes": 1851,
+        "sha256": "5BF8E26F28247A3E327754E8A6B855AFCFA4DC3D11F97F61991DCC698B113304"
+      },
+      "accept": null,
+      "selected_response_headers": {
+        "content-type": "application/json",
+        "cache-control": "no-store"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/audit/export",
+      "status": 200,
+      "wall_seconds": 0.027019199995265808,
+      "response": {
+        "file": "http-09.bin",
+        "bytes": 1906,
+        "sha256": "5EB3C9D9BD258B8B5CDD238DF454B74785FA1D90C57A1B252AFAF3CA14D51160"
+      },
+      "accept": null,
+      "selected_response_headers": {
+        "content-type": "application/json",
+        "cache-control": "no-store"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/logs/log-1/calendar",
+      "status": 422,
+      "wall_seconds": 0.014945800001441967,
+      "response": {
+        "file": "http-10.bin",
+        "bytes": 111,
+        "sha256": "905DE25CAB21D0AD7A47E89AEB6494F1D6E615B0E873ABE797A3B22D49E87D9E"
+      },
+      "accept": null,
+      "selected_response_headers": {
+        "content-type": "application/json",
+        "cache-control": "no-store"
+      },
+      "calendar_form": {
+        "timezone": "Unknown/calendar_security_probe",
+        "offset_minutes": "0",
+        "weekdays": "7",
+        "start_minute": "60",
+        "end_minute": "240",
+        "holidays": ""
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/logs/log-1/calendar",
+      "status": 422,
+      "wall_seconds": 0.015710599996964447,
+      "response": {
+        "file": "http-11.bin",
+        "bytes": 111,
+        "sha256": "905DE25CAB21D0AD7A47E89AEB6494F1D6E615B0E873ABE797A3B22D49E87D9E"
+      },
+      "accept": "text/html",
+      "selected_response_headers": {
+        "content-type": "application/json",
+        "cache-control": "no-store"
+      },
+      "calendar_form": {
+        "timezone": "Unknown/calendar_security_probe",
+        "offset_minutes": "0",
+        "weekdays": "7",
+        "start_minute": "60",
+        "end_minute": "240",
+        "holidays": ""
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/logs/log-1/export",
+      "status": 200,
+      "wall_seconds": 0.0162103999973624,
+      "response": {
+        "file": "http-12.bin",
+        "bytes": 1851,
+        "sha256": "5BF8E26F28247A3E327754E8A6B855AFCFA4DC3D11F97F61991DCC698B113304"
+      },
+      "accept": null,
+      "selected_response_headers": {
+        "content-type": "application/json",
+        "cache-control": "no-store"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/audit/export",
+      "status": 200,
+      "wall_seconds": 0.004965699998138007,
+      "response": {
+        "file": "http-13.bin",
+        "bytes": 1906,
+        "sha256": "5EB3C9D9BD258B8B5CDD238DF454B74785FA1D90C57A1B252AFAF3CA14D51160"
+      },
+      "accept": null,
+      "selected_response_headers": {
+        "content-type": "application/json",
+        "cache-control": "no-store"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/logs/log-1/calendar",
+      "status": 303,
+      "wall_seconds": 0.027896299994608853,
+      "response": {
+        "file": "http-14.bin",
+        "bytes": 0,
+        "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+      },
+      "accept": "text/html",
+      "selected_response_headers": {
+        "cache-control": "no-store"
+      },
+      "calendar_form": {
+        "timezone": "Europe/Berlin",
+        "offset_minutes": "0",
+        "weekdays": "7",
+        "start_minute": "60",
+        "end_minute": "240",
+        "holidays": ""
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/logs/log-1/export",
+      "status": 200,
+      "wall_seconds": 0.028638200004934333,
+      "response": {
+        "file": "http-15.bin",
+        "bytes": 1851,
+        "sha256": "5BF8E26F28247A3E327754E8A6B855AFCFA4DC3D11F97F61991DCC698B113304"
+      },
+      "accept": null,
+      "selected_response_headers": {
+        "content-type": "application/json",
+        "cache-control": "no-store"
+      }
+    }
+  ],
+  "browser_observed": false,
+  "limits": [
+    "HTTP only; browser acceptance is separate.",
+    "Auth grants are intentional mutations outside the invalid-form audit comparison.",
+    "No engine/timezone/duration/schema/filter changes or broad R5 claim."
+  ]
+}
