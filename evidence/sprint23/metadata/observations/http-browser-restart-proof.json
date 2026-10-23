@@ -1,0 +1,32 @@
+{
+  "browser_marker_is_not_independent_acceptance": true,
+  "native_records": 16,
+  "pg_pid_absent": true,
+  "all_full_eof": true,
+  "utc": "2026-10-23T11:51:35.2711357+00:00",
+  "before": {
+    "root_logical_bytes": 7668294325,
+    "logical_bytes": 8008635998,
+    "files": 45148,
+    "skipped_vanished_target_entries": 0,
+    "root_allocation_bytes": 7701623688,
+    "scope": "non-atomic read-only sampling; vanished compiler-target entries or exact owned pgdata11/base/nonzero-decimal-OID/pg_internal.init only; second genuine absence required; 512MiB headroom mandatory",
+    "allocation_bytes": 8060881224,
+    "skipped_vanished_pg_internal_init_entries": 0
+  },
+  "after": {
+    "root_logical_bytes": 7728657415,
+    "logical_bytes": 8069001465,
+    "files": 45987,
+    "skipped_vanished_target_entries": 0,
+    "root_allocation_bytes": 7762202912,
+    "scope": "non-atomic read-only sampling; vanished compiler-target entries or exact owned pgdata11/base/nonzero-decimal-OID/pg_internal.init only; second genuine absence required; 512MiB headroom mandatory",
+    "allocation_bytes": 8121468640,
+    "skipped_vanished_pg_internal_init_entries": 0
+  },
+  "old_sha256": "3587C50D7940C0D2516E83871D14200576ED5F892DEEAE115BA9E0EA04BBE1BB",
+  "phase_kind": "a",
+  "new_sha256": "B271F8AC4DAC8309B2A7E2AA65B6F472034D3A2783720D86EF12E8DB511DAE23",
+  "config_sha256": "5C69B3EF76511C0FCA3BD28585E813BC84F217781F122E648DC68CFD43D1832A",
+  "status": "ACTUAL_COMPATIBILITY_PHASE_REQUIRES_INDEPENDENT_ACCEPTANCE"
+}

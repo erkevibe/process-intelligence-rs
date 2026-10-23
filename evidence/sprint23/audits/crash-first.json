@@ -1,0 +1,32 @@
+{
+  "status": "INDEPENDENT_COMPACT_REPORT_DIRECT_SOURCE_PAYLOAD_AUDIT_PASS",
+  "encoding": {
+    "stored_schema": 2,
+    "profile": "gzip-hex-report-v1",
+    "codec_sha256": "620468860f91b64ad21f64427e97eafdcb3d50506236ca38315485b1c29004d4",
+    "stored_sha256": "5d4165b12a29f7ea4a11a4e5ff4703122a20b40a3ded8c4b43f2f116f2cbf6ad",
+    "stored_bytes": 2887,
+    "decoded_bytes": 2568,
+    "decoded_sha256": "b8bc45b9aabed8440f60c018f2384ba81b3c54499922353b9d2db41b3cbb4a7b",
+    "codec_source_identity_verified": true
+  },
+  "logical_schema": 1,
+  "from": "csv",
+  "to": "xes",
+  "source_sha256": "a29a988731a414efef7fc74350cf2ab22871eaa0b09cc4e555c24364c414703b",
+  "source_bytes": 44,
+  "payload_sha256": "d0036037178c1f87612a7f9ce56a74695ef8284eb8481690c3a807e57fdc3d91",
+  "payload_bytes": 174,
+  "logical_status": "converted",
+  "event_count": 1,
+  "frozen_case": null,
+  "manual_complexity": null,
+  "provided_inverse_pair_checked": false,
+  "native_invocation_verified": false,
+  "source_provenance_files_checked": true,
+  "limits": [
+    "Direct independent input/payload parsing and full claimed evidence; no product decoder.",
+    "Actual native invocation/exit/fullEOF, including actual inverse, are separate ProcessLogAuditor gates.",
+    "Finite approved profile/manual corpus, no broad R5/enterprise/RAM claim."
+  ]
+}

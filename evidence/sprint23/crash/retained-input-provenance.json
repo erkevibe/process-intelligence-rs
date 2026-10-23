@@ -1,0 +1,25 @@
+{
+  "snapshot_sha256": "4145424829EA11EAB278E69A6775CE5D4B49D5000E821279BFC7F4E63E82A78C",
+  "status": "DERIVED_RETAINED_INPUT_FILES_FROM_ACTUAL_SNAPSHOT",
+  "entries": [
+    {
+      "label": "first",
+      "bytes": 44,
+      "artifact_id": "conversion-2",
+      "sha256": "A29A988731A414EFEF7FC74350CF2AB22871EAA0B09CC4E555C24364C414703B",
+      "job_id": "job-1",
+      "file": "retained-first.csv",
+      "provenance": "Exact retained input from final captured database snapshot; also equal to separately pinned actual HTTP observer upload literal"
+    },
+    {
+      "label": "retry",
+      "bytes": 44,
+      "artifact_id": "conversion-6",
+      "sha256": "9D6CE9A3FEB5F6EF9048BDCC6B27729A1CF3B6DD90F408BF7D71800B573F7010",
+      "job_id": "job-5",
+      "file": "retained-retry.csv",
+      "provenance": "Exact retained input from final captured database snapshot; also equal to separately pinned actual HTTP observer upload literal"
+    }
+  ],
+  "http_observer_sha256": "EECFD2222F75CD19B04F48BD676E8ADEE38D866F1E8EA02591FBBC5156889B1F"
+}

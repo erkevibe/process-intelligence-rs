@@ -1,4 +1,5 @@
 //! Shared bounded file conversions. Cancellation is cooperative; third-party calls finish before the next check.
+pub mod compact;
 pub mod logs;
 pub mod net;
 pub mod xml;
@@ -134,6 +135,23 @@ pub fn report(
     allow: bool,
     conversion: &Result<Converted>,
 ) -> Result<Value> {
+    let report = logical_report(from, to, input, allow, conversion);
+    require(
+        serde_json::to_vec(&report)
+            .map_err(|_| Failure::new("report_serialization"))?
+            .len()
+            <= MAX_REPORT_BYTES,
+        "report_byte_limit",
+    )?;
+    Ok(report)
+}
+fn logical_report(
+    from: &str,
+    to: &str,
+    input: &[u8],
+    allow: bool,
+    conversion: &Result<Converted>,
+) -> Value {
     let mut report = json!({"schema_version":1,"method_sha256":METHOD,"from":from,"to":to,"allow_metadata_loss":allow,"input_sha256":sha(input),"input_bytes":input.len(),"sources":sources(),"target_sha256":null,"target_bytes":null,"payload_file":null,"not_general_format_support":true});
     match conversion {
         Ok(result) => {
@@ -154,14 +172,7 @@ pub fn report(
             report["details"] = error.details.clone();
         }
     }
-    require(
-        serde_json::to_vec(&report)
-            .map_err(|_| Failure::new("report_serialization"))?
-            .len()
-            <= MAX_REPORT_BYTES,
-        "report_byte_limit",
-    )?;
-    Ok(report)
+    report
 }
 pub fn report_bytes(
     from: &str,
@@ -174,4 +185,36 @@ pub fn report_bytes(
         .map_err(|_| Failure::new("report_serialization"))?;
     require(bytes.len() <= MAX_REPORT_BYTES, "report_byte_limit")?;
     Ok(bytes)
+}
+/// Explicit reversible transport; the default API above remains schema 1.
+pub fn report_bytes_profile(
+    from: &str,
+    to: &str,
+    input: &[u8],
+    allow: bool,
+    conversion: &Result<Converted>,
+    compact: bool,
+) -> Result<Vec<u8>> {
+    if !compact {
+        return report_bytes(from, to, input, allow, conversion);
+    }
+    require(
+        matches!((from, to), ("xes", "csv") | ("csv", "xes")),
+        "compact_log_direction_required",
+    )?;
+    compact::encode(&logical_report(from, to, input, allow, conversion))
+}
+pub fn report_bytes_profile_with_cancel(
+    from: &str,
+    to: &str,
+    input: &[u8],
+    allow: bool,
+    conversion: &Result<Converted>,
+    compact: bool,
+    cancelled: Arc<AtomicBool>,
+) -> Result<Vec<u8>> {
+    let _scope = CancellationScope(CANCELLATION.with(|slot| slot.replace(Some(cancelled))));
+    let result = report_bytes_profile(from, to, input, allow, conversion, compact);
+    check_cancelled()?;
+    result
 }

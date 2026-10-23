@@ -1,0 +1,47 @@
+{
+  "allow_metadata_loss": false,
+  "details": {
+    "losses": [
+      {
+        "kind": "timestamp_offset",
+        "location": {
+          "byte_offset": 107,
+          "event": 0,
+          "trace": 0
+        },
+        "normalized": "2026-10-22T01:02:03.123456789Z",
+        "offset_seconds": 18000,
+        "original": "2026-10-22T06:02:03.123456789+05:00"
+      }
+    ],
+    "metadata_loss_count": 1,
+    "normalizations": [],
+    "parser_warnings": [
+      "Порядок событий — как в XML. Lifecycle start/complete не объединяются.",
+      "Совместимость с Apromore ещё не подтверждена legacy oracle."
+    ]
+  },
+  "from": "xes",
+  "input_bytes": 246,
+  "input_sha256": "876cdebe3163814d77ac71e6354121c1e6764998622b5eb88ee8018a70989efe",
+  "method_sha256": "49dc32d1f4219965ea57cc79caa9355974269fab989cc38d09173c8e734e619b",
+  "not_general_format_support": true,
+  "payload_file": null,
+  "reason": "nonzero_timestamp_offset",
+  "schema_version": 1,
+  "sources": {
+    "Cargo.lock": "ebe92019e1fba51e6dc8055b2573e7970998f2ab698b19800351900ff7a4ecf2",
+    "examples/pi_convert.rs": "073a6936af5e11796bd7d31e7fd3a8d105e4570a5b462de0ed07702640446103",
+    "locked_process_mining": "0.6.2",
+    "src/conversion/logs.rs": "226fe3ff20bc05e1cb36029b3dc5b9469fcd938d880011c9d43a7109a3310a93",
+    "src/conversion/mod.rs": "e5463fb0014d0e758b937c05d62ba5b6deb58bd5c35f7d76a656f12d060cbd59",
+    "src/conversion/net.rs": "412d36111de292521718ef0458da38655b789762e54ebd0efc25c9daaac3e82f",
+    "src/conversion/xml.rs": "bb97d237f71be6b1747a55ff00aefe3087d8221dc5eb1e3ebc7e6a99b8cb7674",
+    "src/csv_io.rs": "3eed3d20c0262e3cbf2bb2bf4666c33581f13ad61a9834da2b186e6623ab469d",
+    "src/event_io.rs": "e2f96e3ceb1f4af7d69492d0a7433259e6205397e219fc837b0adb30c4330fc8"
+  },
+  "status": "loss_refused",
+  "target_bytes": null,
+  "target_sha256": null,
+  "to": "csv"
+}

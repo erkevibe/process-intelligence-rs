@@ -47,6 +47,9 @@ pub(crate) struct ConversionMeta {
     pub source_sha256: String,
     pub input_bytes: usize,
     pub allow_loss: bool,
+    // Absent on legacy jobs. Old binaries deny unknown metadata fields before recovery.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub report_profile: Option<String>,
     pub created_at: chrono::DateTime<chrono::Utc>,
     pub retry_of: Option<String>,
     pub payload_sha256: Option<String>,
@@ -95,6 +98,7 @@ pub(crate) fn validate_metadata(all: &BTreeMap<String, ConversionMeta>) -> Resul
             || !valid_id(&m.artifact_id, "conversion-")
             || !ids.insert(&m.artifact_id)
             || !direction(&m.from, &m.to)
+            || m.report_profile.as_deref().is_some_and(|profile| profile != crate::conversion::compact::PROFILE || !matches!((m.from.as_str(),m.to.as_str()),("xes","csv")|("csv","xes")))
             || m.filename.len() > 256
             || m.filename.chars().any(char::is_control)
             || m.owner.is_empty()
@@ -155,7 +159,18 @@ pub(crate) fn validate_artifact(
         return Err(corrupt());
     }
     if let Some(report) = &a.report {
-        let r: serde_json::Value = serde_json::from_str(report).map_err(|_| corrupt())?;
+        let r: serde_json::Value = match m.report_profile.as_deref() {
+            Some(crate::conversion::compact::PROFILE)
+                if matches!(
+                    (m.from.as_str(), m.to.as_str()),
+                    ("xes", "csv") | ("csv", "xes")
+                ) =>
+            {
+                crate::conversion::compact::decode(report.as_bytes()).map_err(|_| corrupt())?
+            }
+            None => serde_json::from_str(report).map_err(|_| corrupt())?,
+            _ => return Err(corrupt()),
+        };
         if r["schema_version"] != 1
             || r["method_sha256"] != crate::conversion::METHOD
             || r["from"] != m.from
@@ -326,6 +341,7 @@ struct Submission {
     input: Arc<str>,
     filename: String,
     allow_loss: bool,
+    report_profile: Option<String>,
     retry_of: Option<String>,
 }
 
@@ -396,6 +412,7 @@ fn accept(
             input,
             filename,
             allow_loss,
+            report_profile: None,
             retry_of,
         },
     )
@@ -412,6 +429,7 @@ fn accept_reserved(
         input,
         filename,
         allow_loss,
+        report_profile,
         retry_of,
     } = submission;
     write_access(state)?;
@@ -419,6 +437,18 @@ fn accept_reserved(
         return Err(error(
             "unsupported_direction",
             "Выберите одно из четырёх направлений.",
+        ));
+    }
+    if report_profile.as_deref().is_some_and(|p| {
+        p != crate::conversion::compact::PROFILE
+            || !matches!(
+                (from.as_str(), to.as_str()),
+                ("xes", "csv") | ("csv", "xes")
+            )
+    }) {
+        return Err(error(
+            "compact_log_direction_required",
+            "Компактный отчёт доступен только для XES ↔ CSV.",
         ));
     }
     if input.len() > crate::conversion::MAX_BYTES {
@@ -466,6 +496,7 @@ fn accept_reserved(
         source_sha256: crate::conversion::sha(input.as_bytes()),
         input_bytes: input.len(),
         allow_loss,
+        report_profile,
         created_at: chrono::Utc::now(),
         retry_of,
         payload_sha256: None,
@@ -527,12 +558,14 @@ fn launch(
             if control.is_cancelled() {
                 return Ok(());
             }
-            let report = match crate::conversion::report_bytes(
+            let report = match crate::conversion::report_bytes_profile_with_cancel(
                 &meta.from,
                 &meta.to,
                 input.as_bytes(),
                 meta.allow_loss,
                 &converted,
+                meta.report_profile.is_some(),
+                control.cancellation_token(),
             )
             .and_then(|b| {
                 String::from_utf8(b).map_err(|_| crate::conversion::Failure::new("report_utf8"))
@@ -638,6 +671,7 @@ async fn upload(Workspace(state): Workspace, request: Request) -> Response {
     let mut file = None;
     let mut filename = String::from("input");
     let mut allow = false;
+    let mut compact = false;
     let mut seen = BTreeSet::new();
     loop {
         let field = match multipart.next_field().await {
@@ -647,7 +681,10 @@ async fn upload(Workspace(state): Workspace, request: Request) -> Response {
         };
         let name = field.name().unwrap_or("").to_string();
         if !seen.insert(name.clone())
-            || !matches!(name.as_str(), "file" | "from" | "to" | "allow_loss")
+            || !matches!(
+                name.as_str(),
+                "file" | "from" | "to" | "allow_loss" | "compact_report"
+            )
         {
             return response_error(error("multipart", "Повторное или неизвестное поле."));
         }
@@ -680,6 +717,10 @@ async fn upload(Workspace(state): Workspace, request: Request) -> Response {
                 "from" => from = Some(value),
                 "to" => to = Some(value),
                 "allow_loss" => allow = value == "on",
+                "compact_report" if value == "on" => compact = true,
+                "compact_report" => {
+                    return response_error(error("multipart", "Неверный формат отчёта."));
+                }
                 _ => {}
             }
         }
@@ -700,6 +741,7 @@ async fn upload(Workspace(state): Workspace, request: Request) -> Response {
                 input,
                 filename,
                 allow_loss: allow,
+                report_profile: compact.then(|| crate::conversion::compact::PROFILE.into()),
                 retry_of: None,
             },
             live,
@@ -744,6 +786,9 @@ fn panel(m: &ConversionMeta, editable: bool, watch: bool) -> String {
             esc(&e.code)
         ));
     }
+    if m.report_profile.is_some() {
+        html.push_str("<p>Компактный отчёт · схема 2 · полные свидетельства. Для чтения нужен декодер gzip-hex-report-v1.</p>");
+    }
     if let Some(retry) = &m.retry_of {
         html.push_str(&format!("<p>Новая попытка для {}</p>", esc(retry)));
     }
@@ -773,7 +818,7 @@ async fn index(Workspace(state): Workspace) -> Response {
         let repo=state.repository.lock().expect("repository mutex");
         let editable=state.actor.as_ref().is_some_and(|a|a.role.can_write());
         let mut body=String::from("<h1>Преобразования файлов</h1><p>Исходник и результат — до 20 MiB каждый; отчёт — до 4 MiB. В проекте сохраняется до восьми преобразований. Старые результаты автоматически не удаляются. Отмена запрещает публикацию; обработчик может завершить текущий шаг позже. После сбоя повторите операцию из сохранённого исходника. Если ответ на отправку потерян, сначала проверьте список: задача могла быть принята.</p>");
-        if editable{body.push_str("<form class=\"platform-form platform-card\" method=\"post\" action=\"/conversions\" data-conversion-submit enctype=\"multipart/form-data\"><label>Из <select name=\"from\" aria-label=\"Из\"><option>xes</option><option>csv</option><option>petri-json</option><option>pnml</option></select></label><label>В <select name=\"to\" aria-label=\"В\"><option>csv</option><option>xes</option><option>pnml</option><option>petri-json</option></select></label><label>Исходный файл <input required type=\"file\" name=\"file\"></label><label class=\"inline-check\"><input type=\"checkbox\" name=\"allow_loss\"> Разрешить перечисленные в отчёте потери атрибутов XES/CSV</label><p>Поддерживаются только XES ↔ CSV и Petri JSON ↔ PNML. Потери без явного согласия отклоняются. Каждая отправка — новая задача.</p><button class=\"button\">Запустить преобразование</button></form>");}
+        if editable{body.push_str("<form class=\"platform-form platform-card\" method=\"post\" action=\"/conversions\" data-conversion-submit enctype=\"multipart/form-data\"><label>Из <select name=\"from\" aria-label=\"Из\"><option>xes</option><option>csv</option><option>petri-json</option><option>pnml</option></select></label><label>В <select name=\"to\" aria-label=\"В\"><option>csv</option><option>xes</option><option>pnml</option><option>petri-json</option></select></label><label>Исходный файл <input required type=\"file\" name=\"file\"></label><label class=\"inline-check\"><input type=\"checkbox\" name=\"allow_loss\"> Разрешить перечисленные в отчёте потери атрибутов XES/CSV</label><p>Поддерживаются только XES ↔ CSV и Petri JSON ↔ PNML. Потери без явного согласия отклоняются. Каждая отправка — новая задача.</p><label class=\"inline-check\"><input type=\"checkbox\" name=\"compact_report\"> Компактный отчёт без потери свидетельств (только XES ↔ CSV)</label><p>По умолчанию используется обычный JSON схемы 1. Компактный JSON схемы 2 требует декодера. До включения сделайте полную резервную копию БД: старые версии приложения после принятия компактного задания не запустят эту установку. Для отката понадобится восстановить копию до включения формата.</p><button class=\"button\">Запустить преобразование</button></form>");}
         if editable && repo.conversions.len() >= MAX_RETAINED { body.push_str("<p class=\"platform-alert\">Сохранены все восемь попыток. Для нового запуска удалите ненужное завершённое преобразование. Сначала скачайте файлы, которые хотите сохранить.</p>"); }
         body.push_str(&format!("<p>Сохранено: {} / 8</p>",repo.conversions.len()));
         let mut ordered=repo.conversions.values().collect::<Vec<_>>();
@@ -859,6 +904,7 @@ async fn retry(Workspace(state): Workspace, Path(id): Path<String>) -> Response 
                 input,
                 filename: m.filename,
                 allow_loss: m.allow_loss,
+                report_profile: m.report_profile,
                 retry_of: Some(id),
             },
             live,
@@ -1027,6 +1073,7 @@ mod tests {
             source_sha256: crate::conversion::sha(input.as_bytes()),
             input_bytes: input.len(),
             allow_loss: false,
+            report_profile: None,
             created_at: chrono::Utc::now(),
             retry_of: None,
             payload_sha256: None,
@@ -1204,4 +1251,58 @@ mod tests {
         let joined = crate::normalized::join_repository("project", header, records).unwrap();
         assert_eq!(joined, serde_json::to_value(repo).unwrap());
     }
+    #[test]
+    fn compact_profile_is_a_persisted_capability_and_exact_report_binding() {
+        let (mut m, mut a) = meta();
+        a.input = Arc::from(
+            std::str::from_utf8(include_bytes!("../fixtures/conversions/flat-unicode.csv"))
+                .unwrap(),
+        );
+        m.source_sha256 = crate::conversion::sha(a.input.as_bytes());
+        m.input_bytes = a.input.len();
+        let old = serde_json::to_value(&m).unwrap();
+        assert!(old.get("report_profile").is_none());
+        let restored: ConversionMeta = serde_json::from_value(old.clone()).unwrap();
+        assert!(restored.report_profile.is_none());
+        m.report_profile = Some(crate::conversion::compact::PROFILE.into());
+        assert_eq!(
+            serde_json::to_value(&m).unwrap()["report_profile"],
+            crate::conversion::compact::PROFILE
+        );
+        assert!(validate_metadata(&BTreeMap::from([(m.snapshot.id.clone(), m.clone())])).is_ok());
+        let converted = crate::conversion::convert(&m.from, &m.to, a.input.as_bytes(), false);
+        let report = crate::conversion::report_bytes_profile(
+            &m.from,
+            &m.to,
+            a.input.as_bytes(),
+            false,
+            &converted,
+            true,
+        )
+        .unwrap();
+        let payload = String::from_utf8(converted.unwrap().payload).unwrap();
+        a.payload = Some(Arc::from(payload));
+        a.report = Some(Arc::from(String::from_utf8(report).unwrap()));
+        m.payload_sha256 = Some(crate::conversion::sha(
+            a.payload.as_ref().unwrap().as_bytes(),
+        ));
+        m.report_sha256 = Some(crate::conversion::sha(
+            a.report.as_ref().unwrap().as_bytes(),
+        ));
+        m.snapshot.state = JobState::Completed;
+        m.snapshot.result_id = Some(m.artifact_id.clone());
+        assert!(validate_artifact(&m, &a).is_ok());
+        m.report_profile = None;
+        assert!(validate_artifact(&m, &a).is_err());
+        m.report_profile = Some("unknown".into());
+        assert!(validate_metadata(&BTreeMap::from([(m.snapshot.id.clone(), m.clone())])).is_err());
+        m.report_profile = Some(crate::conversion::compact::PROFILE.into());
+        m.from = "pnml".into();
+        m.to = "petri-json".into();
+        assert!(validate_metadata(&BTreeMap::from([(m.snapshot.id.clone(), m.clone())])).is_err());
+    }
 }
+
+#[cfg(test)]
+#[path = "conversion_compact_lifecycle_tests.rs"]
+mod compact_lifecycle_tests;

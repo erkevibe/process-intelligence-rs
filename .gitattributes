@@ -150,3 +150,10 @@ evidence/sprint22-report/** -text whitespace=blank-at-eol,blank-at-eof,space-bef
 tools/sprint22-report/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 docs/REPORT_COMPACTION_CONTRACT.md -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 tools/sprint22-report/account-report.ps1 -text whitespace=blank-at-eol,-blank-at-eof,space-before-tab,cr-at-eol
+
+# Sprint23 byte-pinned runtime and independently audited evidence tools.
+tools/sprint23/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+evidence/sprint23/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+evidence/sprint23/**/*.stdout -whitespace
+evidence/sprint23/**/*.stderr -whitespace
+evidence/sprint23/browser/*.ax.txt -whitespace

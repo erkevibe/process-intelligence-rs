@@ -304,6 +304,7 @@ fn prebody_reservations_disconnect_handoff_and_retention_races() {
                 ),
                 filename: "exhausted.csv".into(),
                 allow_loss: false,
+                report_profile: None,
                 retry_of: None,
             },
         );
@@ -339,6 +340,7 @@ fn prebody_reservations_disconnect_handoff_and_retention_races() {
             ),
             filename: "restored-max.csv".into(),
             allow_loss: false,
+            report_profile: None,
             retry_of: None,
         },
     )
@@ -364,6 +366,7 @@ fn prebody_reservations_disconnect_handoff_and_retention_races() {
             ),
             filename: "foreign-pool.csv".into(),
             allow_loss: false,
+            report_profile: None,
             retry_of: None,
         },
     )
@@ -424,6 +427,7 @@ fn prebody_reservations_disconnect_handoff_and_retention_races() {
             ),
             filename: "revoked.csv".into(),
             allow_loss: false,
+            report_profile: None,
             retry_of: None,
         },
     );
@@ -511,7 +515,7 @@ fn prebody_reservations_disconnect_handoff_and_retention_races() {
             while !state.repository.lock().unwrap().conversions[&eighth].snapshot.is_terminal() { tokio::task::yield_now().await; }
         }).await.unwrap();
         let before_full = header_value(&state);
-        let refused = accept_reserved(&state, preflight_seven, Submission {from:"csv".into(),to:"xes".into(),input:Arc::from(std::str::from_utf8(include_bytes!("../fixtures/conversions/flat-unicode.csv")).unwrap()),filename:"raced.csv".into(),allow_loss:false,retry_of:None});
+        let refused = accept_reserved(&state, preflight_seven, Submission {from:"csv".into(),to:"xes".into(),input:Arc::from(std::str::from_utf8(include_bytes!("../fixtures/conversions/flat-unicode.csv")).unwrap()),filename:"raced.csv".into(),allow_loss: false, report_profile: None,retry_of:None});
         assert_eq!(refused.err().unwrap().code, "conversion_capacity"); idle(&state).await;
         assert_eq!(header_value(&state), before_full);
         state.repository.lock().unwrap().conversion_artifacts.clear();
