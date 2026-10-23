@@ -1,0 +1,585 @@
+{
+  "actual_utc": "2026-10-23T07:40:23.8704232+00:00",
+  "records": [
+    {
+      "native_exit": 0,
+      "native_creation_filetime": 134372140199752675,
+      "source_record_sha256": "0579AC97EBB7366C97023ED06A9D3967BF2E6DF78477D479166C7C0109C2FE99",
+      "pid": 52360,
+      "image_filename": "cargo.exe",
+      "phase": "build",
+      "native_creation_utc": "2026-10-23T07:26:59.9752675Z",
+      "streams": [
+        {
+          "stream": "stdout",
+          "bytes": 0,
+          "public_path": null,
+          "full_eof": true,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+        },
+        {
+          "stream": "stderr",
+          "bytes": 60,
+          "public_path": null,
+          "full_eof": true,
+          "sha256": "970C742910792BFBE48ABEF0E530C79A74DBEAAB153744556DE13C44DBDB2074"
+        }
+      ],
+      "label": "app-build",
+      "source_start_sha256": "F7F905F9AA5CFC4132B53170F6C86FF13AFFB33A4AB12804E8DEAE872941B319"
+    },
+    {
+      "native_exit": 0,
+      "native_creation_filetime": 134372140156292887,
+      "source_record_sha256": "F15E0DDA042205FC1D3F8352A49FE950425498281483C49966781ABF1DF118A1",
+      "pid": 64964,
+      "image_filename": "cargo.exe",
+      "phase": "build",
+      "native_creation_utc": "2026-10-23T07:26:55.6292887Z",
+      "streams": [
+        {
+          "stream": "stdout",
+          "bytes": 453,
+          "public_path": "tests/existing-calendar.stdout",
+          "full_eof": true,
+          "sha256": "B24701E9F7C2B69D47360989A21124E48928C117D5DD684F671F59987EB6DFBF"
+        },
+        {
+          "stream": "stderr",
+          "bytes": 283,
+          "public_path": null,
+          "full_eof": true,
+          "sha256": "5D093189B2E157E25FA6C438EC3360E464FA55016E79D374F27A43EC49889AE2"
+        }
+      ],
+      "label": "calendar",
+      "source_start_sha256": "EC658747D16F81E3EC89DEF2CB9D745093B73FBA8AA7119FAD14B005A2229220"
+    },
+    {
+      "native_exit": 0,
+      "native_creation_filetime": 134372139391772258,
+      "source_record_sha256": "95AEA27A09C81A883FA49C5893113566606C418668A132FD04D73EA3E37D6541",
+      "pid": 59720,
+      "image_filename": "cargo.exe",
+      "phase": "build",
+      "native_creation_utc": "2026-10-23T07:25:39.1772258Z",
+      "streams": [
+        {
+          "stream": "stdout",
+          "bytes": 569,
+          "public_path": "tests/new-http.stdout",
+          "full_eof": true,
+          "sha256": "F58BFF7E6E857B377F41BA21680603BB487C0572C4CC3F7D9966DCBBF0B0CD55"
+        },
+        {
+          "stream": "stderr",
+          "bytes": 294,
+          "public_path": null,
+          "full_eof": true,
+          "sha256": "13D614D1DFAF389DEA2EB5BF22CBA3710E1C6B9DDB95B2D64841EA593EE7EA92"
+        }
+      ],
+      "label": "child",
+      "source_start_sha256": "4FF17BA2471C3524461E9F9036A7F8468352CD9FB6D57067BCB7E0E9B0D95F20"
+    },
+    {
+      "native_exit": 0,
+      "native_creation_filetime": 134372139776688514,
+      "source_record_sha256": "AA24E885F27FBE3FCF77A098D86853A563104A8FA14A713A0AE82DAC7D2F4305",
+      "pid": 63248,
+      "image_filename": "cargo.exe",
+      "phase": "build",
+      "native_creation_utc": "2026-10-23T07:26:17.6688514Z",
+      "streams": [
+        {
+          "stream": "stdout",
+          "bytes": 477,
+          "public_path": "tests/explanations.stdout",
+          "full_eof": true,
+          "sha256": "43DD027DF5FD65D3C51BFE05C8AAF2715A7E292D9B90F008A533BBFA5B5626F1"
+        },
+        {
+          "stream": "stderr",
+          "bytes": 284,
+          "public_path": null,
+          "full_eof": true,
+          "sha256": "480B0676BB133E66FDA22BFA2A6CA90697199D6C6E47B7D690BE26BC6E12EF21"
+        }
+      ],
+      "label": "explanations",
+      "source_start_sha256": "581F26AA1137565AD536DB58739C0A294E6C82C53502ACCCBB9DE49DCA584743"
+    },
+    {
+      "native_exit": 0,
+      "native_creation_filetime": 134372139382693899,
+      "source_record_sha256": "1A2DAFD74CCF5D1D0ABD552FC8C8831E2E779F4D28F6904B6B2AB8DCD7CFAE1E",
+      "pid": 23732,
+      "image_filename": "pwsh.exe",
+      "phase": "build",
+      "native_creation_utc": "2026-10-23T07:25:38.2693899Z",
+      "streams": [
+        {
+          "stream": "stdout",
+          "bytes": 13,
+          "public_path": null,
+          "full_eof": true,
+          "sha256": "279D6A026F1CE45010CC89F071CC5997755138A7A82BA81ADF9DD4866E81A1FF"
+        },
+        {
+          "stream": "stderr",
+          "bytes": 13,
+          "public_path": null,
+          "full_eof": true,
+          "sha256": "87E70FC18644BBC756BB64408365221FA5BF6354896D95653E32443816376BA3"
+        }
+      ],
+      "label": "worker",
+      "source_start_sha256": "20D24E1BBCAC79607C47C720AEA9817D2F25AC411E3172A16C00BA27AEBB80DD"
+    },
+    {
+      "native_exit": 0,
+      "native_creation_filetime": null,
+      "source_record_sha256": "2212ECE1858F3F10ECA09248EAC02B7DF1F37D8D1871E8857EC7ACA557E9CB11",
+      "pid": 71940,
+      "image_filename": "pwsh.exe",
+      "phase": "build",
+      "native_creation_utc": "2026-10-23T07:25:20.6590736Z",
+      "streams": [
+        {
+          "stream": "stdout",
+          "bytes": 0,
+          "public_path": null,
+          "full_eof": true,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+        },
+        {
+          "stream": "stderr",
+          "bytes": 0,
+          "public_path": null,
+          "full_eof": true,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+        }
+      ],
+      "label": "collector",
+      "source_start_sha256": "D3B77CCC81338B506D8DFBCC02140892A69B078073F3F9C3F7B68A133E110E9D"
+    },
+    {
+      "native_exit": 137,
+      "native_creation_filetime": 134372142686179972,
+      "source_record_sha256": "0720A56CDE7162C0DF344EAF4C065B677312F9E04CED9092DC7AB3C7952A5431",
+      "pid": 47620,
+      "image_filename": "process-intelligence-rs.exe",
+      "phase": "live",
+      "native_creation_utc": "2026-10-23T07:31:08.6179972Z",
+      "streams": [
+        {
+          "stream": "stdout",
+          "bytes": 0,
+          "public_path": null,
+          "full_eof": true,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+        },
+        {
+          "stream": "stderr",
+          "bytes": 7240,
+          "public_path": null,
+          "full_eof": true,
+          "sha256": "07D1AC14B6C0462469C62F176ED223B5ACB5FDA7D8B61D7E37AF02C600D2782E"
+        }
+      ],
+      "label": "app10k",
+      "source_start_sha256": "D242113ADE606B24F375A58382565810829E9C5E20ECDE4E863D2D120F33088A"
+    },
+    {
+      "native_exit": 137,
+      "native_creation_filetime": 134372142732846323,
+      "source_record_sha256": "0518E17448708B42D4FCF4DB364EF776C7306CA80E6B915A92B4E90DEB3CEED6",
+      "pid": 58300,
+      "image_filename": "process-intelligence-rs.exe",
+      "phase": "live",
+      "native_creation_utc": "2026-10-23T07:31:13.2846323Z",
+      "streams": [
+        {
+          "stream": "stdout",
+          "bytes": 0,
+          "public_path": null,
+          "full_eof": true,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+        },
+        {
+          "stream": "stderr",
+          "bytes": 32586,
+          "public_path": null,
+          "full_eof": true,
+          "sha256": "14C47E3410F29DFC55273AFCA753677879528AF0C68F92F0E3E2F87B40CB9C82"
+        }
+      ],
+      "label": "app90k",
+      "source_start_sha256": "0B326806E40CB532491AE642004014E935D8CF3686A58B386B3CF05B093CFAEB"
+    },
+    {
+      "native_exit": 0,
+      "native_creation_filetime": 134372142693520076,
+      "source_record_sha256": "F43E7DAE74AFAF66C848A364044A701FBFCC8D665944E833D9861240327C081A",
+      "pid": 52360,
+      "image_filename": "python.exe",
+      "phase": "live",
+      "native_creation_utc": "2026-10-23T07:31:09.3520076Z",
+      "streams": [
+        {
+          "stream": "stdout",
+          "bytes": 0,
+          "public_path": null,
+          "full_eof": true,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+        },
+        {
+          "stream": "stderr",
+          "bytes": 0,
+          "public_path": null,
+          "full_eof": true,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+        }
+      ],
+      "label": "child",
+      "source_start_sha256": "AC0DB9B7F3D4FA1D569AB2B30A72D79D11B429323DB91DAD8DC22D79DE162D4A"
+    },
+    {
+      "native_exit": 0,
+      "native_creation_filetime": 134372142658677998,
+      "source_record_sha256": "98E1DFA57027A7889A55E4DC5AF8C4030DECBA19A4055F5CB2FDEAFB4FA1D754",
+      "pid": 72312,
+      "image_filename": "psql.exe",
+      "phase": "live",
+      "native_creation_utc": "2026-10-23T07:31:05.8677998Z",
+      "streams": [
+        {
+          "stream": "stdout",
+          "bytes": 201,
+          "public_path": null,
+          "full_eof": true,
+          "sha256": "3699F9DE01C6F1900C70B0854E67F15448110E3F567A5E2AACA8D2FBA05E32FC"
+        },
+        {
+          "stream": "stderr",
+          "bytes": 0,
+          "public_path": null,
+          "full_eof": true,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+        }
+      ],
+      "label": "cluster-identity",
+      "source_start_sha256": "E1B2DDC5773946783C1A375A2303975CD4ED7A6FD1FBF429189C4514AD37B9E6"
+    },
+    {
+      "native_exit": 0,
+      "native_creation_filetime": 134372142672089042,
+      "source_record_sha256": "53BA459FFBE3DD6946A79F3B6435D266ECA474DB32FBA5A2DB4B01EC916042D4",
+      "pid": 29324,
+      "image_filename": "psql.exe",
+      "phase": "live",
+      "native_creation_utc": "2026-10-23T07:31:07.2089042Z",
+      "streams": [
+        {
+          "stream": "stdout",
+          "bytes": 0,
+          "public_path": null,
+          "full_eof": true,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+        },
+        {
+          "stream": "stderr",
+          "bytes": 0,
+          "public_path": null,
+          "full_eof": true,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+        }
+      ],
+      "label": "create-db",
+      "source_start_sha256": "9B935815659D139FF97F7E6CD50972B00F312CD12420931B463DB6C406B37B60"
+    },
+    {
+      "native_exit": 0,
+      "native_creation_filetime": 134372142742540411,
+      "source_record_sha256": "8AA1B1629984CBB75E11E29523226CAB566761AA45A5AEFC599E3377D879DAE2",
+      "pid": 69976,
+      "image_filename": "python.exe",
+      "phase": "live",
+      "native_creation_utc": "2026-10-23T07:31:14.2540411Z",
+      "streams": [
+        {
+          "stream": "stdout",
+          "bytes": 0,
+          "public_path": null,
+          "full_eof": true,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+        },
+        {
+          "stream": "stderr",
+          "bytes": 0,
+          "public_path": null,
+          "full_eof": true,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+        }
+      ],
+      "label": "http90k",
+      "source_start_sha256": "C411FA08B15EABBE2D1FC3CFF96746A0C95430DE70646FB467F45082AB5D2886"
+    },
+    {
+      "native_exit": 0,
+      "native_creation_filetime": 134372145204441127,
+      "source_record_sha256": "8D34611AC8838F19655AD13E184D4B324EA0D32007FA2DDFC3B2AF750A620A26",
+      "pid": 65820,
+      "image_filename": "pg_ctl.exe",
+      "phase": "live",
+      "native_creation_utc": "2026-10-23T07:35:20.4441127Z",
+      "streams": [
+        {
+          "stream": "stdout",
+          "bytes": 58,
+          "public_path": null,
+          "full_eof": true,
+          "sha256": "3589D2BD01F8295CC7C9EC3F5E07625FCD347CCB6F33F2D80EDAFE5F5217C1FB"
+        },
+        {
+          "stream": "stderr",
+          "bytes": 0,
+          "public_path": null,
+          "full_eof": true,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+        }
+      ],
+      "label": "pg-stop",
+      "source_start_sha256": "531788DD76E84C2540BD8FE1B60FA3266F7B150A4ECF175B6820533FA7AB88FA"
+    },
+    {
+      "native_exit": 0,
+      "native_creation_filetime": 134372142629746682,
+      "source_record_sha256": "77ACA25EAE85A612F2029D29E66CF1742AF9EA594F62CF6D5D0F87D0BA311099",
+      "pid": 71900,
+      "image_filename": "postgres.exe",
+      "phase": "live",
+      "native_creation_utc": "2026-10-23T07:31:02.9746682Z",
+      "streams": [
+        {
+          "stream": "stdout",
+          "bytes": 0,
+          "public_path": null,
+          "full_eof": true,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+        },
+        {
+          "stream": "stderr",
+          "bytes": 1582,
+          "public_path": null,
+          "full_eof": true,
+          "sha256": "12719D347AA65EFD9CBD12BB0D57B6217C6B3AA8638C0A38060DFA2679DBD051"
+        }
+      ],
+      "label": "postgres",
+      "source_start_sha256": "43CCCD2B02049E5AFB62E531A7A01A3937BE4E9D2AF445747D1E32D62583F4B4"
+    },
+    {
+      "native_exit": 1,
+      "native_creation_filetime": 134372142631363792,
+      "source_record_sha256": "652A25F52AA85C4B640125FEE4DFB1BD02EE0004969028FE4F7F93F2786BF52F",
+      "pid": 61832,
+      "image_filename": "pg_isready.exe",
+      "phase": "live",
+      "native_creation_utc": "2026-10-23T07:31:03.1363792Z",
+      "streams": [
+        {
+          "stream": "stdout",
+          "bytes": 41,
+          "public_path": null,
+          "full_eof": true,
+          "sha256": "62285DBF9A623B155EF5FBB74B1E0BB1AAC8583FF3EDECDF23D4EE6D4804EC5B"
+        },
+        {
+          "stream": "stderr",
+          "bytes": 0,
+          "public_path": null,
+          "full_eof": true,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+        }
+      ],
+      "label": "ready-01",
+      "source_start_sha256": "B954B5845D40827632D4472AB706A68C8343F018896E949ECC4E5E9A2CB20316"
+    },
+    {
+      "native_exit": 0,
+      "native_creation_filetime": 134372142645710288,
+      "source_record_sha256": "F4BB22E20290C36303562342D8EA47BAFE8C8334A1695417F26D6F3496ED264E",
+      "pid": 72464,
+      "image_filename": "pg_isready.exe",
+      "phase": "live",
+      "native_creation_utc": "2026-10-23T07:31:04.5710288Z",
+      "streams": [
+        {
+          "stream": "stdout",
+          "bytes": 41,
+          "public_path": null,
+          "full_eof": true,
+          "sha256": "48F05044D763F65E81DF5FA8BE71F5A81EC224D0B419A9BFA6132B7FBC62D7F4"
+        },
+        {
+          "stream": "stderr",
+          "bytes": 0,
+          "public_path": null,
+          "full_eof": true,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+        }
+      ],
+      "label": "ready-02",
+      "source_start_sha256": "EE13AA6B187A52EAD81EF3C940B035E93DA8D681785FE8CD0B2642F50E6EA1F1"
+    },
+    {
+      "native_exit": 0,
+      "native_creation_filetime": 134372142716525120,
+      "source_record_sha256": "1230795FF2EE1C67477B10D09EAFE74ADE4C96DA07BFF5748BF1448900B25791",
+      "pid": 68656,
+      "image_filename": "psql.exe",
+      "phase": "live",
+      "native_creation_utc": "2026-10-23T07:31:11.6525120Z",
+      "streams": [
+        {
+          "stream": "stdout",
+          "bytes": 89,
+          "public_path": null,
+          "full_eof": true,
+          "sha256": "FCD6C86C6D0EB93C65FF495AEF7EBA7E23EA538DE0CF1D4DD2B98F0E232BC6A0"
+        },
+        {
+          "stream": "stderr",
+          "bytes": 0,
+          "public_path": null,
+          "full_eof": true,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+        }
+      ],
+      "label": "source10k",
+      "source_start_sha256": "73455F02208545E022658C291EE72F3ABBB334C4CDA6B7D9C6A5AFDCE82FE124"
+    },
+    {
+      "native_exit": 0,
+      "native_creation_filetime": 134372142766380101,
+      "source_record_sha256": "A722323C091EC878B592ABC6DA1C1E36FE9FF24C830AF43CC5001D251FAA4753",
+      "pid": 70620,
+      "image_filename": "psql.exe",
+      "phase": "live",
+      "native_creation_utc": "2026-10-23T07:31:16.6380101Z",
+      "streams": [
+        {
+          "stream": "stdout",
+          "bytes": 89,
+          "public_path": null,
+          "full_eof": true,
+          "sha256": "FCD6C86C6D0EB93C65FF495AEF7EBA7E23EA538DE0CF1D4DD2B98F0E232BC6A0"
+        },
+        {
+          "stream": "stderr",
+          "bytes": 0,
+          "public_path": null,
+          "full_eof": true,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+        }
+      ],
+      "label": "source90k",
+      "source_start_sha256": "46280A9165823A3B463CEC900DE6BA5A4F536319A7D2A34917F19721041400D4"
+    },
+    {
+      "native_exit": 0,
+      "native_creation_filetime": 134372142622610427,
+      "source_record_sha256": "05BA68B17A63E7909CFBDF4E3A00F8AB698EB75EC749C2A27DFD94D321678627",
+      "pid": 63620,
+      "image_filename": "pwsh.exe",
+      "phase": "live",
+      "native_creation_utc": "2026-10-23T07:31:02.2610427Z",
+      "streams": [
+        {
+          "stream": "stdout",
+          "bytes": 0,
+          "public_path": null,
+          "full_eof": true,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+        },
+        {
+          "stream": "stderr",
+          "bytes": 0,
+          "public_path": null,
+          "full_eof": true,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+        }
+      ],
+      "label": "worker",
+      "source_start_sha256": "0BB1263457F069DF587229FC018AAAAEB5CD857FC41317E3614002803A36A750"
+    },
+    {
+      "native_exit": 0,
+      "native_creation_filetime": null,
+      "source_record_sha256": "F65C75599127FA2A5904F6324723B449E41A6C874BC7989D710BE0FF0784449A",
+      "pid": 64816,
+      "image_filename": "pwsh.exe",
+      "phase": "live",
+      "native_creation_utc": "2026-10-23T07:30:46.4462574Z",
+      "streams": [
+        {
+          "stream": "stdout",
+          "bytes": 0,
+          "public_path": null,
+          "full_eof": true,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+        },
+        {
+          "stream": "stderr",
+          "bytes": 0,
+          "public_path": null,
+          "full_eof": true,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+        }
+      ],
+      "label": "collector",
+      "source_start_sha256": "822194317FEE62BAF03C4BB1F6A807DC5E6BC64105C9189ED4BD43F0B29AA536"
+    },
+    {
+      "native_exit": 0,
+      "native_creation_filetime": null,
+      "source_record_sha256": "F68FF4B8463DC6A5E52ED87C3E8D6394CC8CBE2A927CC3FB732C8DA54DA183AF",
+      "pid": 13036,
+      "image_filename": "python.exe",
+      "phase": "audit",
+      "native_creation_utc": "2026-10-23T07:37:34.2262306Z",
+      "streams": [
+        {
+          "stream": "stdout",
+          "bytes": 0,
+          "public_path": null,
+          "full_eof": true,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+        },
+        {
+          "stream": "stderr",
+          "bytes": 0,
+          "public_path": null,
+          "full_eof": true,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+        }
+      ],
+      "label": "saved-http-audit",
+      "source_start_sha256": "09881FC542F9F6111B46C8B1548FAD84EB2C4FD088DF673CFD6F9466630A4DAC"
+    }
+  ],
+  "private_raw_streams": 39,
+  "scope": "Only build01 six native processes, live01 fourteen, saved audit01 one. Preparatory formatters and later Git/download delivery are separate private captures.",
+  "all_private_originals_publicly_replayable": false,
+  "limits": [
+    "Metadata hashes do not publish or independently replay private raw streams",
+    "Legacy collector/auditor UTC identities are exact strings; numeric FILETIME null when absent in original",
+    "App exits137 are intentional test stop; initial readiness1 is expected; all other listed exits0",
+    "Originalhost/collector death lies outside capture guarantee; sixhistoricalUNKNOWN unchanged"
+  ],
+  "streams": 42,
+  "public_exact_streams": 3,
+  "kind": "TYPED_PRIVATE_NATIVE_CAPTURE_PROJECTION",
+  "native_records": 21
+}

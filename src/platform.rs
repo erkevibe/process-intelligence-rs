@@ -1281,7 +1281,7 @@ async fn filter_log(
         Err(e) => response_error(e),
     }
 }
-#[derive(Deserialize)]
+#[derive(Clone, Deserialize)]
 struct CalendarForm {
     #[serde(default)]
     timezone: String,
@@ -1295,8 +1295,14 @@ struct CalendarForm {
 async fn set_calendar(
     Workspace(state): Workspace,
     Path(id): Path<String>,
+    headers: HeaderMap,
     Form(form): Form<CalendarForm>,
 ) -> Response {
+    let html_draft = (calendar_html_requested(&headers)
+        && form.timezone.len() + form.weekdays.len() + form.holidays.len() <= 16 * 1024)
+        .then(|| form.clone());
+    let error_state = state.clone();
+    let error_id = id.clone();
     let result = blocking(move || {
         let weekdays = form
             .weekdays
@@ -1337,7 +1343,123 @@ async fn set_calendar(
     .await;
     match result {
         Ok(id) => redirect(&format!("/logs/{id}/tools")),
-        Err(e) => response_error(e),
+        Err(e) => match html_draft {
+            Some(draft)
+                if matches!(
+                    e.code.as_str(),
+                    "calendar" | "calendar_policy" | "calendar_timezone"
+                ) =>
+            {
+                tokio::task::spawn_blocking(move || {
+                    calendar_form_error(&error_state, &error_id, &draft, e)
+                })
+                .await
+                .unwrap_or_else(|_| {
+                    response_error(failure(
+                        "worker_failed",
+                        "Не удалось подготовить результат.",
+                    ))
+                })
+            }
+            _ => response_error(e),
+        },
+    }
+}
+// Deliberately conservative opt-in: an explicit positive JSON range wins, while
+// wildcards never enable HTML. Invalid quality parameters keep the original API.
+fn calendar_html_requested(headers: &HeaderMap) -> bool {
+    let mut html = false;
+    let mut json = false;
+    for value in headers.get_all(header::ACCEPT).iter() {
+        let Ok(value) = value.to_str() else {
+            return false;
+        };
+        for range in value.split(',') {
+            let mut parts = range.split(';');
+            let media = parts.next().unwrap_or("").trim();
+            let mut positive = true;
+            let mut seen_quality = false;
+            for parameter in parts {
+                let Some((name, value)) = parameter.trim().split_once('=') else {
+                    return false;
+                };
+                if name.trim().eq_ignore_ascii_case("q") {
+                    if seen_quality {
+                        return false;
+                    }
+                    seen_quality = true;
+                    let value = value.trim();
+                    let valid = value == "0"
+                        || value == "1"
+                        || value.strip_prefix("0.").is_some_and(|fraction| {
+                            fraction.len() <= 3 && fraction.bytes().all(|b| b.is_ascii_digit())
+                        })
+                        || value.strip_prefix("1.").is_some_and(|fraction| {
+                            fraction.len() <= 3 && fraction.bytes().all(|b| b == b'0')
+                        });
+                    if !valid {
+                        return false;
+                    }
+                    positive = value
+                        .bytes()
+                        .any(|b| b == b'1' || (b'2'..=b'9').contains(&b));
+                }
+            }
+            if positive && media.eq_ignore_ascii_case("text/html") {
+                html = true;
+            }
+            if positive && media.eq_ignore_ascii_case("application/json") {
+                json = true;
+            }
+        }
+    }
+    html && !json
+}
+fn calendar_form_error(
+    state: &AppState,
+    id: &str,
+    form: &CalendarForm,
+    error: ImportError,
+) -> Response {
+    let mut repo = state.repository.lock().expect("repository mutex");
+    let log = match repo.get_log_base(state, id) {
+        Ok(Some(log)) => log,
+        Ok(None) => return response_error(failure("not_found", "Журнал не найден.")),
+        Err(error) => return response_error(error),
+    };
+    let draft = render::CalendarDraft {
+        timezone: &form.timezone,
+        offset_minutes: form.offset_minutes,
+        weekdays: &form.weekdays,
+        start_minute: form.start_minute,
+        end_minute: form.end_minute,
+        holidays: &form.holidays,
+    };
+    let body = format!(
+        "<h1>{}</h1><div class=\"platform-alert\" role=\"alert\" tabindex=\"-1\" autofocus><strong>Настройки не сохранены.</strong> {}</div><p>Исправьте введённые значения. Расчёт ниже использует последний сохранённый календарь.</p>{}<h2>Результаты по последнему сохранённому календарю</h2>{}",
+        render::html_escape(&log.filename),
+        render::html_escape(&error.message),
+        render::calendar_form(id, &draft),
+        render::calendar_table(&calendar_results(&log))
+    );
+    let mut response = page("Исправить календарь", body);
+    *response.status_mut() = StatusCode::UNPROCESSABLE_ENTITY;
+    response.headers_mut().insert(
+        header::CACHE_CONTROL,
+        "no-store".parse().expect("static header"),
+    );
+    response
+        .headers_mut()
+        .insert(header::VARY, "Accept".parse().expect("static header"));
+    // get_log_base validates the read first. Acquire the auth lock only for the
+    // final handoff, never recursively while loading or calculating a log.
+    match (&state.platform, &state.actor, &state.session) {
+        (Some(platform), Some(actor), Some(session)) => platform
+            .auth
+            .with_write_access(session, actor, || Ok(response))
+            .unwrap_or_else(response_error),
+        (None, None, _) => response,
+        _ => response_error(failure("access_denied", "Сначала войдите в проект.")),
     }
 }
 pub(crate) fn calendar_results(log: &StoredLog) -> Value {

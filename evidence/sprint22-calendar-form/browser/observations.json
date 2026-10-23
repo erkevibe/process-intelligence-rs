@@ -1,0 +1,80 @@
+{
+  "candidate_sha256": "3587C50D7940C0D2516E83871D14200576ED5F892DEEAE115BA9E0EA04BBE1BB",
+  "actual_steps": [
+    "Logged into existing synthetic test account; selected actual C03 project through projects UI",
+    "Opened tools and observed saved Berlin UTC0 Sunday01-04 and case0=2h case1=4h",
+    "Submitted unknown zone using ordinaryform; error page retained draft and explicit notsaved/lastsaved explanation",
+    "Submitted Europe/Berlin+UTC01 offset conflict; error retained both submitted values",
+    "Submitted literal script-shaped string; exact input DOMvalue preserved, injected #calendar-form-probe element absent; separate saved2h4h visible",
+    "Corrected to Europe/Berlin UTC0, submitted, followed actual tools redirect, explicitly reloaded, observed same2h4h and error absent"
+  ],
+  "browser": "ChatGPT in-app browser",
+  "url": "http://127.0.0.1:3141/logs/log-2/tools",
+  "status": "ACTUAL_ROOT_BROWSER_CALENDAR_FORM_OBSERVATIONS",
+  "project_id": "project-90fbf7d3af17496188907edbbaba96b2",
+  "log_id": "log-2",
+  "tab": 4,
+  "actual_utc": "2026-10-23T07:35:02.9398184+00:00",
+  "limits": [
+    "Root executed actual browser; independent QA/TD/Customer saved-evidence review still pending",
+    "No Datastar/SSEclaim; browser response status not separately captured; exact422 verified by separate finite HTTPdriver",
+    "No general browser or broadR5 acceptance"
+  ],
+  "files": [
+    {
+      "sha256": "DD58F37067558832CA338F45EF51528B2CA8027D978705675C203C5F4A9FAA02",
+      "bytes": 11102,
+      "path": "browser/baseline.ax.txt"
+    },
+    {
+      "sha256": "DD58F37067558832CA338F45EF51528B2CA8027D978705675C203C5F4A9FAA02",
+      "bytes": 11102,
+      "path": "browser/corrected-reload.ax.txt"
+    },
+    {
+      "sha256": "7A28DAB0052C6D895870C4CFE9E1CA71C1CF83EFDAA69CBB9FD0D05983715500",
+      "bytes": 53484,
+      "path": "browser/corrected-reload.png"
+    },
+    {
+      "sha256": "457F3B22B2AD7CEE49FB030FA2FD56FC14F58903355EB0A11AA0F18BEB7A4F34",
+      "bytes": 54895,
+      "path": "browser/draft-with-saved-results.png"
+    },
+    {
+      "sha256": "0FBD76D10B8F46F8F15914D81E7F16E6F0BE8B1EA2B9B384C2A68747B0B4FD82",
+      "bytes": 250,
+      "path": "browser/escaped-draft-dom.json"
+    },
+    {
+      "sha256": "7D35C1D0B09209278F9C7AB9E9363271DA5064F46CE3A8AED2B1256BE0FC6842",
+      "bytes": 7995,
+      "path": "browser/escaped-draft.ax.txt"
+    },
+    {
+      "sha256": "DF4525B03CB80E2BE578299CBA96A2F00C22734A9D955E4479120825D62DF688",
+      "bytes": 51690,
+      "path": "browser/escaped-draft.png"
+    },
+    {
+      "sha256": "6430DC1600AFC1F351812CC9B4F63B9F08C61BB211C7CC49F9CA0C02BD285238",
+      "bytes": 8021,
+      "path": "browser/offset-conflict-error.ax.txt"
+    },
+    {
+      "sha256": "A434D2EC663399DD719E992ADB8A99E55A3D8757CFBE20DE2A31753131709A40",
+      "bytes": 51583,
+      "path": "browser/offset-conflict-error.png"
+    },
+    {
+      "sha256": "C42AAA6FD1A09F28B831563B303AB3E517A8825B4BE1E75E184893D055F4CB9F",
+      "bytes": 7966,
+      "path": "browser/unknown-zone-error.ax.txt"
+    },
+    {
+      "sha256": "551FA4329EB4E0C5EE4B8CA6E00C868A431185D7D5BD7815CFD657069BDF107B",
+      "bytes": 50510,
+      "path": "browser/unknown-zone-error.png"
+    }
+  ]
+}

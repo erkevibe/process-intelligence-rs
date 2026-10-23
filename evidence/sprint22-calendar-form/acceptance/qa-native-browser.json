@@ -1,0 +1,119 @@
+{
+  "agent_name": "qa_s20_delivery",
+  "role": "independent ProcessLogAuditor and saved-browser reviewer",
+  "utc": "2026-10-23T07:36:31.3245361+00:00",
+  "status": "SCOPED_ACTUAL_NATIVE_BROWSER_EVIDENCE_ACCEPTED_HTTP_AUDIT_PENDING",
+  "candidate_sha256": "3587C50D7940C0D2516E83871D14200576ED5F892DEEAE115BA9E0EA04BBE1BB",
+  "config_sha256": "46EE564F1FF00C38FF20584F016988DF7643E56346D5DAFDF84200757607E813",
+  "native_records": [
+    {
+      "pid": 64816,
+      "exit": 0,
+      "record_sha256": "F65C75599127FA2A5904F6324723B449E41A6C874BC7989D710BE0FF0784449A",
+      "label": "collector"
+    },
+    {
+      "pid": 47620,
+      "exit": 137,
+      "record_sha256": "0720A56CDE7162C0DF344EAF4C065B677312F9E04CED9092DC7AB3C7952A5431",
+      "label": "app10k"
+    },
+    {
+      "pid": 58300,
+      "exit": 137,
+      "record_sha256": "0518E17448708B42D4FCF4DB364EF776C7306CA80E6B915A92B4E90DEB3CEED6",
+      "label": "app90k"
+    },
+    {
+      "pid": 52360,
+      "exit": 0,
+      "record_sha256": "F43E7DAE74AFAF66C848A364044A701FBFCC8D665944E833D9861240327C081A",
+      "label": "child"
+    },
+    {
+      "pid": 72312,
+      "exit": 0,
+      "record_sha256": "98E1DFA57027A7889A55E4DC5AF8C4030DECBA19A4055F5CB2FDEAFB4FA1D754",
+      "label": "cluster-identity"
+    },
+    {
+      "pid": 29324,
+      "exit": 0,
+      "record_sha256": "53BA459FFBE3DD6946A79F3B6435D266ECA474DB32FBA5A2DB4B01EC916042D4",
+      "label": "create-db"
+    },
+    {
+      "pid": 69976,
+      "exit": 0,
+      "record_sha256": "8AA1B1629984CBB75E11E29523226CAB566761AA45A5AEFC599E3377D879DAE2",
+      "label": "http90k"
+    },
+    {
+      "pid": 65820,
+      "exit": 0,
+      "record_sha256": "8D34611AC8838F19655AD13E184D4B324EA0D32007FA2DDFC3B2AF750A620A26",
+      "label": "pg-stop"
+    },
+    {
+      "pid": 71900,
+      "exit": 0,
+      "record_sha256": "77ACA25EAE85A612F2029D29E66CF1742AF9EA594F62CF6D5D0F87D0BA311099",
+      "label": "postgres"
+    },
+    {
+      "pid": 61832,
+      "exit": 1,
+      "record_sha256": "652A25F52AA85C4B640125FEE4DFB1BD02EE0004969028FE4F7F93F2786BF52F",
+      "label": "ready-01"
+    },
+    {
+      "pid": 72464,
+      "exit": 0,
+      "record_sha256": "F4BB22E20290C36303562342D8EA47BAFE8C8334A1695417F26D6F3496ED264E",
+      "label": "ready-02"
+    },
+    {
+      "pid": 68656,
+      "exit": 0,
+      "record_sha256": "1230795FF2EE1C67477B10D09EAFE74ADE4C96DA07BFF5748BF1448900B25791",
+      "label": "source10k"
+    },
+    {
+      "pid": 70620,
+      "exit": 0,
+      "record_sha256": "A722323C091EC878B592ABC6DA1C1E36FE9FF24C830AF43CC5001D251FAA4753",
+      "label": "source90k"
+    },
+    {
+      "pid": 63620,
+      "exit": 0,
+      "record_sha256": "05BA68B17A63E7909CFBDF4E3A00F8AB698EB75EC749C2A27DFD94D321678627",
+      "label": "worker"
+    }
+  ],
+  "native_count": 14,
+  "streams_full_hash_length_verified": 28,
+  "browser_observations_sha256": "F8BB0447AC9AD85EEC4239DF1A2E9F74133B8DB2DB4837826FB4356A75A8A8E3",
+  "browser_files_verified": 11,
+  "visual_review": [
+    "Viewed actual draft-with-saved-results.png and corrected-reload.png: separate last-saved heading before correction and 2h/4h rows retained; corrected page removes error-specific heading",
+    "Read actual unknown/escaped/corrected AX and escaped DOMproof: submitted script-shaped value retained as input, injected element absent; saved-results section distinct"
+  ],
+  "pg_pid_absent": true,
+  "after": {
+    "allocation_bytes": 7616625952,
+    "files": 48217,
+    "logical_bytes": 7558041435,
+    "scope": "non-atomic read-only sampling; vanished compiler-target entries or exact owned pgdata11/base/nonzero-decimal-OID/pg_internal.init only; second genuine absence required; 512MiB headroom mandatory",
+    "skipped_vanished_target_entries": 0,
+    "skipped_vanished_pg_internal_init_entries": 0,
+    "root_allocation_bytes": 7284314576,
+    "root_logical_bytes": 7244067396
+  },
+  "limits": [
+    "Root executed actual browser; QA independently reviewed saved pixels/AX/hash, no independent browser automation claim",
+    "Browser HTTPstatus not separately captured; separate actualHTTPdriver proves422. No calendarSSE claim",
+    "QA authored driver/test; independent TD HTTPsemantics review and saved-auditor execution still required",
+    "No publication/final candidate acceptance; six historicalUNKNOWN unchanged"
+  ]
+}

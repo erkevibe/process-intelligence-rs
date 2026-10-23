@@ -1,0 +1,58 @@
+{
+  "audit_runtime_go": {
+    "pins": 8,
+    "config_sha256": "F9C417BAF9EDE152C7D8270AE7BB3CBAC2D6885055340E15C8F3123644B0B70F",
+    "runner_sha256": "CCE94B0BD13CA75D8C358513B8E232BA527A601C5A35DA24D2514CBF58580A90",
+    "seconds": 35,
+    "bad": 0,
+    "output_bytes": 1048576
+  },
+  "live_proof_sha256": "8ABE20F8E3CCC66A419EDAF763EEF0665BC0E50741B198B3AD414840750BC756",
+  "agent_name": "td_s20_delivery",
+  "http": {
+    "invalid_saved_export_and_audit_raw_byte_equal": true,
+    "c03_requests": 28,
+    "c02_requests": 15,
+    "raw_responses_rehashed": 40,
+    "manual_milliseconds": [
+      7200000,
+      14400000
+    ],
+    "default_json_sha256": "905DE25CAB21D0AD7A47E89AEB6494F1D6E615B0E873ABE797A3B22D49E87D9E",
+    "security_sequence": [
+      422,
+      403,
+      422,
+      403,
+      404
+    ]
+  },
+  "utc": "2026-10-23T07:37:18.5547434+00:00",
+  "limitations": [
+    "Saved independent EB12 auditor actual result pending",
+    "No broad R5, generic STATUS protocol or exactly-once claim",
+    "Fresh-role request revocation checked; concurrent revoke race not claimed"
+  ],
+  "streams": 28,
+  "config_sha256": "46EE564F1FF00C38FF20584F016988DF7643E56346D5DAFDF84200757607E813",
+  "resource_after": {
+    "root": 7284314576,
+    "global": 7616625952,
+    "skips": 0
+  },
+  "native_records": 14,
+  "expected_exits": "apps137 intentional; ready01=1 thenready02=0; allothers0",
+  "browser": {
+    "files_rehashed": 11,
+    "actual_response_status_not_separately_captured": true,
+    "root_executed": true,
+    "visuals_inspected": [
+      "draft-with-saved-results.png",
+      "escaped-draft.png"
+    ],
+    "datastar_claim": false,
+    "saved_dom_script_element_absent": true
+  },
+  "decision": "ACCEPT_SCOPED_ACTUAL_LIVE_EVIDENCE_PENDING_SAVED_AUDIT",
+  "raw_hash_length_eof_verified": true
+}

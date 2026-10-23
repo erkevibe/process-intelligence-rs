@@ -133,3 +133,14 @@ evidence/sprint22-calendar-delivery/** -text whitespace=blank-at-eol,blank-at-eo
 evidence/sprint22-calendar-council/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 evidence/sprint22-calendar/**/*.stdout -whitespace
 evidence/sprint22-calendar/browser/*.ax.txt -whitespace
+
+# Preserve finite calendar form evidence bytes.
+evidence/sprint22-calendar-form/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+tools/sprint22-calendar-form/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+docs/SPRINT_22_CALENDAR_FORM_REPORT.md -text
+evidence/sprint22-calendar-form/tests/*.stdout -whitespace
+evidence/sprint22-calendar-form/browser/*.ax.txt -whitespace
+docs/ROADMAP.md -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+evidence/sprint22-calendar-form-council/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+tools/sprint22-calendar-form/check-http.py -text whitespace=blank-at-eol,-blank-at-eof,space-before-tab,cr-at-eol
