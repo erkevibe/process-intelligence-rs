@@ -1,0 +1,278 @@
+{
+  "status": "ACTUAL_CURRENT_COMPACT_DR_HTTP_PASS",
+  "new_owner_login": true,
+  "project_id": "project-ec73b44da32f4932a4a5475a7b50d45e",
+  "visible_projects": [
+    "project-11ab804b3fb247ae9fde00f5d9936b88",
+    "project-ec73b44da32f4932a4a5475a7b50d45e"
+  ],
+  "jobs": [
+    {
+      "label": "legacy",
+      "id": "job-1",
+      "artifact_id": "conversion-2",
+      "metadata": {
+        "snapshot": {
+          "id": "job-1",
+          "state": "completed",
+          "stage": "completed",
+          "job_revision": 2,
+          "cancel_requested": false,
+          "result_id": "conversion-2",
+          "error": null
+        },
+        "artifact_id": "conversion-2",
+        "from": "xes",
+        "to": "csv",
+        "filename": "legacy.xes",
+        "owner": "user-08c043b6040a4d398e33625d00a48404",
+        "source_sha256": "932883106b0e2ea511aaf86dc074249b9bd75743c9a4f7b0e20979e5e2a4db07",
+        "input_bytes": 309,
+        "allow_loss": false,
+        "created_at": "2026-10-23T11:44:31.456442100Z",
+        "retry_of": null,
+        "payload_sha256": "29667af4db74c8083bfcd881c35d2b3c4e7d7a4d229de1a4fa33fba7c251f08c",
+        "report_sha256": "d5c85dd8a3351d60dfe9767ae65ae73b987926f83da5668fc1d323f492e1718b"
+      },
+      "source_sha256": "932883106b0e2ea511aaf86dc074249b9bd75743c9a4f7b0e20979e5e2a4db07",
+      "payload": {
+        "file": "legacy-payload.bin",
+        "bytes": 119,
+        "sha256": "29667AF4DB74C8083BFCD881C35D2B3C4E7D7A4D229DE1A4FA33FBA7C251F08C"
+      },
+      "report": {
+        "file": "legacy-report.bin",
+        "bytes": 4024,
+        "sha256": "D5C85DD8A3351D60DFE9767AE65AE73B987926F83DA5668FC1D323F492E1718B"
+      }
+    },
+    {
+      "label": "forward",
+      "id": "job-3",
+      "artifact_id": "conversion-4",
+      "metadata": {
+        "snapshot": {
+          "id": "job-3",
+          "state": "completed",
+          "stage": "completed",
+          "job_revision": 2,
+          "cancel_requested": false,
+          "result_id": "conversion-4",
+          "error": null
+        },
+        "artifact_id": "conversion-4",
+        "from": "xes",
+        "to": "csv",
+        "filename": "forward.xes",
+        "owner": "user-08c043b6040a4d398e33625d00a48404",
+        "source_sha256": "cbbd54489e7058054ebb4fd4091759024ea660129e736ef1f7c640c55f55bd8d",
+        "input_bytes": 10890135,
+        "allow_loss": false,
+        "report_profile": "gzip-hex-report-v1",
+        "created_at": "2026-10-23T11:45:58.726365100Z",
+        "retry_of": null,
+        "payload_sha256": "904bf6c679c73033d53015fc9275f75f6eee7cef1e5cc0f2e5b5c23abbb11314",
+        "report_sha256": "f870c72f8dc4e7da6f7363ddcee8c5240f88d8379790d368934194419750602e"
+      },
+      "source_sha256": "cbbd54489e7058054ebb4fd4091759024ea660129e736ef1f7c640c55f55bd8d",
+      "payload": {
+        "file": "forward-payload.bin",
+        "bytes": 4590035,
+        "sha256": "904BF6C679C73033D53015FC9275F75F6EEE7CEF1E5CC0F2E5B5C23ABBB11314"
+      },
+      "report": {
+        "file": "forward-report.bin",
+        "bytes": 493839,
+        "sha256": "F870C72F8DC4E7DA6F7363DDCEE8C5240F88D8379790D368934194419750602E"
+      }
+    },
+    {
+      "label": "inverse",
+      "id": "job-5",
+      "artifact_id": "conversion-6",
+      "metadata": {
+        "snapshot": {
+          "id": "job-5",
+          "state": "completed",
+          "stage": "completed",
+          "job_revision": 2,
+          "cancel_requested": false,
+          "result_id": "conversion-6",
+          "error": null
+        },
+        "artifact_id": "conversion-6",
+        "from": "csv",
+        "to": "xes",
+        "filename": "inverse.csv",
+        "owner": "user-08c043b6040a4d398e33625d00a48404",
+        "source_sha256": "904bf6c679c73033d53015fc9275f75f6eee7cef1e5cc0f2e5b5c23abbb11314",
+        "input_bytes": 4590035,
+        "allow_loss": false,
+        "report_profile": "gzip-hex-report-v1",
+        "created_at": "2026-10-23T11:46:30.065040900Z",
+        "retry_of": null,
+        "payload_sha256": "79897d0700ae30bf0429125b539655e00b3a6697f5809b8d8b8b633a5563aa60",
+        "report_sha256": "78127bd0882e28508a8117b7be4a3fe32f958614de600b339873121d9e69f40f"
+      },
+      "source_sha256": "904bf6c679c73033d53015fc9275f75f6eee7cef1e5cc0f2e5b5c23abbb11314",
+      "payload": {
+        "file": "inverse-payload.bin",
+        "bytes": 10800133,
+        "sha256": "79897D0700AE30BF0429125B539655E00B3A6697F5809B8D8B8B633A5563AA60"
+      },
+      "report": {
+        "file": "inverse-report.bin",
+        "bytes": 493779,
+        "sha256": "78127BD0882E28508A8117B7BE4A3FE32F958614DE600B339873121D9E69F40F"
+      }
+    }
+  ],
+  "events": [
+    {
+      "method": "POST",
+      "path": "/login",
+      "status": 303,
+      "body": null,
+      "bytes": 0,
+      "sha256": null,
+      "body_not_persisted": true
+    },
+    {
+      "method": "GET",
+      "path": "/project-list/json",
+      "status": 200,
+      "body": {
+        "file": "http-02.bin",
+        "bytes": 343,
+        "sha256": "03D1B1B9DDAAC220C0E9E61CDBD38A451B3A2DB467769DBEE61ED79770A6BAB7"
+      },
+      "bytes": 343,
+      "sha256": "03D1B1B9DDAAC220C0E9E61CDBD38A451B3A2DB467769DBEE61ED79770A6BAB7",
+      "body_not_persisted": false
+    },
+    {
+      "method": "POST",
+      "path": "/projects/project-ec73b44da32f4932a4a5475a7b50d45e/open",
+      "status": 303,
+      "body": {
+        "file": "http-03.bin",
+        "bytes": 0,
+        "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+      },
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "body_not_persisted": false
+    },
+    {
+      "method": "GET",
+      "path": "/conversions/jobs/job-1",
+      "status": 200,
+      "body": {
+        "file": "http-04.bin",
+        "bytes": 623,
+        "sha256": "E74543300896F1F64CCB4D8BA322BBA23278937CC70A65214F2ECA139AADF76B"
+      },
+      "bytes": 623,
+      "sha256": "E74543300896F1F64CCB4D8BA322BBA23278937CC70A65214F2ECA139AADF76B",
+      "body_not_persisted": false
+    },
+    {
+      "method": "GET",
+      "path": "/conversions/jobs/job-1/payload",
+      "status": 200,
+      "body": null,
+      "bytes": 119,
+      "sha256": "29667AF4DB74C8083BFCD881C35D2B3C4E7D7A4D229DE1A4FA33FBA7C251F08C",
+      "body_not_persisted": true
+    },
+    {
+      "method": "GET",
+      "path": "/conversions/jobs/job-1/report",
+      "status": 200,
+      "body": null,
+      "bytes": 4024,
+      "sha256": "D5C85DD8A3351D60DFE9767AE65AE73B987926F83DA5668FC1D323F492E1718B",
+      "body_not_persisted": true
+    },
+    {
+      "method": "GET",
+      "path": "/conversions/jobs/job-3",
+      "status": 200,
+      "body": {
+        "file": "http-07.bin",
+        "bytes": 667,
+        "sha256": "B996DDA011E29C671AF4C71AF92826487DF5C4BE78EC701A936464E2A0113E85"
+      },
+      "bytes": 667,
+      "sha256": "B996DDA011E29C671AF4C71AF92826487DF5C4BE78EC701A936464E2A0113E85",
+      "body_not_persisted": false
+    },
+    {
+      "method": "GET",
+      "path": "/conversions/jobs/job-3/payload",
+      "status": 200,
+      "body": null,
+      "bytes": 4590035,
+      "sha256": "904BF6C679C73033D53015FC9275F75F6EEE7CEF1E5CC0F2E5B5C23ABBB11314",
+      "body_not_persisted": true
+    },
+    {
+      "method": "GET",
+      "path": "/conversions/jobs/job-3/report",
+      "status": 200,
+      "body": null,
+      "bytes": 493839,
+      "sha256": "F870C72F8DC4E7DA6F7363DDCEE8C5240F88D8379790D368934194419750602E",
+      "body_not_persisted": true
+    },
+    {
+      "method": "GET",
+      "path": "/conversions/jobs/job-5",
+      "status": 200,
+      "body": {
+        "file": "http-10.bin",
+        "bytes": 666,
+        "sha256": "D1255BF14C2D8E4C1D388475E47644873180492B918A9C044F61F11A6DD13672"
+      },
+      "bytes": 666,
+      "sha256": "D1255BF14C2D8E4C1D388475E47644873180492B918A9C044F61F11A6DD13672",
+      "body_not_persisted": false
+    },
+    {
+      "method": "GET",
+      "path": "/conversions/jobs/job-5/payload",
+      "status": 200,
+      "body": null,
+      "bytes": 10800133,
+      "sha256": "79897D0700AE30BF0429125B539655E00B3A6697F5809B8D8B8B633A5563AA60",
+      "body_not_persisted": true
+    },
+    {
+      "method": "GET",
+      "path": "/conversions/jobs/job-5/report",
+      "status": 200,
+      "body": null,
+      "bytes": 493779,
+      "sha256": "78127BD0882E28508A8117B7BE4A3FE32F958614DE600B339873121D9E69F40F",
+      "body_not_persisted": true
+    },
+    {
+      "method": "GET",
+      "path": "/conversions",
+      "status": 200,
+      "body": {
+        "file": "http-13.bin",
+        "bytes": 7033,
+        "sha256": "2BE8DBBF19F4E9D89D05A557E9C0A3F85A6AD83849D72BFB67489285AF80139D"
+      },
+      "bytes": 7033,
+      "sha256": "2BE8DBBF19F4E9D89D05A557E9C0A3F85A6AD83849D72BFB67489285AF80139D",
+      "body_not_persisted": false
+    }
+  ],
+  "source_input_coverage": "Pinned restored SQL full-row fingerprints plus exact input SHA/length metadata; no input HTTP endpoint claimed.",
+  "limits": [
+    "Owner-only; API RBAC coverage carried separately.",
+    "No conversion rerun, upload, cluster/PITR or HA claim."
+  ]
+}

@@ -1,0 +1,1147 @@
+{
+  "schema_version": 1,
+  "kind": "S24_CURRENT_COMPACT_DR03_ACTUAL_LOCAL_ACCEPTANCE",
+  "agent": "QA_ProcessLogAuditor",
+  "utc": "2026-10-23T19:35:45.487Z",
+  "decision": "ACCEPT_FINITE_CURRENT_MIXED_FULL_DATABASE_RESTORE_OWNER_SCOPE",
+  "config_sha256": "73AFBA494A23CE9494D512F27E30650757341A05ED5FC484705DCD1771379624",
+  "phase_proof_sha256": "C15884CBA13882B7CDE848A22044C258FE340B87FFC8D405FD57D148B76F354A",
+  "native_count": 28,
+  "full_stream_count": 56,
+  "native_inventory": [
+    {
+      "path": ".local/sprint21/root/sprint24/current-compact-dr03/collector.process.json",
+      "sha256": "45291720D6F40EDE83CDF99DBE7F72138E1BDC03D79ACDA6CB8344480F53CD24",
+      "label": "collector",
+      "pid": 67436,
+      "exit": 0,
+      "completed_utc": "2026-10-23T19:33:41.1942843Z",
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true
+        }
+      ]
+    },
+    {
+      "path": ".local/sprint21/root/sprint24/current-compact-dr03/session/app-restored.process.json",
+      "sha256": "2E14C91CFA3590869E61E41FF2DB825F0DB619EBA217835695EE540BE71C006A",
+      "label": "app-restored",
+      "pid": 79664,
+      "birth": "134372575394263577",
+      "exit": 137,
+      "resume_utc": "2026-10-23T19:32:19.4478563Z",
+      "completed_utc": "2026-10-23T19:32:39.9074043+00:00",
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 5942,
+          "sha256": "7C6BE49D1DFE8E754C61E1E1BB717C3F2720506EEBC07472EE5B8B05C80D1E86",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "path": ".local/sprint21/root/sprint24/current-compact-dr03/session/app10k.process.json",
+      "sha256": "7A59A16212435DF10D589DDCA92CB64CF0370D1605CF84673985D2B1FD650CCB",
+      "label": "app10k",
+      "pid": 69676,
+      "birth": "134372575113057470",
+      "exit": 0,
+      "resume_utc": "2026-10-23T19:31:51.3498271Z",
+      "completed_utc": "2026-10-23T19:31:52.0067244+00:00",
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 9457,
+          "sha256": "9804C17A89A99EDC13FA14A5AA4C6E1B6CB049DC4DA5F6534D58DC106A9E30C8",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "path": ".local/sprint21/root/sprint24/current-compact-dr03/session/app90k.process.json",
+      "sha256": "BD08969C8A99D3BFD10E7D054AFAC3C90769B5A0C1E1036EFEF880E1F9D94F62",
+      "label": "app90k",
+      "pid": 70140,
+      "birth": "134372575280422727",
+      "exit": 0,
+      "resume_utc": "2026-10-23T19:32:08.0688530Z",
+      "completed_utc": "2026-10-23T19:32:08.6583697+00:00",
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 9457,
+          "sha256": "9804C17A89A99EDC13FA14A5AA4C6E1B6CB049DC4DA5F6534D58DC106A9E30C8",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "path": ".local/sprint21/root/sprint24/current-compact-dr03/session/audit-current.process.json",
+      "sha256": "A1185E897E92A2BB4BA9D1043C4B9C8269B9DD4117BC95C3D9583CB539EBC8DF",
+      "label": "audit-current",
+      "pid": 55828,
+      "birth": "134372575692584685",
+      "exit": 0,
+      "resume_utc": "2026-10-23T19:32:49.3747214Z",
+      "completed_utc": "2026-10-23T19:33:14.5547324+00:00",
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "path": ".local/sprint21/root/sprint24/current-compact-dr03/session/audit-legacy.process.json",
+      "sha256": "D7BFB367B25EBA2EC9864A50C0DBDEA85CE551370A503E1CA461CD11F3BC4F5F",
+      "label": "audit-legacy",
+      "pid": 37848,
+      "birth": "134372575946887790",
+      "exit": 0,
+      "resume_utc": "2026-10-23T19:33:14.7465157Z",
+      "completed_utc": "2026-10-23T19:33:15.0250264+00:00",
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "path": ".local/sprint21/root/sprint24/current-compact-dr03/session/check-cohort.process.json",
+      "sha256": "7523829B27689223AE666F76BE8581EF96BC73009026FFCBCCCA67D51D480D15",
+      "label": "check-cohort",
+      "pid": 67420,
+      "birth": "134372575135676683",
+      "exit": 0,
+      "resume_utc": "2026-10-23T19:31:53.6046744Z",
+      "completed_utc": "2026-10-23T19:31:53.7956114+00:00",
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 54,
+          "sha256": "04606A07FB1ABD28C581E27B6E732CB55451DDAD97A07B064A7A06B06A077F3B",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "path": ".local/sprint21/root/sprint24/current-compact-dr03/session/child.process.json",
+      "sha256": "1C3A55EE50F4E868E2DEF529F04000CB00C7CF232129CDEE954B5493FC013B76",
+      "label": "child",
+      "pid": 58648,
+      "birth": "134372575347347246",
+      "exit": 0,
+      "resume_utc": "2026-10-23T19:32:14.7760906Z",
+      "completed_utc": "2026-10-23T19:32:15.3427061+00:00",
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 9457,
+          "sha256": "9804C17A89A99EDC13FA14A5AA4C6E1B6CB049DC4DA5F6534D58DC106A9E30C8",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "path": ".local/sprint21/root/sprint24/current-compact-dr03/session/compare-all.process.json",
+      "sha256": "D9355FA7A4616A3010B7EB361BAA05910757D91CAE25336A81C8E47C2CACFB08",
+      "label": "compare-all",
+      "pid": 77812,
+      "birth": "134372575669696007",
+      "exit": 0,
+      "resume_utc": "2026-10-23T19:32:47.0207671Z",
+      "completed_utc": "2026-10-23T19:32:47.2199295+00:00",
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 454,
+          "sha256": "F3ABF71D970142DB444FABE42BC77DEFAF01E1AF47D4F6CF70DA333D1303EA12",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "path": ".local/sprint21/root/sprint24/current-compact-dr03/session/compare-pre.process.json",
+      "sha256": "17F994065FD6965F67D40FF51174CC0B07A3817F6B9BE480B022227CCF5B1F0A",
+      "label": "compare-pre",
+      "pid": 77936,
+      "birth": "134372575369710118",
+      "exit": 0,
+      "resume_utc": "2026-10-23T19:32:17.0018345Z",
+      "completed_utc": "2026-10-23T19:32:17.1833198+00:00",
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 51,
+          "sha256": "F8B6484AF8ADB8D124C56D51922B72D5CF5AB6EE85F433C6D362010D9B76E7C7",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "path": ".local/sprint21/root/sprint24/current-compact-dr03/session/create-target.process.json",
+      "sha256": "0B4E3E9E65DA465A31305B7B6D863D41FC48A429E4BB63769DC0EB8B862553E2",
+      "label": "create-target",
+      "pid": 75204,
+      "birth": "134372575302600095",
+      "exit": 0,
+      "resume_utc": "2026-10-23T19:32:10.2850103Z",
+      "completed_utc": "2026-10-23T19:32:10.7847586+00:00",
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "path": ".local/sprint21/root/sprint24/current-compact-dr03/session/dump-current.process.json",
+      "sha256": "362CFDAE097DCFD70FF122FC1AA66E52B6660EA6FE651CAB4805C9F8AF90D9F7",
+      "label": "dump-current",
+      "pid": 66668,
+      "birth": "134372575158089539",
+      "exit": 0,
+      "resume_utc": "2026-10-23T19:31:55.8393991Z",
+      "completed_utc": "2026-10-23T19:31:56.4741431+00:00",
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "path": ".local/sprint21/root/sprint24/current-compact-dr03/session/http90k.process.json",
+      "sha256": "A2FEA22AB32D83FF4CA8F5B894D4E6EE24E2565648FCC3D5BCA0506E6F0E0BF5",
+      "label": "http90k",
+      "pid": 49280,
+      "birth": "134372575400961989",
+      "exit": 0,
+      "resume_utc": "2026-10-23T19:32:20.1399608Z",
+      "completed_utc": "2026-10-23T19:32:39.7327128+00:00",
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "path": ".local/sprint21/root/sprint24/current-compact-dr03/session/list-current.process.json",
+      "sha256": "134CE5936868017172F8032D45B9C7CEA1E6640ED60A938C33E6C70EA32D3D65",
+      "label": "list-current",
+      "pid": 5956,
+      "birth": "134372575278383713",
+      "exit": 0,
+      "resume_utc": "2026-10-23T19:32:07.8599915Z",
+      "completed_utc": "2026-10-23T19:32:07.9520439+00:00",
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 1599,
+          "sha256": "D357C1AC13A1219F2B9F89F1BA246B1830D167365A6FBF37C40E9589C94C3869",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "path": ".local/sprint21/root/sprint24/current-compact-dr03/session/pg-stop.process.json",
+      "sha256": "58E8B6BFAB001CEDA9FC8D8CC7565DC94AFFD6BD544CCC0B774A8760F5CFB033",
+      "label": "pg-stop",
+      "pid": 67076,
+      "birth": "134372576074115949",
+      "exit": 0,
+      "resume_utc": "2026-10-23T19:33:27.4404575Z",
+      "completed_utc": "2026-10-23T19:33:28.0537019+00:00",
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 58,
+          "sha256": "3589D2BD01F8295CC7C9EC3F5E07625FCD347CCB6F33F2D80EDAFE5F5217C1FB",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "path": ".local/sprint21/root/sprint24/current-compact-dr03/session/postgres.process.json",
+      "sha256": "D1AF97DB21702B226E61D716D19E229C52707296CDE39E9DF9ABF496D2A80849",
+      "label": "postgres",
+      "pid": 67264,
+      "birth": "134372574975894130",
+      "exit": 0,
+      "resume_utc": "2026-10-23T19:31:37.6331624Z",
+      "completed_utc": "2026-10-23T19:33:27.9917170+00:00",
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 2431,
+          "sha256": "BCFD2A403E6F53E584CF504B9406227E1B3ED057C62F3AD326240C6D92D86F15",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "path": ".local/sprint21/root/sprint24/current-compact-dr03/session/ready-01.process.json",
+      "sha256": "C64A194C30ACBE6654B893FAE68499DE1071949B9EF702B4CA7511DFA2098252",
+      "label": "ready-01",
+      "pid": 74552,
+      "birth": "134372574977208184",
+      "exit": 1,
+      "resume_utc": "2026-10-23T19:31:37.7448064Z",
+      "completed_utc": "2026-10-23T19:31:37.9609135+00:00",
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 41,
+          "sha256": "62285DBF9A623B155EF5FBB74B1E0BB1AAC8583FF3EDECDF23D4EE6D4804EC5B",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "path": ".local/sprint21/root/sprint24/current-compact-dr03/session/ready-02.process.json",
+      "sha256": "FFC87F08589C607F7E497AAEAE50CA8253C977F48CB40C2F7E97C43A3D6858F4",
+      "label": "ready-02",
+      "pid": 12016,
+      "birth": "134372574999929633",
+      "exit": 1,
+      "resume_utc": "2026-10-23T19:31:40.0326272Z",
+      "completed_utc": "2026-10-23T19:31:40.1520596+00:00",
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 41,
+          "sha256": "62285DBF9A623B155EF5FBB74B1E0BB1AAC8583FF3EDECDF23D4EE6D4804EC5B",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "path": ".local/sprint21/root/sprint24/current-compact-dr03/session/ready-03.process.json",
+      "sha256": "AEE27ADDCC035A0FA3429C1341C72FB4411595685253B69086C77CC1D9453C07",
+      "label": "ready-03",
+      "pid": 78056,
+      "birth": "134372575022572633",
+      "exit": 1,
+      "resume_utc": "2026-10-23T19:31:42.2878068Z",
+      "completed_utc": "2026-10-23T19:31:42.3918768+00:00",
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 41,
+          "sha256": "62285DBF9A623B155EF5FBB74B1E0BB1AAC8583FF3EDECDF23D4EE6D4804EC5B",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "path": ".local/sprint21/root/sprint24/current-compact-dr03/session/ready-04.process.json",
+      "sha256": "309F41E387B9E72943546C59E31864874F10CF5B8F1EEE9F1388D5B4C9F954E5",
+      "label": "ready-04",
+      "pid": 63068,
+      "birth": "134372575045043798",
+      "exit": 0,
+      "resume_utc": "2026-10-23T19:31:44.5324113Z",
+      "completed_utc": "2026-10-23T19:31:44.6522827+00:00",
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 41,
+          "sha256": "48F05044D763F65E81DF5FA8BE71F5A81EC224D0B419A9BFA6132B7FBC62D7F4",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "path": ".local/sprint21/root/sprint24/current-compact-dr03/session/restore-current.process.json",
+      "sha256": "C609C5AE49FA378D45C359EC4ABAEF7040AA1499A737B19D5342400C854E2768",
+      "label": "restore-current",
+      "pid": 73116,
+      "birth": "134372575324890493",
+      "exit": 0,
+      "resume_utc": "2026-10-23T19:32:12.5339779Z",
+      "completed_utc": "2026-10-23T19:32:13.1903837+00:00",
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "path": ".local/sprint21/root/sprint24/current-compact-dr03/session/source-cohort.process.json",
+      "sha256": "680910D40762A49BB465696A37CA2952B3C1C784DD8C399AD1AC80105FF4469E",
+      "label": "source-cohort",
+      "pid": 55996,
+      "birth": "134372575090371313",
+      "exit": 0,
+      "resume_utc": "2026-10-23T19:31:49.0766500Z",
+      "completed_utc": "2026-10-23T19:31:49.2285902+00:00",
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 3926,
+          "sha256": "ECE94BE9FFBAC55A06C19944C1C7F45EB05139F8A07C697AB71CEB23D1453404",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "path": ".local/sprint21/root/sprint24/current-compact-dr03/session/source10k.process.json",
+      "sha256": "F0CD14A4CAA0993A631A18E64B03D624810846278B93CDB9EE4A1D7641C6057C",
+      "label": "source10k",
+      "pid": 76436,
+      "birth": "134372575067355182",
+      "exit": 0,
+      "resume_utc": "2026-10-23T19:31:46.7765123Z",
+      "completed_utc": "2026-10-23T19:31:46.8808838+00:00",
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 226,
+          "sha256": "F931CF04BE9D828CBB210B9D7909CF0CF43018FD2151A43A3955B2936CBC21A1",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "path": ".local/sprint21/root/sprint24/current-compact-dr03/session/source90k.process.json",
+      "sha256": "4A477A076FB9ECE91786716FBFF0EFF7A797CF4CF967AB095AD72E573C91B9F6",
+      "label": "source90k",
+      "pid": 55744,
+      "birth": "134372575646731270",
+      "exit": 0,
+      "resume_utc": "2026-10-23T19:32:44.7154598Z",
+      "completed_utc": "2026-10-23T19:32:45.2451637+00:00",
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 9457,
+          "sha256": "9804C17A89A99EDC13FA14A5AA4C6E1B6CB049DC4DA5F6534D58DC106A9E30C8",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "path": ".local/sprint21/root/sprint24/current-compact-dr03/session/target-after.process.json",
+      "sha256": "161C7D0B227C8F361889F7F31D69D7294D8009681CAA4A96352472C4171C9E86",
+      "label": "target-after",
+      "pid": 67640,
+      "birth": "134372575600464397",
+      "exit": 0,
+      "resume_utc": "2026-10-23T19:32:40.0907573Z",
+      "completed_utc": "2026-10-23T19:32:40.6502925+00:00",
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 9457,
+          "sha256": "490B8361BE6C3D6E208A8BF2C14B6338A9EB1CE13B7D508D402875D7EC7791A6",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "path": ".local/sprint21/root/sprint24/current-compact-dr03/session/target-cohort.process.json",
+      "sha256": "7C84DC121F6B9FA80605CA96D579576FC3E02AF4D89901B8569904C764BA1121",
+      "label": "target-cohort",
+      "pid": 79796,
+      "birth": "134372575623961867",
+      "exit": 0,
+      "resume_utc": "2026-10-23T19:32:42.4295386Z",
+      "completed_utc": "2026-10-23T19:32:42.5838884+00:00",
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 3930,
+          "sha256": "DCEA5361EDD77EE81EEE217032BA4A5614783C14E121DD48F2A669D0305C9490",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "path": ".local/sprint21/root/sprint24/current-compact-dr03/session/worker.process.json",
+      "sha256": "D07A43A194740694219C82FE44A0EA18A1D7F8F8DA88931811D70CF83CEEB742",
+      "label": "worker",
+      "pid": 70096,
+      "birth": "134372574968581020",
+      "exit": 0,
+      "resume_utc": "2026-10-23T19:31:36.9373109Z",
+      "completed_utc": "2026-10-23T19:33:29.8131014+00:00",
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "path": ".local/sprint21/root/sprint24/dr-launch-external03/dr-launch.process.json",
+      "sha256": "F37FB9F2FE6064CBCF50649F0A9342A02B0C07B87004BBD2EAD5ACAF3EA80587",
+      "label": "dr-launch",
+      "pid": 67192,
+      "exit": 0,
+      "completed_utc": "2026-10-23T19:33:41.3276052Z",
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true
+        }
+      ]
+    }
+  ],
+  "raw_mismatches": 0,
+  "live_observation_journal": {
+    "file": "dr03-live-observations01.jsonl",
+    "sha256": "7768DFD6395C974ED6BA354F5433FB25B8064DE15403E36962260E556A265B26",
+    "actual_during_producer": true
+  },
+  "recovery": {
+    "known_old_pid": 63344,
+    "known_old_birth": "134372569672472071",
+    "stock_recovery_markers_interrupted_redo_ready_clean": true,
+    "no_manual_PID_WAL_delete": true,
+    "recovered_failed02_source_snapshot_byte_equal": true
+  },
+  "snapshots": {
+    "exact_full_five_table_sequence_source_before_afterdump_targetpreapp_sourcefinal_byte_equal": true,
+    "typed_numbers_preserved_in_independent_comparison": true,
+    "row_counts": [
+      {
+        "table": "pi_kv",
+        "rows": 1
+      },
+      {
+        "table": "pi_migration_v2",
+        "rows": 0
+      },
+      {
+        "table": "pi_projects",
+        "rows": 2
+      },
+      {
+        "table": "pi_records",
+        "rows": 5
+      },
+      {
+        "table": "pi_schema_migrations",
+        "rows": 3
+      }
+    ],
+    "postlogin_business_equal": true,
+    "postlogin_nonauthKV_equal": true,
+    "nonauthKV_count": 0,
+    "auth_stable_excluding_sessions_equal": true,
+    "auth_fingerprints_not_disclosed": true,
+    "source_other_sessions": 0,
+    "source_physical_bytes": 9180863
+  },
+  "dump": {
+    "bytes": 174424,
+    "sha256": "43E7D9200C2AA29B87A622C35F8BDE6AE3A4E7300ADC462D06657299463F1736",
+    "bound_postexit_128MiB": true,
+    "not_writer_hardcap": true,
+    "worker_before_after_restore_identity_equal": true,
+    "TOC_bytes": 1599,
+    "TOC_sha256": "D357C1AC13A1219F2B9F89F1BA246B1830D167365A6FBF37C40E9589C94C3869",
+    "full_DATABASE_not_cluster": true,
+    "restore_native0_singletransaction": true
+  },
+  "HTTP": {
+    "proof_sha256": "5F661537908B8E7968D198EE317868417B4240E839920E8454F459CC318A7AB6",
+    "events": 13,
+    "proof_journal_values_equal": true,
+    "all_persisted_raw_SHA_length_match": true,
+    "new_owner_emptycookie_login303": true,
+    "two_restored_projects_visible": true,
+    "complete3metadata_typed_equal": true,
+    "pairs": [
+      {
+        "id": "job-1",
+        "label": "legacy",
+        "metadata_typed_equal": true,
+        "parts": [
+          {
+            "part": "payload",
+            "bytes": 119,
+            "sha256": "29667AF4DB74C8083BFCD881C35D2B3C4E7D7A4D229DE1A4FA33FBA7C251F08C",
+            "descriptor_match": true,
+            "baseline_match": true
+          },
+          {
+            "part": "report",
+            "bytes": 4024,
+            "sha256": "D5C85DD8A3351D60DFE9767AE65AE73B987926F83DA5668FC1D323F492E1718B",
+            "descriptor_match": true,
+            "baseline_match": true
+          }
+        ]
+      },
+      {
+        "id": "job-3",
+        "label": "forward",
+        "metadata_typed_equal": true,
+        "parts": [
+          {
+            "part": "payload",
+            "bytes": 4590035,
+            "sha256": "904BF6C679C73033D53015FC9275F75F6EEE7CEF1E5CC0F2E5B5C23ABBB11314",
+            "descriptor_match": true,
+            "baseline_match": true
+          },
+          {
+            "part": "report",
+            "bytes": 493839,
+            "sha256": "F870C72F8DC4E7DA6F7363DDCEE8C5240F88D8379790D368934194419750602E",
+            "descriptor_match": true,
+            "baseline_match": true
+          }
+        ]
+      },
+      {
+        "id": "job-5",
+        "label": "inverse",
+        "metadata_typed_equal": true,
+        "parts": [
+          {
+            "part": "payload",
+            "bytes": 10800133,
+            "sha256": "79897D0700AE30BF0429125B539655E00B3A6697F5809B8D8B8B633A5563AA60",
+            "descriptor_match": true,
+            "baseline_match": true
+          },
+          {
+            "part": "report",
+            "bytes": 493779,
+            "sha256": "78127BD0882E28508A8117B7BE4A3FE32F958614DE600B339873121D9E69F40F",
+            "descriptor_match": true,
+            "baseline_match": true
+          }
+        ]
+      }
+    ],
+    "closed_private_value_matches": 0,
+    "input_HTTP_endpoint_not_claimed": true
+  },
+  "audits": {
+    "current": {
+      "sha256": "019DA5CD620BF299A755519BE5D252F6D593F6681303945A11B25A54E310FBC4",
+      "value": {
+        "status": "INDEPENDENT_COMPACT_REPORT_DIRECT_SOURCE_PAYLOAD_AUDIT_PASS",
+        "encoding": {
+          "stored_schema": 2,
+          "profile": "gzip-hex-report-v1",
+          "codec_sha256": "620468860f91b64ad21f64427e97eafdcb3d50506236ca38315485b1c29004d4",
+          "stored_sha256": "f870c72f8dc4e7da6f7363ddcee8c5240f88d8379790d368934194419750602e",
+          "stored_bytes": 493839,
+          "decoded_bytes": 14751404,
+          "decoded_sha256": "6540db626e59a25a62f1661b5c5daf4f12b0bbdd01045d3635cbe9fad5dda145",
+          "codec_source_identity_verified": true
+        },
+        "logical_schema": 1,
+        "from": "xes",
+        "to": "csv",
+        "source_sha256": "cbbd54489e7058054ebb4fd4091759024ea660129e736ef1f7c640c55f55bd8d",
+        "source_bytes": 10890135,
+        "payload_sha256": "904bf6c679c73033d53015fc9275f75f6eee7cef1e5cc0f2e5b5c23abbb11314",
+        "payload_bytes": 4590035,
+        "logical_status": "converted",
+        "event_count": 90000,
+        "frozen_case": null,
+        "manual_complexity": "CMP90K",
+        "provided_inverse_pair_checked": true,
+        "native_invocation_verified": false,
+        "source_provenance_files_checked": true,
+        "limits": [
+          "Direct independent input/payload parsing and full claimed evidence; no product decoder.",
+          "Actual native invocation/exit/fullEOF, including actual inverse, are separate ProcessLogAuditor gates.",
+          "Finite approved profile/manual corpus, no broad R5/enterprise/RAM claim."
+        ]
+      }
+    },
+    "legacy": {
+      "sha256": "207E32E74F740E945FB5B35BCAAEA9786CB74FC42E6686793D448DFABEA7979A",
+      "value": {
+        "status": "INDEPENDENT_COMPACT_REPORT_DIRECT_SOURCE_PAYLOAD_AUDIT_PASS",
+        "encoding": {
+          "stored_schema": 1,
+          "stored_sha256": "d5c85dd8a3351d60dfe9767ae65ae73b987926f83da5668fc1d323f492e1718b",
+          "stored_bytes": 4024
+        },
+        "logical_schema": 1,
+        "from": "xes",
+        "to": "csv",
+        "source_sha256": "932883106b0e2ea511aaf86dc074249b9bd75743c9a4f7b0e20979e5e2a4db07",
+        "source_bytes": 309,
+        "payload_sha256": "29667af4db74c8083bfcd881c35d2b3c4e7d7a4d229de1a4fa33fba7c251f08c",
+        "payload_bytes": 119,
+        "logical_status": "converted",
+        "event_count": 2,
+        "frozen_case": null,
+        "manual_complexity": null,
+        "provided_inverse_pair_checked": false,
+        "native_invocation_verified": false,
+        "source_provenance_files_checked": false,
+        "limits": [
+          "Direct independent input/payload parsing and full claimed evidence; no product decoder.",
+          "Actual native invocation/exit/fullEOF, including actual inverse, are separate ProcessLogAuditor gates.",
+          "Finite approved profile/manual corpus, no broad R5/enterprise/RAM claim."
+        ]
+      }
+    },
+    "snapshot": {
+      "sha256": "629CC4A8804FD96E0B682526BE9BB6D3432E058EA635D6FC7FA7E5DDE09CA3F7",
+      "value": {
+        "status": "ACTUAL_CURRENT_COMPACT_DR_SNAPSHOT_PASS",
+        "all_five_tables_before_login_equal": true,
+        "source_before_after_dump_final_equal": true,
+        "postlogin_business_and_non_auth_kv_equal": true,
+        "users_memberships_credentials_and_non_session_auth_equal": true,
+        "owner_users": 1,
+        "projects": 2,
+        "completed_jobs": 3,
+        "limits": [
+          "Same PG18 jsonb binary encoding only.",
+          "No full schema certification, globals, cluster/PITR or restored RBAC matrix claim."
+        ]
+      }
+    }
+  },
+  "chronology": {
+    "recovered_snapshot_before_dump": true,
+    "restore_before_precompare": true,
+    "precompare_before_app": true,
+    "appclosed_before_postsnapshot": true,
+    "audits_before_pgstop": true
+  },
+  "closure": {
+    "broker_failure": null,
+    "primary_exception": null,
+    "guard_failure": null,
+    "kill_fault": false,
+    "PG_exit": 0,
+    "PG_stop_exit": 0,
+    "app_exit137_intentional": true,
+    "worker_collector_outer0": true,
+    "PID_absent": true,
+    "after": {
+      "skipped_vanished_target_entries": 0,
+      "root_logical_bytes": 8103428461,
+      "files": 61328,
+      "logical_bytes": 8580055669,
+      "allocation_bytes": 8643084128,
+      "root_allocation_bytes": 8145824832,
+      "scope": "non-atomic read-only sampling; vanished compiler-target entries or exact owned pgdata11/base/nonzero-decimal-OID/pg_internal.init only; second genuine absence required; 512MiB headroom mandatory",
+      "skipped_vanished_pg_internal_init_entries": 0
+    }
+  },
+  "limits": [
+    "Same current072/samePG18 logical fullDATABASE restore, preexistingclusterroles; no cluster/globalroleprovision/PITR/physical/powerloss/crossmajor/RTO/RPO/SLO/HA.",
+    "Owneronly1user2projects3completedmixedpairs, no restoredviewer/editor/crossowner/cancelled/interrupted claim.",
+    "No newconversion/compiler/Java; full048A audits saved restored input/payload evidence, legacy provenancefilesuncheckedexplicit.",
+    "Privatearchive/fullSQLsnapshots/authdigests/credentials must not be published.",
+    "Localtechnicalacceptance only; newpublicselection/privacy/CI/exactdownload/finalquiet/delivery pending.",
+    "Priorattempt01/02FAIL and admissionmisses/historicalUNKNOWN retained."
+  ],
+  "authorship": "TD harness+HTTP, Root comparator/integration; QA independently source/runtime and actualallraw/fullsnapshot/HTTPbytes/order reviewed. 048A QA-authoredhistoricalauditor independentlyRootTDsource-reviewed, not soleQAselfacceptance. No native/Git/scans byQA."
+}

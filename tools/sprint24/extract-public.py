@@ -59,7 +59,9 @@ def main():
          0 <= verification['uncompressed_bytes'] <= 128 * 1024 * 1024, 'whole_verification_bounds')
     need(sha(bounded_read(args.archive, 32 * 1024 * 1024)) == verification['public_zip_sha256'], 'same_verified_zip')
     exact = {'tools/sprint20/verify-evidence-manifest.py', '.gitattributes', '.github/workflows/ci.yml',
-             'docs/CAPACITY_DIAGNOSTIC.md', 'docs/DATABASE_RECOVERY.md', 'docs/SPRINT_24_REPORT.md'}
+             'docs/CAPACITY_DIAGNOSTIC.md', 'docs/DATABASE_RECOVERY.md', 'docs/SPRINT_24_REPORT.md',
+             'docs/CURRENT_DATABASE_RESTORE.md', 'docs/ENTERPRISE_QUOTA_PLAN.md',
+             'docs/SPRINT_24_DR_REPORT.md'}
     wanted = {name: row for name, row in verification['all_files'].items()
               if name in exact or name.startswith(('tools/sprint24/', 'evidence/sprint24/'))}
     need(exact <= set(wanted) and 1 <= len(wanted) <= 1000, 'fixed_subset')

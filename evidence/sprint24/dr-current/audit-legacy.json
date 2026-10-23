@@ -1,0 +1,27 @@
+{
+  "status": "INDEPENDENT_COMPACT_REPORT_DIRECT_SOURCE_PAYLOAD_AUDIT_PASS",
+  "encoding": {
+    "stored_schema": 1,
+    "stored_sha256": "d5c85dd8a3351d60dfe9767ae65ae73b987926f83da5668fc1d323f492e1718b",
+    "stored_bytes": 4024
+  },
+  "logical_schema": 1,
+  "from": "xes",
+  "to": "csv",
+  "source_sha256": "932883106b0e2ea511aaf86dc074249b9bd75743c9a4f7b0e20979e5e2a4db07",
+  "source_bytes": 309,
+  "payload_sha256": "29667af4db74c8083bfcd881c35d2b3c4e7d7a4d229de1a4fa33fba7c251f08c",
+  "payload_bytes": 119,
+  "logical_status": "converted",
+  "event_count": 2,
+  "frozen_case": null,
+  "manual_complexity": null,
+  "provided_inverse_pair_checked": false,
+  "native_invocation_verified": false,
+  "source_provenance_files_checked": false,
+  "limits": [
+    "Direct independent input/payload parsing and full claimed evidence; no product decoder.",
+    "Actual native invocation/exit/fullEOF, including actual inverse, are separate ProcessLogAuditor gates.",
+    "Finite approved profile/manual corpus, no broad R5/enterprise/RAM claim."
+  ]
+}

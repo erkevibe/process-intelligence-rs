@@ -8,6 +8,29 @@ metadata:
 
 # Scope and evidence
 
+## Verify the complete command plan before starting services
+
+Sprint24 DR had two failed plan admissions: trailing working-directory separators,
+then a manually transcribed62-hex pg_dump pin. Comparing duplicated command and
+configuration fields with each other did not establish agreement with the real file.
+The broker refused both safely, but the second refusal occurred after PostgreSQL
+started and required an owned ordinary recovery.
+
+Before any service starts, evaluate every command guard: label uniqueness,
+exact admitted working directory, executable/key binding,64-hex digest, actual
+executable bytes, stream cap, service status, timeout and target connection.
+Deduplicate actual executable reads by admitted path; derive pins from the actual
+file rather than transcribing them. Keep the final broker recheck as well.
+For relocated drafts, normalize the plan to its admitted canonical directory;
+do not weaken the exact guard to hide an erroneous plan.
+
+Verified correction: actual preflight rejects the old malformed pin and a coherent
+wrong64-hex command/config pair, accepts all31 corrected commands/eight programs,
+then the independently accepted full database recovery completes28 invocations
+with56 full streams. Public evidence: `evidence/sprint24/dr-current/guard-regression.json`,
+`qa-acceptance.json` and `td-acceptance.json`. Known failed attempts remain failed;
+the private archive/auth snapshots are not public replay inputs.
+
 Use for this repository's portable Windows PostgreSQL18.6 package. Maintained setup-postgres.ps1/start-packaged.ps1 own versions and paths. Read them before changing a mechanism. This skill does not certify release acceptance, general PostgreSQL administration or interrupted initialization recovery.
 
 Real package07 evidence verified 1635 manifest file hashes/sizes, fresh bundled first initialization, app-role nonsuperuser transaction probe, and Windows PowerShell5 role-exists/database-missing recovery. Evidence belongs to source acb3cf024aecc8bcb2641854875654511288c34c, not automatically a subsequent source. Public audit: flw/evidence/sprint-02-debt.md. Raw logs remain private: .local/logs/s2-package-bootstrap-07.log, s2-package-bootstrap-recovery-07.log and s2-package-verify07.log.

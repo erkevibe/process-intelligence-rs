@@ -1,0 +1,14 @@
+{
+  "status": "ACTUAL_CURRENT_COMPACT_DR_SNAPSHOT_PASS",
+  "all_five_tables_before_login_equal": true,
+  "source_before_after_dump_final_equal": true,
+  "postlogin_business_and_non_auth_kv_equal": true,
+  "users_memberships_credentials_and_non_session_auth_equal": true,
+  "owner_users": 1,
+  "projects": 2,
+  "completed_jobs": 3,
+  "limits": [
+    "Same PG18 jsonb binary encoding only.",
+    "No full schema certification, globals, cluster/PITR or restored RBAC matrix claim."
+  ]
+}
