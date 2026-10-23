@@ -1,0 +1,195 @@
+{
+  "status": "INDEPENDENT_SAVED_HTTP_CALENDAR_MANUAL_ORACLES_AND_C01_C02_PARITY_VERIFIED",
+  "observations": [
+    {
+      "candidate": "C01",
+      "proof_sha256": "CD6F3BF91784CD40335DE4364BC83FACD76D00D69EC6089FCA4F7D37040CEE15",
+      "comparison": [
+        {
+          "case": "spring",
+          "boundary": {
+            "calendar": {
+              "end_minute": 240,
+              "holidays": [],
+              "offset_minutes": 0,
+              "start_minute": 150,
+              "timezone": "Europe/Berlin",
+              "weekdays": [
+                7
+              ]
+            },
+            "business_durations": [
+              {
+                "case_id": "case-0",
+                "reason": "calendar_boundary",
+                "status": "unverified"
+              }
+            ]
+          },
+          "corrected": {
+            "calendar": {
+              "end_minute": 240,
+              "holidays": [],
+              "offset_minutes": 0,
+              "start_minute": 60,
+              "timezone": "Europe/Berlin",
+              "weekdays": [
+                7
+              ]
+            },
+            "business_durations": [
+              {
+                "business_millis": 7200000,
+                "case_id": "case-0",
+                "end": "2026-03-29T22:00:00Z",
+                "start": "2026-03-28T23:00:00Z",
+                "status": "computed"
+              }
+            ]
+          }
+        },
+        {
+          "case": "fall",
+          "boundary": {
+            "calendar": {
+              "end_minute": 240,
+              "holidays": [],
+              "offset_minutes": 0,
+              "start_minute": 150,
+              "timezone": "Europe/Berlin",
+              "weekdays": [
+                7
+              ]
+            },
+            "business_durations": [
+              {
+                "case_id": "case-0",
+                "reason": "calendar_boundary",
+                "status": "unverified"
+              }
+            ]
+          },
+          "corrected": {
+            "calendar": {
+              "end_minute": 240,
+              "holidays": [],
+              "offset_minutes": 0,
+              "start_minute": 60,
+              "timezone": "Europe/Berlin",
+              "weekdays": [
+                7
+              ]
+            },
+            "business_durations": [
+              {
+                "business_millis": 14400000,
+                "case_id": "case-0",
+                "end": "2026-10-25T23:00:00Z",
+                "start": "2026-10-24T22:00:00Z",
+                "status": "computed"
+              }
+            ]
+          }
+        }
+      ],
+      "raw_responses_verified": 30
+    },
+    {
+      "candidate": "C02",
+      "proof_sha256": "44CD0393E97DEA19EAB2E5354E70DA9CD64D0D58FE83989A4F7CA73E830735C0",
+      "comparison": [
+        {
+          "case": "spring",
+          "boundary": {
+            "calendar": {
+              "end_minute": 240,
+              "holidays": [],
+              "offset_minutes": 0,
+              "start_minute": 150,
+              "timezone": "Europe/Berlin",
+              "weekdays": [
+                7
+              ]
+            },
+            "business_durations": [
+              {
+                "case_id": "case-0",
+                "reason": "calendar_boundary",
+                "status": "unverified"
+              }
+            ]
+          },
+          "corrected": {
+            "calendar": {
+              "end_minute": 240,
+              "holidays": [],
+              "offset_minutes": 0,
+              "start_minute": 60,
+              "timezone": "Europe/Berlin",
+              "weekdays": [
+                7
+              ]
+            },
+            "business_durations": [
+              {
+                "business_millis": 7200000,
+                "case_id": "case-0",
+                "end": "2026-03-29T22:00:00Z",
+                "start": "2026-03-28T23:00:00Z",
+                "status": "computed"
+              }
+            ]
+          }
+        },
+        {
+          "case": "fall",
+          "boundary": {
+            "calendar": {
+              "end_minute": 240,
+              "holidays": [],
+              "offset_minutes": 0,
+              "start_minute": 150,
+              "timezone": "Europe/Berlin",
+              "weekdays": [
+                7
+              ]
+            },
+            "business_durations": [
+              {
+                "case_id": "case-0",
+                "reason": "calendar_boundary",
+                "status": "unverified"
+              }
+            ]
+          },
+          "corrected": {
+            "calendar": {
+              "end_minute": 240,
+              "holidays": [],
+              "offset_minutes": 0,
+              "start_minute": 60,
+              "timezone": "Europe/Berlin",
+              "weekdays": [
+                7
+              ]
+            },
+            "business_durations": [
+              {
+                "business_millis": 14400000,
+                "case_id": "case-0",
+                "end": "2026-10-25T23:00:00Z",
+                "start": "2026-10-24T22:00:00Z",
+                "status": "computed"
+              }
+            ]
+          }
+        }
+      ],
+      "raw_responses_verified": 30
+    }
+  ],
+  "bytes_read": 201331,
+  "browser_observed": false,
+  "timezone_renderer_branch_observed": false,
+  "scope": "Two real HTTP boundary cases, exact fixed manual milliseconds, raw response hashes, submitted calendar forms, rejected updates preserve prior state. Browser and engine-to-renderer timezone branch require separate evidence; no broad R5 closure."
+}

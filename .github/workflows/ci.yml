@@ -86,6 +86,10 @@ jobs:
           python3 -B tests/conversion_evidence_counterfactuals.py --corpus fixtures/conversions/corpus.json --index evidence/sprint21/conversions/index.json --boundary-index evidence/sprint21/conversion-boundaries/index.json --output-directory .local/sprint21/ci/conversion-counterfactuals
           python3 -B tools/oracle/audit-conversion-browser-evidence.py "$PWD" evidence/sprint21/browser .local/sprint21/ci/browser-audit.json
           python3 -B tools/oracle/audit-conversion-browser-evidence.py "$PWD" evidence/sprint21-capacity/browser .local/sprint21/ci/capacity-browser-audit.json
+      - name: Sprint22 calendar evidence and bounded package controls
+        run: |
+          mkdir -p "$RUNNER_TEMP/sprint22-calendar-controls"
+          python3 -I -B tools/sprint22-calendar/check-package-controls.py evidence/sprint22-calendar tools/sprint22-calendar "$RUNNER_TEMP/sprint22-calendar-controls" CA16825641A98A31D4DE0777371358D79711DD7A51663D5379A63ADBBD390573
       - name: Diagnostic protocol and state oracle regressions
         run: |
           node tests/sql5-cycle-regression.cjs

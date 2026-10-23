@@ -1,0 +1,595 @@
+{
+  "status": "FINITE_ACTUAL_HTTP_CALENDAR_ORACLES_PASS",
+  "candidate": "C02",
+  "project_id": "project-853b2a9ef5124bc69afef62c2f04210b",
+  "results": [
+    {
+      "case": "spring",
+      "log_id": "log-3",
+      "boundary": {
+        "calendar": {
+          "end_minute": 240,
+          "holidays": [],
+          "offset_minutes": 0,
+          "start_minute": 150,
+          "timezone": "Europe/Berlin",
+          "weekdays": [
+            7
+          ]
+        },
+        "business_durations": [
+          {
+            "case_id": "case-0",
+            "reason": "calendar_boundary",
+            "status": "unverified"
+          }
+        ]
+      },
+      "corrected": {
+        "calendar": {
+          "end_minute": 240,
+          "holidays": [],
+          "offset_minutes": 0,
+          "start_minute": 60,
+          "timezone": "Europe/Berlin",
+          "weekdays": [
+            7
+          ]
+        },
+        "business_durations": [
+          {
+            "business_millis": 7200000,
+            "case_id": "case-0",
+            "end": "2026-03-29T22:00:00Z",
+            "start": "2026-03-28T23:00:00Z",
+            "status": "computed"
+          }
+        ]
+      },
+      "expected_milliseconds": 7200000,
+      "both_rejected_updates_preserved_state": true
+    },
+    {
+      "case": "fall",
+      "log_id": "log-4",
+      "boundary": {
+        "calendar": {
+          "end_minute": 240,
+          "holidays": [],
+          "offset_minutes": 0,
+          "start_minute": 150,
+          "timezone": "Europe/Berlin",
+          "weekdays": [
+            7
+          ]
+        },
+        "business_durations": [
+          {
+            "case_id": "case-0",
+            "reason": "calendar_boundary",
+            "status": "unverified"
+          }
+        ]
+      },
+      "corrected": {
+        "calendar": {
+          "end_minute": 240,
+          "holidays": [],
+          "offset_minutes": 0,
+          "start_minute": 60,
+          "timezone": "Europe/Berlin",
+          "weekdays": [
+            7
+          ]
+        },
+        "business_durations": [
+          {
+            "business_millis": 14400000,
+            "case_id": "case-0",
+            "end": "2026-10-25T23:00:00Z",
+            "start": "2026-10-24T22:00:00Z",
+            "status": "computed"
+          }
+        ]
+      },
+      "expected_milliseconds": 14400000,
+      "both_rejected_updates_preserved_state": true
+    }
+  ],
+  "comparison": [
+    {
+      "case": "spring",
+      "boundary": {
+        "calendar": {
+          "end_minute": 240,
+          "holidays": [],
+          "offset_minutes": 0,
+          "start_minute": 150,
+          "timezone": "Europe/Berlin",
+          "weekdays": [
+            7
+          ]
+        },
+        "business_durations": [
+          {
+            "case_id": "case-0",
+            "reason": "calendar_boundary",
+            "status": "unverified"
+          }
+        ]
+      },
+      "corrected": {
+        "calendar": {
+          "end_minute": 240,
+          "holidays": [],
+          "offset_minutes": 0,
+          "start_minute": 60,
+          "timezone": "Europe/Berlin",
+          "weekdays": [
+            7
+          ]
+        },
+        "business_durations": [
+          {
+            "business_millis": 7200000,
+            "case_id": "case-0",
+            "end": "2026-03-29T22:00:00Z",
+            "start": "2026-03-28T23:00:00Z",
+            "status": "computed"
+          }
+        ]
+      },
+      "expected_milliseconds": 7200000,
+      "both_rejected_updates_preserved_state": true
+    },
+    {
+      "case": "fall",
+      "boundary": {
+        "calendar": {
+          "end_minute": 240,
+          "holidays": [],
+          "offset_minutes": 0,
+          "start_minute": 150,
+          "timezone": "Europe/Berlin",
+          "weekdays": [
+            7
+          ]
+        },
+        "business_durations": [
+          {
+            "case_id": "case-0",
+            "reason": "calendar_boundary",
+            "status": "unverified"
+          }
+        ]
+      },
+      "corrected": {
+        "calendar": {
+          "end_minute": 240,
+          "holidays": [],
+          "offset_minutes": 0,
+          "start_minute": 60,
+          "timezone": "Europe/Berlin",
+          "weekdays": [
+            7
+          ]
+        },
+        "business_durations": [
+          {
+            "business_millis": 14400000,
+            "case_id": "case-0",
+            "end": "2026-10-25T23:00:00Z",
+            "start": "2026-10-24T22:00:00Z",
+            "status": "computed"
+          }
+        ]
+      },
+      "expected_milliseconds": 14400000,
+      "both_rejected_updates_preserved_state": true
+    }
+  ],
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/project-list/json",
+      "status": 200,
+      "wall_seconds": 0.039138500003900845,
+      "response": {
+        "file": "http-01.bin",
+        "bytes": 343,
+        "sha256": "B057CA5623DCD4B17FCF4D9E2F91EB0EE7B85261D1E82D2B7FD4F68D27C545EB"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/projects",
+      "status": 303,
+      "wall_seconds": 0.00842689999990398,
+      "response": {
+        "file": "http-02.bin",
+        "bytes": 0,
+        "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/project-list/json",
+      "status": 200,
+      "wall_seconds": 0.018481400002201553,
+      "response": {
+        "file": "http-03.bin",
+        "bytes": 484,
+        "sha256": "8CC849DC220960D555C305B53F42642041BC84020936C9D6038B149C6AF1CCBD"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/projects/project-853b2a9ef5124bc69afef62c2f04210b/open",
+      "status": 303,
+      "wall_seconds": 0.006229000005987473,
+      "response": {
+        "file": "http-04.bin",
+        "bytes": 0,
+        "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/csv/preview",
+      "status": 200,
+      "wall_seconds": 0.006936199999472592,
+      "response": {
+        "file": "http-05.bin",
+        "bytes": 4940,
+        "sha256": "FFEA59465AE34D900C8544E90A69C46FEC03DCBE4BCD04D1E93A5C10C811C5FB"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/csv/import",
+      "status": 303,
+      "wall_seconds": 0.01673099999607075,
+      "response": {
+        "file": "http-06.bin",
+        "bytes": 0,
+        "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/logs/log-3/calendar",
+      "status": 303,
+      "wall_seconds": 0.015691300002799835,
+      "response": {
+        "file": "http-07.bin",
+        "bytes": 0,
+        "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+      },
+      "calendar_form": {
+        "timezone": "Europe/Berlin",
+        "offset_minutes": "0",
+        "weekdays": "7",
+        "start_minute": "150",
+        "end_minute": "240",
+        "holidays": ""
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/logs/log-3/export",
+      "status": 200,
+      "wall_seconds": 0.032901499995205086,
+      "response": {
+        "file": "http-08.bin",
+        "bytes": 1653,
+        "sha256": "ABC42F4F66AEC9C5F7E6A7638A906DED776D4485AD1D5E357B6EBBAFD84497AC"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/logs/log-3/tools",
+      "status": 200,
+      "wall_seconds": 0.006219599999894854,
+      "response": {
+        "file": "http-09.bin",
+        "bytes": 14219,
+        "sha256": "E159D68680482E23139E478D5C51B18B02A464D42FA27E9171ABD97FA10CD1C3"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/logs/log-3/calendar",
+      "status": 303,
+      "wall_seconds": 0.010061200002382975,
+      "response": {
+        "file": "http-10.bin",
+        "bytes": 0,
+        "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+      },
+      "calendar_form": {
+        "timezone": "Europe/Berlin",
+        "offset_minutes": "0",
+        "weekdays": "7",
+        "start_minute": "60",
+        "end_minute": "240",
+        "holidays": ""
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/logs/log-3/export",
+      "status": 200,
+      "wall_seconds": 0.029100699997798074,
+      "response": {
+        "file": "http-11.bin",
+        "bytes": 1707,
+        "sha256": "44BA42BA7EBE2FBD28B4AD73F3E40E5F2BE477EC8F3361D7B43F83A425346A9F"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/logs/log-3/calendar",
+      "status": 422,
+      "wall_seconds": 0.005143799993675202,
+      "response": {
+        "file": "http-12.bin",
+        "bytes": 111,
+        "sha256": "905DE25CAB21D0AD7A47E89AEB6494F1D6E615B0E873ABE797A3B22D49E87D9E"
+      },
+      "calendar_form": {
+        "timezone": "Unknown/Nowhere",
+        "offset_minutes": "0",
+        "weekdays": "7",
+        "start_minute": "60",
+        "end_minute": "240",
+        "holidays": ""
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/logs/log-3/export",
+      "status": 200,
+      "wall_seconds": 0.005640899995341897,
+      "response": {
+        "file": "http-13.bin",
+        "bytes": 1707,
+        "sha256": "44BA42BA7EBE2FBD28B4AD73F3E40E5F2BE477EC8F3361D7B43F83A425346A9F"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/logs/log-3/calendar",
+      "status": 422,
+      "wall_seconds": 0.004343499997048639,
+      "response": {
+        "file": "http-14.bin",
+        "bytes": 183,
+        "sha256": "173031FD9E97C23E0395D51BD43588D19A0A8775C213B9EAFF1D6FD6F97258B0"
+      },
+      "calendar_form": {
+        "timezone": "Europe/Berlin",
+        "offset_minutes": "60",
+        "weekdays": "7",
+        "start_minute": "60",
+        "end_minute": "240",
+        "holidays": ""
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/logs/log-3/export",
+      "status": 200,
+      "wall_seconds": 0.005786299996543676,
+      "response": {
+        "file": "http-15.bin",
+        "bytes": 1707,
+        "sha256": "44BA42BA7EBE2FBD28B4AD73F3E40E5F2BE477EC8F3361D7B43F83A425346A9F"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/logs/log-3/export",
+      "status": 200,
+      "wall_seconds": 0.005373899999540299,
+      "response": {
+        "file": "http-16.bin",
+        "bytes": 1707,
+        "sha256": "44BA42BA7EBE2FBD28B4AD73F3E40E5F2BE477EC8F3361D7B43F83A425346A9F"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/logs/log-3/tools",
+      "status": 200,
+      "wall_seconds": 0.005288400003337301,
+      "response": {
+        "file": "http-17.bin",
+        "bytes": 14074,
+        "sha256": "58A5B950EF4736B36589311BAC981C8C2DD318F914CC6F90AB43B65778BFBA2A"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/csv/preview",
+      "status": 200,
+      "wall_seconds": 0.0049438999994890764,
+      "response": {
+        "file": "http-18.bin",
+        "bytes": 4936,
+        "sha256": "9B3E7E435D40321191BA6F54713EC9759CFB7C16F4DD822A4C2549639485C6B8"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/csv/import",
+      "status": 303,
+      "wall_seconds": 0.026220500003546476,
+      "response": {
+        "file": "http-19.bin",
+        "bytes": 0,
+        "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/logs/log-4/calendar",
+      "status": 303,
+      "wall_seconds": 0.031423000000359025,
+      "response": {
+        "file": "http-20.bin",
+        "bytes": 0,
+        "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+      },
+      "calendar_form": {
+        "timezone": "Europe/Berlin",
+        "offset_minutes": "0",
+        "weekdays": "7",
+        "start_minute": "150",
+        "end_minute": "240",
+        "holidays": ""
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/logs/log-4/export",
+      "status": 200,
+      "wall_seconds": 0.028062400000635535,
+      "response": {
+        "file": "http-21.bin",
+        "bytes": 1651,
+        "sha256": "F69F356F8F409B56FAAB3CC5325C70672FB03F6D07F12FFA7C794936C231FE0E"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/logs/log-4/tools",
+      "status": 200,
+      "wall_seconds": 0.006230300001334399,
+      "response": {
+        "file": "http-22.bin",
+        "bytes": 14217,
+        "sha256": "0A7613FEBA77F2F7BD0E55E6C9E4DE4A96D90CA7F7D1A9C0B47A1285A99AD54C"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/logs/log-4/calendar",
+      "status": 303,
+      "wall_seconds": 0.010050099997897632,
+      "response": {
+        "file": "http-23.bin",
+        "bytes": 0,
+        "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+      },
+      "calendar_form": {
+        "timezone": "Europe/Berlin",
+        "offset_minutes": "0",
+        "weekdays": "7",
+        "start_minute": "60",
+        "end_minute": "240",
+        "holidays": ""
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/logs/log-4/export",
+      "status": 200,
+      "wall_seconds": 0.028936499998962972,
+      "response": {
+        "file": "http-24.bin",
+        "bytes": 1706,
+        "sha256": "3A5879F89C741AA16AD08A8EF281C921F2B5804C20FC4679C75DAA53689E250F"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/logs/log-4/calendar",
+      "status": 422,
+      "wall_seconds": 0.02642290000221692,
+      "response": {
+        "file": "http-25.bin",
+        "bytes": 111,
+        "sha256": "905DE25CAB21D0AD7A47E89AEB6494F1D6E615B0E873ABE797A3B22D49E87D9E"
+      },
+      "calendar_form": {
+        "timezone": "Unknown/Nowhere",
+        "offset_minutes": "0",
+        "weekdays": "7",
+        "start_minute": "60",
+        "end_minute": "240",
+        "holidays": ""
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/logs/log-4/export",
+      "status": 200,
+      "wall_seconds": 0.016680200002156198,
+      "response": {
+        "file": "http-26.bin",
+        "bytes": 1706,
+        "sha256": "3A5879F89C741AA16AD08A8EF281C921F2B5804C20FC4679C75DAA53689E250F"
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/logs/log-4/calendar",
+      "status": 422,
+      "wall_seconds": 0.004405499996209983,
+      "response": {
+        "file": "http-27.bin",
+        "bytes": 183,
+        "sha256": "173031FD9E97C23E0395D51BD43588D19A0A8775C213B9EAFF1D6FD6F97258B0"
+      },
+      "calendar_form": {
+        "timezone": "Europe/Berlin",
+        "offset_minutes": "60",
+        "weekdays": "7",
+        "start_minute": "60",
+        "end_minute": "240",
+        "holidays": ""
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/logs/log-4/export",
+      "status": 200,
+      "wall_seconds": 0.0057156000038958155,
+      "response": {
+        "file": "http-28.bin",
+        "bytes": 1706,
+        "sha256": "3A5879F89C741AA16AD08A8EF281C921F2B5804C20FC4679C75DAA53689E250F"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/logs/log-4/export",
+      "status": 200,
+      "wall_seconds": 0.02231729999766685,
+      "response": {
+        "file": "http-29.bin",
+        "bytes": 1706,
+        "sha256": "3A5879F89C741AA16AD08A8EF281C921F2B5804C20FC4679C75DAA53689E250F"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/logs/log-4/tools",
+      "status": 200,
+      "wall_seconds": 0.005661799994413741,
+      "response": {
+        "file": "http-30.bin",
+        "bytes": 14072,
+        "sha256": "DDB8DBAFB1FBF260EDCD0CFD26A1C4493EAEB4DD5810FA42F1C5EF4EA64FDFDC"
+      }
+    }
+  ],
+  "baseline_compared": true,
+  "browser_observed": false,
+  "timezone_renderer_branch_observed": false,
+  "limits": [
+    "Unknown/incompatible timezone tested as actual HTTP422, not a fabricated saved UI row.",
+    "Timezone renderer branch and escaping need separate real-engine/renderer regression.",
+    "No browser, SSE, timezone arithmetic change, broad R5 closure or enterprise claim."
+  ]
+}

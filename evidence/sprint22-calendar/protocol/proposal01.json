@@ -1,0 +1,70 @@
+{
+  "kind": "PROSPECTIVE_SMALL_R5_CALENDAR_UX_SCOPE",
+  "version": 1,
+  "actual_utc": "2026-10-23T06:00:49.9796874+00:00",
+  "invitation_sha256": "6044872230EC78277751BB1BA41EEB50007E6CD4ECC2660D9A7819165F8A6948",
+  "primary_delivery_sha256": "FA35E235A95A17C93A0D5B344CAEDDB178AFCE8B65DC602B3FF55E540C73E167",
+  "fixed_voters": [
+    "Root",
+    "PM",
+    "Customer",
+    "QA",
+    "TD"
+  ],
+  "risk": "Low renderer-only product change; medium localbuild/server/browser test operations use existing accepted ownership/resource controls. Draft source review proportionate; actual code/evidence candidate independently reviewed.",
+  "base_commit": "8a5732224fdc20e0094e689cf75b0818a335e6fa",
+  "branch": "codex/sprint-22-calendar",
+  "pr_base": "codex/sprint-22",
+  "scope": "Two explicit reason→Russian explanation/correction-hint branches in calendar_table; meaningful engine-error-to-renderer tests plus existing frozen calendar oracles. No calendar arithmetic, API reason/status/payload, persistence/schema/export/filter change.",
+  "messages": {
+    "calendar_boundary": "Расчёт остановлен из-за перехода местного времени. Измените рабочие часы или часовой пояс.",
+    "calendar_timezone": "Название часового пояса неизвестно или несовместимо со смещением. Укажите существующее название со смещением 0 либо только смещение UTC."
+  },
+  "criteria": [
+    {
+      "id": "CALUX-01",
+      "expected": "Real business_millis unknownzone and namedzone/nonzerooffset errors reach explicit timezone renderer text, dash/nonnumeric refusal; actual HTTP422 rejects both before persist and retains prior calendar/exportbusiness fields. No fabricated invalid stored browser row."
+    },
+    {
+      "id": "CALUX-02",
+      "expected": "Real frozen springgap/fallfold fixture under Europe/Berlin/Sunday150→240 produces calendar_boundary and actionable general text. Wording also covers historical unsupported local-date/repeatedmidnight transitions without inventing subtype."
+    },
+    {
+      "id": "CALUX-03",
+      "expected": "Corrected Sunday60→240 produces manual7200000 spring /14400000 fall milliseconds; accepted C01 baseline and newlybuilt C02 match numeric/exportbusiness fields and API reason/null statuses on same fixtures."
+    },
+    {
+      "id": "CALUX-04",
+      "expected": "Existing computed/missing/limit/policy statuses and generic unknownreason fallback remain, case IDs HTMLescaped and unknownreason injection never rendered. Targeted meaningful renderer regression uses actual engine errors, not duplicate switch implementation."
+    },
+    {
+      "id": "CALUX-05",
+      "expected": "Root actual browser plainPOST→redirect/tools and fullreload show real boundaryrefusal then corrected duration, invalidzone formHTTP422/priorstateunchanged observed separately. No Datastar/SSE calendarroute claim; save bounded synthetic-only evidence."
+    }
+  ],
+  "runtime": {
+    "local_checks": "Targeted Rust renderer/engine tests, existing sprint08_calendar fixture suite, app bin build; no unnecessary all-target local rebuild. Remote exact-head CI performs full checks.",
+    "owner": "Root sole native/build/PG/app/resource owner",
+    "all_new_private_outputs": "Existing per-role .local/sprint21/ROLE/sprint22/calendar01 only except shared caches",
+    "single_cache": "Existing .local/sprint21/root cargo,target,temp only",
+    "limits": "Unchanged25s/200k/root8GiB/global12GiBminus512MiB/free8GiB; no blindretry/relaxation. Exact source/config QA+TD GO before native phases.",
+    "resource_guard_sha256": "8EC87E1E91F07514C18B2698F5E77B35CD7A02AB8DCEEA4FF7268FB8609C3EC6",
+    "accepted_c01_binary_sha256": "4121BD68F1C0C05A61B039FADF20FEC5C2DA4379D8AAAFB170DC3B43861D1525",
+    "candidate_c02": "Fresh byte/hash-pinned candidate, C01 untouched; no release/version/tag claim"
+  },
+  "delivery": {
+    "public_target": "2026-10-23T08:30:00Z",
+    "local_gate": "2026-10-23T07:30:00Z",
+    "conditions": "Independent actual QA/TD and Customer UI review, source/artefact privacy and process logs, exactheadCI and bounded independent publicsource verification appropriate to this small change. Do not mark browser/feature accepted if any required live observation missing.",
+    "overall_deadline": "2026-10-23T11:23:31Z",
+    "native_dev_freeze": "2026-10-23T09:53:31Z",
+    "reserved_final_minutes": 90
+  },
+  "exclusions": [
+    "No broad R5/enterprise closure",
+    "No large-report support change or90k rerun",
+    "No STATUS capture-readiness change",
+    "No tag/merge",
+    "No changes to primary PR25 exactcommit; new separate candidate"
+  ]
+}

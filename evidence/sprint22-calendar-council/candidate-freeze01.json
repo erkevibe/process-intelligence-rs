@@ -1,0 +1,706 @@
+{
+  "kind": "EXACT_CALENDAR_CANDIDATE_CORE_FREEZE",
+  "actual_utc": "2026-10-23T06:52:35.8097009+00:00",
+  "base_commit": "8a5732224fdc20e0094e689cf75b0818a335e6fa",
+  "branch": "codex/sprint-22-calendar",
+  "index_tree": "d3a6c6db82e29a4ebdfdddb87249c073debf45d6",
+  "files": 115,
+  "total_bytes": 956609,
+  "worktree_equals_index_exact_bytes": true,
+  "public_package_manifest_sha256": "6F838B20B270CA9AE09AABB53DA2858C81A474064775DFF368C8B49FF8F291AA",
+  "c02_binary_sha256": "13A43541509807ADDA043A6AD1D32BF9F9BA44A0BBF42318F1A168632D09F32C",
+  "entries": [
+    {
+      "bytes": 11758,
+      "git_blob": "634f7f5cfe2dc0a3f41638197f205d5ba109071c",
+      "path": ".gitattributes",
+      "sha256": "BB65F4A6D20CB4308D47D89AAEFB7D9F9CD9AEB1D122D20725D1DDF66E54A94D"
+    },
+    {
+      "bytes": 13733,
+      "git_blob": "b0d60138625aeab3851740c2be89a2dcc0a30b28",
+      "path": ".github/workflows/ci.yml",
+      "sha256": "5D4D73BA84A0AFB682E9BFC47E8B8DEB34FF3C9694F5ABA1242CF4A15EDFD3F0"
+    },
+    {
+      "bytes": 7404,
+      "git_blob": "8bad304f0c9875afc05e36966ac4d3d255aec000",
+      "path": "docs/SPRINT_22_CALENDAR_REPORT.md",
+      "sha256": "6803F2BF9C32FB07AA086847B75E5D8CA507A3E0B2E5E444BAF80A0075F29AF5"
+    },
+    {
+      "bytes": 718,
+      "git_blob": "f137e6a9598f2c386168975e211b983b7164e763",
+      "path": "evidence/sprint22-calendar-delivery/local-package-verification.json",
+      "sha256": "8A654A3D6E3464CC137CC7A2729FBBAC46D3129763634D938DF0513AADEAEC47"
+    },
+    {
+      "bytes": 1209,
+      "git_blob": "ef9386d387f28261e72556f910c130397f343191",
+      "path": "evidence/sprint22-calendar-delivery/package-controls.json",
+      "sha256": "774C5D6629035D5050EA2CEF1BD440AB2BEFE676085460869E40D96687B9BD56"
+    },
+    {
+      "bytes": 2033,
+      "git_blob": "9cbe9523ab6dc4571cf3f9b32ba1a4d5636dd41b",
+      "path": "evidence/sprint22-calendar-delivery/qa-package-acceptance.json",
+      "sha256": "B87021FD262E4B6833842146FDF00571B50BDBB2AB7251A20A0840E36F298B59"
+    },
+    {
+      "bytes": 2019,
+      "git_blob": "3ce9050d13b9372e9b30bb1fcc70dc22894ca07b",
+      "path": "evidence/sprint22-calendar-delivery/td-package-acceptance.json",
+      "sha256": "088D71AB77F9C56C1024969AEB8CB37D721C0356A75423511DE211F0414C4A69"
+    },
+    {
+      "bytes": 2460,
+      "git_blob": "40202f5ff80c320894619d70163c964c95d90dce",
+      "path": "evidence/sprint22-calendar/acceptance/customer-ui.json",
+      "sha256": "436965FEE4BFF95292FC32B49C9570E4749CCE70AFECBCA836323D50701F421D"
+    },
+    {
+      "bytes": 4589,
+      "git_blob": "1c02ec944e6e761e8156131e12e100d9a8a5e72a",
+      "path": "evidence/sprint22-calendar/acceptance/qa-browser.json",
+      "sha256": "2C78F19FAA849204F690A85D48BDF2920E54694F8D0ABA0FF6CA2A9535DFDF62"
+    },
+    {
+      "bytes": 3942,
+      "git_blob": "709ba09c447d7536401e06207b8139feeaebdb56",
+      "path": "evidence/sprint22-calendar/acceptance/qa-local.json",
+      "sha256": "2D07A57797CAFDFDA4048DA9A5E977FF1AE3D21390558E40B7CE1DD54E664CA0"
+    },
+    {
+      "bytes": 3234,
+      "git_blob": "234688f50fa7d909b080b5071851339062a6c073",
+      "path": "evidence/sprint22-calendar/acceptance/td-local.json",
+      "sha256": "BC0D2094C44A9D5FC7EE712F99CCBC1AADDF81CE533FDDF452F4C259073F6CB7"
+    },
+    {
+      "bytes": 10952,
+      "git_blob": "8396098d505a8573fe78405363ddf3ddf4ef99f8",
+      "path": "evidence/sprint22-calendar/browser/fall-corrected-reload.ax.txt",
+      "sha256": "9F07FCE798ACABA6F776F8BF3201E0448B244D452505CCB3E5F6087D7E956FC9"
+    },
+    {
+      "bytes": 55937,
+      "git_blob": "0d8163e8114779c650f891d8370ded3cf3559cc6",
+      "path": "evidence/sprint22-calendar/browser/fall-corrected-reload.png",
+      "sha256": "3A61C0CA09E7A0D1B5C4FD3C07290947FFB6CDAEF212DD7345258A48FF47265F"
+    },
+    {
+      "bytes": 11097,
+      "git_blob": "dbe39678b51ad9f052094809bafb2eff837f1972",
+      "path": "evidence/sprint22-calendar/browser/fall-refusal-reload.ax.txt",
+      "sha256": "87B098E056FD88AF0FD20D61CB0D65F42C22985CA5E8C3D0E8578868A9400EBF"
+    },
+    {
+      "bytes": 58914,
+      "git_blob": "c0f4409c101f548bb29a957cf8532bee53614a18",
+      "path": "evidence/sprint22-calendar/browser/fall-refusal-reload.png",
+      "sha256": "0E7B7FEA28DFD83869A2967E3EB4B23BA58A645A268D7E38397DDB7A94DC2F8A"
+    },
+    {
+      "bytes": 55937,
+      "git_blob": "0d8163e8114779c650f891d8370ded3cf3559cc6",
+      "path": "evidence/sprint22-calendar/browser/final-retained-4h.png",
+      "sha256": "3A61C0CA09E7A0D1B5C4FD3C07290947FFB6CDAEF212DD7345258A48FF47265F"
+    },
+    {
+      "bytes": 1174,
+      "git_blob": "2f3359e7b504b18a78b249a766a39c4766ab6501",
+      "path": "evidence/sprint22-calendar/browser/observations.json",
+      "sha256": "82884A7E85E495F25B4F8820C83517DBF515ED94F2A3A0393F31325DD924434E"
+    },
+    {
+      "bytes": 16258,
+      "git_blob": "2a38ea34544f411bfdcfe5c216f23cf7b8a2c4cb",
+      "path": "evidence/sprint22-calendar/browser/offset-conflict-422.png",
+      "sha256": "EBCC4B756981BF20E1688344522BE7E57B25C4638BD09F41E82E334C0F738E0D"
+    },
+    {
+      "bytes": 341,
+      "git_blob": "34d38fcc4093b74ede7224ea9eec9de900185e1e",
+      "path": "evidence/sprint22-calendar/browser/offset-conflict-network.json",
+      "sha256": "D6B04DB7174E4954E2100449257011AB58A4ED29D6EF3EE2432CD3B6E0C703C0"
+    },
+    {
+      "bytes": 10952,
+      "git_blob": "8396098d505a8573fe78405363ddf3ddf4ef99f8",
+      "path": "evidence/sprint22-calendar/browser/offset-conflict-prior-state-retained.ax.txt",
+      "sha256": "9F07FCE798ACABA6F776F8BF3201E0448B244D452505CCB3E5F6087D7E956FC9"
+    },
+    {
+      "bytes": 451,
+      "git_blob": "be9f08bb7464628388ff42c5919712a81c61dcc6",
+      "path": "evidence/sprint22-calendar/browser/offset-conflict.ax.txt",
+      "sha256": "17AE6B358987A3C36F59189686023BAECDB9E6C078F7072375CC68AB282E8369"
+    },
+    {
+      "bytes": 10956,
+      "git_blob": "70c569beef5d4d0a2e55bf9a752a49b64eea74f5",
+      "path": "evidence/sprint22-calendar/browser/spring-corrected-reload.ax.txt",
+      "sha256": "C6FD21DD6D2C8D7C505B2051C23EEFFA16853614DE1929C27C18AFF8B4818AEA"
+    },
+    {
+      "bytes": 55918,
+      "git_blob": "c3ad7018a6f40028f8eae4406aed45d7a4dc12c0",
+      "path": "evidence/sprint22-calendar/browser/spring-corrected-reload.png",
+      "sha256": "4D78561E7C1A989E6BC3DAD53C1423618E4CA6486010E6C29C82C73D4D2FE512"
+    },
+    {
+      "bytes": 11101,
+      "git_blob": "2ad28cd7b5677def6a8e238aa57807fe52d391d3",
+      "path": "evidence/sprint22-calendar/browser/spring-refusal-reload.ax.txt",
+      "sha256": "30C262CC9B13AF61A9DF9A502BD371441DFEBBF7106C20C22F45DB60B4ECBF5B"
+    },
+    {
+      "bytes": 164299,
+      "git_blob": "b69582aeab6fee43dee987ab621f127c60a5a5c6",
+      "path": "evidence/sprint22-calendar/browser/spring-refusal-reload.png",
+      "sha256": "78E94C7C772E9A8B902A94746A3410E549B5CB872EBE25758C537861438FB125"
+    },
+    {
+      "bytes": 804,
+      "git_blob": "1d859f2ca0720bd5101b75ce5cc54d329690946d",
+      "path": "evidence/sprint22-calendar/browser/spring-refusal.ax.txt",
+      "sha256": "813221614B4DB4E01C1936A3D6D61F6DF17018B692946034CD6E005D7CBB029E"
+    },
+    {
+      "bytes": 13617,
+      "git_blob": "75af6d5dc4e6db580c574d73edfa38386913e376",
+      "path": "evidence/sprint22-calendar/browser/unknown-zone-422.png",
+      "sha256": "5C87F364DC50FEC76DFB60004238E192BEDC5F682C459225C4D849BCA8BE7657"
+    },
+    {
+      "bytes": 341,
+      "git_blob": "cb6692a9f819f042743d088ff58b7eeb676c8a3f",
+      "path": "evidence/sprint22-calendar/browser/unknown-zone-network.json",
+      "sha256": "757DACBABB54DA4A5BEFA97FAE7B1616C7A97F53FC424F5D758150EE46FDEB81"
+    },
+    {
+      "bytes": 10952,
+      "git_blob": "8396098d505a8573fe78405363ddf3ddf4ef99f8",
+      "path": "evidence/sprint22-calendar/browser/unknown-zone-prior-state-retained.ax.txt",
+      "sha256": "9F07FCE798ACABA6F776F8BF3201E0448B244D452505CCB3E5F6087D7E956FC9"
+    },
+    {
+      "bytes": 379,
+      "git_blob": "cfe451f61dcdcf984b9e850c34c3f50e1140de25",
+      "path": "evidence/sprint22-calendar/browser/unknown-zone.ax.txt",
+      "sha256": "30B525B9E00F05C624ACAAD61A2149D7D77197A8124BB2C4A7A592EC105790D3"
+    },
+    {
+      "bytes": 86,
+      "git_blob": "c0be1dacebbae793b59fd22929889268d3467230",
+      "path": "evidence/sprint22-calendar/http-c01/fall.csv",
+      "sha256": "0425073A38B9A4E5DEBF66A037E7BD7021938E7CC01803F3320562D74D4A5334"
+    },
+    {
+      "bytes": 202,
+      "git_blob": "2e3251dc87e4862382e006f2452aff541159328d",
+      "path": "evidence/sprint22-calendar/http-c01/http-02.bin",
+      "sha256": "FF12373045024E4C7B27FCDB7C9ED981B8A0089ADCDDB488856AA05D20155E54"
+    },
+    {
+      "bytes": 0,
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "path": "evidence/sprint22-calendar/http-c01/http-03.bin",
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "bytes": 343,
+      "git_blob": "9e882ae9a41e1fca7007f2d35554741b53411c4a",
+      "path": "evidence/sprint22-calendar/http-c01/http-04.bin",
+      "sha256": "B057CA5623DCD4B17FCF4D9E2F91EB0EE7B85261D1E82D2B7FD4F68D27C545EB"
+    },
+    {
+      "bytes": 0,
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "path": "evidence/sprint22-calendar/http-c01/http-05.bin",
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "bytes": 4940,
+      "git_blob": "5731e995f81569f6ed1a6afdc6abf70ce0ee9c2d",
+      "path": "evidence/sprint22-calendar/http-c01/http-06.bin",
+      "sha256": "929074B8621E7882269CE3FE724DE81A2AEDD9B36F273C29E558BBB5B9F766E1"
+    },
+    {
+      "bytes": 0,
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "path": "evidence/sprint22-calendar/http-c01/http-07.bin",
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "bytes": 0,
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "path": "evidence/sprint22-calendar/http-c01/http-08.bin",
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "bytes": 1650,
+      "git_blob": "b4e243e130279ebce41147fc5cf3214ed87a5b1c",
+      "path": "evidence/sprint22-calendar/http-c01/http-09.bin",
+      "sha256": "D36AA8C42CCCCE0F3F29924D896D30F6CAD825A09A3EBCFB7F28479123D1E2AE"
+    },
+    {
+      "bytes": 14101,
+      "git_blob": "d8cee5222a93ebb5fb584384cbf00b5f02b40bbc",
+      "path": "evidence/sprint22-calendar/http-c01/http-10.bin",
+      "sha256": "1C01374AD37AFD3BB3ADE54EB0830BE4ADF6D5D1A86827876FA2314A1E6EA48F"
+    },
+    {
+      "bytes": 0,
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "path": "evidence/sprint22-calendar/http-c01/http-11.bin",
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "bytes": 1704,
+      "git_blob": "4bcf0fcaec859caffb12c0264ad23e04ab4b6b51",
+      "path": "evidence/sprint22-calendar/http-c01/http-12.bin",
+      "sha256": "1FB84ACFB4F70070F390B3EA7CBBD99346ACACC95589CB28192A9107592F82AA"
+    },
+    {
+      "bytes": 111,
+      "git_blob": "46b69b882551b5a4392ad16e41de78c61d95f3a9",
+      "path": "evidence/sprint22-calendar/http-c01/http-13.bin",
+      "sha256": "905DE25CAB21D0AD7A47E89AEB6494F1D6E615B0E873ABE797A3B22D49E87D9E"
+    },
+    {
+      "bytes": 1704,
+      "git_blob": "4bcf0fcaec859caffb12c0264ad23e04ab4b6b51",
+      "path": "evidence/sprint22-calendar/http-c01/http-14.bin",
+      "sha256": "1FB84ACFB4F70070F390B3EA7CBBD99346ACACC95589CB28192A9107592F82AA"
+    },
+    {
+      "bytes": 183,
+      "git_blob": "971274e0c6040a9a961ac2f98e20e7c02a56c224",
+      "path": "evidence/sprint22-calendar/http-c01/http-15.bin",
+      "sha256": "173031FD9E97C23E0395D51BD43588D19A0A8775C213B9EAFF1D6FD6F97258B0"
+    },
+    {
+      "bytes": 1704,
+      "git_blob": "4bcf0fcaec859caffb12c0264ad23e04ab4b6b51",
+      "path": "evidence/sprint22-calendar/http-c01/http-16.bin",
+      "sha256": "1FB84ACFB4F70070F390B3EA7CBBD99346ACACC95589CB28192A9107592F82AA"
+    },
+    {
+      "bytes": 1704,
+      "git_blob": "4bcf0fcaec859caffb12c0264ad23e04ab4b6b51",
+      "path": "evidence/sprint22-calendar/http-c01/http-17.bin",
+      "sha256": "1FB84ACFB4F70070F390B3EA7CBBD99346ACACC95589CB28192A9107592F82AA"
+    },
+    {
+      "bytes": 14074,
+      "git_blob": "012cac02c53cb7d0de20112cc4d6bb3e9e3ac170",
+      "path": "evidence/sprint22-calendar/http-c01/http-18.bin",
+      "sha256": "B396594600A32F01848945A6C6A3FBE4F76F521BBFD0886CE3F0B6DCB601370F"
+    },
+    {
+      "bytes": 4936,
+      "git_blob": "454141529d50b5ae2cc8fdf840692dc3038d285e",
+      "path": "evidence/sprint22-calendar/http-c01/http-19.bin",
+      "sha256": "A37F8D250BBE8807E3CBB9FF2F24621E90FD4896EF4AD854A99653A822141311"
+    },
+    {
+      "bytes": 0,
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "path": "evidence/sprint22-calendar/http-c01/http-20.bin",
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "bytes": 0,
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "path": "evidence/sprint22-calendar/http-c01/http-21.bin",
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "bytes": 1651,
+      "git_blob": "1dfce77fc25f494aee0405e2fd25d64885e1003a",
+      "path": "evidence/sprint22-calendar/http-c01/http-22.bin",
+      "sha256": "DCCB3E08CDFCF4F81399C81682115CDE65CEF4E9AE1DD67DAE44220A4C366D9C"
+    },
+    {
+      "bytes": 14099,
+      "git_blob": "1df7f21ea16b88b48d99ad1961f0da98d98f6ce0",
+      "path": "evidence/sprint22-calendar/http-c01/http-23.bin",
+      "sha256": "FEF38ECE2D9BCFEF10D4FC24A170DCE6D5B967463B08D22B04E71DED713A62AA"
+    },
+    {
+      "bytes": 0,
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "path": "evidence/sprint22-calendar/http-c01/http-24.bin",
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "bytes": 1706,
+      "git_blob": "a49206a8f3734e1886275249ab2e716fb364eb31",
+      "path": "evidence/sprint22-calendar/http-c01/http-25.bin",
+      "sha256": "6BAB68A67AB8B4C17F95D59E88A5218702B915B6198BEFD1B3C1EEE95E2137B5"
+    },
+    {
+      "bytes": 111,
+      "git_blob": "46b69b882551b5a4392ad16e41de78c61d95f3a9",
+      "path": "evidence/sprint22-calendar/http-c01/http-26.bin",
+      "sha256": "905DE25CAB21D0AD7A47E89AEB6494F1D6E615B0E873ABE797A3B22D49E87D9E"
+    },
+    {
+      "bytes": 1706,
+      "git_blob": "a49206a8f3734e1886275249ab2e716fb364eb31",
+      "path": "evidence/sprint22-calendar/http-c01/http-27.bin",
+      "sha256": "6BAB68A67AB8B4C17F95D59E88A5218702B915B6198BEFD1B3C1EEE95E2137B5"
+    },
+    {
+      "bytes": 183,
+      "git_blob": "971274e0c6040a9a961ac2f98e20e7c02a56c224",
+      "path": "evidence/sprint22-calendar/http-c01/http-28.bin",
+      "sha256": "173031FD9E97C23E0395D51BD43588D19A0A8775C213B9EAFF1D6FD6F97258B0"
+    },
+    {
+      "bytes": 1706,
+      "git_blob": "a49206a8f3734e1886275249ab2e716fb364eb31",
+      "path": "evidence/sprint22-calendar/http-c01/http-29.bin",
+      "sha256": "6BAB68A67AB8B4C17F95D59E88A5218702B915B6198BEFD1B3C1EEE95E2137B5"
+    },
+    {
+      "bytes": 1706,
+      "git_blob": "a49206a8f3734e1886275249ab2e716fb364eb31",
+      "path": "evidence/sprint22-calendar/http-c01/http-30.bin",
+      "sha256": "6BAB68A67AB8B4C17F95D59E88A5218702B915B6198BEFD1B3C1EEE95E2137B5"
+    },
+    {
+      "bytes": 14072,
+      "git_blob": "d4458c9512222216f0d64ae544e850ea01687527",
+      "path": "evidence/sprint22-calendar/http-c01/http-31.bin",
+      "sha256": "60D02EB7EEB60184CE80FB4D3089A55C27930072CD6DE656A1823D30D84032E5"
+    },
+    {
+      "bytes": 15997,
+      "git_blob": "ecdb8849fe36e9b9dad40eba70ffb3209a0cbb0e",
+      "path": "evidence/sprint22-calendar/http-c01/proof.json",
+      "sha256": "CD6F3BF91784CD40335DE4364BC83FACD76D00D69EC6089FCA4F7D37040CEE15"
+    },
+    {
+      "bytes": 90,
+      "git_blob": "0c5362fe68ba6d004879ab8e020ec2e9eb03f9ce",
+      "path": "evidence/sprint22-calendar/http-c01/spring.csv",
+      "sha256": "4FFFDA4ECAE9F13D722FA5130AB1177920255F32B17CE897B7419BE3C91ABDBF"
+    },
+    {
+      "bytes": 86,
+      "git_blob": "c0be1dacebbae793b59fd22929889268d3467230",
+      "path": "evidence/sprint22-calendar/http-c02/fall.csv",
+      "sha256": "0425073A38B9A4E5DEBF66A037E7BD7021938E7CC01803F3320562D74D4A5334"
+    },
+    {
+      "bytes": 343,
+      "git_blob": "9e882ae9a41e1fca7007f2d35554741b53411c4a",
+      "path": "evidence/sprint22-calendar/http-c02/http-01.bin",
+      "sha256": "B057CA5623DCD4B17FCF4D9E2F91EB0EE7B85261D1E82D2B7FD4F68D27C545EB"
+    },
+    {
+      "bytes": 0,
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "path": "evidence/sprint22-calendar/http-c02/http-02.bin",
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "bytes": 484,
+      "git_blob": "cda212892a6100b2b3cda635b95781282c3d34a4",
+      "path": "evidence/sprint22-calendar/http-c02/http-03.bin",
+      "sha256": "8CC849DC220960D555C305B53F42642041BC84020936C9D6038B149C6AF1CCBD"
+    },
+    {
+      "bytes": 0,
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "path": "evidence/sprint22-calendar/http-c02/http-04.bin",
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "bytes": 4940,
+      "git_blob": "c1f361d27a85bfa2afde48fed647e1273d64df27",
+      "path": "evidence/sprint22-calendar/http-c02/http-05.bin",
+      "sha256": "FFEA59465AE34D900C8544E90A69C46FEC03DCBE4BCD04D1E93A5C10C811C5FB"
+    },
+    {
+      "bytes": 0,
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "path": "evidence/sprint22-calendar/http-c02/http-06.bin",
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "bytes": 0,
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "path": "evidence/sprint22-calendar/http-c02/http-07.bin",
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "bytes": 1653,
+      "git_blob": "a170ebe61df854ff595ec2e2b23cf925442912df",
+      "path": "evidence/sprint22-calendar/http-c02/http-08.bin",
+      "sha256": "ABC42F4F66AEC9C5F7E6A7638A906DED776D4485AD1D5E357B6EBBAFD84497AC"
+    },
+    {
+      "bytes": 14219,
+      "git_blob": "9c74ab88c23fa9c209ea5e3da209d50c0aa7ab6a",
+      "path": "evidence/sprint22-calendar/http-c02/http-09.bin",
+      "sha256": "E159D68680482E23139E478D5C51B18B02A464D42FA27E9171ABD97FA10CD1C3"
+    },
+    {
+      "bytes": 0,
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "path": "evidence/sprint22-calendar/http-c02/http-10.bin",
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "bytes": 1707,
+      "git_blob": "eb298293637fa32bc46d20682d0bd6b6a4cefdfe",
+      "path": "evidence/sprint22-calendar/http-c02/http-11.bin",
+      "sha256": "44BA42BA7EBE2FBD28B4AD73F3E40E5F2BE477EC8F3361D7B43F83A425346A9F"
+    },
+    {
+      "bytes": 111,
+      "git_blob": "46b69b882551b5a4392ad16e41de78c61d95f3a9",
+      "path": "evidence/sprint22-calendar/http-c02/http-12.bin",
+      "sha256": "905DE25CAB21D0AD7A47E89AEB6494F1D6E615B0E873ABE797A3B22D49E87D9E"
+    },
+    {
+      "bytes": 1707,
+      "git_blob": "eb298293637fa32bc46d20682d0bd6b6a4cefdfe",
+      "path": "evidence/sprint22-calendar/http-c02/http-13.bin",
+      "sha256": "44BA42BA7EBE2FBD28B4AD73F3E40E5F2BE477EC8F3361D7B43F83A425346A9F"
+    },
+    {
+      "bytes": 183,
+      "git_blob": "971274e0c6040a9a961ac2f98e20e7c02a56c224",
+      "path": "evidence/sprint22-calendar/http-c02/http-14.bin",
+      "sha256": "173031FD9E97C23E0395D51BD43588D19A0A8775C213B9EAFF1D6FD6F97258B0"
+    },
+    {
+      "bytes": 1707,
+      "git_blob": "eb298293637fa32bc46d20682d0bd6b6a4cefdfe",
+      "path": "evidence/sprint22-calendar/http-c02/http-15.bin",
+      "sha256": "44BA42BA7EBE2FBD28B4AD73F3E40E5F2BE477EC8F3361D7B43F83A425346A9F"
+    },
+    {
+      "bytes": 1707,
+      "git_blob": "eb298293637fa32bc46d20682d0bd6b6a4cefdfe",
+      "path": "evidence/sprint22-calendar/http-c02/http-16.bin",
+      "sha256": "44BA42BA7EBE2FBD28B4AD73F3E40E5F2BE477EC8F3361D7B43F83A425346A9F"
+    },
+    {
+      "bytes": 14074,
+      "git_blob": "787040d900a4f30d10c77de7ef2b71e245a7969c",
+      "path": "evidence/sprint22-calendar/http-c02/http-17.bin",
+      "sha256": "58A5B950EF4736B36589311BAC981C8C2DD318F914CC6F90AB43B65778BFBA2A"
+    },
+    {
+      "bytes": 4936,
+      "git_blob": "a088fe1a19e1198b6f55a2de4bca600ccf5edc59",
+      "path": "evidence/sprint22-calendar/http-c02/http-18.bin",
+      "sha256": "9B3E7E435D40321191BA6F54713EC9759CFB7C16F4DD822A4C2549639485C6B8"
+    },
+    {
+      "bytes": 0,
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "path": "evidence/sprint22-calendar/http-c02/http-19.bin",
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "bytes": 0,
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "path": "evidence/sprint22-calendar/http-c02/http-20.bin",
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "bytes": 1651,
+      "git_blob": "61cbfa51159a19c328629c75d5da7f3124331929",
+      "path": "evidence/sprint22-calendar/http-c02/http-21.bin",
+      "sha256": "F69F356F8F409B56FAAB3CC5325C70672FB03F6D07F12FFA7C794936C231FE0E"
+    },
+    {
+      "bytes": 14217,
+      "git_blob": "66a6b85d9242d0e94ed0368176e4fe40eff5dabe",
+      "path": "evidence/sprint22-calendar/http-c02/http-22.bin",
+      "sha256": "0A7613FEBA77F2F7BD0E55E6C9E4DE4A96D90CA7F7D1A9C0B47A1285A99AD54C"
+    },
+    {
+      "bytes": 0,
+      "git_blob": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "path": "evidence/sprint22-calendar/http-c02/http-23.bin",
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "bytes": 1706,
+      "git_blob": "84cb97a2fdf755659297d0fd481501fc21d3536b",
+      "path": "evidence/sprint22-calendar/http-c02/http-24.bin",
+      "sha256": "3A5879F89C741AA16AD08A8EF281C921F2B5804C20FC4679C75DAA53689E250F"
+    },
+    {
+      "bytes": 111,
+      "git_blob": "46b69b882551b5a4392ad16e41de78c61d95f3a9",
+      "path": "evidence/sprint22-calendar/http-c02/http-25.bin",
+      "sha256": "905DE25CAB21D0AD7A47E89AEB6494F1D6E615B0E873ABE797A3B22D49E87D9E"
+    },
+    {
+      "bytes": 1706,
+      "git_blob": "84cb97a2fdf755659297d0fd481501fc21d3536b",
+      "path": "evidence/sprint22-calendar/http-c02/http-26.bin",
+      "sha256": "3A5879F89C741AA16AD08A8EF281C921F2B5804C20FC4679C75DAA53689E250F"
+    },
+    {
+      "bytes": 183,
+      "git_blob": "971274e0c6040a9a961ac2f98e20e7c02a56c224",
+      "path": "evidence/sprint22-calendar/http-c02/http-27.bin",
+      "sha256": "173031FD9E97C23E0395D51BD43588D19A0A8775C213B9EAFF1D6FD6F97258B0"
+    },
+    {
+      "bytes": 1706,
+      "git_blob": "84cb97a2fdf755659297d0fd481501fc21d3536b",
+      "path": "evidence/sprint22-calendar/http-c02/http-28.bin",
+      "sha256": "3A5879F89C741AA16AD08A8EF281C921F2B5804C20FC4679C75DAA53689E250F"
+    },
+    {
+      "bytes": 1706,
+      "git_blob": "84cb97a2fdf755659297d0fd481501fc21d3536b",
+      "path": "evidence/sprint22-calendar/http-c02/http-29.bin",
+      "sha256": "3A5879F89C741AA16AD08A8EF281C921F2B5804C20FC4679C75DAA53689E250F"
+    },
+    {
+      "bytes": 14072,
+      "git_blob": "87658f01e8615bcd15452a90305f7424db6d3aa6",
+      "path": "evidence/sprint22-calendar/http-c02/http-30.bin",
+      "sha256": "DDB8DBAFB1FBF260EDCD0CFD26A1C4493EAEB4DD5810FA42F1C5EF4EA64FDFDC"
+    },
+    {
+      "bytes": 15857,
+      "git_blob": "389e4a7746571bc1d266e6bde4a9b0a50c7438d6",
+      "path": "evidence/sprint22-calendar/http-c02/proof.json",
+      "sha256": "44CD0393E97DEA19EAB2E5354E70DA9CD64D0D58FE83989A4F7CA73E830735C0"
+    },
+    {
+      "bytes": 90,
+      "git_blob": "0c5362fe68ba6d004879ab8e020ec2e9eb03f9ce",
+      "path": "evidence/sprint22-calendar/http-c02/spring.csv",
+      "sha256": "4FFFDA4ECAE9F13D722FA5130AB1177920255F32B17CE897B7419BE3C91ABDBF"
+    },
+    {
+      "bytes": 30770,
+      "git_blob": "97dd1391abd8d3a3a48df3f21707025f0da7d27d",
+      "path": "evidence/sprint22-calendar/manifest.json",
+      "sha256": "6F838B20B270CA9AE09AABB53DA2858C81A474064775DFF368C8B49FF8F291AA"
+    },
+    {
+      "bytes": 32590,
+      "git_blob": "1ce4760d75a0864c240d0f31c473b3de8511787f",
+      "path": "evidence/sprint22-calendar/private-process-summary.json",
+      "sha256": "86B500BE291306FF7844499A059E0EEAE59098D4E04E57AC79677545CFB2BC7D"
+    },
+    {
+      "bytes": 1585,
+      "git_blob": "49fc52aaa89711697ebf97fa8f383527cab1a7fe",
+      "path": "evidence/sprint22-calendar/protocol/customer-vote.json",
+      "sha256": "46B5409C0AA5B826A3510FFEE8E401CA9B2D93F98F993B73E6D9612DB103868F"
+    },
+    {
+      "bytes": 759,
+      "git_blob": "e43f32579bc2de9f6ecd324d8c26594230dff8cb",
+      "path": "evidence/sprint22-calendar/protocol/invitation01.json",
+      "sha256": "6044872230EC78277751BB1BA41EEB50007E6CD4ECC2660D9A7819165F8A6948"
+    },
+    {
+      "bytes": 1759,
+      "git_blob": "28f5ad98e6019e8f0871aae8a6ea880b983c0243",
+      "path": "evidence/sprint22-calendar/protocol/pm-vote.json",
+      "sha256": "43112EADDF65FE9DE37992F66635910FCD5E5960336F312E7DD10A58D74F4AF0"
+    },
+    {
+      "bytes": 4831,
+      "git_blob": "9c93440cf59812a5f1ce3325cdf61eb28991e39d",
+      "path": "evidence/sprint22-calendar/protocol/proposal01.json",
+      "sha256": "42B08F9818885D6B985AEACD5AFA40A83754EC5719EF79C74972A010FCFA22FC"
+    },
+    {
+      "bytes": 1542,
+      "git_blob": "fb8bc28435b370c737053306b49caa72bd046d72",
+      "path": "evidence/sprint22-calendar/protocol/qa-vote.json",
+      "sha256": "FF15260239A75FD1200F31B90CBCF2116B07D04F8CAB824C8897EA8020A1505E"
+    },
+    {
+      "bytes": 8930,
+      "git_blob": "021c9895b554db6adf8b4a135ab4c9c7fc5db6f1",
+      "path": "evidence/sprint22-calendar/protocol/resolution02.json",
+      "sha256": "634DFA5731FF3C1CDFD2D43CDABFFDC860574FDA25C7CE87FF63F1C71CF72764"
+    },
+    {
+      "bytes": 439,
+      "git_blob": "2836b4fbdba8097f95502bb6104c4bdc8f3da4ee",
+      "path": "evidence/sprint22-calendar/protocol/root-vote.json",
+      "sha256": "60C5C9DEB5F202F9D8CE25B9A2417A68EBE97DD071D8413D3966A92760F6DD00"
+    },
+    {
+      "bytes": 1591,
+      "git_blob": "b5e6dba773afa005822d2c013d229c30129ecc57",
+      "path": "evidence/sprint22-calendar/protocol/td-vote.json",
+      "sha256": "9C39B23905E8098F8862D994A5ABCA304451D7B5AF82D86BF4EB238A012BDE85"
+    },
+    {
+      "bytes": 5777,
+      "git_blob": "33d065a05ea65924e24eb4f521f8b78596a45c38",
+      "path": "evidence/sprint22-calendar/saved-http-audit.json",
+      "sha256": "EEB515E80395EED285AD8F1D7DAB33D995B9BEBAC4512F34E38FBAF628204A7B"
+    },
+    {
+      "bytes": 453,
+      "git_blob": "f0b2f9c030418de6079ce4861a912d4afed37a2d",
+      "path": "evidence/sprint22-calendar/tests/existing-calendar.stdout",
+      "sha256": "B24701E9F7C2B69D47360989A21124E48928C117D5DD684F671F59987EB6DFBF"
+    },
+    {
+      "bytes": 477,
+      "git_blob": "cc13e33ef8e102ef0b70cc97dbc5ba2db15b5023",
+      "path": "evidence/sprint22-calendar/tests/renderer.stdout",
+      "sha256": "43DD027DF5FD65D3C51BFE05C8AAF2715A7E292D9B90F008A533BBFA5B5626F1"
+    },
+    {
+      "bytes": 82901,
+      "git_blob": "3f46db5f75bf2afcd962c243a772e4cee689cf15",
+      "path": "src/platform_render.rs",
+      "sha256": "7AE2A7EB0B526EF96FD69DC2B52486DEFF3B22433B8C621AEBA7199CFD715944"
+    },
+    {
+      "bytes": 4578,
+      "git_blob": "18b97f8c3205ff57c4db3c416225506569804820",
+      "path": "tools/sprint22-calendar/README.md",
+      "sha256": "BCB7807CA12E7FF16F9DF0CC71755661EB3C0C59279E1602B931CC89B85ADE9D"
+    },
+    {
+      "bytes": 7135,
+      "git_blob": "fd3dd72558dca592e2fc0072c556b906888d1259",
+      "path": "tools/sprint22-calendar/audit-calendar-proof02.py",
+      "sha256": "E56A567730924F6A8E7C64749C4F6BD2B769D91EEF04DDCC6AFDD8BBCE70F91E"
+    },
+    {
+      "bytes": 11419,
+      "git_blob": "5d16a468116ef2893b0e4d3aac3aa92ec88bdf55",
+      "path": "tools/sprint22-calendar/check-calendar-http02.py",
+      "sha256": "5ABC443C62E64958B5104864118FB11CCD40C5227D0065655EDF2B349E9535C7"
+    },
+    {
+      "bytes": 6113,
+      "git_blob": "27dc2da8607bf872e80905a33a83f7babb4820a1",
+      "path": "tools/sprint22-calendar/check-package-controls.py",
+      "sha256": "A32E8624F44BA4DB4F6C89E55E31FBCEEE8C4224B384C53509B68E3D1ABF4B49"
+    },
+    {
+      "bytes": 8150,
+      "git_blob": "86c53b42b0d04aca112dbb48f22c1ebe7b759753",
+      "path": "tools/sprint22-calendar/verify-package.py",
+      "sha256": "CA16825641A98A31D4DE0777371358D79711DD7A51663D5379A63ADBBD390573"
+    }
+  ],
+  "future_council_envelope": "Only actual finalCouncil invitation/proposal/positions/votes/resolution may be appended outside frozen115core; coreimmutable",
+  "pre_freeze_index_check": "First check rejected unchanged rawAX trailingUIspaces andteststdout finalblanklines; narrow rawcapture -whitespace attrs added, originals unchanged; secondcheck0"
+}

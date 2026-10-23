@@ -782,6 +782,12 @@ pub(crate) fn calendar_table(results: &serde_json::Value) -> String {
                 Some("missing_timestamps") => "Нет времени событий",
                 Some("calendar_limit") => "Интервал превышает предел календаря",
                 Some("calendar_policy") => "Проверьте параметры календаря",
+                Some("calendar_timezone") => {
+                    "Название часового пояса неизвестно или несовместимо со смещением. Укажите существующее название со смещением 0 либо только смещение UTC."
+                }
+                Some("calendar_boundary") => {
+                    "Расчёт остановлен из-за перехода местного времени. Измените рабочие часы или часовой пояс."
+                }
                 _ => "Длительность не проверена",
             };
             ("—".into(), status)
@@ -942,6 +948,121 @@ pub(crate) fn model_editor(
     }
     html.push_str("<p class=\"platform-note\">Поддерживается один неисполняемый процесс с обычными задачами, началом, концом, шлюзами и последовательными переходами. Подписи переходов — текст, а не условия. Условия, default flow, BPMNLabel DI, расширения и другие элементы отклоняются при импорте.</p>");
     html
+}
+
+#[cfg(test)]
+mod calendar_explanation_tests {
+    use super::calendar_table;
+    use crate::calendar::{CalendarSpec, business_millis};
+    use chrono::{DateTime, Utc};
+    use serde_json::json;
+
+    fn utc(value: &str) -> DateTime<Utc> {
+        DateTime::parse_from_rfc3339(value)
+            .unwrap()
+            .with_timezone(&Utc)
+    }
+
+    #[test]
+    fn actual_timezone_failures_offer_a_valid_configuration_without_a_duration() {
+        for (zone, offset) in [("Unknown/Nowhere", 0), ("Europe/Berlin", 60)] {
+            let calendar = CalendarSpec {
+                timezone: Some(zone.into()),
+                offset_minutes: offset,
+                ..Default::default()
+            };
+            let instant = utc("2026-06-01T00:00:00Z");
+            let error = business_millis(instant, instant, &calendar).unwrap_err();
+            assert_eq!(error.code, "calendar_timezone");
+            let html = calendar_table(&json!([{
+                "case_id": "<case>&", "status": "unverified", "reason": error.code
+            }]));
+            assert!(html.contains("неизвестно или несовместимо со смещением"));
+            assert!(html.contains("со смещением 0 либо только смещение UTC"));
+            assert!(html.contains("<td>—</td>"));
+            assert!(html.contains("&lt;case&gt;&amp;"));
+            assert!(!html.contains("<case>"));
+            assert!(!html.contains("Рассчитано"));
+        }
+    }
+
+    #[test]
+    fn real_gap_fold_and_historical_transition_refusals_then_manual_corrections() {
+        for (start, end, expected) in [
+            ("2026-03-28T23:00:00Z", "2026-03-29T22:00:00Z", 7_200_000),
+            ("2026-10-24T22:00:00Z", "2026-10-25T23:00:00Z", 14_400_000),
+        ] {
+            let mut calendar = CalendarSpec {
+                timezone: Some("Europe/Berlin".into()),
+                weekdays: vec![7],
+                start_minute: 150,
+                end_minute: 240,
+                ..Default::default()
+            };
+            let error = business_millis(utc(start), utc(end), &calendar).unwrap_err();
+            assert_eq!(error.code, "calendar_boundary");
+            let html = calendar_table(&json!([{
+                "case_id": "transition", "status": "unverified", "reason": error.code
+            }]));
+            assert!(html.contains("Расчёт остановлен из-за перехода местного времени"));
+            assert!(html.contains("Измените рабочие часы или часовой пояс"));
+            assert!(html.contains("<td>—</td>"));
+            calendar.start_minute = 60;
+            let millis = business_millis(utc(start), utc(end), &calendar).unwrap();
+            assert_eq!(millis, expected);
+            let html = calendar_table(&json!([{
+                "case_id": "corrected", "status": "computed", "business_millis": millis
+            }]));
+            assert!(html.contains("Рассчитано"));
+            assert!(html.contains(if expected == 7_200_000 {
+                "2 ч"
+            } else {
+                "4 ч"
+            }));
+            assert!(!html.contains("<td>—</td>"));
+        }
+        let historical = CalendarSpec {
+            timezone: Some("Pacific/Apia".into()),
+            weekdays: vec![1, 2, 3, 4, 5, 6, 7],
+            start_minute: 0,
+            end_minute: 1440,
+            ..Default::default()
+        };
+        let error = business_millis(
+            utc("1892-07-04T11:26:55Z"),
+            utc("1892-07-04T11:26:56Z"),
+            &historical,
+        )
+        .unwrap_err();
+        assert_eq!(error.code, "calendar_boundary");
+        let html = calendar_table(&json!([{
+            "case_id": "historical", "status": "unverified", "reason": error.code
+        }]));
+        assert!(html.contains("перехода местного времени"));
+        assert!(html.contains("<td>—</td>"));
+    }
+
+    #[test]
+    fn existing_refusals_and_unknown_reason_stay_safe() {
+        let html = calendar_table(&json!([
+            {"case_id":"missing","reason":"missing_timestamps"},
+            {"case_id":"limit","reason":"calendar_limit"},
+            {"case_id":"policy","reason":"calendar_policy"},
+            {"case_id":"<unknown>","reason":"<script>injected()</script>"}
+        ]));
+        for message in [
+            "Нет времени событий",
+            "Интервал превышает предел календаря",
+            "Проверьте параметры календаря",
+            "Длительность не проверена",
+            "&lt;unknown&gt;",
+        ] {
+            assert!(html.contains(message));
+        }
+        assert_eq!(html.matches("<td>—</td>").count(), 4);
+        assert!(!html.contains("injected"));
+        assert!(!html.contains("<script>"));
+    }
 }
 
 #[cfg(test)]
