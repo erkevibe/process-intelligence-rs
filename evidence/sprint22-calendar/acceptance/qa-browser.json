@@ -1,0 +1,128 @@
+{
+  "files": [
+    {
+      "bytes": 10952,
+      "sha256": "9F07FCE798ACABA6F776F8BF3201E0448B244D452505CCB3E5F6087D7E956FC9",
+      "file": "fall-corrected-reload.ax.txt"
+    },
+    {
+      "bytes": 55937,
+      "sha256": "3A61C0CA09E7A0D1B5C4FD3C07290947FFB6CDAEF212DD7345258A48FF47265F",
+      "file": "fall-corrected-reload.png"
+    },
+    {
+      "bytes": 11097,
+      "sha256": "87B098E056FD88AF0FD20D61CB0D65F42C22985CA5E8C3D0E8578868A9400EBF",
+      "file": "fall-refusal-reload.ax.txt"
+    },
+    {
+      "bytes": 58914,
+      "sha256": "0E7B7FEA28DFD83869A2967E3EB4B23BA58A645A268D7E38397DDB7A94DC2F8A",
+      "file": "fall-refusal-reload.png"
+    },
+    {
+      "bytes": 55937,
+      "sha256": "3A61C0CA09E7A0D1B5C4FD3C07290947FFB6CDAEF212DD7345258A48FF47265F",
+      "file": "final-retained-4h.png"
+    },
+    {
+      "bytes": 1174,
+      "sha256": "82884A7E85E495F25B4F8820C83517DBF515ED94F2A3A0393F31325DD924434E",
+      "file": "observations.json"
+    },
+    {
+      "bytes": 16258,
+      "sha256": "EBCC4B756981BF20E1688344522BE7E57B25C4638BD09F41E82E334C0F738E0D",
+      "file": "offset-conflict-422.png"
+    },
+    {
+      "bytes": 341,
+      "sha256": "D6B04DB7174E4954E2100449257011AB58A4ED29D6EF3EE2432CD3B6E0C703C0",
+      "file": "offset-conflict-network.json"
+    },
+    {
+      "bytes": 10952,
+      "sha256": "9F07FCE798ACABA6F776F8BF3201E0448B244D452505CCB3E5F6087D7E956FC9",
+      "file": "offset-conflict-prior-state-retained.ax.txt"
+    },
+    {
+      "bytes": 451,
+      "sha256": "17AE6B358987A3C36F59189686023BAECDB9E6C078F7072375CC68AB282E8369",
+      "file": "offset-conflict.ax.txt"
+    },
+    {
+      "bytes": 10956,
+      "sha256": "C6FD21DD6D2C8D7C505B2051C23EEFFA16853614DE1929C27C18AFF8B4818AEA",
+      "file": "spring-corrected-reload.ax.txt"
+    },
+    {
+      "bytes": 55918,
+      "sha256": "4D78561E7C1A989E6BC3DAD53C1423618E4CA6486010E6C29C82C73D4D2FE512",
+      "file": "spring-corrected-reload.png"
+    },
+    {
+      "bytes": 11101,
+      "sha256": "30C262CC9B13AF61A9DF9A502BD371441DFEBBF7106C20C22F45DB60B4ECBF5B",
+      "file": "spring-refusal-reload.ax.txt"
+    },
+    {
+      "bytes": 164299,
+      "sha256": "78E94C7C772E9A8B902A94746A3410E549B5CB872EBE25758C537861438FB125",
+      "file": "spring-refusal-reload.png"
+    },
+    {
+      "bytes": 804,
+      "sha256": "813221614B4DB4E01C1936A3D6D61F6DF17018B692946034CD6E005D7CBB029E",
+      "file": "spring-refusal.ax.txt"
+    },
+    {
+      "bytes": 13617,
+      "sha256": "5C87F364DC50FEC76DFB60004238E192BEDC5F682C459225C4D849BCA8BE7657",
+      "file": "unknown-zone-422.png"
+    },
+    {
+      "bytes": 341,
+      "sha256": "757DACBABB54DA4A5BEFA97FAE7B1616C7A97F53FC424F5D758150EE46FDEB81",
+      "file": "unknown-zone-network.json"
+    },
+    {
+      "bytes": 10952,
+      "sha256": "9F07FCE798ACABA6F776F8BF3201E0448B244D452505CCB3E5F6087D7E956FC9",
+      "file": "unknown-zone-prior-state-retained.ax.txt"
+    },
+    {
+      "bytes": 379,
+      "sha256": "30B525B9E00F05C624ACAAD61A2149D7D77197A8124BB2C4A7A592EC105790D3",
+      "file": "unknown-zone.ax.txt"
+    }
+  ],
+  "limitations": [
+    "No independent browserexecution byQA claimed",
+    "Browsermarker alone notacceptance; actualsavedimages/AX/networkproof reviewed",
+    "Timezone renderer branch accepted via actualRusttests, no fabricatedpersistedinvalidtimezone browserrow",
+    "No calendar Datastar or SSEclaim",
+    "CombinedHTTPfeatureacceptance awaits actualE56saved-dataaudit"
+  ],
+  "ax_verified": [
+    "spring-refusal-reload.ax.txt",
+    "spring-corrected-reload.ax.txt",
+    "fall-refusal-reload.ax.txt",
+    "fall-corrected-reload.ax.txt",
+    "unknown-zone-prior-state-retained.ax.txt",
+    "offset-conflict-prior-state-retained.ax.txt"
+  ],
+  "observed": [
+    "Spring refused dash and exact actionable boundarytext afterreload thencorrected2h",
+    "Fall refused boundarytext afterreload thencorrected4h",
+    "BothinvalidformDocumentHTTP422 selectedCDPresponses; priorBerlinUTC0/open60close240/4hretained"
+  ],
+  "agent_name": "qa_s20_delivery",
+  "actual_utc": "2026-10-23T06:31:13.8552074+00:00",
+  "candidate_sha256": "13A43541509807ADDA043A6AD1D32BF9F9BA44A0BBF42318F1A168632D09F32C",
+  "visual_inspected": [
+    "spring-refusal-reload.png",
+    "fall-corrected-reload.png"
+  ],
+  "observer": "Root actual cua_repl browser; QA independently reviewed saved screenshots AX and selected network responses",
+  "decision": "ACCEPT_REVIEWED_SAVED_ACTUAL_BROWSER_SUBSCOPE"
+}

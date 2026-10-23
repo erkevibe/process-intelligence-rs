@@ -1,0 +1,134 @@
+{
+  "kind": "ACTUAL_PROSPECTIVE_SCOPE_RESOLUTION_COUNT_ENVELOPE",
+  "actual_utc": "2026-10-23T06:14:00.4544242+00:00",
+  "proposal_sha256": "42B08F9818885D6B985AEACD5AFA40A83754EC5719EF79C74972A010FCFA22FC",
+  "fixed_voters": [
+    "Root",
+    "PM",
+    "Customer",
+    "QA",
+    "TD"
+  ],
+  "result": "5_FOR_SCOPE_APPROVED_NOT_IMPLEMENTATION_ACCEPTED",
+  "votes": [
+    {
+      "path": ".local/sprint21/root/sprint22/calendar01/vote01.json",
+      "sha256": "60C5C9DEB5F202F9D8CE25B9A2417A68EBE97DD071D8413D3966A92760F6DD00",
+      "record": {
+        "kind": "ACTUAL_PROSPECTIVE_VOTE",
+        "actor": "Root",
+        "actual_utc": "2026-10-23T11:03:26.5278984+05:00",
+        "proposal_sha256": "42B08F9818885D6B985AEACD5AFA40A83754EC5719EF79C74972A010FCFA22FC",
+        "vote": "FOR",
+        "reason": "Narrow truthful static calendar explanations with real engine fixtures and browser observations; primary delivery remains immutable; runtime exact QA/TD gates, resource caps and deadline unchanged."
+      }
+    },
+    {
+      "path": ".local/sprint21/pm/sprint22/calendar01/plan-vote01.json",
+      "sha256": "43112EADDF65FE9DE37992F66635910FCD5E5960336F312E7DD10A58D74F4AF0",
+      "record": {
+        "schema_version": 1,
+        "role": "PM",
+        "agent_name": "pm_s21",
+        "actual_utc": "2026-10-23T11:03:26.89454+05:00",
+        "proposal_sha256": "42B08F9818885D6B985AEACD5AFA40A83754EC5719EF79C74972A010FCFA22FC",
+        "invitation_sha256": "6044872230EC78277751BB1BA41EEB50007E6CD4ECC2660D9A7819165F8A6948",
+        "vote": "FOR",
+        "decision": "AUTHORIZE_NARROW_PROSPECTIVE_CALENDAR_UX_STAGE",
+        "reason": "Primaryfullydelivered gate met. Two explicitrendererbranches improve actualrefusal explanation while preservingcalendaralgorithm/API/persistence. Customerwording covers unknownzone andoffsetconflict aswell asgeneral localtransitionboundary. Fivefinitecriteria correctly distinguish normalinvalidPOSTfailclosed fromrendererunit andactualboundarybrowserrow.",
+        "conditions": [
+          "ExactagreedRussianmessages; no reason/status/numericexport/schema/arithmeticchanges.",
+          "Actualengineerrors feedrenderertests; unknownreasonfallback andHTMLescaping stay intact.",
+          "Invalidzone/nonzerooffsetHTTP422 priorpolicyunchanged, notfabricatedstoredinvalidrow.",
+          "RealbrowserplainPOSTredirect/tools+reload boundaryfailure then manual7200000spring/14400000fall correction; noDatastarclaim.",
+          "Targetedlocalchecks plusfullremoteCI appropriate8GiBcap, exactQA+TD sourceconfigGO before native.",
+          "IndependentQA/TD+Customer actualcandidateacceptance; separatepublicPR/exactCI/independentwholesource checks beforedeliveredclaim.",
+          "Localgate07:30/publictarget08:30,globalfreeze09:53:31/end11:23:31/final90minreserve unchanged."
+        ],
+        "scope_limits": [
+          "Onlynewseparatecandidatefromprimarycommit",
+          "No broadR5/enterprise/large-report/STATUSdebtclosure",
+          "No90krerun/tag/merge/releaseclaim"
+        ],
+        "human_acceptance": false
+      }
+    },
+    {
+      "path": ".local/sprint21/customer/sprint22/calendar01/plan-vote01.json",
+      "sha256": "46B5409C0AA5B826A3510FFEE8E401CA9B2D93F98F993B73E6D9612DB103868F",
+      "record": {
+        "schema_version": 1,
+        "actual_utc": "2026-10-23T06:03:51Z",
+        "role": "Customer",
+        "agent_name": "customer_s22_delivery",
+        "vote": "FOR",
+        "proposal_sha256": "42B08F9818885D6B985AEACD5AFA40A83754EC5719EF79C74972A010FCFA22FC",
+        "invitation_sha256": "6044872230EC78277751BB1BA41EEB50007E6CD4ECC2660D9A7819165F8A6948",
+        "prior_position_sha256": "7FF25A260B10A1A274FE75B1DF2F38A72DBB7CEA5D3624F15184B83ED30E1D9B",
+        "scope": "Prospective implementation and verification of exact two calendar refusal messages on separate candidate only.",
+        "reason": "Exact messages cover actual engine error classes and give a concrete user correction without changing calendar semantics. CALUX criteria separate synthetic engine-derived renderer checks from real browser paths.",
+        "conditions": [
+          "All CALUX-01 through CALUX-05 and unchanged numeric/export/API/persisted behavior require independent evidence before acceptance.",
+          "Actual browser boundary refusal then corrected duration/reload and separate invalid-zone 422 preserving prior state are mandatory, with no fabricated invalid stored row.",
+          "Root retains exclusive runtime ownership and unchanged budgets, source/config review gates and deadline reserve.",
+          "Independent QA/TD and Customer UI review plus exact-commit CI and appropriate independent public source verification remain future gates.",
+          "No primary delivery mutation, broad R5/enterprise acceptance, 90k rerun, tag or merge."
+        ],
+        "feature_accepted": false,
+        "publication_accepted": false,
+        "other_votes_inferred": false
+      }
+    },
+    {
+      "path": ".local/sprint21/qa/sprint22/calendar01/plan-vote01.json",
+      "sha256": "FF15260239A75FD1200F31B90CBCF2116B07D04F8CAB824C8897EA8020A1505E",
+      "record": {
+        "schema": 1,
+        "agent_name": "qa_s20_delivery",
+        "role": "QA",
+        "actual_utc": "2026-10-23T11:03:31.2361446+05:00",
+        "vote": "FOR",
+        "proposal_sha256": "42B08F9818885D6B985AEACD5AFA40A83754EC5719EF79C74972A010FCFA22FC",
+        "invitation_sha256": "6044872230EC78277751BB1BA41EEB50007E6CD4ECC2660D9A7819165F8A6948",
+        "base_commit": "8a5732224fdc20e0094e689cf75b0818a335e6fa",
+        "reason": "Narrow renderer explanations cover actual unknown/incompatible timezone and all local-transition boundary causes without changing calendar computation or exported API contract. Five finite criteria distinguish real engine errors, real rejected POST and real browser POST/redirect/reload.",
+        "conditions": [
+          "Exact prospective source and runtime configuration independent QA+TD admission before native execution",
+          "Actual engine gap/fold and unknown-zone error paths, manual corrected7200000/14400000 millisecond expectations and unchanged C01/C02 export comparison",
+          "HTML escaping and unknown reason generic fallback preserved",
+          "Actual browser POST redirect reload and separate HTTP422 persistence preservation; no claimed calendar SSE",
+          "Native exit and both EOF and unchanged resource limits; prior six UNKNOWN remain",
+          "Independent actual candidate review and exactHEAD CI/public-source delivery gates before feature/public acceptance"
+        ],
+        "scope": "Prospective implementation authorization only; not native admission, implementation acceptance, or R5 closure",
+        "no_native_or_code_by_qa": true
+      }
+    },
+    {
+      "path": ".local/sprint21/td/sprint22/calendar01/plan-vote01.json",
+      "sha256": "9C39B23905E8098F8862D994A5ABCA304451D7B5AF82D86BF4EB238A012BDE85",
+      "record": {
+        "reason": "Two bounded static UI reason mappings clarify actual engine refusals; scope preserves calendar arithmetic/API/status/persistence/exports. Criteria distinguish real boundary UI from invalid-zone rejection and correctly identify plain POST/reload rather than claiming calendar Datastar/SSE.",
+        "conditions": [
+          "Fixedfive actual majority and anyblockingpositions resolved before branch/code",
+          "Exact source/config QA+TD admission before Rootsole native/build/PG/app work, unchanged resource guard/cache/window",
+          "Actual engine-derived renderer tests for timezone variants and boundary subtypes; escaping and genericfallback unchanged",
+          "C01/C02 fixed spring/fall manual numeric/export equivalence and invalidPOST422 state unchanged",
+          "Actual browser plainPOST/tools/reload boundary and correction evidence plus Customer UI review",
+          "Independent integrated candidate/evidence/privacy/processlog review and exactHEADCI/publicsource gates before delivery"
+        ],
+        "role": "TD",
+        "actual_feature_acceptance": false,
+        "agent_name": "td_s20_delivery",
+        "vote": "FOR",
+        "invitation_sha256": "6044872230EC78277751BB1BA41EEB50007E6CD4ECC2660D9A7819165F8A6948",
+        "timing": "Same Sprint22 window; localgate07:30/publictarget08:30; nativefreeze09:53:31/end11:23:31UTC",
+        "utc": "2026-10-23T11:03:39.6930017+05:00",
+        "scope": "Prospective calendar UI-only stage; no broadR5closure, reportlimitchange,STATUSfix,90krerun,tagmerge or primaryPR25mutation",
+        "proposal_sha256": "42B08F9818885D6B985AEACD5AFA40A83754EC5719EF79C74972A010FCFA22FC"
+      }
+    }
+  ],
+  "prior_resolution_sha256": "FE914D168692663820CCFFDF231E4C180889AA65BA96F7898496B85A433B5AB1",
+  "actual_for": 5
+}
