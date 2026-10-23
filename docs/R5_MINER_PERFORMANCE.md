@@ -22,3 +22,15 @@ Working set — наблюдаемый ОС пик процесса от соз�
 Все 56 полученных BPMN проверены полной семантической биекцией с прежними графами. Шесть допустимых случаев наследуют ровно прежние оценки качества после независимого повтора старого аудита; новые fitness/precision/simplicity здесь не измерялись. Self-loop сохраняет неподдержанный standardLoop, empty-log — настоящее исключение без модели; для них числовое качество не назначено.
 
 Показатели ОС: [Process memory counters](https://learn.microsoft.com/en-us/windows/win32/api/psapi/ns-psapi-process_memory_counters_ex), [Job commit counters](https://learn.microsoft.com/en-us/windows/win32/api/winnt/ns-winnt-jobobject_extended_limit_information), [CPU и FILETIME](https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-getprocesstimes).
+
+## Продолжение Sprint23: фиксированные 500 трасс / 1 500 событий
+
+Один новый вызов того же скомпилированного движка в свежей JVM дал
+125 033 900 нс только для алгоритма. В последней живой точке peak working set
+составил 171 708 416 байт, peak private commit — 671 563 776 байт. Полные
+поля входа и BPMN проверены независимо; исходные предупреждения сохранены.
+Новые оценки качества не назначены. Публичная поставка принимается отдельно.
+
+Это иной синтетический вход и одна точка, поэтому значения не сравниваются
+напрямую с медианами Sprint20. [Полный отчёт, ограничения и автономная
+проверка сохранённого опыта](SPRINT_23_MINER_REPORT.md).
