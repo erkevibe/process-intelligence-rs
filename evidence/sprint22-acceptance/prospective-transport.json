@@ -1,0 +1,58 @@
+{
+  "kind": "PROSPECTIVE_PUBLIC_TRANSPORT_AND_REPLAY",
+  "actual_utc": "2026-10-23T05:21:30.2020797+00:00",
+  "transport_source_sha256": "CF05209E0DE10D39ED753A9E1BEF7F568A7207A33F7DD54D42C92E40042F5559",
+  "policy_sha256": "E29223B3CB01729BAB84A1979D80C6F7EAEE1A8CCAF6EE90C4FDAD8DD2EBFB88",
+  "primary_selection_sha256": "024B8F6290A0CE26589D2140F549B0E2B42BFE9D9467082873BD2BC486FFC50E",
+  "process_selection_sha256": "C0C4CC155DD22649DC96A3512A31D02F437C4DBD24AC8BEBFFDC4C96F730FFAE",
+  "primary_source": ".local/sprint21/root/sprint22/projected-main02",
+  "primary_manifest_sha256": "11456EAFF8EBAFF78DF047D2082379CBBAD6D0941D551C617F7EB5FA343ACACD",
+  "process_source": ".local/sprint21/root/sprint22/projected-process01",
+  "process_manifest_sha256": "25268083466CCE3B021E49CD202B1A5056BF8AB1A00008836C7483DF4F3048D5",
+  "primary_output": "evidence/sprint22",
+  "process_output": "evidence/sprint22-process",
+  "decoded_output": ".local/sprint21/root/sprint22/decoded-main01",
+  "actual_proofs": [
+    {
+      "path": ".local/sprint21/root/sprint22/projected-core-audit02/audit.json",
+      "sha256": "3E88A47078CE0F555149B0E046E7B291A768970187070448B1B8F32525C96C67"
+    },
+    {
+      "path": ".local/sprint21/root/sprint22/projected-adapter-audit01/audit.json",
+      "sha256": "CF16B22433D30E1607163FBBF6F2F6A35C0D22F62C3694469BA2C1A86E29D294"
+    },
+    {
+      "path": ".local/sprint21/root/sprint22/projected-measurement-audit01/audit.json",
+      "sha256": "C82101190A22A1FD14DF491482BBBD7F55EF3B3632243D83D119711AB5EF0BC5"
+    },
+    {
+      "path": ".local/sprint21/root/sprint22/projection-policy-main01/audit.json",
+      "sha256": "CB01D229F299921E36F3FFBC8AE066DFDB3F0BA75BDF1078A21C9D7F14E81A7F"
+    },
+    {
+      "path": ".local/sprint21/root/sprint22/projection-policy-process01/audit.json",
+      "sha256": "4F45F6127A72E8BA2D593FD15A4BC4761C5B8E1B8D781D39236364F1487B618C"
+    }
+  ],
+  "bounds": {
+    "codec_seconds": 90,
+    "outer_seconds": 105,
+    "max_encoded_bytes": 8388608,
+    "max_decoded_bytes": 67108864,
+    "max_logical_files": 1000,
+    "whole_source_zip_bytes": 33554432,
+    "whole_source_expanded_bytes": 134217728,
+    "whole_source_files": 10000,
+    "additional_total_logical_and_allocated_reserve_bytes": 268435456
+  },
+  "steps": [
+    "Encode fresh primary output; no extra files inside transported bundle",
+    "Copy all28 process projection files byte-exact to fresh output and independently rehash",
+    "Decode fresh primary output into new private directory; rerun three saved-data auditors and public projection policy checker",
+    "Freeze integrated candidate then actual independent audits and Council before publishing commit",
+    "After push and PR both exact-head CI and two independent anonymous whole-Git downloads plus downloaded-code replay"
+  ],
+  "no_runtime_or_pg_or_science_rerun": true,
+  "no_native_descriptor_rebinding": true,
+  "failure_policy": "Stop on any refusal; preserve outputs and actual captured failure; no blind retry/relaxed limits"
+}

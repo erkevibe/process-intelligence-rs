@@ -1,0 +1,59 @@
+{
+  "kind": "EXACT_FROZEN_PRIMARY_S22_PUBLICATION_PROPOSAL",
+  "version": 1,
+  "actual_utc": "2026-10-23T05:32:53.1032890+00:00",
+  "fixed_voters": [
+    "Root",
+    "PM",
+    "Customer",
+    "QA",
+    "TD"
+  ],
+  "invitation_sha256": "A6C499CFA02F980EC9CFA2BB4C805DB1E16F70927B974EC9D9E54C595479D34D",
+  "freeze_sha256": "E9E92055279228F5D519AAAC25326108F6A98B8E4D761938A3E4E855D4616743",
+  "core_files": 425,
+  "core_bytes": 1671470,
+  "core_index_tree_oid": "d6353c4aee1fe4116560e491a4cb4cac16b7bd76",
+  "base_commit": "7f6e3b202e826883b7b82a97e0b443f4fc2f058f",
+  "independent_qa_and_ProcessLogAuditor_review_sha256": "27DAB1B8E8D245B14A2A8328E5C2C518043A38D978982F0BB1D4039F37194FF1",
+  "independent_td_review_sha256": "4B3769FBCAF89F17335C76FC57ACB6883AA3787EF974C0C845BEF005F9576769",
+  "transport_actual_qa_acceptance_sha256": "147BD87008A9E947BA5F8B4CCBDA07A1F54734CE33794F75AF521655EDA373AD",
+  "risk": "Medium scoped test-infrastructure candidate; independent high-risk ownership/source/native-evidence checks complete, deployment and broad enterprise claims excluded",
+  "decision_requested": "Accept the exact local technical candidate and admit publishing its unchanged425core plus actual Council envelope to a separate PR. This is not acceptance of future CI/download gates.",
+  "publication": {
+    "repository": "erkevibe/process-intelligence-rs",
+    "head": "codex/sprint-22",
+    "base": "codex/sprint-21-status",
+    "tag": false,
+    "merge": false,
+    "runtime_rust_or_schema_changed": false
+  },
+  "honest_outcomes": [
+    "Seven finite ownership scenarios,15native/30slots=27full+1intentionaltruncation+2intentionaluninitialized; collector/host death excluded",
+    "Fixed C01 0.8.1 and original input counts:10k completed;90k report_byte_limit refusal, bothdownloads404, source retained, no resultpair",
+    "WholeadapterFAILED_GUARD and all sixhistoricalUNKNOWN plus packaging/driver/privacy/maintenance failures remain as actual history",
+    "Public measurement has27exact original rawstreams and1explicit clusterpath representation with originalcapture descriptor retained",
+    "Memory serveronly, peaks throughfinalalive sample, no SLO/CPU/graphdiversity/enterprise/large90kconversion claim",
+    "STATUS native exit before final capture receipt remains future hardening debt"
+  ],
+  "mandatory_delivery_gates": [
+    "No425core byte changes without newfreeze and renewed review",
+    "Actual proposal-bound fixed-roster votes; wait everyrole position, require actualmajority and resolve blockingobjections",
+    "Both push and pull_request CI for exact final40hexHEAD completedSUCCESS, everyjob/step no skip",
+    "Distinct Root and QA anonymous completeGitZIP acquisitions for exactHEAD; no RootZIP reuse byQA; unchanged32MiBZIP128MiBexpanded10000entry limits",
+    "EveryGitfile byte compared to exact localGitarchive before bounded sparse extraction and downloaded-code decoder plusall3semantic/2policyreplays",
+    "Fresh owned-output/capture checks, no unexplainednativeUNKNOWN, finalresource/quietpoint before enddeadline",
+    "Update PR description and finalreport externally with actualHEAD/CI/download evidence; do not claim pending gates passed in frozen docs"
+  ],
+  "readback": {
+    "whole_verifier_sha256": "54B2755F32C4780C8B500582CE156A43139645FFECC89E1E6F93996E4A456FC8",
+    "subset_helper_sha256": "3B4318DD8A72EA040753FE84AA35F27026060176E1C18B4F5F6F72ECB501A846",
+    "curl": "-q first;no-netrc;HTTP1.1;retry0;connect10/max30s;HTTPS;maxredirs0;no-L;maxfilesize33554432;require200/effectiveURLexact",
+    "source": "https://codeload.github.com/erkevibe/process-intelligence-rs/zip/EXACT_FINAL_40HEX_HEAD",
+    "root_and_qa_outputs_distinct": true,
+    "subset_only_after_whole_identity": true
+  },
+  "deadline": "2026-10-23T11:23:31Z",
+  "native_dev_freeze": "2026-10-23T09:53:31Z",
+  "optional_next_r5": "Only after accepted primary public delivery, fresh criteria/decision and adequate remaining verification reserve. No optional change is included in this425file candidate."
+}

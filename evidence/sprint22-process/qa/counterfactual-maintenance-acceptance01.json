@@ -1,0 +1,51 @@
+{
+  "auditor_proof_sha256": "A5B7A39E5824933A1BEAE6CDF466822DCA5056A62C9E853D53CE3202114B22D6",
+  "resource": {
+    "root_allocated": 6808875744,
+    "files": 40692,
+    "unchanged_guard": true,
+    "elapsed_ms": 10594,
+    "global_allocated": 7050249856,
+    "skips": 0
+  },
+  "actual": [
+    {
+      "both_eof": true,
+      "native_exit": 0,
+      "creation_utc": "2026-10-23T04:40:09.6602419Z",
+      "pid": 53756,
+      "record_sha256": "8D309DC8910C9D3A332522D2A90AE584BD8AC0B1597CAA24D591E9C62BD86269"
+    },
+    {
+      "both_eof": true,
+      "native_exit": 0,
+      "creation_utc": "2026-10-23T04:47:38.4327292Z",
+      "pid": 56072,
+      "record_sha256": "0CC119C156EE9526AA898C9B128DEC9043C6F1B3D492DE5D7C8218304D0C0313"
+    },
+    {
+      "both_eof": true,
+      "native_exit": 0,
+      "creation_utc": "2026-10-23T04:47:03.5731502Z",
+      "pid": 57444,
+      "record_sha256": "3FE1FFB794E3EB249BACDBDF668FE0A334B71838F82B7BF6DB7F6B52E4440B1B"
+    }
+  ],
+  "measurement_admission_separate": true,
+  "utc": "2026-10-23T04:49:02.1415196+00:00",
+  "limits": [
+    "No ACL/NTFS fidelity or actual restoration exercise claim.",
+    "Prior adapter wholephaseFAILED_GUARD and all prior failed maintenance/auditor attempts retained.",
+    "Resource result is actual finite sample, not guarantee future scans always pass."
+  ],
+  "decision": "ACCEPT_FOUR_UNIQUE_NEGATIVE_TREE_BYTE_PRESERVATION_AND_FRESH_RESOURCE_CLOSURE",
+  "historical_unknowns_unchanged": 6,
+  "zip_bytes": 20618670,
+  "auditor_source_sha256": "FB77333E4F6F562BFAC689C27DF5676A81AB1ABD133DFA626EDCC9C6F0C97875",
+  "schema": 1,
+  "files": 21370,
+  "agent_name": "qa_s20_delivery",
+  "expanded_bytes": 46285147,
+  "resource_proof_sha256": "1E1D351895AC5767255114BD9F56C32B5B943504E4FFEB78FB987E1EFD7D8562",
+  "unique_negative_test_bytes_preserved": true
+}

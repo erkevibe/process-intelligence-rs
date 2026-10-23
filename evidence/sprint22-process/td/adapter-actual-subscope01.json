@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "role": "Independent TD",
+  "agent_name": "td_s20_delivery",
+  "utc": "2026-10-23T04:21:14.2144995+00:00",
+  "decision": "THREE_FUNCTIONAL_FIXTURE_SUBSCOPES_VERIFIED_OVERALL_PHASE_FAILED",
+  "whole_phase_status": "FAILED_RESOURCE_SAMPLE_TIMEOUT_RETAINED",
+  "collector_pid": 18684,
+  "collector_exit": 1,
+  "direct_native_records_verified": 7,
+  "actual_raw_streams_hash_length_EOF_verified": 14,
+  "raw_oracle_and_expected_exit_mismatches": 0,
+  "new_unknown_completions": 0,
+  "functional_findings": [
+    "Unexpected service native exit0 triggered independent watcher, killed worker137, both exact raw streams complete; watch attached before service Resume.",
+    "Absolute callback STOP04:18:41.9377802Z occurred inside blocked broker interval04:18:41.4344481Z..04:18:42.6441054Z; actual kill requests complete04:18:41.9391803Z, before broker unblock.",
+    "Memory positive has10 actual samples and complete footer/hash. Wrong100ns target identity rejects before file creation. Actual target death leaves partial source ending at sample, no complete footer; separate expected service KILL does not trigger unexpected-exit watcher."
+  ],
+  "memory_proof": {
+    "positive_sha256": "E11394603A80127229EC572208FE390423948D588FEC40281D1EEEB6B7072699",
+    "dead_partial_sha256": "D8EFE06588D746C7B35B6EBC5B4487526773388EEC2914EFC0C83ABE2C4A72DD"
+  },
+  "limits": [
+    "Final unchanged resource scan timed out after all fixtures, so no overallPASS or measurement admission. Current resource knowledge must be restored and independently accepted.",
+    "No app or PostgreSQL started; no blind fixture repetition or guard relaxation authorized.",
+    "Functional subscope evidence may be reused only byte-exact with failure history preserved; supplementary resource closure is separate, never rewrites original exit1.",
+    "Raw saved files independently inspected by TD; full independent QA acceptance remains required."
+  ],
+  "measurement_admitted": false
+}

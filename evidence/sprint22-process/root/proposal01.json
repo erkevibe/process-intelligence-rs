@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "kind": "SPRINT22_PROSPECTIVE_PLAN",
+  "recorded_utc": "2026-10-23T03:27:02.7990633+00:00",
+  "T0": "2026-10-23T03:23:31Z",
+  "deadline": "2026-10-23T11:23:31Z",
+  "native_freeze": "2026-10-23T09:53:31Z",
+  "mechanism_gate": "2026-10-23T07:23:31Z",
+  "fixed_voters": [
+    "Root",
+    "PM",
+    "Customer",
+    "QA",
+    "TD"
+  ],
+  "risk_appetite": "Medium overall; high risk process ownership/guard boundary gets full candidate control; source drafts stay lightweight",
+  "goal": "Preserve actual child exit and both raw streams under worker failure and resource STOP, then fresh fixed10k90k experiment",
+  "architecture": "Outer Root broker sole process/Job/capture owner; distinct S22 C# types; CreateProcessW CREATE_SUSPENDED with explicit stdio handle list, retained process/thread handles, native creation/image/Job membership and capture readiness recorded before ResumeThread. Worker uses bounded private IPC requests; all launches from pinned allowlist. Separate worker and workload Jobs, collector outside both.",
+  "stop": "Permanent deny-new-GO latch before immediate termination of worker and every workload Job on actual guard failure or worker death; only bounded existing-process wait/drain/flush/hash then exit. No25s grace, no further application work.",
+  "scope_limits": "Worker/child/guard failures only. Root collector death, arbitrary tool/host death and unknown descendants are not claimed repaired; any missing mandatory exit/EOF means UNKNOWN and blocks measurements.",
+  "resources": {
+    "old_receipts_outside_guard": "Only initial Customer and QA receipts, copied byte-exact and separately accounted; no unaccounted new outputs",
+    "global_limit_gib": 12,
+    "scanner_entries": 200000,
+    "storage_root": ".local/sprint21",
+    "root_limit_gib": 8,
+    "scanner_seconds": 25,
+    "cache": ".local/sprint21/root/target",
+    "minimum_free_gib": 8,
+    "headroom_mib": 512,
+    "all_new_private_outputs": ".local/sprint21/{role}/sprint22"
+  },
+  "owners": {
+    "Customer": "User value and clarity, distinct PM",
+    "Root": "Architecture implementation integration, sole native execution and shared resources",
+    "QA": "Independent source/scenario validation and live ProcessLogAuditor; STOP",
+    "TD": "Independent architecture/debt review and STOP; not runtime author",
+    "PM": "Requirements and priorities, distinct Customer"
+  },
+  "admission": "OWN01/02/03/05 actual child exit plus both EOF exact lengths/hashes; OWN04 deliberate bounded truncation and OWN06 honest no-ownership refusal. Independent QA and TD acceptance by mechanism_gate or no measurements this sprint.",
+  "measurement": "Only after admission: new prospective protocol verifies historical input manifest59DA6F7A7A61826A579F93C394D1EFDF7DDEBE9D550E8120E1BB1EF8D5BDCC43, same fixed10k90k inputs, acceptedC01 binary, one operation/fresh process each, unchanged4MiBreport/20MiBsource/result. Fixed observations/timeouts before execution, converted independently validated or actual report-limit refusal; no absent-result PASS or retuning.",
+  "history": "Six old UNKNOWN and all failed evidence remain immutable; no old deadline extension or old-source edits",
+  "early_finish": "After primary mechanism/measurement delivery accepted, select bounded remaining R5 item with prospective criteria and time; no work after nativefreeze, final90min reserved delivery",
+  "delivery": "Separate codex/sprint-22 branch and PR, exact candidate independent QA+ProcessLogAuditor+TD, actual Council votes, both exacthead CI, Root and QA independent anonymous whole-source downloads with applicable rechecks, honest final resources/process closure. No tags or merge."
+}
