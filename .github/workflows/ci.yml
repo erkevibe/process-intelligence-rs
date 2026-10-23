@@ -93,6 +93,18 @@ jobs:
       - name: Sprint22 calendar form saved HTTP audit
         run: |
           python3 -I -B tools/sprint22-calendar-form/audit-http.py evidence/sprint22-calendar-form/http-c02 evidence/sprint22-calendar-form/http-c03 "$RUNNER_TEMP/sprint22-calendar-form-audit.json"
+      - name: Sprint23 compact reports and independent corpus audit
+        run: |
+          mkdir -p .local/sprint21/root/sprint23/ci-corpus .local/sprint21/root/sprint23/ci-corpus-audit .local/sprint21/root/sprint23/ci-corpus-controls
+          cargo run --locked --example sprint23_corpus -- "$PWD/.local/sprint21/root/sprint23/ci-corpus"
+          codec_sha=$(sha256sum src/conversion/compact.rs | cut -d ' ' -f 1)
+          python3 -B tools/sprint23/audit-corpus.py "$PWD/.local/sprint21/root/sprint23/ci-corpus" "$PWD/.local/sprint21/root/sprint23/ci-corpus-audit" --auditor "$PWD/tools/sprint23/audit-compact.py" --oracle "$PWD/tools/oracle/audit-conversion-evidence.py" --corpus "$PWD/fixtures/conversions/corpus.json" --source-root "$PWD" --codec-sha "$codec_sha"
+          python3 -B tools/sprint23/check-corpus-controls.py "$PWD/.local/sprint21/root/sprint23/ci-corpus" "$PWD/.local/sprint21/root/sprint23/ci-corpus-controls" --batch "$PWD/tools/sprint23/audit-corpus.py" --auditor "$PWD/tools/sprint23/audit-compact.py" --oracle "$PWD/tools/oracle/audit-conversion-evidence.py" --corpus "$PWD/fixtures/conversions/corpus.json" --source-root "$PWD" --codec-sha "$codec_sha"
+          python3 -B tools/sprint23/check-compact-controls.py "$PWD/tools/sprint23/audit-compact.py" 048A57750159B49D20E3CCABB02ACB1A7C4320A1C676DAB1B91291CF7114B802 "$PWD/tools/oracle/audit-conversion-evidence.py" "$PWD/fixtures/conversions" "$PWD/.local/sprint21/root/sprint23/ci-codec-controls.json"
+          python3 -B tools/sprint23/decode-report.py "$PWD/.local/sprint21/root/sprint23/ci-corpus/X01.compact.json" "$PWD/.local/sprint21/root/sprint23/ci-decoded-report.json" --codec-sha "$codec_sha"
+            mkdir -p .local/sprint21/root/sprint23/ci-transport-controls
+            python3 -I -B tools/sprint23/check-transport-controls.py "$PWD/tools/sprint23/evidence-transport.py" "$PWD/.local/sprint21/root/sprint23/ci-transport-controls" --workspace "$PWD" --auditor "$PWD/tools/sprint23/audit-compact.py"
+            python3 -I -B tools/sprint23/evidence-transport.py verify "$PWD/evidence/sprint23" --workspace "$PWD" --selection-sha 0E723F7BE2B611F69B2851B19812848DEF54C5B4A3BEBA773232E31945DEB858 --auditor "$PWD/tools/sprint23/audit-compact.py"
       - name: Diagnostic protocol and state oracle regressions
         run: |
           node tests/sql5-cycle-regression.cjs
@@ -161,7 +173,10 @@ jobs:
           cp -r static fixtures dist/
           cp README.md LICENSE docs/DEPENDENCIES.json dist/
           cp docs/CONVERSIONS.md dist/
-          cp docs/SPRINT_21_CAPACITY_REPORT.md dist/CANDIDATE_STATUS.md
+          mkdir -p dist/docs dist/tools/sprint23
+          cp docs/COMPACT_REPORTS.md dist/docs/
+          cp tools/sprint23/decode-report.py tools/sprint23/audit-compact.py dist/tools/sprint23/
+          cp docs/SPRINT_23_REPORT.md dist/CANDIDATE_STATUS.md
           tar -czf process-intelligence-rs-linux.tar.gz -C dist .
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         with:

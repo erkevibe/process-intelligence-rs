@@ -109,7 +109,21 @@ fn publish(
 }
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let args: Vec<_> = std::env::args_os().collect();
-    if !(args.len() == 5 || args.len() == 6 && args[5] == "--allow-metadata-loss") {
+    let mut allow = false;
+    let mut compact = false;
+    if args.len() < 5 {
+        return Err("usage: pi_convert FROM TO INPUT NEW_OUTPUT_DIRECTORY [--allow-metadata-loss] [--compact-report]".into());
+    }
+    for option in &args[5..] {
+        if option == "--allow-metadata-loss" && !allow {
+            allow = true;
+        } else if option == "--compact-report" && !compact {
+            compact = true;
+        } else {
+            return Err("Unknown or repeated conversion option".into());
+        }
+    }
+    if args.len() > 7 {
         return Err(
             "usage: pi_convert FROM TO INPUT NEW_OUTPUT_DIRECTORY [--allow-metadata-loss]".into(),
         );
@@ -118,13 +132,12 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let to = args[2].to_str().ok_or("format_utf8")?;
     let input = Path::new(&args[3]);
     let output = Path::new(&args[4]);
-    let allow = args.len() == 6;
     let source = read(input)?;
     let source_hash = sha(&source);
     let conversion = conversion::convert(from, to, &source, allow);
     // Re-read the actual input before publication. No original bytes are written as a sidecar.
     require(sha(&read(input)?) == source_hash, "source_changed")?;
-    let bytes = conversion::report_bytes(from, to, &source, allow, &conversion)?;
+    let bytes = conversion::report_bytes_profile(from, to, &source, allow, &conversion, compact)?;
     match conversion {
         Ok(result) => publish(output, Some((result.extension, &result.payload)), &bytes)?,
         Err(_) => {

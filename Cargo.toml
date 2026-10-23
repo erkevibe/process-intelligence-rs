@@ -1,6 +1,6 @@
 [package]
 name = "process-intelligence-rs"
-version = "0.8.1"
+version = "0.8.2"
 edition = "2024"
 rust-version = "1.88"
 description = "A validated Rust process intelligence core with server-driven UI"
@@ -24,6 +24,7 @@ tracing-subscriber = { version = "0.3", features = ["env-filter", "json"] }
 futures-util = "0.3"
 csv = "1.4"
 sha2 = "0.10"
+flate2 = "=1.1.10"
 argon2 = "=0.5.3"
 postgres = { version = "=0.19.14", features = ["with-serde_json-1"] }
 
