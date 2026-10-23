@@ -85,3 +85,25 @@ parent capture closed. Preserve the gap and partial streams; never reconstruct
 a process.json or infer child EOF from parent EOF. A fresh successful build does
 not repair historical coverage, and this guard fix does not solve every capture
 lifecycle failure.
+
+# Sprint24 completed public readback copies
+
+A completed Git readback tree may contain later replay outputs in addition to
+the downloaded repository. Inventory and archive the complete current tree,
+including those outputs, before exact literal removal. Keep the original
+download ZIPs, parent receipts and every archive member's original SHA/length.
+Do not delete only the Git-tracked subset and assume that the rest is disposable.
+
+Sprint24 archived two explicitly quiescent source copies: 6618 files each,
+including251 replay extras beyond6367 downloaded Git files. QA independently
+checked all13236 ZIP members and both complete originals before removal.
+The subsequent unchanged native guard sampled55611 files in13424ms. This is
+one actual observation, not proof of a sole timeout cause or a latency guarantee;
+the earlier25-second STOP remains failed. Prefer streaming verification of a
+complete downloaded archive and extracting only the declared portable replay
+subset, rather than retaining repeated whole-repository extracted copies.
+
+Private source evidence: Root `sprint24/readback-compaction01`, inventory SHA
+`705BB536EF79B8BAE1B0B594D5E8172A70ED08227A9A2B76573C312C64FA7E67`;
+QA actual acceptance `D53BAE2DB29CFA086113EFAFFFA90FC6FF0B77F6EB1B54247FD257093CD9670E`;
+TD actual acceptance `E2C28F38EFF9A209DDF420765BE52540E63256F941C2954EE0C08259025A9D83`.

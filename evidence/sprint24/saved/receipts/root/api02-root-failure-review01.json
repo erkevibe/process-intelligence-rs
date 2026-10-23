@@ -1,0 +1,93 @@
+{
+  "raw_slots": 20,
+  "native_records": [
+    {
+      "pid": 53804,
+      "native_exit": 137,
+      "path": "userprofile:/\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint21\\root\\sprint24\\api02\\session\\app10k.process.json",
+      "two_full": true
+    },
+    {
+      "pid": 69936,
+      "native_exit": 0,
+      "path": "userprofile:/\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint21\\root\\sprint24\\api02\\session\\child.process.json",
+      "two_full": true
+    },
+    {
+      "pid": 68172,
+      "native_exit": 1,
+      "path": "userprofile:/\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint21\\root\\sprint24\\api02\\session\\http90k.process.json",
+      "two_full": true
+    },
+    {
+      "pid": 73908,
+      "native_exit": 137,
+      "path": "userprofile:/\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint21\\root\\sprint24\\api02\\session\\postgres.process.json",
+      "two_full": true
+    },
+    {
+      "pid": 75736,
+      "native_exit": 1,
+      "path": "userprofile:/\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint21\\root\\sprint24\\api02\\session\\ready-01.process.json",
+      "two_full": true
+    },
+    {
+      "pid": 78756,
+      "native_exit": 0,
+      "path": "userprofile:/\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint21\\root\\sprint24\\api02\\session\\ready-02.process.json",
+      "two_full": true
+    },
+    {
+      "pid": 73592,
+      "native_exit": 0,
+      "path": "userprofile:/\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint21\\root\\sprint24\\api02\\session\\source10k.process.json",
+      "two_full": true
+    },
+    {
+      "pid": 69080,
+      "native_exit": 1,
+      "path": "userprofile:/\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint21\\root\\sprint24\\api02\\session\\worker.process.json",
+      "two_full": true
+    },
+    {
+      "pid": 73296,
+      "native_exit": 1,
+      "path": "userprofile:/\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint21\\root\\sprint24\\api02\\collector.process.json",
+      "two_full": true
+    },
+    {
+      "pid": 78520,
+      "native_exit": 1,
+      "path": "userprofile:/\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint21\\root\\sprint24\\api02-launch01\\launch.process.json",
+      "two_full": true
+    }
+  ],
+  "manual_pid_wal_delete": false,
+  "requests": 190,
+  "status": "FAILED_API02_KNOWN_ORACLE_MISMATCH",
+  "pg_numeric_pid_absent": true,
+  "actual_utc": "2026-10-23T17:12:09.1115243+00:00",
+  "partial_checks_not_acceptance": true,
+  "all_raw_full": true,
+  "last_request": {
+    "actor": "s24owner",
+    "expected_status": 400,
+    "headers": {
+      "cache-control": "no-store",
+      "content-type": "text/plain; charset=utf-8"
+    },
+    "id": 189,
+    "method": "POST",
+    "path": "/logs/log-2/calendar",
+    "request_accept_values": [
+      "text/html"
+    ],
+    "request_sha256": "8ABFD7E8AC7E379F5DA3E4E52C6DCA70F75F295543FD21CE9A3EEE79A2D270E1",
+    "response_bytes": 78,
+    "response_file": "response-0189.bin",
+    "response_sha256": "3F09196BE994EE76BDF1CE5195E7E54EBEB84ABA48C28D9AC960548AC1F81839",
+    "status": 422,
+    "status_assertion": "failed"
+  },
+  "checks": 202
+}

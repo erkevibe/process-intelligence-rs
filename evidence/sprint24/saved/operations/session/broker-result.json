@@ -1,0 +1,1574 @@
+{
+  "service_watchers": {
+    "postgres-g1": {
+      "expected_exit": true,
+      "attached_utc": "2026-10-23T18:04:35.9936772Z",
+      "triggered": false
+    },
+    "app-live": {
+      "expected_exit": true,
+      "attached_utc": "2026-10-23T18:04:45.3884045Z",
+      "triggered": false
+    },
+    "app-restarted": {
+      "expected_exit": true,
+      "attached_utc": "2026-10-23T18:05:59.0390804Z",
+      "triggered": false
+    },
+    "postgres-g2": {
+      "expected_exit": true,
+      "attached_utc": "2026-10-23T18:05:49.5377362Z",
+      "triggered": false
+    }
+  },
+  "failure": null,
+  "receipt_write_hard_timer_still_armed": true,
+  "control_triggered": false,
+  "completed_count": 23,
+  "native_kill_operations": [
+    {
+      "operation": "TerminateJobObject",
+      "utc": "2026-10-23T18:06:29.7578087Z",
+      "job_label": "worker",
+      "pid": 0,
+      "success": true,
+      "already_stopped": false,
+      "native_error": 0
+    },
+    {
+      "operation": "TerminateJobObject",
+      "utc": "2026-10-23T18:06:29.7580837Z",
+      "job_label": "postgres-g1",
+      "pid": 0,
+      "success": true,
+      "already_stopped": false,
+      "native_error": 0
+    },
+    {
+      "operation": "TerminateJobObject",
+      "utc": "2026-10-23T18:06:29.7580937Z",
+      "job_label": "ready-g1-01",
+      "pid": 0,
+      "success": true,
+      "already_stopped": false,
+      "native_error": 0
+    },
+    {
+      "operation": "TerminateJobObject",
+      "utc": "2026-10-23T18:06:29.7581005Z",
+      "job_label": "ready-g1-02",
+      "pid": 0,
+      "success": true,
+      "already_stopped": false,
+      "native_error": 0
+    },
+    {
+      "operation": "TerminateJobObject",
+      "utc": "2026-10-23T18:06:29.7581078Z",
+      "job_label": "cluster-g1",
+      "pid": 0,
+      "success": true,
+      "already_stopped": false,
+      "native_error": 0
+    },
+    {
+      "operation": "TerminateJobObject",
+      "utc": "2026-10-23T18:06:29.7581150Z",
+      "job_label": "create-db",
+      "pid": 0,
+      "success": true,
+      "already_stopped": false,
+      "native_error": 0
+    },
+    {
+      "operation": "TerminateJobObject",
+      "utc": "2026-10-23T18:05:58.6699720Z",
+      "job_label": "app-live",
+      "pid": 0,
+      "success": true,
+      "already_stopped": true,
+      "native_error": 0
+    },
+    {
+      "operation": "TerminateJobObject",
+      "utc": "2026-10-23T18:06:29.7581291Z",
+      "job_label": "http-seed",
+      "pid": 0,
+      "success": true,
+      "already_stopped": false,
+      "native_error": 0
+    },
+    {
+      "operation": "TerminateJobObject",
+      "utc": "2026-10-23T18:06:29.7581378Z",
+      "job_label": "snapshot-before",
+      "pid": 0,
+      "success": true,
+      "already_stopped": false,
+      "native_error": 0
+    },
+    {
+      "operation": "TerminateJobObject",
+      "utc": "2026-10-23T18:06:29.7581496Z",
+      "job_label": "app-duplicate",
+      "pid": 0,
+      "success": true,
+      "already_stopped": false,
+      "native_error": 0
+    },
+    {
+      "operation": "TerminateJobObject",
+      "utc": "2026-10-23T18:06:29.7581562Z",
+      "job_label": "snapshot-lease",
+      "pid": 0,
+      "success": true,
+      "already_stopped": false,
+      "native_error": 0
+    },
+    {
+      "operation": "TerminateJobObject",
+      "utc": "2026-10-23T18:06:29.7581624Z",
+      "job_label": "http-lease-check",
+      "pid": 0,
+      "success": true,
+      "already_stopped": false,
+      "native_error": 0
+    },
+    {
+      "operation": "TerminateJobObject",
+      "utc": "2026-10-23T18:06:29.7581688Z",
+      "job_label": "pg-stop-g1",
+      "pid": 0,
+      "success": true,
+      "already_stopped": false,
+      "native_error": 0
+    },
+    {
+      "operation": "TerminateJobObject",
+      "utc": "2026-10-23T18:06:29.7581753Z",
+      "job_label": "http-down",
+      "pid": 0,
+      "success": true,
+      "already_stopped": false,
+      "native_error": 0
+    },
+    {
+      "operation": "TerminateJobObject",
+      "utc": "2026-10-23T18:06:29.7581820Z",
+      "job_label": "postgres-g2",
+      "pid": 0,
+      "success": true,
+      "already_stopped": false,
+      "native_error": 0
+    },
+    {
+      "operation": "TerminateJobObject",
+      "utc": "2026-10-23T18:06:29.7581885Z",
+      "job_label": "ready-g2-01",
+      "pid": 0,
+      "success": true,
+      "already_stopped": false,
+      "native_error": 0
+    },
+    {
+      "operation": "TerminateJobObject",
+      "utc": "2026-10-23T18:06:29.7581948Z",
+      "job_label": "ready-g2-02",
+      "pid": 0,
+      "success": true,
+      "already_stopped": false,
+      "native_error": 0
+    },
+    {
+      "operation": "TerminateJobObject",
+      "utc": "2026-10-23T18:06:29.7582022Z",
+      "job_label": "cluster-g2",
+      "pid": 0,
+      "success": true,
+      "already_stopped": false,
+      "native_error": 0
+    },
+    {
+      "operation": "TerminateJobObject",
+      "utc": "2026-10-23T18:06:29.7582083Z",
+      "job_label": "http-latched",
+      "pid": 0,
+      "success": true,
+      "already_stopped": false,
+      "native_error": 0
+    },
+    {
+      "operation": "TerminateJobObject",
+      "utc": "2026-10-23T18:06:04.1704205Z",
+      "job_label": "app-restarted",
+      "pid": 0,
+      "success": true,
+      "already_stopped": true,
+      "native_error": 0
+    },
+    {
+      "operation": "TerminateJobObject",
+      "utc": "2026-10-23T18:06:29.7582142Z",
+      "job_label": "http-restored",
+      "pid": 0,
+      "success": true,
+      "already_stopped": false,
+      "native_error": 0
+    },
+    {
+      "operation": "TerminateJobObject",
+      "utc": "2026-10-23T18:06:29.7582197Z",
+      "job_label": "snapshot-after",
+      "pid": 0,
+      "success": true,
+      "already_stopped": false,
+      "native_error": 0
+    },
+    {
+      "operation": "TerminateJobObject",
+      "utc": "2026-10-23T18:06:29.7582255Z",
+      "job_label": "pg-stop-g2",
+      "pid": 0,
+      "success": true,
+      "already_stopped": false,
+      "native_error": 0
+    }
+  ],
+  "post_stop_probe": {
+    "refused": true,
+    "attempted": true,
+    "label": "app-duplicate",
+    "resume_unchanged": true,
+    "exception_code": "stop_latched_no_admission",
+    "process_count_after": 23,
+    "process_count_before": 23
+  },
+  "events": [
+    {
+      "stop_latched": false,
+      "label": "worker",
+      "event": "OWNED_SUSPENDED_CAPTURE_READY",
+      "sequence": 1,
+      "utc": "2026-10-23T18:04:35.2159429+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "worker",
+      "event": "RESUMED",
+      "sequence": 2,
+      "utc": "2026-10-23T18:04:35.2236743+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "postgres-g1",
+      "event": "REQUEST_START",
+      "sequence": 3,
+      "utc": "2026-10-23T18:04:35.8816815+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "postgres-g1",
+      "event": "OWNED_SUSPENDED_CAPTURE_READY",
+      "sequence": 4,
+      "utc": "2026-10-23T18:04:35.9827613+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "postgres-g1",
+      "event": "SERVICE_EXIT_WATCH_ATTACHED",
+      "sequence": 5,
+      "utc": "2026-10-23T18:04:35.9970290+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "postgres-g1",
+      "event": "RESUMED",
+      "sequence": 6,
+      "utc": "2026-10-23T18:04:36.0027275+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "postgres-g1",
+      "event": "PG_GENERATION_STARTED",
+      "sequence": 7,
+      "utc": "2026-10-23T18:04:36.0068544+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "ready-g1-01",
+      "event": "REQUEST_START",
+      "sequence": 8,
+      "utc": "2026-10-23T18:04:36.0810054+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "ready-g1-01",
+      "event": "OWNED_SUSPENDED_CAPTURE_READY",
+      "sequence": 9,
+      "utc": "2026-10-23T18:04:36.1267322+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "ready-g1-01",
+      "event": "RESUMED",
+      "sequence": 10,
+      "utc": "2026-10-23T18:04:36.1269730+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "ready-g1-01",
+      "event": "REQUEST_STATUS",
+      "sequence": 11,
+      "utc": "2026-10-23T18:04:36.1863923+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "ready-g1-01",
+      "event": "ACTUAL_EXIT_AND_CAPTURE_SAVED",
+      "sequence": 12,
+      "utc": "2026-10-23T18:04:36.3520888+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "ready-g1-01",
+      "event": "REQUEST_STATUS",
+      "sequence": 13,
+      "utc": "2026-10-23T18:04:38.2673085+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "ready-g1-01",
+      "event": "REQUEST_STATUS",
+      "sequence": 14,
+      "utc": "2026-10-23T18:04:38.3153672+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "ready-g1-02",
+      "event": "REQUEST_START",
+      "sequence": 15,
+      "utc": "2026-10-23T18:04:38.3941094+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "ready-g1-02",
+      "event": "OWNED_SUSPENDED_CAPTURE_READY",
+      "sequence": 16,
+      "utc": "2026-10-23T18:04:38.4412418+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "ready-g1-02",
+      "event": "RESUMED",
+      "sequence": 17,
+      "utc": "2026-10-23T18:04:38.4415009+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "ready-g1-02",
+      "event": "REQUEST_STATUS",
+      "sequence": 18,
+      "utc": "2026-10-23T18:04:38.4879482+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "ready-g1-02",
+      "event": "ACTUAL_EXIT_AND_CAPTURE_SAVED",
+      "sequence": 19,
+      "utc": "2026-10-23T18:04:38.5677494+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "ready-g1-02",
+      "event": "REQUEST_STATUS",
+      "sequence": 20,
+      "utc": "2026-10-23T18:04:40.5314831+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "ready-g1-02",
+      "event": "REQUEST_STATUS",
+      "sequence": 21,
+      "utc": "2026-10-23T18:04:40.5776421+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "cluster-g1",
+      "event": "REQUEST_START",
+      "sequence": 22,
+      "utc": "2026-10-23T18:04:40.6268683+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "cluster-g1",
+      "event": "OWNED_SUSPENDED_CAPTURE_READY",
+      "sequence": 23,
+      "utc": "2026-10-23T18:04:40.6748120+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "cluster-g1",
+      "event": "RESUMED",
+      "sequence": 24,
+      "utc": "2026-10-23T18:04:40.6749715+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "cluster-g1",
+      "event": "REQUEST_STATUS",
+      "sequence": 25,
+      "utc": "2026-10-23T18:04:40.7193932+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "cluster-g1",
+      "event": "ACTUAL_EXIT_AND_CAPTURE_SAVED",
+      "sequence": 26,
+      "utc": "2026-10-23T18:04:40.8030903+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "cluster-g1",
+      "event": "REQUEST_STATUS",
+      "sequence": 27,
+      "utc": "2026-10-23T18:04:42.7974572+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "cluster-g1",
+      "event": "REQUEST_STATUS",
+      "sequence": 28,
+      "utc": "2026-10-23T18:04:42.8756217+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "create-db",
+      "event": "REQUEST_START",
+      "sequence": 29,
+      "utc": "2026-10-23T18:04:42.9550153+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "create-db",
+      "event": "OWNED_SUSPENDED_CAPTURE_READY",
+      "sequence": 30,
+      "utc": "2026-10-23T18:04:42.9891292+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "create-db",
+      "event": "RESUMED",
+      "sequence": 31,
+      "utc": "2026-10-23T18:04:42.9892559+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "create-db",
+      "event": "REQUEST_STATUS",
+      "sequence": 32,
+      "utc": "2026-10-23T18:04:43.0359031+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "create-db",
+      "event": "ACTUAL_EXIT_AND_CAPTURE_SAVED",
+      "sequence": 33,
+      "utc": "2026-10-23T18:04:43.6703635+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "create-db",
+      "event": "REQUEST_STATUS",
+      "sequence": 34,
+      "utc": "2026-10-23T18:04:45.0987501+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "create-db",
+      "event": "REQUEST_STATUS",
+      "sequence": 35,
+      "utc": "2026-10-23T18:04:45.1477033+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "app-live",
+      "event": "REQUEST_START",
+      "sequence": 36,
+      "utc": "2026-10-23T18:04:45.1946306+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "app-live",
+      "event": "OWNED_SUSPENDED_CAPTURE_READY",
+      "sequence": 37,
+      "utc": "2026-10-23T18:04:45.3881117+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "app-live",
+      "event": "SERVICE_EXIT_WATCH_ATTACHED",
+      "sequence": 38,
+      "utc": "2026-10-23T18:04:45.3889575+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "app-live",
+      "event": "RESUMED",
+      "sequence": 39,
+      "utc": "2026-10-23T18:04:45.3890635+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "http-seed",
+      "event": "REQUEST_START",
+      "sequence": 40,
+      "utc": "2026-10-23T18:04:46.0808109+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "http-seed",
+      "event": "OWNED_SUSPENDED_CAPTURE_READY",
+      "sequence": 41,
+      "utc": "2026-10-23T18:04:46.1602121+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "http-seed",
+      "event": "RESUMED",
+      "sequence": 42,
+      "utc": "2026-10-23T18:04:46.1603715+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "http-seed",
+      "event": "REQUEST_STATUS",
+      "sequence": 43,
+      "utc": "2026-10-23T18:04:46.2389548+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "http-seed",
+      "event": "ACTUAL_EXIT_AND_CAPTURE_SAVED",
+      "sequence": 44,
+      "utc": "2026-10-23T18:04:47.8170679+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "http-seed",
+      "event": "REQUEST_STATUS",
+      "sequence": 45,
+      "utc": "2026-10-23T18:04:48.2883622+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "http-seed",
+      "event": "REQUEST_STATUS",
+      "sequence": 46,
+      "utc": "2026-10-23T18:04:48.3354269+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "snapshot-before",
+      "event": "REQUEST_START",
+      "sequence": 47,
+      "utc": "2026-10-23T18:04:48.3831610+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "snapshot-before",
+      "event": "OWNED_SUSPENDED_CAPTURE_READY",
+      "sequence": 48,
+      "utc": "2026-10-23T18:04:48.4335099+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "snapshot-before",
+      "event": "RESUMED",
+      "sequence": 49,
+      "utc": "2026-10-23T18:04:48.4336597+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "snapshot-before",
+      "event": "REQUEST_STATUS",
+      "sequence": 50,
+      "utc": "2026-10-23T18:04:48.4956352+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "snapshot-before",
+      "event": "ACTUAL_EXIT_AND_CAPTURE_SAVED",
+      "sequence": 51,
+      "utc": "2026-10-23T18:04:48.5616281+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "snapshot-before",
+      "event": "REQUEST_STATUS",
+      "sequence": 52,
+      "utc": "2026-10-23T18:04:50.5707095+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "snapshot-before",
+      "event": "REQUEST_STATUS",
+      "sequence": 53,
+      "utc": "2026-10-23T18:04:50.6199076+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "app-duplicate",
+      "event": "REQUEST_START",
+      "sequence": 54,
+      "utc": "2026-10-23T18:04:50.6673807+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "app-duplicate",
+      "event": "OWNED_SUSPENDED_CAPTURE_READY",
+      "sequence": 55,
+      "utc": "2026-10-23T18:04:50.8458514+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "app-duplicate",
+      "event": "RESUMED",
+      "sequence": 56,
+      "utc": "2026-10-23T18:04:50.8459819+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "app-duplicate",
+      "event": "REQUEST_STATUS",
+      "sequence": 57,
+      "utc": "2026-10-23T18:04:50.9335945+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "app-duplicate",
+      "event": "ACTUAL_EXIT_AND_CAPTURE_SAVED",
+      "sequence": 58,
+      "utc": "2026-10-23T18:04:50.9832554+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "app-duplicate",
+      "event": "REQUEST_STATUS",
+      "sequence": 59,
+      "utc": "2026-10-23T18:04:52.9784452+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "app-duplicate",
+      "event": "REQUEST_STATUS",
+      "sequence": 60,
+      "utc": "2026-10-23T18:04:53.0436652+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "snapshot-lease",
+      "event": "REQUEST_START",
+      "sequence": 61,
+      "utc": "2026-10-23T18:04:53.1690019+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "snapshot-lease",
+      "event": "OWNED_SUSPENDED_CAPTURE_READY",
+      "sequence": 62,
+      "utc": "2026-10-23T18:04:53.2322242+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "snapshot-lease",
+      "event": "RESUMED",
+      "sequence": 63,
+      "utc": "2026-10-23T18:04:53.2324576+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "snapshot-lease",
+      "event": "REQUEST_STATUS",
+      "sequence": 64,
+      "utc": "2026-10-23T18:04:53.2915794+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "snapshot-lease",
+      "event": "ACTUAL_EXIT_AND_CAPTURE_SAVED",
+      "sequence": 65,
+      "utc": "2026-10-23T18:04:53.3890161+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "",
+      "event": "PERIODIC_CAPACITY_RECEIPT",
+      "sequence": 66,
+      "utc": "2026-10-23T18:05:11.1804745+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "snapshot-lease",
+      "event": "REQUEST_STATUS",
+      "sequence": 67,
+      "utc": "2026-10-23T18:05:11.2262520+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "snapshot-lease",
+      "event": "REQUEST_STATUS",
+      "sequence": 68,
+      "utc": "2026-10-23T18:05:11.2721223+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "http-lease-check",
+      "event": "REQUEST_START",
+      "sequence": 69,
+      "utc": "2026-10-23T18:05:11.3197225+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "http-lease-check",
+      "event": "OWNED_SUSPENDED_CAPTURE_READY",
+      "sequence": 70,
+      "utc": "2026-10-23T18:05:11.4342279+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "http-lease-check",
+      "event": "RESUMED",
+      "sequence": 71,
+      "utc": "2026-10-23T18:05:11.4344219+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "http-lease-check",
+      "event": "REQUEST_STATUS",
+      "sequence": 72,
+      "utc": "2026-10-23T18:05:11.4941913+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "http-lease-check",
+      "event": "ACTUAL_EXIT_AND_CAPTURE_SAVED",
+      "sequence": 73,
+      "utc": "2026-10-23T18:05:11.9234459+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "http-lease-check",
+      "event": "REQUEST_STATUS",
+      "sequence": 74,
+      "utc": "2026-10-23T18:05:13.5516469+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "http-lease-check",
+      "event": "REQUEST_STATUS",
+      "sequence": 75,
+      "utc": "2026-10-23T18:05:13.5988614+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "postgres-g1",
+      "event": "REQUEST_PGSTOP",
+      "sequence": 76,
+      "utc": "2026-10-23T18:05:13.6752345+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "postgres-g1",
+      "event": "PG_STOP_GUARD_BEGIN",
+      "sequence": 77,
+      "utc": "2026-10-23T18:05:13.6817841+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "postgres-g1",
+      "event": "PG_STOP_GUARD_COMPLETE",
+      "sequence": 78,
+      "utc": "2026-10-23T18:05:30.1475312+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "postgres-g1",
+      "event": "PG_STOP_TIMER_ARMED",
+      "sequence": 79,
+      "utc": "2026-10-23T18:05:30.1606711+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "pg-stop-g1",
+      "event": "OWNED_SUSPENDED_CAPTURE_READY",
+      "sequence": 80,
+      "utc": "2026-10-23T18:05:30.2044970+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "pg-stop-g1",
+      "event": "RESUMED",
+      "sequence": 81,
+      "utc": "2026-10-23T18:05:30.2241140+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "pg-stop-g1",
+      "event": "ACTUAL_EXIT_AND_CAPTURE_SAVED",
+      "sequence": 82,
+      "utc": "2026-10-23T18:05:30.8499987+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "postgres-g1",
+      "event": "ACTUAL_EXIT_AND_CAPTURE_SAVED",
+      "sequence": 83,
+      "utc": "2026-10-23T18:05:30.8636071+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "postgres-g1",
+      "event": "PG_STOP_CAPTURE_CLOSED",
+      "sequence": 84,
+      "utc": "2026-10-23T18:05:30.8665763+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "postgres-g1",
+      "event": "PG_STOP_TIMER_DISPOSED",
+      "sequence": 85,
+      "utc": "2026-10-23T18:05:30.8694298+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "postgres-g1",
+      "event": "PG_POST_STOP_GUARD_BEGIN",
+      "sequence": 86,
+      "utc": "2026-10-23T18:05:30.8694831+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "postgres-g1",
+      "event": "PG_POST_STOP_GUARD_COMPLETE_COMMANDS_REOPENED",
+      "sequence": 87,
+      "utc": "2026-10-23T18:05:46.8462025+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "postgres-g1",
+      "event": "REQUEST_STATUS",
+      "sequence": 88,
+      "utc": "2026-10-23T18:05:46.9352389+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "postgres-g1",
+      "event": "REQUEST_STATUS",
+      "sequence": 89,
+      "utc": "2026-10-23T18:05:46.9801239+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "pg-stop-g1",
+      "event": "REQUEST_STATUS",
+      "sequence": 90,
+      "utc": "2026-10-23T18:05:47.0271482+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "pg-stop-g1",
+      "event": "REQUEST_STATUS",
+      "sequence": 91,
+      "utc": "2026-10-23T18:05:47.0735870+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "http-down",
+      "event": "REQUEST_START",
+      "sequence": 92,
+      "utc": "2026-10-23T18:05:47.1225156+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "http-down",
+      "event": "OWNED_SUSPENDED_CAPTURE_READY",
+      "sequence": 93,
+      "utc": "2026-10-23T18:05:47.1886165+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "http-down",
+      "event": "RESUMED",
+      "sequence": 94,
+      "utc": "2026-10-23T18:05:47.1888137+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "http-down",
+      "event": "REQUEST_STATUS",
+      "sequence": 95,
+      "utc": "2026-10-23T18:05:47.2644189+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "http-down",
+      "event": "ACTUAL_EXIT_AND_CAPTURE_SAVED",
+      "sequence": 96,
+      "utc": "2026-10-23T18:05:47.6258444+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "http-down",
+      "event": "REQUEST_STATUS",
+      "sequence": 97,
+      "utc": "2026-10-23T18:05:49.3322916+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "http-down",
+      "event": "REQUEST_STATUS",
+      "sequence": 98,
+      "utc": "2026-10-23T18:05:49.3935213+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "postgres-g2",
+      "event": "REQUEST_START",
+      "sequence": 99,
+      "utc": "2026-10-23T18:05:49.4533395+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "postgres-g2",
+      "event": "OWNED_SUSPENDED_CAPTURE_READY",
+      "sequence": 100,
+      "utc": "2026-10-23T18:05:49.5373752+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "postgres-g2",
+      "event": "SERVICE_EXIT_WATCH_ATTACHED",
+      "sequence": 101,
+      "utc": "2026-10-23T18:05:49.5384448+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "postgres-g2",
+      "event": "RESUMED",
+      "sequence": 102,
+      "utc": "2026-10-23T18:05:49.5386468+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "postgres-g2",
+      "event": "PG_GENERATION_STARTED",
+      "sequence": 103,
+      "utc": "2026-10-23T18:05:49.5388496+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "ready-g2-01",
+      "event": "REQUEST_START",
+      "sequence": 104,
+      "utc": "2026-10-23T18:05:49.5983067+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "ready-g2-01",
+      "event": "OWNED_SUSPENDED_CAPTURE_READY",
+      "sequence": 105,
+      "utc": "2026-10-23T18:05:49.6491130+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "ready-g2-01",
+      "event": "RESUMED",
+      "sequence": 106,
+      "utc": "2026-10-23T18:05:49.6493567+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "ready-g2-01",
+      "event": "REQUEST_STATUS",
+      "sequence": 107,
+      "utc": "2026-10-23T18:05:49.7131263+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "ready-g2-01",
+      "event": "ACTUAL_EXIT_AND_CAPTURE_SAVED",
+      "sequence": 108,
+      "utc": "2026-10-23T18:05:49.8263127+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "ready-g2-01",
+      "event": "REQUEST_STATUS",
+      "sequence": 109,
+      "utc": "2026-10-23T18:05:51.7835409+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "ready-g2-01",
+      "event": "REQUEST_STATUS",
+      "sequence": 110,
+      "utc": "2026-10-23T18:05:51.8308675+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "ready-g2-02",
+      "event": "REQUEST_START",
+      "sequence": 111,
+      "utc": "2026-10-23T18:05:51.8775660+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "ready-g2-02",
+      "event": "OWNED_SUSPENDED_CAPTURE_READY",
+      "sequence": 112,
+      "utc": "2026-10-23T18:05:51.9078825+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "ready-g2-02",
+      "event": "RESUMED",
+      "sequence": 113,
+      "utc": "2026-10-23T18:05:51.9081220+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "ready-g2-02",
+      "event": "REQUEST_STATUS",
+      "sequence": 114,
+      "utc": "2026-10-23T18:05:51.9560413+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "ready-g2-02",
+      "event": "ACTUAL_EXIT_AND_CAPTURE_SAVED",
+      "sequence": 115,
+      "utc": "2026-10-23T18:05:52.0412770+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "ready-g2-02",
+      "event": "REQUEST_STATUS",
+      "sequence": 116,
+      "utc": "2026-10-23T18:05:54.0355281+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "ready-g2-02",
+      "event": "REQUEST_STATUS",
+      "sequence": 117,
+      "utc": "2026-10-23T18:05:54.1003116+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "cluster-g2",
+      "event": "REQUEST_START",
+      "sequence": 118,
+      "utc": "2026-10-23T18:05:54.1625436+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "cluster-g2",
+      "event": "OWNED_SUSPENDED_CAPTURE_READY",
+      "sequence": 119,
+      "utc": "2026-10-23T18:05:54.2122552+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "cluster-g2",
+      "event": "RESUMED",
+      "sequence": 120,
+      "utc": "2026-10-23T18:05:54.2124420+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "cluster-g2",
+      "event": "REQUEST_STATUS",
+      "sequence": 121,
+      "utc": "2026-10-23T18:05:54.2553768+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "cluster-g2",
+      "event": "ACTUAL_EXIT_AND_CAPTURE_SAVED",
+      "sequence": 122,
+      "utc": "2026-10-23T18:05:54.3413912+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "cluster-g2",
+      "event": "REQUEST_STATUS",
+      "sequence": 123,
+      "utc": "2026-10-23T18:05:56.2964138+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "cluster-g2",
+      "event": "REQUEST_STATUS",
+      "sequence": 124,
+      "utc": "2026-10-23T18:05:56.3420712+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "http-latched",
+      "event": "REQUEST_START",
+      "sequence": 125,
+      "utc": "2026-10-23T18:05:56.3906254+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "http-latched",
+      "event": "OWNED_SUSPENDED_CAPTURE_READY",
+      "sequence": 126,
+      "utc": "2026-10-23T18:05:56.4562296+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "http-latched",
+      "event": "RESUMED",
+      "sequence": 127,
+      "utc": "2026-10-23T18:05:56.4564549+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "http-latched",
+      "event": "REQUEST_STATUS",
+      "sequence": 128,
+      "utc": "2026-10-23T18:05:56.5161441+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "http-latched",
+      "event": "ACTUAL_EXIT_AND_CAPTURE_SAVED",
+      "sequence": 129,
+      "utc": "2026-10-23T18:05:56.8985888+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "http-latched",
+      "event": "REQUEST_STATUS",
+      "sequence": 130,
+      "utc": "2026-10-23T18:05:58.5755474+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "http-latched",
+      "event": "REQUEST_STATUS",
+      "sequence": 131,
+      "utc": "2026-10-23T18:05:58.6222758+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "app-live",
+      "event": "REQUEST_KILL",
+      "sequence": 132,
+      "utc": "2026-10-23T18:05:58.6676319+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "app-live",
+      "event": "REQUESTED_JOB_STOP",
+      "sequence": 133,
+      "utc": "2026-10-23T18:05:58.6712054+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "app-live",
+      "event": "ACTUAL_EXIT_AND_CAPTURE_SAVED",
+      "sequence": 134,
+      "utc": "2026-10-23T18:05:58.7224927+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "app-live",
+      "event": "REQUEST_STATUS",
+      "sequence": 135,
+      "utc": "2026-10-23T18:05:58.7299283+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "app-live",
+      "event": "REQUEST_STATUS",
+      "sequence": 136,
+      "utc": "2026-10-23T18:05:58.7798529+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "app-restarted",
+      "event": "REQUEST_START",
+      "sequence": 137,
+      "utc": "2026-10-23T18:05:58.8551209+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "app-restarted",
+      "event": "OWNED_SUSPENDED_CAPTURE_READY",
+      "sequence": 138,
+      "utc": "2026-10-23T18:05:59.0386450+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "app-restarted",
+      "event": "SERVICE_EXIT_WATCH_ATTACHED",
+      "sequence": 139,
+      "utc": "2026-10-23T18:05:59.0396978+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "app-restarted",
+      "event": "RESUMED",
+      "sequence": 140,
+      "utc": "2026-10-23T18:05:59.0398903+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "http-restored",
+      "event": "REQUEST_START",
+      "sequence": 141,
+      "utc": "2026-10-23T18:05:59.5988354+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "http-restored",
+      "event": "OWNED_SUSPENDED_CAPTURE_READY",
+      "sequence": 142,
+      "utc": "2026-10-23T18:05:59.6550612+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "http-restored",
+      "event": "RESUMED",
+      "sequence": 143,
+      "utc": "2026-10-23T18:05:59.6552226+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "http-restored",
+      "event": "REQUEST_STATUS",
+      "sequence": 144,
+      "utc": "2026-10-23T18:05:59.6953395+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "http-restored",
+      "event": "ACTUAL_EXIT_AND_CAPTURE_SAVED",
+      "sequence": 145,
+      "utc": "2026-10-23T18:06:00.1215735+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "http-restored",
+      "event": "REQUEST_STATUS",
+      "sequence": 146,
+      "utc": "2026-10-23T18:06:01.7640309+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "http-restored",
+      "event": "REQUEST_STATUS",
+      "sequence": 147,
+      "utc": "2026-10-23T18:06:01.8116496+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "snapshot-after",
+      "event": "REQUEST_START",
+      "sequence": 148,
+      "utc": "2026-10-23T18:06:01.8583442+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "snapshot-after",
+      "event": "OWNED_SUSPENDED_CAPTURE_READY",
+      "sequence": 149,
+      "utc": "2026-10-23T18:06:01.9015103+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "snapshot-after",
+      "event": "RESUMED",
+      "sequence": 150,
+      "utc": "2026-10-23T18:06:01.9017051+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "snapshot-after",
+      "event": "REQUEST_STATUS",
+      "sequence": 151,
+      "utc": "2026-10-23T18:06:01.9534199+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "snapshot-after",
+      "event": "ACTUAL_EXIT_AND_CAPTURE_SAVED",
+      "sequence": 152,
+      "utc": "2026-10-23T18:06:02.0382415+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "snapshot-after",
+      "event": "REQUEST_STATUS",
+      "sequence": 153,
+      "utc": "2026-10-23T18:06:04.0311354+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "snapshot-after",
+      "event": "REQUEST_STATUS",
+      "sequence": 154,
+      "utc": "2026-10-23T18:06:04.0935476+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "app-restarted",
+      "event": "REQUEST_KILL",
+      "sequence": 155,
+      "utc": "2026-10-23T18:06:04.1703604+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "app-restarted",
+      "event": "REQUESTED_JOB_STOP",
+      "sequence": 156,
+      "utc": "2026-10-23T18:06:04.1708271+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "app-restarted",
+      "event": "ACTUAL_EXIT_AND_CAPTURE_SAVED",
+      "sequence": 157,
+      "utc": "2026-10-23T18:06:04.2214661+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "app-restarted",
+      "event": "REQUEST_STATUS",
+      "sequence": 158,
+      "utc": "2026-10-23T18:06:04.2266185+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "app-restarted",
+      "event": "REQUEST_STATUS",
+      "sequence": 159,
+      "utc": "2026-10-23T18:06:04.2823784+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "postgres-g2",
+      "event": "REQUEST_PGSTOP",
+      "sequence": 160,
+      "utc": "2026-10-23T18:06:04.3272496+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "postgres-g2",
+      "event": "PG_STOP_GUARD_BEGIN",
+      "sequence": 161,
+      "utc": "2026-10-23T18:06:04.3274817+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "postgres-g2",
+      "event": "PG_STOP_GUARD_COMPLETE",
+      "sequence": 162,
+      "utc": "2026-10-23T18:06:16.8821764+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "postgres-g2",
+      "event": "PG_STOP_TIMER_ARMED",
+      "sequence": 163,
+      "utc": "2026-10-23T18:06:16.8828621+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "pg-stop-g2",
+      "event": "OWNED_SUSPENDED_CAPTURE_READY",
+      "sequence": 164,
+      "utc": "2026-10-23T18:06:16.9151087+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "pg-stop-g2",
+      "event": "RESUMED",
+      "sequence": 165,
+      "utc": "2026-10-23T18:06:16.9153277+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "pg-stop-g2",
+      "event": "ACTUAL_EXIT_AND_CAPTURE_SAVED",
+      "sequence": 166,
+      "utc": "2026-10-23T18:06:17.1040883+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "postgres-g2",
+      "event": "ACTUAL_EXIT_AND_CAPTURE_SAVED",
+      "sequence": 167,
+      "utc": "2026-10-23T18:06:17.1115397+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "postgres-g2",
+      "event": "PG_STOP_CAPTURE_CLOSED",
+      "sequence": 168,
+      "utc": "2026-10-23T18:06:17.1122260+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "postgres-g2",
+      "event": "PG_STOP_TIMER_DISPOSED",
+      "sequence": 169,
+      "utc": "2026-10-23T18:06:17.1127151+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "postgres-g2",
+      "event": "PG_POST_STOP_GUARD_BEGIN",
+      "sequence": 170,
+      "utc": "2026-10-23T18:06:17.1127479+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "postgres-g2",
+      "event": "PG_POST_STOP_GUARD_COMPLETE_COMMANDS_REOPENED",
+      "sequence": 171,
+      "utc": "2026-10-23T18:06:29.4294207+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "postgres-g2",
+      "event": "REQUEST_STATUS",
+      "sequence": 172,
+      "utc": "2026-10-23T18:06:29.4949325+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "postgres-g2",
+      "event": "REQUEST_STATUS",
+      "sequence": 173,
+      "utc": "2026-10-23T18:06:29.5431658+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "pg-stop-g2",
+      "event": "REQUEST_STATUS",
+      "sequence": 174,
+      "utc": "2026-10-23T18:06:29.5874476+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "pg-stop-g2",
+      "event": "REQUEST_STATUS",
+      "sequence": 175,
+      "utc": "2026-10-23T18:06:29.6360938+00:00"
+    },
+    {
+      "stop_latched": false,
+      "label": "worker",
+      "event": "ACTUAL_EXIT_AND_CAPTURE_SAVED",
+      "sequence": 176,
+      "utc": "2026-10-23T18:06:29.7491558+00:00"
+    }
+  ],
+  "guard_failure": null,
+  "sample_barrier": null,
+  "control": "none",
+  "secondary_diagnostics": [],
+  "pg_protocol": {
+    "window": false,
+    "active": null,
+    "pending_pg_pid": 65644,
+    "generations": {
+      "postgres-g1": "Closed",
+      "postgres-g2": "Closed"
+    },
+    "pairs": {
+      "postgres-g2": "pg-stop-g2",
+      "postgres-g1": "pg-stop-g1"
+    },
+    "pending_pg_birth": 134372523494887664
+  },
+  "collector_host_death_supported": false,
+  "kill_fault": false,
+  "absolute_stop_timer_fired": false,
+  "no_new_go_after_stop": true,
+  "stop_utc": "2026-10-23T18:06:29.7563845Z",
+  "pg_stop_transactions": [
+    {
+      "stop_window_seconds": 19,
+      "after": {
+        "skipped_vanished_pg_internal_init_entries": 0,
+        "root_logical_bytes": 7989992911,
+        "files": 56441,
+        "root_allocation_bytes": 8029328840,
+        "allocation_bytes": 8525435952,
+        "logical_bytes": 8465711512,
+        "scope": "non-atomic read-only sampling; vanished compiler-target entries or exact owned pgdata11/base/nonzero-decimal-OID/pg_internal.init only; second genuine absence required; 512MiB headroom mandatory",
+        "skipped_vanished_target_entries": 0
+      },
+      "generation": "postgres-g1",
+      "completed_utc": "2026-10-23T18:05:46.8462932+00:00",
+      "pg_pid": 76896,
+      "before": {
+        "skipped_vanished_pg_internal_init_entries": 0,
+        "root_logical_bytes": 7989900802,
+        "files": 56436,
+        "root_allocation_bytes": 8029263864,
+        "allocation_bytes": 8525370976,
+        "logical_bytes": 8465619403,
+        "scope": "non-atomic read-only sampling; vanished compiler-target entries or exact owned pgdata11/base/nonzero-decimal-OID/pg_internal.init only; second genuine absence required; 512MiB headroom mandatory",
+        "skipped_vanished_target_entries": 0
+      },
+      "pid_absent": true,
+      "stop_label": "pg-stop-g1",
+      "both_full_eof": true,
+      "pg_birth": 134372522759434094,
+      "scanner_unchanged": true
+    },
+    {
+      "stop_window_seconds": 19,
+      "after": {
+        "skipped_vanished_pg_internal_init_entries": 0,
+        "root_logical_bytes": 7990055190,
+        "files": 56666,
+        "root_allocation_bytes": 8029492768,
+        "allocation_bytes": 8525599880,
+        "logical_bytes": 8465773791,
+        "scope": "non-atomic read-only sampling; vanished compiler-target entries or exact owned pgdata11/base/nonzero-decimal-OID/pg_internal.init only; second genuine absence required; 512MiB headroom mandatory",
+        "skipped_vanished_target_entries": 0
+      },
+      "generation": "postgres-g2",
+      "completed_utc": "2026-10-23T18:06:29.4294646+00:00",
+      "pg_pid": 65644,
+      "before": {
+        "skipped_vanished_pg_internal_init_entries": 0,
+        "root_logical_bytes": 7989963187,
+        "files": 56661,
+        "root_allocation_bytes": 8029390440,
+        "allocation_bytes": 8525497552,
+        "logical_bytes": 8465681788,
+        "scope": "non-atomic read-only sampling; vanished compiler-target entries or exact owned pgdata11/base/nonzero-decimal-OID/pg_internal.init only; second genuine absence required; 512MiB headroom mandatory",
+        "skipped_vanished_target_entries": 0
+      },
+      "pid_absent": true,
+      "stop_label": "pg-stop-g2",
+      "both_full_eof": true,
+      "pg_birth": 134372523494887664,
+      "scanner_unchanged": true
+    }
+  ],
+  "kill_requests_completed_utc": "2026-10-23T18:06:29.7592163Z",
+  "requests": 84,
+  "primary_exception": null,
+  "collector_finalization_deadline": "2026-10-23T18:06:54.7569777+00:00",
+  "stop_reason": "worker_exit",
+  "cleanup_completed_utc": "2026-10-23T18:06:29.8683110+00:00",
+  "process_count": 23
+}

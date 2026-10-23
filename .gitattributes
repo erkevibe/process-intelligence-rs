@@ -165,3 +165,11 @@ tools/sprint23-miner/** -text whitespace=blank-at-eol,blank-at-eof,space-before-
 evidence/sprint23-miner/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 
 evidence/sprint23-r5-map/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Sprint24 tools and projected evidence retain explicitly reviewed byte pins.
+tools/sprint24/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+evidence/sprint24/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Protocol payload whitespace and captured EOF bytes are evidence.
+evidence/sprint24/saved/**/*.bin -whitespace
+evidence/sprint24/saved/**/*.stdout -whitespace
+evidence/sprint24/saved/**/*.stderr -whitespace

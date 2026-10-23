@@ -1,0 +1,6 @@
+psql:userprofile://OneDrive/Documents/ChatGPT/ProcessMining/.local/sprint21/td/sprint24/capacity-diagnostic01.sql:31: ERROR:  55P03: canceling statement due to lock timeout
+LINE 1: EXISTS (SELECT 1 FROM public.pi_records WHERE kind NOT IN ('...
+                              ^
+QUERY:  EXISTS (SELECT 1 FROM public.pi_records WHERE kind NOT IN ('log_state','log_data','log_source','log_analysis','model','conversion') OR kind IS NULL)
+CONTEXT:  PL/pgSQL function inline_code_block line 21 at IF
+LOCATION:  ProcessInterrupts, postgres.c:3439

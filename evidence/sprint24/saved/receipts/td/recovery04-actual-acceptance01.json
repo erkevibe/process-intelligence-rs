@@ -1,0 +1,208 @@
+{
+  "schema_version": 1,
+  "utc": "2026-10-23T18:21:38.453Z",
+  "agent_name": "td_s20_delivery",
+  "decision": "ACCEPT_ACTUAL_STOCK_RECOVERY04_SCOPED",
+  "authorship": "TD recovery-runner author; Root sole executor and independent reviewer, QA independent actual review separately required. This review rehashes originals and checks SQL/log/closure observations, not sole author admission.",
+  "proof_sha256": "E89D2B1B082F53CFEEF2E08C580C85671DE89224CD6E795C247F2D86EEC8F215",
+  "config_sha256": "02ED04EAF85060DA8E8F4FFF617DBD725BA31AB2D55A975A769D49A733D1DCFC",
+  "native": [
+    {
+      "record": ".local/sprint21/root/sprint24/postgres-recovery04/session/app10k.process.json",
+      "sha256": "24643490C59DB67830DE5A9A0ECA6FFEF40A706386C523E8BF72157161641622",
+      "pid": 71796,
+      "birth": "134372531992163135",
+      "exit": 0,
+      "full_streams": 2
+    },
+    {
+      "record": ".local/sprint21/root/sprint24/postgres-recovery04/session/app90k.process.json",
+      "sha256": "9AE3859EA82D314F5E6DDB0C2E132098BECA61CB9DA2D3F8AB2FC2D9B15DF2C5",
+      "pid": 78972,
+      "birth": "134372532014900631",
+      "exit": 0,
+      "full_streams": 2
+    },
+    {
+      "record": ".local/sprint21/root/sprint24/postgres-recovery04/session/child.process.json",
+      "sha256": "57EEE7D93F6392D5D25E790AB53B60D0122884A5B5AF23E07ADD554EB7EADB59",
+      "pid": 3184,
+      "birth": "134372532037514144",
+      "exit": 0,
+      "full_streams": 2
+    },
+    {
+      "record": ".local/sprint21/root/sprint24/postgres-recovery04/session/http90k.process.json",
+      "sha256": "966E7349671EAE290F1AFBA5BACCE46B2A7F564E1E037A218CC6B34FF7467A2F",
+      "pid": 60892,
+      "birth": "134372532187843718",
+      "exit": 0,
+      "full_streams": 2
+    },
+    {
+      "record": ".local/sprint21/root/sprint24/postgres-recovery04/session/pg-stop.process.json",
+      "sha256": "8CA11554A56B800FC6962D5312AEAC76C7B99613F4A885C3AA8824F4F05E55FF",
+      "pid": 59328,
+      "birth": "134372532368144680",
+      "exit": 0,
+      "full_streams": 2
+    },
+    {
+      "record": ".local/sprint21/root/sprint24/postgres-recovery04/session/postgres.process.json",
+      "sha256": "5B000B85B5472EDF3D0A2D2F198B91251E973EDDDCD6DA8B0DB5C6EDD5854D25",
+      "pid": 14800,
+      "birth": "134372531850344770",
+      "exit": 0,
+      "full_streams": 2
+    },
+    {
+      "record": ".local/sprint21/root/sprint24/postgres-recovery04/session/ready-01.process.json",
+      "sha256": "F7A12BB5FBA61B057006F1A2214E9D2DB55E820D683FC9749B2C69935112DDB0",
+      "pid": 57848,
+      "birth": "134372531852674862",
+      "exit": 1,
+      "full_streams": 2
+    },
+    {
+      "record": ".local/sprint21/root/sprint24/postgres-recovery04/session/ready-02.process.json",
+      "sha256": "B1A2D42C1C5636E23871136AE3D42441B82254D527CF82E4D96D632CB8478BCE",
+      "pid": 75720,
+      "birth": "134372531876029080",
+      "exit": 1,
+      "full_streams": 2
+    },
+    {
+      "record": ".local/sprint21/root/sprint24/postgres-recovery04/session/ready-03.process.json",
+      "sha256": "0FE299DF496FC3044C80A89950283A66FD6E902EE1EA2D5AA81D3454D510A91C",
+      "pid": 79180,
+      "birth": "134372531899139141",
+      "exit": 1,
+      "full_streams": 2
+    },
+    {
+      "record": ".local/sprint21/root/sprint24/postgres-recovery04/session/ready-04.process.json",
+      "sha256": "A9FD4F33E60209369B9A29BB92EB2D76C3108BBE88C81B60F3AEE6D4CF3556F1",
+      "pid": 70176,
+      "birth": "134372531922340602",
+      "exit": 1,
+      "full_streams": 2
+    },
+    {
+      "record": ".local/sprint21/root/sprint24/postgres-recovery04/session/ready-05.process.json",
+      "sha256": "1D7EF2DE8532D7197752238EF0BBEA4AED70D8411314C5A45A706A4ADA2013E9",
+      "pid": 76472,
+      "birth": "134372531946229348",
+      "exit": 0,
+      "full_streams": 2
+    },
+    {
+      "record": ".local/sprint21/root/sprint24/postgres-recovery04/session/source10k.process.json",
+      "sha256": "A295A4FA51178BABA7C73068DA9427E1AFFFB23C1DACB5F81F404177FD4B8EAA",
+      "pid": 59112,
+      "birth": "134372531968863517",
+      "exit": 0,
+      "full_streams": 2
+    },
+    {
+      "record": ".local/sprint21/root/sprint24/postgres-recovery04/session/source90k.process.json",
+      "sha256": "75BA04625DD1E970C445FF859B2985C99ADEFCC1B3E5FB3151B26ED4A5C23293",
+      "pid": 78096,
+      "birth": "134372532210779358",
+      "exit": 0,
+      "full_streams": 2
+    },
+    {
+      "record": ".local/sprint21/root/sprint24/postgres-recovery04/session/worker.process.json",
+      "sha256": "F8D41DC10AE2EA7712D979A698E2C3592131C9FA07F1A3CA9AB4DC00EBB17FCF",
+      "pid": 77980,
+      "birth": "134372531841553945",
+      "exit": 0,
+      "full_streams": 2
+    },
+    {
+      "record": ".local/sprint21/root/sprint24/postgres-recovery04/collector.process.json",
+      "sha256": "505A4A08D75943B6DC35377D9B305B3CB4E15E6EC3426E82B746064A3DD41883",
+      "pid": 74116,
+      "birth": "2026-10-23T18:19:24.5386265Z",
+      "exit": 0,
+      "full_streams": 2
+    },
+    {
+      "record": ".local/sprint21/root/sprint24/recovery04-launch01/launch.process.json",
+      "sha256": "50765A51D311099980FF20193C7177822FC9A94E03CC44686B21D4687BDE7303",
+      "pid": 76296,
+      "birth": "2026-10-23T18:19:22.8685742Z",
+      "exit": 0,
+      "full_streams": 2
+    }
+  ],
+  "native_count": 16,
+  "full_streams": 32,
+  "expected_readiness_exit1": 4,
+  "readiness_exit0": 1,
+  "other_exit0": 11,
+  "events": [
+    {
+      "stop_latched": false,
+      "label": "worker",
+      "sequence": 2,
+      "utc": "2026-10-23T18:19:44.3173503+00:00",
+      "event": "RESUMED"
+    },
+    {
+      "stop_latched": false,
+      "label": "postgres",
+      "sequence": 6,
+      "utc": "2026-10-23T18:19:45.1351468+00:00",
+      "event": "RESUMED"
+    },
+    {
+      "stop_latched": false,
+      "label": "postgres",
+      "sequence": 86,
+      "utc": "2026-10-23T18:20:36.7513933+00:00",
+      "event": "ACTUAL_FRESH_RESOURCE_BARRIER"
+    },
+    {
+      "stop_latched": false,
+      "label": "pg-stop",
+      "sequence": 89,
+      "utc": "2026-10-23T18:20:36.8582019+00:00",
+      "event": "RESUMED"
+    },
+    {
+      "stop_latched": false,
+      "label": "postgres",
+      "sequence": 91,
+      "utc": "2026-10-23T18:20:37.0135112+00:00",
+      "event": "ACTUAL_EXIT_AND_CAPTURE_SAVED"
+    },
+    {
+      "stop_latched": false,
+      "label": "pg-stop",
+      "sequence": 92,
+      "utc": "2026-10-23T18:20:37.0215993+00:00",
+      "event": "ACTUAL_EXIT_AND_CAPTURE_SAVED"
+    },
+    {
+      "stop_latched": false,
+      "label": "worker",
+      "sequence": 97,
+      "utc": "2026-10-23T18:20:39.2709747+00:00",
+      "event": "ACTUAL_EXIT_AND_CAPTURE_SAVED"
+    }
+  ],
+  "checks": [
+    "All16 process records and32 original stream SHA/length/fullEOF verified, no truncation/pump fault/drain timeout. FILETIME nativebirth digits preserved as strings.",
+    "PG18.6 log explicitly retains interrupted-startup/automaticredo/end-of-recovery checkpoint, four expected not-ready rejections, then ready. No historical failure log suppressed.",
+    "Readonly SQL confirms exact PG11/55449/postgres/admin/primary identity, read_only on, failed capacity-control01 DB still exists, app role exists and WAL recovery complete.",
+    "Fresh SAMPLE19-second barrier then pg_ctlfaststop0 and PostgreSQL0/fullcaptures, clean shutdown checkpoint; worker/collector/outer0. Broker failure/guard/primary null.",
+    "PID-file absence corroborated by targeted managed stat, no process query, scan or producer executed by TD."
+  ],
+  "limits": [
+    "No manual PID/WAL deletion or app starts claimed. Capacity01 remains FAILED positive_contract; failed DB01 and captures retained.",
+    "Not whole-database semantic integrity, HA, availability SLO or successful capacity controls.",
+    "Fresh capacity02 exact filledconfig/pins, independent QA actualrecovery acceptance and Root+QA runtime admission remain required; no automatic unchanged retry."
+  ],
+  "blocking_findings": []
+}
