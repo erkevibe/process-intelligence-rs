@@ -111,7 +111,7 @@ jobs:
         run: |
           mkdir -p .local/sprint24/ci/journal
           python3 -I -B tools/sprint24/check-journal.py --source tools/sprint24/current-api-http.py --out .local/sprint24/ci/journal
-          pwsh -NoProfile -File tools/sprint24/runtime/ops-protocol-controls02.ps1 -Protocol tools/sprint24/runtime/ops-pg-protocol02.psm1 -ProtocolSha CC86649476F7B2D57926477519BC0FF66ABEC340F5D88A8D6C7C6DFCA74082CF -Output .local/sprint24/ci/pg-protocol.json
+          pwsh -NoProfile -File tools/sprint24/runtime/ops-protocol-controls02.ps1 -Protocol "$PWD/tools/sprint24/runtime/ops-pg-protocol02.psm1" -ProtocolSha CC86649476F7B2D57926477519BC0FF66ABEC340F5D88A8D6C7C6DFCA74082CF -Output "$PWD/.local/sprint24/ci/pg-protocol.json"
           python3 -I -B tools/sprint24/check-saved.py evidence/sprint24/saved
           mkdir -p .local/sprint21/root/sprint24/ci-saved-controls
           python3 -I -B tools/sprint24/check-saved-controls.py --checker "$PWD/tools/sprint24/check-saved.py" --evidence "$PWD/evidence/sprint24/saved" --fixture "$PWD/.local/sprint21/root/sprint24/ci-saved-controls" --proof "$PWD/.local/sprint21/root/sprint24/ci-saved-controls-proof.json"
