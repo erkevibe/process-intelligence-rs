@@ -1,0 +1,507 @@
+{
+  "schema_version": 1,
+  "kind": "S24_RECOVERY04_ACTUAL_ACCEPTANCE",
+  "utc": "2026-10-23T18:21:31.356Z",
+  "decision": "ACCEPT_STOCK_RECOVERY04_FINITE_SCOPE",
+  "config_sha256": "02ED04EAF85060DA8E8F4FFF617DBD725BA31AB2D55A975A769D49A733D1DCFC",
+  "proof_sha256": "E89D2B1B082F53CFEEF2E08C580C85671DE89224CD6E795C247F2D86EEC8F215",
+  "native_count": 16,
+  "stream_count": 32,
+  "native_inventory": [
+    {
+      "file": ".local/sprint21/root/sprint24/postgres-recovery04/collector.process.json",
+      "sha256": "505A4A08D75943B6DC35377D9B305B3CB4E15E6EC3426E82B746064A3DD41883",
+      "pid": 74116,
+      "exit": 0,
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true
+        }
+      ]
+    },
+    {
+      "file": ".local/sprint21/root/sprint24/postgres-recovery04/session/app10k.process.json",
+      "sha256": "24643490C59DB67830DE5A9A0ECA6FFEF40A706386C523E8BF72157161641622",
+      "pid": 71796,
+      "birth": "134372531992163135",
+      "exit": 0,
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 45,
+          "sha256": "FE722482F77465D6EC3318E6D25EDE540869F3DF5DE7A147FDD0C520D900B577",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "file": ".local/sprint21/root/sprint24/postgres-recovery04/session/app90k.process.json",
+      "sha256": "9AE3859EA82D314F5E6DDB0C2E132098BECA61CB9DA2D3F8AB2FC2D9B15DF2C5",
+      "pid": 78972,
+      "birth": "134372532014900631",
+      "exit": 0,
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 47,
+          "sha256": "D5E58F2EBD2DBD9CAB099DBACF22AAEE278287412D594BBFAD319822E998AB40",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "file": ".local/sprint21/root/sprint24/postgres-recovery04/session/child.process.json",
+      "sha256": "57EEE7D93F6392D5D25E790AB53B60D0122884A5B5AF23E07ADD554EB7EADB59",
+      "pid": 3184,
+      "birth": "134372532037514144",
+      "exit": 0,
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 54,
+          "sha256": "5AC7D5F9CBBE09CBC63D5DF3D77157E890A6E5E860A8E8DA9BD5BF65FA9FBF09",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "file": ".local/sprint21/root/sprint24/postgres-recovery04/session/http90k.process.json",
+      "sha256": "966E7349671EAE290F1AFBA5BACCE46B2A7F564E1E037A218CC6B34FF7467A2F",
+      "pid": 60892,
+      "birth": "134372532187843718",
+      "exit": 0,
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 28,
+          "sha256": "28362D924602DF4252D12C161862704A90F3F6E64EC30BAFA600120E91584848",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "file": ".local/sprint21/root/sprint24/postgres-recovery04/session/pg-stop.process.json",
+      "sha256": "8CA11554A56B800FC6962D5312AEAC76C7B99613F4A885C3AA8824F4F05E55FF",
+      "pid": 59328,
+      "birth": "134372532368144680",
+      "exit": 0,
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 58,
+          "sha256": "3589D2BD01F8295CC7C9EC3F5E07625FCD347CCB6F33F2D80EDAFE5F5217C1FB",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "file": ".local/sprint21/root/sprint24/postgres-recovery04/session/postgres.process.json",
+      "sha256": "5B000B85B5472EDF3D0A2D2F198B91251E973EDDDCD6DA8B0DB5C6EDD5854D25",
+      "pid": 14800,
+      "birth": "134372531850344770",
+      "exit": 0,
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 2489,
+          "sha256": "E2C3CC99ED39D541D14FCA3A7497316966C827E6510BC6AA77E0B7E4485F9AA5",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "file": ".local/sprint21/root/sprint24/postgres-recovery04/session/ready-01.process.json",
+      "sha256": "F7A12BB5FBA61B057006F1A2214E9D2DB55E820D683FC9749B2C69935112DDB0",
+      "pid": 57848,
+      "birth": "134372531852674862",
+      "exit": 1,
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 41,
+          "sha256": "62285DBF9A623B155EF5FBB74B1E0BB1AAC8583FF3EDECDF23D4EE6D4804EC5B",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "file": ".local/sprint21/root/sprint24/postgres-recovery04/session/ready-02.process.json",
+      "sha256": "B1A2D42C1C5636E23871136AE3D42441B82254D527CF82E4D96D632CB8478BCE",
+      "pid": 75720,
+      "birth": "134372531876029080",
+      "exit": 1,
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 41,
+          "sha256": "62285DBF9A623B155EF5FBB74B1E0BB1AAC8583FF3EDECDF23D4EE6D4804EC5B",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "file": ".local/sprint21/root/sprint24/postgres-recovery04/session/ready-03.process.json",
+      "sha256": "0FE299DF496FC3044C80A89950283A66FD6E902EE1EA2D5AA81D3454D510A91C",
+      "pid": 79180,
+      "birth": "134372531899139141",
+      "exit": 1,
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 41,
+          "sha256": "62285DBF9A623B155EF5FBB74B1E0BB1AAC8583FF3EDECDF23D4EE6D4804EC5B",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "file": ".local/sprint21/root/sprint24/postgres-recovery04/session/ready-04.process.json",
+      "sha256": "A9FD4F33E60209369B9A29BB92EB2D76C3108BBE88C81B60F3AEE6D4CF3556F1",
+      "pid": 70176,
+      "birth": "134372531922340602",
+      "exit": 1,
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 41,
+          "sha256": "62285DBF9A623B155EF5FBB74B1E0BB1AAC8583FF3EDECDF23D4EE6D4804EC5B",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "file": ".local/sprint21/root/sprint24/postgres-recovery04/session/ready-05.process.json",
+      "sha256": "1D7EF2DE8532D7197752238EF0BBEA4AED70D8411314C5A45A706A4ADA2013E9",
+      "pid": 76472,
+      "birth": "134372531946229348",
+      "exit": 0,
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 41,
+          "sha256": "48F05044D763F65E81DF5FA8BE71F5A81EC224D0B419A9BFA6132B7FBC62D7F4",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "file": ".local/sprint21/root/sprint24/postgres-recovery04/session/source10k.process.json",
+      "sha256": "A295A4FA51178BABA7C73068DA9427E1AFFFB23C1DACB5F81F404177FD4B8EAA",
+      "pid": 59112,
+      "birth": "134372531968863517",
+      "exit": 0,
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 201,
+          "sha256": "3699F9DE01C6F1900C70B0854E67F15448110E3F567A5E2AACA8D2FBA05E32FC",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "file": ".local/sprint21/root/sprint24/postgres-recovery04/session/source90k.process.json",
+      "sha256": "75BA04625DD1E970C445FF859B2985C99ADEFCC1B3E5FB3151B26ED4A5C23293",
+      "pid": 78096,
+      "birth": "134372532210779358",
+      "exit": 0,
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 84,
+          "sha256": "7F500F836E8E1CF3EDA2DB2F031B3715F954D54900C56724BE05D6DB2915C7D1",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "file": ".local/sprint21/root/sprint24/postgres-recovery04/session/worker.process.json",
+      "sha256": "F8D41DC10AE2EA7712D979A698E2C3592131C9FA07F1A3CA9AB4DC00EBB17FCF",
+      "pid": 77980,
+      "birth": "134372531841553945",
+      "exit": 0,
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true,
+          "eof": true,
+          "fault": false,
+          "truncated": false
+        }
+      ]
+    },
+    {
+      "file": ".local/sprint21/root/sprint24/recovery04-launch01/launch.process.json",
+      "sha256": "50765A51D311099980FF20193C7177822FC9A94E03CC44686B21D4687BDE7303",
+      "pid": 76296,
+      "exit": 0,
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "match": true,
+          "complete": true
+        }
+      ]
+    }
+  ],
+  "raw_mismatches": 0,
+  "readiness_exits": [
+    1,
+    1,
+    1,
+    1,
+    0
+  ],
+  "all_other_exits": 0,
+  "sql": {
+    "exact_data_directory_matches": false,
+    "port": "55449",
+    "database": "postgres",
+    "user": "pi_s21_admin",
+    "in_recovery": false,
+    "read_only": "on",
+    "server_version": "18.6",
+    "failed_capacity_control01_database_exists": true,
+    "app_role_exists": true,
+    "wal_recovery_complete": true
+  },
+  "log_markers": {
+    "interrupted": true,
+    "redo": true,
+    "clean_shutdown": true
+  },
+  "pid_absent": true,
+  "after": {
+    "files": 57803,
+    "skipped_vanished_target_entries": 0,
+    "scope": "non-atomic read-only sampling; vanished compiler-target entries or exact owned pgdata11/base/nonzero-decimal-OID/pg_internal.init only; second genuine absence required; 512MiB headroom mandatory",
+    "root_logical_bytes": 8006457129,
+    "skipped_vanished_pg_internal_init_entries": 0,
+    "allocation_bytes": 8542698408,
+    "logical_bytes": 8482584134,
+    "root_allocation_bytes": 8046127488
+  },
+  "manual_pid_wal_delete": false,
+  "actual_apps_or_HTTP": false,
+  "limits": [
+    "Stock PostgreSQL recovery and readonly identity controls only.",
+    "P1 attempt01 remains FAIL; no capacity02 runtime GO or acceptance inferred.",
+    "No complete schema/business integrity certification from six readonly SQL aliases."
+  ],
+  "authorship": "TD harness independently source-reviewed; QA independently hashed originals/read all raw streams and SQL/logs, no native or scan."
+}

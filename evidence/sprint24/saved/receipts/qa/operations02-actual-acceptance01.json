@@ -1,0 +1,1042 @@
+{
+  "schema_version": 1,
+  "utc": "2026-10-23T18:08:41.109Z",
+  "role": "QA/ProcessLogAuditor",
+  "decision": "ACCEPT_FINITE_ACTUAL_OPERATIONS02_LOCAL_SCOPE",
+  "config_sha256": "55914E2E5FF2B822D7B2FC83B6AAB5A48E13D9B1ACAA29F8CC8979BC873B923A",
+  "phase_proof_sha256": "507D2A39B228AE774286EFA511F7058806BBF6AB066DE8FDC4E48A336E7C8C63",
+  "candidate_app_sha256": "072FB7B8ADE3C7473899424D84842477A0B96B78F5DAF2AD7F30EB05FF3E03A2",
+  "actual_native": {
+    "count": 25,
+    "streams": 50,
+    "inventory": [
+      {
+        "label": "app-duplicate",
+        "pid": 74808,
+        "birth_raw": "134372522908342019",
+        "exit": 1,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 165,
+            "sha256": "3CFE5DB9F4DBD22A1EAEB9C18AE495FF91FC6E07C5F8CC3D155FD0035CBFE200",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "app-live",
+        "pid": 79840,
+        "birth_raw": "134372522853575878",
+        "exit": 137,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 9198,
+            "sha256": "25A33AB9174FA426D9FF429EB09CE880469144606C87A113292500478008DD11",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "app-restarted",
+        "pid": 71368,
+        "birth_raw": "134372523590236667",
+        "exit": 137,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 2442,
+            "sha256": "B9BC381A9925D665D6BD2DD919CE187C3B24BEC9AB8D4A4495059A6589A305F6",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "cluster-g1",
+        "pid": 48916,
+        "birth_raw": "134372522806361338",
+        "exit": 0,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 201,
+            "sha256": "3699F9DE01C6F1900C70B0854E67F15448110E3F567A5E2AACA8D2FBA05E32FC",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "cluster-g2",
+        "pid": 59760,
+        "birth_raw": "134372523541735656",
+        "exit": 0,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 201,
+            "sha256": "3699F9DE01C6F1900C70B0854E67F15448110E3F567A5E2AACA8D2FBA05E32FC",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "create-db",
+        "pid": 78932,
+        "birth_raw": "134372522829626864",
+        "exit": 0,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "http-down",
+        "pid": 62884,
+        "birth_raw": "134372523471318537",
+        "exit": 0,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 91,
+            "sha256": "6F4A6A81EA3FACC69E38634EA25B45E71709AC20306F664301CE2F8A5E2C0423",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "http-latched",
+        "pid": 78064,
+        "birth_raw": "134372523564035542",
+        "exit": 0,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 94,
+            "sha256": "468959AB46A5F8AE86060DA610B90F1A4E67CB2DF3ABCCA6766DB781628F2AB0",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "http-lease-check",
+        "pid": 75188,
+        "birth_raw": "134372523113279622",
+        "exit": 0,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 98,
+            "sha256": "CBCD8A20304E4F27A0122C16B593FF1123554A963067216DDE9C6DEB8501466D",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "http-restored",
+        "pid": 78576,
+        "birth_raw": "134372523596096110",
+        "exit": 0,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 95,
+            "sha256": "9298DBC6B569CBE2F3466F0D39558CABFCC15C41DF5A1A8F7A839AB1F5091282",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "http-seed",
+        "pid": 45992,
+        "birth_raw": "134372522860880237",
+        "exit": 0,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 92,
+            "sha256": "F9656ABF1782E9F359794B092E723FF4EAE3F4E976C302BE9BA14DAC9D14BB77",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "pg-stop-g1",
+        "pid": 78864,
+        "birth_raw": "134372523301758509",
+        "exit": 0,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 58,
+            "sha256": "3589D2BD01F8295CC7C9EC3F5E07625FCD347CCB6F33F2D80EDAFE5F5217C1FB",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "pg-stop-g2",
+        "pid": 56344,
+        "birth_raw": "134372523768902520",
+        "exit": 0,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 58,
+            "sha256": "3589D2BD01F8295CC7C9EC3F5E07625FCD347CCB6F33F2D80EDAFE5F5217C1FB",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "postgres-g1",
+        "pid": 76896,
+        "birth_raw": "134372522759434094",
+        "exit": 0,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 1390,
+            "sha256": "DF5C97694C4D83DA36CEE4C5C687386E6552CFA7938C02B4F335E0C31048CBC9",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "postgres-g2",
+        "pid": 65644,
+        "birth_raw": "134372523494887664",
+        "exit": 0,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 1428,
+            "sha256": "05C56B1B7D87D276C9D9A679A5344823FB6F424DAC7F5890A107BC704588E551",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "ready-g1-01",
+        "pid": 76380,
+        "birth_raw": "134372522760901348",
+        "exit": 1,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 41,
+            "sha256": "62285DBF9A623B155EF5FBB74B1E0BB1AAC8583FF3EDECDF23D4EE6D4804EC5B",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "ready-g1-02",
+        "pid": 76156,
+        "birth_raw": "134372522784021233",
+        "exit": 0,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 41,
+            "sha256": "48F05044D763F65E81DF5FA8BE71F5A81EC224D0B419A9BFA6132B7FBC62D7F4",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "ready-g2-01",
+        "pid": 16364,
+        "birth_raw": "134372523496072997",
+        "exit": 1,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 41,
+            "sha256": "62285DBF9A623B155EF5FBB74B1E0BB1AAC8583FF3EDECDF23D4EE6D4804EC5B",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "ready-g2-02",
+        "pid": 67920,
+        "birth_raw": "134372523518839944",
+        "exit": 0,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 41,
+            "sha256": "48F05044D763F65E81DF5FA8BE71F5A81EC224D0B419A9BFA6132B7FBC62D7F4",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "snapshot-after",
+        "pid": 49364,
+        "birth_raw": "134372523618696918",
+        "exit": 0,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 5775,
+            "sha256": "3DED7544815648148964199645FA6CE4EAEAE7785E9E3E4C9ECA2F8FC03F59B6",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "snapshot-before",
+        "pid": 66352,
+        "birth_raw": "134372522883907979",
+        "exit": 0,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 5775,
+            "sha256": "3DED7544815648148964199645FA6CE4EAEAE7785E9E3E4C9ECA2F8FC03F59B6",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "snapshot-lease",
+        "pid": 67848,
+        "birth_raw": "134372522931852881",
+        "exit": 0,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 5775,
+            "sha256": "3DED7544815648148964199645FA6CE4EAEAE7785E9E3E4C9ECA2F8FC03F59B6",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "worker",
+        "pid": 59288,
+        "birth_raw": "134372522751122769",
+        "exit": 0,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "collector",
+        "pid": 56832,
+        "birth_raw": "2026-10-23T18:04:22.3175566Z",
+        "exit": 0,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "launch",
+        "pid": 78244,
+        "birth_raw": "2026-10-23T18:04:20.4094247Z",
+        "exit": 0,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      }
+    ],
+    "all_raw_full_SHA_length": true,
+    "guard_failure": null,
+    "failure": null,
+    "kill_fault": false,
+    "stop_reason": "worker_exit"
+  },
+  "independent_semantics": {
+    "five_HTTP_modes": [
+      {
+        "mode": "seed",
+        "proof_sha256": "E5D1C3465FB81A8A8448EB2D043C808708A82A80AB9D5B6A19C143A97410A024",
+        "requests": 11,
+        "checks": 5,
+        "raw_bad": [],
+        "journal_reconciled": true
+      },
+      {
+        "mode": "lease-check",
+        "proof_sha256": "1BD9944C901331B6C06D08B410F532C24A50D4F7C497322402226FFFFB285470",
+        "requests": 4,
+        "checks": 6,
+        "raw_bad": [],
+        "journal_reconciled": true
+      },
+      {
+        "mode": "down",
+        "proof_sha256": "81105A01334C0BE560DE8EF2B4336B4F41B2F36CB5799B1DC7C21D6D929B14D3",
+        "requests": 3,
+        "checks": 4,
+        "raw_bad": [],
+        "journal_reconciled": true
+      },
+      {
+        "mode": "latched",
+        "proof_sha256": "5FAAF45701471CD64542065DC9C585304CAFB2DF860C80EA28E86CD0DE81E8A5",
+        "requests": 3,
+        "checks": 4,
+        "raw_bad": [],
+        "journal_reconciled": true
+      },
+      {
+        "mode": "restored",
+        "proof_sha256": "A3F4D47BC20916CF92286813A3970D99462057876EF00FDD464CB11449C4C562",
+        "requests": 4,
+        "checks": 6,
+        "raw_bad": [],
+        "journal_reconciled": true
+      }
+    ],
+    "all25response_SHA_length_and_journals_match": true,
+    "full_typed_persistence": [
+      {
+        "mode": "lease-check",
+        "health": true,
+        "backup": true,
+        "export": true,
+        "project_audit": true
+      },
+      {
+        "mode": "restored",
+        "health": true,
+        "backup": true,
+        "export": true,
+        "project_audit": true
+      }
+    ],
+    "down_and_latched_exact_secretfree_errors": [
+      {
+        "mode": "down",
+        "path_kind": "health",
+        "status": 503,
+        "exact_secretfree_message": true
+      },
+      {
+        "mode": "down",
+        "path_kind": "filter",
+        "status": 503,
+        "exact_secretfree_message": true
+      },
+      {
+        "mode": "down",
+        "path_kind": "calendar",
+        "status": 503,
+        "exact_secretfree_message": true
+      },
+      {
+        "mode": "latched",
+        "path_kind": "health",
+        "status": 503,
+        "exact_secretfree_message": true
+      },
+      {
+        "mode": "latched",
+        "path_kind": "filter",
+        "status": 503,
+        "exact_secretfree_message": true
+      },
+      {
+        "mode": "latched",
+        "path_kind": "calendar",
+        "status": 503,
+        "exact_secretfree_message": true
+      }
+    ],
+    "session_secret_absent_from_all_savedresponses": true,
+    "SQL_full_business_snapshot_pins": [
+      {
+        "label": "snapshot-before",
+        "bytes": 5775,
+        "sha256": "3DED7544815648148964199645FA6CE4EAEAE7785E9E3E4C9ECA2F8FC03F59B6"
+      },
+      {
+        "label": "snapshot-lease",
+        "bytes": 5775,
+        "sha256": "3DED7544815648148964199645FA6CE4EAEAE7785E9E3E4C9ECA2F8FC03F59B6"
+      },
+      {
+        "label": "snapshot-after",
+        "bytes": 5775,
+        "sha256": "3DED7544815648148964199645FA6CE4EAEAE7785E9E3E4C9ECA2F8FC03F59B6"
+      }
+    ],
+    "duplicate_localized_source_refusal": true,
+    "seed_manual": "Sourcealpha/beta/gamma/delta10events, selectedalpha/beta with2h each; sourcefullcaseshash viaacceptedhelper andprivatebaseline compared."
+  },
+  "identity": {
+    "actual_distinct_PG_and_app": [
+      {
+        "label": "app-live",
+        "pid": 79840,
+        "birth_raw": "134372522853575878"
+      },
+      {
+        "label": "app-restarted",
+        "pid": 71368,
+        "birth_raw": "134372523590236667"
+      },
+      {
+        "label": "postgres-g1",
+        "pid": 76896,
+        "birth_raw": "134372522759434094"
+      },
+      {
+        "label": "postgres-g2",
+        "pid": 65644,
+        "birth_raw": "134372523494887664"
+      }
+    ],
+    "same_app_PID": 79840,
+    "same_app_birth_raw": "134372522853575878",
+    "actual_app_acks": [
+      {
+        "sequence": 18,
+        "pid": 79840,
+        "birth_raw": "134372522853575878",
+        "resumed": true,
+        "exited": false
+      },
+      {
+        "sequence": 65,
+        "pid": 79840,
+        "birth_raw": "134372522853575878",
+        "resumed": true,
+        "exited": false
+      },
+      {
+        "sequence": 66,
+        "pid": 79840,
+        "birth_raw": "134372522853575878",
+        "resumed": true,
+        "exited": true
+      },
+      {
+        "sequence": 67,
+        "pid": 79840,
+        "birth_raw": "134372522853575878",
+        "resumed": true,
+        "exited": true
+      }
+    ],
+    "all_app_ack_births_match_start_and_final": true,
+    "latched_completed_before_requested_app_kill": true,
+    "PG2_resumed_before_latched_observation": true,
+    "unexpected_service_watch_triggered": false,
+    "cluster_identities": [
+      {
+        "generation": "g1",
+        "exact_pg11": true,
+        "port": "55449",
+        "database": "postgres",
+        "user": "pi_s21_admin",
+        "in_recovery": false
+      },
+      {
+        "generation": "g2",
+        "exact_pg11": true,
+        "port": "55449",
+        "database": "postgres",
+        "user": "pi_s21_admin",
+        "in_recovery": false
+      }
+    ]
+  },
+  "stop_transactions": {
+    "chronology": [
+      {
+        "generation": "postgres-g1",
+        "events": [
+          {
+            "stop_latched": false,
+            "label": "postgres-g1",
+            "event": "PG_STOP_GUARD_BEGIN",
+            "sequence": 77,
+            "utc": "2026-10-23T18:05:13.6817841+00:00"
+          },
+          {
+            "stop_latched": false,
+            "label": "postgres-g1",
+            "event": "PG_STOP_GUARD_COMPLETE",
+            "sequence": 78,
+            "utc": "2026-10-23T18:05:30.1475312+00:00"
+          },
+          {
+            "stop_latched": false,
+            "label": "postgres-g1",
+            "event": "PG_STOP_TIMER_ARMED",
+            "sequence": 79,
+            "utc": "2026-10-23T18:05:30.1606711+00:00"
+          },
+          {
+            "stop_latched": false,
+            "label": "postgres-g1",
+            "event": "PG_STOP_CAPTURE_CLOSED",
+            "sequence": 84,
+            "utc": "2026-10-23T18:05:30.8665763+00:00"
+          },
+          {
+            "stop_latched": false,
+            "label": "postgres-g1",
+            "event": "PG_STOP_TIMER_DISPOSED",
+            "sequence": 85,
+            "utc": "2026-10-23T18:05:30.8694298+00:00"
+          },
+          {
+            "stop_latched": false,
+            "label": "postgres-g1",
+            "event": "PG_POST_STOP_GUARD_BEGIN",
+            "sequence": 86,
+            "utc": "2026-10-23T18:05:30.8694831+00:00"
+          },
+          {
+            "stop_latched": false,
+            "label": "postgres-g1",
+            "event": "PG_POST_STOP_GUARD_COMPLETE_COMMANDS_REOPENED",
+            "sequence": 87,
+            "utc": "2026-10-23T18:05:46.8462025+00:00"
+          }
+        ],
+        "stop_capture_ready": {
+          "stop_latched": false,
+          "label": "pg-stop-g1",
+          "event": "OWNED_SUSPENDED_CAPTURE_READY",
+          "sequence": 80,
+          "utc": "2026-10-23T18:05:30.2044970+00:00"
+        },
+        "stop_resumed": {
+          "stop_latched": false,
+          "label": "pg-stop-g1",
+          "event": "RESUMED",
+          "sequence": 81,
+          "utc": "2026-10-23T18:05:30.2241140+00:00"
+        },
+        "ordered": true,
+        "wall_stop_interval_ms": 706,
+        "preguard_ms": 16466,
+        "postguard_ms": 15977
+      },
+      {
+        "generation": "postgres-g2",
+        "events": [
+          {
+            "stop_latched": false,
+            "label": "postgres-g2",
+            "event": "PG_STOP_GUARD_BEGIN",
+            "sequence": 161,
+            "utc": "2026-10-23T18:06:04.3274817+00:00"
+          },
+          {
+            "stop_latched": false,
+            "label": "postgres-g2",
+            "event": "PG_STOP_GUARD_COMPLETE",
+            "sequence": 162,
+            "utc": "2026-10-23T18:06:16.8821764+00:00"
+          },
+          {
+            "stop_latched": false,
+            "label": "postgres-g2",
+            "event": "PG_STOP_TIMER_ARMED",
+            "sequence": 163,
+            "utc": "2026-10-23T18:06:16.8828621+00:00"
+          },
+          {
+            "stop_latched": false,
+            "label": "postgres-g2",
+            "event": "PG_STOP_CAPTURE_CLOSED",
+            "sequence": 168,
+            "utc": "2026-10-23T18:06:17.1122260+00:00"
+          },
+          {
+            "stop_latched": false,
+            "label": "postgres-g2",
+            "event": "PG_STOP_TIMER_DISPOSED",
+            "sequence": 169,
+            "utc": "2026-10-23T18:06:17.1127151+00:00"
+          },
+          {
+            "stop_latched": false,
+            "label": "postgres-g2",
+            "event": "PG_POST_STOP_GUARD_BEGIN",
+            "sequence": 170,
+            "utc": "2026-10-23T18:06:17.1127479+00:00"
+          },
+          {
+            "stop_latched": false,
+            "label": "postgres-g2",
+            "event": "PG_POST_STOP_GUARD_COMPLETE_COMMANDS_REOPENED",
+            "sequence": 171,
+            "utc": "2026-10-23T18:06:29.4294207+00:00"
+          }
+        ],
+        "stop_capture_ready": {
+          "stop_latched": false,
+          "label": "pg-stop-g2",
+          "event": "OWNED_SUSPENDED_CAPTURE_READY",
+          "sequence": 164,
+          "utc": "2026-10-23T18:06:16.9151087+00:00"
+        },
+        "stop_resumed": {
+          "stop_latched": false,
+          "label": "pg-stop-g2",
+          "event": "RESUMED",
+          "sequence": 165,
+          "utc": "2026-10-23T18:06:16.9153277+00:00"
+        },
+        "ordered": true,
+        "wall_stop_interval_ms": 230,
+        "preguard_ms": 12555,
+        "postguard_ms": 12317
+      }
+    ],
+    "exact_two": true,
+    "monotonic_19s_enforcement": "AcceptedAC782 source checksStopwatchticks/timerFired beforecaptureclosed andDispose; noTimerFired/failureactual. UTCintervalsbelow are labelledwall observations, not independenthardSLOmeasurements.",
+    "no_new_commands_between_timer_and_postguard_reopen": true,
+    "source_expected_exit_position": "No standalone ExpectExit timestamp logged; reviewedsource placesflag immediatelybeforeAdmit aftersuspendedprepare. Actualsourcepin/start/resume/events/watchsummary used, no fabricatedflagUTC."
+  },
+  "cleanup": {
+    "all_known_app_PG_owned_exits_closed": true,
+    "PID_absent": true,
+    "after": {
+      "skipped_vanished_pg_internal_init_entries": 0,
+      "root_logical_bytes": 7990102086,
+      "files": 56688,
+      "root_allocation_bytes": 8029547344,
+      "allocation_bytes": 8525654456,
+      "logical_bytes": 8465820687,
+      "scope": "non-atomic read-only sampling; vanished compiler-target entries or exact owned pgdata11/base/nonzero-decimal-OID/pg_internal.init only; second genuine absence required; 512MiB headroom mandatory",
+      "skipped_vanished_target_entries": 0
+    },
+    "final_wholeworkspace_quiet_ports_Git": "FutureRootgate, not inferredfromabsenceofknownchildren"
+  },
+  "limits": [
+    "FiniteoneDBsinglewriter/failclosedreadiness/explicitrestart contract only; noHA/autoreconnect/globalquota/SLO/enterprisecomplete/wholeAPI/R5claim.",
+    "No stockproductcodechange or newcompiler/Java execution; B-onlyownedtestbroker sourceadmitted independently.",
+    "SQLsnapshotcoverspi_projects/pi_records; authseparate and no globalsequenceunchangedclaim.",
+    "API01/API02andB01remainfailedattempts; verifiedprivatecopycompactionnotretroactiverepair; historical6UNKNOWN/oldlostcause unchanged.",
+    "Localactualacceptance only; finaldelivery/publicprivacy/candidateCI/downloadedreplay remainfuture."
+  ],
+  "authorship": "TDauthoredrunner/broker, RootHTTPchecker. QAindependentsource/methodreview andactualmanagedraw/semantics/identityaudit; no QA native/shell/Git/resource scan."
+}

@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "utc": "2026-10-23T18:25:12.175Z",
+  "role": "Customer",
+  "agent_name": "customer_s23_delivery",
+  "status": "OPERATOR_DOC_AND_SQL_SCOPE_APPROVED_P1_ACTUAL_OUTCOME_PENDING",
+  "reviewed_files": [
+    {
+      "path": "docs/CAPACITY_DIAGNOSTIC.md",
+      "sha256": "BFCB448805DFEB0E8751DA8F2DE483606CB1A08EAE46C103604EA8173EDA97A1"
+    },
+    {
+      "path": "docs/DATABASE_RECOVERY.md",
+      "sha256": "26E5660C67F5095CE0F10E86AF53ECCD014F99EEB3DB3980BF8657FAC5F02C4A"
+    },
+    {
+      "path": "docs/SPRINT_24_REPORT.md",
+      "sha256": "3672D371C507E6FA47147B2E2781D28F39DA2F18C507ED77B2B8B1607FC894EB"
+    },
+    {
+      "path": "tools/sprint24/capacity-diagnostic.sql",
+      "sha256": "BA824A5730D9701796DFD1A7A03FFF1A700E957C865DF412AE19BAD7F3EACBA0"
+    }
+  ],
+  "dispositions": [
+    {
+      "id": "C24-B-01",
+      "status": "SATISFIED_IN_INSTRUCTIONS",
+      "basis": "Recovery recipe explicitly says same instance remains503 after DB returns, preserve logs, restore DB normally/noPIDWALdelete, explicit stop/start same config, then200 plus actual data/export/audit verification; noHA/recoverytime guarantee."
+    },
+    {
+      "id": "C24-P1-01",
+      "status": "SATISFIED_IN_DESIGN_DOC_NOT_ACTUAL_RUN",
+      "basis": "ExactSQL six fixed kinds/projects/five relation sizes, knownV3 minimum only, unknown kind refuses, no document/auth/session value selection; credentials excluded from command/recipe."
+    },
+    {
+      "id": "C24-P1-02",
+      "status": "SATISFIED_IN_DESIGN_DOC_NOT_ACTUAL_RUN",
+      "basis": "PhysicalDB and managedrelation overlap/noadd; notquota/safe maximum, explicitly excludes WAL/otherDB/backups/freeFS/schema certification."
+    },
+    {
+      "id": "C24-P1-03",
+      "status": "SATISFIED_IN_DESIGN_DOC_NOT_ACTUAL_RUN",
+      "basis": "Logicalcounts transaction-visible; observed_at records physical observation, RR doesnot freeze disk size."
+    },
+    {
+      "id": "C24-P1-04",
+      "status": "SATISFIED_IN_DESIGN_DOC_NOT_ACTUAL_RUN",
+      "basis": "Exact two-line JSON+postCOMMIT marker andnative0 mandatory, -X/ON_ERROR_STOP=1 documented, partial/nonzero retainedas incomplete notempty;5s/2s/10s bounds explicit."
+    }
+  ],
+  "findings": [],
+  "limits": "Source/instruction review only. Root reports A and B accepted; this Customer review does not replace runtime QA or prove pending P1 controls. Report honestly marks P1 acceptance pending and preserves Capacity01 harness Int32-vsInt64 failure. Final publiccandidate CI/download/quiet remain separate.",
+  "human_acceptance": false
+}

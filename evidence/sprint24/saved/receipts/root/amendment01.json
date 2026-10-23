@@ -1,0 +1,50 @@
+{
+  "acceptance": "Real4roleamendment plus independent QA/TD source/config/recovery review and actual regression before GO; oldlostmap/truncation remains, no retrospective success",
+  "fixed_roster": [
+    "Root",
+    "PM",
+    "QA",
+    "Customer"
+  ],
+  "failure": {
+    "td_actual_receipt": "18B342B84C5179E745AF59163402AA19420966A8AF84CDA551FF2B5A8F8C3456",
+    "owned_pg": "PID1240 retainedcreationFILETIME/image, exit137; stalePIDfile stillpresent, Rootreadonlyquiet09354596F3E0A5C8E5950F0EC823910B3C9AD69C8A5AA08881F5C3053806EAEC foundno corresponding/liveownedproduct",
+    "coverage": "17 full and1truncated inner+collector streams perQA, Rootlauncher2full separate; known native exits, no pass. Partial HTTP request map formerly memory-only missing, never reconstructed",
+    "first_cause": "output_or_capture_fault; appINFOstderr cap65536, persisted65536 observed65557; no guardfailure/killfault",
+    "attempt": "api01",
+    "qa_actual_receipt": "A9C1EE7649109596C4E51D92583D026CAD584FC48BF3D4CC2F5269E9F93D67A4"
+  },
+  "utc": "2026-10-23T16:49:25.4035970+00:00",
+  "original_proposal_sha256": "38081FBA7C48BF59611320595E58BEF3611823EB325C80862E423100C97949B8",
+  "supersedes_only": "S24-PLAN-01 phaseA capture admission and fixture attempt, not API success criteria",
+  "recovery": {
+    "mechanism": "Retained outerJob beforeGO; start existing stock PostgreSQL onexactownedPG11/55449, allow stockstalePID/WAL recovery; boundedready + readonly data_directory/port/current_user/current_database/in_recovery=false; SAMPLE then pg_ctl faststop0/PG0/allfullEOF/postmasterPIDabsent; freshguard before02",
+    "separate_prior_admission": true,
+    "never": "No manual PID/WAL delete/move/edit; no olddata or DB01 cleanup. Preserveactualrecoveryfailure andSTOP ifunexpected",
+    "conditions": "Actual failed ownedPGrecord/fullraw+nativecreation/image/exit137; stalePIDSHA/firstPID1240/seconddata path exactPG11; currentpidabsent and no same-D/portlistener; refuse anylive/reusedPID, do notkillunrelated"
+  },
+  "id": "S24-AMEND-01",
+  "unchanged": {
+    "nine_rejected_EXEs": "untouched",
+    "end_utc": "2026-10-24T00:15:20Z",
+    "native_freeze_utc": "2026-10-23T22:45:20Z",
+    "outer_seconds": 1800,
+    "global_ceiling_bytes": 14495514624,
+    "root_ceiling_bytes": 10200547328,
+    "app_sha256": "072FB7B8ADE3C7473899424D84842477A0B96B78F5DAF2AD7F30EB05FF3E03A2",
+    "free_floor_bytes": 8589934592,
+    "sample_seconds": 25,
+    "session_seconds": 1680,
+    "headroom_bytes": 536870912,
+    "phase_B": "Still separatelyadmitted onlyafterAactualacceptance",
+    "fresh_reserve_bytes": 201326592
+  },
+  "correction": {
+    "journal": "Rootsource4156C228945196F8A7E2DB5D3C20EE1D76AF12674CA0D22AFFF42E1B64AF9D0F: rawresponse flush/fsync before row; append/fsync request ID/status expected+observed/hashmetadata and evaluated check outcome after every step. No auth/form payload/cookie/password in metadata. Bound1MiB perjournal/64KiB perrow/512requests/2048checks. FinalPASS requires exacttyped journal/raw-byte reconciliation; partialtail/failure neverPASS",
+    "minimal_regression": "Pure owned local durablejournal controls: exact ordered persisted prefix and failedassert row/noPASS, reject simulated interruptedtail/duplicatekeys. No second HTTP rehearsal/nativeengine",
+    "retry": "One explicitly admitted fresh attempt api02/DBpi_s24_api02. Preserveapi01/DB01/partialfiles and alloldsource/captures; no overwrite/reuse/drop/rerun by renaming",
+    "capture": "Only exact two stock app command slots cap1048576 bytes perstream; all other65536, keepRUST_LOGinfo. Exactlabel/program/limit validation required. Sizing607B/request is observed estimate not maximum; repeated bound stillSTOP",
+    "api_oracles": "All six families andmanualcases/source/RBAC/restart reasons unchanged, no product codechange or compilation",
+    "capture_max_delta_bytes": 3932160
+  }
+}

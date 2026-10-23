@@ -1,0 +1,43 @@
+{
+  "for_count": 4,
+  "metadata_note": "Initial resolution assembly stopped before writes because QA uses decision field, corrected explicit field mapping; no runtime attempt",
+  "votes": [
+    {
+      "source_field": "vote",
+      "sha256": "7257BA89BA94F7507F677E466FCDC7B95DF1EE5DDF6F7807FDA5230112B7507F",
+      "file": "pm/sprint24/plan-vote01.json",
+      "role": "PM",
+      "vote": "FOR"
+    },
+    {
+      "source_field": "vote",
+      "sha256": "A29FD369C0BF7F283F9B8CBAC56CC8310B74821CE0EBF36756BF97630A9F770B",
+      "file": "root/sprint24/plan-vote01.json",
+      "role": "Root",
+      "vote": "FOR"
+    },
+    {
+      "source_field": "decision",
+      "sha256": "BBBC903E20F4DE4ECDE871CA8CFB6291D5FAAA1902738E5B04AF22460B194DCA",
+      "file": "qa/sprint24/vote01.json",
+      "role": "QA",
+      "vote": "FOR"
+    },
+    {
+      "source_field": "vote",
+      "sha256": "F87ACA56916BA7675BCC4798FD29D20ED2C98CC3141B2A3A22F392085BF3CA6B",
+      "file": "customer/sprint24/vote01.json",
+      "role": "Customer",
+      "vote": "FOR"
+    }
+  ],
+  "proposal_sha256": "38081FBA7C48BF59611320595E58BEF3611823EB325C80862E423100C97949B8",
+  "status": "ADOPTED_PLAN_NOT_RUNTIME_GO",
+  "utc": "2026-10-23T16:25:32.9472342+00:00",
+  "id": "S24-PLAN-01",
+  "fixed_roster": 4,
+  "runtime_gates": "Source/checker/config/resource/binary reviewed before native",
+  "phase_B": "Separate exact admission afterPhaseAacceptance",
+  "against_count": 0,
+  "abstain_count": 0
+}

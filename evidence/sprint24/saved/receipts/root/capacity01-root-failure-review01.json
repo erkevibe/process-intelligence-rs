@@ -1,0 +1,23 @@
+{
+  "pg_pid": 77440,
+  "native_recovery_required": true,
+  "negative_controls_not_run": true,
+  "typed_probe_full_raw_slots": 2,
+  "utc": "2026-10-23T18:17:11.2515560Z",
+  "sql_report_exit": 0,
+  "sql_report_complete_marker": true,
+  "stale_pidfile_sha256": "B9B50072386AD4D33E07D57465B92D81FC6A4548E45ACB3FE56D34582121A306",
+  "status": "KNOWN_FAILURE_PRESERVED_NO_P1_ACCEPTANCE",
+  "typed_probe_separate_records": 1,
+  "secondary_mask": "collector missing_recovery_native then outercollector_failed; not primary",
+  "pg_birth": "134372529272949108",
+  "failed_test_databases_retained": true,
+  "attempt_full_raw_slots": 22,
+  "typed_probe_stdout_sha256": "357A840FE75F094416929D771E27111417FE666A61F0981DA1AC1D93DAB4120F",
+  "attempt_native_records": 11,
+  "pg_record_sha256": "4209F792D9A65C67290D045D3442648C5F469AD399D472884448B341C90C76BF",
+  "root_review_debt": "Root also missed Int32-only check before native; grouped strict integer fix before new attempt, product SQL unchanged",
+  "primary": "worker positive_contract: schema_version Int64(1) refused by Int32-only harness",
+  "typed_probe_sha256": "B5AC575C7B13B78E90DC83B168389B166AC23354021E1941678D1CD98A3855E8",
+  "qa_sha256": "2E81C4FC22F2DB96CCF69BC2F80845224D364E88AC7C4D66A36BA85D3FF09A91"
+}

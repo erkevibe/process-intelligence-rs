@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ru" data-theme="dark" data-nonce="c261b287ff934abb91028025e57d83b3" data-readonly="false">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>Process Intelligence — анализ процессов</title>
+<link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/static/app.css">
+<link rel="stylesheet" href="/static/platform.css">
+<script type="module" src="/static/vendor/datastar-1.0.4.js"></script>
+<script defer src="/static/vendor/cytoscape-3.33.1.min.js"></script>
+<script defer src="/static/app.js"></script>
+<script defer src="/static/platform.js"></script>
+</head>
+<body>
+<div class="app-shell">
+<aside class="sidebar" aria-label="О приложении">
+<a class="brand" href="/" aria-label="Process Intelligence, главная"><span class="brand-mark">pi</span><span>Process<br><strong>Intelligence</strong></span></a>
+<div class="workspace-label">РАБОЧЕЕ ПРОСТРАНСТВО</div>
+<a class="nav-item active" href="/" aria-current="page"><span class="nav-icon">◇</span> Анализ журнала</a>
+<nav><a href="/projects">Проекты</a> · <a href="/logs">Журналы</a> · <a href="/csv">CSV</a> · <a href="/models">BPMN</a> · <a href="/backup">Резервная копия</a></nav>
+<div class="sidebar-bottom"><span class="status-dot"></span> Локальное приложение<br><small>PostgreSQL · данные сохраняются после перезапуска</small></div>
+</aside>
+<div class="workspace">
+<header class="topbar"><div class="breadcrumb">Рабочее пространство <span>/</span> <strong>Анализ журнала</strong></div><button type="button" id="theme-toggle" class="icon-button" aria-label="Переключить светлую и тёмную тему" title="Переключить тему">◐</button></header>
+<main>
+<section class="page-heading"><div><div class="eyebrow">PROCESS EXPLORER</div><h1>Увидеть, как работает процесс</h1><p>Загрузите журнал событий и найдите реальные пути от начала до результата.</p></div><span class="badge">Первое приближение</span></section>
+<section class="upload-card" aria-labelledby="upload-title" >
+<div class="upload-icon" aria-hidden="true">↥</div><div class="upload-copy"><h2 id="upload-title">Начните с журнала событий</h2><p>XES · до 20 MiB · до 100 000 событий</p></div>
+<form id="upload-form" action="/logs" method="post" enctype="multipart/form-data"><label class="background-control" title="Реальные этапы обработки и запрос отмены"><input id="background-mode" type="checkbox"> Фоновая обработка</label><label class="file-control"><span id="file-label">Выберите XES-файл</span><input id="xes-file" type="file" name="file" accept=".xes,application/xml,text/xml" required></label><button class="button primary" type="submit">Анализировать <span aria-hidden="true">→</span></button></form>
+</section>
+
+<div id="connection-status" class="connection-status" role="status" aria-live="polite"></div>
+
+<div class="explorer-grid">
+<!-- Reference panel. Root renders escaped placeholders server-side, never as expressions. -->
+<section id="analysis-panel" data-analysis-version="1" data-view-revision="0">
+<div class="card"><header class="card-header"><div><span class="eyebrow">ОБЗОР ЖУРНАЛА</span><h2>Результаты анализа</h2></div></header><div class="card-body"><p class="log-name">S24-filter.xes</p><div class="stats-grid"><div class="stat"><span class="stat-label">Трассы</span><strong class="stat-value">4</strong></div><div class="stat"><span class="stat-label">События</span><strong class="stat-value">10</strong></div><div class="stat"><span class="stat-label">Действия</span><strong class="stat-value">3</strong></div><div class="stat"><span class="stat-label">Варианты</span><strong class="stat-value">4</strong></div></div><hr class="section-divider"><form id="threshold-form" action="/logs/log-1/view" method="post"><label class="threshold-label" for="threshold">Минимальная частота ребра <output id="threshold-value">1</output></label><input id="threshold" name="threshold" type="range" min="1" max="3" value="1" data-on:change="window.piQueueView(evt.target)"><p class="threshold-help">Порог отображения: статистика исходного журнала не меняется.</p></form><a class="button export-link" href="/logs/log-1/export" download>Сохранить результат JSON <span aria-hidden="true">↓</span></a></div></div>
+<div class="card"><header class="card-header"><div><span class="eyebrow">ПУТИ ПРОЦЕССА</span><h2>Варианты трасс</h2></div><span class="badge">4</span></header><div class="card-body"><div class="variant-list"><div class="variant-row"><span class="variant-path">A <span aria-hidden="true">→</span> B <span aria-hidden="true">→</span> B <span aria-hidden="true">→</span> C</span><strong class="variant-count">1</strong></div><div class="variant-row"><span class="variant-path">A <span aria-hidden="true">→</span> B <span aria-hidden="true">→</span> C</span><strong class="variant-count">1</strong></div><div class="variant-row"><span class="variant-path">A <span aria-hidden="true">→</span> C</span><strong class="variant-count">1</strong></div><div class="variant-row"><span class="variant-path">B</span><strong class="variant-count">1</strong></div></div><p class="tiny muted">Показаны первые 4 вариантов. Полный результат доступен в JSON.</p></div></div>
+<div class="card case-card"><header class="card-header"><div><span class="eyebrow">ОТДЕЛЬНЫЕ ПРОХОЖДЕНИЯ</span><h2>Трассы журнала</h2></div></header><div class="card-body"><div class="case-list"><button type="button" class="case-button" data-case-id="case-0" aria-pressed="false" data-on:click="window.piQueueCase(el.dataset.caseId)"><span>alpha · case-0</span><span>3 событий</span></button><button type="button" class="case-button" data-case-id="case-1" aria-pressed="false" data-on:click="window.piQueueCase(el.dataset.caseId)"><span>beta · case-1</span><span>2 событий</span></button><button type="button" class="case-button" data-case-id="case-2" aria-pressed="false" data-on:click="window.piQueueCase(el.dataset.caseId)"><span>gamma · case-2</span><span>1 событий</span></button><button type="button" class="case-button" data-case-id="case-3" aria-pressed="false" data-on:click="window.piQueueCase(el.dataset.caseId)"><span>delta · case-3</span><span>4 событий</span></button></div><p class="tiny muted">Показаны первые 20 трасс или все, если их меньше. Имена трасс могут совпадать.</p><hr class="section-divider"><div id="case-details" class="selection-details"><p class="muted">Выберите трассу, чтобы увидеть её события.</p></div><p class="tiny muted">Подсветка показывает путь выбранной трассы. Частоты на карте относятся ко всему журналу.</p></div></div>
+<div class="card"><header class="card-header"><div><span class="eyebrow">ДЕТАЛИ</span><h2>Выбранный элемент</h2></div></header><div id="element-details" class="card-body selection-details"><p class="muted">Выберите действие или стрелку на карте.</p></div></div>
+<div id="graph-data" hidden data-ignore>{&quot;log_id&quot;:&quot;log-1&quot;,&quot;analysis_version&quot;:1,&quot;view_revision&quot;:0,&quot;min_edge_frequency&quot;:1,&quot;max_edge_frequency&quot;:2,&quot;nodes&quot;:[{&quot;id&quot;:&quot;activity-0&quot;,&quot;label&quot;:&quot;A&quot;,&quot;count&quot;:3,&quot;start_count&quot;:3,&quot;end_count&quot;:0},{&quot;id&quot;:&quot;activity-1&quot;,&quot;label&quot;:&quot;B&quot;,&quot;count&quot;:4,&quot;start_count&quot;:1,&quot;end_count&quot;:1},{&quot;id&quot;:&quot;activity-2&quot;,&quot;label&quot;:&quot;C&quot;,&quot;count&quot;:3,&quot;start_count&quot;:0,&quot;end_count&quot;:3}],&quot;edges&quot;:[{&quot;id&quot;:&quot;edge-0&quot;,&quot;source&quot;:&quot;activity-0&quot;,&quot;target&quot;:&quot;activity-1&quot;,&quot;count&quot;:2},{&quot;id&quot;:&quot;edge-1&quot;,&quot;source&quot;:&quot;activity-0&quot;,&quot;target&quot;:&quot;activity-2&quot;,&quot;count&quot;:1},{&quot;id&quot;:&quot;edge-2&quot;,&quot;source&quot;:&quot;activity-1&quot;,&quot;target&quot;:&quot;activity-1&quot;,&quot;count&quot;:1},{&quot;id&quot;:&quot;edge-3&quot;,&quot;source&quot;:&quot;activity-1&quot;,&quot;target&quot;:&quot;activity-2&quot;,&quot;count&quot;:2}],&quot;selected_id&quot;:null,&quot;selected_case_id&quot;:null,&quot;case_highlight&quot;:{&quot;node_ids&quot;:[],&quot;edge_ids&quot;:[]}}</div>
+</section>
+
+
+
+
+<section class="graph-card" aria-labelledby="graph-title"><header class="card-header"><div><span class="eyebrow">КАРТА ПРОЦЕССА</span><h2 id="graph-title">Непосредственные переходы</h2></div><div class="graph-controls" data-ignore><button id="graph-fit" class="small-button" type="button" title="Вписать граф в экран">Вписать</button><button id="graph-zoom-out" class="icon-button small" type="button" aria-label="Уменьшить граф">−</button><button id="graph-zoom-in" class="icon-button small" type="button" aria-label="Увеличить граф">+</button></div></header>
+<div class="graph-island" data-ignore><div id="cy" role="img" aria-label="Граф непосредственных переходов между действиями"></div><div id="graph-empty" class="graph-empty"><div class="empty-symbol" aria-hidden="true">◇</div><h3>Здесь появится ваш процесс</h3><p>Каждый узел — действие.<br>Каждая стрелка — следующий шаг в трассе.</p></div></div>
+<footer class="graph-footer"><span><i class="legend-node"></i> Действие</span><span><i class="legend-edge"></i> Частота перехода</span><span id="case-legend" hidden><i class="legend-case"></i> Выбранная трасса</span><span id="graph-summary">Ожидание журнала</span></footer>
+</section>
+</div>
+<section class="semantics-note"><span class="info-icon" aria-hidden="true">i</span><div><strong>Как читать результат</strong><p>Порядок событий — как в исходном файле. Каждое событие считается отдельно: lifecycle start/complete не объединяются. Порог меняет только видимые рёбра, исходная статистика остаётся прежней. DFG не показывает причинность или параллелизм.</p><p>PostgreSQL · данные сохраняются после перезапуска. Лимит проекта — восемь журналов. В постоянном режиме новый импорт в полный проект отклоняется; прежние журналы сохраняются. Прерванные задачи после перезапуска получают статус interrupted. Совместимость с Apromore ещё не подтверждена.</p></div></section>
+</main><footer class="page-footer"><span>Process Intelligence Core · Rust + Datastar</span><span>Локальный исследовательский прототип</span></footer>
+</div></div>
+<form id="mutation-form" method="post" hidden aria-hidden="true"><input name="threshold" value="1"><input name="kind" value=""><input name="id" value=""><button id="mutation-submit" type="button" data-on:click="window.piRunMutation(() => @post(document.getElementById('mutation-form').action, {contentType: 'form', selector: '#mutation-form', requestCancellation: 'disabled', retry: 'never'}))">Обновить анализ</button></form></body></html>
+
+
+
+

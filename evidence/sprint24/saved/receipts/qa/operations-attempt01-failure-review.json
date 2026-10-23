@@ -1,0 +1,445 @@
+{
+  "schema_version": 1,
+  "utc": "2026-10-23T17:37:17.410Z",
+  "role": "QA/ProcessLogAuditor",
+  "decision": "FAILED_GUARD_NO_PHASE_B_ACCEPTANCE",
+  "config_sha256": "CF05666E4C8D30E662A1F5C62AF607DEC86D178934D696F6F100AF768BF9113C",
+  "first_cause": {
+    "stop_reason": "resource_guard_failure",
+    "failure": "resource_sample_timeout",
+    "guard_failure": {
+      "utc": "2026-10-23T17:36:21.7701300+00:00",
+      "source": "pg_stop_pre_guard",
+      "hresult": -2146233087,
+      "message": "resource_sample_timeout",
+      "type": "System.Management.Automation.RuntimeException"
+    },
+    "primary_exception": {
+      "utc": "2026-10-23T17:36:21.7808813+00:00",
+      "hresult": -2146233087,
+      "message": "resource_sample_timeout",
+      "type": "System.Management.Automation.RuntimeException"
+    },
+    "kill_fault": false,
+    "secondary_diagnostics": [],
+    "pre_guard_started_utc": "2026-10-23T17:35:56.7258706+00:00",
+    "elapsed_to_guard_exception_ms": 25045
+  },
+  "actual": {
+    "native_count": 14,
+    "stream_count": 28,
+    "all_raw_hash_length_full": true,
+    "inventory": [
+      {
+        "label": "app-duplicate",
+        "pid": 78288,
+        "birth_raw": "134372505271192419",
+        "exit": 1,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 165,
+            "sha256": "3CFE5DB9F4DBD22A1EAEB9C18AE495FF91FC6E07C5F8CC3D155FD0035CBFE200",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "app-live",
+        "pid": 72884,
+        "birth_raw": "134372505215957297",
+        "exit": 137,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 7487,
+            "sha256": "29CE392797709A4E72D28F20778F841C07A3B4E35D35B37A5DD93285C17797D3",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "cluster-g1",
+        "pid": 73956,
+        "birth_raw": "134372505167960175",
+        "exit": 0,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 201,
+            "sha256": "3699F9DE01C6F1900C70B0854E67F15448110E3F567A5E2AACA8D2FBA05E32FC",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "create-db",
+        "pid": 77564,
+        "birth_raw": "134372505191344075",
+        "exit": 0,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "http-lease-check",
+        "pid": 71544,
+        "birth_raw": "134372505544597743",
+        "exit": 0,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 98,
+            "sha256": "CBCD8A20304E4F27A0122C16B593FF1123554A963067216DDE9C6DEB8501466D",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "http-seed",
+        "pid": 76068,
+        "birth_raw": "134372505223792184",
+        "exit": 0,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 92,
+            "sha256": "F9656ABF1782E9F359794B092E723FF4EAE3F4E976C302BE9BA14DAC9D14BB77",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "postgres-g1",
+        "pid": 64952,
+        "birth_raw": "134372505119635146",
+        "exit": 137,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 485,
+            "sha256": "4238F8E5A973D40A44BD627A8971564F8D089A52A42711BA5B016F0045E85224",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "ready-g1-01",
+        "pid": 68028,
+        "birth_raw": "134372505121746187",
+        "exit": 1,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 41,
+            "sha256": "62285DBF9A623B155EF5FBB74B1E0BB1AAC8583FF3EDECDF23D4EE6D4804EC5B",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "ready-g1-02",
+        "pid": 60296,
+        "birth_raw": "134372505144899825",
+        "exit": 0,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 41,
+            "sha256": "48F05044D763F65E81DF5FA8BE71F5A81EC224D0B419A9BFA6132B7FBC62D7F4",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "snapshot-before",
+        "pid": 61392,
+        "birth_raw": "134372505246601677",
+        "exit": 0,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 5772,
+            "sha256": "6D8E5350B7120E93399AF94ECABB319BA3D101741A6E4AE8B25A345423D3A922",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "snapshot-lease",
+        "pid": 55972,
+        "birth_raw": "134372505294905902",
+        "exit": 0,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 5772,
+            "sha256": "6D8E5350B7120E93399AF94ECABB319BA3D101741A6E4AE8B25A345423D3A922",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "worker",
+        "pid": 3108,
+        "birth_raw": "134372505110419100",
+        "exit": 137,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "collector",
+        "pid": 75368,
+        "birth_raw": "2026-10-23T17:34:50.3505637Z",
+        "exit": 1,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 329,
+            "sha256": "F0E16A09E70864C31D025413DD45CC4EAF22179BAF7A99549608BD6143D18C0D",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "launch",
+        "pid": 66800,
+        "birth_raw": "2026-10-23T17:34:48.8472920Z",
+        "exit": 1,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 310,
+            "sha256": "9B472EC0399160D4875AEF9F9B625426C29647902561C2CF4994447E12FD1CEA",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      }
+    ],
+    "partial_HTTP": [
+      {
+        "mode": "seed",
+        "requests": 11,
+        "checks": 5,
+        "raw_bad": [],
+        "journals_match": true
+      },
+      {
+        "mode": "lease-check",
+        "requests": 4,
+        "checks": 6,
+        "raw_bad": [],
+        "journals_match": true
+      }
+    ],
+    "snapshots": [
+      {
+        "label": "snapshot-before",
+        "bytes": 5772,
+        "sha256": "6d8e5350b7120e93399af94ecabb319ba3d101741a6e4ae8b25a345423d3a922"
+      },
+      {
+        "label": "snapshot-lease",
+        "bytes": 5772,
+        "sha256": "6d8e5350b7120e93399af94ecabb319ba3d101741a6e4ae8b25a345423d3a922"
+      }
+    ],
+    "localized_duplicate_refusal_observed": true,
+    "duplicate_app_started_absent": true,
+    "stop_timer_armed": false,
+    "transaction_receipts": 0
+  },
+  "conclusions": [
+    "14actualownednative28fullstreams/0hashlengthfaults, knownexit14records; no captureUNKNOWN or lostcause.",
+    "Firstprestopguard timedout~25s beforetimer/ExpectExit/pgctlstop; noPGSTOPtransaction normalpathcredit, no19swindowadmitted.",
+    "Seed11requests5checks andlease-check4requests6checks journals/rawverified; duplicate1source-localizedreason and5772Bbefore/leaseSQLidentical are finitepartialobservations only, no overallBsuccess.",
+    "PGg1/app-live/worker137globalSTOP, collector+outer1. No down/latched/restored/g2/finalcleanPGstop occurred.",
+    "StalePID/recovery/quiet must be independentlyhandled undernewexactprotocol; no manualPID/WALdelete or unchangedretry.",
+    "Unchanged25sresourceguard failure preserved; no retroactive timer/caprelax, no failedfirstcauseoverwrite."
+  ],
+  "limits": [
+    "API03priorfiniteacceptance notrevoked; Bfailedattempt keptseparate.",
+    "Historical6UNKNOWN/oldlostcause unchanged; no enterprise/HA/reconnect/SLO/allAPIclaim.",
+    "Rootactualtoolclosure remainsseparatereportedoperation, notextraownedprocess."
+  ],
+  "method": "Managedknownmetadata/rawsource/hash/JSONLreads only; nativeFILETIME retainedrawdecimalstrings; no QA native/shell/Git/scans."
+}
