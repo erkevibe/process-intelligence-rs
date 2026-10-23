@@ -1,0 +1,56 @@
+{
+  "status": "ACTUAL_CONTROLLED_OUTSIDE_LOCAL_ACL_MUTATION_ACCEPTED",
+  "scope": "Baseline B874 follows a controlled junction ancestor and changes existing ordinary outside-installation-local child ACL before refusing missing config; wholly synthetic Root-private fixture",
+  "proof_sha256": "5B454A834F12DAA74FCE133F2AF008A8674A2433D39D40DC69D4CAF3F18AB2B5",
+  "native_count": 3,
+  "full_stream_count": 6,
+  "records": [
+    {
+      "label": "baseline",
+      "pid": 77568,
+      "exit": 0,
+      "raw_ok": true,
+      "capture_fault": false,
+      "output_limit": false,
+      "drain_timeout": false
+    },
+    {
+      "label": "guard-after",
+      "pid": 72336,
+      "exit": 0,
+      "raw_ok": true,
+      "capture_fault": false,
+      "output_limit": false,
+      "drain_timeout": false
+    },
+    {
+      "label": "guard-before",
+      "pid": 68900,
+      "exit": 0,
+      "raw_ok": true,
+      "capture_fault": false,
+      "output_limit": false,
+      "drain_timeout": false
+    }
+  ],
+  "observations": {
+    "before_cleanup_persisted": true,
+    "resolved_parent_matches_outside_child": true,
+    "access_sddl_changed": true,
+    "sentinel_sha256_unchanged": true,
+    "exact_child_entries": [
+      "synthetic-sentinel.txt"
+    ],
+    "missing_config_error": "PathNotFound,Microsoft.PowerShell.Commands.GetContentCommand",
+    "archive_absent": true,
+    "link_absent_actual_lstat": true,
+    "private_acl_restored_by_driver_actual_readback": true
+  },
+  "limits": [
+    "No real configuration read or PostgreSQL/database started",
+    "No race-free security guarantee or PostgreSQL happy-path coverage",
+    "Failed baseline01 retained; ACL-only regression explains its cleanup failure without retroactive positive finding",
+    "Root outer tool closure separately attributed"
+  ],
+  "utc": "2026-10-23T20:10:00Z"
+}

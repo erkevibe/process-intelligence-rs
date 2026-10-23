@@ -1,0 +1,54 @@
+{
+  "status": "FINITE_WINDOWS_BACKUP_PATH_CONTROLS_ACCEPTED",
+  "product_sha256": "368906C5D863B05F140BD6B502678D92023D590AABF3EBD22DDB65E152927B57",
+  "controls_sha256": "407DC0923E6A77B15733C39949D6584F13B6B8E9B68F1CDD015000CBC340255C",
+  "proof_sha256": "0606DF2C6F51D30ED39AF68BD8C633CD4A4D9330EFE3F2A10731BF64C6F35AA5",
+  "native_count": 3,
+  "full_stream_count": 6,
+  "records": [
+    {
+      "label": "controls",
+      "pid": 75396,
+      "exit": 0,
+      "raw_ok": true,
+      "capture_fault": false,
+      "drain_timeout": false,
+      "output_limit": false
+    },
+    {
+      "label": "guard-after",
+      "pid": 10856,
+      "exit": 0,
+      "raw_ok": true,
+      "capture_fault": false,
+      "drain_timeout": false,
+      "output_limit": false
+    },
+    {
+      "label": "guard-before",
+      "pid": 1244,
+      "exit": 0,
+      "raw_ok": true,
+      "capture_fault": false,
+      "drain_timeout": false,
+      "output_limit": false
+    }
+  ],
+  "checks": 15,
+  "negative_refusals": 12,
+  "windows_ordinary_admissions": 3,
+  "independent_comparison": [
+    "Every persisted outside root/child ACL and sentinel+entries equal before/after",
+    "Every negative local and actual-parent ACL unchanged; absent parent remains absent",
+    "Collision hashes equal; percase files equal aggregate proof; all15 actual sentinel hashes rechecked",
+    "All six fixed link slots actually absent by lstat after cleanup",
+    "Parent actual cleanup records15private ACL restorations before guard-after"
+  ],
+  "limits": [
+    "No Linux runtime claim; expected13+2 must be demonstrated separately",
+    "Windows ordinary paths only admitted through ACL setup to missing-config refusal; no PostgreSQL backup/restore happy-path",
+    "Static existing-path checks do not eliminate concurrent replacement race",
+    "Failed baseline01 and actual baseline02 defect evidence remain distinct"
+  ],
+  "utc": "2026-10-23T20:18:00Z"
+}

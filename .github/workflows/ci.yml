@@ -117,6 +117,9 @@ jobs:
           python3 -I -B tools/sprint24/check-saved-controls.py --checker "$PWD/tools/sprint24/check-saved.py" --evidence "$PWD/evidence/sprint24/saved" --fixture "$PWD/.local/sprint21/root/sprint24/ci-saved-controls" --proof "$PWD/.local/sprint21/root/sprint24/ci-saved-controls-proof.json"
           python3 -I -B tools/sprint24/compare-recovery.py --controls
           python3 -I -B tools/sprint20/verify-evidence-manifest.py evidence/sprint24/dr-current
+          mkdir -p .local/sprint21/root/sprint24/ci-backup-path
+          pwsh -NoProfile -File tools/sprint24/backup-path-controls.ps1 -Source "$PWD/tools/database-backup.ps1" -SourceSha 368906C5D863B05F140BD6B502678D92023D590AABF3EBD22DDB65E152927B57 -Fixture "$PWD/.local/sprint21/root/sprint24/ci-backup-path"
+          python3 -I -B tools/sprint20/verify-evidence-manifest.py evidence/sprint24/backup-path
       - name: Sprint23 saved SplitMiner scale evidence
         run: |
           mkdir -p .local/sprint21/root/sprint23/ci-miner-controls
@@ -207,6 +210,8 @@ jobs:
           cp docs/CAPACITY_DIAGNOSTIC.md docs/DATABASE_RECOVERY.md docs/SPRINT_24_REPORT.md dist/docs/
           cp docs/CURRENT_DATABASE_RESTORE.md docs/ENTERPRISE_QUOTA_PLAN.md dist/docs/
           cp docs/SPRINT_24_DR_REPORT.md dist/docs/
+          cp docs/SPRINT_24_BACKUP_PATH_REPORT.md dist/docs/
+          cp tools/database-backup.ps1 dist/tools/
           tar -czf process-intelligence-rs-linux.tar.gz -C dist .
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         with:

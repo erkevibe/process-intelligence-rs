@@ -1,0 +1,93 @@
+{
+  "status": "FAILED_BASELINE_CAPTURE_ACCEPTED_NOT_REPRODUCTION_ACCEPTANCE",
+  "native_count": 3,
+  "stream_count": 6,
+  "records": [
+    {
+      "label": "baseline",
+      "pid": 67264,
+      "exit": 1,
+      "fault": false,
+      "limit": false,
+      "drain": false,
+      "streams": [
+        {
+          "stream": "stdout",
+          "bytes": 0,
+          "hash_ok": true,
+          "length_ok": true,
+          "complete": true
+        },
+        {
+          "stream": "stderr",
+          "bytes": 36,
+          "hash_ok": true,
+          "length_ok": true,
+          "complete": true
+        }
+      ]
+    },
+    {
+      "label": "guard-after",
+      "pid": 60976,
+      "exit": 0,
+      "fault": false,
+      "limit": false,
+      "drain": false,
+      "streams": [
+        {
+          "stream": "stdout",
+          "bytes": 672,
+          "hash_ok": true,
+          "length_ok": true,
+          "complete": true
+        },
+        {
+          "stream": "stderr",
+          "bytes": 0,
+          "hash_ok": true,
+          "length_ok": true,
+          "complete": true
+        }
+      ]
+    },
+    {
+      "label": "guard-before",
+      "pid": 70280,
+      "exit": 0,
+      "fault": false,
+      "limit": false,
+      "drain": false,
+      "streams": [
+        {
+          "stream": "stdout",
+          "bytes": 672,
+          "hash_ok": true,
+          "length_ok": true,
+          "complete": true
+        },
+        {
+          "stream": "stderr",
+          "bytes": 0,
+          "hash_ok": true,
+          "length_ok": true,
+          "complete": true
+        }
+      ]
+    }
+  ],
+  "first_failure": "baseline native1: private_directory_rules",
+  "cleanup": {
+    "status": "EXACT_LINK_ABSENT_BEFORE_RESOURCE_GUARD",
+    "utc": "2026-10-23T20:04:00.8439713+00:00",
+    "fallback_used": false,
+    "target_preserved": true
+  },
+  "limits": [
+    "No completed baseline proof; outside ACL mutation not yet accepted",
+    "No precise assertion site inferred from terse stderr",
+    "Parent cleanup status attributed to actual parent record; guard-after0 confirms gate proceeded",
+    "Root tool wrapper closure remains separately reported by Root"
+  ],
+  "utc": "2026-10-23T20:04:30Z"
+}
