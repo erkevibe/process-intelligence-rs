@@ -106,6 +106,8 @@ viewer = urllib.request.build_opener(urllib.request.ProxyHandler({}),
     urllib.request.HTTPSHandler(context=context), urllib.request.HTTPCookieProcessor(viewer_jar), NoRedirect())
 status, headers, _ = request('POST','/login',dict(username='s29_api_viewer01',password='S29ApiViewerPassword123'),transport=viewer)
 check('viewer_tls_login_secure_cookie', status == 303 and bool(list(viewer_jar)) and all(c.secure for c in viewer_jar))
+status, _, _ = request('POST','/projects/'+json.loads(before)['source_project_id']+'/open',{},transport=viewer)
+check('viewer_selects_granted_project_through_tls', status == 303)
 status, _, baseline = request('GET','/backup')
 assert status == 200
 status, _, raw = request('GET','/quota/status',transport=viewer)
