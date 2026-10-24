@@ -35,12 +35,29 @@ pub(crate) struct StoredModel {
     pub revision: u64,
     pub model: ProcessModel,
     pub source_log: Option<String>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub training: Option<crate::discovery_store::TrainingIdentity>,
+}
+impl StoredModel {
+    pub(crate) fn validate_training(&self) -> Result<(), ImportError> {
+        if let Some(identity) = &self.training {
+            crate::discovery_store::validate_identity(identity)?;
+            if self.source_log.as_deref() != Some(identity.log_id.as_str()) {
+                return Err(failure(
+                    "model_training_invalid",
+                    "Сведения об обучении не соответствуют модели.",
+                ));
+            }
+        }
+        Ok(())
+    }
 }
 struct Cached {
     repository: Arc<Mutex<Repository>>,
     jobs: Arc<JobStore>,
     conversion_jobs: Arc<JobStore>,
     quality_jobs: Arc<JobStore>,
+    discovery_jobs: Arc<JobStore>,
 }
 struct PendingCsv {
     bytes: Vec<u8>,
@@ -134,6 +151,12 @@ impl Platform {
                         .values()
                         .map(|m| ("quality".into(), m.artifact_id.clone())),
                 )
+                .chain(
+                    header
+                        .discovery_jobs
+                        .values()
+                        .map(|m| ("discovery".into(), m.artifact_id.clone())),
+                )
                 .collect();
             if keys != expected {
                 return Err(failure(
@@ -160,11 +183,21 @@ impl Platform {
                         .filter(|m| !m.snapshot.is_terminal())
                         .map(|m| m.snapshot.id.clone()),
                 )
+                .chain(
+                    header
+                        .discovery_jobs
+                        .values()
+                        .filter(|m| !m.snapshot.is_terminal())
+                        .map(|m| m.snapshot.id.clone()),
+                )
                 .collect();
             if header.recover() {
                 let mut recovery_parameters = json!({"policy":"nonterminal_to_failed_after_restart","jobs":header.durable_jobs});
                 if !header.conversions.is_empty() {
                     recovery_parameters["conversions"] = json!(header.conversions);
+                }
+                if !header.discovery_jobs.is_empty() {
+                    recovery_parameters["discovery_jobs"] = json!(header.discovery_jobs);
                 }
                 if !header.quality_jobs.is_empty() {
                     recovery_parameters["quality_jobs"] = json!(header.quality_jobs);
@@ -212,14 +245,25 @@ impl Platform {
                     .filter(|m| !m.snapshot.is_terminal())
                     .map(|m| m.snapshot.id.clone()),
             )
+            .chain(
+                header
+                    .discovery_jobs
+                    .values()
+                    .filter(|m| !m.snapshot.is_terminal())
+                    .map(|m| m.snapshot.id.clone()),
+            )
             .collect();
         if header.recover() {
             repository.durable_jobs = header.durable_jobs;
             repository.conversions = header.conversions;
             repository.quality_jobs = header.quality_jobs;
+            repository.discovery_jobs = header.discovery_jobs;
             let mut recovery_parameters = json!({"policy":"nonterminal_to_failed_after_restart","jobs":repository.durable_jobs});
             if !repository.conversions.is_empty() {
                 recovery_parameters["conversions"] = json!(repository.conversions);
+            }
+            if !repository.discovery_jobs.is_empty() {
+                recovery_parameters["discovery_jobs"] = json!(repository.discovery_jobs);
             }
             if !repository.quality_jobs.is_empty() {
                 recovery_parameters["quality_jobs"] = json!(repository.quality_jobs);
@@ -276,6 +320,15 @@ impl Platform {
             &quality_snapshots,
             self.slots.clone(),
         ));
+        let discovery_snapshots = repository
+            .discovery_jobs
+            .values()
+            .map(|m| m.snapshot.clone())
+            .collect::<Vec<_>>();
+        let discovery_jobs = Arc::new(JobStore::restore_with_slots(
+            &discovery_snapshots,
+            self.slots.clone(),
+        ));
         self.workspaces
             .lock()
             .expect("workspace mutex")
@@ -285,6 +338,7 @@ impl Platform {
                 jobs,
                 conversion_jobs,
                 quality_jobs,
+                discovery_jobs,
             });
         Ok(())
     }
@@ -298,6 +352,7 @@ impl Platform {
         state.jobs = cached.jobs.clone();
         state.conversion_jobs = cached.conversion_jobs.clone();
         state.quality_jobs = cached.quality_jobs.clone();
+        state.discovery_jobs = cached.discovery_jobs.clone();
         state.actor = Some(actor);
         Ok(state)
     }
@@ -373,7 +428,7 @@ async fn blocking<T: Send + 'static>(
 }
 pub(crate) fn page(title: &str, body: String) -> Response {
     let nonce = uuid::Uuid::new_v4().simple().to_string();
-    let nav = "<nav><a href=\"/\">Анализ</a> · <a href=\"/projects\">Проекты</a> · <a href=\"/folders\">Папки</a> · <a href=\"/audit\">История</a> · <a href=\"/logs\">Журналы</a> · <a href=\"/csv\">CSV</a> · <a href=\"/conversions\">Преобразования</a> · <a href=\"/models\">BPMN</a> · <a href=\"/quality\">Оценки BPMN</a> · <a href=\"/backup\">Резервная копия</a><form method=\"post\" action=\"/logout\"><button>Выйти</button></form></nav>";
+    let nav = "<nav><a href=\"/\">Анализ</a> · <a href=\"/projects\">Проекты</a> · <a href=\"/folders\">Папки</a> · <a href=\"/audit\">История</a> · <a href=\"/logs\">Журналы</a> · <a href=\"/csv\">CSV</a> · <a href=\"/conversions\">Преобразования</a> · <a href=\"/models\">BPMN</a> · <a href=\"/quality\">Оценки BPMN</a> · <a href=\"/discovery\">Построение</a> · <a href=\"/backup\">Резервная копия</a><form method=\"post\" action=\"/logout\"><button>Выйти</button></form></nav>";
     let html = include_str!("../templates/platform.html")
         .replace("{{NONCE}}", &nonce)
         .replace("{{TITLE}}", &render::html_escape(title))
@@ -1534,6 +1589,7 @@ pub(crate) fn insert_model(
             revision: 1,
             model,
             source_log,
+            training: None,
         }),
     );
     state.commit_action_resources(&mut next, "model_created", vec![id.clone()])?;
@@ -1611,15 +1667,15 @@ async fn model(Workspace(state): Workspace, Path(id): Path<String>) -> Response 
     tokio::task::spawn_blocking(move || {
         let mut repo = state.repository.lock().expect("repository mutex");
         match repo.get_model(&state, &id) {
-            Ok(Some(m)) => page(
-                "Модель BPMN",
-                render::model_editor(
+            Ok(Some(m)) => {
+                let origin=m.training.as_ref().map(|t|format!("<section class=\"platform-card\"><p>Модель: {}. Алгоритм: структурные варианты v1. Обучающий снимок: версия анализа {}.</p><p><a href=\"/discovery/jobs/{}/view\">Исходное построение</a> · <a href=\"/models/{id}/quality/new?control=1\">Оценить на контрольном журнале</a></p></section>",render::html_escape(&m.name),t.analysis_version,t.job_id)).unwrap_or_default();
+                page("Модель BPMN",format!("{origin}{}",render::model_editor(
                     &id,
                     &m.model,
                     m.revision,
                     state.actor.as_ref().is_some_and(|a| a.role.can_write()),
-                ),
-            ),
+                )))
+            },
             Ok(None) => response_error(failure("not_found", "Модель не найдена.")),
             Err(e) => response_error(e),
         }
@@ -1659,6 +1715,7 @@ async fn save_model(
         model.discovery = saved.model.discovery.clone();
         let saved_mut = Arc::make_mut(&mut saved);
         saved_mut.model = model;
+        saved_mut.training = None;
         saved_mut.revision += 1;
         next.models.insert(id.clone(), saved);
         state.commit_action_resources(&mut next, "model_saved", vec![id.clone()])?;
@@ -1731,7 +1788,7 @@ async fn backup(Workspace(state): Workspace) -> Response {
     };
     let repo = state.repository.lock().expect("repository mutex");
     let result = (|| {
-        if repo.durable_jobs.values().any(|job| !job.is_terminal()) || repo.conversions.values().any(|m| !m.snapshot.is_terminal()) || repo.quality_jobs.values().any(|m| !m.snapshot.is_terminal()) {
+        if repo.durable_jobs.values().any(|job| !job.is_terminal()) || repo.conversions.values().any(|m| !m.snapshot.is_terminal()) || repo.quality_jobs.values().any(|m| !m.snapshot.is_terminal()) || repo.discovery_jobs.values().any(|m| !m.snapshot.is_terminal()) {
             return Err(failure(
                 "backup_busy",
                 "Дождитесь завершения или отмены фоновых задач перед созданием резервной копии.",
@@ -1782,6 +1839,7 @@ pub(crate) fn validate_backup(repo: &Repository) -> Result<(), ImportError> {
     crate::repository_v2::header(repo).validate()?;
     crate::conversion_workflow::validate_full(repo)?;
     crate::quality_store::validate_full(repo)?;
+    crate::discovery_store::validate_full(repo)?;
     let quality_deadline = Instant::now() + std::time::Duration::from_secs(30);
     for meta in repo
         .quality_jobs
@@ -1793,6 +1851,13 @@ pub(crate) fn validate_backup(repo: &Repository) -> Result<(), ImportError> {
         let bytes =
             crate::quality_store::bytes(&export, crate::quality_store::MAX_ARTIFACT + 16 * 1024)?;
         crate::bpmn_quality::saved::verify_export_with_deadline(&bytes, quality_deadline)?;
+    }
+    for meta in repo.discovery_jobs.values() {
+        crate::discovery_store::verify_restored(
+            meta,
+            &repo.discovery_artifacts[&meta.artifact_id],
+            quality_deadline,
+        )?;
     }
     repo.audit.validate()?;
     repo.organization.validate(&repo.resource_catalog())?;
@@ -1888,6 +1953,7 @@ pub(crate) fn validate_backup(repo: &Repository) -> Result<(), ImportError> {
             return Err(failure("backup_invalid", "Неверный идентификатор модели."));
         }
         exportable_model(&m.model)?;
+        m.validate_training()?;
     }
     if repo.current.values().any(|id| !repo.logs.contains_key(id)) {
         return Err(failure(

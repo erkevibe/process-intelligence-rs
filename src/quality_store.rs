@@ -38,6 +38,8 @@ pub(crate) struct QualityMeta {
     pub analysis_version: u64,
     pub source_sha256: String,
     pub on_construction_log: bool,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub training_relation: Option<String>,
     pub model_sha256: String,
     pub variants_sha256: String,
     pub method_sha256: String,
@@ -109,13 +111,30 @@ pub(crate) fn request_key() -> String {
 pub(crate) fn method_sha256() -> &'static str {
     static HASH: OnceLock<String> = OnceLock::new();
     HASH.get_or_init(|| {
+        // Own application release metadata does not change the evaluator or
+        // dependency graph. Preserve the original0.9 fingerprint across only
+        // this package-version change; every other lock/source byte is hashed.
+        let lock = include_str!("../Cargo.lock").replace("\r\n", "\n");
+        let own = format!(
+            "name = \"process-intelligence-rs\"\nversion = \"{}\"",
+            env!("CARGO_PKG_VERSION")
+        );
+        assert_eq!(
+            lock.matches(&own).count(),
+            1,
+            "one own package in dependency lock"
+        );
+        let lock = lock.replace(
+            &own,
+            "name = \"process-intelligence-rs\"\nversion = \"0.9.0\"",
+        );
         let sources: &[&str] = &[
             include_str!("bpmn_quality/facade.rs"),
             include_str!("bpmn_quality/bridge.rs"),
             include_str!("bpmn_quality/state.rs"),
             include_str!("bpmn_quality/metrics.rs"),
             include_str!("bpmn.rs"),
-            include_str!("../Cargo.lock"),
+            &lock,
             include_str!("bpmn_quality/saved.rs"),
         ];
         let mut bytes = Vec::new();
@@ -202,6 +221,17 @@ pub(crate) fn validate_metadata(
             || !hash_valid(&m.method_sha256)
             || !hash_valid(&m.source_sha256)
             || m.model_revision == 0
+            || m.training_relation.as_deref().is_some_and(|v| {
+                !matches!(
+                    v,
+                    "training_snapshot"
+                        | "same_log_changed"
+                        | "same_variants_other_log"
+                        | "different_log_unverified"
+                        | "same_log_unknown"
+                        | "training_unknown"
+                )
+            })
             || m.analysis_version == 0
             || m.retry_of.as_ref().is_some_and(|id| !id_valid(id, "job-"))
             || !label_valid(&m.snapshot.stage, 64)
@@ -268,10 +298,43 @@ pub(crate) fn validate_metadata(
     Ok(())
 }
 pub(crate) fn envelope(m: &QualityMeta, report: Value) -> Value {
-    json!({"schema_version":1,"source_project_id":m.source_project_id,"model_id":m.model_id,"model_name":m.model_name,"model_revision":m.model_revision,
+    let mut value = json!({"schema_version":1,"source_project_id":m.source_project_id,"model_id":m.model_id,"model_name":m.model_name,"model_revision":m.model_revision,
         "log_id":m.log_id,"log_name":m.log_name,"analysis_version":m.analysis_version,"source_sha256":m.source_sha256,
         "on_construction_log":m.on_construction_log,"saved_history":true,"method_sha256":m.method_sha256,
-        "input_model_sha256":m.model_sha256,"input_variants_sha256":m.variants_sha256,"created_at":m.created_at,"report":report})
+        "input_model_sha256":m.model_sha256,"input_variants_sha256":m.variants_sha256,"created_at":m.created_at,"report":report});
+    if let Some(relation) = &m.training_relation {
+        value["training_relation"] = json!(relation)
+    }
+    value
+}
+pub(crate) fn training_relation(
+    model: &crate::platform::StoredModel,
+    project: &str,
+    log: &str,
+    version: u64,
+    source: &str,
+    variants: &str,
+) -> &'static str {
+    if let Some(t) = &model.training {
+        if t.source_project_id == project && t.log_id == log {
+            if t.analysis_version == version
+                && t.source_sha256 == source
+                && t.variants_sha256 == variants
+            {
+                "training_snapshot"
+            } else {
+                "same_log_changed"
+            }
+        } else if t.variants_sha256 == variants {
+            "same_variants_other_log"
+        } else {
+            "different_log_unverified"
+        }
+    } else if model.source_log.as_deref() == Some(log) {
+        "same_log_unknown"
+    } else {
+        "training_unknown"
+    }
 }
 pub(crate) fn validate_artifact(m: &QualityMeta, a: &QualityArtifact) -> Result<(), ImportError> {
     if a.id != m.artifact_id || bytes(a, MAX_ARTIFACT).is_err() {
@@ -361,4 +424,15 @@ pub(crate) fn validate_full(repo: &Repository) -> Result<(), ImportError> {
         validate_artifact(m, &repo.quality_artifacts[&m.artifact_id])?;
     }
     Ok(())
+}
+#[cfg(test)]
+mod release_compatibility_tests {
+    #[test]
+    fn own_release_version_preserves_the_accepted_quality_method() {
+        assert_eq!(
+            super::method_sha256(),
+            "be4a5a27bb061b0e4fc3a35a365061b4541281d613fd9bde3742572c6defea88",
+            "A quality kernel/dependency change requires explicit new method acceptance; changing only the application version does not."
+        );
+    }
 }

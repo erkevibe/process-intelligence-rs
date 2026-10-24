@@ -492,6 +492,11 @@ impl Auth {
                             .quality_jobs
                             .values()
                             .filter(|m| !m.snapshot.is_terminal())
+                            .count()
+                        + header
+                            .discovery_jobs
+                            .values()
+                            .filter(|m| !m.snapshot.is_terminal())
                             .count(),
                 )
             } else {

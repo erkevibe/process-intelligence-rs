@@ -365,6 +365,11 @@ fn validate_record_index(
                 .values()
                 .map(|m| ("quality".into(), m.artifact_id.clone())),
         )
+        .chain(
+            h.discovery_jobs
+                .values()
+                .map(|m| ("discovery".into(), m.artifact_id.clone())),
+        )
         .collect();
     let actual: BTreeSet<(String, String)> = tx
         .query(
@@ -471,7 +476,7 @@ pub fn migrate_offline(url: String) -> Result<(), ImportError> {
             "Остановите приложение перед офлайн-миграцией.",
         ));
     }
-    crate::migration_v4::migrate_offline(&mut client)
+    crate::migration_v5::migrate_offline(&mut client)
 }
 impl Database {
     pub(crate) fn delete_project(&self, write: ProjectDelete) -> Result<u64, ImportError> {

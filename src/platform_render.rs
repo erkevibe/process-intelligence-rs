@@ -864,7 +864,7 @@ pub(crate) fn log_tools(
     ));
     html.push_str("<small>Если ничего не выбрано, соответствующее ограничение не применяется. Сначала выбираются трассы по исходным событиям, затем в них остаются выбранные действия. Пустые трассы сохраняются. Исходный журнал не меняется; статистика и карта пересчитываются.</small><button class=\"button primary\" type=\"submit\">Применить фильтр</button></form>");
     html.push_str(&format!("<form method=\"post\" action=\"/logs/{id}/filter\" class=\"platform-reset\"><input type=\"hidden\" name=\"case_activity\" value=\"\"><input type=\"hidden\" name=\"min_events\" value=\"\"><input type=\"hidden\" name=\"max_events\" value=\"\"><input type=\"hidden\" name=\"retain\" value=\"[]\"><input type=\"hidden\" name=\"remove\" value=\"[]\"><button type=\"submit\" class=\"button\">Сбросить все фильтры</button></form></section>"));
-    html.push_str(&format!("<section class=\"platform-card\"><h2>Построить модель из наблюдённых вариантов</h2><p class=\"platform-note\">Каждый наблюдённый вариант станет отдельным путём через выбор. Это описывает наблюдения, не доказывает параллелизм и не заменяет Split Miner.</p><form method=\"post\" action=\"/logs/{id}/discover\"><button class=\"button\" type=\"submit\">Построить BPMN</button></form></section>"));
+    html.push_str(&format!("<section class=\"platform-card\"><h2>Построить BPMN-модель</h2><p class=\"platform-note\">Структурные варианты: последовательности, выбор, параллельные ветви и простые повторения. Задание и обучающие данные сохраняются. Качество на других данных проверяется отдельно.</p><a class=\"button\" href=\"/logs/{id}/discovery/new\">Построить и сохранить BPMN</a></section>"));
     let weekdays = calendar
         .weekdays
         .iter()

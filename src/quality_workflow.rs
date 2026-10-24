@@ -9,7 +9,7 @@ use crate::{
 };
 use axum::{
     Form, Json, Router,
-    extract::{DefaultBodyLimit, Path},
+    extract::{DefaultBodyLimit, Path, Query},
     http::{HeaderMap, StatusCode, header},
     response::{IntoResponse, Redirect, Response, Sse, sse::Event},
     routing::{get, post},
@@ -377,6 +377,14 @@ fn accept(
         .quality_jobs
         .create_reserved(reservation, Some(id.clone()))
         .map_err(|_| error("job_admission_failed", "Не удалось принять задачу."))?;
+    let relation = store::training_relation(
+        &model,
+        &state.actor.as_ref().ok_or_else(store::corrupt)?.project_id,
+        &form.log_id,
+        log.analysis_version,
+        &log.source_sha256,
+        &variants_sha256,
+    );
     let meta = QualityMeta {
         snapshot: lease.job.snapshot(),
         artifact_id: artifact_id.clone(),
@@ -399,6 +407,7 @@ fn accept(
         analysis_version: log.analysis_version,
         source_sha256: log.source_sha256.clone(),
         on_construction_log: model.source_log.as_deref() == Some(form.log_id.as_str()),
+        training_relation: Some(relation.into()),
         model_sha256,
         variants_sha256,
         method_sha256: store::method_sha256().into(),
@@ -750,19 +759,24 @@ fn access_view<T>(
         produce,
     )
 }
-async fn new_form(Workspace(state): Workspace, Path(id): Path<String>) -> Response {
+async fn new_form(
+    Workspace(state): Workspace,
+    Path(id): Path<String>,
+    Query(query): Query<std::collections::BTreeMap<String, String>>,
+) -> Response {
+    let control = query.get("control").is_some_and(|v| v == "1");
     match blocking(move || {
         state.validate_resource_actor()?;
         let mut repo=state.repository.lock().expect("repository mutex");
         let model=repo.get_model(&state,&id)?.ok_or_else(||error("not_found","Модель не найдена."))?;
         let actor=state.actor.as_ref().ok_or_else(store::corrupt)?;
         let logs=state.platform.as_ref().ok_or_else(store::corrupt)?.database.resource_summaries(&actor.project_id)?;
-        let mut options=String::new();
+        let mut options=if control{String::from("<option value=\"\" disabled selected>Выберите контрольный журнал</option>")}else{String::new()};
         for log in logs.iter().filter(|item|item.kind=="log_state") {
-            options.push_str(&format!("<option value=\"{}\"{}>{}</option>",html_escape(&log.id),if model.source_log.as_deref()==Some(log.id.as_str()) {" selected"}else{""},html_escape(&log.name)));
+            options.push_str(&format!("<option value=\"{}\"{}>{}</option>",html_escape(&log.id),if !control&&model.source_log.as_deref()==Some(log.id.as_str()) {" selected"}else{""},html_escape(&log.name)));
         }
         let mut body=format!("<h1>Сохраняемая оценка BPMN</h1><p><strong>{}</strong> · версия {}</p><p>Сохранятся снимки модели и текущей отфильтрованной версии журнала. Порог рисунка и выбор отдельной трассы не меняют вход.</p><form method=\"post\" action=\"/models/{}/quality/jobs\" class=\"platform-form\"><input type=\"hidden\" name=\"revision\" value=\"{}\"><input type=\"hidden\" name=\"request_key\" value=\"{}\"><label>Журнал<select name=\"log_id\" required>{options}</select></label>",html_escape(&model.name),model.revision,model.id,model.revision,store::request_key());
-        if actor.role.can_write() && !options.is_empty() {body.push_str("<button class=\"button primary\" type=\"submit\">Запустить и сохранить оценку</button>");}
+        if actor.role.can_write() && logs.iter().any(|item|item.kind=="log_state") {body.push_str("<button class=\"button primary\" type=\"submit\">Запустить и сохранить оценку</button>");}
         else {body.push_str("<p>Для запуска нужны журнал и права редактора проекта.</p>");}
         body.push_str(&format!("</form><p>Пределы: 64 трассы, 500 событий, 32 варианта, 1000 состояний поиска. Сохранится до восьми оценок проекта; одновременно принимаются две операции.</p><p><a href=\"/quality\">Все оценки проекта</a> · <a href=\"/models/{}/quality\">Временный предпросмотр</a></p>",model.id));
         access_view(&state,||Ok(crate::platform::page("Оценка BPMN",body)))

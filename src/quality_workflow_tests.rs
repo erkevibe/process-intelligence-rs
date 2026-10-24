@@ -27,6 +27,7 @@ fn fixture() -> (QualityMeta, QualityArtifact) {
         analysis_version: 1,
         source_sha256: "b".repeat(64),
         on_construction_log: true,
+        training_relation: None,
         model_sha256,
         variants_sha256,
         method_sha256: store::method_sha256().into(),

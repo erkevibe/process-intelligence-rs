@@ -1,8 +1,41 @@
 # Рабочее состояние ProcessMining
 
-Обновлено 24.10.2026 около14:04UTC. Ветка codex/sprint-27-miner-experiment.
-Интервал пользователя09:14:49–17:14:49UTC (22:14:49 Asia/Qyzylorda), цель активна.
+Обновлено 24.10.2026 около15:20UTC. Ветка `codex/sprint-28-discovery-jobs`.
+Интервал пользователя09:14:49–17:14:49UTC; работа продолжается до границы.
 
+PR38 исправлен и merged; P1 полностью принят вPR39, main27598a3d.
+P2 эксперимент принят вPR40: head4335fd8, обеCI40102008688/40102005232 PASS,
+main merge2ded9b795cda5a80943cfcbbfd4c597fd350afb6. Публичный пакет811files
+`evidence/sprint27/miner-comparison`, portable auditor234численныхпроверки;
+205tests, Clippy. PM4Py IM nondeterminism retained, PythonengineRAMunknown.
+См. SPRINT_27_MINER_REPORT.md. Эксперимент закрыт; интеграция ещё не принята.
+
+## Активная интеграция Sprint28
+
+Незакоммиченный кандидат0.10.0: native structured_variants_v1, durable discovery,
+общие2slots/1CPU, exacttrainingidentity, atomicmodel+artifact+completed,
+stale-first-submit fence, explicit historicalretry, cancellation/revoke,
+backup numericalreplay, strictstoragev5/offlinev4→v5. Новые UIформы/history/
+trainingwarning/controlselection. ВнешниеJava/Pythonсерверуне нужны.
+
+verify01 поймал неканонический порядок тестовогоinput. Исправлено.
+verify02:4discoveryunits+18frozenmodelhashes PASS; originalqualitymethodbe4a5a27
+preservedtest PASS; Clippyнашёл2styleошибки, исправлены. verify03 closedPASS: unit/compat/Clippyalltargets/app.
+Добавлены независиморекомендованные tombstone/expiry/formconflict regression,
+реальнаяPGcoretest иv5migrationtest. Их nativeприёмка ещё впереди.
+Независимаяread-onlyreview подтвердила StoredModel::validate_training на
+load/write/restore, новых blockersне нашла. Это не заменяет запусктестов.
+
+Приватные buildreceipt/config `.local/sprint21/root/sprint28/verifyNN`.
+Подготовлены controlledruntime `core01.ps1`/`core-worker01.tail` (ещёне запускать
+до корректного verify06closedproof), HTTPscript `tools/sprint28/discovery-http.py`.
+Expectedmaxversion исправлен. verify04/05 alltargets остановлены resource_sample_timeout при компиляции, nativecapturesclosed; это не PASS. verify06 — all libtests+Clippyalltargets+app jobs1, guardsunchanged. Coreparent привязан кverify06.
+Далее actualPG/core/migration/old0.9no-write, HTTP+realbrowser, alltargets,
+независимыйfinalreview, PR+CI. Не объявлять готовность до этих проверок.
+OwnedPG55449 `.local/sprint21/root/pgdata11`, fixture3147; user3131не трогать.
+Не закрывать последнюю IABtab. Resourceguards не ослаблять.
+
+## Исторические подробности (состояние около14:04UTC, ниже может быть устаревшим)
 ## Принятая основа
 
 PR38 независимо проверен/исправлен, main4ac5d20f. P1 завершён PR39:

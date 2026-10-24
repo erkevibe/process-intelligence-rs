@@ -37,6 +37,7 @@ pub struct AppState {
     pub(crate) jobs: Arc<JobStore>,
     pub(crate) conversion_jobs: Arc<JobStore>,
     pub(crate) quality_jobs: Arc<JobStore>,
+    pub(crate) discovery_jobs: Arc<JobStore>,
     pub port: u16,
     pub(crate) platform: Option<Arc<crate::platform::Platform>>,
     pub(crate) actor: Option<crate::auth::Actor>,
@@ -75,6 +76,15 @@ pub(crate) struct Repository {
     pub(crate) quality_artifacts: BTreeMap<String, Arc<crate::quality_store::QualityArtifact>>,
     #[serde(skip)]
     pub(crate) deleted_quality_ids: BTreeSet<String>,
+    #[serde(default, skip_serializing_if = "BTreeMap::is_empty")]
+    pub(crate) discovery_jobs: BTreeMap<String, crate::discovery_store::DiscoveryMeta>,
+    #[serde(default, skip_serializing_if = "BTreeMap::is_empty")]
+    pub(crate) discovery_requests: BTreeMap<String, crate::quality_store::RequestReceipt>,
+    #[serde(default, skip_serializing_if = "BTreeMap::is_empty")]
+    pub(crate) discovery_artifacts:
+        BTreeMap<String, Arc<crate::discovery_store::DiscoveryArtifact>>,
+    #[serde(skip)]
+    pub(crate) deleted_discovery_ids: BTreeSet<String>,
     #[serde(skip)]
     pub(crate) storage_revision: u64,
     #[serde(skip)]
@@ -288,6 +298,7 @@ impl AppState {
         let jobs = Arc::new(JobStore::new());
         let conversion_jobs = Arc::new(JobStore::restore_with_slots(&[], jobs.shared_slots()));
         let quality_jobs = Arc::new(JobStore::restore_with_slots(&[], jobs.shared_slots()));
+        let discovery_jobs = Arc::new(JobStore::restore_with_slots(&[], jobs.shared_slots()));
         Self {
             repository: Arc::new(Mutex::new(Repository::default())),
             cpu: Arc::new(Semaphore::new(1)),
@@ -295,6 +306,7 @@ impl AppState {
             jobs,
             conversion_jobs,
             quality_jobs,
+            discovery_jobs,
             port,
             platform: None,
             actor: None,
@@ -423,6 +435,15 @@ impl AppState {
                 )
                 .map_err(|_| crate::quality_store::corrupt())?;
             }
+            if action.starts_with("discovery_") {
+                parameters["discovery_jobs"] = serde_json::to_value(
+                    next.discovery_jobs
+                        .iter()
+                        .filter(|(id, _)| affected_ids.contains(id.as_str()))
+                        .collect::<BTreeMap<_, _>>(),
+                )
+                .map_err(|_| crate::discovery_store::corrupt())?;
+            }
             next.audit.append_business(
                 &actor.id,
                 &actor.project_id,
@@ -479,6 +500,7 @@ impl AppState {
             if !repo.durable_jobs.contains_key(&id)
                 && !repo.conversions.contains_key(&id)
                 && !repo.quality_jobs.contains_key(&id)
+                && !repo.discovery_jobs.contains_key(&id)
                 && self.jobs.get(&id).is_none()
             {
                 return Ok(id);
@@ -496,7 +518,7 @@ impl AppState {
         repo: &Repository,
         prefix: &str,
     ) -> Result<(String, String, u64), crate::domain::ImportError> {
-        if !matches!(prefix, "quality" | "conversion") {
+        if !matches!(prefix, "quality" | "conversion" | "discovery") {
             return Err(crate::quality_store::corrupt());
         }
         let exhausted = || {
@@ -513,6 +535,7 @@ impl AppState {
             if repo.durable_jobs.contains_key(&id)
                 || repo.conversions.contains_key(&id)
                 || repo.quality_jobs.contains_key(&id)
+                || repo.discovery_jobs.contains_key(&id)
             {
                 continue;
             }
@@ -525,6 +548,10 @@ impl AppState {
                 .any(|m| m.artifact_id == artifact_id)
                 || repo
                     .quality_jobs
+                    .values()
+                    .any(|m| m.artifact_id == artifact_id)
+                || repo
+                    .discovery_jobs
                     .values()
                     .any(|m| m.artifact_id == artifact_id)
             {
@@ -574,6 +601,7 @@ pub fn router(state: AppState) -> Router {
         .merge(crate::platform::routes())
         .merge(crate::conversion_workflow::routes())
         .merge(crate::quality_workflow::routes())
+        .merge(crate::discovery_workflow::routes())
         .nest_service("/static", ServeDir::new("static"))
         .layer(DefaultBodyLimit::max(
             Limits::default().max_bytes + 64 * 1024,
@@ -744,6 +772,11 @@ async fn guard_inner(State(state): State<AppState>, mut request: Request, next: 
                 || path.starts_with("/models/")
                 || path.starts_with("/quality/jobs/")
                     && (path.ends_with("/report")
+                        || path.ends_with("/retry")
+                        || path.ends_with("/view"))
+                || path.starts_with("/discovery/jobs/")
+                    && (path.ends_with("/report")
+                        || path.ends_with("/bpmn")
                         || path.ends_with("/retry")
                         || path.ends_with("/view"))
                 || path == "/models" && method != axum::http::Method::GET
