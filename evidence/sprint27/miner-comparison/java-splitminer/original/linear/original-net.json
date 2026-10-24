@@ -1,0 +1,424 @@
+{
+  "arcs": [
+    {
+      "from_to": {
+        "nodes": [
+          "p:edge0",
+          "t:tfl_edge0"
+        ],
+        "type": "PlaceTransition"
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "nodes": [
+          "p:edge1",
+          "t:tfl_edge1"
+        ],
+        "type": "PlaceTransition"
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "nodes": [
+          "p:edge2",
+          "t:tfl_edge2"
+        ],
+        "type": "PlaceTransition"
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "nodes": [
+          "p:edge3",
+          "t:tfl_edge3"
+        ],
+        "type": "PlaceTransition"
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "nodes": [
+          "p:ent_node0",
+          "t:node0"
+        ],
+        "type": "PlaceTransition"
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "nodes": [
+          "p:ent_node1",
+          "t:node1"
+        ],
+        "type": "PlaceTransition"
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "nodes": [
+          "p:ent_node2",
+          "t:node2"
+        ],
+        "type": "PlaceTransition"
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "nodes": [
+          "p:ent_node3",
+          "t:node3"
+        ],
+        "type": "PlaceTransition"
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "nodes": [
+          "p:ent_node4",
+          "t:node4"
+        ],
+        "type": "PlaceTransition"
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "nodes": [
+          "p:exi_node0",
+          "t:sfl_edge2"
+        ],
+        "type": "PlaceTransition"
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "nodes": [
+          "p:exi_node1",
+          "t:sfl_edge3"
+        ],
+        "type": "PlaceTransition"
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "nodes": [
+          "p:exi_node2",
+          "t:sfl_edge1"
+        ],
+        "type": "PlaceTransition"
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "nodes": [
+          "p:exi_node3",
+          "t:sfl_edge0"
+        ],
+        "type": "PlaceTransition"
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "nodes": [
+          "p:exi_node4",
+          "t:8b2f6293-0ba3-4557-9cca-1cb6e7e2adac"
+        ],
+        "type": "PlaceTransition"
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "nodes": [
+          "p:source",
+          "t:bee8b142-987e-427c-94ca-b38283de2162"
+        ],
+        "type": "PlaceTransition"
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "nodes": [
+          "t:8b2f6293-0ba3-4557-9cca-1cb6e7e2adac",
+          "p:sink"
+        ],
+        "type": "TransitionPlace"
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "nodes": [
+          "t:bee8b142-987e-427c-94ca-b38283de2162",
+          "p:ent_node3"
+        ],
+        "type": "TransitionPlace"
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "nodes": [
+          "t:node0",
+          "p:exi_node0"
+        ],
+        "type": "TransitionPlace"
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "nodes": [
+          "t:node1",
+          "p:exi_node1"
+        ],
+        "type": "TransitionPlace"
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "nodes": [
+          "t:node2",
+          "p:exi_node2"
+        ],
+        "type": "TransitionPlace"
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "nodes": [
+          "t:node3",
+          "p:exi_node3"
+        ],
+        "type": "TransitionPlace"
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "nodes": [
+          "t:node4",
+          "p:exi_node4"
+        ],
+        "type": "TransitionPlace"
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "nodes": [
+          "t:sfl_edge0",
+          "p:edge0"
+        ],
+        "type": "TransitionPlace"
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "nodes": [
+          "t:sfl_edge1",
+          "p:edge1"
+        ],
+        "type": "TransitionPlace"
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "nodes": [
+          "t:sfl_edge2",
+          "p:edge2"
+        ],
+        "type": "TransitionPlace"
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "nodes": [
+          "t:sfl_edge3",
+          "p:edge3"
+        ],
+        "type": "TransitionPlace"
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "nodes": [
+          "t:tfl_edge0",
+          "p:ent_node1"
+        ],
+        "type": "TransitionPlace"
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "nodes": [
+          "t:tfl_edge1",
+          "p:ent_node0"
+        ],
+        "type": "TransitionPlace"
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "nodes": [
+          "t:tfl_edge2",
+          "p:ent_node4"
+        ],
+        "type": "TransitionPlace"
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "nodes": [
+          "t:tfl_edge3",
+          "p:ent_node2"
+        ],
+        "type": "TransitionPlace"
+      },
+      "weight": 1
+    }
+  ],
+  "final_markings": [
+    {
+      "p:sink": 1
+    }
+  ],
+  "initial_marking": {
+    "p:source": 1
+  },
+  "places": {
+    "p:edge0": {
+      "id": "p:edge0"
+    },
+    "p:edge1": {
+      "id": "p:edge1"
+    },
+    "p:edge2": {
+      "id": "p:edge2"
+    },
+    "p:edge3": {
+      "id": "p:edge3"
+    },
+    "p:ent_node0": {
+      "id": "p:ent_node0"
+    },
+    "p:ent_node1": {
+      "id": "p:ent_node1"
+    },
+    "p:ent_node2": {
+      "id": "p:ent_node2"
+    },
+    "p:ent_node3": {
+      "id": "p:ent_node3"
+    },
+    "p:ent_node4": {
+      "id": "p:ent_node4"
+    },
+    "p:exi_node0": {
+      "id": "p:exi_node0"
+    },
+    "p:exi_node1": {
+      "id": "p:exi_node1"
+    },
+    "p:exi_node2": {
+      "id": "p:exi_node2"
+    },
+    "p:exi_node3": {
+      "id": "p:exi_node3"
+    },
+    "p:exi_node4": {
+      "id": "p:exi_node4"
+    },
+    "p:sink": {
+      "id": "p:sink"
+    },
+    "p:source": {
+      "id": "p:source"
+    }
+  },
+  "transitions": {
+    "t:8b2f6293-0ba3-4557-9cca-1cb6e7e2adac": {
+      "id": "t:8b2f6293-0ba3-4557-9cca-1cb6e7e2adac",
+      "label": null
+    },
+    "t:bee8b142-987e-427c-94ca-b38283de2162": {
+      "id": "t:bee8b142-987e-427c-94ca-b38283de2162",
+      "label": null
+    },
+    "t:node0": {
+      "id": "t:node0",
+      "label": "C"
+    },
+    "t:node1": {
+      "id": "t:node1",
+      "label": "A"
+    },
+    "t:node2": {
+      "id": "t:node2",
+      "label": "B"
+    },
+    "t:node3": {
+      "id": "t:node3",
+      "label": null
+    },
+    "t:node4": {
+      "id": "t:node4",
+      "label": null
+    },
+    "t:sfl_edge0": {
+      "id": "t:sfl_edge0",
+      "label": null
+    },
+    "t:sfl_edge1": {
+      "id": "t:sfl_edge1",
+      "label": null
+    },
+    "t:sfl_edge2": {
+      "id": "t:sfl_edge2",
+      "label": null
+    },
+    "t:sfl_edge3": {
+      "id": "t:sfl_edge3",
+      "label": null
+    },
+    "t:tfl_edge0": {
+      "id": "t:tfl_edge0",
+      "label": null
+    },
+    "t:tfl_edge1": {
+      "id": "t:tfl_edge1",
+      "label": null
+    },
+    "t:tfl_edge2": {
+      "id": "t:tfl_edge2",
+      "label": null
+    },
+    "t:tfl_edge3": {
+      "id": "t:tfl_edge3",
+      "label": null
+    }
+  }
+}

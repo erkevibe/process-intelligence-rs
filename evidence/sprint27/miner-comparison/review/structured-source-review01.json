@@ -1,0 +1,68 @@
+{
+  "original_private_receipt_sha256": "eb77e2c8ea33f10a11a567bb07c47fc554a010bfc0755e9f70de572d6ce99a00",
+  "projection_policy": "Only the known workspace prefix is replaced by literal workspace; original receipt remains private and byte-pinned.",
+  "review": {
+    "algorithm": "structured_variants_v1",
+    "blockers": [],
+    "limitations": [
+      "Reviewer launched no builds, benchmarks or services; source/Git reads and this receipt only",
+      "No unit, numerical metric, export roundtrip, soundness or performance PASS claimed from source reading",
+      "Independently check one-safety, option-to-complete, proper completion and dead transitions on each actual finite net",
+      "Heuristic may overgeneralize; frequency magnitudes do not decide cuts, while observed variants and their weights are retained in data",
+      "Experimental candidate only; no product integration accepted"
+    ],
+    "original_findings": [
+      {
+        "correction": "Only trace.is_empty rejection removed; all other bounds unchanged",
+        "file": "examples/structured/miner.rs",
+        "function": "discover",
+        "issue": "Initial public guard rejected empty trace variants before documented Tau and optional empty branches",
+        "priority": 2,
+        "regression": "empty_case_and_optional_activity_are_distinct_from_no_training_cases: Tau-only, optional A, Tau XML metrics roundtrip, absent training variants distinct",
+        "regression_executed_by_reviewer": false,
+        "status": "CORRECTED_SOURCE_REVIEWED"
+      }
+    ],
+    "prospective_phase_commit": "abb244e",
+    "resource_contract": [
+      "Input1MiB;64 traces;500 weighted events;32 variants;64 events per trace;200 bytes per activity;6 activities",
+      "Recursion16; generated BPMN64nodes/128flows; application graph/search caps1000",
+      "Output cap checked after serialization; external memory/process control remains essential",
+      "Each scoring call has its own cooperative30seconds; no shared whole-run30second guarantee",
+      "Whole-run60seconds and512MiB are external wrapper conditions to verify during native execution"
+    ],
+    "schema_version": 1,
+    "semantic_source_review": [
+      "Only training variants reach discover; held_out and diagnostic_only are used after discovery",
+      "Sequence cuts require strict one-way total order of merged SCC blocks",
+      "XOR uses disjoint cooccurrence components; projections preserve observed local order",
+      "Parallel cuts require both observed relative orders across component labels and compose projections by interleaving",
+      "Repeat entry/exit XOR gateways implement one-or-more body traversals",
+      "Tau-only and mixed empty/nonempty variants now reach distinct supported branches",
+      "Exact-variant fallback explicitly counted in provenance; sorting deterministic; no IM or SplitMiner port claim"
+    ],
+    "source_pins": [
+      {
+        "path": "examples/structured/miner.rs",
+        "sha256": "D80C0B3D93B05572D7DF037D6901931834F4D37F591471277057320A51E2CF75"
+      },
+      {
+        "path": "examples/miner_structured.rs",
+        "sha256": "D2380404E969ECD941BD3DECB32B004C44BF3D7EF3CDC5F146C1EA0E9842B5FC"
+      },
+      {
+        "path": "docs/MINER_STRUCTURED_PHASE.md",
+        "sha256": "6435D7625E7818F8ECFA86F541F05004B506158C065712A141E542C84585C5FF"
+      },
+      {
+        "path": "fixtures/sprint27-structured/corpus.json",
+        "sha256": "A6DB9120518D4ADFDFCB2648C6BBA08EFBD2757B4A36BE50AAFB50DB795018E6"
+      }
+    ],
+    "status": "STATIC_SOURCE_ACCEPTED_PENDING_COMPILE_UNIT_RUNTIME_AND_INDEPENDENT_NUMERICAL_AUDIT",
+    "unchanged_prospective_inputs": [
+      "Phase document unchanged relative to abb244e",
+      "Frozen third corpus unchanged relative to abb244e"
+    ]
+  }
+}

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions" targetNamespace="urn:process-intelligence:subset:v1">
+<bpmn:process id="alpha_experiment" name="Alpha+++ experimental Petri conversion" isExecutable="false">
+<bpmn:exclusiveGateway id="p0" name=""/>
+<bpmn:exclusiveGateway id="p1" name=""/>
+<bpmn:exclusiveGateway id="p2" name=""/>
+<bpmn:exclusiveGateway id="p3" name=""/>
+<bpmn:exclusiveGateway id="p4" name=""/>
+<bpmn:exclusiveGateway id="p5" name=""/>
+<bpmn:exclusiveGateway id="p6" name=""/>
+<bpmn:exclusiveGateway id="p7" name=""/>
+<bpmn:task id="t8" name="A"/>
+<bpmn:parallelGateway id="split8" name=""/>
+<bpmn:task id="t9" name="B"/>
+<bpmn:task id="t10" name="C"/>
+<bpmn:task id="t11" name="D"/>
+<bpmn:task id="t12" name="E"/>
+<bpmn:task id="t13" name="F"/>
+<bpmn:parallelGateway id="join13" name=""/>
+<bpmn:startEvent id="start" name=""/>
+<bpmn:endEvent id="end" name=""/>
+<bpmn:sequenceFlow id="f0" sourceRef="join13" targetRef="t13"/>
+<bpmn:sequenceFlow id="f1" sourceRef="p0" targetRef="t9"/>
+<bpmn:sequenceFlow id="f2" sourceRef="p1" targetRef="t11"/>
+<bpmn:sequenceFlow id="f3" sourceRef="p2" targetRef="t10"/>
+<bpmn:sequenceFlow id="f4" sourceRef="p3" targetRef="join13"/>
+<bpmn:sequenceFlow id="f5" sourceRef="p4" targetRef="t12"/>
+<bpmn:sequenceFlow id="f6" sourceRef="p5" targetRef="join13"/>
+<bpmn:sequenceFlow id="f7" sourceRef="p6" targetRef="end"/>
+<bpmn:sequenceFlow id="f8" sourceRef="p7" targetRef="t8"/>
+<bpmn:sequenceFlow id="f9" sourceRef="split8" targetRef="p0"/>
+<bpmn:sequenceFlow id="f10" sourceRef="split8" targetRef="p1"/>
+<bpmn:sequenceFlow id="f11" sourceRef="start" targetRef="p7"/>
+<bpmn:sequenceFlow id="f12" sourceRef="t10" targetRef="p3"/>
+<bpmn:sequenceFlow id="f13" sourceRef="t11" targetRef="p4"/>
+<bpmn:sequenceFlow id="f14" sourceRef="t12" targetRef="p5"/>
+<bpmn:sequenceFlow id="f15" sourceRef="t13" targetRef="p6"/>
+<bpmn:sequenceFlow id="f16" sourceRef="t8" targetRef="split8"/>
+<bpmn:sequenceFlow id="f17" sourceRef="t9" targetRef="p2"/>
+</bpmn:process>
+<bpmndi:BPMNDiagram id="Diagram"><bpmndi:BPMNPlane id="Plane" bpmnElement="alpha_experiment">
+<bpmndi:BPMNShape id="p0_di" bpmnElement="p0"><dc:Bounds x="100" y="100" width="45" height="45"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="p1_di" bpmnElement="p1"><dc:Bounds x="270" y="100" width="45" height="45"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="p2_di" bpmnElement="p2"><dc:Bounds x="440" y="100" width="45" height="45"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="p3_di" bpmnElement="p3"><dc:Bounds x="610" y="100" width="45" height="45"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="p4_di" bpmnElement="p4"><dc:Bounds x="780" y="100" width="45" height="45"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="p5_di" bpmnElement="p5"><dc:Bounds x="950" y="100" width="45" height="45"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="p6_di" bpmnElement="p6"><dc:Bounds x="1120" y="100" width="45" height="45"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="p7_di" bpmnElement="p7"><dc:Bounds x="1290" y="100" width="45" height="45"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="t8_di" bpmnElement="t8"><dc:Bounds x="100" y="230" width="120" height="70"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="split8_di" bpmnElement="split8"><dc:Bounds x="270" y="230" width="45" height="45"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="t9_di" bpmnElement="t9"><dc:Bounds x="440" y="230" width="120" height="70"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="t10_di" bpmnElement="t10"><dc:Bounds x="610" y="230" width="120" height="70"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="t11_di" bpmnElement="t11"><dc:Bounds x="780" y="230" width="120" height="70"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="t12_di" bpmnElement="t12"><dc:Bounds x="950" y="230" width="120" height="70"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="t13_di" bpmnElement="t13"><dc:Bounds x="1120" y="230" width="120" height="70"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="join13_di" bpmnElement="join13"><dc:Bounds x="1290" y="230" width="45" height="45"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="start_di" bpmnElement="start"><dc:Bounds x="100" y="360" width="45" height="45"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="end_di" bpmnElement="end"><dc:Bounds x="270" y="360" width="45" height="45"/></bpmndi:BPMNShape>
+</bpmndi:BPMNPlane></bpmndi:BPMNDiagram>
+</bpmn:definitions>

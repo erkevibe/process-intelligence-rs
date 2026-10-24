@@ -1,0 +1,132 @@
+{
+  "original_private_receipt_sha256": "3e77ff47c0613bca1848c860c8eaf18ca82c2e028b820150bdaec0e1f71474c8",
+  "projection_policy": "Only the known workspace prefix is replaced by literal workspace; original receipt remains private and byte-pinned.",
+  "review": {
+    "blockers": [],
+    "candidate_accepted": false,
+    "candidate_failure": [
+      {
+        "case": "two_parallel_chains",
+        "corpus": "validation",
+        "deterministic_candidate_gate": false,
+        "language_comparison": {
+          "left_accepts": true,
+          "right_accepts": false,
+          "status": "not_equivalent",
+          "visited_subset_pairs": 23,
+          "witness": [
+            "A",
+            "B",
+            "C",
+            "E",
+            "D",
+            "F"
+          ]
+        },
+        "same_canonical_model": false,
+        "same_metrics": false,
+        "same_status": true
+      }
+    ],
+    "created_utc": "2026-10-24T13:53:15.6501033Z",
+    "limitations": [
+      "No miner or PM4Py recomputation; targeted read-only receipts and fixed witness verification",
+      "Full complete-language and metric checks rely on source-reviewed pinned captured auditor",
+      "Only captured frozen two-corpus IM experiment accepted as evidence; deterministic selection criterion fails",
+      "Public projection and production integration not reviewed here"
+    ],
+    "pins": [
+      {
+        "path": "workspace\\.local\\sprint21\\root\\sprint27\\inductive-audit03/proof.json",
+        "sha256": "dbb3ebcc35896ee0936113d9b12435792817493e44e8d8e8ebcda364e9f04d98"
+      },
+      {
+        "path": "workspace\\.local\\sprint21\\root\\sprint27\\inductive-audit03/config.json",
+        "sha256": "663fcdda97c9af4445a94fb6ce357bd97b784c5d0b6f4882dc453f6380188bb7"
+      },
+      {
+        "path": "workspace\\.local\\sprint21\\root\\sprint27\\inductive-audit03/reference/proof.json",
+        "sha256": "3dd6171ee116032275a3e96840f5245937429e78d2748f5943b8eaa83a8d3c29"
+      },
+      {
+        "path": "workspace\\.local\\sprint21\\root\\sprint27\\inductive-audit03/controls/proof.json",
+        "sha256": "1bbe206fc1c6afee1c78a3b9f6ddb14ca58c4cec1adb7a317938e8f25753a8c6"
+      },
+      {
+        "path": "workspace\\.local\\sprint21\\root\\sprint27/inductive02/proof.json",
+        "sha256": "8a356c7dc11e01fc20e99402a3eae308bb1e6a993ec735fdeb95e1fb9961c1a5"
+      },
+      {
+        "path": "workspace\\.local\\sprint21\\root\\sprint27/inductive-scores01/proof.json",
+        "sha256": "31054b7700ec7e76689e8fd3576ccf76879b76473e46abeb9d94a13d5703a816"
+      },
+      {
+        "path": "workspace\\tools\\sprint27\\audit-inductive-comparison.py",
+        "sha256": "9c2c7cc0102e5124f2d85addbc0e08d6ec42a5acba7be1eee42545699b38e040"
+      },
+      {
+        "path": "workspace\\.local\\sprint21\\root\\sprint27/inductive-scores01/im-validation-r1-two-parallel-chains/model.json",
+        "sha256": "b2ee3aeaa8302b1e21aee3a4d24bafef46fa3ac4b1ab571323111bb5cd25a643"
+      },
+      {
+        "path": "workspace\\.local\\sprint21\\root\\sprint27/inductive-scores01/im-validation-r1-two-parallel-chains/result.json",
+        "sha256": "8ed046ff5d2017111c7eb43824a00640de37c12e82b2ca9ba83a8840edd7e3e5"
+      },
+      {
+        "path": "workspace\\.local\\sprint21\\root\\sprint27/inductive-scores01/im-validation-r1-two-parallel-chains/bpmn-graph.json",
+        "sha256": "7ff3e9c891f3544960aa2cf05bdad8b2bcf82c0a28c6cbda8ab015ca2379a85d"
+      },
+      {
+        "path": "workspace\\.local\\sprint21\\root\\sprint27/inductive02/im-validation-r1-two-parallel-chains/tree.txt",
+        "sha256": "e824f342d43c20a7fb588335cabf69ac5c0e7ad2ab00a7da9b04075c864cb2e1"
+      },
+      {
+        "path": "workspace\\.local\\sprint21\\root\\sprint27/inductive-scores01/im-validation-r2-two-parallel-chains/model.json",
+        "sha256": "c7dc4c6e1341974a4ce205a709b50fc89cea922e37134d1a551c401caadaabaf"
+      },
+      {
+        "path": "workspace\\.local\\sprint21\\root\\sprint27/inductive-scores01/im-validation-r2-two-parallel-chains/result.json",
+        "sha256": "5206b6a71cc3313180398abcd6566059341c7fd0abda05d81d74e96b5f0c2bf6"
+      },
+      {
+        "path": "workspace\\.local\\sprint21\\root\\sprint27/inductive-scores01/im-validation-r2-two-parallel-chains/bpmn-graph.json",
+        "sha256": "c9aa5fc2ff3355833eb699a95d2ffbf24a36c8d2ad9926af4169332b6888243e"
+      },
+      {
+        "path": "workspace\\.local\\sprint21\\root\\sprint27/inductive02/im-validation-r2-two-parallel-chains/tree.txt",
+        "sha256": "3b96122338e0aedf9812ef4b89b0bdd8852675a82b787ca595c5b93a34dc80af"
+      }
+    ],
+    "samples": [
+      {
+        "held_out_fitness": 1.0,
+        "held_out_precision": 0.5833333333333333,
+        "label": "im-validation-r1-two-parallel-chains",
+        "model_sha256": "b2ee3aeaa8302b1e21aee3a4d24bafef46fa3ac4b1ab571323111bb5cd25a643",
+        "simplicity": 0.8571428571428571,
+        "tree": "->( 'A', +( 'C', 'E', 'B', 'D' ), 'F' )",
+        "witness_accepts": true
+      },
+      {
+        "held_out_fitness": 1.0,
+        "held_out_precision": 0.6666666666666667,
+        "label": "im-validation-r2-two-parallel-chains",
+        "model_sha256": "c7dc4c6e1341974a4ce205a709b50fc89cea922e37134d1a551c401caadaabaf",
+        "simplicity": 0.92,
+        "tree": "->( 'A', +( 'C', 'B', ->( 'D', 'E' ) ), 'F' )",
+        "witness_accepts": false
+      }
+    ],
+    "schema_version": 1,
+    "status": "PASS_IM_NUMERICAL_EVIDENCE_CANDIDATE_REPEAT_GATE_FAILED",
+    "verified": {
+      "complete_stream_hashes": 6,
+      "controls": 20,
+      "fixed_language_witness_independently_replayed": true,
+      "native_records": 3,
+      "reference_groups": 52,
+      "rows": 28,
+      "unique_reference_hashes": 52
+    }
+  }
+}

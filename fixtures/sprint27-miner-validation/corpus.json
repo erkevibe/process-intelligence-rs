@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "purpose": "Validation phase fixed before executing upstream-default Alpha+++ or repair/no-DFG-filter profiles. First corpus outcomes are already known and remain exploratory.",
+  "cases": [
+    {"id":"two_parallel_chains","train":[{"trace":["A","B","C","D","E","F"],"count":10},{"trace":["A","D","E","B","C","F"],"count":10}],"held_out":[{"trace":["A","B","D","C","E","F"],"count":3},{"trace":["A","D","B","E","C","F"],"count":3}]},
+    {"id":"optional_step","train":[{"trace":["Open","Review","Close"],"count":12},{"trace":["Open","Close"],"count":8}],"held_out":[{"trace":["Open","Review","Close"],"count":3},{"trace":["Open","Close"],"count":3}]},
+    {"id":"longer_self_loop","train":[{"trace":["Load","Retry","Done"],"count":10},{"trace":["Load","Retry","Retry","Done"],"count":10}],"held_out":[{"trace":["Load","Retry","Retry","Retry","Retry","Done"],"count":4}]},
+    {"id":"longer_short_loop","train":[{"trace":["Open","Check","Fix","Close"],"count":10},{"trace":["Open","Check","Fix","Check","Fix","Close"],"count":10}],"held_out":[{"trace":["Open","Check","Fix","Check","Fix","Check","Fix","Close"],"count":3},{"trace":["Open","Check","Fix","Check","Fix","Check","Fix","Check","Fix","Close"],"count":2}]},
+    {"id":"minority_route_and_noise","train":[{"trace":["Start","Approve","End"],"count":20},{"trace":["Start","Reject","End"],"count":3},{"trace":["Start","Noise","End"],"count":1}],"held_out":[{"trace":["Start","Approve","End"],"count":3},{"trace":["Start","Reject","End"],"count":2}],"diagnostic_only":[{"trace":["Start","Noise","End"],"count":1}]},
+    {"id":"unknown_control_activity","train":[{"trace":["A","B","C"],"count":20}],"held_out":[{"trace":["A","B","C"],"count":4},{"trace":["A","Q","C"],"count":1}],"expected":"nonfitting_control_not_invented"},
+    {"id":"empty_validation","train":[],"held_out":[],"expected":"explicit_no_data"}
+  ]
+}

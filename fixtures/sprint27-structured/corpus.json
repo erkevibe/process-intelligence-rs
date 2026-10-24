@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "purpose": "Prospective third corpus for bounded structured Rust candidate; freeze before implementation",
+  "cases": [
+    {"id":"loop_inside_choice","train":[{"trace":["A","B","C","D"],"count":8},{"trace":["A","B","C","B","C","D"],"count":8},{"trace":["A","E","D"],"count":8}],"held_out":[{"trace":["A","B","C","B","C","B","C","D"],"count":3},{"trace":["A","E","D"],"count":3}]},
+    {"id":"parallel_optional_task","train":[{"trace":["Open","B","C","Close"],"count":8},{"trace":["Open","C","B","Close"],"count":8},{"trace":["Open","C","Close"],"count":8}],"held_out":[{"trace":["Open","C","B","Close"],"count":3},{"trace":["Open","C","Close"],"count":3}]},
+    {"id":"three_parallel_tasks","train":[{"trace":["Start","X","Y","Z","End"],"count":8},{"trace":["Start","Y","Z","X","End"],"count":8},{"trace":["Start","Z","X","Y","End"],"count":8}],"held_out":[{"trace":["Start","X","Z","Y","End"],"count":2},{"trace":["Start","Y","X","Z","End"],"count":2},{"trace":["Start","Z","Y","X","End"],"count":2}]},
+    {"id":"choice_with_unknown_control","train":[{"trace":["Start","Accept","End"],"count":12},{"trace":["Start","Reject","End"],"count":12}],"held_out":[{"trace":["Start","Accept","End"],"count":4},{"trace":["Start","Unknown","End"],"count":1}]},
+    {"id":"repeat_whole_case","train":[{"trace":["A","B"],"count":8},{"trace":["A","B","A","B"],"count":8}],"held_out":[{"trace":["A","B","A","B","A","B"],"count":4}]},
+    {"id":"repeated_label_in_branches","train":[{"trace":["A","B","A","D"],"count":12},{"trace":["A","C","A","D"],"count":12}],"held_out":[{"trace":["A","B","A","D"],"count":3},{"trace":["A","C","A","D"],"count":3}]},
+    {"id":"empty_structured","train":[],"held_out":[]}
+  ]
+}

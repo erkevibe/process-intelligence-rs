@@ -1,0 +1,76 @@
+{
+  "original_private_receipt_sha256": "e1537cb2af3deb228af809339ed682dac91c13dde281f628abd0574f4457b3ed",
+  "projection_policy": "Only the known workspace prefix is replaced by literal workspace; original receipt remains private and byte-pinned.",
+  "review": {
+    "blockers": [],
+    "created_utc": "2026-10-24T13:29:34.0946065Z",
+    "limitations": [
+      "No new process, build, database, miner or numerical audit executed by this reviewer",
+      "Control proof read as existing evidence; native capture and full numerical audit proof not accepted in this receipt",
+      "Static review covers bounded frozen experiment, not arbitrary miner output guarantees",
+      "No production integration or package acceptance implied"
+    ],
+    "observed_controls": {
+      "checks": 20,
+      "status": "S27_INDEPENDENT_AUDITORS_POSITIVE_AND_COUNTERFACTUAL_CONTROLS_PASS"
+    },
+    "resolved_findings": [
+      "Actual XML and reimported ProcessModel complete language verification",
+      "Raw frozen corpus SHA and typed exact generated input projection plus training XES lineage",
+      "All outcomes repeat parity including refusals",
+      "Strict metric numeric types, statuses, integer and rational components, variant hash, coverage and exact application profile",
+      "Required training/held_out and conditional diagnostic groups plus complete label/group coverage",
+      "Saved structured model.json independently converted and compared to tree language"
+    ],
+    "reviewer": "independent_review_agent",
+    "schema_version": 1,
+    "scope": "Read-only source review of structured and Inductive experiment auditors and follow-up corrections",
+    "source_and_evidence_pins": [
+      {
+        "path": "tools/sprint27/audit-structured-comparison.py",
+        "sha256": "796df1ec3d7d00c4694f5bacf343704ba683c609c6bdecd86ab50a5842eafe9e"
+      },
+      {
+        "path": "tools/sprint27/audit-inductive-comparison.py",
+        "sha256": "152cdeabf98b0747316774dcbbda0ac78c1472ff222fd6192c8e9f0fdf558114"
+      },
+      {
+        "path": "tools/sprint27/run-experiment-audit.ps1",
+        "sha256": "f3dc3a614a4da4c54753d592f64f83ee226fec335b83ef8a36084f86b429c35d"
+      },
+      {
+        "path": "tools/sprint27/reference-rust-comparison.py",
+        "sha256": "340ef5bb4c29f400ee0a011d256700db48f73fd9aef1c1f42a06d1a48d9a4e60"
+      },
+      {
+        "path": "tools/sprint27/frozen-inputs.py",
+        "sha256": "3b9e1f703e99dd3cbe8d4d6a1f701ea8b7f589129e75b717333d662485dc1827"
+      },
+      {
+        "path": "tools/sprint27/model-language.py",
+        "sha256": "42765403a76082279c910365e49101b557c99199d4db85cc9b45ff83cb34d5b2"
+      },
+      {
+        "path": "tools/sprint27/auditor-counterfactuals.py",
+        "sha256": "6697fad2ab25b08409114710bc1db69d423ed92ad3e327d85627696d0492b376"
+      },
+      {
+        "path": "tools/sprint27/audit-rust-comparison.py",
+        "sha256": "4812e98f6fb6478044ec4855d0072ac05d062481ed56017c871b641f10650cff"
+      },
+      {
+        "path": "tools/sprint27/audit-java-comparison.py",
+        "sha256": "105dbdf3cc7900cdacc2e504c0e33e0aadd813b890f12e8a2291b85dcd46d969"
+      },
+      {
+        "path": "tools/sprint27/inductive-miner.py",
+        "sha256": "74c0a01c7d51edff22ed7fc7ed37d274f610c91c70e086514da8f6854efb48d2"
+      },
+      {
+        "path": ".local/sprint21/root/sprint27/sv-audit01/controls/proof.json",
+        "sha256": "1bbe206fc1c6afee1c78a3b9f6ddb14ca58c4cec1adb7a317938e8f25753a8c6"
+      }
+    ],
+    "status": "STATIC_AUDITOR_REVIEW_CLOSED_PENDING_NUMERICAL_EVIDENCE_ACCEPTANCE"
+  }
+}

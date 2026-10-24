@@ -1,75 +1,96 @@
 # Рабочее состояние ProcessMining
 
-Обновлено 24 октября 2026, 11:20 UTC. Рабочая ветка:
-`codex/sprint-26-durable-quality`. Пользователь поручил работать восемь часов:
-09:14:49–17:14:49 UTC (до 22:14:49 Asia/Qyzylorda), затем зафиксировать итог.
-Цель активна; после P1 продолжать P2 из `DEVELOPMENT_PLAN.md`.
+Обновлено 24.10.2026 около14:04UTC. Ветка codex/sprint-27-miner-experiment.
+Интервал пользователя09:14:49–17:14:49UTC (22:14:49 Asia/Qyzylorda), цель активна.
 
 ## Принятая основа
 
-PR38 независимо проверен, исправлен P2: Datastar иногда завершает HTTP-отказ
-без patch, оставляя старую панель в ожидании. Исправление `bf3c66f` прошло обе
-CI; PR38 слит в main: `4ac5d20f93d57d8f3657ba75357ccbdc17e5d304`.
-История восстановления предыдущих сеансов — `SPRINT_25_PREVIEW_REPORT.md` и
-`../evidence/sprint25/preview/`. Не считать отсутствие старого финального
-receipt успешной остановкой: свежая `resume-live05` закрыла этот пробел отдельно.
+PR38 независимо проверен/исправлен, main4ac5d20f. P1 завершён PR39:
+main27598a3d1d14a7f14a2ef3a9225a5abcb13220b7, finalhead7a268b85,
+обеCI40089482950/40089479376 PASS;195тестов, PG/migration/oldbinary/restore/
+HTTP/browser/restart/cancel. Версия0.9.0 вmain, taggedrelease не создан.
+КонтрактQUALITY_JOBS_CONTRACT.md, отчётSPRINT_26_REPORT.md, публичныеevidence26.
 
-## Текущий кандидат 0.9.0
+## P2: проверенный эксперимент, интеграции продукта ещё нет
 
-Сохраняемые входы/отчёты, JobStore с общими местами, отмена, interrupted после
-перезапуска, идемпотентные ключи, HTML/SSE, JSON экспорт и офлайн-проверяющий.
-Явная миграция v3→v4, старый бинарник отказывает v4 до записи. Restore заново
-проверяет недоверенные численные отчёты с общим кооперативным deadline и CPU
-допуском. В узких панелях доступна навигация. Это ещё не принятый релиз.
-Контракт: `QUALITY_JOBS_CONTRACT.md`, отчёт: `SPRINT_26_REPORT.md`.
+Корпуса до новых соответствующих запусков: original A00e0301 (e7522e6),
+validation891b1f43 (94824c6), structured A6db9120 (abb244e до реализации).
+Rust4PM0.6.2 имеет Alpha+++; наличие RustInductive/Split не предполагается.
+Реальный PythonPM4Py2.7.17 IM и настоящий JavaSplitMiner проверены отдельно.
+Javaclass E8535A6B...21AD, upstreamsourcebbf24dfd...
 
-Приватные материалы `.local/sprint21/root/sprint26/` содержат тестовые cookie,
-пароли и сырые ответы. Не публиковать их целиком. Публичные компактные записи:
-`../evidence/sprint26/durable-quality/local-checks.json`.
+- rust02:28native, audits01: complete graph/input/repeat,20PM4Py groups.
+- alpha-original01/validation01:28+28native, alpha-audit-original03/validation01:
+  по11численныхgroups; default/repair не решили циклы, часть явных отказов.
+- java01:14native, projection02+java-scores02, java-audit02:22groups иoriginalXML
+  language. Контрольparallelfit0.75,shortloopfit2/3;standardloopunsupported.
+- inductive02:28native, inductive-scores01:24оценки; inductive-audit03:
+  28rows/52groups/controls20, properPN/XML/projection/roundtrip languages.
+  **ДетерминизмFAIL** two_parallel_chains: разные деревья и языки, controlprecision
+  7/12 против2/3, simplicity6/7 против23/25. Auditorcompleted не означаетдопускIM.
+- Собственный bounded structured_variants_v1: compile04:4behavioraltests,
+  Clippy иreleasePASS. Staticindependentreviewисправилempty-case mismatch.
+  sv-original02,sv-validation01,sv-structured01:по14native (короткиеsv-labels,
+  registry32не ослаблен). structured-series01 связывает3closedproofs.
+  sv-audit02:42rows/36modelled/6no_data,76PM4Pygroups, all36finiteWFsound/
+  one_safe, tree→mainmodel/net/XML/reimport complete language, repeatsexact.
+  Новыйhelperfrozen-inputs проверяетrawcorpusSHA→exacttypedJSON→XES.
+  controls20отверглиbool-as-number,wronghash/count/missingheldout,coherent
+  train/controlswap,wrongXML/mainmodel/reimport приtrueproducerbooleans.
 
-- `verify06/proof.json`: 8 коротких тестов, Clippy all-targets, app build — pass.
-- `runtime02/proof.json`: PostgreSQL core, populated migration, old-binary refusal
-  без изменений полного снимка, CLI, 101 native HTTP, backup/restore и coherent
-  numerical forgery refusal; browser report/reload/retry/download; clean closure.
-- `restart01/proof.json`: настоящая committed nonterminal задача захвачена SQL-lock,
-  broker убил только app-before, app-live отметил interrupted; входы идентичны,
-  прежний отчёт побайтно тот же, явный retry успешен. Fresh PG core проверил
-  исправление ID импорта с настоящей sequence. Новая диагностика v4 прошла.
-  Браузер: видимая навигация, отмена job-41 и сохранение отмены после reload,
-  ошибок консоли нет. Все процессы закрыты штатным протоколом, pidfile отсутствует.
-- Независимый reviewer проверил runtime02: 18 capture/36 потоков, 101 ответ,
-  source pins; исправлены replay после удаления, active_jobs, forged restore.
-  Последний P2 про namespace импорта исправлен и проверен в restart01.
-- `verify05` отказал на resource_sample_timeout; сборка была остановлена и не
-  засчитывается. Повтор `verify06` прошёл без изменения защитных пределов.
+Независимые immutable receipts sprint27-review:
+structured-source-review01; structured-auditors-source-review01;
+structured-numerical-review01; inductive-numerical-review01;
+structured-reference-encoding-review01 (проверены все72reference netrawSHA).
+Явный выбор: structured_variants_v1 для ограниченной продуктовой интеграции.
+Это эвристика, не полныйIM/неSplitMinerпорт, не гарантия произвольногокачества.
+На повторах/параллелях fitness1, на неизвестнойcontrolactivity~0.933 иprecision
+requires_fitting_log. Третий repeated-labelcaseprecision0.5 не скрывать.
 
-## Следом
+## Текущие действия
 
-1. `full02` завершил полный cargo test: 195 passed, 0 failed, 27 ignored.
-   `full01` остановлен capacity guard; штатный cargo clean -p убрал generated
-   artifacts, база/отчёты/старый baseline сохранены. Rebuild07 завершил native
-   build; внешняя оболочка сообщила unset LASTEXITCODE, сам closed proof успешен.
-   Побайтная воспроизводимость нового бинарника с прежним не заявляется.
-2. PR39: https://github.com/erkevibe/process-intelligence-rs/pull/39.
-   Независимое локальное P1 ревью без блокеров. 22e0604 CI остановился на
-   historical kit, которому нужен frozen0.8.2 вместо свежего0.9.0. 547dede
-   исправил только пути, pins сохранены; локальный selfcheck-frozen01 PASS.
-   Затем CI выявил случайный личный проект editor в тесте: b93dbcd явно
-   переключает на shared перед проверкой revocation, продукт не изменён.
-   verify08 и native core04 (fresh DB, clean closure) прошли; reviewer сверил
-   все receipts. CI b93dbcd прошёл проверки и сейчас собирает Linux release.
-   Итоговые docs/evidence требуют собственного CI commit перед merge.
-3. P2 — отдельная ветка `codex/sprint-27-miner-experiment`: e7522e6 закрепил
-   MINER_EXPERIMENT.md/corpus до новых запусков; f530db2 сохранил непроверенный
-   isolated example miner_compare.rs. Прототип преобразования Alpha+++ Petri→BPMN,
-   UUID colour refinement отказывает неоднозначной симметрии; тесты и компиляция
-   впереди. Не включать P2 в PR39. После завершения P1 вернуться в P2 branch,
-   включить последние P1 fixes. Подготовлены только исходники, miner ещё не запускался.
-## Ограничения рабочей среды
+Публичныйпроектор tools/sprint27/publish-miner-evidence.py готовит приватный
+safe bundle перед копией вevidence/sprint27/miner-comparison. publish04/
+public-projection04 closed:810files~4.18MB,168invocationrows,55modeldirs,
+fullscoredartifacts/references, sanitisedreviews; rawserver/cookies не включены.
+Portable public-audit01 честно нашёл reimport netJSON encoding/hash error.
+Исправленwriter вsv-audit02:сохраняет exact rawbytes; прежниеproofsне переписаны.
+Далее нужен publicaudit дляprojection04 либоследующей05.
 
-Пользовательский сервис 3131 не трогать. Собственный PostgreSQL —
-`.local/sprint21/root/pgdata11`, порт55449; app fixture3147. Соблюдать existing
-resource guards и private ACL. Не удалять postmaster.pid/WAL вручную.
-Не изменять pinned источники во время сборки или runtime-сеанса.
-Не закрывать последнюю вкладку IAB: прежние два сбоя следовали сразу после close,
-причина окончательно не доказана. Текущий durableTab оставлен для дальнейшей QA.
+Проверяется граница memorycounter дляPM4Py: venvpython.exe скорееredirector,
+5MiB/1MiBprivate цифры не выдавать за engineRAM. Native counter scope — один
+retainedimage, не process-tree. Сейчас python-image-scope01 session94242:
+venv/directPython PID positivecontrol, cap64MiB. Послеproofуточнитьpublisher
+measurementpolicy, исключитьPython RAM изranking; исходныеизмерениясохранить.
+РеальныйPythonwalltime учитываетожиданиеchild,CPU/RAMengineпока не установлены.
+
+Продуктовыеsrc/Cargo ещё не менялись. Приватные draftфайлы в
+.local/sprint21/root/sprint28-draft/: structured_discovery.rs (скопированный
+MITown heuristic+checkpoints),discovery_store.rs (не компилирован,черновик).
+Контрактплан DISCOVERY_JOBS_CONTRACT_DRAFT.md. Нельзя выдаватьзаготовыйfeature.
+Следом:закрытьbundle/audit→docs/report→fullchecks/PR40→новаяветкаdiscoveryjobs.
+Интеграция требуетseparate durableartifact/jobmetadata,shared2slots+1CPU,
+atomicmodelpublication/auth/revision/cancel,restart/retry,explicitv5migration,
+old0.9refusal,backuprestoreverification иbrowserqualitycontrolroundtrip.
+StoredModeloptionalexacttrainingidentity; legacyidentityне выдумывать.
+Дляversionbumpне ломать0.9qualitymethod:normalise толькоownCargo version в
+lockfingerprint, остальныеkernel/dependencybytesсохранить; нуженoldreportCLItest.
+
+## Среда/ограничения
+
+СобственныйPG55449/app3147 остановлены; user3131не трогать. Не удалятьpid/WAL.
+Новыеартефакты .local/sprint21/root/sprint27. PrivateP1runtimeсодержатcookies/
+пароли, не публиковать. Baseline0.9 binary сохранён sprint27/baseline-v4.exe,
+SHA D0A6F2013FDB2EA77098010AFCB16C24B549D6B6A61F9BB862BB95EEB56DE291.
+Resourceguards root≤10GiB−512MiB,total≤14GiB−512MiB,free≥8GiB сохранять.
+Не менятьpinnedsources во времяnativephase. NewAlpha/IM/SV processcommit512MiB
+проверенOSpositive/negativecalibration64MiB;countercalibration02прошёл32MiB.
+Не закрыватьпоследнююIABвкладку:двапредыдущихсбояследовалипослеclose,причинане
+доказана. ПривозвратеCUAпослекомпактацииrewriteDocumentation;durableTabоставлен.
+
+Неудачныепопыткисохранены, не засчитывать: resource_sample_timeout(java-scores01,
+alpha-audit-original01),labelparseaudit02,tuple/listjava-audit01,UUIDinductive01,
+syntaxcompile03,ipc_shap структурный42batchstructured01;split на14×3с темиже
+лимитами. IMaudit01exporter'id'+flowUUIDpolicy;IMaudit02realrepeatfailure→03
+явноrecordsgatefalse. publish01/02слишкомverbose diagnostics2MiBguard,compact
+safe projection03/04; boundsне увеличены. Не менятьстарыеproofs/sourcepins.

@@ -1,0 +1,467 @@
+{
+  "original_private_receipt_sha256": "b239564a7805653810d0a0fb1cf62ab663cc9980f436e6d964092ccfc45b111c",
+  "projection_policy": "Only the known workspace prefix is replaced by literal workspace; original receipt remains private and byte-pinned.",
+  "review": {
+    "blockers": [],
+    "config_sha256": "d97fd62c52e516f71873e9bc689c34a4070722f30bade3bc4cad7b42961a3c3a",
+    "created_utc": "2026-10-24T13:59:33.3941016Z",
+    "limitations": [
+      "Read-only targeted small-file hashing and receipt checks; no miner/reference recomputation",
+      "Bridge supersedes audit01 saved reference encoding for portable evidence; original failed portability proof preserved",
+      "Public projection/audit and product integration outside this receipt"
+    ],
+    "prior_numerical_receipt_sha256": "b4ee18607b18aa8ad6d4fbb3c14437ecb4156f652881f9b81b75aa6adf9b0366",
+    "proof_sha256": "62087634c55d57576d9286f64afd1e7cdd2ad238d54ea135525db7facf0378b4",
+    "reference_net_graph_pins": [
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-original-r1-linear-xml-graph.json",
+        "graph_sha256": "eee868cee351b4c8b2dc05adb32d82da64113819e834a7eb8d801d538a2cd921",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-original-r1-linear-xml-net.json",
+        "net_sha256": "c8b6252a68c8e22527cc7b1e1f701ab4ff9ba6994946494eb9f7f6b0a375d985"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-original-r1-linear-reimported-graph.json",
+        "graph_sha256": "cc34221704631d3c953f0a96054eb8588818a6de9200a97302ab771af3378546",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-original-r1-linear-reimported-net.json",
+        "net_sha256": "312e3e2f0859138d6808e795b7648bd24179076a5f15422ca54e8c6c1dc268ab"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-original-r1-exclusive-choice-xml-graph.json",
+        "graph_sha256": "621a92dc1e4ef7fe01ab2bd944084a814953a583204ab85fe8963b42f233535e",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-original-r1-exclusive-choice-xml-net.json",
+        "net_sha256": "2c9cd7eaec812cdedc5a68e648116f9188f1781603d0716e8df0e4c4463fa058"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-original-r1-exclusive-choice-reimported-graph.json",
+        "graph_sha256": "5eaa112d49a596caf357b943343a7a21754bcd21fa5c9816a0dae361a0c3e816",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-original-r1-exclusive-choice-reimported-net.json",
+        "net_sha256": "806d279e74da3315283739f77d6ea53b7f22986c286ded2bb2b5e4fc090e8226"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-original-r1-parallel-unseen-order-xml-graph.json",
+        "graph_sha256": "48b17ceb35955d9214d6dfcf21bc1390da8d228afd8e8deba250f1bb461afce0",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-original-r1-parallel-unseen-order-xml-net.json",
+        "net_sha256": "5422a2304455690fda2997c423b56a995fe7a7bfe15e499d32b164ae2520dfca"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-original-r1-parallel-unseen-order-reimported-graph.json",
+        "graph_sha256": "786cbcda08d5496fceacaaea1578c6377827d54c0c643f59ea47245e2f05765a",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-original-r1-parallel-unseen-order-reimported-net.json",
+        "net_sha256": "8e5446e972dad986999bd2180bb37e6673c27ccc9e7ab3c9ae31ec2c8b566da0"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-original-r1-self-loop-unseen-repetitions-xml-graph.json",
+        "graph_sha256": "c042b68f1f3ea066c489fbf82b6b1d29b58ec2399412e31aeee2d1cc680d8321",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-original-r1-self-loop-unseen-repetitions-xml-net.json",
+        "net_sha256": "d5805a32f777b0e246eec9dc4fcab904961f68dbcc8ce992424528ca2c7299c8"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-original-r1-self-loop-unseen-repetitions-reimported-graph.json",
+        "graph_sha256": "d716b68e2f7b03ac98c2822b5623ccb719b5e962a7a6392a9431a1325dd8e913",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-original-r1-self-loop-unseen-repetitions-reimported-net.json",
+        "net_sha256": "fa29064a2737da2f0963a7fac33c5f78eabbfbfb154c92beef9fe3c14eac39fa"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-original-r1-short-loop-unseen-repetitions-xml-graph.json",
+        "graph_sha256": "2d3f572835e9d215f6e90ae11b2babad1a38f7ae7af7927a7001a1ee63e74447",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-original-r1-short-loop-unseen-repetitions-xml-net.json",
+        "net_sha256": "9bd8c0130c080c73469d3bb64ca94c7b842930a2c1fbe80e3ab995a3bec0f702"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-original-r1-short-loop-unseen-repetitions-reimported-graph.json",
+        "graph_sha256": "d8351d0414ac6c46b71f9fb1883fe53ceeb98ecb221957c536bf2362b8af7992",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-original-r1-short-loop-unseen-repetitions-reimported-net.json",
+        "net_sha256": "7719f7b2820d41850bd075b7d37cb918488c3d087a00171097484ce4393282c1"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-original-r1-rare-noise-xml-graph.json",
+        "graph_sha256": "243b67f18fee9bb7f433e118a2a44ea5ef8e81c8b8752d1804954f9bde71114a",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-original-r1-rare-noise-xml-net.json",
+        "net_sha256": "df9141b3afdba4973cc7611bc08c35aa4948079ee27d4605645980aeb01359dc"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-original-r1-rare-noise-reimported-graph.json",
+        "graph_sha256": "05a8f9c2cc75336157e7b17322327bf9acf258d674887dc47c6ac647306ab05a",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-original-r1-rare-noise-reimported-net.json",
+        "net_sha256": "1f4af9010233ea0c8185661bc1b224c7f78a594105cc2af013ce95517a5ff486"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-original-r2-linear-xml-graph.json",
+        "graph_sha256": "a31e18bab5ead2dfd142dd04e8406d8b29adafd5c8be4b6bc9de972abfcd9622",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-original-r2-linear-xml-net.json",
+        "net_sha256": "64ab73a6d7355d59dfe3888274186563cae9a4bfae3ebf30bdd35a975d88e168"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-original-r2-linear-reimported-graph.json",
+        "graph_sha256": "aefd4407de8459451548e3683a61099e75ebac11e10eed84e51ad0456c770046",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-original-r2-linear-reimported-net.json",
+        "net_sha256": "c95ed1f34c8099a621c0919666d7d5bf280572b2651fc13072a9f68000a01f40"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-original-r2-exclusive-choice-xml-graph.json",
+        "graph_sha256": "86fb2ad89a5d3792611cd4e20d0bd31d011fe10ecc4e9770808ad54942b37adc",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-original-r2-exclusive-choice-xml-net.json",
+        "net_sha256": "00c1764f0161bf67a03f267b1f21592b71efcb965a4721791f223a62b7616d3c"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-original-r2-exclusive-choice-reimported-graph.json",
+        "graph_sha256": "3ccad63c7c0572ec7acfb7f2683519e38bd54befc59a85cc94d99437d012de74",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-original-r2-exclusive-choice-reimported-net.json",
+        "net_sha256": "3d4973e3eefbda0a2e4cf63e990b3a678827aef263143e3a87441ac0d9b0ede8"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-original-r2-parallel-unseen-order-xml-graph.json",
+        "graph_sha256": "3a06205584f3dae3a4626987903608b5bbb08e9f644549cd52b475f160ac4187",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-original-r2-parallel-unseen-order-xml-net.json",
+        "net_sha256": "a1af3c5c53d84498a75370496baa0c77a81082350c3299f2088ba37a8232c8be"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-original-r2-parallel-unseen-order-reimported-graph.json",
+        "graph_sha256": "cb70aa86cb2d441a1b833356edc93ab3ecee79dc892035857e4493b0ca7870cd",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-original-r2-parallel-unseen-order-reimported-net.json",
+        "net_sha256": "5d1936d65fb27123bc2ce1d06a2d417e161d7323c15e531834fb2699fed838a6"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-original-r2-self-loop-unseen-repetitions-xml-graph.json",
+        "graph_sha256": "afb9e07439213ccf7486348214d25e1f89cd59c6fd3ba592b34bfd8c076c7cfc",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-original-r2-self-loop-unseen-repetitions-xml-net.json",
+        "net_sha256": "45a11425162dcea52bfaffc4b02e7248a470699537c5f154454e997a349bab91"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-original-r2-self-loop-unseen-repetitions-reimported-graph.json",
+        "graph_sha256": "58f4c306bee168f3dec3cb8d17425e94838355a13fd69684333034e1afa6e708",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-original-r2-self-loop-unseen-repetitions-reimported-net.json",
+        "net_sha256": "657866a8d7163d51d8a64babd0ef7b266710967da1d2989a5fd21a7c00281ff3"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-original-r2-short-loop-unseen-repetitions-xml-graph.json",
+        "graph_sha256": "df07c7edb4a73dda07bc7d09b2492ecf61ff125f51155ec928a68913b0d8b057",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-original-r2-short-loop-unseen-repetitions-xml-net.json",
+        "net_sha256": "caa86b5b56e52c299688c95b86f679b4c1b91b3b4203fffc110d1b7e770e835e"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-original-r2-short-loop-unseen-repetitions-reimported-graph.json",
+        "graph_sha256": "780cdf9384caa159bcc202b209fdc5a29d6498bcd9e1ec496f4a59b16d9a8fd5",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-original-r2-short-loop-unseen-repetitions-reimported-net.json",
+        "net_sha256": "6bc422b15e0a087d2848475cfff7b8ba234d19c44f0e67869d9e0c6322d2e2d7"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-original-r2-rare-noise-xml-graph.json",
+        "graph_sha256": "d430e8ea9342c7017a54458ab273002cc5489b332a545b367f9d443ce6ced7cc",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-original-r2-rare-noise-xml-net.json",
+        "net_sha256": "4e88fe02d283b5331e4589956c2cc677c8750174756d46e39ea8b68a4f7756ab"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-original-r2-rare-noise-reimported-graph.json",
+        "graph_sha256": "ad03b3e850f0d82c8a232d055e4749ea9e229cb544e07526167fffe37141180e",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-original-r2-rare-noise-reimported-net.json",
+        "net_sha256": "82de4136e40069e88f092ccac67db4700cc13b1f55d119bf5a430bac225afa9a"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-validation-r1-two-parallel-chains-xml-graph.json",
+        "graph_sha256": "abe4c9597ad955bc9d896663b96f81a68ba7e570beba0497c1ee518912ffd4eb",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-validation-r1-two-parallel-chains-xml-net.json",
+        "net_sha256": "a4c4ef6540fb17b7bf9fa084d31ef7b2b0ee6effc48552c67392c371ac946a3a"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-validation-r1-two-parallel-chains-reimported-graph.json",
+        "graph_sha256": "ae3c2e52ade2e7835027a0a2b6ed35066b2dc46e2f6255f09510517eb0f699aa",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-validation-r1-two-parallel-chains-reimported-net.json",
+        "net_sha256": "69c23a51ccedd12fe68b2615faec1a16d26b2e13dd23d603eddaf2b6677c054c"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-validation-r1-optional-step-xml-graph.json",
+        "graph_sha256": "c41588dc03916eac85ffdba1087f504a7286bf1a9dae8b3da4bc44b54d77ec0b",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-validation-r1-optional-step-xml-net.json",
+        "net_sha256": "3678b0a9de8e217322b499262c21599d06073051706403b4d908335ec6d39cfb"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-validation-r1-optional-step-reimported-graph.json",
+        "graph_sha256": "af71aa3aeb2d6ccdfc9c9acf04dfc5029d5d6f92b7ce31ab71bd2dc146955ba0",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-validation-r1-optional-step-reimported-net.json",
+        "net_sha256": "5eb390e28afe9accd00b00e514cbf53b4fb828f105e103d90e07cea1df8503b4"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-validation-r1-longer-self-loop-xml-graph.json",
+        "graph_sha256": "af94c3d751b47bd3ff846b722c7c4a0ce92dbecc22dda042204a7cd4dc7198e5",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-validation-r1-longer-self-loop-xml-net.json",
+        "net_sha256": "1ff2220e6d788090fe608d437aa6865cd54d69f3f38b76cc6a8bc405ee7f2970"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-validation-r1-longer-self-loop-reimported-graph.json",
+        "graph_sha256": "8d6c929b883c25466653237fc562596bd83366f0dba027b75df65c2242cc6bf6",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-validation-r1-longer-self-loop-reimported-net.json",
+        "net_sha256": "ec3507bfade8b2a967ecbbebd196ae934d7757743ef10e8539e96af2a461f7cb"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-validation-r1-longer-short-loop-xml-graph.json",
+        "graph_sha256": "29c401e99a37a22bac14f32037ec73583a22821297548e9b5ffab20300e3ca29",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-validation-r1-longer-short-loop-xml-net.json",
+        "net_sha256": "255a06b5c74213fbe2b302ca13d8a9cb3ef2e970be53fec9bc03d315dc7c449a"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-validation-r1-longer-short-loop-reimported-graph.json",
+        "graph_sha256": "a9ae82c775f58cf7dc9f6284058898ea9be0f66c040b46f90d4333b9a8c70aed",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-validation-r1-longer-short-loop-reimported-net.json",
+        "net_sha256": "34996322759d823173d90bafbdb91a490ac8a0beb2fcf9ec115f0bc7e0753c6f"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-validation-r1-minority-route-and-noise-xml-graph.json",
+        "graph_sha256": "ae583e030774b6b478b9d429adad20a2390c2e64730c9a246f353f2ebbdbd1c2",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-validation-r1-minority-route-and-noise-xml-net.json",
+        "net_sha256": "326bfcca38731bb216b324e661457f440eee0623369c189e987c59c3ef80d01c"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-validation-r1-minority-route-and-noise-reimported-graph.json",
+        "graph_sha256": "ad70e3bed1a34a49a8e0ab0f56e35cdf619153f28edb3aee6e2c468b720b9714",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-validation-r1-minority-route-and-noise-reimported-net.json",
+        "net_sha256": "028558bf7fe248f83a01002a40983970de471eab4a81fc0c112985178c00450c"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-validation-r1-unknown-control-activity-xml-graph.json",
+        "graph_sha256": "c03e76c483e63577e059abea185ed99141bf6ba5d0749ec0eaa807a178214be8",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-validation-r1-unknown-control-activity-xml-net.json",
+        "net_sha256": "068edb5d78458c4b21aeac179769d88eb28578ad766fbd0650271da1a050fa0b"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-validation-r1-unknown-control-activity-reimported-graph.json",
+        "graph_sha256": "6b89afdfd677b573940eef5419d0fd02ec3df87592756a93e8447311f8962544",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-validation-r1-unknown-control-activity-reimported-net.json",
+        "net_sha256": "760e26ece8e7e97e4fb486df291085df7d2d273e3a05667e129a455ba357c019"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-validation-r2-two-parallel-chains-xml-graph.json",
+        "graph_sha256": "7177b0cb77e61ca0fc79f1d071e2535e9cc14120be7151f1852012954afdbbcb",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-validation-r2-two-parallel-chains-xml-net.json",
+        "net_sha256": "1453335bf6989644c4096322de89674168f536f6ca5ea6ecce71311001f84315"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-validation-r2-two-parallel-chains-reimported-graph.json",
+        "graph_sha256": "35561d9f934bf583e36f30af6e8e3a43282136b505bb4b6160e4cefa970b74a5",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-validation-r2-two-parallel-chains-reimported-net.json",
+        "net_sha256": "14d77303519a738eeadfaf5404ce0d057c801b4f19ced107b8f9215f5d07e443"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-validation-r2-optional-step-xml-graph.json",
+        "graph_sha256": "3493b80c72761712e6b79926df0af696a8f38f6d414b71693684785a038f94cf",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-validation-r2-optional-step-xml-net.json",
+        "net_sha256": "2b9b1143ef183cb31ca155bdcad62b5d2a2a395065e977651984d765eab0e695"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-validation-r2-optional-step-reimported-graph.json",
+        "graph_sha256": "6f2ccee4dafa31ed241c459820a70ff151164be5d65564673fd0596c44815ba9",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-validation-r2-optional-step-reimported-net.json",
+        "net_sha256": "62b3055efb9eafd3cda871076f3c9534b96c42c8433bfb3cc8563d28b8ae0b4b"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-validation-r2-longer-self-loop-xml-graph.json",
+        "graph_sha256": "fcfbc30528471a8c7f7712017edf871048c43b36ad98b80b21631ce28595497f",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-validation-r2-longer-self-loop-xml-net.json",
+        "net_sha256": "1c4b1321e3c4c3a4cfb723dfe454be853903e219f99e3cdb50bfbae8979145cb"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-validation-r2-longer-self-loop-reimported-graph.json",
+        "graph_sha256": "7301dc4096bd0c42290844021b47b590a6ffb4fe61465ede398f8852f317f719",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-validation-r2-longer-self-loop-reimported-net.json",
+        "net_sha256": "32959cf92e86595384b8f75e4fbdc8016a587e07d3543fb8fdcdc13768f0b336"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-validation-r2-longer-short-loop-xml-graph.json",
+        "graph_sha256": "dfac50573200db4e8dd78c9d1108a89b19435c3d732258f223c9bc0058c75a07",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-validation-r2-longer-short-loop-xml-net.json",
+        "net_sha256": "a691a29e666fb54b0c1a4308c16a4ca38eb1cd6e7dbe059e9c37b087fc65f1e6"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-validation-r2-longer-short-loop-reimported-graph.json",
+        "graph_sha256": "56a4067d8a6308546b99302b74246b69f328e9e5bd4319970cb634109dccf071",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-validation-r2-longer-short-loop-reimported-net.json",
+        "net_sha256": "16173213b7655959dd5be533a3f3c38ad42ae683345df90c59b5b2404f799668"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-validation-r2-minority-route-and-noise-xml-graph.json",
+        "graph_sha256": "879dd0ed5f3d9a75e010d26b3b7edbdd8a512f2d33cb5d9542bcf783d5c27ded",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-validation-r2-minority-route-and-noise-xml-net.json",
+        "net_sha256": "9837b57c5d1672a4ea6a7f72d5c60e7fd19c484d2880b0c2cacd7e421a9369f5"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-validation-r2-minority-route-and-noise-reimported-graph.json",
+        "graph_sha256": "8d6cf8730d218d0e8355481e1e5e9b6d9ffbc369749b17582b7208396a2f38b0",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-validation-r2-minority-route-and-noise-reimported-net.json",
+        "net_sha256": "8ed3de16942c6d26b12202e521b6e7bd7edb5f4ad847516e08e75c7b3953d8e9"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-validation-r2-unknown-control-activity-xml-graph.json",
+        "graph_sha256": "bd2d70e80019c4edc88c19b75d9bfc5a38adac072351c24211e39daea5896e03",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-validation-r2-unknown-control-activity-xml-net.json",
+        "net_sha256": "b10897abfbdae545aa1ed8827ae3cb576dd3119a25a5a173ad12e1e34b3790bd"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-validation-r2-unknown-control-activity-reimported-graph.json",
+        "graph_sha256": "847a0a866f3d210bedfffcad70dd56104c909c83b99681c430e689a49a096877",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-validation-r2-unknown-control-activity-reimported-net.json",
+        "net_sha256": "819a617e83d528451f23014f27c2f1c10b7baa834f466be5c0179719603853d8"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-structured-r1-loop-inside-choice-xml-graph.json",
+        "graph_sha256": "e0609ef500cd264061ec91b330de6cd6dc9c121721267846f0cb161d3aa56942",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-structured-r1-loop-inside-choice-xml-net.json",
+        "net_sha256": "9162287f7b4a505adc7059ffbaa7c3e981ca7b15ab9784517d498af1290bd0ec"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-structured-r1-loop-inside-choice-reimported-graph.json",
+        "graph_sha256": "de554a1db81e41915a7f12f739f7303e0d829b1a4d42edfcf6bb9c8713ffa4b2",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-structured-r1-loop-inside-choice-reimported-net.json",
+        "net_sha256": "f7794ca3bae83f42470febe9848364660e3862f24b6de8b6fc46c075bbbb6d9e"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-structured-r1-parallel-optional-task-xml-graph.json",
+        "graph_sha256": "41c317645ac078365bbd4e165ddc2beb323e297715f191d40c3f69328d9e9c45",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-structured-r1-parallel-optional-task-xml-net.json",
+        "net_sha256": "f0f5e66066ddf4da31ed52c0e8d3eef0362e09bf8c2b812eb60bfa3d299e4da0"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-structured-r1-parallel-optional-task-reimported-graph.json",
+        "graph_sha256": "a4efc3294bede5c15427365c9ba31e930cfdd16e7bd59329af22a9e64326abee",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-structured-r1-parallel-optional-task-reimported-net.json",
+        "net_sha256": "02d5d047f7aef53a5bedd0aedf7cece2835852e520b6e4757776c25f90ac2c8f"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-structured-r1-three-parallel-tasks-xml-graph.json",
+        "graph_sha256": "7ff21a9b5833809bd145cc246e0d149008c5a1fe94a682ddba16606d5197ba0a",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-structured-r1-three-parallel-tasks-xml-net.json",
+        "net_sha256": "8156f62cbe0e1370d6a981ec49659bccbe620730cab7a251d920a237f5e75f51"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-structured-r1-three-parallel-tasks-reimported-graph.json",
+        "graph_sha256": "5e582739e960ac04737f9040556dd372be02738d0387117fd9cacc90ceef2883",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-structured-r1-three-parallel-tasks-reimported-net.json",
+        "net_sha256": "b231c2796f06a33113a443938c0ef57e4a30f68ce7322aaf768b088f107380d7"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-structured-r1-choice-with-unknown-control-xml-graph.json",
+        "graph_sha256": "e51e044f58d189486ae84a4cfa43690753f5189affda891021fa205b12274781",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-structured-r1-choice-with-unknown-control-xml-net.json",
+        "net_sha256": "97e0d0d05e89d61f60947ea5b3c99819b4c28ba26e3503a4d122f521c4057520"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-structured-r1-choice-with-unknown-control-reimported-graph.json",
+        "graph_sha256": "8b1034c2c5f8debf5f79d206e6305ba8bfdbd646eb90b92a2d435ecf0a3029db",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-structured-r1-choice-with-unknown-control-reimported-net.json",
+        "net_sha256": "8c5411b9a2b22634101e34c3ad13ddda9ab3f15f716fb5e9f46d7a617f024049"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-structured-r1-repeat-whole-case-xml-graph.json",
+        "graph_sha256": "c026fa8fa89354b69d3b87b6fdbd0fbe4eae2ede5bdb57e44b661c3237623e67",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-structured-r1-repeat-whole-case-xml-net.json",
+        "net_sha256": "2220cd1296584373bfa51864230bac56baf05e5598b6d741134c2fdc9170dda5"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-structured-r1-repeat-whole-case-reimported-graph.json",
+        "graph_sha256": "0c99d2ea6c77bc33b1d6c9e93f74210b4a4b62c92012dc9224052cf461af0795",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-structured-r1-repeat-whole-case-reimported-net.json",
+        "net_sha256": "699d5d2697ec5c680ced891e60e03e2266dc7a127bf4c02de9c55eecdf87cabf"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-structured-r1-repeated-label-in-branches-xml-graph.json",
+        "graph_sha256": "a81e8ee6a75ccd6e7630b6ce7984b47bd8c8c053a1a66bb3d855e10e2b33a322",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-structured-r1-repeated-label-in-branches-xml-net.json",
+        "net_sha256": "3ad2a18e437ffe4e0866e9e902cd5134ac095a517e79a544d144c8906d16ce55"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-structured-r1-repeated-label-in-branches-reimported-graph.json",
+        "graph_sha256": "494402c4f2dc90c186893b33ee75cb3372bdad2fa5587920ba38eafd9855d30f",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-structured-r1-repeated-label-in-branches-reimported-net.json",
+        "net_sha256": "6c3c25d22ed9ccae1379250a0f839cd9d45ff147d39d656618c01e863dbbc673"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-structured-r2-loop-inside-choice-xml-graph.json",
+        "graph_sha256": "bd97f172d16049fa1fe04177b3c83bc88efa2e51196eff6a5f7961ad911872dc",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-structured-r2-loop-inside-choice-xml-net.json",
+        "net_sha256": "180a5adf5408d3af8e59252145d102cb5e3f45fc6be6642814b95276bd9393c3"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-structured-r2-loop-inside-choice-reimported-graph.json",
+        "graph_sha256": "c5cf35a62816884862214bbac6501313356a7420abc128023985415f2ba0ec9f",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-structured-r2-loop-inside-choice-reimported-net.json",
+        "net_sha256": "639b62035f12a5f969088da75740c4f7b0bfb7bf12e25f6b4c11e92c9fb4732d"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-structured-r2-parallel-optional-task-xml-graph.json",
+        "graph_sha256": "0ff5de3d547018dcb65665383e52e45b356d37c2ff11a8ff1a9de2b1a740bdd0",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-structured-r2-parallel-optional-task-xml-net.json",
+        "net_sha256": "018c4ab809d7001257a2c0615dd1b183b33541ea195b6f44ea70ad6c848ff593"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-structured-r2-parallel-optional-task-reimported-graph.json",
+        "graph_sha256": "74ca9baa8c281ed123eb0e1e46856484a264de6556a7d69fe104287d0bb41f1d",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-structured-r2-parallel-optional-task-reimported-net.json",
+        "net_sha256": "a21294980a35cfedbfaa93ec9b99aa5ed1c6c3a46525787e2a24493e08a0249f"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-structured-r2-three-parallel-tasks-xml-graph.json",
+        "graph_sha256": "cf83e89eefa260dafe2535bb6765af7c714d3f97ff90a0e4efcbe48f2c8b4739",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-structured-r2-three-parallel-tasks-xml-net.json",
+        "net_sha256": "3d756ece2382f1e5eda316aa853f1bb2a400237bf196748d2472b7bba6aa4ef2"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-structured-r2-three-parallel-tasks-reimported-graph.json",
+        "graph_sha256": "0ac6777d2df00329d3dbb68904d3db40d550b862cedfe3b862cef96dde8e2d04",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-structured-r2-three-parallel-tasks-reimported-net.json",
+        "net_sha256": "781d6d5228d92631eca1eed904d4c2b19753896f7fce3b4e104d931ae91bee1f"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-structured-r2-choice-with-unknown-control-xml-graph.json",
+        "graph_sha256": "c9bd79ce03198ad1fa833d0f06dab54c95921e6e4213e30b354b5c334144eff6",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-structured-r2-choice-with-unknown-control-xml-net.json",
+        "net_sha256": "c65cb66635dd1a228d281210cc4f5c0c30bd8403eb435b51a9de717ae0560d82"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-structured-r2-choice-with-unknown-control-reimported-graph.json",
+        "graph_sha256": "30ae572d9d5d7345e42ab6447016dd2e7edcffc352aa37ab2c5d16c817bec9e2",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-structured-r2-choice-with-unknown-control-reimported-net.json",
+        "net_sha256": "60b5288ff97250f9347841d9ab8cc2b99afd3e9ff6bc0e1682442077e3c7ba9c"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-structured-r2-repeat-whole-case-xml-graph.json",
+        "graph_sha256": "aa538cc089253d0d163f2ab444dd85d8a5a5acaeca8945514c341ab585efd305",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-structured-r2-repeat-whole-case-xml-net.json",
+        "net_sha256": "247fa8f9d3431f1165059646ce7b4674b13a7c90ff54fe098265db00f7c23d26"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-structured-r2-repeat-whole-case-reimported-graph.json",
+        "graph_sha256": "ac27b8076e6585159f5525ee747e584115e7f6e6dd2d8baf0beb6ae89d20e416",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-structured-r2-repeat-whole-case-reimported-net.json",
+        "net_sha256": "c3153286e4bd0134cbdf87689cf3c0c733dda8c7e5ac3bf29d286a4264b0e0b5"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-structured-r2-repeated-label-in-branches-xml-graph.json",
+        "graph_sha256": "2b933ef85bbb6e8a7b7924ca00cd10050bd26eeaad87334afdd645cd2571f5f0",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-structured-r2-repeated-label-in-branches-xml-net.json",
+        "net_sha256": "b58886c9b8a745f5b49b3dbddec092f48e27e6b27d121123389fa8fb167d8973"
+      },
+      {
+        "graph": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-structured-r2-repeated-label-in-branches-reimported-graph.json",
+        "graph_sha256": "304d2a781a35130adfce35681b8cb24df228c523f16bbc55cf5fb2f9f5759bb3",
+        "net": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit02/reference/sv-structured-r2-repeated-label-in-branches-reimported-net.json",
+        "net_sha256": "7822ce3b3c01337b905eba0c8f8821a264392982c92aa3441b72abb2f3bee90b"
+      }
+    ],
+    "reference_proof_sha256": "0e1271e0ef934185a261dc4e779538d30b602a787593d54213e4fd2a523e03d9",
+    "schema_version": 1,
+    "status": "PASS_STRUCTURED_REFERENCE_EXACT_ENCODING_BRIDGE",
+    "verified": {
+      "all_modelled_one_safe_and_sound": true,
+      "closed_native_records": 3,
+      "controls": 20,
+      "exact_raw_net_to_graph_hash_pairs": 72,
+      "metric_group_hashes": 76,
+      "metric_groups": 76,
+      "modelled": 36,
+      "no_data": 6,
+      "rows": 42,
+      "same_candidate_models_and_metric_comparisons_as_audit01": true,
+      "stream_hashes": 6
+    },
+    "writer_source_sha256": "04ec4727037e300645492988ac7bf78efb899bbeff37535671ef4ccd19807b7c"
+  }
+}

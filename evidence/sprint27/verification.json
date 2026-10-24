@@ -1,0 +1,30 @@
+{
+  "portable_result": {
+    "status": "S27_PORTABLE_PUBLIC_EVIDENCE_AUDIT_PASS",
+    "files": 811,
+    "bytes": 4228536,
+    "rows": 168,
+    "model_folders": 55,
+    "selected_model_folders": 18,
+    "numeric_group_checks_including_repeat_rows": 234,
+    "mining_rerun": false,
+    "author_signature_verified": false
+  },
+  "status": "S27_PORTABLE_AUDIT_AND_EXACT_PUBLIC_COPY_VERIFIED",
+  "private_native_proof_sha256": "528c7445692536d10de919a7e0aaa7469b031d0319b3b4a1ca1c610841f3c27c",
+  "python_image_scope_proof_sha256": "1dafe66b6e77e9aae42cbddc55e88a5ca1feda75f4bbc9cf0af66c7807d240c2",
+  "schema_version": 1,
+  "manifest_sha256": "7a65e11ff48f78926ae66895872731a499fb2bcbc912ba5ee49455b0f4b362ad",
+  "product_integration_complete": false,
+  "full_rust_checks": {
+    "status": "DIRECT_OWNED_CARGO_COMMANDS_CLOSED",
+    "proof_sha256": "5aeabef1f8056d9d78042db8f021ca2375f42960e5fb4f057bb1cfab1c0e2dd8",
+    "clippy_all_targets": "passed",
+    "passed": 205,
+    "ignored": 27,
+    "test_groups": 52,
+    "candidate_source_commit": "82c0dadda92fd65c38aa075a198ed37b460f7e02",
+    "failed": 0,
+    "later_changes": "CI portable audit step and validation receipts; compiled source pins unchanged"
+  }
+}

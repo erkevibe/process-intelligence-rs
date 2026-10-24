@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions" targetNamespace="urn:process-intelligence:subset:v1">
+<bpmn:process id="inductive_experiment" name="PM4Py Inductive Miner IM" isExecutable="false">
+<bpmn:endEvent id="n0" name="end"/>
+<bpmn:exclusiveGateway id="n1" name=""/>
+<bpmn:exclusiveGateway id="n2" name=""/>
+<bpmn:startEvent id="n3" name="start"/>
+<bpmn:task id="n4" name="Close"/>
+<bpmn:task id="n5" name="Open"/>
+<bpmn:task id="n6" name="Review"/>
+<bpmn:sequenceFlow id="f0" sourceRef="n1" targetRef="n4"/>
+<bpmn:sequenceFlow id="f1" sourceRef="n2" targetRef="n1"/>
+<bpmn:sequenceFlow id="f2" sourceRef="n2" targetRef="n6"/>
+<bpmn:sequenceFlow id="f3" sourceRef="n3" targetRef="n5"/>
+<bpmn:sequenceFlow id="f4" sourceRef="n4" targetRef="n0"/>
+<bpmn:sequenceFlow id="f5" sourceRef="n5" targetRef="n2"/>
+<bpmn:sequenceFlow id="f6" sourceRef="n6" targetRef="n1"/>
+</bpmn:process>
+<bpmndi:BPMNDiagram id="Diagram"><bpmndi:BPMNPlane id="Plane" bpmnElement="inductive_experiment">
+<bpmndi:BPMNShape id="n0_di" bpmnElement="n0"><dc:Bounds x="100" y="100" width="45" height="45"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="n1_di" bpmnElement="n1"><dc:Bounds x="270" y="100" width="45" height="45"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="n2_di" bpmnElement="n2"><dc:Bounds x="440" y="100" width="45" height="45"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="n3_di" bpmnElement="n3"><dc:Bounds x="610" y="100" width="45" height="45"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="n4_di" bpmnElement="n4"><dc:Bounds x="780" y="100" width="120" height="70"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="n5_di" bpmnElement="n5"><dc:Bounds x="950" y="100" width="120" height="70"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="n6_di" bpmnElement="n6"><dc:Bounds x="1120" y="100" width="120" height="70"/></bpmndi:BPMNShape>
+</bpmndi:BPMNPlane></bpmndi:BPMNDiagram>
+</bpmn:definitions>
