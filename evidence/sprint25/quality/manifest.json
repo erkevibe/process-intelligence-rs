@@ -1,0 +1,604 @@
+{
+  "schema_version": 1,
+  "archive": "quality-evidence.zip",
+  "archive_sha256": "8c9474b70dc2afa0a7a94a85e47b305751d14312a340532edf2ad62b693b7e34",
+  "expanded_bytes": 11702530,
+  "files": [
+    {
+      "path": "audit.json",
+      "bytes": 26546,
+      "sha256": "9cd5b713093cfbe5feb6304b9e936409d08e70d346afd6a3d382049d7c12223c"
+    },
+    {
+      "path": "metrics.json",
+      "bytes": 7259153,
+      "sha256": "19c5c3f17cac1f461ad203b437279dbb9c0b007c44df077eb3e34e90ecbd5e7c"
+    },
+    {
+      "path": "prepared/bundle.json",
+      "bytes": 26984,
+      "sha256": "7a6e4a48d38091820fc1af187c304f48d5901c4ea520945981357e367ab44b08"
+    },
+    {
+      "path": "prepared/graphs/bridge-duplicate_equal.graph.json",
+      "bytes": 4319,
+      "sha256": "1513adc5cb9708171148c5d8eb6fbd5fa89da68b65ff94e5b3fc2d6dea86ef8d"
+    },
+    {
+      "path": "prepared/graphs/bridge-duplicate_unequal.graph.json",
+      "bytes": 4844,
+      "sha256": "b230db94e4df632548c1d193aa0771c290bffd33ec9a9bb69df9370a26084565"
+    },
+    {
+      "path": "prepared/graphs/bridge-growth.graph.json",
+      "bytes": 4042906,
+      "sha256": "9ec6bf1a5ce85c8e4d03421281051d460fb5bb0909cf7c96f43e0c158a802ef2"
+    },
+    {
+      "path": "prepared/graphs/bridge-linear.graph.json",
+      "bytes": 2219,
+      "sha256": "3e4f203e1b90c0441bc425c9c410315763eee310b7fda8f7638932b1349b988b"
+    },
+    {
+      "path": "prepared/graphs/bridge-loop.graph.json",
+      "bytes": 3571,
+      "sha256": "a1b5d873e98c9d570c014018096a1648fd7b46e6c6037c658d9b3286892f6397"
+    },
+    {
+      "path": "prepared/graphs/bridge-mixed_parallel.graph.json",
+      "bytes": 5245,
+      "sha256": "4dc1b08f0d7f4c88be87da78b6fce226475f1aaa724655bb73fdc850641e7a2d"
+    },
+    {
+      "path": "prepared/graphs/bridge-optional.graph.json",
+      "bytes": 3343,
+      "sha256": "e7251aca5f5731d80d5dcdfa3ea921a521fd3b8edacc8c133d0991c42a51a764"
+    },
+    {
+      "path": "prepared/graphs/bridge-parallel.graph.json",
+      "bytes": 4131,
+      "sha256": "07e43c782dad3c995c1ada16486bfbbf16fc518fbd990feb962d60a3485b154e"
+    },
+    {
+      "path": "prepared/graphs/bridge-tau_cycle_exit.graph.json",
+      "bytes": 2685,
+      "sha256": "6eaaacfb6877a220ca778fdfa8dbfada0048621531d1fe0e118507fe522827fa"
+    },
+    {
+      "path": "prepared/graphs/bridge-three_choice.graph.json",
+      "bytes": 4551,
+      "sha256": "814f0d01e761d986c9f109a72e9a6da0274160fab44e09df2e9d5890dfb34970"
+    },
+    {
+      "path": "prepared/graphs/bridge-unicode.graph.json",
+      "bytes": 4391,
+      "sha256": "09eac16a728202279df0aa2a5b1914f7f0f21302e3ae382b6b40c0ce5e0810d2"
+    },
+    {
+      "path": "prepared/graphs/bridge-unicode_di.graph.json",
+      "bytes": 4391,
+      "sha256": "d71e47c039e3b41ac04e1c6175eb27c5cc490213632b77b7d7679eeb41c44751"
+    },
+    {
+      "path": "prepared/graphs/bridge-weighted.graph.json",
+      "bytes": 6188,
+      "sha256": "562796972763963ecf7a890f9f42d0d8c0cd0ff69717857a4e566844aa6d0c5c"
+    },
+    {
+      "path": "prepared/graphs/bridge-xor.graph.json",
+      "bytes": 4319,
+      "sha256": "ff78379f70e663995b89c83e9e88f20f9c878bf56217374793b9a2e1ff9c35ad"
+    },
+    {
+      "path": "prepared/graphs/manual-AND.graph.json",
+      "bytes": 3151,
+      "sha256": "3818a7fabce771f3dffeb961e021712afa483ace392557eeebad9f4cbeb8820d"
+    },
+    {
+      "path": "prepared/graphs/manual-CLOSED_REGION.graph.json",
+      "bytes": 1540,
+      "sha256": "8eecad8d9dd7e7bdcbdd629b88a845a118380773518132c318715689da99a16a"
+    },
+    {
+      "path": "prepared/graphs/manual-DUP_EQUAL.graph.json",
+      "bytes": 1643,
+      "sha256": "66bd36be4b22162f741b3d2e10bbf1ace4426050aa6421a175254ebdf8dea757"
+    },
+    {
+      "path": "prepared/graphs/manual-DUP_UNEQUAL.graph.json",
+      "bytes": 2034,
+      "sha256": "db6ec07c75993c598913456dd592ede7f0144828c660b431bc47f184f0128d6a"
+    },
+    {
+      "path": "prepared/graphs/manual-GROWTH.graph.json",
+      "bytes": 48289,
+      "sha256": "495922a18acc2814d6f0723e86c0c709a0387168ffff58325f569ba913fbace8"
+    },
+    {
+      "path": "prepared/graphs/manual-LOOP.graph.json",
+      "bytes": 1276,
+      "sha256": "a1a63ae9300844ed4e5a3575d08d0cb3ea45647ce173733d17214f59ec9b4ae6"
+    },
+    {
+      "path": "prepared/graphs/manual-MARKING256.graph.json",
+      "bytes": 82,
+      "sha256": "af482d3f6f57706975a44db76aa01bd774a4d94f465ed3d4cc312d64b768c011"
+    },
+    {
+      "path": "prepared/graphs/manual-MISSING_FINAL.graph.json",
+      "bytes": 81,
+      "sha256": "ee3a7c71128b96a80a306999be199c378c4072faec46c458720d9704d91b4dd6"
+    },
+    {
+      "path": "prepared/graphs/manual-MIXED_AND.graph.json",
+      "bytes": 4173,
+      "sha256": "7905d8a1e54bd9d3df8fe58126f032e31a2ad4b517a725119e59146f8850c8e4"
+    },
+    {
+      "path": "prepared/graphs/manual-MULTIPLE_FINAL.graph.json",
+      "bytes": 94,
+      "sha256": "4afcd39fd25aed619d428d247f5085b84aa87ca1a4f3afe857664a277cd0fe60"
+    },
+    {
+      "path": "prepared/graphs/manual-OPTIONAL.graph.json",
+      "bytes": 1278,
+      "sha256": "c868ce6e9decfaf916e61862722ec934815dd80beb4caf85dabbb50aeb36e6bc"
+    },
+    {
+      "path": "prepared/graphs/manual-SEQ.graph.json",
+      "bytes": 1415,
+      "sha256": "1442d33ab1d047d698a380a0c06eeb9c2a245a67313826843c541f8135cb87b7"
+    },
+    {
+      "path": "prepared/graphs/manual-TAU_EXIT.graph.json",
+      "bytes": 1282,
+      "sha256": "b9578d333134043426bc7a2da39baab860009dc4ba7c9d7174b289a017822cad"
+    },
+    {
+      "path": "prepared/graphs/manual-THREE.graph.json",
+      "bytes": 1159,
+      "sha256": "7229950dac3301fc41b71e0f40a4ab2b72b02c9a037691f7958de2d32cab015e"
+    },
+    {
+      "path": "prepared/graphs/manual-UNICODE.graph.json",
+      "bytes": 1715,
+      "sha256": "f7bf6609be186e5e5a20b902f394759d8281228d791cb9ab3b3be730be928894"
+    },
+    {
+      "path": "prepared/graphs/manual-WEIGHT256.graph.json",
+      "bytes": 79,
+      "sha256": "29da6fa5781f0dee185d466e283803cbe52bad2d5e88791c98acd47b0f6e6925"
+    },
+    {
+      "path": "prepared/graphs/manual-WEIGHTED.graph.json",
+      "bytes": 1871,
+      "sha256": "3c87497916cfbaba0c3a3f85981b1ba1ce8c1ea79a7446f3674de9525d1d1fde"
+    },
+    {
+      "path": "prepared/graphs/manual-XOR.graph.json",
+      "bytes": 1643,
+      "sha256": "8c40b711bfb8853e058d52343f0c04af85d003dcc4b3b7343847c226ed859147"
+    },
+    {
+      "path": "prepared/inputs/blank_task.bpmn",
+      "bytes": 474,
+      "sha256": "49d88fed4f8afad315d4682858c554f0a0c103405571aec80413525ca0afe6a7"
+    },
+    {
+      "path": "prepared/inputs/condition.bpmn",
+      "bytes": 706,
+      "sha256": "e6b61e8fca21e144592dde7b64abe7daed13a95f6c8d939444d9146aa4ffd6dd"
+    },
+    {
+      "path": "prepared/inputs/corpus.json",
+      "bytes": 39717,
+      "sha256": "618708791670d89f730282ac0a7e0dd1eb39c59600a5362684bb71fdc3e40410"
+    },
+    {
+      "path": "prepared/inputs/default_flow.bpmn",
+      "bytes": 945,
+      "sha256": "9d63c93694bced962758f76d8b50032d256a526eab0b3bd2075486c70d10eaf6"
+    },
+    {
+      "path": "prepared/inputs/duplicate_equal.bpmn",
+      "bytes": 938,
+      "sha256": "44ceeff3a7b336348e8fe93aecd1338b7fa8fe162172423b4621b9fe814933e9"
+    },
+    {
+      "path": "prepared/inputs/duplicate_unequal.bpmn",
+      "bytes": 1019,
+      "sha256": "7431a20449c94f683f94c3dfe3e4fbd3db7761ebc01ee31c023a49408e08bccd"
+    },
+    {
+      "path": "prepared/inputs/growth.bpmn",
+      "bytes": 619,
+      "sha256": "1bf7cb2e50052eb4b5d5f58f08000a7ccedf9e110008ec3f5b7aaaee0227fc4f"
+    },
+    {
+      "path": "prepared/inputs/linear.bpmn",
+      "bytes": 639,
+      "sha256": "7c144e2c89beca87d733fb7001ac504c32a90969182a752ca2d7e8ca144327bf"
+    },
+    {
+      "path": "prepared/inputs/loop.bpmn",
+      "bytes": 773,
+      "sha256": "08669fcdf34feb8539564806412500dd9c2bfa7d1820afb23a6eeda0ebf39193"
+    },
+    {
+      "path": "prepared/inputs/mixed_parallel.bpmn",
+      "bytes": 1063,
+      "sha256": "e947f044040d7c3554f831b1df62a2e5735dccf942be4fdd2e0d61b5b521026d"
+    },
+    {
+      "path": "prepared/inputs/optional.bpmn",
+      "bytes": 776,
+      "sha256": "15d8e271af090d3139717f75dace43f32d4bd15417cfb24186f017f699847049"
+    },
+    {
+      "path": "prepared/inputs/parallel.bpmn",
+      "bytes": 930,
+      "sha256": "1a8be11ddcc3f48093694a2b6a392d279bfdfb4e96bd3c9b9b57483bafa0b9c7"
+    },
+    {
+      "path": "prepared/inputs/task_branch.bpmn",
+      "bytes": 773,
+      "sha256": "2a61255a5e44b6a19305359f29275e847e2353a4e0e86dfdc73d34083427893e"
+    },
+    {
+      "path": "prepared/inputs/tau_cycle_exit.bpmn",
+      "bytes": 620,
+      "sha256": "96deb78cf0ed6891673e22bd38c490c70cc8d607bc494668cba2e86757c64a71"
+    },
+    {
+      "path": "prepared/inputs/three_choice.bpmn",
+      "bytes": 907,
+      "sha256": "d14cc382d346f788d09a9005a6c8cfd5b5cde07263916bbde4690dfd29eaf77a"
+    },
+    {
+      "path": "prepared/inputs/unicode.bpmn",
+      "bytes": 1010,
+      "sha256": "eff35e8931ba97c479d7c56a4c29fc4c64a4edbe697e013d96251523c67d9eab"
+    },
+    {
+      "path": "prepared/inputs/unicode_di.bpmn",
+      "bytes": 1241,
+      "sha256": "04f7c61c73fd691beab79f0a31cab79de013e685ff163825e1d4011a39ac4d86"
+    },
+    {
+      "path": "prepared/inputs/weighted.bpmn",
+      "bytes": 1145,
+      "sha256": "8537a19e324057ea3743ea55168b220a5afdf87b3f4139eae05afcd34007dc0e"
+    },
+    {
+      "path": "prepared/inputs/xor.bpmn",
+      "bytes": 932,
+      "sha256": "27b31755e8721c0b030d6aa24cd0432ae50a5197bb3825c97ab54825159fa2cf"
+    },
+    {
+      "path": "prepared/maps/bridge-duplicate_equal.map.json",
+      "bytes": 1300,
+      "sha256": "579f03fe8600f72d9f141082a01396213bedbb60df4422a7afb64cea4522da83"
+    },
+    {
+      "path": "prepared/maps/bridge-duplicate_unequal.map.json",
+      "bytes": 1413,
+      "sha256": "3e91055ba90a9345998ba2343ec59049fb4c09605e46dd0c6c990393021c15bb"
+    },
+    {
+      "path": "prepared/maps/bridge-growth.map.json",
+      "bytes": 800,
+      "sha256": "7012305b6d98a4a784fa7457354ccabd331a21338de1209f9302aac97d6016cf"
+    },
+    {
+      "path": "prepared/maps/bridge-linear.map.json",
+      "bytes": 817,
+      "sha256": "942fc46c142c099a913d9aaa10191d2a343783269ebb20da356c817dc2e28448"
+    },
+    {
+      "path": "prepared/maps/bridge-loop.map.json",
+      "bytes": 1118,
+      "sha256": "b8f9353c6e2ec40ffc44756f14e950f737802b84a872e980915d581873d26a57"
+    },
+    {
+      "path": "prepared/maps/bridge-mixed_parallel.map.json",
+      "bytes": 1369,
+      "sha256": "e8b1115ef63a2ee96c9073e73d8b1476ecb00f7cabb07e2d2315702bc9cba670"
+    },
+    {
+      "path": "prepared/maps/bridge-optional.map.json",
+      "bytes": 1072,
+      "sha256": "86e91e794693495811deb503246a1cd485a39b75b657ddd6a9c47579b9465dba"
+    },
+    {
+      "path": "prepared/maps/bridge-parallel.map.json",
+      "bytes": 1206,
+      "sha256": "20d13a7f16c4af492731455503ae69951973e8a17f9f258014fc0286c603ca07"
+    },
+    {
+      "path": "prepared/maps/bridge-tau_cycle_exit.map.json",
+      "bytes": 892,
+      "sha256": "35b5270c573d858bd4bdfc6c2c52d098beea59c79bbece2397131ccf82ddc3d3"
+    },
+    {
+      "path": "prepared/maps/bridge-three_choice.map.json",
+      "bytes": 1327,
+      "sha256": "f0b233927ebd3a8527d67648e2b4efb926727e0bb1cd4c2d8c39d27bd9cbca8c"
+    },
+    {
+      "path": "prepared/maps/bridge-unicode.map.json",
+      "bytes": 1300,
+      "sha256": "579f03fe8600f72d9f141082a01396213bedbb60df4422a7afb64cea4522da83"
+    },
+    {
+      "path": "prepared/maps/bridge-unicode_di.map.json",
+      "bytes": 1307,
+      "sha256": "6bc91f79c70f6ff99dead6166bb9e2b7f83ddb761d006cbcc011f6c50d43ad2b"
+    },
+    {
+      "path": "prepared/maps/bridge-weighted.map.json",
+      "bytes": 1667,
+      "sha256": "a8af194789de6477762bf9174e6247996db6e3a5cadaed399723ba9eda68fc8b"
+    },
+    {
+      "path": "prepared/maps/bridge-xor.map.json",
+      "bytes": 1298,
+      "sha256": "9f3b113f0582ee221cafa6e34f1eaa5a91a3d65dfeab255757bccfaae5b99393"
+    },
+    {
+      "path": "prepared/maps/manual-AND.map.json",
+      "bytes": 1207,
+      "sha256": "04e7306acdb19a991f65cf1eacc00d4e724a3a84522ad06c25194e98c14b0fb2"
+    },
+    {
+      "path": "prepared/maps/manual-CLOSED_REGION.map.json",
+      "bytes": 663,
+      "sha256": "0a8f453841f61abcdae4efbd973905df50b6c36e9417b4a7830e66291df9ef7d"
+    },
+    {
+      "path": "prepared/maps/manual-DUP_EQUAL.map.json",
+      "bytes": 779,
+      "sha256": "aac497d2d5122267d88cc82fedc768123625902ed1aeef72128d3885d7b6b266"
+    },
+    {
+      "path": "prepared/maps/manual-DUP_UNEQUAL.map.json",
+      "bytes": 928,
+      "sha256": "dc9d061e49259b50af08fb49b596f3eb8e16d6709fbf234cfb57ce1c76c5fcb3"
+    },
+    {
+      "path": "prepared/maps/manual-GROWTH.map.json",
+      "bytes": 276,
+      "sha256": "9a97ef1ed92afbcd06fc914655a6dca365e420ad4f4fdd1e0f9fc79d8334c714"
+    },
+    {
+      "path": "prepared/maps/manual-LOOP.map.json",
+      "bytes": 637,
+      "sha256": "f8985a2e035ea0d24d43501449ec822acf10dc4e06a1e6764cc6c20416120054"
+    },
+    {
+      "path": "prepared/maps/manual-MARKING256.map.json",
+      "bytes": 379,
+      "sha256": "ba7bcff92bc8f9e2a310d13cc3264ea2a9e908989a3d2c96e44c52ff7175b37e"
+    },
+    {
+      "path": "prepared/maps/manual-MISSING_FINAL.map.json",
+      "bytes": 340,
+      "sha256": "77f9491d647c6d9ae1a0cf18a175704de3a0b668f23ee871b36e9cd7fc039545"
+    },
+    {
+      "path": "prepared/maps/manual-MIXED_AND.map.json",
+      "bytes": 1489,
+      "sha256": "b53643f98cde872c79f811b9accfd7e41a1a547d17dfa77217b902938a04c56a"
+    },
+    {
+      "path": "prepared/maps/manual-MULTIPLE_FINAL.map.json",
+      "bytes": 410,
+      "sha256": "da856507343b166a745eeeb9d71c958243b602e7094fde37e759b9aab7a4836e"
+    },
+    {
+      "path": "prepared/maps/manual-OPTIONAL.map.json",
+      "bytes": 647,
+      "sha256": "28dce18cd4465f839c0ab3487749268054340ecc7482bbf8a7f5e71b14c37df3"
+    },
+    {
+      "path": "prepared/maps/manual-SEQ.map.json",
+      "bytes": 649,
+      "sha256": "53bf83aae521413af7967f5a0fcb01243e29fc7e0e58322b87a62c3231dc54fc"
+    },
+    {
+      "path": "prepared/maps/manual-TAU_EXIT.map.json",
+      "bytes": 661,
+      "sha256": "6b82ee6c75a31b8f9d9cba2397adfa6e7eece6b6cfeb62a9b2f3080ef92ef35e"
+    },
+    {
+      "path": "prepared/maps/manual-THREE.map.json",
+      "bytes": 625,
+      "sha256": "e919a341563c3c165a21e21717045dff74801004ea55cd80eb868582cc25b09f"
+    },
+    {
+      "path": "prepared/maps/manual-UNICODE.map.json",
+      "bytes": 815,
+      "sha256": "894ae01c466b8c12cad1e8e1d856b164797ba9db5ef1879dd2b7227ad3782fca"
+    },
+    {
+      "path": "prepared/maps/manual-WEIGHT256.map.json",
+      "bytes": 379,
+      "sha256": "aafca58741a78f163701ba1dad9aca5bd69ef0ff7078792a18db0630c7d3b298"
+    },
+    {
+      "path": "prepared/maps/manual-WEIGHTED.map.json",
+      "bytes": 897,
+      "sha256": "2d98f01f5920bd244174cdfb218784656e16e1e42500b26cb768276c3bdc2c99"
+    },
+    {
+      "path": "prepared/maps/manual-XOR.map.json",
+      "bytes": 773,
+      "sha256": "4d127af2bb05c007d905cc40e8432f3a25279a75866f0ebf689097a0c24b0de8"
+    },
+    {
+      "path": "prepared/nets/bridge-duplicate_equal.net.json",
+      "bytes": 6946,
+      "sha256": "0eec8ebc985ab24c4a3fa9fdfbd6d21f509bb2d332a6cf76198854c6c9c107de"
+    },
+    {
+      "path": "prepared/nets/bridge-duplicate_unequal.net.json",
+      "bytes": 7619,
+      "sha256": "e25a1e8d1391d40a22ad1a3a43f4faff057723d953a7b7aeb5b56b206d1a6f03"
+    },
+    {
+      "path": "prepared/nets/bridge-growth.net.json",
+      "bytes": 3911,
+      "sha256": "3e51fccb59fc5052aeb4a79147b4bf5a19a3cdce1b4cf68c6ff4cd9d6fe70e4b"
+    },
+    {
+      "path": "prepared/nets/bridge-linear.net.json",
+      "bytes": 3686,
+      "sha256": "7ea5354b1e94223c315cd7f6c6fcdf83ef6e6f1fe2a1677935255cfd9b9ee1f0"
+    },
+    {
+      "path": "prepared/nets/bridge-loop.net.json",
+      "bytes": 6170,
+      "sha256": "56fa320c58a40a98fa5bffb94013937bdb35bb95573b45ce06d7f2245427fd6d"
+    },
+    {
+      "path": "prepared/nets/bridge-mixed_parallel.net.json",
+      "bytes": 7473,
+      "sha256": "aaba30cf5f89e64ae010647e9cc072a6781483269f209d2a99c83a91c3b0967a"
+    },
+    {
+      "path": "prepared/nets/bridge-optional.net.json",
+      "bytes": 5602,
+      "sha256": "ae520e01ea619d9ac135a92550f305b30e4cd0c1bf9319ef370ac4fedd29dcaf"
+    },
+    {
+      "path": "prepared/nets/bridge-parallel.net.json",
+      "bytes": 6252,
+      "sha256": "b77b7530e7f1a05fb968b5057f31496c681b75106e2606dab04d81517e40c272"
+    },
+    {
+      "path": "prepared/nets/bridge-tau_cycle_exit.net.json",
+      "bytes": 4827,
+      "sha256": "fb76f2434c5b5aad81e9864724a8ab040ddfdb481ce8526bef989fd30809ca56"
+    },
+    {
+      "path": "prepared/nets/bridge-three_choice.net.json",
+      "bytes": 7516,
+      "sha256": "48e2b2ffc93fcd50b931e39ed46402bf99b933afdd3c1236628c05a114a28902"
+    },
+    {
+      "path": "prepared/nets/bridge-unicode.net.json",
+      "bytes": 6982,
+      "sha256": "3b04e997d822c8f5a0f84c2dcdc0edea29ccb79d95d43fc06370b2afe53c7ece"
+    },
+    {
+      "path": "prepared/nets/bridge-unicode_di.net.json",
+      "bytes": 6982,
+      "sha256": "75ae11b0137054a09f7aae75ed76d740b27c56b937993c9f15e51997a1d54c9f"
+    },
+    {
+      "path": "prepared/nets/bridge-weighted.net.json",
+      "bytes": 9533,
+      "sha256": "5286fe99a87de1ce272a1a3907b6c5e20b87d6b36f752e74e1b3e76e1590c7b0"
+    },
+    {
+      "path": "prepared/nets/bridge-xor.net.json",
+      "bytes": 6946,
+      "sha256": "7312bb7600805c725e361d701a289ade2e0d60a8ddcaaf67de115cd684ab8e90"
+    },
+    {
+      "path": "prepared/nets/manual-AND.net.json",
+      "bytes": 4906,
+      "sha256": "d6ff0b20fef2036890b0dad8631ef6c99908da90a0f95292f521f50b08cecb59"
+    },
+    {
+      "path": "prepared/nets/manual-CLOSED_REGION.net.json",
+      "bytes": 2238,
+      "sha256": "0e532c0aa2c6bf1145e086f97ea141f68e552371eaf32b156e8afb60c7e8d08e"
+    },
+    {
+      "path": "prepared/nets/manual-DUP_EQUAL.net.json",
+      "bytes": 2908,
+      "sha256": "77bb4092ab433f4f535045a7f056125a20be65e28ae4bc091a04386c7c21803c"
+    },
+    {
+      "path": "prepared/nets/manual-DUP_UNEQUAL.net.json",
+      "bytes": 3581,
+      "sha256": "7ffaefca972712a101e232fb1cdbc72eac852ad9d884730c8b0a758e40bc8449"
+    },
+    {
+      "path": "prepared/nets/manual-GROWTH.net.json",
+      "bytes": 569,
+      "sha256": "856fcdc4a3e03ebab629bab9afe9e3609bb6a3f68faed8871df85003e1bdc73f"
+    },
+    {
+      "path": "prepared/nets/manual-LOOP.net.json",
+      "bytes": 2236,
+      "sha256": "c0b93c38d8d80394d66c5f529b2e48db13bf42eced88864962fb74322ad28eab"
+    },
+    {
+      "path": "prepared/nets/manual-MARKING256.net.json",
+      "bytes": 998,
+      "sha256": "c842540c7c7cd6e7494593841f0673d2281deae4c0bd4a66c2513c1bb2baa3f9"
+    },
+    {
+      "path": "prepared/nets/manual-MISSING_FINAL.net.json",
+      "bytes": 933,
+      "sha256": "5b6eb6a222a39aae6cd6e37e5c7c59e7985a9dbb2574ff083f4b10b3067cc721"
+    },
+    {
+      "path": "prepared/nets/manual-MIXED_AND.net.json",
+      "bytes": 6127,
+      "sha256": "f68c3365d91d50dc44274f269762d02a9c08c21ef889631a931aa13ec673dca2"
+    },
+    {
+      "path": "prepared/nets/manual-MULTIPLE_FINAL.net.json",
+      "bytes": 1057,
+      "sha256": "b6005685b3fba86c20a073934dd87eea309a0983b614f191ba01de8d80bc943b"
+    },
+    {
+      "path": "prepared/nets/manual-OPTIONAL.net.json",
+      "bytes": 2237,
+      "sha256": "f94beb0c8f67b3ccdb0a5843943560183d24518103fb5770e58f93f2eb29ba26"
+    },
+    {
+      "path": "prepared/nets/manual-SEQ.net.json",
+      "bytes": 2340,
+      "sha256": "ecc3eb76f9d68d520634e1bfc9e6ae8ed4867d95349d907f779d248be08683ce"
+    },
+    {
+      "path": "prepared/nets/manual-TAU_EXIT.net.json",
+      "bytes": 2239,
+      "sha256": "1f731016e523585291d7300285c94c2c4b3f68d04459917e56fa56f809b9c415"
+    },
+    {
+      "path": "prepared/nets/manual-THREE.net.json",
+      "bytes": 2132,
+      "sha256": "3b0c2149f6735e783c32bb1ba1c929ff4729cbefc436c9171839ff0190a6ee1a"
+    },
+    {
+      "path": "prepared/nets/manual-UNICODE.net.json",
+      "bytes": 2944,
+      "sha256": "52a7c329ffb2208553c6131b2cf36787191d1c5e53c9e0a83cde17bc00120a71"
+    },
+    {
+      "path": "prepared/nets/manual-WEIGHT256.net.json",
+      "bytes": 998,
+      "sha256": "051556d530737ce78756f18c929170448e1c2cba105f1db76751af93ef3c7209"
+    },
+    {
+      "path": "prepared/nets/manual-WEIGHTED.net.json",
+      "bytes": 3476,
+      "sha256": "00bd2b3615293dff5c81661bd60dbdbffa563cca8dbef5562fe810485c263d4d"
+    },
+    {
+      "path": "prepared/nets/manual-XOR.net.json",
+      "bytes": 2908,
+      "sha256": "4aab4e5d38ae900ef4657d51dba03f1d845c1ece47b0ef9db3c181c13234a5ff"
+    }
+  ],
+  "scope": "Exact fresh synthetic prepared corpus, metrics and independent audit; no binaries, accounts, ACLs, private raw captures or rewritten historical reference.",
+  "tool_sources": {
+    "tools/oracle/audit-quality-evidence.py": "8c60582d3e64c1ca2197fd1ebf9189d8ce96d568b93e9cd6d34c9395fcba47a6",
+    "tools/sprint25/verify-quality-refactor.py": "38edcc4565375ffb65aa9e58d1638c39fe8a86d579b4f9675ae3c8a96ae82980",
+    "tools/oracle/validate-quality-net-graph.py": "9b820eb611598a421ac6654341ed626d4db3b6ef2fbc5f20c27b5cbafa63fc28"
+  }
+}

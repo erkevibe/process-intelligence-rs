@@ -16,7 +16,7 @@ fn basename(value: &str) -> Result<&str> {
     Ok(value)
 }
 pub fn sources() -> Value {
-    json!({"examples/bpmn_quality.rs":sha(include_bytes!("../bpmn_quality.rs")),"examples/quality/mod.rs":sha(include_bytes!("mod.rs")),"examples/quality/bridge.rs":sha(include_bytes!("bridge.rs")),"examples/quality/state.rs":sha(include_bytes!("state.rs")),"examples/quality/metrics.rs":sha(include_bytes!("metrics.rs")),"examples/quality/pipeline.rs":sha(include_bytes!("pipeline.rs")),"Cargo.lock":sha(include_bytes!("../../Cargo.lock"))})
+    json!({"examples/bpmn_quality.rs":sha(include_bytes!("../bpmn_quality.rs")),"examples/quality/mod.rs":sha(include_bytes!("mod.rs")),"examples/quality/bridge.rs":sha(include_bytes!("bridge.rs")),"examples/quality/state.rs":sha(include_bytes!("state.rs")),"examples/quality/metrics.rs":sha(include_bytes!("metrics.rs")),"examples/quality/pipeline.rs":sha(include_bytes!("pipeline.rs")),"src/bpmn_quality/mod.rs":sha(include_bytes!("../../src/bpmn_quality/mod.rs")),"src/bpmn_quality/bridge.rs":sha(include_bytes!("../../src/bpmn_quality/bridge.rs")),"src/bpmn_quality/state.rs":sha(include_bytes!("../../src/bpmn_quality/state.rs")),"src/bpmn_quality/metrics.rs":sha(include_bytes!("../../src/bpmn_quality/metrics.rs")),"Cargo.lock":sha(include_bytes!("../../Cargo.lock"))})
 }
 fn save_net(output: &Path, id: &str, net: PetriNet, mapping: Value) -> Result<Value> {
     let encoded = serde_json::to_vec_pretty(&net).map_err(|_| Issue::refused("net_encoding"))?;
