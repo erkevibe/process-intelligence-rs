@@ -59,7 +59,7 @@ function Remove-ExactLinks {
         Need (($item.Attributes -band [IO.FileAttributes]::ReparsePoint) -ne 0) 'link_cleanup_type'
         $actual=$item.ResolveLinkTarget($false)
         Need ($null -ne $actual -and $actual.FullName.Equals($entry.target,$comparison)) 'link_cleanup_exact_target'
-        [IO.Directory]::Delete($entry.path,$false)
+        if($windows){[IO.Directory]::Delete($entry.path,$false)}else{[IO.File]::Delete($entry.path)}
         $entry.removed=$true
     }
 }
