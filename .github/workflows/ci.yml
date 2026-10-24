@@ -321,13 +321,14 @@ jobs:
             cp docs/SELF_CHECK_RU.md dist/docs/
           cp tools/sprint23/decode-report.py tools/sprint23/audit-compact.py dist/tools/sprint23/
             cp tools/oracle/audit-conversion-evidence.py dist/tools/oracle/
-          cp docs/SPRINT_31_REPORT.md dist/CANDIDATE_STATUS.md
+          cp docs/SPRINT_32_REPORT.md dist/CANDIDATE_STATUS.md
           cp docs/PROJECT_QUOTA_CONTRACT.md docs/LINUX_TLS_DEPLOYMENT.md docs/SPRINT_30_REPORT.md dist/docs/
           cp docs/*.md dist/docs/
           mkdir -p dist/deploy dist/evidence
           cp -r deploy/linux dist/deploy/
           cp -r tools/sprint30 dist/tools/
           cp -r tools/sprint31 dist/tools/
+          cp -r tools/sprint32 dist/tools/
           cp -r evidence/sprint30 dist/evidence/
           cp -r evidence/sprint31 dist/evidence/
           cp -r evidence/sprint28 evidence/sprint29 dist/evidence/
@@ -476,6 +477,62 @@ jobs:
             .local/sprint31/systemd/failure.json
             systemd-package-verification.json
             service-observation-verification.json
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 14
+  offline-credential-migration:
+    needs: systemd-release-profile
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      actions: read
+    services:
+      service-postgres:
+        image: postgres:18.0
+        env:
+          POSTGRES_USER: pi_s31_admin
+          POSTGRES_PASSWORD: S31FixtureAdminPassword123
+          POSTGRES_DB: postgres
+        ports:
+          - '127.0.0.1:55449:5432'
+        options: >-
+          --health-cmd "pg_isready -U pi_s31_admin -d postgres"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 12
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8
+        with:
+          name: process-intelligence-rs-linux
+          path: downloaded
+      - name: Verify downloaded package before offline rehearsal
+        env:
+          S30_PACKAGE_DOWNLOADED: 'yes'
+        run: |
+          export S30_EXPECTED_SOURCE="$(git rev-parse HEAD)"
+          python3 -I -B tools/sprint30/verify-package.py downloaded/process-intelligence-rs-linux.tar.gz "$RUNNER_TEMP/sprint32-package" evidence/sprint28/durable-discovery/browser-imported-report.json > systemd-package-verification.json
+      - name: Qualify file credential offline migration and atomic refusal
+        env:
+          S31_OWNED_SYSTEMD_FIXTURE: 'yes'
+          S32_OWNED_OFFLINE_FIXTURE: 'yes'
+          S31_PACKAGE_ROOT: ${{ runner.temp }}/sprint32-package
+          POSTGRES_CONTAINER: ${{ job.services.service-postgres.id }}
+        run: timeout --signal=INT --kill-after=90s 420s python3 -I -B tools/sprint32/offline-migration-ci.py
+      - name: Preserve selected offline migration observations
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          name: sprint32-offline-migration-observations
+          path: |
+            .local/sprint32/offline-migration/proof.json
+            .local/sprint32/offline-migration/base-profile-proof.json
+            .local/sprint32/offline-migration/failure.json
+            systemd-package-verification.json
           include-hidden-files: true
           if-no-files-found: error
           retention-days: 14

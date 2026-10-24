@@ -41,6 +41,7 @@ assert {'process-intelligence-rs', 'pi_convert', 'CANDIDATE_STATUS.md',
         'docs/PROJECT_QUOTA_CONTRACT.md', 'docs/LINUX_TLS_DEPLOYMENT.md',
         'tools/sprint30/verify-evidence.py', 'evidence/sprint30/project-quota/manifest.json'} <= actual
 assert 'tools/sprint31/systemd-profile-ci.py' in actual
+assert 'tools/sprint32/offline-migration-ci.py' in actual
 assert {'tools/sprint31/verify-service-evidence.py', 'tools/sprint31/service-command-contract.json',
         'evidence/sprint31/systemd-profile/manifest.json', 'docs/LINUX_SERVICE_OPERATIONS.md'} <= actual
 assert not any(p.startswith('.local/') or p.endswith(('.key', '.dump')) for p in actual)
