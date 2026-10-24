@@ -545,7 +545,9 @@ fn postgres_durable_acceptance_cancellation_revocation_recovery_and_receipts() {
             .auth
             .login("s26_editor", "S26QualityMemberPassword123")
             .unwrap();
+        platform.auth.switch(&editor_session, &project).unwrap();
         let editor_actor = platform.auth.actor(&editor_session).unwrap();
+        assert_eq!(editor_actor.project_id, project);
         let mut editor = platform.scope(&root, editor_actor).unwrap();
         editor.session = Some(editor_session);
         let revoked = accept(&editor, &model_id, &submission(&log_id, 2), None).unwrap();

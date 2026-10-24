@@ -1,6 +1,6 @@
 # Рабочее состояние ProcessMining
 
-Обновлено 24 октября 2026, 10:52 UTC. Рабочая ветка:
+Обновлено 24 октября 2026, 11:20 UTC. Рабочая ветка:
 `codex/sprint-26-durable-quality`. Пользователь поручил работать восемь часов:
 09:14:49–17:14:49 UTC (до 22:14:49 Asia/Qyzylorda), затем зафиксировать итог.
 Цель активна; после P1 продолжать P2 из `DEVELOPMENT_PLAN.md`.
@@ -47,16 +47,24 @@ receipt успешной остановкой: свежая `resume-live05` за
 
 1. `full02` завершил полный cargo test: 195 passed, 0 failed, 27 ignored.
    `full01` остановлен capacity guard; штатный cargo clean -p убрал generated
-   artifacts, база/отчёты/старый baseline сохранены. Идёт rebuild07 app.
-2. Финальное независимое ревью текущего исходника/свидетельств, точный коммит,
-   PR и CI; подготовить пакет с новым контрактом и диагностикой. Не объявлять
-   P1 принятым до этих проверок.
-3. P2: предварительно закреплены `MINER_EXPERIMENT.md` и
-   `../fixtures/sprint26-miner/corpus.json` до новых miner-запусков.
-   Это отдельная очередь/коммит: не включать эксперимент автоматически в PR P1.
-   Закреплённый process_mining 0.6.2 имеет Alpha+++; доступность Inductive/SplitMiner
-   в Rust не предполагать. Сначала реальные API, лицензии и измерения.
-
+   artifacts, база/отчёты/старый baseline сохранены. Rebuild07 завершил native
+   build; внешняя оболочка сообщила unset LASTEXITCODE, сам closed proof успешен.
+   Побайтная воспроизводимость нового бинарника с прежним не заявляется.
+2. PR39: https://github.com/erkevibe/process-intelligence-rs/pull/39.
+   Независимое локальное P1 ревью без блокеров. 22e0604 CI остановился на
+   historical kit, которому нужен frozen0.8.2 вместо свежего0.9.0. 547dede
+   исправил только пути, pins сохранены; локальный selfcheck-frozen01 PASS.
+   Затем CI выявил случайный личный проект editor в тесте: b93dbcd явно
+   переключает на shared перед проверкой revocation, продукт не изменён.
+   verify08 и native core04 (fresh DB, clean closure) прошли; reviewer сверил
+   все receipts. CI b93dbcd прошёл проверки и сейчас собирает Linux release.
+   Итоговые docs/evidence требуют собственного CI commit перед merge.
+3. P2 — отдельная ветка `codex/sprint-27-miner-experiment`: e7522e6 закрепил
+   MINER_EXPERIMENT.md/corpus до новых запусков; f530db2 сохранил непроверенный
+   isolated example miner_compare.rs. Прототип преобразования Alpha+++ Petri→BPMN,
+   UUID colour refinement отказывает неоднозначной симметрии; тесты и компиляция
+   впереди. Не включать P2 в PR39. После завершения P1 вернуться в P2 branch,
+   включить последние P1 fixes. Подготовлены только исходники, miner ещё не запускался.
 ## Ограничения рабочей среды
 
 Пользовательский сервис 3131 не трогать. Собственный PostgreSQL —
