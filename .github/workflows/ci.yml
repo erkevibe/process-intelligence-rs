@@ -110,6 +110,12 @@ jobs:
         run: |
           python3 -I -B tools/sprint30/port-guard-tests.py
           timeout 240s bash tools/sprint30/run-linux-tls-ci.sh
+      - name: Sprint30 quota and saved report full PostgreSQL restore
+        env:
+          POSTGRES_CONTAINER: ${{ job.services.quality-postgres.id }}
+          S28_DISCOVERY_DATABASE_URL: postgresql://pi_s21_app:sprint25-ci-only@127.0.0.1:5432/pi_s28_discovery_core_ci
+          S30_OWNED_QUOTA_DR: 'yes'
+        run: timeout 180s bash tools/sprint30/run-quota-dr-ci.sh
       - name: Sprint25 shared BPMN evaluator replay and corruption controls
         run: |
           python3 -B tests/sprint25_quality_shared.py --output .local/sprint25/ci-shared-quality
