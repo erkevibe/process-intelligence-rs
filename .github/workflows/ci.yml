@@ -94,16 +94,21 @@ jobs:
           S30_QUOTA_MIGRATION_EVIDENCE: .local/sprint30/ci-migration
           S30_QUOTA_WORKFLOW_URL: postgresql://pi_s21_app:sprint25-ci-only@127.0.0.1:5432/pi_s30_quota_workflow_ci
           S30_QUOTA_WORKFLOW_EVIDENCE: .local/sprint30/ci-workflow
+          S30_QUOTA_RECOVERY_URL: postgresql://pi_s21_app:sprint25-ci-only@127.0.0.1:5432/pi_s30_quota_recovery_ci
+          S30_QUOTA_RECOVERY_EVIDENCE: .local/sprint30/ci-recovery
         run: |
           docker exec "$POSTGRES_CONTAINER" psql -U pi_s21_app -d postgres -v ON_ERROR_STOP=1 -c 'CREATE DATABASE pi_s30_quota_core_ci OWNER pi_s21_app;'
           docker exec "$POSTGRES_CONTAINER" psql -U pi_s21_app -d postgres -v ON_ERROR_STOP=1 -c 'CREATE DATABASE pi_s30_quota_migration_ci OWNER pi_s21_app;'
           docker exec "$POSTGRES_CONTAINER" psql -U pi_s21_app -d postgres -v ON_ERROR_STOP=1 -c 'CREATE DATABASE pi_s30_quota_workflow_ci OWNER pi_s21_app;'
+          docker exec "$POSTGRES_CONTAINER" psql -U pi_s21_app -d postgres -v ON_ERROR_STOP=1 -c 'CREATE DATABASE pi_s30_quota_recovery_ci OWNER pi_s21_app;'
           mkdir -p .local/sprint30/ci-quota .local/sprint30/ci-migration .local/sprint30/ci-workflow
           cargo test --locked --lib -- project_quota::postgres_tests::postgres_quota_boundaries_rollback_replacement_terminal_and_concurrency --ignored --exact --nocapture --test-threads=1
           python3 -I -B tools/sprint30/audit-quota.py .local/sprint30/ci-quota/quota-records.json
           python3 -I -B tools/sprint30/verify-evidence.py evidence/sprint30/project-quota --self-test
           cargo test --locked --lib -- migration_v6::tests::populated_v5_full_accounting_repeat_and_malformed_refusals --ignored --exact --nocapture --test-threads=1
           cargo test --locked --lib -- quota_workflow_tests::postgres_all_workflows_close_after_quota_fill_and_start_revocation --ignored --exact --nocapture --test-threads=1
+          mkdir -p .local/sprint30/ci-recovery
+          cargo test --locked --lib -- quota_workflow_tests::postgres_queued_recovery_under_zero_quota_all_namespaces --ignored --exact --nocapture --test-threads=1
       - name: Sprint30 invalid HTTPS configuration refuses before database
         env:
           POSTGRES_CONTAINER: ${{ job.services.quality-postgres.id }}
@@ -359,6 +364,7 @@ jobs:
             .local/sprint30/ci-quota/quota-controls.json
             .local/sprint30/ci-migration/migration-proof.json
             .local/sprint30/ci-workflow/workflow-proof.json
+            .local/sprint30/ci-recovery/recovery-proof.json
             .local/sprint30/ci-tls/tls-proof.json
             .local/sprint30/ci-tls/runner-proof.json
             .local/sprint30/ci-tls/unit-verify.stderr

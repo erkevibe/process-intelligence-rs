@@ -11,6 +11,187 @@ use std::{
 };
 use tower::ServiceExt;
 
+fn reopen_recovery_fixture(url: &str) -> AppState {
+    let until = Instant::now() + Duration::from_secs(5);
+    loop {
+        match AppState::open(3147, url.to_owned()) {
+            Ok(state) => return state,
+            Err(error) if error.code == "app_already_running" && Instant::now() < until => {
+                std::thread::sleep(Duration::from_millis(20));
+            }
+            Err(error) => panic!("fresh application open: {error:?}"),
+        }
+    }
+}
+
+fn recovery_payload_snapshot(url: &str, project: &str) -> Value {
+    let mut client = postgres::Client::connect(url, postgres::NoTls).unwrap();
+    client.query_one("SELECT jsonb_build_object('records',(SELECT coalesce(jsonb_agg(jsonb_build_array(kind,resource_id,version,document) ORDER BY kind,resource_id),'[]') FROM public.pi_records WHERE project_id=$1),'quota',(SELECT to_jsonb(q) FROM public.pi_project_quota q WHERE project_id=$1),'policy',(SELECT document->'quota_policy' FROM public.pi_projects WHERE project_id=$1))", &[&project]).unwrap().get(0)
+}
+
+fn recovery_header_job(header: &crate::repository_v2::Header, kind: &str, id: &str) -> JobSnapshot {
+    match kind {
+        "generic" => header.durable_jobs[id].clone(),
+        "conversion" => header.conversions[id].snapshot.clone(),
+        "quality" => header.quality_jobs[id].snapshot.clone(),
+        "discovery" => header.discovery_jobs[id].snapshot.clone(),
+        _ => panic!("namespace"),
+    }
+}
+
+#[test]
+#[ignore = "fresh isolated S30_QUOTA_RECOVERY_URL pi_s30_quota_recovery and output required"]
+fn postgres_queued_recovery_under_zero_quota_all_namespaces() {
+    let url = std::env::var("S30_QUOTA_RECOVERY_URL").expect("isolated URL");
+    {
+        let mut client = postgres::Client::connect(&url, postgres::NoTls).unwrap();
+        let row = client
+            .query_one(
+                "SELECT current_database(), to_regclass('public.pi_projects') IS NULL",
+                &[],
+            )
+            .unwrap();
+        assert!(row.get::<_, String>(0).starts_with("pi_s30_quota_recovery"));
+        assert!(row.get::<_, bool>(1));
+    }
+    let output = std::path::PathBuf::from(std::env::var("S30_QUOTA_RECOVERY_EVIDENCE").unwrap());
+    assert!(output.is_dir());
+    let (token, project, log, model) = {
+        let root = reopen_recovery_fixture(&url);
+        let platform = root.platform.as_ref().unwrap();
+        let token = platform
+            .auth
+            .setup("s30_recovery_owner", "S30RecoveryOwnerPassword123")
+            .unwrap();
+        let owner = platform.auth.actor(&token).unwrap();
+        let mut state = platform.scope(&root, owner.clone()).unwrap();
+        state.session = Some(token.clone());
+        let mut seed = crate::project_quota::postgres_tests::fixture(&owner.project_id);
+        let source = seed
+            .discovery_jobs
+            .values()
+            .find(|m| m.snapshot.state == JobState::Completed && m.model_id.is_some())
+            .unwrap();
+        let log = source.log_id.clone();
+        let model = source.model_id.clone().unwrap();
+        seed.audit = Default::default();
+        seed.organization = Default::default();
+        seed.current.clear();
+        seed.user_views.clear();
+        seed.durable_jobs.clear();
+        seed.conversions.clear();
+        seed.conversion_artifacts.clear();
+        seed.quality_jobs.clear();
+        seed.quality_artifacts.clear();
+        seed.quality_requests.clear();
+        seed.discovery_jobs.clear();
+        seed.discovery_artifacts.clear();
+        seed.discovery_requests.clear();
+        seed.current.insert(owner.id.clone(), log.clone());
+        let mut repository = state.repository.lock().unwrap();
+        seed.storage_revision = repository.storage_revision;
+        state
+            .commit_with_action(&mut seed, false, "repository_updated", vec![])
+            .unwrap();
+        *repository = seed;
+        (token, owner.project_id, log, model)
+    };
+    let mut cases = vec![];
+    for kind in ["generic", "conversion", "quality", "discovery"] {
+        let (id, queued, payload) = {
+            let root = reopen_recovery_fixture(&url);
+            let platform = root.platform.as_ref().unwrap();
+            let mut state = platform
+                .scope(&root, platform.auth.actor(&token).unwrap())
+                .unwrap();
+            state.session = Some(token.clone());
+            policy(&state, None);
+            let runtime = tokio::runtime::Builder::new_multi_thread()
+                .worker_threads(2)
+                .enable_all()
+                .build()
+                .unwrap();
+            let (held, id) = runtime.block_on(async {
+                let held = state.cpu.clone().acquire_owned().await.unwrap();
+                let id = submit(&root, &state, &token, kind, &log, &model).await;
+                (held, id)
+            });
+            assert_eq!(state.cpu.available_permits(), 0);
+            policy(&state, Some(0));
+            let (_, value) = platform.database.project_header(&project).unwrap().unwrap();
+            let header = crate::repository_v2::Header::parse(value).unwrap();
+            let queued = recovery_header_job(&header, kind, &id);
+            assert_eq!(queued.state, JobState::Queued);
+            assert_eq!(queued.job_revision, 0);
+            let payload = recovery_payload_snapshot(&url, &project);
+            assert!(payload["quota"]["payload_used"].as_u64().unwrap() > 0);
+            // Every worker is still awaiting the CPU permit, before try_start or
+            // spawn_blocking. Shutdown drops those async tasks; no OS kill is claimed.
+            runtime.shutdown_timeout(Duration::from_secs(2));
+            assert_eq!(state.cpu.available_permits(), 0);
+            assert_eq!(state.jobs.shared_slots().available_permits(), 2);
+            drop(held);
+            (id, queued, payload)
+        }; // Drop every old AppState/platform/database clone before reopening.
+        let (recovered, stable_header) = {
+            let root = reopen_recovery_fixture(&url);
+            let platform = root.platform.as_ref().unwrap();
+            let state = platform
+                .scope(&root, platform.auth.actor(&token).unwrap())
+                .unwrap();
+            let recovered = snapshots(&state, kind)
+                .into_iter()
+                .find(|j| j.id == id)
+                .unwrap();
+            assert_eq!(recovered.state, JobState::Failed);
+            assert_eq!(recovered.stage, "interrupted");
+            assert_eq!(recovered.error.as_ref().unwrap().code, "interrupted");
+            assert_eq!(recovered.job_revision, queued.job_revision + 1);
+            assert!(recovered.result_id.is_none());
+            assert_eq!(
+                state
+                    .repository
+                    .lock()
+                    .unwrap()
+                    .quota_policy
+                    .as_ref()
+                    .unwrap()
+                    .payload_allowance,
+                0
+            );
+            assert_eq!(recovery_payload_snapshot(&url, &project), payload);
+            (
+                recovered,
+                platform.database.project_header(&project).unwrap().unwrap(),
+            )
+        };
+        {
+            let root = reopen_recovery_fixture(&url);
+            let platform = root.platform.as_ref().unwrap();
+            assert_eq!(
+                platform.database.project_header(&project).unwrap().unwrap(),
+                stable_header
+            );
+            let state = platform
+                .scope(&root, platform.auth.actor(&token).unwrap())
+                .unwrap();
+            assert_eq!(
+                snapshots(&state, kind)
+                    .into_iter()
+                    .find(|j| j.id == id)
+                    .unwrap(),
+                recovered
+            );
+            assert_eq!(recovery_payload_snapshot(&url, &project), payload);
+        }
+        cases.push(json!({"case":format!("{kind}_queued_recovered_under_zero_quota"),"job":id,"job_revision":recovered.job_revision,"payload_accounting_sha256":crate::storage::sha256(&serde_json::to_vec(&payload).unwrap())}));
+        cases.push(
+            json!({"case":format!("{kind}_repeated_startup_header_audit_and_payload_unchanged")}),
+        );
+    }
+    std::fs::write(output.join("recovery-proof.json"), serde_json::to_vec_pretty(&json!({"status":"S30_QUOTA_QUEUED_RECOVERY_PASS","cases":cases,"scope":"persisted Queued with held CPU permit, async runtime shutdown and fresh AppState; no OS process-kill claim"})).unwrap()).unwrap();
+}
+
 async fn request(
     root: &AppState,
     token: &str,

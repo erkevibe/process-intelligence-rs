@@ -46,7 +46,7 @@ stop_app
 docker exec -i "$POSTGRES_CONTAINER" psql -X -qAt -U pi_s21_app -d pi_s28_discovery_core_ci -v ON_ERROR_STOP=1 < tools/sprint30/storage-snapshot.sql > "$out/before-storage.json"
 docker exec "$POSTGRES_CONTAINER" pg_dump -U pi_s21_app -d pi_s28_discovery_core_ci -Fc > "$out/database.dump"
 docker exec "$POSTGRES_CONTAINER" psql -U pi_s21_app -d postgres -v ON_ERROR_STOP=1 -c 'CREATE DATABASE pi_s30_quota_dr_ci OWNER pi_s21_app;'
-docker exec -i "$POSTGRES_CONTAINER" pg_restore -U pi_s21_app -d pi_s30_quota_dr_ci --exit-on-error < "$out/database.dump"
+docker exec -i "$POSTGRES_CONTAINER" pg_restore -U pi_s21_app -d pi_s30_quota_dr_ci --exit-on-error --single-transaction < "$out/database.dump"
 docker exec -i "$POSTGRES_CONTAINER" psql -X -qAt -U pi_s21_app -d pi_s30_quota_dr_ci -v ON_ERROR_STOP=1 < tools/sprint30/storage-snapshot.sql > "$out/after-storage.json"
 cmp "$out/before-storage.json" "$out/after-storage.json"
 export PI_DATABASE_URL="${S28_DISCOVERY_DATABASE_URL/pi_s28_discovery_core_ci/pi_s30_quota_dr_ci}"
