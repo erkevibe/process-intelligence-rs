@@ -335,6 +335,48 @@ fn persist(
     *repo = next;
     Ok(())
 }
+/// A failed publication must still close the durable job after quota exhaustion
+/// or revoked write permission. This path cannot publish or remove any payload.
+fn persist_system_failure(state: &AppState, snapshot: &JobSnapshot) -> Result<(), ImportError> {
+    if snapshot.state != JobState::Failed || snapshot.result_id.is_some() {
+        return Err(corrupt());
+    }
+    let mut repo = state.repository.lock().expect("repository mutex");
+    let old = repo.conversions.get(&snapshot.id).ok_or_else(corrupt)?;
+    if old.snapshot.is_terminal()
+        || old.payload_sha256.is_some()
+        || old.report_sha256.is_some()
+        || snapshot.job_revision <= old.snapshot.job_revision
+    {
+        return Err(error(
+            "storage_conflict",
+            "Состояние задачи уже изменилось.",
+        ));
+    }
+    let mut next = repo.clone();
+    next.conversions
+        .get_mut(&snapshot.id)
+        .expect("checked")
+        .snapshot = snapshot.clone();
+    let platform = state.platform.as_ref().ok_or_else(corrupt)?;
+    let project = &state.actor.as_ref().ok_or_else(corrupt)?.project_id;
+    next.audit.append_business(
+        "system",
+        project,
+        "conversion_job_updated",
+        vec![snapshot.id.clone()],
+        next.storage_revision.checked_add(1).ok_or_else(corrupt)?,
+        &serde_json::json!({"policy":"terminal_failure_only","snapshot":snapshot}),
+    )?;
+    let write = crate::repository_v2::prepare(project, &next, false)?;
+    if !write.puts.is_empty() || !write.deletes.is_empty() {
+        return Err(corrupt());
+    }
+    next.storage_revision = platform.database.write_project(write)?;
+    crate::repository_v2::mark_persisted(&mut next);
+    *repo = next;
+    Ok(())
+}
 struct Submission {
     from: String,
     to: String,
@@ -527,19 +569,30 @@ fn launch(
 ) {
     state.payload_permit = None;
     tokio::spawn(async move {
+        let failure_job = lease.job.clone();
+        let failure_state = state.clone();
         let permit = match state.cpu.clone().acquire_owned().await {
             Ok(p) => p,
-            Err(_) => return,
+            Err(_) => {
+                let _ = tokio::task::spawn_blocking(move || {
+                    failure_job.try_fail_with(
+                        "worker_unavailable",
+                        "Обработка недоступна.",
+                        |s| persist_system_failure(&failure_state, s),
+                    )
+                })
+                .await;
+                return;
+            }
         };
         let job = lease.job.clone();
         let id = meta.snapshot.id.clone();
         let result = tokio::task::spawn_blocking(move || -> Result<(), ImportError> {
             let _lease = lease;
             let _permit = permit;
-            if !job.start("converting") {
+            if !job.try_start_with("converting", |s| persist(&state, s, None))? {
                 return Ok(());
             }
-            persist(&state, &job.snapshot(), None)?;
             let control = job.control();
             let converted = crate::conversion::convert_with_cancel(
                 &meta.from,
@@ -568,7 +621,7 @@ fn launch(
                     job.try_fail_with(
                         &failure.reason,
                         "Не удалось подготовить ограниченный отчёт. Исходный файл сохранён.",
-                        |failed| persist(&state, failed, None),
+                        |failed| persist_system_failure(&state, failed),
                     )?;
                     return Ok(());
                 }
@@ -581,7 +634,7 @@ fn launch(
                             job.try_fail_with(
                                 "payload_utf8",
                                 "Не удалось подготовить файл. Исходник сохранён.",
-                                |failed| persist(&state, failed, None),
+                                |failed| persist_system_failure(&state, failed),
                             )?;
                             return Ok(());
                         }
@@ -596,22 +649,43 @@ fn launch(
                             persist(&state, &done, Some((Some(payload), report)))?;
                             Ok(meta.artifact_id)
                         },
-                        |failed| persist(&state, failed, None),
+                        |failed| persist_system_failure(&state, failed),
                     )?;
                 }
                 Err(failure) => {
-                    job.try_fail_with(
+                    let saved_failure = job.try_fail_with(
                         &failure.reason,
                         "Преобразование отклонено. Скачайте отчёт с причиной.",
                         |failed| persist(&state, failed, Some((None, report))),
-                    )?;
+                    );
+                    if let Err(e) = saved_failure {
+                        job.try_fail_with(&e.code, &e.message, |failed| {
+                            persist_system_failure(&state, failed)
+                        })?;
+                    }
                 }
             }
             Ok(())
         })
         .await;
-        if !matches!(result, Ok(Ok(()))) {
-            tracing::error!(job_id=%id,"conversion_persistence_failed");
+        let error = match result {
+            Ok(Ok(())) => None,
+            Ok(Err(e)) => Some(e),
+            Err(_) => Some(error(
+                "worker_failed",
+                "Обработка прервана. Результат не опубликован.",
+            )),
+        };
+        if let Some(e) = error {
+            let saved = tokio::task::spawn_blocking(move || {
+                failure_job.try_fail_with(&e.code, &e.message, |s| {
+                    persist_system_failure(&failure_state, s)
+                })
+            })
+            .await;
+            if !matches!(saved, Ok(Ok(_))) {
+                tracing::error!(job_id=%id,"conversion_persistence_failed");
+            }
         }
     });
 }

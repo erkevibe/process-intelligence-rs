@@ -6,7 +6,7 @@ const VERSION: i32 = 5;
 const NAME: &str = "discovery_artifacts_v5";
 const CONTRACT: &str = "discovery_artifacts_v5: extend pi_records kind CHECK with discovery; preserve existing records, project revisions, sequence and prior migration ledger; transactional DDL; durable discovery snapshots and model results";
 
-fn checksum() -> String {
+pub(crate) fn checksum() -> String {
     sha256(CONTRACT.as_bytes())
 }
 fn validate_ledger(tx: &mut Transaction<'_>) -> Result<(), ImportError> {
@@ -141,7 +141,7 @@ mod tests {
                 .get::<_, bool>(0)
         );
         crate::migrations::apply(&mut client).unwrap();
-        client.batch_execute("ALTER TABLE public.pi_records DROP CONSTRAINT pi_records_kind_check; ALTER TABLE public.pi_records ADD CONSTRAINT pi_records_kind_check CHECK (kind IN ('log_state','log_data','log_source','log_analysis','model','conversion','quality')); DELETE FROM public.pi_schema_migrations WHERE version=5;").unwrap();
+        client.batch_execute("DROP TABLE public.pi_project_quota; ALTER TABLE public.pi_records DROP CONSTRAINT pi_records_kind_check; ALTER TABLE public.pi_records ADD CONSTRAINT pi_records_kind_check CHECK (kind IN ('log_state','log_data','log_source','log_analysis','model','conversion','quality')); DELETE FROM public.pi_schema_migrations WHERE version>=5;").unwrap();
         let header = crate::repository_v2::Header {
             model_ids: vec!["model-1".into()],
             sequence: 17,
@@ -198,7 +198,7 @@ mod tests {
             .batch_execute("ALTER TABLE public.pi_records DROP CONSTRAINT unexpected_check")
             .unwrap();
         migrate_offline(&mut client).unwrap();
-        crate::migrations::apply(&mut client).unwrap();
+        validate_ready(&mut client).unwrap();
         assert_eq!(inventory(&mut client), before);
         let after:Vec<(i32,String,String,String)>=client.query("SELECT version,name,checksum,applied_at::text FROM public.pi_schema_migrations ORDER BY version",&[]).unwrap().iter().map(|r|(r.get(0),r.get(1),r.get(2),r.get(3))).collect();
         assert_eq!(&after[..4], ledger.as_slice());

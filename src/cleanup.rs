@@ -690,7 +690,8 @@ pub fn run(mode: &str) -> Result<Value, ImportError> {
     if !matches!(mode, "verify" | "apply") {
         return Err(fail("cleanup_arguments"));
     }
-    let source_url = env("PI_DATABASE_URL")?;
+    let source_url =
+        crate::configuration::database_url().map_err(|_| fail("cleanup_configuration"))?;
     let restore_url = env("PI_CLEANUP_RESTORE_URL")?;
     let archive_path = PathBuf::from(env("PI_CLEANUP_ARCHIVE")?);
     let plan_path = PathBuf::from(env("PI_CLEANUP_PLAN")?);

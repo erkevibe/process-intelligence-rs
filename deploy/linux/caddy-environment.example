@@ -1,0 +1,8 @@
+# Certificate files must belong to the operator's certificate lifecycle.
+# This file contains paths, not private key or database contents.
+PI_TLS_HOST=process.example.com
+PI_TLS_CERT=/etc/caddy/certificates/process-chain.pem
+PI_TLS_KEY=/etc/caddy/certificates/process-key.pem
+PI_BACKEND_PORT=3000
+PI_HTTP_PORT=80
+PI_HTTPS_PORT=443

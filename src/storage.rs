@@ -81,6 +81,7 @@ enum Command {
     NextId,
     ProjectHeader(String),
     ProjectHeaders,
+    QuotaUsed(String),
     RecordKeys(String),
     ResourceRecords(String, String, Vec<String>),
     ResourceVersions(String, String, Vec<String>),
@@ -143,6 +144,10 @@ impl Database {
                 if Instant::now()>=deadline {let _=answer.send(Err(unavailable()));continue;}
                 let result=(||->Answer{match command{
                     Command::ProjectHeaders=>Ok(Reply::Headers(crate::normalized::headers(&mut client)?)),
+                    Command::QuotaUsed(project)=>{
+                        let row=client.query_opt("SELECT payload_used FROM public.pi_project_quota WHERE project_id=$1",&[&project]).map_err(|_|unavailable())?;
+                        Ok(Reply::Id(row.map_or(0,|r|r.get::<_,i64>(0) as u64)))
+                    },
                     Command::ProjectHeader(project)=>Ok(Reply::Document(crate::normalized::read_header(&mut client,&project)?)),
                     Command::RecordKeys(project)=>Ok(Reply::Keys(client.query("SELECT kind,resource_id FROM public.pi_records WHERE project_id=$1 ORDER BY kind,resource_id",&[&project]).map_err(|_|unavailable())?.iter().map(|r|(r.get(0),r.get(1))).collect())),
                     Command::ResourceRecords(project,id,kinds)=>{
@@ -460,6 +465,12 @@ impl Database {
             _ => unreachable!(),
         }
     }
+    pub(crate) fn quota_used(&self, project: &str) -> Result<u64, ImportError> {
+        match self.request(Command::QuotaUsed(project.into()))? {
+            Reply::Id(value) => Ok(value),
+            _ => unreachable!(),
+        }
+    }
 }
 pub fn migrate_offline(url: String) -> Result<(), ImportError> {
     let mut config: postgres::Config = url.parse().map_err(|_| unavailable())?;
@@ -476,7 +487,7 @@ pub fn migrate_offline(url: String) -> Result<(), ImportError> {
             "Остановите приложение перед офлайн-миграцией.",
         ));
     }
-    crate::migration_v5::migrate_offline(&mut client)
+    crate::migration_v6::migrate_offline(&mut client)
 }
 impl Database {
     pub(crate) fn delete_project(&self, write: ProjectDelete) -> Result<u64, ImportError> {

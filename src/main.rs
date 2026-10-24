@@ -65,9 +65,7 @@ async fn main() -> Result<std::process::ExitCode, Box<dyn std::error::Error>> {
         if args != ["--migrate-storage"] {
             return Err(std::io::Error::other("Supported options: --migrate-storage, --cleanup-storage-verify, --cleanup-storage-apply, --verify-quality-report FILE").into());
         }
-        let url = std::env::var("PI_DATABASE_URL").map_err(|_| {
-            std::io::Error::other("Private PI_DATABASE_URL is required for offline migration.")
-        })?;
+        let url = process_intelligence_rs::configuration::database_url()?;
         tokio::task::spawn_blocking(move || process_intelligence_rs::storage::migrate_offline(url))
             .await?
             .map_err(|e| std::io::Error::other(e.message))?;
@@ -76,15 +74,17 @@ async fn main() -> Result<std::process::ExitCode, Box<dyn std::error::Error>> {
     let port: u16 = std::env::var("PORT")
         .unwrap_or_else(|_| "3000".into())
         .parse()?;
+    let public_origin = process_intelligence_rs::configuration::public_origin(port)?;
     let state = if std::env::var("PI_EPHEMERAL").as_deref() == Ok("1") {
         tracing::warn!("ephemeral_mode_enabled");
         AppState::new(port)
     } else {
-        let url=std::env::var("PI_DATABASE_URL").map_err(|_|std::io::Error::other("PI_DATABASE_URL is required. Run tools/run-windows.ps1 to start the local PostgreSQL platform."))?;
+        let url = process_intelligence_rs::configuration::database_url()?;
         tokio::task::spawn_blocking(move || AppState::open(port, url))
             .await?
             .map_err(|e| std::io::Error::other(e.message))?
-    };
+    }
+    .with_public_origin(public_origin)?;
     let listener = tokio::net::TcpListener::bind((std::net::Ipv4Addr::LOCALHOST, port)).await?;
     tracing::info!(port, version = env!("CARGO_PKG_VERSION"), "app_started");
     axum::serve(listener, router(state))

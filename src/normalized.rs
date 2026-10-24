@@ -192,7 +192,7 @@ fn validate_schema_version(tx: &mut Transaction<'_>, version: u8) -> Result<(), 
     }
     Ok(())
 }
-fn valid_kind(kind: &str) -> bool {
+pub(crate) fn valid_kind(kind: &str) -> bool {
     matches!(
         kind,
         "log_state"
@@ -206,7 +206,7 @@ fn valid_kind(kind: &str) -> bool {
     )
 }
 pub(crate) fn validate_write(write: &ProjectWrite) -> Result<(), ImportError> {
-    if write.project.is_empty() || write.expected >= i64::MAX as u64 {
+    if write.project.is_empty() || write.project.len() > 128 || write.expected >= i64::MAX as u64 {
         return Err(invalid());
     }
     validate_document_capacity(&write.metadata, false)?;
@@ -231,6 +231,7 @@ pub(crate) fn write(tx: &mut Transaction<'_>, write: &ProjectWrite) -> Result<u6
     }else{
         tx.query_opt("UPDATE public.pi_projects SET version=version+1,document=$2 WHERE project_id=$1 AND version=$3 RETURNING version", &[&write.project,&write.metadata,&(write.expected as i64)])
     }.map_err(|_| unavailable())?.ok_or_else(||ImportError::new("storage_conflict","Данные проекта изменились. Повторите после перезапуска."))?;
+    crate::project_quota::account(tx, write)?;
     for (kind, id, value) in &write.puts {
         tx.execute("INSERT INTO public.pi_records(project_id,kind,resource_id,version,document) VALUES($1,$2,$3,1,$4) ON CONFLICT(project_id,kind,resource_id) DO UPDATE SET version=pi_records.version+1,document=EXCLUDED.document", &[&write.project,kind,id,value]).map_err(|_| unavailable())?;
     }

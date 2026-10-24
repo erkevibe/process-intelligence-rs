@@ -5,6 +5,7 @@ pub mod bpmn_quality;
 mod bpmn_quality_preview;
 pub mod calendar;
 pub mod cleanup;
+pub mod configuration;
 #[allow(
     clippy::chunks_exact_to_as_chunks,
     reason = "Keep the reviewed byte decoder and its source provenance stable"
@@ -26,6 +27,7 @@ pub mod mining;
 mod platform;
 mod platform_render;
 pub mod project_list;
+mod project_quota;
 mod projection_loss;
 mod quality_store;
 mod quality_workflow;
@@ -38,7 +40,14 @@ mod migration_v2;
 mod migration_v3;
 mod migration_v4;
 mod migration_v5;
+mod migration_v6;
 mod normalized;
 
 mod repository_v2;
 mod resource_cache;
+
+#[cfg(test)]
+mod quota_workflow_tests;
+
+#[cfg(test)]
+mod public_origin_tests;

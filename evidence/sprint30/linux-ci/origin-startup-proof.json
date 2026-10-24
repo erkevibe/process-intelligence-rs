@@ -1,0 +1,34 @@
+{
+  "status": "S30_INVALID_ORIGIN_BEFORE_DATABASE_PASS",
+  "cases": [
+    {
+      "origin": "https://example.com/path",
+      "native_exit": 1
+    },
+    {
+      "origin": "https://0X7F000001:3148",
+      "native_exit": 1
+    },
+    {
+      "origin": "https://0x",
+      "native_exit": 1
+    },
+    {
+      "origin": "https://example.0X",
+      "native_exit": 1
+    },
+    {
+      "origin": "https://localhost:3148",
+      "native_exit": 1
+    },
+    {
+      "origin": "https://[::ffff:127.0.0.1]:8443",
+      "native_exit": 1
+    },
+    {
+      "origin": "https://[::ffff:7f00:1]:8443",
+      "native_exit": 1
+    }
+  ],
+  "public_tables": 0
+}

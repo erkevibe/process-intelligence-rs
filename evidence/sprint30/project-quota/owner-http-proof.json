@@ -1,0 +1,259 @@
+{
+  "status": "S30_QUOTA_OWNER_HTTP_PASS",
+  "cases": [
+    {
+      "case": "actual_011_ready",
+      "outcome": "pass"
+    },
+    {
+      "case": "fresh_owner_setup",
+      "outcome": "pass"
+    },
+    {
+      "case": "new_project_default_disabled",
+      "outcome": "pass"
+    },
+    {
+      "case": "owner_enables_zero_allowance",
+      "outcome": "pass"
+    },
+    {
+      "case": "enabled_policy_persisted",
+      "outcome": "pass"
+    },
+    {
+      "case": "empty_enabled_backup",
+      "outcome": "pass"
+    },
+    {
+      "case": "stale_owner_form_conflict",
+      "outcome": "pass"
+    },
+    {
+      "case": "stale_form_preserves_backup_bytes",
+      "outcome": "pass"
+    },
+    {
+      "case": "zero_allowance_import_refused",
+      "outcome": "pass"
+    },
+    {
+      "case": "refused_import_preserves_project_bytes",
+      "outcome": "pass"
+    },
+    {
+      "case": "owner_increases_allowance",
+      "outcome": "pass"
+    },
+    {
+      "case": "real_import_with_allowance_succeeds",
+      "outcome": "pass"
+    },
+    {
+      "case": "real_payload_accounted",
+      "outcome": "pass"
+    },
+    {
+      "case": "owner_can_lower_below_used",
+      "outcome": "pass"
+    },
+    {
+      "case": "overlimit_policy_kept",
+      "outcome": "pass"
+    },
+    {
+      "case": "overlimit_reads_remain_available",
+      "outcome": "pass"
+    },
+    {
+      "case": "overlimit_backup_available",
+      "outcome": "pass"
+    },
+    {
+      "case": "overlimit_growth_refused",
+      "outcome": "pass"
+    },
+    {
+      "case": "overlimit_growth_full_rollback",
+      "outcome": "pass"
+    },
+    {
+      "case": "owner_disables_limit",
+      "outcome": "pass"
+    },
+    {
+      "case": "disabled_policy_persisted",
+      "outcome": "pass"
+    },
+    {
+      "case": "owner_form_rendered",
+      "outcome": "pass"
+    }
+  ],
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/health",
+      "status": 200,
+      "bytes": 37,
+      "sha256": "73e46233c653c17c07c500e7fb80ed40078254ec607ea83432e0e295e83e4541"
+    },
+    {
+      "method": "POST",
+      "path": "/setup",
+      "status": 303,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/quota/status",
+      "status": 200,
+      "bytes": 202,
+      "sha256": "9f10595804a6cb6f8bbe20752943ab38734e491b7c9b5ddf1009aaca24627466"
+    },
+    {
+      "method": "POST",
+      "path": "/quota",
+      "status": 303,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/quota/status",
+      "status": 200,
+      "bytes": 198,
+      "sha256": "cfb9eecc26277175a4db6345b11e81107335e67e75e15885dc848e6835504979"
+    },
+    {
+      "method": "GET",
+      "path": "/backup",
+      "status": 200,
+      "bytes": 738,
+      "sha256": "64af98b371c40d92f37a18b5c2773f741d2e5fdd4eeedce6f68261c5d5c6b5a2"
+    },
+    {
+      "method": "POST",
+      "path": "/quota",
+      "status": 409,
+      "bytes": 107,
+      "sha256": "eff3b2b1f474b9649e0c9e069736f9596b41f052bd0c49f5efe71491ac40c90b"
+    },
+    {
+      "method": "GET",
+      "path": "/backup",
+      "status": 200,
+      "bytes": 738,
+      "sha256": "64af98b371c40d92f37a18b5c2773f741d2e5fdd4eeedce6f68261c5d5c6b5a2"
+    },
+    {
+      "method": "POST",
+      "path": "/logs",
+      "status": 422,
+      "bytes": 7256,
+      "sha256": "fef1f7294c005f83e43942d3a420c503b6bbad9404ac11096c42bb88179c18c5"
+    },
+    {
+      "method": "GET",
+      "path": "/backup",
+      "status": 200,
+      "bytes": 738,
+      "sha256": "64af98b371c40d92f37a18b5c2773f741d2e5fdd4eeedce6f68261c5d5c6b5a2"
+    },
+    {
+      "method": "GET",
+      "path": "/quota/status",
+      "status": 200,
+      "bytes": 198,
+      "sha256": "cfb9eecc26277175a4db6345b11e81107335e67e75e15885dc848e6835504979"
+    },
+    {
+      "method": "POST",
+      "path": "/quota",
+      "status": 303,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "POST",
+      "path": "/logs",
+      "status": 200,
+      "bytes": 10787,
+      "sha256": "1fe24ecf4fafa1304a5f4fea9ad86c4331b54bc9d4e53bc9dad95c542daf5e0c"
+    },
+    {
+      "method": "GET",
+      "path": "/quota/status",
+      "status": 200,
+      "bytes": 207,
+      "sha256": "61d77d04416058adfc5bd88a301e6ed18f4eb908cffc3bf4effa59717a5b2418"
+    },
+    {
+      "method": "POST",
+      "path": "/quota",
+      "status": 303,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/quota/status",
+      "status": 200,
+      "bytes": 201,
+      "sha256": "e58187b5feee2d717f5011cf94e384d5803f133e07a4001b7985568d692be1c5"
+    },
+    {
+      "method": "GET",
+      "path": "/logs",
+      "status": 200,
+      "bytes": 5811,
+      "sha256": "36830e57fc3052636cea4ba3321aca689d9de0e5ebb28202a563936f3f6a7b0e"
+    },
+    {
+      "method": "GET",
+      "path": "/backup",
+      "status": 200,
+      "bytes": 3804,
+      "sha256": "0debdb0e6edf61fa4c32ae7f209315be9887762931f817b6eca11390a2d49703"
+    },
+    {
+      "method": "POST",
+      "path": "/logs",
+      "status": 422,
+      "bytes": 11070,
+      "sha256": "8604a42529b5fdd5209424c793af90f85c74c99bebb699bbbf801bf9bf108873"
+    },
+    {
+      "method": "GET",
+      "path": "/backup",
+      "status": 200,
+      "bytes": 3804,
+      "sha256": "0debdb0e6edf61fa4c32ae7f209315be9887762931f817b6eca11390a2d49703"
+    },
+    {
+      "method": "POST",
+      "path": "/quota",
+      "status": 303,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/quota/status",
+      "status": 200,
+      "bytes": 205,
+      "sha256": "ec28ab74bc10837522324e098c714d46f3f549d924acf2b0bea283e4f504c738"
+    },
+    {
+      "method": "GET",
+      "path": "/quota",
+      "status": 200,
+      "bytes": 3803,
+      "sha256": "7761c6aaae7ad90ef1ca0dbf716310e110f655096134106829e750b306ffe3dd"
+    }
+  ],
+  "project_id": "project-0d67f7b796a24ff28d198d66c3df62ae",
+  "payload_used": 3256,
+  "scope": "actual owned HTTP and forms, not a physical browser or load claim"
+}

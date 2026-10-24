@@ -33,6 +33,8 @@ struct LogToken {
 #[derive(Default, Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
 pub(crate) struct Header {
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub(crate) quota_policy: Option<crate::project_quota::Policy>,
     #[serde(
         default,
         skip_serializing_if = "crate::folders::Organization::is_empty"
@@ -70,6 +72,9 @@ impl Header {
         Ok(header)
     }
     pub(crate) fn validate(&self) -> Result<(), ImportError> {
+        if let Some(policy) = &self.quota_policy {
+            policy.validate()?;
+        }
         self.audit.validate().map_err(|_| corrupt())?;
         crate::conversion_workflow::validate_metadata(&self.conversions)?;
         crate::quality_store::validate_metadata(&self.quality_jobs, &self.quality_requests)?;
@@ -119,6 +124,10 @@ impl Header {
                 .any(|id| !logs.contains(id))
             || self.durable_jobs.iter().any(|(id, j)| {
                 id != &j.id
+                    || j.stage.len() > 64
+                    || j.error
+                        .as_ref()
+                        .is_some_and(|e| e.code.len() > 128 || e.message.len() > 4096)
                     || !valid_id(id, "job-")
                     || (!j.is_terminal() && j.job_revision == u64::MAX)
                     || (j.state == JobState::Completed
@@ -194,6 +203,7 @@ fn valid_id(id: &str, prefix: &str) -> bool {
 }
 pub(crate) fn header(repo: &Repository) -> Header {
     Header {
+        quota_policy: repo.quota_policy.clone(),
         organization: repo.organization.clone(),
         audit: repo.audit.clone(),
         current: repo.current.clone(),
@@ -521,6 +531,7 @@ pub(crate) fn load_metadata(database: &Database, project: &str) -> Result<Reposi
         return Err(corrupt());
     }
     Ok(Repository {
+        quota_policy: h.quota_policy,
         organization: h.organization,
         audit: h.audit,
         current: h.current,

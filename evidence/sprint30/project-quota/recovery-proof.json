@@ -1,0 +1,42 @@
+{
+  "cases": [
+    {
+      "case": "generic_queued_recovered_under_zero_quota",
+      "job": "job-1",
+      "job_revision": 1,
+      "payload_accounting_sha256": "93105727731b079d54eb2fdc65c5c10cdce48ba1ab80e2bb4785fa934354d5ca"
+    },
+    {
+      "case": "generic_repeated_startup_header_audit_and_payload_unchanged"
+    },
+    {
+      "case": "conversion_queued_recovered_under_zero_quota",
+      "job": "job-2",
+      "job_revision": 1,
+      "payload_accounting_sha256": "93b78c327ec03e0e33fb769083c87fc8ee27afe32addad95bc0a1a24edad54c7"
+    },
+    {
+      "case": "conversion_repeated_startup_header_audit_and_payload_unchanged"
+    },
+    {
+      "case": "quality_queued_recovered_under_zero_quota",
+      "job": "job-4",
+      "job_revision": 1,
+      "payload_accounting_sha256": "500560f6354625b7d3ab17e1c101c522f52e80d88ac8d225d8e084f90a911d24"
+    },
+    {
+      "case": "quality_repeated_startup_header_audit_and_payload_unchanged"
+    },
+    {
+      "case": "discovery_queued_recovered_under_zero_quota",
+      "job": "job-6",
+      "job_revision": 1,
+      "payload_accounting_sha256": "52534db475e5264ad80504e9f777cef3a3ff49d4bf53fdb846c9cfaea44560a9"
+    },
+    {
+      "case": "discovery_repeated_startup_header_audit_and_payload_unchanged"
+    }
+  ],
+  "scope": "persisted Queued with held CPU permit, async runtime shutdown and fresh AppState; no OS process-kill claim",
+  "status": "S30_QUOTA_QUEUED_RECOVERY_PASS"
+}

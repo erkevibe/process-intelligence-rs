@@ -1,0 +1,215 @@
+{
+  "owner_requests": [
+    {
+      "method": "GET",
+      "path": "/health",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/setup",
+      "status": 303
+    },
+    {
+      "method": "GET",
+      "path": "/quota/status",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/quota",
+      "status": 303
+    },
+    {
+      "method": "GET",
+      "path": "/quota/status",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/backup",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/quota",
+      "status": 409
+    },
+    {
+      "method": "GET",
+      "path": "/backup",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/logs",
+      "status": 422
+    },
+    {
+      "method": "GET",
+      "path": "/backup",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/quota/status",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/quota",
+      "status": 303
+    },
+    {
+      "method": "POST",
+      "path": "/logs",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/quota/status",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/quota",
+      "status": 303
+    },
+    {
+      "method": "GET",
+      "path": "/quota/status",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/logs",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/backup",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/logs",
+      "status": 422
+    },
+    {
+      "method": "GET",
+      "path": "/backup",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/quota",
+      "status": 303
+    },
+    {
+      "method": "GET",
+      "path": "/quota/status",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path": "/quota",
+      "status": 200
+    }
+  ],
+  "native_labels": [
+    "app-live",
+    "audit-evidence",
+    "audit-quota",
+    "cluster",
+    "create-app",
+    "create-core",
+    "create-migration",
+    "create-recovery",
+    "create-workflow",
+    "old-after",
+    "old-before",
+    "old-binary",
+    "owner-http",
+    "pg-stop-g1",
+    "postgres-g1",
+    "ready-01",
+    "ready-02",
+    "test-migration",
+    "test-quota",
+    "test-recovery",
+    "test-workflow",
+    "worker"
+  ],
+  "migration_keys": [
+    "all_eight_record_kinds",
+    "bad_ledger_policy_schema_refused",
+    "old_contract_refuses_v6",
+    "payload_used",
+    "prior_ledger_preserved",
+    "project_revisions_preserved",
+    "record_revisions_preserved",
+    "repeat_no_change",
+    "sequence_preserved",
+    "status"
+  ],
+  "control_keys": [
+    "batch_generic_and_project_full_rollback",
+    "coherent_ledger_tamper_full_scan_refused",
+    "counter_tamper_refused",
+    "equal_smaller_delete_allowed_overlimit",
+    "metadata_without_payload_projection",
+    "synchronized_cas_then_quota_refusal",
+    "touched_payload_cost_revalidated"
+  ],
+  "workflow_cases": [
+    "generic_publication_quota_rollback_and_durable_failed",
+    "conversion_publication_quota_rollback_and_durable_failed",
+    "quality_publication_quota_rollback_and_durable_failed",
+    "discovery_publication_quota_rollback_and_durable_failed",
+    "generic_cancelled_while_overlimit",
+    "conversion_cancelled_while_overlimit",
+    "quality_cancelled_while_overlimit",
+    "discovery_cancelled_while_overlimit",
+    "generic_revoked_before_start_durable_failed",
+    "conversion_revoked_before_start_durable_failed",
+    "quality_revoked_before_start_durable_failed",
+    "discovery_revoked_before_start_durable_failed",
+    "project_json_restore_preserves_policy_and_recounts",
+    "overlimit_project_json_restore_refused_atomically_policy_not_disabled"
+  ],
+  "schema_version": 1,
+  "owner_cases": [
+    "actual_011_ready",
+    "fresh_owner_setup",
+    "new_project_default_disabled",
+    "owner_enables_zero_allowance",
+    "enabled_policy_persisted",
+    "empty_enabled_backup",
+    "stale_owner_form_conflict",
+    "stale_form_preserves_backup_bytes",
+    "zero_allowance_import_refused",
+    "refused_import_preserves_project_bytes",
+    "owner_increases_allowance",
+    "real_import_with_allowance_succeeds",
+    "real_payload_accounted",
+    "owner_can_lower_below_used",
+    "overlimit_policy_kept",
+    "overlimit_reads_remain_available",
+    "overlimit_backup_available",
+    "overlimit_growth_refused",
+    "overlimit_growth_full_rollback",
+    "owner_disables_limit",
+    "disabled_policy_persisted",
+    "owner_form_rendered"
+  ],
+  "recovery_cases": [
+    "generic_queued_recovered_under_zero_quota",
+    "generic_repeated_startup_header_audit_and_payload_unchanged",
+    "conversion_queued_recovered_under_zero_quota",
+    "conversion_repeated_startup_header_audit_and_payload_unchanged",
+    "quality_queued_recovered_under_zero_quota",
+    "quality_repeated_startup_header_audit_and_payload_unchanged",
+    "discovery_queued_recovered_under_zero_quota",
+    "discovery_repeated_startup_header_audit_and_payload_unchanged"
+  ]
+}
