@@ -447,6 +447,7 @@ pub(crate) fn routes() -> Router<AppState> {
         .route("/models/{id}", get(model).post(save_model))
         .route("/models/{id}/export", get(export_model))
         .route("/models/{id}/json", get(model_json))
+        .merge(crate::bpmn_quality_preview::routes())
         .route("/backup", get(backup))
         .route("/restore", post(restore))
         .route("/diagnostics/cache", get(cache_stats))
@@ -1465,7 +1466,7 @@ fn calendar_form_error(
 pub(crate) fn calendar_results(log: &StoredLog) -> Value {
     Value::Array(log.data.cases.iter().map(|case|{let times=case.events.iter().filter_map(|e|e.timestamp).collect::<Vec<_>>();if times.len()!=case.events.len()||times.is_empty(){return json!({"case_id":case.id,"status":"unverified","reason":"missing_timestamps"});}let start=*times.iter().min().expect("nonempty");let end=*times.iter().max().expect("nonempty");match crate::calendar::business_millis(start,end,&log.calendar){Ok(ms)=>json!({"case_id":case.id,"status":"computed","start":start,"end":end,"business_millis":ms}),Err(e)=>json!({"case_id":case.id,"status":"unverified","reason":e.code})}}).collect())
 }
-fn insert_model(
+pub(crate) fn insert_model(
     state: &AppState,
     model: ProcessModel,
     name: String,

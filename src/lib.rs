@@ -2,6 +2,7 @@ pub mod audit;
 pub mod auth;
 pub mod bpmn;
 pub mod bpmn_quality;
+mod bpmn_quality_preview;
 pub mod calendar;
 pub mod cleanup;
 #[allow(
