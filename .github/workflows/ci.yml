@@ -105,6 +105,7 @@ jobs:
           cargo test --locked --lib -- project_quota::postgres_tests::postgres_quota_boundaries_rollback_replacement_terminal_and_concurrency --ignored --exact --nocapture --test-threads=1
           python3 -I -B tools/sprint30/audit-quota.py .local/sprint30/ci-quota/quota-records.json
           python3 -I -B tools/sprint30/verify-evidence.py evidence/sprint30/project-quota --self-test
+          python3 -I -B tools/sprint31/verify-service-evidence.py evidence/sprint31/systemd-profile --self-test
           (cd evidence/sprint30/linux-ci && sha256sum --check --strict SHA256SUMS)
           (cd evidence/sprint30/quota-browser && sha256sum --check --strict SHA256SUMS)
           cargo test --locked --lib -- migration_v6::tests::populated_v5_full_accounting_repeat_and_malformed_refusals --ignored --exact --nocapture --test-threads=1
@@ -320,7 +321,7 @@ jobs:
             cp docs/SELF_CHECK_RU.md dist/docs/
           cp tools/sprint23/decode-report.py tools/sprint23/audit-compact.py dist/tools/sprint23/
             cp tools/oracle/audit-conversion-evidence.py dist/tools/oracle/
-          cp docs/SPRINT_30_REPORT.md dist/CANDIDATE_STATUS.md
+          cp docs/SPRINT_31_REPORT.md dist/CANDIDATE_STATUS.md
           cp docs/PROJECT_QUOTA_CONTRACT.md docs/LINUX_TLS_DEPLOYMENT.md docs/SPRINT_30_REPORT.md dist/docs/
           cp docs/*.md dist/docs/
           mkdir -p dist/deploy dist/evidence
@@ -328,6 +329,7 @@ jobs:
           cp -r tools/sprint30 dist/tools/
           cp -r tools/sprint31 dist/tools/
           cp -r evidence/sprint30 dist/evidence/
+          cp -r evidence/sprint31 dist/evidence/
           cp -r evidence/sprint28 evidence/sprint29 dist/evidence/
           cp -r tools/sprint28 tools/sprint29 dist/tools/
           mkdir -p dist/tools/sprint23-miner dist/evidence

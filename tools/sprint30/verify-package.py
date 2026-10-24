@@ -41,6 +41,8 @@ assert {'process-intelligence-rs', 'pi_convert', 'CANDIDATE_STATUS.md',
         'docs/PROJECT_QUOTA_CONTRACT.md', 'docs/LINUX_TLS_DEPLOYMENT.md',
         'tools/sprint30/verify-evidence.py', 'evidence/sprint30/project-quota/manifest.json'} <= actual
 assert 'tools/sprint31/systemd-profile-ci.py' in actual
+assert {'tools/sprint31/verify-service-evidence.py', 'tools/sprint31/service-command-contract.json',
+        'evidence/sprint31/systemd-profile/manifest.json', 'docs/LINUX_SERVICE_OPERATIONS.md'} <= actual
 assert not any(p.startswith('.local/') or p.endswith(('.key', '.dump')) for p in actual)
 environment = json.loads((destination / 'BUILD_ENVIRONMENT.json').read_text())
 assert environment['source_commit'] == manifest['source_commit'] and environment['system'] == 'Linux' and environment['machine'] == 'x86_64'
@@ -62,9 +64,16 @@ evidence = subprocess.run([sys.executable, '-I', '-B', 'tools/sprint30/verify-ev
                           cwd=destination, check=True, timeout=30, capture_output=True)
 evidence_result = json.loads(evidence.stdout)
 assert evidence_result['status'] == 'S30_SELECTED_EVIDENCE_PASS'
+
+service_evidence = subprocess.run([sys.executable, '-I', '-B', 'tools/sprint31/verify-service-evidence.py', 'evidence/sprint31/systemd-profile', '--self-test'],
+                                cwd=destination, check=True, timeout=30, capture_output=True)
+service_result = json.loads(service_evidence.stdout)
+assert service_result['status'] == 'S31_SELECTED_SERVICE_EVIDENCE_PASS' and service_result['cases'] == 19
+assert service_result['semantic_refusal_controls'] == 10
 downloaded = os.environ.get('S30_PACKAGE_DOWNLOADED') == 'yes'
 print(json.dumps(dict(status='S30_DOWNLOADED_LINUX_PACKAGE_PASS' if downloaded else 'S30_EXTRACTED_LINUX_PACKAGE_PASS', source_commit=manifest['source_commit'],
     archive_sha256=hashlib.sha256(archive.read_bytes()).hexdigest(), files=len(actual), reports=results,
     build_environment=environment,
     evidence_verification=evidence_result,
+    service_evidence_verification=service_result,
     scope='artifact downloaded in a separate Linux CI job' if downloaded else 'archive generated and extracted in CI; not a separately downloaded artifact or production install')))

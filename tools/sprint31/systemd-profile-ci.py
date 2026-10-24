@@ -146,7 +146,20 @@ class Fixture:
         return 'postgresql://pi_s31_app:' + self.password + '@127.0.0.1:55449/' + database + '?connect_timeout=5'
 
     def call(self, label, args, data=None, timeout=30, allowed=(0,)):
-        completed = subprocess.run(args, input=data, capture_output=True, timeout=timeout)
+        try:
+            completed = subprocess.run(args, input=data, capture_output=True, timeout=timeout)
+        except subprocess.TimeoutExpired as error:
+            # Preserve bounded partial streams privately; public failure data
+            # contains hashes, never the command's input or environment.
+            stdout, stderr = error.stdout or b'', error.stderr or b''
+            prefix = f'{len(self.commands):03}-{label}-timeout'
+            stored_out, stored_err = stdout[:2 * 1024 * 1024], stderr[:2 * 1024 * 1024]
+            (self.output / (prefix + '.stdout')).write_bytes(stored_out)
+            (self.output / (prefix + '.stderr')).write_bytes(stored_err)
+            self.commands.append(dict(label=label, program=Path(args[0]).name, timeout_seconds=timeout,
+                stdout_sha256=digest(stored_out), stderr_sha256=digest(stored_err),
+                partial_streams_truncated=len(stdout) != len(stored_out) or len(stderr) != len(stored_err)))
+            raise RuntimeError('command timed out: ' + label) from error
         assert len(completed.stdout) <= 2 * 1024 * 1024 and len(completed.stderr) <= 2 * 1024 * 1024
         prefix = f'{len(self.commands):03}-{label}'
         (self.output / (prefix + '.stdout')).write_bytes(completed.stdout)
@@ -233,9 +246,9 @@ for port in (3000,80,443):
         self.call('vendor-unit', ['curl', '--fail', '--silent', '--show-error', '--location', '--max-time', '30', VENDOR_UNIT, '--output', str(self.output / 'caddy.service')], timeout=35)
         assert digest((self.output / 'caddy.service').read_bytes()) == VENDOR_UNIT_SHA
         self.call('create-app-user', ['sudo', 'useradd', '--system', '--user-group', '--no-create-home', '--home-dir', '/nonexistent', '--shell', '/usr/sbin/nologin', 'process-intelligence'])
-        self.call('create-proxy-user', ['sudo', 'useradd', '--system', '--user-group', '--create-home', '--home-dir', '/var/lib/caddy', '--shell', '/usr/sbin/nologin', 'caddy'])
+        self.call('create-proxy-user', ['sudo', 'useradd', '--system', '--user-group', '--no-create-home', '--home-dir', '/var/lib/caddy', '--shell', '/usr/sbin/nologin', 'caddy'])
         self.call('install-directories', ['sudo', 'install', '-d', '-m', '0755', '/opt/process-intelligence/current', '/etc/process-intelligence', '/etc/caddy', '/etc/systemd/system/caddy.service.d'])
-        self.call('proxy-private-directories', ['sudo', 'install', '-d', '-m', '0750', '-o', 'caddy', '-g', 'caddy', '/var/log/caddy'])
+        self.call('proxy-private-directories', ['sudo', 'install', '-d', '-m', '0750', '-o', 'caddy', '-g', 'caddy', '/var/lib/caddy', '/var/log/caddy'])
         self.call('certificate-directory', ['sudo', 'install', '-d', '-m', '0750', '-o', 'root', '-g', 'caddy', '/etc/process-intelligence/tls'])
         self.call('install-package', ['sudo', 'cp', '-a', '--no-preserve=ownership', str(self.package) + '/.', '/opt/process-intelligence/current/'])
         assert self.call('installed-app-owner', ['sudo', 'stat', '-c', '%U:%G', '/opt/process-intelligence/current/process-intelligence-rs']).stdout.strip() == b'root:root'

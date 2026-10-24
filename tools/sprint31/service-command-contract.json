@@ -1,0 +1,1182 @@
+{
+  "schema_version": 1,
+  "scope": "Ordered commands and stable HTTP observations from qualified1cd9d93; health retries and queue polling vary and are checked separately; selected data consistency, no execution replay",
+  "commands": [
+    {
+      "label": "sudo-available",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "unit-absent",
+      "program": "systemctl",
+      "allowed_exits": [
+        0,
+        1
+      ]
+    },
+    {
+      "label": "unit-absent",
+      "program": "systemctl",
+      "allowed_exits": [
+        0,
+        1
+      ]
+    },
+    {
+      "label": "privileged-listener-preflight",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "container-identity",
+      "program": "docker",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "postgres-version",
+      "program": "docker",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "role-absent",
+      "program": "docker",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "database-absent",
+      "program": "docker",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "restore-database-absent",
+      "program": "docker",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "firewall-absent",
+      "program": "sudo",
+      "allowed_exits": [
+        1
+      ]
+    },
+    {
+      "label": "firewall-absent",
+      "program": "sudo",
+      "allowed_exits": [
+        1
+      ]
+    },
+    {
+      "label": "firewall-create",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "firewall-tcp",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "firewall-udp",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "firewall-return",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "firewall-attach",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "firewall-create",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "firewall-tcp",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "firewall-udp",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "firewall-return",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "firewall-attach",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "create-role",
+      "program": "docker",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "create-database",
+      "program": "docker",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "deny-other-database",
+      "program": "docker",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "role-policy",
+      "program": "docker",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "download-caddy",
+      "program": "curl",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "vendor-unit",
+      "program": "curl",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "create-app-user",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "create-proxy-user",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "install-directories",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "proxy-private-directories",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "certificate-directory",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "install-package",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "installed-app-owner",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "install-proxy",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "install-profile-file",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "installed-profile-sha",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "install-profile-file",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "installed-profile-sha",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "install-profile-file",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "installed-profile-sha",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "install-proxy-unit",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "installed-vendor-sha",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "ca",
+      "program": "openssl",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "leaf-request",
+      "program": "openssl",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "leaf-certificate",
+      "program": "openssl",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "install-private-configuration",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "install-private-configuration",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "install-private-configuration",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "install-leaf",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "install-leaf",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "credential-permissions",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "credential-stat",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "manager-reload",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "start-app",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "start-proxy",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "unit-identity",
+      "program": "systemctl",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "running-executable",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "running-user",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "running-arguments",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "credential-environment",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "unit-identity",
+      "program": "systemctl",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "running-executable",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "running-user",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "running-arguments",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "numeric-report",
+      "program": "process-intelligence-rs",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "accounting-snapshot",
+      "program": "docker",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "restart-app",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "unit-identity",
+      "program": "systemctl",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "running-executable",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "running-user",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "running-arguments",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "credential-environment",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "accounting-snapshot",
+      "program": "docker",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "stop-before-backup",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "unit-identity",
+      "program": "systemctl",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "full-private-database-snapshot",
+      "program": "docker",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "private-full-backup",
+      "program": "docker",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "create-restore-database",
+      "program": "docker",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "restore-new-database",
+      "program": "docker",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "full-private-database-snapshot",
+      "program": "docker",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "replace-credential-restore",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "replaced-credential-stat",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "start-restored-service",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "unit-identity",
+      "program": "systemctl",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "running-executable",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "running-user",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "running-arguments",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "credential-environment",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "accounting-snapshot",
+      "program": "docker",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "full-private-database-snapshot",
+      "program": "docker",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "stop-before-credential-rotation",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "unit-identity",
+      "program": "systemctl",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "rotate-owned-database-role-password",
+      "program": "docker",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "old-role-password-refused",
+      "program": "sh",
+      "allowed_exits": [
+        2
+      ]
+    },
+    {
+      "label": "new-role-password-accepted",
+      "program": "sh",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "replace-credential-rotation",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "replaced-credential-stat",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "start-rotated-credential-service",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "unit-identity",
+      "program": "systemctl",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "running-executable",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "running-user",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "running-arguments",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "credential-environment",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "accounting-snapshot",
+      "program": "docker",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "full-private-database-snapshot",
+      "program": "docker",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "renewal-key-and-request",
+      "program": "openssl",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "renewal-certificate",
+      "program": "openssl",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "replace-manual-leaf",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "replace-manual-leaf",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "restart-proxy",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "unit-identity",
+      "program": "systemctl",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "running-executable",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "running-user",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "running-arguments",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "unit-identity",
+      "program": "systemctl",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "running-executable",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "running-user",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "running-arguments",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "credential-environment",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "accounting-snapshot",
+      "program": "docker",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "private-journal",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "stop-proxy",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "unit-identity",
+      "program": "systemctl",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "stop-app",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "unit-identity",
+      "program": "systemctl",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "cleanup-stop",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "cleanup-state",
+      "program": "systemctl",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "cleanup-stop",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "cleanup-state",
+      "program": "systemctl",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "cleanup-firewall",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "cleanup-firewall",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "cleanup-firewall",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "cleanup-firewall",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "cleanup-firewall",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "cleanup-firewall",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "method": "POST",
+      "path_pattern": "/setup",
+      "status": 303
+    },
+    {
+      "method": "POST",
+      "path_pattern": "/logs",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path_pattern": "/models/import",
+      "status": 303
+    },
+    {
+      "method": "GET",
+      "path_pattern": "/backup",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path_pattern": "/models/model-2/quality/new",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path_pattern": "/models/model-2/quality/jobs",
+      "status": 202
+    },
+    {
+      "method": "GET",
+      "path_pattern": "/quality/jobs/job-3/report",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path_pattern": "/quota/status",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path_pattern": "/quota",
+      "status": 303
+    },
+    {
+      "method": "POST",
+      "path_pattern": "/users",
+      "status": 303
+    },
+    {
+      "method": "GET",
+      "path_pattern": "/backup",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path_pattern": "/projects/project-[0-9a-f]{32}/members",
+      "status": 303
+    },
+    {
+      "method": "POST",
+      "path_pattern": "/login",
+      "status": 303
+    },
+    {
+      "method": "POST",
+      "path_pattern": "/projects/project-[0-9a-f]{32}/open",
+      "status": 303
+    },
+    {
+      "method": "GET",
+      "path_pattern": "/quality/jobs/job-3/report",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path_pattern": "/quota",
+      "status": 403
+    },
+    {
+      "method": "GET",
+      "path_pattern": "/quota/status",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path_pattern": "/backup",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path_pattern": "/login",
+      "status": 303
+    },
+    {
+      "method": "GET",
+      "path_pattern": "/quota/status",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path_pattern": "/quality/jobs/job-3/report",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path_pattern": "/backup",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path_pattern": "/login",
+      "status": 303
+    },
+    {
+      "method": "POST",
+      "path_pattern": "/projects/project-[0-9a-f]{32}/open",
+      "status": 303
+    },
+    {
+      "method": "GET",
+      "path_pattern": "/quality/jobs/job-3/report",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path_pattern": "/quota",
+      "status": 403
+    },
+    {
+      "method": "POST",
+      "path_pattern": "/login",
+      "status": 303
+    },
+    {
+      "method": "GET",
+      "path_pattern": "/quota/status",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path_pattern": "/quality/jobs/job-3/report",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path_pattern": "/backup",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path_pattern": "/login",
+      "status": 303
+    },
+    {
+      "method": "POST",
+      "path_pattern": "/projects/project-[0-9a-f]{32}/open",
+      "status": 303
+    },
+    {
+      "method": "GET",
+      "path_pattern": "/quality/jobs/job-3/report",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path_pattern": "/quota",
+      "status": 403
+    },
+    {
+      "method": "POST",
+      "path_pattern": "/login",
+      "status": 303
+    },
+    {
+      "method": "GET",
+      "path_pattern": "/quota/status",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path_pattern": "/quality/jobs/job-3/report",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path_pattern": "/backup",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path_pattern": "/login",
+      "status": 303
+    },
+    {
+      "method": "POST",
+      "path_pattern": "/projects/project-[0-9a-f]{32}/open",
+      "status": 303
+    },
+    {
+      "method": "GET",
+      "path_pattern": "/quality/jobs/job-3/report",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path_pattern": "/quota",
+      "status": 403
+    },
+    {
+      "method": "GET",
+      "path_pattern": "/quality/jobs/job-3/events",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path_pattern": "/quality/jobs/job-3/report",
+      "status": 200
+    }
+  ]
+}
