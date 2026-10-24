@@ -29,6 +29,8 @@ struct Input {
     id: String,
     train: Vec<Weighted>,
     held_out: Vec<Weighted>,
+    #[serde(default)]
+    diagnostic_only: Vec<Weighted>,
 }
 fn rows(values: &[Weighted]) -> Value {
     Value::Array(
@@ -344,8 +346,10 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let input: Input = serde_json::from_slice(&bytes)?;
     let train = rows(&input.train);
     let held = rows(&input.held_out);
+    let diagnostic = rows(&input.diagnostic_only);
     facade::validate_rows(&train)?;
     facade::validate_rows(&held)?;
+    facade::validate_rows(&diagnostic)?;
     let train_log = log(&input.train)?;
     let path = Path::new(&args[3]);
     if !path.is_dir() || fs::read_dir(path)?.next().is_some() {
@@ -358,6 +362,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     };
     out.json("train.json", &train)?;
     out.json("held-out.json", &held)?;
+    out.json("diagnostic-only.json", &diagnostic)?;
     let mut result = json!({"schema_version":1,"case":input.id,"algorithm":args[1],"input_sha256":quality::sha(&bytes),"held_out_supplied_to_miner":false,"application_profile":1000});
     if train_log.cases.is_empty() {
         result["status"] = json!("no_data");
@@ -429,10 +434,19 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             let training = score(&model, &train);
             let control = score(&model, &held);
             let imported_control = score(&imported, &held);
-            result["export_reimport_metrics_identical"] = json!(
-                control["report"]["metrics"] == imported_control["report"]["metrics"]
-                    && control["status"] == imported_control["status"]
+            result["export_reimport_status_identical"] = json!(
+                control["status"] == imported_control["status"]
+                    && control["issue"] == imported_control["issue"]
             );
+            result["export_reimport_metrics_identical"] =
+                if control["status"] == "evaluated" && imported_control["status"] == "evaluated" {
+                    json!(control["report"]["metrics"] == imported_control["report"]["metrics"])
+                } else {
+                    Value::Null
+                };
+            if !input.diagnostic_only.is_empty() {
+                result["diagnostic_only"] = score(&model, &diagnostic);
+            }
             result["training"] = training;
             result["held_out"] = control;
             result["reimported_held_out"] = imported_control;
