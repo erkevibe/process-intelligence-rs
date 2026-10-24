@@ -1,0 +1,103 @@
+{
+  "original_private_receipt_sha256": "b4ee18607b18aa8ad6d4fbb3c14437ecb4156f652881f9b81b75aa6adf9b0366",
+  "projection_policy": "Only the known workspace prefix is replaced by literal workspace; original receipt remains private and byte-pinned.",
+  "review": {
+    "blockers": [],
+    "created_utc": "2026-10-24T13:34:02.7434325Z",
+    "limitations": [
+      "Read-only targeted evidence verification; did not rerun miner, PM4Py, language equivalence or soundness algorithms",
+      "Complete comparisons rely on source-reviewed pinned auditor execution; actual metric samples and artifact hashes independently checked",
+      "No broad rehash of 1375 installed library files; closure records their verification",
+      "Only three frozen corpora and exact bounded saved graphs accepted; no arbitrary-output or production guarantee",
+      "Inductive audit separate and not accepted here"
+    ],
+    "metric_samples": [
+      {
+        "held_out_fitness": "1",
+        "held_out_precision": "1",
+        "label": "sv-original-r1-linear",
+        "simplicity": "1"
+      },
+      {
+        "held_out_fitness": "1",
+        "held_out_precision": "7/9",
+        "label": "sv-validation-r1-two-parallel-chains",
+        "simplicity": "1"
+      },
+      {
+        "held_out_fitness": "1",
+        "held_out_precision": "1",
+        "label": "sv-structured-r1-repeat-whole-case",
+        "simplicity": "1"
+      }
+    ],
+    "pins": [
+      {
+        "path": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit01/proof.json",
+        "sha256": "b4f5aa0891f5d9dfdf711a309e75a68b6e236cfb841ce434849ac9c912a3daa4"
+      },
+      {
+        "path": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit01/config.json",
+        "sha256": "387a2b835ffc3e4e866cc55153ec6dc0b0b3e7f56edd291c541afa34f4b4ae0a"
+      },
+      {
+        "path": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit01/reference/proof.json",
+        "sha256": "cbebf2df4a8445d4a178339a3e6e9779f79538745cb2e60d655c2e1ac76d4bce"
+      },
+      {
+        "path": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit01/controls/proof.json",
+        "sha256": "1bbe206fc1c6afee1c78a3b9f6ddb14ca58c4cec1adb7a317938e8f25753a8c6"
+      },
+      {
+        "path": "workspace\\.local\\sprint21\\root\\sprint27/structured-series01/manifest.json",
+        "sha256": "7a92d79bc0a8edd4ef98398fe94666bac3c1a00c8c1e16e0354b94eb3c0b242a"
+      },
+      {
+        "path": "workspace\\.local\\sprint21\\root\\sprint27-review\\structured-auditors-source-review01.json",
+        "sha256": "e1537cb2af3deb228af809339ed682dac91c13dde281f628abd0574f4457b3ed"
+      },
+      {
+        "path": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit01/reference/sv-original-r1-linear-xml-net.json",
+        "sha256": "386055579a3c73195a9ba52d9aa9738c3ae7a412d7cef2c2f2129d937593638d"
+      },
+      {
+        "path": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit01/reference/sv-original-r1-linear-xml-graph.json",
+        "sha256": "b426d1d903e44fdd2c89434e0b3f607158c1a5d85ab137cc88b88fd7e5a6423c"
+      },
+      {
+        "path": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit01/reference/sv-validation-r1-two-parallel-chains-xml-net.json",
+        "sha256": "7ace3da62d6053cb5469a50201f5b744b54426ba219b8c08f5de9cc1104bfdf0"
+      },
+      {
+        "path": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit01/reference/sv-validation-r1-two-parallel-chains-xml-graph.json",
+        "sha256": "3c7a74815fb68eff705d1db663087b3901564923a268fc31164889a83ae1395c"
+      },
+      {
+        "path": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit01/reference/sv-structured-r1-repeat-whole-case-reimported-net.json",
+        "sha256": "57d8c18e74c0ab5cd35cae64b59825c70ec180890981996733b155d2d81bec76"
+      },
+      {
+        "path": "workspace\\.local\\sprint21\\root\\sprint27\\sv-audit01/reference/sv-structured-r1-repeat-whole-case-reimported-graph.json",
+        "sha256": "264bf1280d78a6b9563818a2908861a9fb08ba686a609db4a671a8841d4aac79"
+      }
+    ],
+    "reviewer": "independent_review_agent",
+    "schema_version": 1,
+    "status": "PASS_EXACT_FROZEN_STRUCTURED_NUMERICAL_EVIDENCE",
+    "verified": {
+      "all_modelled_four_language_equivalences": true,
+      "all_modelled_one_safe_and_finite_graph_sound": true,
+      "closed_native_records": 3,
+      "complete_stream_hashes": 6,
+      "controls": 20,
+      "modelled": 36,
+      "no_data": 6,
+      "numeric_groups": 76,
+      "producer_artifact_hashes": 384,
+      "reference_group_artifact_hashes": 76,
+      "rows": 42,
+      "series_proof_hashes": 3,
+      "static_source_pins_and_controls": 11
+    }
+  }
+}

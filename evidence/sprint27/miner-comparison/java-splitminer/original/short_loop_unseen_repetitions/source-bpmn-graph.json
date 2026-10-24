@@ -1,0 +1,82 @@
+{
+  "flows": [
+    {
+      "condition": null,
+      "id": "edge0",
+      "label": "",
+      "source": "node1",
+      "target": "node5"
+    },
+    {
+      "condition": null,
+      "id": "edge1",
+      "label": "",
+      "source": "node4",
+      "target": "node2"
+    },
+    {
+      "condition": null,
+      "id": "edge2",
+      "label": "",
+      "source": "node3",
+      "target": "node0"
+    },
+    {
+      "condition": null,
+      "id": "edge3",
+      "label": "",
+      "source": "node0",
+      "target": "node1"
+    },
+    {
+      "condition": null,
+      "id": "edge4",
+      "label": "",
+      "source": "node2",
+      "target": "node3"
+    }
+  ],
+  "label": "eDFGP-diagram",
+  "nodes": [
+    {
+      "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Activity",
+      "id": "node0",
+      "label": "C",
+      "looped": false
+    },
+    {
+      "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Activity",
+      "id": "node1",
+      "label": "D",
+      "looped": false
+    },
+    {
+      "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Activity",
+      "id": "node2",
+      "label": "A",
+      "looped": false
+    },
+    {
+      "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Activity",
+      "id": "node3",
+      "label": "B",
+      "looped": false
+    },
+    {
+      "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Event",
+      "event_trigger": "NONE",
+      "event_type": "START",
+      "event_use": "CATCH",
+      "id": "node4",
+      "label": ""
+    },
+    {
+      "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Event",
+      "event_trigger": "NONE",
+      "event_type": "END",
+      "event_use": "THROW",
+      "id": "node5",
+      "label": ""
+    }
+  ]
+}

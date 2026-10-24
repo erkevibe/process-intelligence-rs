@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions" targetNamespace="urn:process-intelligence:subset:v1">
+<bpmn:process id="ObservedVariants" name="Frozen synthetic training only" isExecutable="false">
+<bpmn:startEvent id="Start" name="Начало"/>
+<bpmn:exclusiveGateway id="Choice" name=""/>
+<bpmn:exclusiveGateway id="Merge" name=""/>
+<bpmn:endEvent id="End" name="Конец"/>
+<bpmn:task id="V0_T0" name="A"/>
+<bpmn:task id="V0_T1" name="B"/>
+<bpmn:task id="V0_T2" name="C"/>
+<bpmn:task id="V1_T0" name="A"/>
+<bpmn:task id="V1_T1" name="X"/>
+<bpmn:task id="V1_T2" name="C"/>
+<bpmn:sequenceFlow id="Flow0" sourceRef="Start" targetRef="Choice"/>
+<bpmn:sequenceFlow id="Flow1" sourceRef="Merge" targetRef="End"/>
+<bpmn:sequenceFlow id="Flow2" sourceRef="Choice" targetRef="V0_T0"/>
+<bpmn:sequenceFlow id="Flow3" sourceRef="V0_T0" targetRef="V0_T1"/>
+<bpmn:sequenceFlow id="Flow4" sourceRef="V0_T1" targetRef="V0_T2"/>
+<bpmn:sequenceFlow id="Flow5" sourceRef="V0_T2" targetRef="Merge"/>
+<bpmn:sequenceFlow id="Flow6" sourceRef="Choice" targetRef="V1_T0"/>
+<bpmn:sequenceFlow id="Flow7" sourceRef="V1_T0" targetRef="V1_T1"/>
+<bpmn:sequenceFlow id="Flow8" sourceRef="V1_T1" targetRef="V1_T2"/>
+<bpmn:sequenceFlow id="Flow9" sourceRef="V1_T2" targetRef="Merge"/>
+</bpmn:process>
+<bpmndi:BPMNDiagram id="Diagram"><bpmndi:BPMNPlane id="Plane" bpmnElement="ObservedVariants">
+<bpmndi:BPMNShape id="Start_di" bpmnElement="Start"><dc:Bounds x="50" y="80" width="45" height="45"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="Choice_di" bpmnElement="Choice"><dc:Bounds x="200" y="80" width="45" height="45"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="Merge_di" bpmnElement="Merge"><dc:Bounds x="910" y="80" width="45" height="45"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="End_di" bpmnElement="End"><dc:Bounds x="1060" y="80" width="45" height="45"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="V0_T0_di" bpmnElement="V0_T0"><dc:Bounds x="370" y="80" width="120" height="70"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="V0_T1_di" bpmnElement="V0_T1"><dc:Bounds x="540" y="80" width="120" height="70"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="V0_T2_di" bpmnElement="V0_T2"><dc:Bounds x="710" y="80" width="120" height="70"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="V1_T0_di" bpmnElement="V1_T0"><dc:Bounds x="370" y="190" width="120" height="70"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="V1_T1_di" bpmnElement="V1_T1"><dc:Bounds x="540" y="190" width="120" height="70"/></bpmndi:BPMNShape>
+<bpmndi:BPMNShape id="V1_T2_di" bpmnElement="V1_T2"><dc:Bounds x="710" y="190" width="120" height="70"/></bpmndi:BPMNShape>
+</bpmndi:BPMNPlane></bpmndi:BPMNDiagram>
+</bpmn:definitions>

@@ -102,8 +102,12 @@ def main():
             xml_language=equivalent(tree,xml_graph)
             reimported_net,reimported_raw,reimported_graph=L.graph(A.load(directory/'reimported-model.json'),libraries)
             reimported_language=equivalent(tree,reimported_graph)
-            save(args.output/(label+'-xml-net.json'),xml_net);save(args.output/(label+'-xml-graph.json'),xml_graph)
-            save(args.output/(label+'-reimported-net.json'),reimported_net);save(args.output/(label+'-reimported-graph.json'),reimported_graph)
+            # Graph identity binds the exact raw net bytes used above, not a
+            # differently ordered serialization of the same JSON structure.
+            with (args.output/(label+'-xml-net.json')).open('xb') as stream:stream.write(xml_raw)
+            save(args.output/(label+'-xml-graph.json'),xml_graph)
+            with (args.output/(label+'-reimported-net.json')).open('xb') as stream:stream.write(reimported_raw)
+            save(args.output/(label+'-reimported-graph.json'),reimported_graph)
             A.need(all(tree.accepts(v['trace']) for v in source['train']),'tree_does_not_accept_all_training_variants')
             A.need(result['model_sha256']==A.sha(A.read(directory/'model.json')) and result['export_reimport_status_identical'] is True and result['export_reimport_metrics_identical'] is True,'exact_roundtrip')
             row.update(soundness=sound,tree_language_equivalence=language,saved_model_language_equivalence=model_language,actual_xml_language_equivalence=xml_language,reimported_model_language_equivalence=reimported_language,model_sha256=result['model_sha256'],fallbacks=result['exact_variant_fallbacks'])

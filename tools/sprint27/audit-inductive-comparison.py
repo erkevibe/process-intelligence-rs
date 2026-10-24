@@ -46,7 +46,11 @@ def main():
             row['reason']=source['reason'];rows.append(row);continue
         A.need(source['status']=='model_projected','honest_projection_status')
         model,mapping=I.project(libraries['importer'].apply(str(original_xml)))
-        A.need(model==A.load(directory/'model.json') and mapping==A.load(directory/'projection.json'),'original_xml_projection_bijection')
+        saved_mapping=A.load(directory/'projection.json')
+        # The unchanged PM4Py etree exporter prefixes sequence-flow IDs with
+        # literal "id" (its pinned source lines336–338); node IDs are retained.
+        expected_xml_mapping={'nodes':saved_mapping['nodes'],'flows':{'id'+key:value for key,value in saved_mapping['flows'].items()}}
+        A.need(model==A.load(directory/'model.json') and mapping==expected_xml_mapping,'original_xml_projection_bijection')
         output=args.scores/label;result=A.load(output/'result.json')
         A.need(result['algorithm']=='pm4py-inductive-im' and result['case']==case['id'] and result['input_sha256']==case['input_sha256']==A.sha(A.read(input_path)) and result['projected_model_input_sha256']==source['model_input_sha256']==A.sha(A.read(directory/'model.json')),'exact_score_binding')
         A.need(J.normalized(A.load(output/'model.json'))==J.normalized(model),'projection_fields_preserved')
@@ -69,13 +73,23 @@ def main():
             reference=R.B.evaluate(net,data,libraries,A.sha(raw),caps);checked=R.compare(report,reference,data);filename=label+'-'+group+'-reference.json';J.save(args.output/filename,reference)
             groups.append({'label':label,'corpus':name,'case':case['id'],'group':group,'comparison':checked,'reference_file':filename,'reference_sha256':A.sha(A.read(args.output/filename))})
         repeats[(name,case['id'],rep)]=result;rows.append(row)
+    repeat_observations=[]
     for name,case,rep in repeats:
         if rep!=1:continue
-        left=repeats[(name,case,1)];right=repeats[(name,case,2)];A.need(left['status']==right['status'],'repeat_status')
-        if left['status']!='modelled':A.need(left.get('reason')==right.get('reason'),'repeat_refusal_reason');continue
-        A.need(left['model_sha256']==right['model_sha256'],'canonical_repeat')
-        for group in ('training','held_out','diagnostic_only'):A.need(left.get(group)==right.get(group),'repeat_metrics')
+        left=repeats[(name,case,1)];right=repeats[(name,case,2)]
+        observation={'corpus':name,'case':case,'same_status':left['status']==right['status']}
+        if left['status']==right['status']=='modelled':
+            observation['same_canonical_model']=left['model_sha256']==right['model_sha256']
+            observation['same_metrics']=all(left.get(group,{}).get('report',{}).get('metrics')==right.get(group,{}).get('report',{}).get('metrics') for group in ('training','held_out','diagnostic_only'))
+            first=args.scores/('im-'+name+'-r1-'+case.replace('_','-'))/'bpmn-graph.json';second=args.scores/('im-'+name+'-r2-'+case.replace('_','-'))/'bpmn-graph.json'
+            observation['language_comparison']=A.EQUIVALENCE.compare(A.load(first),A.load(second),1000)
+            observation['deterministic_candidate_gate']=observation['same_canonical_model'] and observation['same_metrics'] and observation['language_comparison']['status']=='equivalent'
+        else:
+            observation['same_refusal_reason']=J.encoded(left.get('reason'))==J.encoded(right.get('reason'))
+            observation['deterministic_candidate_gate']=observation['same_status'] and observation['same_refusal_reason']
+        repeat_observations.append(observation)
     A.need(len(groups)>0 and len(groups)==len(expected_groups) and {(r['label'],r['group']) for r in groups}==expected_groups,'complete_numeric_group_coverage')
-    J.save(args.output/'proof.json',{'schema_version':1,'status':'S27_ACTUAL_IM_ORIGINAL_PN_XML_PROJECTION_AND_PM4PY_METRICS_AUDITED','native_mining_proof_sha256':A.sha(A.read(args.run/'proof.json')),'native_scoring_proof_sha256':A.sha(A.read(args.scores/'proof.json')),'rows':rows,'groups':groups,'pm4py_version':'2.7.17','source_pins':libraries['pins'],'scope':'Exact saved inputs/nets; actual Python IM, not Rust Inductive Miner. No arbitrary-output soundness guarantee.'})
-    print(json.dumps({'status':'S27_ACTUAL_IM_AUDITED','rows':len(rows),'groups':len(groups)}))
+    gate=all(row['deterministic_candidate_gate'] for row in repeat_observations)
+    J.save(args.output/'proof.json',{'schema_version':1,'status':'S27_ACTUAL_IM_ORIGINAL_PN_XML_PROJECTION_AND_PM4PY_METRICS_AUDITED','native_mining_proof_sha256':A.sha(A.read(args.run/'proof.json')),'native_scoring_proof_sha256':A.sha(A.read(args.scores/'proof.json')),'rows':rows,'groups':groups,'repeat_observations':repeat_observations,'candidate_acceptance':{'deterministic_repeat':gate,'policy':'Observed failure remains a failed selection criterion; completion of this auditor does not admit the candidate.'},'pm4py_version':'2.7.17','source_pins':libraries['pins'],'scope':'Exact saved inputs/nets; actual Python IM, not Rust Inductive Miner. No arbitrary-output soundness guarantee.'})
+    print(json.dumps({'status':'S27_ACTUAL_IM_AUDITED','rows':len(rows),'groups':len(groups),'deterministic_candidate_gate':gate}))
 if __name__=='__main__':main()
