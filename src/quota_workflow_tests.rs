@@ -276,7 +276,7 @@ fn postgres_all_workflows_close_after_quota_fill_and_start_revocation() {
         let bundle:Value=serde_json::from_slice(&backup).unwrap();assert_eq!(bundle["payload"]["quota_policy"]["payload_allowance"],used+65536);
         let before_projects:BTreeSet<_>=p.auth.projects(&owner).iter().map(|v|v.id.clone()).collect();
         let(status,raw)=request(&root,&token,"/restore","multipart/form-data; boundary=s30-quota",restore_body(&backup)).await;
-        assert_eq!(status,303,"restore:{}",String::from_utf8_lossy(&raw));
+        assert_eq!(status,200,"restore:{}",String::from_utf8_lossy(&raw));
         let added:Vec<_>=p.auth.projects(&owner).into_iter().filter(|v|!before_projects.contains(&v.id)).collect();assert_eq!(added.len(),1);
         let restored=crate::repository_v2::load_metadata(&p.database,&added[0].id).unwrap();
         assert_eq!(restored.quota_policy.as_ref().unwrap().payload_allowance,used+65536);

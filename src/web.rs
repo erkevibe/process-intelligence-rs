@@ -39,6 +39,7 @@ pub struct AppState {
     pub(crate) quality_jobs: Arc<JobStore>,
     pub(crate) discovery_jobs: Arc<JobStore>,
     pub port: u16,
+    pub(crate) public_origin: Option<Arc<crate::configuration::PublicOrigin>>,
     pub(crate) platform: Option<Arc<crate::platform::Platform>>,
     pub(crate) actor: Option<crate::auth::Actor>,
     pub(crate) session: Option<String>,
@@ -310,11 +311,22 @@ impl AppState {
             quality_jobs,
             discovery_jobs,
             port,
+            public_origin: None,
             platform: None,
             actor: None,
             session: None,
             payload_permit: None,
         }
+    }
+    pub fn with_public_origin(
+        mut self,
+        origin: Option<crate::configuration::PublicOrigin>,
+    ) -> std::io::Result<Self> {
+        if let Some(origin) = &origin {
+            origin.validate_backend_port(self.port)?;
+        }
+        self.public_origin = origin.map(Arc::new);
+        Ok(self)
     }
 }
 impl AppState {
@@ -706,31 +718,43 @@ async fn guard_inner(State(state): State<AppState>, mut request: Request, next: 
         .get(header::HOST)
         .and_then(|h| h.to_str().ok())
         .unwrap_or("");
-    let host_valid =
-        host == format!("127.0.0.1:{}", state.port) || host == format!("localhost:{}", state.port);
+    let public = state
+        .public_origin
+        .as_ref()
+        .filter(|o| o.matches_host(host));
+    let host_valid = request.headers().get_all(header::HOST).iter().count() == 1
+        && (public.is_some()
+            || host == format!("127.0.0.1:{}", state.port)
+            || host == format!("localhost:{}", state.port));
     if !host_valid {
         return error_json(
             StatusCode::BAD_REQUEST,
             "invalid_host",
-            "Используйте локальный адрес приложения.",
+            "Откройте приложение по настроенному адресу.",
         );
     }
     if request.method() != axum::http::Method::GET && request.method() != axum::http::Method::HEAD {
-        let origin = request
-            .headers()
-            .get(header::ORIGIN)
-            .and_then(|h| h.to_str().ok());
-        let expected = format!("http://{host}");
+        let origins = request.headers().get_all(header::ORIGIN);
+        let mut origins = origins.iter();
+        let origin = origins.next();
+        let duplicate = origins.next().is_some();
+        let expected = public.map_or_else(|| format!("http://{host}"), |o| o.as_str().to_owned());
         let cross_site = request
             .headers()
             .get("sec-fetch-site")
             .and_then(|h| h.to_str().ok())
             == Some("cross-site");
-        if cross_site || origin.is_some_and(|origin| origin != expected) {
+        if cross_site
+            || duplicate
+            || origin.is_some_and(|origin| match origin.to_str() {
+                Ok(value) => value != expected,
+                Err(_) => true,
+            })
+        {
             return error_json(
                 StatusCode::FORBIDDEN,
                 "cross_origin",
-                "Изменения разрешены только из локального приложения.",
+                "Отправьте форму из открытого приложения.",
             );
         }
     }

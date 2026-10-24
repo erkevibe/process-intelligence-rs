@@ -39,6 +39,9 @@ client = urllib.request.build_opener(urllib.request.ProxyHandler({}),
 
 
 def request(method, path, body=None, headers=None, base='https://localhost:8443'):
+    headers=dict(headers or {})
+    if method not in ('GET','HEAD'):
+        headers.setdefault('Origin','https://localhost:8443')
     if isinstance(body, dict):
         body = urllib.parse.urlencode(body).encode()
         headers = dict(headers or {}, **{'Content-Type':'application/x-www-form-urlencoded'})
@@ -74,6 +77,8 @@ status, headers, _ = request('POST','/login',dict(username='s28_owner',password=
 cookie = headers.get('Set-Cookie','')
 check('login_cookie_secure_httponly_samesite', status == 303 and all(v in cookie for v in ['pi_session=','; Secure','; HttpOnly','; SameSite=Strict']))
 check('cookie_jar_secure', bool(list(jar)) and all(c.secure for c in jar))
+status, _, _ = request('POST','/quota',dict(revision=0,payload_allowance=0,mode='disabled'),headers={'Origin':'https://evil.invalid','X-Forwarded-Proto':'https'})
+check('foreign_origin_refused_without_proxy_rewrite', status == 403)
 status, _, raw = request('GET','/quota/status')
 quota = json.loads(raw)
 check('owner_quota_status_through_tls', status == 200 and quota['enabled'] is False)

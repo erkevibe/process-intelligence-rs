@@ -48,3 +48,6 @@ mod resource_cache;
 
 #[cfg(test)]
 mod quota_workflow_tests;
+
+#[cfg(test)]
+mod public_origin_tests;

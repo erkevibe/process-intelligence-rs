@@ -74,6 +74,7 @@ async fn main() -> Result<std::process::ExitCode, Box<dyn std::error::Error>> {
     let port: u16 = std::env::var("PORT")
         .unwrap_or_else(|_| "3000".into())
         .parse()?;
+    let public_origin = process_intelligence_rs::configuration::public_origin(port)?;
     let state = if std::env::var("PI_EPHEMERAL").as_deref() == Ok("1") {
         tracing::warn!("ephemeral_mode_enabled");
         AppState::new(port)
@@ -82,7 +83,8 @@ async fn main() -> Result<std::process::ExitCode, Box<dyn std::error::Error>> {
         tokio::task::spawn_blocking(move || AppState::open(port, url))
             .await?
             .map_err(|e| std::io::Error::other(e.message))?
-    };
+    }
+    .with_public_origin(public_origin)?;
     let listener = tokio::net::TcpListener::bind((std::net::Ipv4Addr::LOCALHOST, port)).await?;
     tracing::info!(port, version = env!("CARGO_PKG_VERSION"), "app_started");
     axum::serve(listener, router(state))

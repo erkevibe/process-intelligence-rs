@@ -19,6 +19,15 @@ PostgreSQL за пределами локального защищённого �
 его в репозиторий, командную строку, журнал или публичное доказательство.
 PI_DATABASE_URL_FILE читает до16KiB; одновременные URL и FILE отвергаются.
 
+В /etc/process-intelligence/app-environment указать PI_PUBLIC_ORIGIN по
+app-environment.example: ровно внешний HTTPS origin, совпадающий с Caddy.
+Пути, query, userinfo, wildcard и пустые значения не допускаются. DNS-имя
+задаётся в ASCII (для IDN —punycode A-label), стандартный443 нормализуется.
+Этот параметр разрешает точные Host/Origin для форм; он сам не включает TLS.
+Локальные HTTP адреса backend сохраняются для служебных проверок; публичный
+localhost/127.0.0.1 origin с тем же портом отвергается как неоднозначный.
+Подставленные forwarded headers не расширяют разрешённые адреса.
+
 deploy/linux/process-intelligence.service использует systemd LoadCredential
 (нужна поддерживающая эту директиву версия systemd). Секрет читается из
 каталога credentials, а в окружении находится только путь. Бинарник запускается

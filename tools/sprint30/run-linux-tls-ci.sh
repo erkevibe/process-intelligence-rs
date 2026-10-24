@@ -38,6 +38,7 @@ openssl x509 -req -in "$out/server.csr" -CA "$out/ca.pem" -CAkey "$out/ca.key" \
 printf '%s\n' "$S28_DISCOVERY_DATABASE_URL" > "$out/database-url"
 unset PI_DATABASE_URL
 export PI_DATABASE_URL_FILE="$out/database-url" PORT=3147
+export PI_PUBLIC_ORIGIN=https://localhost:8443
 export PI_TLS_HOST=localhost PI_TLS_CERT="$out/server.pem" PI_TLS_KEY="$out/server.key"
 export PI_BACKEND_PORT=3147 PI_HTTP_PORT=8080 PI_HTTPS_PORT=8443
 "$out/caddy" validate --config deploy/linux/Caddyfile --adapter caddyfile \

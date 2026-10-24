@@ -8,6 +8,7 @@ Type=simple
 User=process-intelligence
 Group=process-intelligence
 WorkingDirectory=/opt/process-intelligence/current
+EnvironmentFile=/etc/process-intelligence/app-environment
 LoadCredential=database-url:/etc/process-intelligence/database-url
 Environment=PI_DATABASE_URL_FILE=%d/database-url
 Environment=PORT=3000
