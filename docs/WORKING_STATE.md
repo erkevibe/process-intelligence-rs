@@ -4,6 +4,29 @@
 Интервал пользователя09:14:49–17:14:49UTC (22:14:49 Asia/Qyzylorda); цель активна.
 Продолжать до границы, итог не отправлять заранее.
 
+## Текущая точка: P3, около16:36UTC
+
+PR41 mergedmain4aea8a019fa0c028dc4e1bb509d8abfe4fc357e4. Finalhead63052a70,
+обеCI40110326794/job120920505592 и40110321326/job120920490918 PASS.
+P1+P2 завершенывзаявленныхграницах. Тег/releaseне создан; user3131не изменён.
+Branchcodex/sprint-29-api-contract основана наmain4aea.
+P3новыеfiles:API_SUPPORT_CONTRACT.md,tools/sprint29/api-contract-probe.py,
+run-api-contract-ci.sh иCIstep. ПолитиканаблюдаемогоAPI,неSLA/TLS/HA.
+
+Nativeapi01testошибочнопринялdowngradedViewerзаstranger;послеошибкиштатноостановлен.
+Исправленреальныйungrantedviewerbeforegrant;backup200/schema/digest/expectedresources
+проверяютсяпередbytecompare,повторпослеviewerrefusals. Read-onlyreviewподтвердилаfix.
+api02/api03/api04preflightresource_sample_timeout,PGне запускался,этоНЕPASS.
+Длясниженияfilecount1029сгенерированныхcounterfactualcopies сохраненыZIPсfullentryhash
+verification,удаленытолькодублипоодномуLiteralPath,безrecursiveудалений. Nativeproofs/
+proof.json/sourcebundleсохранены. ZIPы:public-counterfactuals04/preserved-cases.zip,
+public-native05/counterfactuals/preserved-cases.zip. Guardlimitsunchanged.
+
+CIrunnerP3 теперьреальноstop/waitseedPID→новыйPID→health→probe,показываетrestartJSON.
+ПодготовитьdraftPR42счестнымnativeguardlimitations,дождатьсяреальныхLinuxCI,
+независимаяreviewsource+closure/CI,сливатьтолькозелёныйточныйhead.
+До17:14:49UTCосталосьоколо38мин;неотправлятьfinalраньше.
+Ниодинguardpreflightне обходить/неослаблять. PGсейчасcleanstopped.
 ## Принято
 
 PR38 независимо проверен, исправлен и слит (main4ac5d20f).

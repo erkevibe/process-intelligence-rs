@@ -76,6 +76,11 @@ jobs:
           cargo run --locked -- --verify-quality-report evidence/sprint28/durable-discovery/browser-original-report.json
           cargo run --locked -- --verify-quality-report evidence/sprint28/durable-discovery/browser-imported-report.json
           cargo run --locked -- --verify-quality-report .local/sprint28/derived-training-report.json
+      - name: Sprint29 finite HTTP API compatibility contract
+        env:
+          S28_DISCOVERY_DATABASE_URL: postgresql://pi_s21_app:sprint25-ci-only@127.0.0.1:5432/pi_s28_discovery_core_ci
+          S29_OWNED_FIXTURE: 'yes'
+        run: timeout 300s bash tools/sprint29/run-api-contract-ci.sh
       - name: Sprint25 shared BPMN evaluator replay and corruption controls
         run: |
           python3 -B tests/sprint25_quality_shared.py --output .local/sprint25/ci-shared-quality
