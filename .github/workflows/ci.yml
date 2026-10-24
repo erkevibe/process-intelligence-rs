@@ -106,6 +106,7 @@ jobs:
           python3 -I -B tools/sprint30/audit-quota.py .local/sprint30/ci-quota/quota-records.json
           python3 -I -B tools/sprint30/verify-evidence.py evidence/sprint30/project-quota --self-test
           python3 -I -B tools/sprint31/verify-service-evidence.py evidence/sprint31/systemd-profile --self-test
+          python3 -I -B tools/sprint32/verify-offline-evidence.py evidence/sprint32/offline-migration --self-test
           (cd evidence/sprint30/linux-ci && sha256sum --check --strict SHA256SUMS)
           (cd evidence/sprint30/quota-browser && sha256sum --check --strict SHA256SUMS)
           cargo test --locked --lib -- migration_v6::tests::populated_v5_full_accounting_repeat_and_malformed_refusals --ignored --exact --nocapture --test-threads=1
@@ -331,6 +332,7 @@ jobs:
           cp -r tools/sprint32 dist/tools/
           cp -r evidence/sprint30 dist/evidence/
           cp -r evidence/sprint31 dist/evidence/
+          cp -r evidence/sprint32 dist/evidence/
           cp -r evidence/sprint28 evidence/sprint29 dist/evidence/
           cp -r tools/sprint28 tools/sprint29 dist/tools/
           mkdir -p dist/tools/sprint23-miner dist/evidence
@@ -523,6 +525,8 @@ jobs:
           S31_PACKAGE_ROOT: ${{ runner.temp }}/sprint32-package
           POSTGRES_CONTAINER: ${{ job.services.service-postgres.id }}
         run: timeout --signal=INT --kill-after=90s 420s python3 -I -B tools/sprint32/offline-migration-ci.py
+      - name: Verify fresh offline migration observations
+        run: python3 -I -B tools/sprint32/verify-offline-evidence.py --runtime .local/sprint32/offline-migration/proof.json .local/sprint32/offline-migration/base-profile-proof.json systemd-package-verification.json > offline-observation-verification.json
       - name: Preserve selected offline migration observations
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
@@ -533,6 +537,7 @@ jobs:
             .local/sprint32/offline-migration/base-profile-proof.json
             .local/sprint32/offline-migration/failure.json
             systemd-package-verification.json
+            offline-observation-verification.json
           include-hidden-files: true
           if-no-files-found: error
           retention-days: 14
