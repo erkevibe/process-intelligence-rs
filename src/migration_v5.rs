@@ -116,6 +116,9 @@ mod tests {
     fn inventory(client: &mut Client) -> Value {
         client.query_one("SELECT json_build_object('projects',(SELECT coalesce(json_agg(to_jsonb(r) ORDER BY project_id),'[]'::json) FROM public.pi_projects r),'records',(SELECT coalesce(json_agg(to_jsonb(r) ORDER BY project_id,kind,resource_id),'[]'::json) FROM public.pi_records r),'sequence',(SELECT json_build_object('last_value',last_value,'is_called',is_called) FROM public.pi_resource_sequence))",&[]).unwrap().get(0)
     }
+    fn contract(client: &mut Client) -> Value {
+        client.query_one("SELECT json_build_object('ledger',(SELECT json_agg(to_jsonb(r) ORDER BY version) FROM public.pi_schema_migrations r),'constraints',(SELECT json_agg(json_build_object('name',conname,'definition',pg_get_constraintdef(oid)) ORDER BY conname) FROM pg_constraint WHERE conrelid='public.pi_records'::regclass))", &[]).unwrap().get(0)
+    }
     #[test]
     #[ignore = "fresh isolated S28_DISCOVERY_MIGRATION_URL pi_s28_discovery_migration required"]
     fn populated_v4_upgrade_preserves_data_and_rejects_malformed_contracts() {
@@ -180,7 +183,9 @@ mod tests {
                 "ALTER TABLE public.pi_records ADD CONSTRAINT unexpected_check CHECK(version<999)",
             )
             .unwrap();
+        let malformed_contract = contract(&mut client);
         assert!(run(&mut client).is_err());
+        assert_eq!(contract(&mut client), malformed_contract);
         assert_eq!(inventory(&mut client), before);
         assert_eq!(
             client
@@ -209,7 +214,9 @@ mod tests {
                 &[],
             )
             .unwrap();
+        let malformed_contract = contract(&mut client);
         assert!(migrate_offline(&mut client).is_err());
+        assert_eq!(contract(&mut client), malformed_contract);
         assert_eq!(inventory(&mut client), before);
         client
             .execute(

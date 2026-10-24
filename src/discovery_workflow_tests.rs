@@ -316,7 +316,7 @@ fn postgres_durable_discovery_publication_retries_revocation_and_recovery() {
             changed.analysis_version += 1;
             let mut next = repo.clone();
             next.logs.insert(log.clone(), changed);
-            s.commit_action_resources(&mut next, "filter_changed", vec![log.clone()])
+            s.commit_action_resources(&mut next, "filter_applied", vec![log.clone()])
                 .unwrap();
             *repo = next;
         }

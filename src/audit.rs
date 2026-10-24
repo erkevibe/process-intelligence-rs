@@ -29,6 +29,9 @@ impl BusinessPolicy {
             "quality_accepted" | "quality_job_updated" | "quality_deleted" => {
                 "durable_quality_snapshot_cas_v1"
             }
+            "discovery_accepted" | "discovery_job_updated" | "discovery_deleted" => {
+                "durable_discovery_snapshot_model_cas_v1"
+            }
             "jobs_interrupted_after_restart" => "restart_interrupted_job_v1",
             "project_created" => "current_writer_new_owner_project_v1",
             "project_renamed" => "owner_project_name_cas_v1",
