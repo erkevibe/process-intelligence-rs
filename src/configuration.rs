@@ -70,7 +70,7 @@ impl PublicOrigin {
             let numeric_tail = lowercase_host.rsplit('.').next().is_some_and(|s| {
                 s.bytes().all(|c| c.is_ascii_digit())
                     || s.strip_prefix("0x")
-                        .is_some_and(|n| !n.is_empty() && n.bytes().all(|c| c.is_ascii_hexdigit()))
+                        .is_some_and(|n| n.bytes().all(|c| c.is_ascii_hexdigit()))
             });
             let host = if host.bytes().all(|c| c.is_ascii_digit() || c == b'.') || numeric_tail {
                 host.parse::<std::net::Ipv4Addr>()
@@ -202,6 +202,9 @@ mod tests {
             "https://example.0X123",
             "https://0x7f000001:3147",
             "https://127.1:3147",
+            "https://0x",
+            "https://0X",
+            "https://example.0X",
         ] {
             assert!(PublicOrigin::parse(bad).is_err(), "{bad}");
         }
