@@ -176,3 +176,16 @@ evidence/sprint24/saved/**/*.stderr -whitespace
 evidence/sprint24/dr-current/postgres.stderr -whitespace
 evidence/sprint24/backup-path/native/**/*.stdout -whitespace
 evidence/sprint24/backup-path/native/**/*.stderr -whitespace
+
+# Sprint27 prospective corpora and native byte-pinned experimental sources.
+tools/sprint27/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+evidence/sprint27/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+fixtures/sprint26-miner/** -text
+fixtures/sprint27-miner-validation/** -text
+fixtures/sprint27-structured/** -text
+examples/miner_compare.rs -text
+examples/miner_alpha_profiles.rs -text
+examples/miner_score.rs -text
+examples/miner_score_inductive.rs -text
+examples/miner_structured.rs -text
+examples/structured/** -text
