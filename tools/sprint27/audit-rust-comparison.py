@@ -101,7 +101,8 @@ def main():
     expected={case['id']:case for case in manifest['cases']};seen=set();results={};rows=[]
     for command in config['commands']:
         algorithm,input_file,out=command['arguments'];directory=Path(out);result=load(directory/'result.json');case=expected[result['case']]
-        key=(algorithm,int(command['label'].split('-r')[1].split('-')[0]),result['case']);need(key not in seen,'duplicate_run');seen.add(key)
+        prefix=algorithm+'-r';need(command['label'].startswith(prefix),'algorithm_label_prefix')
+        key=(algorithm,int(command['label'][len(prefix):].split('-')[0]),result['case']);need(key not in seen,'duplicate_run');seen.add(key)
         need(result['algorithm']==algorithm and result['input_sha256']==case['input_sha256'] and sha(read(input_file))==case['input_sha256'],'exact_training_control_input')
         frozen=load(input_file);need(result['held_out_supplied_to_miner'] is False,'training_only_declaration')
         for group,file in [('train','train.json'),('held_out','held-out.json'),('diagnostic_only','diagnostic-only.json')]:

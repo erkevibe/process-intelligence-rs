@@ -25,7 +25,7 @@ def original_graph(path,libraries):
     bpmn=libraries['importer'].apply(str(path))
     net,im,fm=libraries['converter'].apply(bpmn,parameters={'use_id':False,'enable_reduction':False})
     raw,places,transitions=B.serialize_net(net,im,fm);data=encoded(raw)
-    graph=B.full_graph(net,im,fm,libraries,A.sha(data))
+    graph=B.full_graph(net,im,fm,libraries,A.sha(data));graph['states']=[list(state) for state in graph['states']]
     graph['places']=[places[next(p for p in net.places if str(p.name)==name)] for name in graph['places']]
     for row in graph['transitions']:row['id']=transitions[next(t for t in net.transitions if str(t.name)==row['id'])]
     for edge in graph['edges']:edge['transition']=transitions[next(t for t in net.transitions if str(t.name)==edge['transition'])]
