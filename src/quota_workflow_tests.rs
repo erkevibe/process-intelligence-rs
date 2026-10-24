@@ -197,7 +197,11 @@ fn postgres_all_workflows_close_after_quota_fill_and_start_revocation() {
     let mut s = p.scope(&root, owner.clone()).unwrap();
     s.session = Some(token.clone());
     let mut seed = crate::project_quota::postgres_tests::fixture(&owner.project_id);
-    let source = seed.discovery_jobs.values().next().unwrap();
+    let source = seed
+        .discovery_jobs
+        .values()
+        .find(|m| m.snapshot.state == JobState::Completed && m.model_id.is_some())
+        .unwrap();
     let log = source.log_id.clone();
     let model = source.model_id.clone().unwrap();
     seed.audit = Default::default();

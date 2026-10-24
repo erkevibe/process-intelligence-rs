@@ -2,7 +2,7 @@
 use crate::{domain::ImportError, normalized, project_quota};
 use postgres::{Client, Transaction};
 const NAME: &str = "project_quota_v6";
-const CONTRACT: &str = "project_quota_v6: structural_bytes_v1 null/bool=0 number=32 string=utf8 array=7+4*n+children object=7+8*n+utf8keys+children record=32+utf8kind+utf8id+document; header reserve=268369920 audit=33554432 active=131072 accounting=131072; bounded record_costs nested kind/id ledger(version,cost),120records,64KiB JSON,strictpositivei64versions; project CAS atomic counter/ledger/record with key-version verification and touchedpayload recount; startup/migration full streaming verification; persisted header policy optional; old writer barrier";
+const CONTRACT: &str = "project_quota_v6: structural_bytes_v1 null/bool=0 number=32 string=utf8 array=7+4*n+children object=7+8*n+utf8keys+children record=32+utf8kind+utf8id+document; header reserve=268369920 audit=33554432 active=131072 accounting=131072; bounded record_costs nested kind/id ledger(version,cost),120records,project_utf8<=128,record_id_utf8<=64,64KiB JSON,strictpositivei64versions; project CAS atomic counter/ledger/record with key-version verification and touchedpayload recount; startup/migration full streaming verification; persisted header policy optional; old writer barrier";
 const DDL: &str = "CREATE TABLE public.pi_project_quota(project_id text PRIMARY KEY REFERENCES public.pi_projects(project_id) ON DELETE CASCADE, metric_version integer NOT NULL CHECK(metric_version=1), payload_used bigint NOT NULL CHECK(payload_used>=0),record_costs jsonb NOT NULL);";
 fn checksum() -> String {
     crate::storage::sha256(CONTRACT.as_bytes())
@@ -90,8 +90,12 @@ fn schema(tx: &mut Transaction<'_>) -> Result<(), ImportError> {
 fn accounting(tx: &mut Transaction<'_>) -> Result<(), ImportError> {
     let rows=tx.query("SELECT p.project_id,p.document,q.metric_version,q.payload_used,q.record_costs FROM public.pi_projects p LEFT JOIN public.pi_project_quota q USING(project_id) ORDER BY p.project_id", &[]).map_err(|_|normalized::unavailable())?;
     for row in rows {
+        let project: String = row.get(0);
+        if project.is_empty() || project.len() > 128 {
+            return Err(normalized::invalid());
+        }
         project_quota::validate_header(&row.get::<_, serde_json::Value>(1))?;
-        let (used, measured) = project_quota::measure(tx, &row.get::<_, String>(0))?;
+        let (used, measured) = project_quota::measure(tx, &project)?;
         if row.get::<_, Option<i32>>(2) != Some(1)
             || row
                 .get::<_, Option<i64>>(3)
@@ -134,6 +138,9 @@ pub(crate) fn run(client: &mut Client) -> Result<(), ImportError> {
         .map_err(|_| normalized::unavailable())?;
     for row in rows {
         let project: String = row.get(0);
+        if project.is_empty() || project.len() > 128 {
+            return Err(normalized::invalid());
+        }
         project_quota::validate_header(&row.get::<_, serde_json::Value>(1))?;
         let (used, records) = project_quota::measure(&mut tx, &project)?;
         let used = i64::try_from(used).map_err(|_| normalized::invalid())?;

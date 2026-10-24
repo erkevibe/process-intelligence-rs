@@ -206,7 +206,7 @@ pub(crate) fn valid_kind(kind: &str) -> bool {
     )
 }
 pub(crate) fn validate_write(write: &ProjectWrite) -> Result<(), ImportError> {
-    if write.project.is_empty() || write.expected >= i64::MAX as u64 {
+    if write.project.is_empty() || write.project.len() > 128 || write.expected >= i64::MAX as u64 {
         return Err(invalid());
     }
     validate_document_capacity(&write.metadata, false)?;

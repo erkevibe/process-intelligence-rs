@@ -304,6 +304,16 @@ mod tests {
     }
     #[test]
     fn ledger_schema_bounds_and_collision_free_nested_keys() {
+        let mut write = normalized::ProjectWrite {
+            project: "я".repeat(64),
+            expected: 0,
+            metadata: crate::repository_v2::Header::default().value().unwrap(),
+            puts: vec![],
+            deletes: vec![],
+        };
+        normalized::validate_write(&write).unwrap();
+        write.project.push('x');
+        assert!(normalized::validate_write(&write).is_err());
         let good = json!({"model":{"model-1":{"version":1,"cost":44}}});
         assert_eq!(
             ledger_total(&parse_ledger(good.clone()).unwrap()).unwrap(),
