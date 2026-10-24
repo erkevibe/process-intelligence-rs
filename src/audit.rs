@@ -49,6 +49,7 @@ impl BusinessPolicy {
             "platform_initialized" => "empty_workspace_initial_admin_v1",
             "project_backup_restored" => "writer_validated_new_project_restore_v1",
             "repository_updated" => "current_writer_repository_cas_v1",
+            "quota_changed" => "owner_structural_bytes_v1_policy_cas_v1",
             _ => {
                 return Err(ImportError::new(
                     "audit_policy",

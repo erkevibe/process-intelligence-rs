@@ -31,7 +31,7 @@ while True:
     os.kill(int(os.environ['S29_SERVER_PID']),0)
     try:
         with client.open('http://127.0.0.1:3147/health',timeout=1) as response:
-            assert response.status == 200 and json.load(response)['version'] == '0.10.0'
+            assert response.status == 200 and json.load(response)['version'] == '0.11.0'
         break
     except urllib.error.URLError:
         if time.monotonic() >= end:

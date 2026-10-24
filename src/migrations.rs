@@ -147,6 +147,9 @@ pub(crate) fn validate_v4_baseline(client: &mut Client) -> Result<(), ImportErro
 pub(crate) fn validate_v5_baseline(client: &mut Client) -> Result<(), ImportError> {
     baseline(client, false, 5)
 }
+pub(crate) fn validate_v6_baseline(client: &mut Client) -> Result<(), ImportError> {
+    baseline(client, false, 6)
+}
 
 pub(crate) fn apply(client: &mut Client) -> Result<(), ImportError> {
     let ledger: bool = client
@@ -172,7 +175,8 @@ pub(crate) fn apply(client: &mut Client) -> Result<(), ImportError> {
         crate::normalized::initialize_empty(client)?;
         crate::migration_v3::run(client)?;
         crate::migration_v4::run(client)?;
-        return crate::migration_v5::run(client);
+        crate::migration_v5::run(client)?;
+        return crate::migration_v6::run(client);
     }
     let version: i32 = client
         .query_one(
@@ -210,7 +214,14 @@ pub(crate) fn apply(client: &mut Client) -> Result<(), ImportError> {
                 "Требуется офлайн-миграция для сохраняемых построений. Сохраните копию и запустите --migrate-storage.",
             ))
         }
-        5 => crate::migration_v5::validate_ready(client),
+        5 => {
+            crate::migration_v5::validate_ready(client)?;
+            Err(ImportError::new(
+                "migration_required",
+                "Требуется офлайн-подготовка учёта квоты. Сохраните копию и запустите --migrate-storage.",
+            ))
+        }
+        6 => crate::migration_v6::validate_ready(client),
         _ => Err(invalid()),
     }
 }

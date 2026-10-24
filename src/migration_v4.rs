@@ -134,7 +134,7 @@ mod tests {
                 .get::<_, bool>(0)
         );
         crate::migrations::apply(&mut client).unwrap();
-        client.batch_execute("ALTER TABLE public.pi_records DROP CONSTRAINT pi_records_kind_check; ALTER TABLE public.pi_records ADD CONSTRAINT pi_records_kind_check CHECK (kind IN ('log_state','log_data','log_source','log_analysis','model','conversion')); DELETE FROM public.pi_schema_migrations WHERE version>=4;").unwrap();
+        client.batch_execute("DROP TABLE public.pi_project_quota; ALTER TABLE public.pi_records DROP CONSTRAINT pi_records_kind_check; ALTER TABLE public.pi_records ADD CONSTRAINT pi_records_kind_check CHECK (kind IN ('log_state','log_data','log_source','log_analysis','model','conversion')); DELETE FROM public.pi_schema_migrations WHERE version>=4;").unwrap();
         let header = crate::repository_v2::Header {
             model_ids: vec!["model-1".into()],
             sequence: 17,

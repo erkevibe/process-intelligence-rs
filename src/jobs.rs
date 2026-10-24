@@ -25,6 +25,22 @@ pub struct JobError {
     pub code: String,
     pub message: String,
 }
+impl JobError {
+    /// Persistable even when an upstream parser produces an unbounded error.
+    pub(crate) fn bounded(code: &str, message: &str) -> Self {
+        fn text(value: &str, limit: usize) -> String {
+            let mut end = value.len().min(limit);
+            while !value.is_char_boundary(end) {
+                end -= 1;
+            }
+            value[..end].chars().filter(|c| !c.is_control()).collect()
+        }
+        Self {
+            code: text(code, 128),
+            message: text(message, 4096),
+        }
+    }
+}
 
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
@@ -212,10 +228,7 @@ impl Job {
                     let mut predicted = snapshot.clone();
                     predicted.state = JobState::Failed;
                     predicted.stage = "failed".into();
-                    predicted.error = Some(JobError {
-                        code: error.code,
-                        message: error.message,
-                    });
+                    predicted.error = Some(JobError::bounded(&error.code, &error.message));
                     predicted.job_revision += 1;
                     commit_failure(&predicted)?;
                     predicted.job_revision -= 1;
@@ -247,10 +260,7 @@ impl Job {
         } else {
             predicted.state = JobState::Failed;
             predicted.stage = "failed".into();
-            predicted.error = Some(JobError {
-                code: code.into(),
-                message: message.into(),
-            });
+            predicted.error = Some(JobError::bounded(code, message));
         }
         predicted.result_id = None;
         predicted.job_revision += 1;

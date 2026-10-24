@@ -399,7 +399,7 @@ fn response_error(error: ImportError) -> Response {
     let status = match error.code.as_str() {
         "access_denied" => StatusCode::FORBIDDEN,
         "not_found" => StatusCode::NOT_FOUND,
-        "project_capacity" => StatusCode::PAYLOAD_TOO_LARGE,
+        "project_capacity" | "project_quota" => StatusCode::PAYLOAD_TOO_LARGE,
         "storage_conflict"
         | "model_conflict"
         | "preview_conflict"
@@ -428,7 +428,7 @@ async fn blocking<T: Send + 'static>(
 }
 pub(crate) fn page(title: &str, body: String) -> Response {
     let nonce = uuid::Uuid::new_v4().simple().to_string();
-    let nav = "<nav><a href=\"/\">Анализ</a> · <a href=\"/projects\">Проекты</a> · <a href=\"/folders\">Папки</a> · <a href=\"/audit\">История</a> · <a href=\"/logs\">Журналы</a> · <a href=\"/csv\">CSV</a> · <a href=\"/conversions\">Преобразования</a> · <a href=\"/models\">BPMN</a> · <a href=\"/quality\">Оценки BPMN</a> · <a href=\"/discovery\">Построение</a> · <a href=\"/backup\">Резервная копия</a><form method=\"post\" action=\"/logout\"><button>Выйти</button></form></nav>";
+    let nav = "<nav><a href=\"/\">Анализ</a> · <a href=\"/projects\">Проекты</a> · <a href=\"/folders\">Папки</a> · <a href=\"/audit\">История</a> · <a href=\"/logs\">Журналы</a> · <a href=\"/csv\">CSV</a> · <a href=\"/conversions\">Преобразования</a> · <a href=\"/models\">BPMN</a> · <a href=\"/quality\">Оценки BPMN</a> · <a href=\"/discovery\">Построение</a> · <a href=\"/quota\">Квота</a> · <a href=\"/backup\">Резервная копия</a><form method=\"post\" action=\"/logout\"><button>Выйти</button></form></nav>";
     let html = include_str!("../templates/platform.html")
         .replace("{{NONCE}}", &nonce)
         .replace("{{TITLE}}", &render::html_escape(title))
@@ -543,8 +543,79 @@ pub(crate) fn routes() -> Router<AppState> {
         .route("/models/{id}/json", get(model_json))
         .merge(crate::bpmn_quality_preview::routes())
         .route("/backup", get(backup))
+        .route("/quota", get(quota_page).post(set_quota))
+        .route("/quota/status", get(quota_status))
         .route("/restore", post(restore))
         .route("/diagnostics/cache", get(cache_stats))
+}
+async fn quota_status(Workspace(state): Workspace) -> Response {
+    match blocking(move || {
+        let a = actor(&state)?;
+        let repo = state.repository.lock().expect("repository mutex");
+        let used = platform(&state)?.database.quota_used(&a.project_id)?;
+        Ok(json!({"metric":"structural_bytes_v1","enabled":repo.quota_policy.is_some(),"payload_allowance":repo.quota_policy.as_ref().map(|p|p.payload_allowance),"payload_used":used,"header_reserve":crate::project_quota::HEADER_RESERVE,"revision":repo.storage_revision,"scope":"logical structural units; disk, WAL, backups and RAM excluded"}))
+    }).await {
+        Ok(value) => Json(value).into_response(),
+        Err(e) => response_error(e),
+    }
+}
+async fn quota_page(Workspace(state): Workspace) -> Response {
+    match blocking(move || {
+        let a=actor(&state)?;
+        let repo=state.repository.lock().expect("repository mutex");
+        let used=platform(&state)?.database.quota_used(&a.project_id)?;
+        let mut body=format!("<p>Данные: {used} логических единиц. Резерв служебных данных: {}. Это учёт структуры данных, а не места на диске.</p><p>Квота: {}.</p>",crate::project_quota::HEADER_RESERVE,repo.quota_policy.as_ref().map_or_else(||"выключена".into(),|p|format!("лимит данных {}",p.payload_allowance)));
+        if a.role==Role::Owner {
+            body.push_str(&format!("<form method=\"post\" action=\"/quota\"><input type=\"hidden\" name=\"revision\" value=\"{}\"><label>Лимит данных (логические единицы)<input type=\"number\" name=\"payload_allowance\" min=\"0\" value=\"{}\" required></label><label>Политика<select name=\"mode\"><option value=\"enabled\">Включена</option><option value=\"disabled\" {}>Выключена</option></select></label><button>Сохранить квоту</button></form>",repo.storage_revision,repo.quota_policy.as_ref().map_or(used,|p|p.payload_allowance),if repo.quota_policy.is_none(){"selected"}else{""}));
+        }
+        Ok(body)
+    }).await {Ok(body)=>page("Квота проекта",body),Err(e)=>response_error(e)}
+}
+#[derive(Deserialize)]
+#[serde(deny_unknown_fields)]
+struct QuotaForm {
+    revision: u64,
+    payload_allowance: u64,
+    mode: String,
+}
+async fn set_quota(Workspace(state): Workspace, Form(form): Form<QuotaForm>) -> Response {
+    match blocking(move || {
+        let a = actor(&state)?;
+        if a.role != Role::Owner {
+            return Err(failure(
+                "access_denied",
+                "Квоту может менять только владелец проекта.",
+            ));
+        }
+        let mut repo = state.repository.lock().expect("repository mutex");
+        if repo.storage_revision != form.revision {
+            return Err(failure(
+                "storage_conflict",
+                "Проект изменился. Обновите страницу.",
+            ));
+        }
+        let policy = match form.mode.as_str() {
+            "disabled" => None,
+            "enabled" => Some(crate::project_quota::Policy {
+                metric_version: 1,
+                payload_allowance: form.payload_allowance,
+            }),
+            _ => return Err(failure("invalid_form", "Неизвестная политика квоты.")),
+        };
+        if let Some(p) = &policy {
+            p.validate()?;
+        }
+        let mut next = repo.clone();
+        next.quota_policy = policy;
+        state.commit_with_action(&mut next, false, "quota_changed", vec![])?;
+        *repo = next;
+        Ok(())
+    })
+    .await
+    {
+        Ok(()) => redirect("/quota"),
+        Err(e) => response_error(e),
+    }
 }
 async fn cache_stats(Workspace(state): Workspace) -> Response {
     match (platform(&state),actor(&state)) {

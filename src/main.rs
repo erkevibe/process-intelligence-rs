@@ -65,9 +65,7 @@ async fn main() -> Result<std::process::ExitCode, Box<dyn std::error::Error>> {
         if args != ["--migrate-storage"] {
             return Err(std::io::Error::other("Supported options: --migrate-storage, --cleanup-storage-verify, --cleanup-storage-apply, --verify-quality-report FILE").into());
         }
-        let url = std::env::var("PI_DATABASE_URL").map_err(|_| {
-            std::io::Error::other("Private PI_DATABASE_URL is required for offline migration.")
-        })?;
+        let url = process_intelligence_rs::configuration::database_url()?;
         tokio::task::spawn_blocking(move || process_intelligence_rs::storage::migrate_offline(url))
             .await?
             .map_err(|e| std::io::Error::other(e.message))?;
@@ -80,7 +78,7 @@ async fn main() -> Result<std::process::ExitCode, Box<dyn std::error::Error>> {
         tracing::warn!("ephemeral_mode_enabled");
         AppState::new(port)
     } else {
-        let url=std::env::var("PI_DATABASE_URL").map_err(|_|std::io::Error::other("PI_DATABASE_URL is required. Run tools/run-windows.ps1 to start the local PostgreSQL platform."))?;
+        let url = process_intelligence_rs::configuration::database_url()?;
         tokio::task::spawn_blocking(move || AppState::open(port, url))
             .await?
             .map_err(|e| std::io::Error::other(e.message))?

@@ -1,0 +1,21 @@
+{
+    admin off
+    http_port {$PI_HTTP_PORT:80}
+    https_port {$PI_HTTPS_PORT:443}
+    auto_https disable_redirects
+}
+
+https://{$PI_TLS_HOST}:{$PI_HTTPS_PORT:443} {
+    tls {$PI_TLS_CERT} {$PI_TLS_KEY}
+    header Strict-Transport-Security "max-age=86400"
+    reverse_proxy 127.0.0.1:{$PI_BACKEND_PORT:3000} {
+        header_up -Forwarded
+        header_up -X-Remote-User
+        header_up -X-User-Id
+        header_down Set-Cookie "(?i)^(pi_session=.*)$" "$1; Secure"
+    }
+}
+
+http://{$PI_TLS_HOST}:{$PI_HTTP_PORT:80} {
+    redir https://{$PI_TLS_HOST}:{$PI_HTTPS_PORT:443}{uri} 308
+}

@@ -48,6 +48,8 @@ pub struct AppState {
 #[derive(Default, Clone, Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
 pub(crate) struct Repository {
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub(crate) quota_policy: Option<crate::project_quota::Policy>,
     #[serde(
         default,
         skip_serializing_if = "crate::folders::Organization::is_empty"
@@ -443,6 +445,15 @@ impl AppState {
                         .collect::<BTreeMap<_, _>>(),
                 )
                 .map_err(|_| crate::discovery_store::corrupt())?;
+            }
+            if action == "quota_changed" {
+                parameters["quota_policy"] =
+                    serde_json::to_value(&next.quota_policy).map_err(|_| {
+                        crate::domain::ImportError::new(
+                            "quota_invalid",
+                            "Политика квоты не сохранена.",
+                        )
+                    })?;
             }
             next.audit.append_business(
                 &actor.id,
@@ -1256,6 +1267,45 @@ pub(crate) fn persist_job(
         next.durable_jobs.remove(id);
     }
     // Terminal/cancel persistence uses the headroom reserved by payload writes.
+    if snapshot.state == crate::jobs::JobState::Failed
+        && !new_job
+        && let (Some(platform), Some(actor)) = (&state.platform, &state.actor)
+    {
+        let old = repository.durable_jobs.get(&snapshot.id).expect("existing");
+        if old == snapshot {
+            return Ok(());
+        }
+        if old.is_terminal()
+            || snapshot.job_revision <= old.job_revision
+            || snapshot.result_id.is_some()
+        {
+            return Err(crate::domain::ImportError::new(
+                "storage_conflict",
+                "Состояние задачи уже изменилось.",
+            ));
+        }
+        next.audit.append_business(
+            "system",
+            &actor.project_id,
+            "job_updated",
+            vec![snapshot.id.clone()],
+            next.storage_revision.checked_add(1).ok_or_else(|| {
+                crate::domain::ImportError::new("storage_conflict", "Счётчик проекта исчерпан.")
+            })?,
+            &json!({"policy":"terminal_failure_only","snapshot":snapshot}),
+        )?;
+        let write = crate::repository_v2::prepare(&actor.project_id, &next, false)?;
+        if !write.puts.is_empty() || !write.deletes.is_empty() {
+            return Err(crate::domain::ImportError::new(
+                "repository_corrupt",
+                "Завершение задачи не может менять данные.",
+            ));
+        }
+        next.storage_revision = platform.database.write_project(write)?;
+        crate::repository_v2::mark_persisted(&mut next);
+        *repository = next;
+        return Ok(());
+    }
     state.commit_with_action(&mut next, new_job, "job_updated", vec![snapshot.id.clone()])?;
     *repository = next;
     Ok(())
@@ -1339,11 +1389,9 @@ async fn enqueue_job(state: AppState, content: Vec<u8>, filename: String) -> Res
         let run_job = job.clone();
         let result = tokio::task::spawn_blocking(move || {
             let _permit = permit;
-            if !run_job.start("parsing") {
-                persist_job(&worker, &run_job.snapshot())?;
+            if !run_job.try_start_with("parsing", |s| persist_job(&worker, s))? {
                 return Ok(());
             }
-            persist_job(&worker, &run_job.snapshot())?;
             let hash = crate::storage::sha256(&content);
             let control = run_job.control();
             let cancelled = || control.is_cancelled();
@@ -1384,10 +1432,26 @@ async fn enqueue_job(state: AppState, content: Vec<u8>, filename: String) -> Res
             persist_job(&worker, &run_job.snapshot())
         })
         .await;
-        if !matches!(result, Ok(Ok(()))) {
-            // Do not advertise an uncommitted terminal snapshot. Restart will
-            // recover the last durable nonterminal state as interrupted.
-            tracing::error!(job_id=%job.snapshot().id,"job_persistence_failed");
+        let failure = match result {
+            Ok(Ok(())) => None,
+            Ok(Err(error)) => Some(error),
+            Err(_) => Some(crate::domain::ImportError::new(
+                "worker_failed",
+                "Обработка прервана. Данные не опубликованы.",
+            )),
+        };
+        if let Some(error) = failure {
+            let failed_job = job.clone();
+            let failure_state = state.clone();
+            let saved = tokio::task::spawn_blocking(move || {
+                failed_job.try_fail_with(&error.code, &error.message, |snapshot| {
+                    persist_job(&failure_state, snapshot)
+                })
+            })
+            .await;
+            if !matches!(saved, Ok(Ok(_))) {
+                tracing::error!(job_id=%job.snapshot().id,"job_persistence_failed");
+            }
         }
         drop(lease);
         state.jobs.prune();

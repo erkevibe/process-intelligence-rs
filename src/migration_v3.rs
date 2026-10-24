@@ -143,7 +143,7 @@ mod tests {
         assert!(absent, "migration fixture requires an empty database");
         crate::migrations::apply(&mut client).unwrap();
         // Produce the exact historical V2 contract, without changing its checksum.
-        client.batch_execute("ALTER TABLE public.pi_records DROP CONSTRAINT pi_records_kind_check; ALTER TABLE public.pi_records ADD CONSTRAINT pi_records_kind_check CHECK(kind IN ('log_state','log_data','log_source','log_analysis','model')); DELETE FROM public.pi_schema_migrations WHERE version>=3;").unwrap();
+        client.batch_execute("DROP TABLE public.pi_project_quota; ALTER TABLE public.pi_records DROP CONSTRAINT pi_records_kind_check; ALTER TABLE public.pi_records ADD CONSTRAINT pi_records_kind_check CHECK(kind IN ('log_state','log_data','log_source','log_analysis','model')); DELETE FROM public.pi_schema_migrations WHERE version>=3;").unwrap();
         let original = json!({"source":"retained", "unicode":"данные", "revision":17});
         client
             .execute(
