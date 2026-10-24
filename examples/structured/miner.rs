@@ -351,7 +351,7 @@ pub fn discover(variants: &Variants) -> std::result::Result<Result, String> {
             if label.trim().is_empty() || label.len() > 200 {
                 return Err("structured_activity".into());
             }
-            labels.insert(label)
+            labels.insert(label);
         }
     }
     if count > 64 || events > 500 || labels.len() > 6 {

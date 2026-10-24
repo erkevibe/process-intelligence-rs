@@ -1,10 +1,10 @@
-param([Parameter(Mandatory)][ValidatePattern('^[a-z][a-z0-9-]{0,30}$')][string]$RunName)
+param([Parameter(Mandatory)][ValidatePattern('^[a-z][a-z0-9-]{0,30}$')][string]$RunName,[ValidatePattern('^compile[0-9]{2}$')][string]$BuildRun='compile04')
 Set-StrictMode -Version Latest
 $ErrorActionPreference='Stop'
 . ./tools/sprint27/load-limited-broker.ps1
 $root=[string]$PWD;$base=Join-Path $root '.local/sprint21/root/sprint27'
-$buildConfig=Get-Content (Join-Path $base 'compile03-config.json') -Raw|ConvertFrom-Json -AsHashtable
-$build=Get-Content (Join-Path $base 'compile03/proof.json') -Raw|ConvertFrom-Json -AsHashtable
+$buildConfig=Get-Content (Join-Path $base ($BuildRun+'-config.json')) -Raw|ConvertFrom-Json -AsHashtable
+$build=Get-Content (Join-Path $base ($BuildRun+'/proof.json')) -Raw|ConvertFrom-Json -AsHashtable
 if($build.status -cne 'DIRECT_OWNED_CARGO_COMMANDS_CLOSED' -or @($build.records|Where-Object {$_.native_exit -ne 0 -or !$_.stdout_complete -or !$_.stderr_complete}).Count){throw 'release_build_required'}
 foreach($pin in $buildConfig.pins){Assert-OwnedHash $pin.path $pin.sha256}
 $old=Get-Content .local/sprint21/root/sprint25/preview-runtime-config07.json -Raw|ConvertFrom-Json -AsHashtable
