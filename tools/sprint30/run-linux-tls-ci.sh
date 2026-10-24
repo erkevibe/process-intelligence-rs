@@ -10,7 +10,10 @@ u=urllib.parse.urlsplit(os.environ['S28_DISCOVERY_DATABASE_URL'])
 assert u.scheme=='postgresql' and u.hostname=='127.0.0.1' and u.port==5432
 assert u.username=='pi_s21_app' and u.path=='/pi_s28_discovery_core_ci'
 for port in (3147,8080,8443):
-    with socket.socket() as s:s.bind(('127.0.0.1',port))
+    with socket.socket() as s:
+        s.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1)
+        s.bind(('127.0.0.1',port))
+        s.listen(1)
 PY
 out="$PWD/.local/sprint30/ci-tls"
 test ! -e "$out"
@@ -89,6 +92,8 @@ from pathlib import Path
 root=Path(os.environ['S30_TLS_OUTPUT'])
 value=dict(status='S30_LINUX_TLS_RUN_COMPLETE',caddy_version=(root/'caddy-version.txt').read_text().strip(),
     config_sha256=hashlib.sha256(Path('deploy/linux/Caddyfile').read_bytes()).hexdigest(),
+    app_sha256=hashlib.sha256(Path('target/debug/process-intelligence-rs').read_bytes()).hexdigest(),
+    public_origin=os.environ['PI_PUBLIC_ORIGIN'],
     app_pid=int(os.environ['S30_APP_PID']),caddy_pid=int(os.environ['S30_CADDY_PID']),
     private_credential_file_used=True,global_ca_store_modified=False)
 (root/'runner-proof.json').write_text(json.dumps(value,indent=2)+'\n')

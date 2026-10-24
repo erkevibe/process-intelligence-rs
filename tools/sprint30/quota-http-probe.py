@@ -31,6 +31,8 @@ def request(method,path,body=None,content_type=None):
         body=urllib.parse.urlencode(body).encode()
         content_type='application/x-www-form-urlencoded'
     req=urllib.request.Request(os.environ['S30_BASE_URL']+path,data=body,method=method)
+    if method not in ('GET','HEAD'):
+        req.add_header('Origin',os.environ['S30_BASE_URL'])
     if content_type:
         req.add_header('Content-Type',content_type)
     try:
