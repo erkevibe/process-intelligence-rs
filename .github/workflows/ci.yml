@@ -41,6 +41,19 @@ jobs:
         run: |
           python3 -c "from pathlib import Path; Path('.local/sprint25/ci-pg-http').mkdir(parents=True)"
           cargo test --locked --lib -- bpmn_quality_preview::tests::postgres_http_permissions_revisions_filtered_log_and_dropped_client --ignored --exact --nocapture --test-threads=1
+      - name: Sprint26 durable quality and populated storage migration
+        env:
+          POSTGRES_CONTAINER: ${{ job.services.quality-postgres.id }}
+          S26_QUALITY_DATABASE_URL: postgresql://pi_s21_app:sprint25-ci-only@127.0.0.1:5432/pi_s26_quality_core_ci
+          S26_QUALITY_EVIDENCE: .local/sprint26/ci-core
+          S26_QUALITY_MIGRATION_URL: postgresql://pi_s21_app:sprint25-ci-only@127.0.0.1:5432/pi_s26_quality_migration_ci
+        run: |
+          docker exec "$POSTGRES_CONTAINER" psql -U pi_s21_app -d postgres -v ON_ERROR_STOP=1 -c 'CREATE DATABASE pi_s26_quality_core_ci OWNER pi_s21_app;'
+          docker exec "$POSTGRES_CONTAINER" psql -U pi_s21_app -d postgres -v ON_ERROR_STOP=1 -c 'CREATE DATABASE pi_s26_quality_migration_ci OWNER pi_s21_app;'
+          mkdir -p .local/sprint26/ci-core
+          cargo test --locked --lib -- quality_workflow::tests::postgres_durable_acceptance_cancellation_revocation_recovery_and_receipts --ignored --exact --nocapture --test-threads=1
+          cargo test --locked --lib -- migration_v4::tests::populated_v3_upgrade_preserves_data_and_rejects_malformed_contracts --ignored --exact --nocapture --test-threads=1
+          cargo run --locked -- --verify-quality-report .local/sprint26/ci-core/confirmed-report.json
       - name: Sprint25 shared BPMN evaluator replay and corruption controls
         run: |
           python3 -B tests/sprint25_quality_shared.py --output .local/sprint25/ci-shared-quality
@@ -134,7 +147,7 @@ jobs:
             python3 -I -B tools/sprint23/check-transport-controls.py "$PWD/tools/sprint23/evidence-transport.py" "$PWD/.local/sprint21/root/sprint23/ci-transport-controls" --workspace "$PWD" --auditor "$PWD/tools/sprint23/audit-compact.py"
             python3 -I -B tools/sprint23/evidence-transport.py verify "$PWD/evidence/sprint23" --workspace "$PWD" --selection-sha 0E723F7BE2B611F69B2851B19812848DEF54C5B4A3BEBA773232E31945DEB858 --auditor "$PWD/tools/sprint23/audit-compact.py"
             mkdir -p .local/sprint21/root/sprint23/ci-selfcheck-kit
-            python3 -I -B tools/sprint23/check-selfcheck-kit.py "$PWD/evidence/sprint23-kit/checker-kit.zip" 020D9517DF44BF7EC5D97BD81945729FD71C2EA9E181900E1FBF6D4406BF1509 "$PWD/.local/sprint21/root/sprint23/ci-selfcheck-kit" --doc-sha 68836A12BB2A3F6D7058D4675795FC8418DAC497778C465A16851C182E71ADE2 --workspace "$PWD" --source "$PWD/fixtures/conversions/flat-unicode.xes" --default-report "$PWD/.local/sprint21/root/sprint23/ci-corpus/X01.default.json" --compact-report "$PWD/.local/sprint21/root/sprint23/ci-corpus/X01.compact.json" --payload "$PWD/.local/sprint21/root/sprint23/ci-corpus/X01.payload"
+            python3 -I -B tools/sprint23/check-selfcheck-kit.py "$PWD/evidence/sprint23-kit/checker-kit.zip" 020D9517DF44BF7EC5D97BD81945729FD71C2EA9E181900E1FBF6D4406BF1509 "$PWD/.local/sprint21/root/sprint23/ci-selfcheck-kit" --doc-sha 68836A12BB2A3F6D7058D4675795FC8418DAC497778C465A16851C182E71ADE2 --workspace "$PWD" --source "$PWD/fixtures/conversions/flat-unicode.xes" --default-report "$PWD/evidence/sprint23/corpus/X01.default.json" --compact-report "$PWD/evidence/sprint23/corpus/X01.compact.json" --payload "$PWD/evidence/sprint23/corpus/X01.payload"
       - name: Sprint24 finite saved API and operational evidence
         run: |
           mkdir -p .local/sprint24/ci/journal
@@ -225,7 +238,7 @@ jobs:
             cp docs/SELF_CHECK_RU.md dist/docs/
           cp tools/sprint23/decode-report.py tools/sprint23/audit-compact.py dist/tools/sprint23/
             cp tools/oracle/audit-conversion-evidence.py dist/tools/oracle/
-          cp docs/SPRINT_23_REPORT.md dist/CANDIDATE_STATUS.md
+          cp docs/SPRINT_26_REPORT.md dist/CANDIDATE_STATUS.md
           mkdir -p dist/tools/sprint23-miner dist/evidence
           cp tools/sprint23-miner/*.py dist/tools/sprint23-miner/
           cp tools/oracle/audit-miner-benchmark-evidence.py tools/oracle/audit-miner-performance.py dist/tools/oracle/
@@ -240,6 +253,9 @@ jobs:
           cp docs/SPRINT_24_DR_REPORT.md dist/docs/
           cp docs/SPRINT_24_BACKUP_PATH_REPORT.md dist/docs/
           cp docs/DEVELOPMENT_PLAN.md docs/SHARED_BPMN_QUALITY.md docs/SPRINT_25_BASELINE_REPORT.md dist/docs/
+          cp docs/QUALITY_JOBS_CONTRACT.md docs/SPRINT_26_REPORT.md dist/docs/
+          mkdir -p dist/tools/sprint26
+          cp tools/sprint26/capacity-diagnostic.sql dist/tools/sprint26/
           cp tools/database-backup.ps1 dist/tools/
           tar -czf process-intelligence-rs-linux.tar.gz -C dist .
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7

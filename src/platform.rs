@@ -40,6 +40,7 @@ struct Cached {
     repository: Arc<Mutex<Repository>>,
     jobs: Arc<JobStore>,
     conversion_jobs: Arc<JobStore>,
+    quality_jobs: Arc<JobStore>,
 }
 struct PendingCsv {
     bytes: Vec<u8>,
@@ -127,6 +128,12 @@ impl Platform {
                         .iter()
                         .map(|id| ("model".into(), id.clone())),
                 )
+                .chain(
+                    header
+                        .quality_jobs
+                        .values()
+                        .map(|m| ("quality".into(), m.artifact_id.clone())),
+                )
                 .collect();
             if keys != expected {
                 return Err(failure(
@@ -146,11 +153,21 @@ impl Platform {
                         .filter(|m| !m.snapshot.is_terminal())
                         .map(|m| m.snapshot.id.clone()),
                 )
+                .chain(
+                    header
+                        .quality_jobs
+                        .values()
+                        .filter(|m| !m.snapshot.is_terminal())
+                        .map(|m| m.snapshot.id.clone()),
+                )
                 .collect();
             if header.recover() {
                 let mut recovery_parameters = json!({"policy":"nonterminal_to_failed_after_restart","jobs":header.durable_jobs});
                 if !header.conversions.is_empty() {
                     recovery_parameters["conversions"] = json!(header.conversions);
+                }
+                if !header.quality_jobs.is_empty() {
+                    recovery_parameters["quality_jobs"] = json!(header.quality_jobs);
                 }
                 header.audit.append_business(
                     "system",
@@ -188,13 +205,24 @@ impl Platform {
                     .filter(|m| !m.snapshot.is_terminal())
                     .map(|m| m.snapshot.id.clone()),
             )
+            .chain(
+                header
+                    .quality_jobs
+                    .values()
+                    .filter(|m| !m.snapshot.is_terminal())
+                    .map(|m| m.snapshot.id.clone()),
+            )
             .collect();
         if header.recover() {
             repository.durable_jobs = header.durable_jobs;
             repository.conversions = header.conversions;
+            repository.quality_jobs = header.quality_jobs;
             let mut recovery_parameters = json!({"policy":"nonterminal_to_failed_after_restart","jobs":repository.durable_jobs});
             if !repository.conversions.is_empty() {
                 recovery_parameters["conversions"] = json!(repository.conversions);
+            }
+            if !repository.quality_jobs.is_empty() {
+                recovery_parameters["quality_jobs"] = json!(repository.quality_jobs);
             }
             repository.audit.append_business(
                 "system",
@@ -239,6 +267,15 @@ impl Platform {
             &conversion_snapshots,
             self.slots.clone(),
         ));
+        let quality_snapshots = repository
+            .quality_jobs
+            .values()
+            .map(|m| m.snapshot.clone())
+            .collect::<Vec<_>>();
+        let quality_jobs = Arc::new(JobStore::restore_with_slots(
+            &quality_snapshots,
+            self.slots.clone(),
+        ));
         self.workspaces
             .lock()
             .expect("workspace mutex")
@@ -247,6 +284,7 @@ impl Platform {
                 repository: Arc::new(Mutex::new(repository)),
                 jobs,
                 conversion_jobs,
+                quality_jobs,
             });
         Ok(())
     }
@@ -259,6 +297,7 @@ impl Platform {
         state.repository = cached.repository.clone();
         state.jobs = cached.jobs.clone();
         state.conversion_jobs = cached.conversion_jobs.clone();
+        state.quality_jobs = cached.quality_jobs.clone();
         state.actor = Some(actor);
         Ok(state)
     }
@@ -311,7 +350,7 @@ fn response_error(error: ImportError) -> Response {
         | "preview_conflict"
         | "project_conflict"
         | "project_list_conflict" => StatusCode::CONFLICT,
-        "storage_unavailable" | "storage_busy" | "confirmation_uncertain" => {
+        "storage_unavailable" | "storage_busy" | "confirmation_uncertain" | "cpu_busy" => {
             StatusCode::SERVICE_UNAVAILABLE
         }
         _ => StatusCode::UNPROCESSABLE_ENTITY,
@@ -334,7 +373,7 @@ async fn blocking<T: Send + 'static>(
 }
 pub(crate) fn page(title: &str, body: String) -> Response {
     let nonce = uuid::Uuid::new_v4().simple().to_string();
-    let nav = "<nav><a href=\"/\">Анализ</a> · <a href=\"/projects\">Проекты</a> · <a href=\"/folders\">Папки</a> · <a href=\"/audit\">История</a> · <a href=\"/logs\">Журналы</a> · <a href=\"/csv\">CSV</a> · <a href=\"/conversions\">Преобразования</a> · <a href=\"/models\">BPMN</a> · <a href=\"/backup\">Резервная копия</a><form method=\"post\" action=\"/logout\"><button>Выйти</button></form></nav>";
+    let nav = "<nav><a href=\"/\">Анализ</a> · <a href=\"/projects\">Проекты</a> · <a href=\"/folders\">Папки</a> · <a href=\"/audit\">История</a> · <a href=\"/logs\">Журналы</a> · <a href=\"/csv\">CSV</a> · <a href=\"/conversions\">Преобразования</a> · <a href=\"/models\">BPMN</a> · <a href=\"/quality\">Оценки BPMN</a> · <a href=\"/backup\">Резервная копия</a><form method=\"post\" action=\"/logout\"><button>Выйти</button></form></nav>";
     let html = include_str!("../templates/platform.html")
         .replace("{{NONCE}}", &nonce)
         .replace("{{TITLE}}", &render::html_escape(title))
@@ -1692,7 +1731,7 @@ async fn backup(Workspace(state): Workspace) -> Response {
     };
     let repo = state.repository.lock().expect("repository mutex");
     let result = (|| {
-        if repo.durable_jobs.values().any(|job| !job.is_terminal()) || repo.conversions.values().any(|m| !m.snapshot.is_terminal()) {
+        if repo.durable_jobs.values().any(|job| !job.is_terminal()) || repo.conversions.values().any(|m| !m.snapshot.is_terminal()) || repo.quality_jobs.values().any(|m| !m.snapshot.is_terminal()) {
             return Err(failure(
                 "backup_busy",
                 "Дождитесь завершения или отмены фоновых задач перед созданием резервной копии.",
@@ -1739,9 +1778,22 @@ async fn backup(Workspace(state): Workspace) -> Response {
 
     }).await.unwrap_or_else(|_|response_error(failure("worker_failed","Не удалось подготовить результат.")))
 }
-fn validate_backup(repo: &Repository) -> Result<(), ImportError> {
+pub(crate) fn validate_backup(repo: &Repository) -> Result<(), ImportError> {
     crate::repository_v2::header(repo).validate()?;
     crate::conversion_workflow::validate_full(repo)?;
+    crate::quality_store::validate_full(repo)?;
+    let quality_deadline = Instant::now() + std::time::Duration::from_secs(30);
+    for meta in repo
+        .quality_jobs
+        .values()
+        .filter(|m| m.snapshot.state == crate::jobs::JobState::Completed)
+    {
+        let artifact = &repo.quality_artifacts[&meta.artifact_id];
+        let export = json!({"schema_version":1,"method_sha256":meta.method_sha256,"evaluation":artifact.report,"input":artifact.input});
+        let bytes =
+            crate::quality_store::bytes(&export, crate::quality_store::MAX_ARTIFACT + 16 * 1024)?;
+        crate::bpmn_quality::saved::verify_export_with_deadline(&bytes, quality_deadline)?;
+    }
     repo.audit.validate()?;
     repo.organization.validate(&repo.resource_catalog())?;
     if repo.logs.len() > 8 || repo.models.len() > 64 || repo.durable_jobs.len() > 10 {
@@ -1885,60 +1937,73 @@ async fn restore(Workspace(state): Workspace, multipart: Multipart) -> Response 
     };
     let upload = read_upload(multipart, 20 * 1024 * 1024).await;
     match upload {
-        Ok((bytes, _, fields)) => match blocking(move || {
-            let bundle: Backup = serde_json::from_slice(&bytes)
-                .map_err(|_| failure("backup_format", "Неверный формат резервной копии."))?;
-            if bundle.schema_version != 1 {
-                return Err(failure(
-                    "backup_version",
-                    "Версия резервной копии не поддерживается.",
-                ));
-            }
-            if digest(&bundle.payload)? != bundle.digest_sha256 {
-                return Err(failure(
-                    "backup_digest",
-                    "Хеш резервной копии не совпадает.",
-                ));
-            }
-            let mut repo: Repository = serde_json::from_value(bundle.payload)
-                .map_err(|_| failure("backup_format", "Неверный формат данных проекта."))?;
-            validate_backup(&repo)?;
-            let a = actor(&state)?;
-            let current = repo.current.get(&a.id).cloned().or_else(|| {
-                repo.logs
-                    .values()
-                    .max_by_key(|l| l.analysis_version)
-                    .map(|l| l.id.clone())
-            });
-            repo.current.clear();
-            if let Some(id) = current {
-                repo.current.insert(a.id.clone(), id);
-            }
-            repo.user_views.clear();
-            let p = platform(&state)?;
-            let name = fields
-                .get("name")
-                .map_or("Восстановленный проект", String::as_str);
-            p.auth.restore_project(
-                &a,
-                current_session(&state)?,
-                name,
-                serde_json::to_value(repo).map_err(|_| {
-                    failure("backup_format", "Не удалось подготовить восстановление.")
-                })?,
-            )
-        })
-        .await
-        {
-            Ok(id) => page(
-                "Проект восстановлен",
-                format!(
-                    "<h1>Копия восстановлена в отдельный проект</h1><p>{}</p><form method=\"post\" action=\"/projects/{id}/open\"><button>Открыть восстановленный проект</button></form>",
-                    render::html_escape(&id)
+        Ok((bytes, _, fields)) => {
+            let cpu = match state.cpu.clone().try_acquire_owned() {
+                Ok(permit) => permit,
+                Err(_) => {
+                    return response_error(failure(
+                        "cpu_busy",
+                        "Вычислитель занят. Повторите восстановление после завершения текущей операции.",
+                    ));
+                }
+            };
+            match blocking(move || {
+                let _cpu = cpu;
+                state.validate_resource_actor()?;
+                let bundle: Backup = serde_json::from_slice(&bytes)
+                    .map_err(|_| failure("backup_format", "Неверный формат резервной копии."))?;
+                if bundle.schema_version != 1 {
+                    return Err(failure(
+                        "backup_version",
+                        "Версия резервной копии не поддерживается.",
+                    ));
+                }
+                if digest(&bundle.payload)? != bundle.digest_sha256 {
+                    return Err(failure(
+                        "backup_digest",
+                        "Хеш резервной копии не совпадает.",
+                    ));
+                }
+                let mut repo: Repository = serde_json::from_value(bundle.payload)
+                    .map_err(|_| failure("backup_format", "Неверный формат данных проекта."))?;
+                validate_backup(&repo)?;
+                let a = actor(&state)?;
+                let current = repo.current.get(&a.id).cloned().or_else(|| {
+                    repo.logs
+                        .values()
+                        .max_by_key(|l| l.analysis_version)
+                        .map(|l| l.id.clone())
+                });
+                repo.current.clear();
+                if let Some(id) = current {
+                    repo.current.insert(a.id.clone(), id);
+                }
+                repo.user_views.clear();
+                let p = platform(&state)?;
+                let name = fields
+                    .get("name")
+                    .map_or("Восстановленный проект", String::as_str);
+                p.auth.restore_project(
+                    &a,
+                    current_session(&state)?,
+                    name,
+                    serde_json::to_value(repo).map_err(|_| {
+                        failure("backup_format", "Не удалось подготовить восстановление.")
+                    })?,
+                )
+            })
+            .await
+            {
+                Ok(id) => page(
+                    "Проект восстановлен",
+                    format!(
+                        "<h1>Копия восстановлена в отдельный проект</h1><p>{}</p><form method=\"post\" action=\"/projects/{id}/open\"><button>Открыть восстановленный проект</button></form>",
+                        render::html_escape(&id)
+                    ),
                 ),
-            ),
-            Err(e) => response_error(e),
-        },
+                Err(e) => response_error(e),
+            }
+        }
         Err(e) => response_error(e),
     }
 }

@@ -469,14 +469,7 @@ fn accept_reserved(
             "Сохранено восемь преобразований. Удалите ненужное завершённое преобразование перед новым запуском.",
         ));
     }
-    let artifact_sequence = repo.sequence.checked_add(2).ok_or_else(|| {
-        error(
-            "sequence_exhausted",
-            "Исчерпан диапазон идентификаторов. Задача не создана.",
-        )
-    })?;
-    let id = format!("job-{}", state.next_id(artifact_sequence - 1)?);
-    let artifact_id = format!("conversion-{}", state.next_id(artifact_sequence)?);
+    let (id, artifact_id, artifact_sequence) = state.allocate_job_pair(&repo, "conversion")?;
     let lease = state
         .conversion_jobs
         .create_reserved(reservation, Some(id.clone()))

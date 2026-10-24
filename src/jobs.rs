@@ -99,6 +99,47 @@ impl Job {
         self.publish(&mut snapshot);
         true
     }
+    /// Persist a predicted transition before observers can see it.
+    pub(crate) fn try_start_with(
+        &self,
+        stage: &str,
+        commit: impl FnOnce(&JobSnapshot) -> Result<(), crate::domain::ImportError>,
+    ) -> Result<bool, crate::domain::ImportError> {
+        let mut snapshot = self.snapshot.lock().expect("job mutex");
+        if snapshot.state != JobState::Queued || snapshot.cancel_requested {
+            return Ok(false);
+        }
+        let mut predicted = snapshot.clone();
+        predicted.state = JobState::Running;
+        predicted.stage = stage.into();
+        predicted.job_revision += 1;
+        commit(&predicted)?;
+        predicted.job_revision -= 1;
+        *snapshot = predicted;
+        self.publish(&mut snapshot);
+        Ok(true)
+    }
+    pub(crate) fn try_set_stage_with(
+        &self,
+        stage: &str,
+        commit: impl FnOnce(&JobSnapshot) -> Result<(), crate::domain::ImportError>,
+    ) -> Result<(), crate::domain::ImportError> {
+        let mut snapshot = self.snapshot.lock().expect("job mutex");
+        if snapshot.state != JobState::Running
+            || snapshot.cancel_requested
+            || snapshot.stage == stage
+        {
+            return Ok(());
+        }
+        let mut predicted = snapshot.clone();
+        predicted.stage = stage.into();
+        predicted.job_revision += 1;
+        commit(&predicted)?;
+        predicted.job_revision -= 1;
+        *snapshot = predicted;
+        self.publish(&mut snapshot);
+        Ok(())
+    }
     pub fn set_stage(&self, stage: &str) {
         let mut snapshot = self.snapshot.lock().expect("job mutex");
         if snapshot.state == JobState::Running
@@ -283,11 +324,15 @@ impl JobStore {
         self.slots.clone()
     }
     pub(crate) fn remove_terminal(&self, id: &str) {
+        let candidate = self.get(id);
+        let Some(candidate) = candidate.filter(|job| job.snapshot().is_terminal()) else {
+            return;
+        };
         let mut entries = self.entries.lock().expect("jobs mutex");
         if entries
             .jobs
             .get(id)
-            .is_some_and(|job| job.snapshot().is_terminal())
+            .is_some_and(|job| Arc::ptr_eq(job, &candidate))
         {
             entries.jobs.remove(id);
             if entries.current.as_deref() == Some(id) {
@@ -338,6 +383,9 @@ impl JobStore {
             .checked_add(1)
             .ok_or("job_sequence_exhausted")?;
         let id = explicit.unwrap_or_else(|| format!("job-{sequence}"));
+        if entries.jobs.contains_key(&id) {
+            return Err("job_duplicate_id");
+        }
         let job = Arc::new(Job::new(id.clone()));
         entries.sequence = sequence;
         entries.jobs.insert(id.clone(), job.clone());
@@ -391,20 +439,94 @@ impl JobStore {
             .cloned()
     }
     pub fn prune(&self) {
-        let mut entries = self.entries.lock().expect("jobs mutex");
-        let mut terminal: Vec<_> = entries
-            .jobs
+        // Snapshot individual jobs without holding the store index. Publication
+        // holds a job lock before it enters the repository/creates another job.
+        let candidates = self.entries.lock().expect("jobs mutex").jobs.clone();
+        let mut terminal: Vec<_> = candidates
             .iter()
             .filter(|(_, job)| job.snapshot().is_terminal())
-            .map(|(id, _)| id.clone())
+            .map(|(id, job)| (id.clone(), job.clone()))
             .collect();
-        terminal.sort_by_key(|id| {
+        terminal.sort_by_key(|(id, _)| {
             id.strip_prefix("job-")
                 .and_then(|n| n.parse::<u64>().ok())
                 .unwrap_or(0)
         });
-        for id in terminal.iter().take(terminal.len().saturating_sub(8)) {
-            entries.jobs.remove(id);
+        let mut entries = self.entries.lock().expect("jobs mutex");
+        for (id, job) in terminal.iter().take(terminal.len().saturating_sub(8)) {
+            if entries
+                .jobs
+                .get(id)
+                .is_some_and(|current| Arc::ptr_eq(current, job))
+            {
+                entries.jobs.remove(id);
+            }
+        }
+    }
+}
+
+#[cfg(test)]
+mod lock_tests {
+    use super::*;
+    use std::{sync::mpsc, time::Duration};
+    #[test]
+    fn quality_duplicate_id_never_replaces_a_retained_job() {
+        let jobs = JobStore::new();
+        let first = jobs.create_with_id(Some("job-1".into())).unwrap();
+        assert_eq!(
+            jobs.create_with_id(Some("job-1".into())).err().unwrap(),
+            "job_duplicate_id"
+        );
+        assert!(Arc::ptr_eq(&jobs.get("job-1").unwrap(), &first.job));
+        assert_eq!(jobs.shared_slots().available_permits(), 1);
+    }
+    #[test]
+    fn quality_index_cleanup_does_not_block_admission_behind_publication() {
+        for prune in [false, true] {
+            let jobs = Arc::new(JobStore::new());
+            let lease = jobs.create().unwrap();
+            let id = lease.job.snapshot().id;
+            lease.job.start("running");
+            let (entered_tx, entered_rx) = mpsc::sync_channel(1);
+            let (release_tx, release_rx) = mpsc::sync_channel(1);
+            let job = lease.job.clone();
+            let worker = std::thread::spawn(move || {
+                job.complete_with(|| {
+                    entered_tx.send(()).unwrap();
+                    release_rx.recv_timeout(Duration::from_secs(15)).unwrap();
+                    "result".into()
+                })
+            });
+            entered_rx.recv_timeout(Duration::from_secs(5)).unwrap();
+            let cleanup_jobs = jobs.clone();
+            let (ready_tx, ready_rx) = mpsc::sync_channel(1);
+            let cleanup = std::thread::spawn(move || {
+                ready_tx.send(()).unwrap();
+                if prune {
+                    cleanup_jobs.prune()
+                } else {
+                    cleanup_jobs.remove_terminal(&id)
+                }
+            });
+            ready_rx.recv_timeout(Duration::from_secs(5)).unwrap();
+            std::thread::sleep(Duration::from_millis(50));
+            let admitted_jobs = jobs.clone();
+            let (admit_tx, admit_rx) = mpsc::sync_channel(1);
+            let admission = std::thread::spawn(move || {
+                let result = admitted_jobs.create();
+                let _ = admit_tx.send(result);
+            });
+            let admitted = admit_rx.recv_timeout(Duration::from_secs(3));
+            release_tx.send(()).unwrap();
+            worker.join().unwrap();
+            cleanup.join().unwrap();
+            admission.join().unwrap();
+            assert!(
+                admitted.is_ok(),
+                "store index was held while waiting on a job publication lock"
+            );
+            drop(admitted);
+            drop(lease);
         }
     }
 }

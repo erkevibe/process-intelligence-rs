@@ -60,7 +60,7 @@ fn failure(error: ImportError) -> Response {
 }
 
 /// Bound borrowed inputs before cloning any activity names; never sample silently.
-fn rows(log: &EventLog) -> Result<Value, ImportError> {
+pub(crate) fn rows(log: &EventLog) -> Result<Value, ImportError> {
     if log.cases.len() > 64 {
         return Err(error(
             "quality_log_limit",
@@ -185,7 +185,7 @@ fn metric_card(title: &str, description: &str, metric: &Value, scalar: Option<f6
         html_escape(reason)
     )
 }
-fn panel(value: &Value) -> String {
+pub(crate) fn panel(value: &Value) -> String {
     let report = &value["report"];
     let metrics = &report["metrics"];
     let counts = match (

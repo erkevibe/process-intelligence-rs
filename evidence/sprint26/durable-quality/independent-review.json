@@ -1,0 +1,44 @@
+{
+  "baseline_commit": "4ac5d20f93d57d8f3657ba75357ccbdc17e5d304",
+  "blockers": [],
+  "corrected_findings": [
+    "Datastar resolved non200 without patch",
+    "retry replay after deleting original and retried job",
+    "quality nonterminal tasks in project deletion guard",
+    "numerical replay of untrusted restored quality reports",
+    "cross-kind restored job IDs during XES import allocation"
+  ],
+  "followup": {
+    "accepted_fixes": [
+      "historical kit uses its frozen reports without pin changes",
+      "editor revocation fixture explicitly selects shared project"
+    ],
+    "blockers": [],
+    "core04_proof_sha256": "79717C2864A7F369CC2C6094497E91F250CB0DF7C0082CBA331B8F4862B3F49B",
+    "historical_kit_proof_sha256": "B625C345C186F46B280E92AEB66A1403FBC06C0C110A41E43104D8015F5389F2",
+    "private_review_sha256": "A79A69EB7345B8136E0FBFAA61D58B22FF47C196F9EFB831546537F5A869C048",
+    "status": "FOLLOWUP_FIXES_ACCEPTED_PENDING_EXACT_HEAD_CI",
+    "test_source_sha256": "B88A4BE9EDAC72C312751C8BB99B2791DBAD32779CE43C582153A150BC0D6BB9",
+    "verify08_proof_sha256": "B4FDA999D1347BF1262E4278FE3F3A4B878B76438D273D8B5D60753BEC68FC09"
+  },
+  "full_suite": {
+    "failed": 0,
+    "ignored": 27,
+    "passed": 195
+  },
+  "limitations": [
+    "Final immutable commit and CI pending",
+    "Physical process kill covered a committed queued task; compute/publication cancellation and revocation covered separately by backend tests",
+    "Windows package not built or installed",
+    "Reviewer validated saved receipts and source; did not independently execute the runtime"
+  ],
+  "precise_claims": [
+    "Native interruption captured committed queued job35 revision0, not execution inside running alignment",
+    "Restart preserved identity, exposed interrupted without report or auto resume, explicit retry job37 completed",
+    "Browser job41 cancelled and remained cancelled after reload; no assertion that the browser interrupted an active alignment phase",
+    "Parent clarified job39 was a completed unsuccessful browser attempt removed only to free retention; job41 was a fresh real browser submission"
+  ],
+  "private_review_sha256": "46CAF8404DAA82A86F3412F00C7D613494E6293BF97E559D7CC5028E299E758D",
+  "schema_version": 1,
+  "status": "LOCAL_P1_ACCEPTED_PENDING_IMMUTABLE_COMMIT_AND_CI"
+}

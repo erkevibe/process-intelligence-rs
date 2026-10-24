@@ -487,6 +487,11 @@ impl Auth {
                             .conversions
                             .values()
                             .filter(|m| !m.snapshot.is_terminal())
+                            .count()
+                        + header
+                            .quality_jobs
+                            .values()
+                            .filter(|m| !m.snapshot.is_terminal())
                             .count(),
                 )
             } else {
