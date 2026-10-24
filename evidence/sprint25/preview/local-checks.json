@@ -1,0 +1,164 @@
+{
+  "status": "LOCAL_CANDIDATE_CHECKED_PENDING_CI_AND_INDEPENDENT_REVIEW",
+  "ui_controls_repeated": true,
+  "schema_version": 1,
+  "prior_browser": {
+    "proof_sha256": "53199FDAA462278C6E135C0BCA166294593682F2499E7F31BE1AE9B86D02B4B3",
+    "original_final_native_captures_unknown": true,
+    "app_sha256": "B21D552DBBB02943366F946B52EA0AA1D17D3A0DF1FE855277581413F1BC5B2D",
+    "status": "SAVED_PRIOR_BROWSER_EVIDENCE_NOT_RERUN"
+  },
+  "facade_tests_repeated": 5,
+  "baseline_commit": "c1840b4d0204e2951e09c6c62c560047d84b0dbd",
+  "private_raw_outputs_published": false,
+  "fresh_runtime": {
+    "status": "FRESH_PREVIEW_LIVE_HTTP_AND_CLEAN_CLOSURE_PASS",
+    "live_fitness": 1,
+    "records": [
+      {
+        "native_exit": 137,
+        "stdout_complete": true,
+        "label": "app-live",
+        "stderr_complete": true,
+        "stderr_sha256": "FDBB64D051141865E720572E70C6E58A025F80BAE4407082DC47C5000BFF555E",
+        "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+      },
+      {
+        "native_exit": 0,
+        "stdout_complete": true,
+        "label": "cluster-g1",
+        "stderr_complete": true,
+        "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+        "stdout_sha256": "3699F9DE01C6F1900C70B0854E67F15448110E3F567A5E2AACA8D2FBA05E32FC"
+      },
+      {
+        "native_exit": 0,
+        "stdout_complete": true,
+        "label": "create-db",
+        "stderr_complete": true,
+        "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+        "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+      },
+      {
+        "native_exit": 0,
+        "stdout_complete": true,
+        "label": "pg-stop-g1",
+        "stderr_complete": true,
+        "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+        "stdout_sha256": "3589D2BD01F8295CC7C9EC3F5E07625FCD347CCB6F33F2D80EDAFE5F5217C1FB"
+      },
+      {
+        "native_exit": 0,
+        "stdout_complete": true,
+        "label": "postgres-g1",
+        "stderr_complete": true,
+        "stderr_sha256": "CE20B75DD30EC2ABC4E7E3A07098CA5D969180919729DE043EFC762006AAF6FA",
+        "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+      },
+      {
+        "native_exit": 0,
+        "stdout_complete": true,
+        "label": "quality-tests",
+        "stderr_complete": true,
+        "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+        "stdout_sha256": "0EFAB62745AE3D25435EF2D657286EB03F03422288AE54ECA2DE891C8B89E8B8"
+      },
+      {
+        "native_exit": 1,
+        "stdout_complete": true,
+        "label": "ready-01",
+        "stderr_complete": true,
+        "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+        "stdout_sha256": "62285DBF9A623B155EF5FBB74B1E0BB1AAC8583FF3EDECDF23D4EE6D4804EC5B"
+      },
+      {
+        "native_exit": 0,
+        "stdout_complete": true,
+        "label": "ready-02",
+        "stderr_complete": true,
+        "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+        "stdout_sha256": "48F05044D763F65E81DF5FA8BE71F5A81EC224D0B419A9BFA6132B7FBC62D7F4"
+      },
+      {
+        "native_exit": 0,
+        "stdout_complete": true,
+        "label": "snapshot-after",
+        "stderr_complete": true,
+        "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+        "stdout_sha256": "C329027E15F6753FAB6F255F64B17676E93F7A5435567D50CD71EE39D35322EC"
+      },
+      {
+        "native_exit": 0,
+        "stdout_complete": true,
+        "label": "snapshot-before",
+        "stderr_complete": true,
+        "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+        "stdout_sha256": "C329027E15F6753FAB6F255F64B17676E93F7A5435567D50CD71EE39D35322EC"
+      },
+      {
+        "native_exit": 0,
+        "stdout_complete": true,
+        "label": "worker",
+        "stderr_complete": true,
+        "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+        "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+      }
+    ],
+    "live_precision": 1,
+    "http_controls": 16,
+    "proof_sha256": "CC807CC833A5F21D8543087A3A49E77B96E8A76FCD8DE8127352971CFC330290",
+    "business_snapshot_including_sequence_unchanged": true,
+    "live_sse_nonfitting": true,
+    "clean_postgresql_stop": true
+  },
+  "source_pins": [
+    {
+      "path": "src/bpmn_quality/facade.rs",
+      "sha256": "993195DE003D99A5EF42884BDB362A529BFF55D5A21B7BB79FE0DB10865285BF"
+    },
+    {
+      "path": "src/bpmn_quality/metrics.rs",
+      "sha256": "7C4D4115D78307B65BCE609C39773FDF621CA1A72D5EF5D9678F22C55A7F3FDC"
+    },
+    {
+      "path": "src/bpmn_quality_preview.rs",
+      "sha256": "51ACC9AD90D4AC00CBAB3A9C08830D4282117153A2A181AE9524CD624301923B"
+    },
+    {
+      "path": "src/bpmn_quality_preview_tests.rs",
+      "sha256": "67A872ACC523E25C0E1691B911654DD760ECEC819E1F5DB826AEA1AE1207E820"
+    },
+    {
+      "path": "src/platform.rs",
+      "sha256": "F9340993E894FFE1C21E56AF69B63BC7544A386709642A0C3B9D8FA4D2D280C7"
+    },
+    {
+      "path": "src/platform_render.rs",
+      "sha256": "922338D44069FEF16A142367708E7A4DEADCD1F35E1DD018C4A537E45CF1F92F"
+    },
+    {
+      "path": "templates/platform.html",
+      "sha256": "A88B7A81F4F95EDD1F0F95945497D542D4E2C2863399226EABB045DF9623083A"
+    },
+    {
+      "path": "static/quality.js",
+      "sha256": "CD740991DFA0E69BDB7B60CDEE54634440B52E44F14849E7BC4AE2D2F0B6FB3C"
+    },
+    {
+      "path": "tests/sprint25_quality_facade.rs",
+      "sha256": "4B7CDE0536C4EE7224EF5BB12E84AAF548AD93B203E4E8A42F2ECE70CD676697"
+    },
+    {
+      "path": "tests/sprint25_quality_ui.cjs",
+      "sha256": "CEAE9818D0FF58B7C3AAB0F20F8ACBC9110E41A208BEE44722783614D6C45351"
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "sha256": "98E00877C551B0203F066ECCD6D8BD9CD7EEE827DEB3C15DF3A4E0D22854BC71"
+    }
+  ],
+  "durable_history_claimed": false,
+  "release_claimed": false,
+  "independent_acceptance_claimed": false,
+  "source_pin_kind": "raw_windows_worktree_bytes_before_git_line_ending_normalization"
+}

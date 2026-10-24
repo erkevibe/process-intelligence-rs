@@ -1,5 +1,6 @@
 //! Shared bounded BPMN quality computations; file/corpus pipelines remain diagnostic adapters.
 pub mod bridge;
+pub mod facade;
 pub mod metrics;
 pub mod state;
 use serde::Serialize;

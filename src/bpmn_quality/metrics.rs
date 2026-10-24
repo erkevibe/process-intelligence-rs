@@ -120,6 +120,7 @@ fn prefix_stops(
     adjacency: &[Vec<usize>],
     prefix: &[String],
     limit: usize,
+    retain_witness: bool,
 ) -> Result<(BTreeSet<usize>, Value)> {
     let mut distances = BTreeMap::from([((graph.initial_state, 0usize), 0u64)]);
     let mut queue = BTreeSet::from([(0u64, graph.initial_state, 0usize)]);
@@ -160,6 +161,9 @@ fn prefix_stops(
     if stops.is_empty() {
         return Err(Issue::refused("unreplayable_fitting_prefix"));
     }
+    if !retain_witness {
+        return Ok((stops, Value::Null));
+    }
     let states:Vec<_>=distances.iter().map(|((marking,position),cost)|json!({"marking_state":marking,"position":position,"minimum_tau_cost":cost,"settled":settled.contains(&(*marking,*position))})).collect();
     Ok((
         stops,
@@ -171,6 +175,29 @@ pub fn precision(
     variants: &Variants,
     fitness: &Value,
     limits: Limits,
+) -> Result<Value> {
+    precision_impl(graph, variants, fitness, limits, true, &mut |_| Ok(()))
+}
+
+/// Same numerical calculation without retaining per-prefix search witnesses.
+/// The checkpoint is cooperative; it cannot interrupt an upstream alignment call.
+pub fn precision_compact(
+    graph: &Graph,
+    variants: &Variants,
+    fitness: &Value,
+    limits: Limits,
+    checkpoint: &mut impl FnMut(&str) -> Result<()>,
+) -> Result<Value> {
+    precision_impl(graph, variants, fitness, limits, false, checkpoint)
+}
+
+fn precision_impl(
+    graph: &Graph,
+    variants: &Variants,
+    fitness: &Value,
+    limits: Limits,
+    retain_witness: bool,
+    checkpoint: &mut impl FnMut(&str) -> Result<()>,
 ) -> Result<Value> {
     if variants.is_empty() {
         return Ok(status("no_data"));
@@ -213,6 +240,7 @@ pub fn precision(
                    stops: BTreeSet<usize>,
                    search: Value|
      -> Result<()> {
+        checkpoint("precision_prefix")?;
         let closure = tau_closure(graph, &adjacency, &stops, limits.tau)?;
         let labels: BTreeSet<_> = closure
             .iter()
@@ -222,7 +250,9 @@ pub fn precision(
         let escaped: Vec<_> = labels.difference(&observed).cloned().collect();
         activated += weight * labels.len() as u64;
         escaping += weight * escaped.len() as u64;
-        rows.push(json!({"prefix":prefix,"weight":weight,"observed_next_labels":observed,"stop_markings":stops,"tau_closure_markings":closure,"activated_labels":labels,"escaping_labels":escaped,"search":search}));
+        if retain_witness {
+            rows.push(json!({"prefix":prefix,"weight":weight,"observed_next_labels":observed,"stop_markings":stops,"tau_closure_markings":closure,"activated_labels":labels,"escaping_labels":escaped,"search":search}));
+        }
         Ok(())
     };
     add(
@@ -233,7 +263,8 @@ pub fn precision(
         json!({"minimum_tau_cost":0,"policy":"empty_prefix_initial_marking"}),
     )?;
     for (prefix, (frequency, next)) in prefixes {
-        let (stops, search) = prefix_stops(graph, &adjacency, &prefix, limits.prefix)?;
+        let (stops, search) =
+            prefix_stops(graph, &adjacency, &prefix, limits.prefix, retain_witness)?;
         add(prefix, frequency, next, stops, search)?;
     }
     if activated == 0 {

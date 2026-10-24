@@ -7,6 +7,20 @@ permissions:
 jobs:
   linux:
     runs-on: ubuntu-latest
+    services:
+      quality-postgres:
+        image: postgres:18.0
+        env:
+          POSTGRES_USER: pi_s21_app
+          POSTGRES_PASSWORD: sprint25-ci-only
+          POSTGRES_DB: pi_s25_quality_test_ci
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U pi_s21_app -d pi_s25_quality_test_ci"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 12
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
@@ -20,9 +34,17 @@ jobs:
       - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
         with:
           node-version: '24.19.0'
+      - name: Sprint25 PostgreSQL preview permissions, revisions and dropped-client controls
+        env:
+          S25_QUALITY_DATABASE_URL: postgresql://pi_s21_app:sprint25-ci-only@127.0.0.1:5432/pi_s25_quality_test_ci
+          S25_QUALITY_EVIDENCE: .local/sprint25/ci-pg-http
+        run: |
+          python3 -c "from pathlib import Path; Path('.local/sprint25/ci-pg-http').mkdir(parents=True)"
+          cargo test --locked --lib -- bpmn_quality_preview::tests::postgres_http_permissions_revisions_filtered_log_and_dropped_client --ignored --exact --nocapture --test-threads=1
       - name: Sprint25 shared BPMN evaluator replay and corruption controls
         run: |
           python3 -B tests/sprint25_quality_shared.py --output .local/sprint25/ci-shared-quality
+          node tests/sprint25_quality_ui.cjs
           cargo run --locked --example bpmn_quality -- prepare fixtures/quality/corpus.json .local/sprint25/ci-fresh-prepared
           cargo run --locked --example bpmn_quality -- score .local/sprint25/ci-fresh-prepared .local/sprint25/ci-fresh-metrics.json
           python3 -B tools/sprint25/verify-quality-refactor.py --before evidence/sprint19/bpmn-quality/rust-metrics.json --before-prepared evidence/sprint19/bpmn-quality/prepared --after .local/sprint25/ci-fresh-metrics.json --after-prepared .local/sprint25/ci-fresh-prepared --reference evidence/sprint19/bpmn-quality/reference-metrics.json --output .local/sprint25/ci-fresh-audit.json
