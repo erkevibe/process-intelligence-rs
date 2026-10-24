@@ -4,6 +4,49 @@
 Интервал пользователя09:14:49–17:14:49UTC (22:14:49 Asia/Qyzylorda); цель активна.
 Продолжать до границы, итог не отправлять заранее.
 
+## Последняя контрольная точка P3, около16:54UTC
+
+PR42 draft, sourcehead4bc8cf048c2f11ca73f62ec69057e0065d8762eb; новыйcommitниже
+добавляетпубличнуюevidence/APIchecker/report, затемобязательны2CIточногоhead.
+API05/proof.json CLOSED S29_API_CONTRACT_NATIVE_CLOSED:28cases33requests,
+8captures16streams97pins;3backupJSONcorrectdigest/expectedresourcesиbyteidentical;
+seedqualityreportSHAidenticalafternewPID/creationtime. PGштатноостановлен.
+IndependentreviewPASS receipt sprint29-review/final-local-review01.json SHA
+ dc7722589c20ce899ada096e720e541b81993b6ad2bb443c03e36970a9afe754.
+Public packageevidence/sprint29/api-contract (5files+manifest), portablechecker
+verify-api-evidence.py иfrozenexpectedcases/33method-path-status tuples.
+TLS/HA/SLA/load/killmidcompute/fullP3не заявляются. Документы API_SUPPORT_CONTRACT,
+SPRINT_29_REPORT. Осталосьоколо20миндо17:14:49UTC:CI/reviewточногоfinalhead,
+mergeonlygreen,обновитьhandoff;user3131нетронут.
+
+Стандартныйcargo clean -p послеpreserve/hash снял1320files2.7GiB. Старыйowned
+root/targetdebugapp/test pathsудаленыкакbuildoutputs; проверенныеapp/test08
+сохранены `.local/sprint21/root/sprint29/preserved-build08` receiptSHAвалиден.
+API05запущенсpreservedapp.exe темжесамымimageSHA. Это помоглозакрытьguards
+безизменениялимитов. Не пересобиратьбезнуждыдо8hdeadline.
+## Текущая точка: P3, около16:36UTC
+
+PR41 mergedmain4aea8a019fa0c028dc4e1bb509d8abfe4fc357e4. Finalhead63052a70,
+обеCI40110326794/job120920505592 и40110321326/job120920490918 PASS.
+P1+P2 завершенывзаявленныхграницах. Тег/releaseне создан; user3131не изменён.
+Branchcodex/sprint-29-api-contract основана наmain4aea.
+P3новыеfiles:API_SUPPORT_CONTRACT.md,tools/sprint29/api-contract-probe.py,
+run-api-contract-ci.sh иCIstep. ПолитиканаблюдаемогоAPI,неSLA/TLS/HA.
+
+Nativeapi01testошибочнопринялdowngradedViewerзаstranger;послеошибкиштатноостановлен.
+Исправленреальныйungrantedviewerbeforegrant;backup200/schema/digest/expectedresources
+проверяютсяпередbytecompare,повторпослеviewerrefusals. Read-onlyreviewподтвердилаfix.
+api02/api03/api04preflightresource_sample_timeout,PGне запускался,этоНЕPASS.
+Длясниженияfilecount1029сгенерированныхcounterfactualcopies сохраненыZIPсfullentryhash
+verification,удаленытолькодублипоодномуLiteralPath,безrecursiveудалений. Nativeproofs/
+proof.json/sourcebundleсохранены. ZIPы:public-counterfactuals04/preserved-cases.zip,
+public-native05/counterfactuals/preserved-cases.zip. Guardlimitsunchanged.
+
+CIrunnerP3 теперьреальноstop/waitseedPID→новыйPID→health→probe,показываетrestartJSON.
+ПодготовитьdraftPR42счестнымnativeguardlimitations,дождатьсяреальныхLinuxCI,
+независимаяreviewsource+closure/CI,сливатьтолькозелёныйточныйhead.
+До17:14:49UTCосталосьоколо38мин;неотправлятьfinalраньше.
+Ниодинguardpreflightне обходить/неослаблять. PGсейчасcleanstopped.
 ## Принято
 
 PR38 независимо проверен, исправлен и слит (main4ac5d20f).

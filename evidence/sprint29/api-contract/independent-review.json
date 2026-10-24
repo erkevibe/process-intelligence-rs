@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "status": "PASS_SPRINT29_SCOPED_API_CONTRACT_LOCAL_ACCEPTANCE",
+  "created_utc": "2026-10-24T16:43:44.6601401Z",
+  "source_commit": "4bc8cf048c2f11ca73f62ec69057e0065d8762eb",
+  "blockers": [],
+  "verified": {
+    "complete_stream_hashes": 16,
+    "http_requests": 33,
+    "old_app_creation_filetime": 134373298232278995,
+    "old_seed_report_sha256": "f300c26dd8eb933c57affefc3ab04ab498f13db4a1cc79c468a2031fcd7a1f1d",
+    "native_records": 8,
+    "http_body_hashes": 33,
+    "old_app_pid": 53764,
+    "new_app_creation_filetime": 134373336875900958,
+    "protocol_cases": 28,
+    "all_three_backup_bytes_identical": true,
+    "actual_backup_jsons_with_digest_and_expected_resources": 3,
+    "new_app_pid": 79612,
+    "synthetic_ungranted_then_viewer_access_cases": true,
+    "config_pins_current_hash_matches": 97,
+    "ci_runner_static_stop_wait_start_pid_change": true,
+    "new_process_identity_and_report_stability": true
+  },
+  "pins": [
+    {
+      "sha256": "a2d26afc198db7c1b701602b2054d41c4beeb1145bfefb02591c12415add30ef",
+      "path": "[workspace]\\.local\\sprint21\\root\\sprint29\\api05/proof.json"
+    },
+    {
+      "sha256": "d404d57585b119a8145f3c22ef1702569f9fdc1252a0e3ce8330eeca5e44be72",
+      "path": "[workspace]\\.local\\sprint21\\root\\sprint29\\api05/config.json"
+    },
+    {
+      "sha256": "e0c692eed8815ce6dc77427b44a955be0064c43fab83c768914321457df2345e",
+      "path": "[workspace]\\.local\\sprint21\\root\\sprint29\\api05/worker-proof.json"
+    },
+    {
+      "sha256": "7ee96572bcd3683e503d6c04b883615121b88657a18b8343b5489f8225938129",
+      "path": "[workspace]\\.local\\sprint21\\root\\sprint29\\api05/http/proof.json"
+    },
+    {
+      "sha256": "2cdabc04519bff6262d36099fdfc0fe6c288130aff59903ab4ed2910df543f40",
+      "path": "tools/sprint29/api-contract-probe.py"
+    },
+    {
+      "sha256": "57a2f3ea088a8d04e2b586a445a49ed66fed5ce91548b4cc609859c902d6ad57",
+      "path": "tools/sprint29/run-api-contract-ci.sh"
+    },
+    {
+      "sha256": "e0a237e164a302bcebc7489ba1c10fd50c6a1b5005103457cbaeb5f24ca65388",
+      "path": "docs/API_SUPPORT_CONTRACT.md"
+    },
+    {
+      "sha256": "eaea0eabf15eb5cae98423bf9ba94486e9f169f38acaf5c7f6356b6aeff54c4b",
+      "path": ".github/workflows/ci.yml"
+    }
+  ],
+  "resolved_findings": [
+    "Backup verified HTTP200 JSON schema/digest/resources before byte comparison and after viewer refusals",
+    "Stranger tested as newly ungranted synthetic viewer before grant; downgraded editor not confused with absent member",
+    "CI runner explicitly stops/waits seed process and starts distinct PID before probe"
+  ],
+  "limitations": [
+    "No native processes/DB writes/resource scans launched by reviewer",
+    "CI runner only statically reviewed; remote exact-head CI still separate",
+    "P3 increment acceptance only: no TLS/OIDC/HA/SLA/load/wholeP3 completion",
+    "Controlled process change with persisted report; no kill during running discovery compute claim",
+    "Shutdown app exit137 and PG graceful exit0 are distinct recorded behaviors"
+  ],
+  "source_private_receipt_sha256": "DC7722589C20CE899ADA096E720E541B81993B6AD2BB443C03E36970A9AFE754",
+  "projection": "Workspace prefix replaced with [workspace]; immutable source receipt remains private."
+}
