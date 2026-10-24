@@ -81,6 +81,13 @@ def verify(root):
 
 
 def counterfactuals(root):
+    for raw in [b'1e999', b'-1e999']:
+        try:
+            accounting.cost(load(raw))
+        except AssertionError:
+            pass
+        else:
+            raise AssertionError('nonfinite numeric overflow accepted')
     mutations = [
         ('quota-controls.json', lambda v: v.pop(EXPECTED['control_keys'][0])),
         ('migration-proof.json', lambda v: v.pop('repeat_no_change')),
@@ -121,6 +128,7 @@ if __name__ == '__main__':
     result = verify(root)
     if sys.argv[2:] == ['--self-test']:
         result['rehash_semantic_counterfactuals_refused'] = counterfactuals(root)
+        result['nonfinite_numeric_overflow_controls_refused'] = 2
     else:
         assert len(sys.argv) == 2
     print(json.dumps(result, sort_keys=True))

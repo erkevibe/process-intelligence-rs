@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Independent structural_bytes_v1 calculation from exported persisted records."""
 import json
+import math
 from pathlib import Path
 import sys
 
@@ -11,6 +12,7 @@ def cost(value):
     if value is None or isinstance(value, bool):
         return 0
     if isinstance(value, (int, float)):
+        assert not isinstance(value, float) or math.isfinite(value), 'nonfinite numeric value'
         return 32
     if isinstance(value, str):
         return len(value.encode('utf-8'))
