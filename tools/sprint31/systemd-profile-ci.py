@@ -422,10 +422,10 @@ for port in (3000,80,443):
         self.admin('rotate-owned-database-role-password', "ALTER ROLE pi_s31_app PASSWORD '" + self.password + "';")
         # A new TCP connection must authenticate, even if an unexpected HBA
         # change would otherwise let the service start without a valid password.
-        probe = 'IFS= read -r PGPASSWORD; export PGPASSWORD PGCONNECT_TIMEOUT=5; exec psql -h 127.0.0.1 -p 5432 -U pi_s31_app -d pi_s31_restored_ci -X -qAt -v ON_ERROR_STOP=1 -c "SELECT 1;"'
-        refused = self.call('old-role-password-refused', ['docker', 'exec', '-i', self.container, 'sh', '-c', probe], (old_password + '\n').encode(), allowed=(2,))
+        probe = 'IFS= read -r PGPASSWORD; export PGPASSWORD PGCONNECT_TIMEOUT=5; exec psql -h 127.0.0.1 -p 55449 -U pi_s31_app -d pi_s31_restored_ci -X -qAt -v ON_ERROR_STOP=1 -c "SELECT 1;"'
+        refused = self.call('old-role-password-refused', ['sh', '-c', probe], (old_password + '\n').encode(), allowed=(2,))
         assert refused.stdout == b'' and b'password authentication failed' in refused.stderr
-        accepted = self.call('new-role-password-accepted', ['docker', 'exec', '-i', self.container, 'sh', '-c', probe], (self.password + '\n').encode())
+        accepted = self.call('new-role-password-accepted', ['sh', '-c', probe], (self.password + '\n').encode())
         assert accepted.stdout.strip() == b'1'
         self.check('fresh_TCP_authentication_rejects_old_role_password_and_accepts_new_password', True)
         self.database_url = self.connection_url(self.active_database)
