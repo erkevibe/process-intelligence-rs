@@ -1,75 +1,64 @@
 # Рабочее состояние ProcessMining
 
-Обновлено 24 октября 2026, 11:20 UTC. Рабочая ветка:
-`codex/sprint-26-durable-quality`. Пользователь поручил работать восемь часов:
-09:14:49–17:14:49 UTC (до 22:14:49 Asia/Qyzylorda), затем зафиксировать итог.
-Цель активна; после P1 продолжать P2 из `DEVELOPMENT_PLAN.md`.
+Обновлено 24 октября 2026, 12:43 UTC. Ветка `codex/sprint-27-miner-experiment`.
+Пользователь поручил работать 09:14:49–17:14:49 UTC (до 22:14:49 Asia/Qyzylorda),
+после P1 продолжать план. Цель активна.
 
-## Принятая основа
+## Завершено и принято
 
-PR38 независимо проверен, исправлен P2: Datastar иногда завершает HTTP-отказ
-без patch, оставляя старую панель в ожидании. Исправление `bf3c66f` прошло обе
-CI; PR38 слит в main: `4ac5d20f93d57d8f3657ba75357ccbdc17e5d304`.
-История восстановления предыдущих сеансов — `SPRINT_25_PREVIEW_REPORT.md` и
-`../evidence/sprint25/preview/`. Не считать отсутствие старого финального
-receipt успешной остановкой: свежая `resume-live05` закрыла этот пробел отдельно.
+PR38 независимо проверен, исправлено зависание панели при HTTP-отказе Datastar.
+Обе CI прошли; main merge `4ac5d20f93d57d8f3657ba75357ccbdc17e5d304`.
+PR39: сохраняемые входы/отчёты, постоянные задания, отмена и восстановление после
+перезапуска, экспорт/офлайн-проверка, явная миграция v3→v4. Независимое ревью без
+блокеров; 195 тестов прошли, 27 ignored; настоящая PostgreSQL, миграция, отказ
+старого бинарника, backup/restore, поддельные оценки, HTTP и браузер проверены.
+Финальный head `7a268b85f71198e639ebd309e08fffac88c72fdf`: обе CI успешны.
+PR39 слит: `27598a3d1d14a7f14a2ef3a9225a5abcb13220b7`.
+Версия 0.9.0 в main; отдельный tagged release не создан.
+Контракт QUALITY_JOBS_CONTRACT.md; отчёт SPRINT_26_REPORT.md;
+публичные receipts ../evidence/sprint26/durable-quality/.
 
-## Текущий кандидат 0.9.0
+## P2: сравнение майнеров, ещё не продуктовая интеграция
 
-Сохраняемые входы/отчёты, JobStore с общими местами, отмена, interrupted после
-перезапуска, идемпотентные ключи, HTML/SSE, JSON экспорт и офлайн-проверяющий.
-Явная миграция v3→v4, старый бинарник отказывает v4 до записи. Restore заново
-проверяет недоверенные численные отчёты с общим кооперативным deadline и CPU
-допуском. В узких панелях доступна навигация. Это ещё не принятый релиз.
-Контракт: `QUALITY_JOBS_CONTRACT.md`, отчёт: `SPRINT_26_REPORT.md`.
+Исходный корпус 7 задач заморожен commit e7522e6 до запуска. Первый Rust example
+и инструменты сохранены c76e042. `sprint27/rust02`: 28 native запусков (2 повтора),
+контрольные трассы не переданы майнеру. `audits01`: независимая проверка полного
+графа состояний, языка Petri→BPMN, повторов, привязки входов; 20 групп метрик
+совпали с неизменённым PM4Py2.7.17 (1375 исходных файлов проверены).
+Observed хуже на невиданных параллельных порядках/циклах. Старый developer-профиль
+Alpha+++ на этих задачах дал явные отказы; это не вывод обо всех настройках.
 
-Приватные материалы `.local/sprint21/root/sprint26/` содержат тестовые cookie,
-пароли и сырые ответы. Не публиковать их целиком. Публичные компактные записи:
-`../evidence/sprint26/durable-quality/local-checks.json`.
+`java01`: 14 запусков настоящего SplitMiner, класс SHA e8535a6b65b7e758a49e757d635e8797071b8e860bc8d1c6859e592eb1ee21ad.
+`projection02`: 10 графов преобразованы, 2 standard-loop явно отказаны,
+2 пустых журнала дали исключение алгоритма. Метрики/сравнение языка исходного
+XML с проекцией ещё впереди. Не объявлять качество SplitMiner подтверждённым.
 
-- `verify06/proof.json`: 8 коротких тестов, Clippy all-targets, app build — pass.
-- `runtime02/proof.json`: PostgreSQL core, populated migration, old-binary refusal
-  без изменений полного снимка, CLI, 101 native HTTP, backup/restore и coherent
-  numerical forgery refusal; browser report/reload/retry/download; clean closure.
-- `restart01/proof.json`: настоящая committed nonterminal задача захвачена SQL-lock,
-  broker убил только app-before, app-live отметил interrupted; входы идентичны,
-  прежний отчёт побайтно тот же, явный retry успешен. Fresh PG core проверил
-  исправление ID импорта с настоящей sequence. Новая диагностика v4 прошла.
-  Браузер: видимая навигация, отмена job-41 и сохранение отмены после reload,
-  ошибок консоли нет. Все процессы закрыты штатным протоколом, pidfile отсутствует.
-- Независимый reviewer проверил runtime02: 18 capture/36 потоков, 101 ответ,
-  source pins; исправлены replay после удаления, active_jobs, forged restore.
-  Последний P2 про namespace импорта исправлен и проверен в restart01.
-- `verify05` отказал на resource_sample_timeout; сборка была остановлена и не
-  засчитывается. Повтор `verify06` прошёл без изменения защитных пределов.
+commit 94824c6 заранее заморозил новый validation-корпус и два профиля:
+стандартный Alpha+++0.6.2 и тот же без DFG-фильтра. compile02: 3 теста,
+Clippy двух examples и release build успешны. `alpha-original01` завершает
+28 запусков двух профилей на первом корпусе; затем нужны новый validation,
+независимые graph/reference аудиты. `inputs02` уже подготовлен.
 
-## Следом
+Контроль памяти: counter-calibration02 подтвердил lifetime-пики из retained
+native handle. limit-calibration01 проверил OS process-commit limit:
+16MiB под64MiB проходит,96MiB безлимита проходит,96MiB под64MiB MemoryError.
+Alpha запускается с512MiB process-commit cap до Resume, не только timeout.
+load-limited-broker.ps1 — отдельный in-memory derivative; исторические
+broker/runtime sources и их pins не изменены.
 
-1. `full02` завершил полный cargo test: 195 passed, 0 failed, 27 ignored.
-   `full01` остановлен capacity guard; штатный cargo clean -p убрал generated
-   artifacts, база/отчёты/старый baseline сохранены. Rebuild07 завершил native
-   build; внешняя оболочка сообщила unset LASTEXITCODE, сам closed proof успешен.
-   Побайтная воспроизводимость нового бинарника с прежним не заявляется.
-2. PR39: https://github.com/erkevibe/process-intelligence-rs/pull/39.
-   Независимое локальное P1 ревью без блокеров. 22e0604 CI остановился на
-   historical kit, которому нужен frozen0.8.2 вместо свежего0.9.0. 547dede
-   исправил только пути, pins сохранены; локальный selfcheck-frozen01 PASS.
-   Затем CI выявил случайный личный проект editor в тесте: b93dbcd явно
-   переключает на shared перед проверкой revocation, продукт не изменён.
-   verify08 и native core04 (fresh DB, clean closure) прошли; reviewer сверил
-   все receipts. CI b93dbcd прошёл проверки и сейчас собирает Linux release.
-   Итоговые docs/evidence требуют собственного CI commit перед merge.
-3. P2 — отдельная ветка `codex/sprint-27-miner-experiment`: e7522e6 закрепил
-   MINER_EXPERIMENT.md/corpus до новых запусков; f530db2 сохранил непроверенный
-   isolated example miner_compare.rs. Прототип преобразования Alpha+++ Petri→BPMN,
-   UUID colour refinement отказывает неоднозначной симметрии; тесты и компиляция
-   впереди. Не включать P2 в PR39. После завершения P1 вернуться в P2 branch,
-   включить последние P1 fixes. Подготовлены только исходники, miner ещё не запускался.
-## Ограничения рабочей среды
+## Что дальше
 
-Пользовательский сервис 3131 не трогать. Собственный PostgreSQL —
-`.local/sprint21/root/pgdata11`, порт55449; app fixture3147. Соблюдать existing
-resource guards и private ACL. Не удалять postmaster.pid/WAL вручную.
-Не изменять pinned источники во время сборки или runtime-сеанса.
-Не закрывать последнюю вкладку IAB: прежние два сбоя следовали сразу после close,
-причина окончательно не доказана. Текущий durableTab оставлен для дальнейшей QA.
+1. Закрыть alpha-original01, запустить validation и оценку Java-проекций.
+2. Независимо сверить сохранённые сети/язык/метрики; не выбирать майнер по training.
+3. Опубликовать компактные evidence и отчёт P2, затем решать интеграцию по данным.
+4. Не менять pinned sources во время native run/build. Сохранять неудачные попытки.
+
+## Среда
+
+Приватные материалы `.local/sprint21/root/sprint26/` содержат cookie/пароли,
+не публиковать целиком. Новые эксперименты `.local/sprint21/root/sprint27/`.
+Пользовательский3131 не трогать; ownedPG55449 в pgdata11, fixtureapp3147.
+Не удалять postmaster.pid/WAL вручную; сохранять resource guards и private ACL.
+Стандартный cargo clean -p ранее безопасно освободил7.6GiB generated artifacts.
+Не закрывать последнюю IAB-вкладку: прежние два сбоя следовали после close,
+причина не доказана. durableTab оставлен, app сейчас остановлен.

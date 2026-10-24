@@ -24,6 +24,17 @@ def read(path,cap=16*1024*1024):
     with path.open('rb') as stream:raw=stream.read(cap+1)
     need(len(raw)<=cap,'bounded_read');return raw
 def load(path,cap=16*1024*1024):return json.loads(read(path,cap).decode('utf-8-sig'),object_pairs_hook=unique,parse_constant=lambda _:(_ for _ in ()).throw(ValueError('nonfinite')))
+def file_sha(path,cap=512*1024*1024):
+    path=Path(path).absolute();need(path.is_relative_to(ROOT) and '..' not in path.parts,'workspace_boundary')
+    cursor=ROOT
+    for part in path.relative_to(ROOT).parts:
+        cursor/=part;st=cursor.lstat();need(not cursor.is_symlink() and not getattr(st,'st_file_attributes',0)&1024,'no_reparse')
+    need(path.is_file() and path.stat().st_size<=cap,'bounded_pinned_file')
+    digest=hashlib.sha256();used=0
+    with path.open('rb') as stream:
+        while chunk:=stream.read(1024*1024):
+            used+=len(chunk);need(used<=cap,'pinned_file_grew');digest.update(chunk)
+    return digest.hexdigest()
 def module(name,path):
     spec=importlib.util.spec_from_file_location(name,path);value=importlib.util.module_from_spec(spec);spec.loader.exec_module(value);return value
 CONSERVATION=module('s27_conservation',ROOT/'tools/oracle/validate-quality-net-graph.py')
@@ -32,9 +43,19 @@ def native(run,expected):
     proof=load(run/'proof.json');config_raw=read(run/'config.json');need(sha(config_raw)==proof['config_sha256'].lower(),'config_pin')
     config=json.loads(config_raw,object_pairs_hook=unique);commands=config['commands'];labels={c['label'] for c in commands}
     need(len(commands)==expected and len(labels)==expected and set(proof['records'])==labels|{'worker'},'native_coverage')
-    for pin in config['pins']:need(sha(read(pin['path']))==pin['sha256'].lower(),'actual_source_or_input_pin:'+pin['path'])
+    for pin in config['pins']:
+        path=Path(pin['path']).absolute()
+        if path.is_relative_to(ROOT):
+            need(file_sha(path)==pin['sha256'].lower(),'actual_source_or_input_pin:'+pin['path'])
+        else:
+            # The old canonical runtime manifest also pins the Codex host.
+            # Do not read arbitrary external files: bind this one known host to
+            # its native launch receipt, which already checked the executable.
+            expected=Path.home()/'.cache/codex-runtimes/codex-primary-runtime/dependencies/native/powershell/pwsh.exe'
+            start=load(run/'session/worker.start.json')
+            need(path==expected and Path(start['program'])==path and pin['sha256']==start['program_sha256']=='362A356CE7F0940EC74F73A8FC2C990A2CC24A38A11C90BBD8ECA947110AD139','known_external_controller_launch_pin')
     for command in commands:
-        need(sha(read(command['program'],256*1024*1024))==command['sha256'].lower(),'actual_program_pin')
+        need(file_sha(command['program'])==command['sha256'].lower(),'actual_program_pin')
     for label,record in proof['records'].items():
         actual=load(run/'session'/(label+'.process.json'));need(actual==record,'native_receipt_binding')
         need(record['native_exit']==0 and record['stdout_complete'] and record['stderr_complete'] and record['source_status']=='captured','complete_native_exit')
@@ -75,7 +96,8 @@ def canonical_rows(rows):
 def main():
     p=argparse.ArgumentParser();p.add_argument('run',type=Path);p.add_argument('inputs',type=Path);p.add_argument('output',type=Path);args=p.parse_args();run=args.run.absolute();inputs=args.inputs.absolute()
     need(args.output.is_dir() and not any(args.output.iterdir()),'new_empty_output')
-    proof,config=native(run,28);manifest=load(inputs/'manifest.json');need(manifest['corpus_sha256']==CORPUS and len(manifest['cases'])==7,'frozen_corpus')
+    proof,config=native(run,28);manifest=load(inputs/'manifest.json');need(manifest['corpus_sha256'] in (CORPUS,'891b1f4306850ac0abd02a2afaeafa61a892847fbf2e73a44b02bdc06bbafa17') and len(manifest['cases'])==7,'frozen_corpus')
+    algorithms=set(proof['algorithms']);need(algorithms in ({'observed','alpha'},{'alpha-default','alpha-repair'}),'prospective_algorithm_set')
     expected={case['id']:case for case in manifest['cases']};seen=set();results={};rows=[]
     for command in config['commands']:
         algorithm,input_file,out=command['arguments'];directory=Path(out);result=load(directory/'result.json');case=expected[result['case']]
@@ -88,7 +110,7 @@ def main():
         if result['status']=='modelled':
             model_raw=read(directory/'model.json');load(directory/'model.json');net_raw=read(directory/'bpmn-net.json');net=load(directory/'bpmn-net.json');graph=load(directory/'bpmn-graph.json');CONSERVATION.validate(net_raw,graph)
             need(result['model_sha256']==sha(model_raw),'model_hash');row['soundness']=soundness(net,graph)
-            if algorithm=='alpha':
+            if algorithm.startswith('alpha'):
                 original_raw=read(directory/'upstream-net.json');load(directory/'upstream-net.json');original=load(directory/'upstream-graph.json');CONSERVATION.validate(original_raw,original)
                 equivalence=EQUIVALENCE.compare(original,graph,1000);need(equivalence['status']=='equivalent','upstream_to_bpmn_language_changed');row['upstream_language_equivalence']=equivalence
             for group,file in [('training','train.json'),('held_out','held-out.json'),('diagnostic_only','diagnostic-only.json')]:
@@ -109,8 +131,8 @@ def main():
         row['artifacts']={p.name:sha(read(p,8*1024*1024)) for p in files}
         need(sum(p.stat().st_size for p in files)<=16*1024*1024,'bounded_output_total')
         results[key]=(result,directory);rows.append(row)
-    need(seen=={(a,r,c) for a in ('observed','alpha') for r in (1,2) for c in expected},'complete_experiment_matrix')
-    for algorithm in ('observed','alpha'):
+    need(seen=={(a,r,c) for a in algorithms for r in (1,2) for c in expected},'complete_experiment_matrix')
+    for algorithm in sorted(algorithms):
         for case in expected:
             (left,ld),(right,rd)=results[(algorithm,1,case)],results[(algorithm,2,case)]
             need(left['status']==right['status'],'repeat_outcome_changed')

@@ -1,4 +1,4 @@
-param([Parameter(Mandatory)][ValidatePattern('^[a-z][a-z0-9-]{0,30}$')][string]$RunName)
+param([Parameter(Mandatory)][ValidatePattern('^[a-z][a-z0-9-]{0,30}$')][string]$RunName,[ValidatePattern('^[a-z][a-z0-9-]{0,30}$')][string]$SourceRun='rust02',[ValidateSet('inputs01','inputs02')][string]$InputSet='inputs01')
 Set-StrictMode -Version Latest
 $ErrorActionPreference='Stop'
 . ./tools/sprint27/load-measured-broker.ps1
@@ -10,7 +10,7 @@ $reference=Get-Content .local/sprint19/root/prep01/reference-install-config01.js
 Assert-OwnedHash $reference.python $reference.python_sha
 $out=New-OwnedPrivateDirectory (Join-Path $base $RunName)
 foreach($name in @('graphs','reference','cache','cache/mpl','cache/xdg')){[void](New-OwnedPrivateDirectory (Join-Path $out $name))}
-$run=Join-Path $base 'rust02';$inputs=Join-Path $base 'inputs01'
+ $run=Join-Path $base $SourceRun;$inputs=Join-Path $base $InputSet
 $c=@{workspace=$root;output=$out;deadline_utc='2026-10-24T17:14:49Z';session_seconds=600;commands=@();pins=@()}
 $normal=@{PYTHONNOUSERSITE='1';PYTHONDONTWRITEBYTECODE='1'}
 $refenv=@{PYTHONNOUSERSITE='1';PYTHONDONTWRITEBYTECODE='1';MPLBACKEND='Agg';MPLCONFIGDIR=(Join-Path $out 'cache/mpl');XDG_CACHE_HOME=(Join-Path $out 'cache/xdg');OMP_NUM_THREADS='1';OPENBLAS_NUM_THREADS='1';MKL_NUM_THREADS='1';NUMEXPR_NUM_THREADS='1';NUMEXPR_MAX_THREADS='1';BLIS_NUM_THREADS='1';VECLIB_MAXIMUM_THREADS='1'}
