@@ -40,6 +40,7 @@ assert {'process-intelligence-rs', 'pi_convert', 'CANDIDATE_STATUS.md',
         'deploy/linux/Caddyfile', 'deploy/linux/process-intelligence.service',
         'docs/PROJECT_QUOTA_CONTRACT.md', 'docs/LINUX_TLS_DEPLOYMENT.md',
         'tools/sprint30/verify-evidence.py', 'evidence/sprint30/project-quota/manifest.json'} <= actual
+assert 'tools/sprint31/systemd-profile-ci.py' in actual
 assert not any(p.startswith('.local/') or p.endswith(('.key', '.dump')) for p in actual)
 environment = json.loads((destination / 'BUILD_ENVIRONMENT.json').read_text())
 assert environment['source_commit'] == manifest['source_commit'] and environment['system'] == 'Linux' and environment['machine'] == 'x86_64'

@@ -326,6 +326,7 @@ jobs:
           mkdir -p dist/deploy dist/evidence
           cp -r deploy/linux dist/deploy/
           cp -r tools/sprint30 dist/tools/
+          cp -r tools/sprint31 dist/tools/
           cp -r evidence/sprint30 dist/evidence/
           cp -r evidence/sprint28 evidence/sprint29 dist/evidence/
           cp -r tools/sprint28 tools/sprint29 dist/tools/
@@ -417,5 +418,59 @@ jobs:
         with:
           name: sprint30-downloaded-package-verification
           path: downloaded-package-verification.json
+          if-no-files-found: error
+          retention-days: 14
+  systemd-release-profile:
+    needs: downloaded-linux-package
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      actions: read
+    services:
+      service-postgres:
+        image: postgres:18.0
+        env:
+          POSTGRES_USER: pi_s31_admin
+          POSTGRES_PASSWORD: S31FixtureAdminPassword123
+          POSTGRES_DB: postgres
+        ports:
+          - '127.0.0.1:55449:5432'
+        options: >-
+          --health-cmd "pg_isready -U pi_s31_admin -d postgres"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 12
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8
+        with:
+          name: process-intelligence-rs-linux
+          path: downloaded
+      - name: Verify the actual downloaded profile before installation
+        env:
+          S30_PACKAGE_DOWNLOADED: 'yes'
+        run: |
+          export S30_EXPECTED_SOURCE="$(git rev-parse HEAD)"
+          python3 -I -B tools/sprint30/verify-package.py downloaded/process-intelligence-rs-linux.tar.gz "$RUNNER_TEMP/sprint31-package" evidence/sprint28/durable-discovery/browser-imported-report.json > systemd-package-verification.json
+      - name: Qualify delivered units on an owned disposable VM
+        env:
+          S31_OWNED_SYSTEMD_FIXTURE: 'yes'
+          S31_PACKAGE_ROOT: ${{ runner.temp }}/sprint31-package
+          POSTGRES_CONTAINER: ${{ job.services.service-postgres.id }}
+        run: timeout --signal=INT --kill-after=90s 420s python3 -I -B tools/sprint31/systemd-profile-ci.py
+      - name: Preserve selected service observations
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          name: sprint31-systemd-profile-observations
+          path: |
+            .local/sprint31/systemd/proof.json
+            .local/sprint31/systemd/failure.json
+            systemd-package-verification.json
+          include-hidden-files: true
           if-no-files-found: error
           retention-days: 14
