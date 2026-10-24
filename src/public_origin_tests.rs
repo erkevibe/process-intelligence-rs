@@ -49,6 +49,10 @@ async fn exact_public_origin_and_local_defaults_reject_spoofed_or_malformed_head
         .await,
         StatusCode::BAD_REQUEST
     );
+    assert_eq!(
+        run(local.clone(), "GET", "localhost:443", &[], &[]).await,
+        StatusCode::BAD_REQUEST
+    );
     let public = local
         .with_public_origin(Some(
             PublicOrigin::parse("https://PROCESS.example:443/").unwrap(),
@@ -59,6 +63,79 @@ async fn exact_public_origin_and_local_defaults_reject_spoofed_or_malformed_head
         StatusCode::OK
     );
     let good = HeaderValue::from_static("https://process.example");
+    for host in ["process.example:443", "PROCESS.EXAMPLE:443"] {
+        assert_eq!(
+            run(public.clone(), "GET", host, &[], &[]).await,
+            StatusCode::OK
+        );
+        assert_eq!(
+            run(
+                public.clone(),
+                "POST",
+                host,
+                std::slice::from_ref(&good),
+                &[]
+            )
+            .await,
+            StatusCode::METHOD_NOT_ALLOWED
+        );
+    }
+    for host in [
+        "process.example:444",
+        "process.example:0443",
+        "process.example:443:443",
+        "user@process.example:443",
+        "process.example.evil:443",
+    ] {
+        assert_eq!(
+            run(public.clone(), "GET", host, &[], &[]).await,
+            StatusCode::BAD_REQUEST
+        );
+    }
+    assert_eq!(
+        run(
+            public.clone(),
+            "POST",
+            "process.example:443",
+            &[HeaderValue::from_static("https://process.example:443")],
+            &[]
+        )
+        .await,
+        StatusCode::FORBIDDEN
+    );
+    for (origin, authority) in [
+        ("https://localhost", "localhost"),
+        ("https://[::1]", "[::1]"),
+    ] {
+        let state = AppState::new(3147)
+            .with_public_origin(Some(PublicOrigin::parse(origin).unwrap()))
+            .unwrap();
+        for host in [authority.to_owned(), format!("{authority}:443")] {
+            assert_eq!(
+                run(state.clone(), "GET", &host, &[], &[]).await,
+                StatusCode::OK
+            );
+        }
+    }
+    let nondefault = AppState::new(3147)
+        .with_public_origin(Some(
+            PublicOrigin::parse("https://process.example:8443").unwrap(),
+        ))
+        .unwrap();
+    assert_eq!(
+        run(nondefault.clone(), "GET", "process.example:8443", &[], &[]).await,
+        StatusCode::OK
+    );
+    for host in [
+        "process.example",
+        "process.example:443",
+        "process.example:8443:443",
+    ] {
+        assert_eq!(
+            run(nondefault.clone(), "GET", host, &[], &[]).await,
+            StatusCode::BAD_REQUEST
+        );
+    }
     assert_eq!(
         run(
             public.clone(),

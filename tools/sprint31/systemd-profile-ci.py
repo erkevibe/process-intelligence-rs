@@ -27,7 +27,7 @@ import urllib.request
 
 APP = 'process-intelligence.service'
 PROXY = 'caddy.service'
-ORIGIN = 'https://localhost:8443'
+ORIGIN = 'https://localhost'
 VENDOR_UNIT = 'https://raw.githubusercontent.com/caddyserver/dist/f94a1d2626835ff4157e85296fb8e4fa5500e0fb/init/caddy.service'
 VENDOR_UNIT_SHA = '6c271e030644bd36a0c8956885934f16c928f88202bc126f12cde519ef9693ff'
 CADDY_ARCHIVE = 'https://github.com/caddyserver/caddy/releases/download/v2.11.7/caddy_2.11.7_linux_amd64.tar.gz'
@@ -76,12 +76,12 @@ class Client:
             urllib.request.HTTPSHandler(context=context), urllib.request.HTTPCookieProcessor(self.jar), NoRedirect())
         self.observations = observations
 
-    def request(self, method, path, body=None, content_type=None):
+    def request(self, method, path, body=None, content_type=None, accept='application/json'):
         assert path.startswith('/') and '\n' not in path and '\r' not in path
         if isinstance(body, dict):
             body = urllib.parse.urlencode(body).encode()
             content_type = 'application/x-www-form-urlencoded'
-        headers = {'Accept': 'application/json'}
+        headers = {'Accept': accept}
         if method not in ('GET', 'HEAD'):
             headers['Origin'] = ORIGIN
         if content_type:
@@ -95,7 +95,8 @@ class Client:
             raw = response.read(4 * 1024 * 1024 + 1)
             assert len(raw) <= 4 * 1024 * 1024
             code = response.status
-        self.observations.append(dict(method=method, path=path, status=code, bytes=len(raw), sha256=digest(raw)))
+            response_type = response.headers.get('Content-Type', '')
+        self.observations.append(dict(method=method, path=path, status=code, content_type=response_type, bytes=len(raw), sha256=digest(raw)))
         return code, raw
 
     def get(self, path):
@@ -136,7 +137,13 @@ class Fixture:
         self.password = secrets.token_urlsafe(32)
         self.owner_password = secrets.token_urlsafe(32)
         self.viewer_password = secrets.token_urlsafe(32)
-        self.database_url = 'postgresql://pi_s31_app:' + self.password + '@127.0.0.1:55449/pi_s31_service_ci?connect_timeout=5'
+        self.password_history = [self.password]
+        self.active_database = 'pi_s31_service_ci'
+        self.database_url = self.connection_url(self.active_database)
+
+    def connection_url(self, database):
+        assert database in ('pi_s31_service_ci', 'pi_s31_restored_ci')
+        return 'postgresql://pi_s31_app:' + self.password + '@127.0.0.1:55449/' + database + '?connect_timeout=5'
 
     def call(self, label, args, data=None, timeout=30, allowed=(0,)):
         completed = subprocess.run(args, input=data, capture_output=True, timeout=timeout)
@@ -175,16 +182,17 @@ class Fixture:
         for unit in [APP, PROXY]:
             result = self.call('unit-absent', ['systemctl', 'show', unit, '-p', 'LoadState', '--value'], allowed=(0, 1))
             assert result.stdout.strip() == b'not-found'
-        for port in [3000, 8080, 8443]:
-            with socket.socket() as sock:
-                sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-                sock.bind(('127.0.0.1', port))
-                sock.listen(1)
-            with socket.socket(socket.AF_INET6) as sock:
-                sock.setsockopt(socket.IPPROTO_IPV6, socket.IPV6_V6ONLY, 1)
-                sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-                sock.bind(('::1', port))
-                sock.listen(1)
+        probe = """import socket
+for port in (3000,80,443):
+    for family,address in ((socket.AF_INET,'127.0.0.1'),(socket.AF_INET6,'::1')):
+        with socket.socket(family) as sock:
+            sock.setsockopt(socket.SOL_SOCKET,socket.SO_REUSEADDR,1)
+            if family==socket.AF_INET6:
+                sock.setsockopt(socket.IPPROTO_IPV6,socket.IPV6_V6ONLY,1)
+            sock.bind((address,port))
+            sock.listen(1)
+"""
+        self.call('privileged-listener-preflight', ['sudo', 'python3', '-I', '-B', '-c', probe])
         container = json.loads(self.call('container-identity', ['docker', 'inspect', self.container]).stdout)[0]
         assert container['Config']['Image'] == 'postgres:18.0' and container['State']['Running'] is True
         assert container['HostConfig']['PortBindings']['5432/tcp'] == [{'HostIp': '127.0.0.1', 'HostPort': '55449'}]
@@ -193,6 +201,7 @@ class Fixture:
         assert self.admin('postgres-version', 'SHOW server_version_num;').startswith('18')
         assert self.admin('role-absent', "SELECT count(*) FROM pg_roles WHERE rolname='pi_s31_app';") == '0'
         assert self.admin('database-absent', "SELECT count(*) FROM pg_database WHERE datname='pi_s31_service_ci';") == '0'
+        assert self.admin('restore-database-absent', "SELECT count(*) FROM pg_database WHERE datname='pi_s31_restored_ci';") == '0'
         for program in ['iptables', 'ip6tables']:
             existing = self.call('firewall-absent', ['sudo', program, '-S', self.chain], allowed=(0, 1))
             assert existing.returncode == 1
@@ -204,8 +213,8 @@ class Fixture:
             self.call('firewall-create', ['sudo', program, '-N', self.chain])
             state = dict(program=program, attached=False)
             self.firewalls.append(state)
-            self.call('firewall-tcp', ['sudo', program, '-A', self.chain, '!', '-i', 'lo', '-p', 'tcp', '-m', 'multiport', '--dports', '8080,8443', '-j', 'REJECT', '--reject-with', 'tcp-reset'])
-            self.call('firewall-udp', ['sudo', program, '-A', self.chain, '!', '-i', 'lo', '-p', 'udp', '--dport', '8443', '-j', 'REJECT'])
+            self.call('firewall-tcp', ['sudo', program, '-A', self.chain, '!', '-i', 'lo', '-p', 'tcp', '-m', 'multiport', '--dports', '80,443', '-j', 'REJECT', '--reject-with', 'tcp-reset'])
+            self.call('firewall-udp', ['sudo', program, '-A', self.chain, '!', '-i', 'lo', '-p', 'udp', '--dport', '443', '-j', 'REJECT'])
             self.call('firewall-return', ['sudo', program, '-A', self.chain, '-j', 'RETURN'])
             self.call('firewall-attach', ['sudo', program, '-I', 'INPUT', '1', '-j', self.chain])
             state['attached'] = True
@@ -248,7 +257,7 @@ class Fixture:
         (self.output / 'server.ext').write_text('basicConstraints=critical,CA:FALSE\nkeyUsage=critical,digitalSignature,keyEncipherment\nextendedKeyUsage=serverAuth\nsubjectAltName=DNS:localhost\n')
         self.call('leaf-certificate', ['openssl', 'x509', '-req', '-in', str(self.output / 'server.csr'), '-CA', str(self.output / 'ca.pem'), '-CAkey', str(self.output / 'ca.key'), '-CAcreateserial', '-out', str(self.output / 'server.pem'), '-days', '2', '-extfile', str(self.output / 'server.ext')])
         for name, content in [('database-url', self.database_url + '\n'), ('app-environment', 'PI_PUBLIC_ORIGIN=' + ORIGIN + '\n'),
-                              ('caddy-environment', 'PI_TLS_HOST=localhost\nPI_HTTPS_PORT=8443\nPI_HTTP_PORT=8080\nPI_BACKEND_PORT=3000\nPI_TLS_CERT=/etc/process-intelligence/tls/server.pem\nPI_TLS_KEY=/etc/process-intelligence/tls/server.key\n')]:
+                              ('caddy-environment', 'PI_TLS_HOST=localhost\nPI_BACKEND_PORT=3000\nPI_TLS_CERT=/etc/process-intelligence/tls/server.pem\nPI_TLS_KEY=/etc/process-intelligence/tls/server.key\n')]:
             (self.output / name).write_text(content)
             self.call('install-private-configuration', ['sudo', 'install', '-m', '0600', str(self.output / name), '/etc/process-intelligence/' + name])
         for name in ['server.pem', 'server.key']:
@@ -260,6 +269,20 @@ class Fixture:
         self.call('start-proxy', ['sudo', 'systemctl', 'start', PROXY], timeout=30)
         self.client = Client(self.output / 'ca.pem', self.requests)
         self.health()
+        redirect = urllib.request.build_opener(urllib.request.ProxyHandler({}), NoRedirect())
+        try:
+            response = redirect.open('http://localhost/health?service=1', timeout=10)
+        except urllib.error.HTTPError as error:
+            response = error
+        with response:
+            assert response.status == 308
+            location = response.headers['Location']
+        parsed = urllib.parse.urlsplit(location)
+        assert parsed.scheme == 'https' and parsed.hostname == 'localhost' and parsed.port == 443 and parsed.path == '/health' and parsed.query == 'service=1'
+        request = urllib.request.Request(location)
+        with self.client.opener.open(request, timeout=10) as response:
+            assert response.status == 200 and json.load(response)['status'] == 'ready'
+        self.check('default_80_443_profile_redirect_follow_accepts_real_explicit_443_Host', request.get_header('Host') == 'localhost:443')
 
     def health(self):
         until = time.monotonic() + 25
@@ -336,8 +359,103 @@ class Fixture:
     def accounting(self, project):
         assert re.fullmatch('project-[0-9a-f]{32}', project)
         sql = "SELECT jsonb_build_object('quota',(SELECT to_jsonb(q) FROM public.pi_project_quota q WHERE project_id='" + project + "'),'records',(SELECT jsonb_agg(jsonb_build_array(kind,resource_id,version,encode(sha256(convert_to(document::text,'UTF8')),'hex')) ORDER BY kind,resource_id) FROM public.pi_records WHERE project_id='" + project + "'),'policy',(SELECT document->'quota_policy' FROM public.pi_projects WHERE project_id='" + project + "'));"
-        result = self.call('accounting-snapshot', ['docker', 'exec', '-i', self.container, 'psql', '-X', '-qAt', '-U', 'pi_s31_admin', '-d', 'pi_s31_service_ci', '-v', 'ON_ERROR_STOP=1'], sql.encode())
+        result = self.call('accounting-snapshot', ['docker', 'exec', '-i', self.container, 'psql', '-X', '-qAt', '-U', 'pi_s31_admin', '-d', self.active_database, '-v', 'ON_ERROR_STOP=1'], sql.encode())
         return json.loads(result.stdout)
+
+    def database_snapshot(self, name):
+        assert name in ('pi_s31_service_ci', 'pi_s31_restored_ci')
+        sql = (self.package / 'tools/sprint30/storage-snapshot.sql').read_bytes()
+        return self.call('full-private-database-snapshot', ['docker', 'exec', '-i', self.container, 'psql', '-X', '-qAt', '-U', 'pi_s31_admin', '-d', name, '-v', 'ON_ERROR_STOP=1'], sql).stdout
+
+    def replace_credential(self, phase):
+        assert phase in ('restore', 'rotation')
+        path = self.output / ('database-url-' + phase)
+        path.write_text(self.database_url + '\n')
+        self.call('replace-credential-' + phase, ['sudo', 'install', '-m', '0600', str(path), '/etc/process-intelligence/database-url'])
+        assert self.call('replaced-credential-stat', ['sudo', 'stat', '-c', '%a:%U:%G', '/etc/process-intelligence/database-url']).stdout.strip() == b'600:root:root'
+
+    def login_and_verify_retained(self):
+        self.client = Client(self.output / 'ca.pem', self.requests)
+        assert self.client.request('POST', '/login', dict(username='s31_owner', password=self.owner_password))[0] == 303
+        assert self.client.get('/quota/status') == self.quota
+        assert self.client.request('GET', self.report_path) == (200, self.report)
+        assert self.backup()[0] == self.backup_before
+        assert self.accounting(self.project) == self.accounting_before
+        viewer = Client(self.output / 'ca.pem', self.requests)
+        assert viewer.request('POST', '/login', dict(username='s31_viewer', password=self.viewer_password))[0] == 303
+        assert viewer.request('POST', '/projects/' + self.project + '/open', {})[0] == 303
+        assert viewer.request('GET', self.report_path) == (200, self.report)
+        assert viewer.request('POST', '/quota', dict(revision=0, mode='disabled', payload_allowance=0))[0] == 403
+        return {cookie.value for client in [self.client, viewer] for cookie in client.jar}
+
+    def restore_and_rotate(self):
+        previous = self.after_app
+        self.call('stop-before-backup', ['sudo', 'systemctl', 'stop', APP], timeout=60)
+        self.identity(APP, stopped=True)
+        source = self.database_snapshot('pi_s31_service_ci')
+        dump = self.call('private-full-backup', ['docker', 'exec', self.container, 'pg_dump', '-U', 'pi_s31_admin', '-d', 'pi_s31_service_ci', '-Fc']).stdout
+        assert len(dump) > 1024
+        self.dump_sha = digest(dump)
+        self.admin('create-restore-database', 'CREATE DATABASE pi_s31_restored_ci OWNER pi_s31_app;')
+        self.call('restore-new-database', ['docker', 'exec', '-i', self.container, 'pg_restore', '-U', 'pi_s31_admin', '-d', 'pi_s31_restored_ci', '--single-transaction', '--exit-on-error', '--no-owner', '--no-privileges', '--role=pi_s31_app'], dump)
+        target = self.database_snapshot('pi_s31_restored_ci')
+        assert target == source
+        self.restore_snapshot_sha = digest(source)
+        self.check('full_pg_restore_matches_quiescent_source_before_first_target_start', True)
+        self.active_database = 'pi_s31_restored_ci'
+        self.database_url = self.connection_url(self.active_database)
+        self.replace_credential('restore')
+        self.call('start-restored-service', ['sudo', 'systemctl', 'start', APP], timeout=60)
+        self.health()
+        self.after_restore = self.identity(APP)
+        assert self.after_restore['MainPID'] != previous['MainPID']
+        assert int(self.after_restore['ExecMainStartTimestampMonotonic']) > int(previous['ExecMainStartTimestampMonotonic'])
+        cookies = self.login_and_verify_retained()
+        assert self.database_snapshot('pi_s31_service_ci') == source
+        self.check('restored_service_retains_overquota_report_and_grants_without_changing_source_database_content', True)
+        self.call('stop-before-credential-rotation', ['sudo', 'systemctl', 'stop', APP], timeout=60)
+        self.identity(APP, stopped=True)
+        old_password = self.password
+        self.password = secrets.token_urlsafe(32)
+        assert self.password not in self.password_history
+        self.password_history.append(self.password)
+        self.admin('rotate-owned-database-role-password', "ALTER ROLE pi_s31_app PASSWORD '" + self.password + "';")
+        # A new TCP connection must authenticate, even if an unexpected HBA
+        # change would otherwise let the service start without a valid password.
+        probe = 'IFS= read -r PGPASSWORD; export PGPASSWORD PGCONNECT_TIMEOUT=5; exec psql -h 127.0.0.1 -p 5432 -U pi_s31_app -d pi_s31_restored_ci -X -qAt -v ON_ERROR_STOP=1 -c "SELECT 1;"'
+        refused = self.call('old-role-password-refused', ['docker', 'exec', '-i', self.container, 'sh', '-c', probe], (old_password + '\n').encode(), allowed=(2,))
+        assert refused.stdout == b'' and b'password authentication failed' in refused.stderr
+        accepted = self.call('new-role-password-accepted', ['docker', 'exec', '-i', self.container, 'sh', '-c', probe], (self.password + '\n').encode())
+        assert accepted.stdout.strip() == b'1'
+        self.check('fresh_TCP_authentication_rejects_old_role_password_and_accepts_new_password', True)
+        self.database_url = self.connection_url(self.active_database)
+        self.replace_credential('rotation')
+        self.call('start-rotated-credential-service', ['sudo', 'systemctl', 'start', APP], timeout=60)
+        self.health()
+        self.after_rotation = self.identity(APP)
+        assert self.after_rotation['MainPID'] != self.after_restore['MainPID']
+        assert int(self.after_rotation['ExecMainStartTimestampMonotonic']) > int(self.after_restore['ExecMainStartTimestampMonotonic'])
+        cookies.update(self.login_and_verify_retained())
+        assert self.database_snapshot('pi_s31_service_ci') == source
+        self.after_app = self.after_rotation
+        self.check('stopped_service_loads_rotated_role_credential_without_environment_or_business_data_change', True)
+        return cookies
+
+    def certificate_fingerprint(self):
+        context = ssl.create_default_context(cafile=str(self.output / 'ca.pem'))
+        with socket.create_connection(('127.0.0.1', 443), timeout=5) as raw:
+            with context.wrap_socket(raw, server_hostname='localhost') as connection:
+                return digest(connection.getpeercert(binary_form=True))
+
+    def replace_leaf(self):
+        self.leaf_before = self.certificate_fingerprint()
+        assert self.leaf_before == digest(ssl.PEM_cert_to_DER_cert((self.output / 'server.pem').read_text()))
+        self.call('renewal-key-and-request', ['openssl', 'req', '-newkey', 'rsa:2048', '-nodes', '-keyout', str(self.output / 'renewed.key'), '-out', str(self.output / 'renewed.csr'), '-subj', '/CN=localhost'])
+        self.call('renewal-certificate', ['openssl', 'x509', '-req', '-in', str(self.output / 'renewed.csr'), '-CA', str(self.output / 'ca.pem'), '-CAkey', str(self.output / 'ca.key'), '-set_serial', '0x' + secrets.token_hex(16), '-out', str(self.output / 'renewed.pem'), '-days', '2', '-extfile', str(self.output / 'server.ext')])
+        self.leaf_expected = digest(ssl.PEM_cert_to_DER_cert((self.output / 'renewed.pem').read_text()))
+        assert self.leaf_expected != self.leaf_before
+        for source, target in [('renewed.pem', 'server.pem'), ('renewed.key', 'server.key')]:
+            self.call('replace-manual-leaf', ['sudo', 'install', '-m', '0640', '-o', 'root', '-g', 'caddy', str(self.output / source), '/etc/process-intelligence/tls/' + target])
 
     def exercise(self):
         self.before_app, self.before_proxy = self.identity(APP), self.identity(PROXY)
@@ -402,6 +520,7 @@ class Fixture:
         assert time.monotonic() - started < 40, 'restart approached forced-stop timeout'
         self.health()
         self.after_app = self.identity(APP)
+        self.after_normal_restart = dict(self.after_app)
         assert self.after_app['MainPID'] != self.before_app['MainPID']
         assert int(self.after_app['ExecMainStartTimestampMonotonic']) > int(self.before_app['ExecMainStartTimestampMonotonic'])
         self.client = Client(self.output / 'ca.pem', self.requests)
@@ -417,19 +536,24 @@ class Fixture:
         assert viewer_after.request('GET', self.report_path) == (200, self.report)
         assert viewer_after.request('POST', '/quota', dict(revision=0, mode='disabled', payload_allowance=0))[0] == 403
         self.check('viewer_grant_and_write_refusal_survive_application_restart', True)
+        cookie_secrets.update(cookie.value for client in [self.client, viewer_after] for cookie in client.jar)
+        cookie_secrets.update(self.restore_and_rotate())
+        self.replace_leaf()
         self.call('restart-proxy', ['sudo', 'systemctl', 'restart', PROXY], timeout=15)
         self.health()
         self.after_proxy = self.identity(PROXY)
         assert self.after_proxy['MainPID'] != self.before_proxy['MainPID']
         assert int(self.after_proxy['ExecMainStartTimestampMonotonic']) > int(self.before_proxy['ExecMainStartTimestampMonotonic'])
         assert self.identity(APP)['MainPID'] == self.after_app['MainPID']
-        code, raw = self.client.request('GET', '/quality/jobs/' + self.job + '/events')
-        assert code == 200 and b'datastar-patch-elements' in raw and self.job.encode() in raw
+        self.leaf_after = self.certificate_fingerprint()
+        self.check('manual_leaf_replacement_and_proxy_restart_serve_new_CA_verified_certificate', self.leaf_after == self.leaf_expected and self.leaf_after != self.leaf_before)
+        code, raw = self.client.request('GET', '/quality/jobs/' + self.job + '/events', accept='text/event-stream')
+        assert code == 200 and self.requests[-1]['content_type'].startswith('text/event-stream') and b'datastar-patch-elements' in raw and self.job.encode() in raw
         assert self.client.request('GET', self.report_path) == (200, self.report)
         assert self.accounting(self.project) == self.accounting_before
         self.check('proxy_service_restart_keeps_app_and_allows_new_terminal_SSE_connection', True)
         journal = self.call('private-journal', ['sudo', 'journalctl', '-u', APP, '-u', PROXY, '--no-pager', '-o', 'json', '-n', '150']).stdout
-        assert all(secret.encode() not in journal for secret in [self.database_url, self.password, self.owner_password, self.viewer_password])
+        assert all(secret.encode() not in journal for secret in [self.database_url, self.owner_password, self.viewer_password] + self.password_history)
         cookie_secrets.update(cookie.value for client in [self.client, viewer_after] for cookie in client.jar)
         assert all(secret.encode() not in journal for secret in cookie_secrets)
         assert b'BEGIN PRIVATE KEY' not in journal
@@ -445,8 +569,9 @@ class Fixture:
         for unit in reversed(self.installed):
             try:
                 self.call('cleanup-stop', ['sudo', 'systemctl', 'stop', unit], timeout=60)
-                state = self.call('cleanup-state', ['systemctl', 'show', unit, '-p', 'ActiveState', '-p', 'MainPID']).stdout.decode()
-                assert 'ActiveState=inactive' in state and 'MainPID=0' in state
+                raw = self.call('cleanup-state', ['systemctl', 'show', unit, '-p', 'ActiveState', '-p', 'MainPID']).stdout.decode()
+                state = dict(line.split('=', 1) for line in raw.splitlines() if '=' in line)
+                assert state['ActiveState'] == 'inactive' and state['MainPID'] == '0'
             except Exception:
                 errors.append('stop:' + unit)
         if not errors:
@@ -467,10 +592,13 @@ class Fixture:
             caddy_archive_sha256=CADDY_ARCHIVE_SHA, container_image=self.container_image,
             cases=self.cases, requests=self.requests, commands=self.commands,
             app_before=self.before_app, app_after=self.after_app, proxy_before=self.before_proxy, proxy_after=self.after_proxy,
+            app_after_normal_restart=self.after_normal_restart, app_after_restore=self.after_restore, app_after_credential_rotation=self.after_rotation,
             app_stopped=self.stop_app, proxy_stopped=self.stop_proxy, quota=self.quota,
+            active_database=self.active_database, private_dump_sha256=self.dump_sha, prestart_source_and_restore_snapshot_sha256=self.restore_snapshot_sha,
+            leaf_before_der_sha256=self.leaf_before, leaf_after_der_sha256=self.leaf_after,
             report_sha256=digest(self.report), project_backup_sha256=digest(self.backup_before),
             accounting_sha256=digest(json.dumps(self.accounting_before, sort_keys=True).encode()), numeric_replay=self.numeric_replay,
-            global_CA_store_modified=False, scope='fresh GitHub-hosted Ubuntu24.04 VM, exact delivered app unit/Caddyfile/drop-in, vendor proxy unit; Docker PG18 on loopback55449; unit Wants may also start preinstalled OS PostgreSQL5432; no production host, public DNS/CA, VM reboot, OS PostgreSQL qualification, HA/SLA or continuous SSE across restart')
+            global_CA_store_modified=False, scope='fresh GitHub-hosted Ubuntu24.04 VM, exact delivered app unit/Caddyfile/drop-in, default80/443, vendor proxy unit; Docker PG18 on loopback55449; source database CONTENT unchanged, but synthetic role password rotation is cluster-global and changes that roles login credential for both databases; unit Wants may also start preinstalled OS PostgreSQL5432; manual same-CA leaf replacement does not revoke old leaf or implement auto-renewal; no production host, public DNS/CA, VM reboot, OS PostgreSQL qualification, HA/SLA or continuous SSE across restart')
 
 
 if __name__ == '__main__':
