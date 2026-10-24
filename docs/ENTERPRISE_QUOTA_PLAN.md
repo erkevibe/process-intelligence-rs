@@ -1,8 +1,8 @@
 # Следующий этап: общая квота проекта
 
-Статус Sprint30: реализация кандидата 0.11.0 проходит приёмку в PR43.
-Точный действующий контракт кандидата: [PROJECT_QUOTA_CONTRACT.md](PROJECT_QUOTA_CONTRACT.md),
-результаты и незакрытые проверки: [SPRINT_30_REPORT.md](SPRINT_30_REPORT.md).
+Статус Sprint30: реализация0.11.0 принята в PR43/main711d4cb.
+Точный действующий контракт: [PROJECT_QUOTA_CONTRACT.md](PROJECT_QUOTA_CONTRACT.md),
+результаты и ограничения: [SPRINT_30_REPORT.md](SPRINT_30_REPORT.md).
 Ниже сохранён исходный архитектурный план; предложенная сериализованная метрика
 заменена в реализации на закреплённую `structural_bytes_v1`.
 

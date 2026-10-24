@@ -74,13 +74,12 @@ def profile_identity(row, app):
         assert row['WorkingDirectory'] == '/opt/process-intelligence/current'
 
 
-def verify_values(data):
-    proof, package, origin = (data[name] for name in ['proof.json', 'systemd-package-verification.json', 'provenance.json'])
+def verify_core(proof, package):
     assert proof['status'] == 'S31_SYSTEMD_RELEASE_PROFILE_PASS'
     assert package['status'] == 'S30_DOWNLOADED_LINUX_PACKAGE_PASS'
     source = proof['source_commit']
     assert re.fullmatch('[0-9a-f]{40}', source)
-    assert package['source_commit'] == package['build_environment']['source_commit'] == origin['source_commit'] == source
+    assert package['source_commit'] == package['build_environment']['source_commit'] == source
     assert package['build_environment']['system'] == 'Linux' and package['build_environment']['machine'] == 'x86_64'
     assert package['archive_sha256'] == sha(proof['package_archive_sha256'])
     assert proof['global_CA_store_modified'] is False
@@ -172,6 +171,12 @@ def verify_values(data):
     for row, expected in zip(stable_requests, contract['requests']):
         assert row['method'] == expected['method'] and row['status'] == expected['status']
         assert re.fullmatch(expected['path_pattern'], row['path'])
+
+
+def verify_values(data):
+    proof, package, origin = (data[name] for name in ['proof.json', 'systemd-package-verification.json', 'provenance.json'])
+    verify_core(proof, package)
+    assert origin['source_commit'] == proof['source_commit']
     assert type(origin['run_id']) is int and type(origin['job_id']) is int and type(origin['artifact_id']) is int
     sha(origin['artifact_zip_sha256'])
     assert origin['scope'] == 'selected observations downloaded from GitHub Actions; integrity checks do not replay service operations or authenticate authorship'
@@ -199,6 +204,13 @@ def verify(root):
 
 
 if __name__ == '__main__':
+    if len(sys.argv) == 4 and sys.argv[1] == '--runtime':
+        proof, package = (load(Path(path).read_bytes()) for path in sys.argv[2:])
+        verify_core(proof, package)
+        print(json.dumps(dict(status='S31_LIVE_SERVICE_OBSERVATIONS_PASS', source_commit=proof['source_commit'],
+            cases=len(CASES), commands=len(proof['commands']),
+            scope='consistency of fresh service observations; artifact download and author authenticity are not claimed')))
+        raise SystemExit(0)
     data = verify(Path(sys.argv[1]))
     controls = 0
     if '--self-test' in sys.argv[2:]:
