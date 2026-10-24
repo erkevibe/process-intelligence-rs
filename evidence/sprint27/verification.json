@@ -15,5 +15,16 @@
   "python_image_scope_proof_sha256": "1dafe66b6e77e9aae42cbddc55e88a5ca1feda75f4bbc9cf0af66c7807d240c2",
   "schema_version": 1,
   "manifest_sha256": "7a65e11ff48f78926ae66895872731a499fb2bcbc912ba5ee49455b0f4b362ad",
-  "product_integration_complete": false
+  "product_integration_complete": false,
+  "full_rust_checks": {
+    "status": "DIRECT_OWNED_CARGO_COMMANDS_CLOSED",
+    "proof_sha256": "5aeabef1f8056d9d78042db8f021ca2375f42960e5fb4f057bb1cfab1c0e2dd8",
+    "clippy_all_targets": "passed",
+    "passed": 205,
+    "ignored": 27,
+    "test_groups": 52,
+    "candidate_source_commit": "82c0dadda92fd65c38aa075a198ed37b460f7e02",
+    "failed": 0,
+    "later_changes": "CI portable audit step and validation receipts; compiled source pins unchanged"
+  }
 }
