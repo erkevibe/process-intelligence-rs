@@ -1,0 +1,400 @@
+{
+  "schema_version": 1,
+  "scope": "Exact ordered50nativecommands and8stableHTTP observations fromqualifiedd772662; readiness retries checkedseparately; selectedconsistency,notexecutionreplay",
+  "commands": [
+    {
+      "label": "s32-transient-absent",
+      "program": "systemctl",
+      "allowed_exits": [
+        0,
+        1
+      ]
+    },
+    {
+      "label": "s32-transient-absent",
+      "program": "systemctl",
+      "allowed_exits": [
+        0,
+        1
+      ]
+    },
+    {
+      "label": "unit-identity",
+      "program": "systemctl",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "unit-identity",
+      "program": "systemctl",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "full-private-database-snapshot",
+      "program": "docker",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "unit-identity",
+      "program": "systemctl",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "unit-identity",
+      "program": "systemctl",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "s32-transient-properties",
+      "program": "systemctl",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "s32-offline-cli-0",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "s32-transient-properties",
+      "program": "systemctl",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "s32-unit-object",
+      "program": "busctl",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "s32-credential-binding",
+      "program": "busctl",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "s32-stop-owned-transient",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "s32-transient-properties",
+      "program": "systemctl",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "full-private-database-snapshot",
+      "program": "docker",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "s32-read-owned-checksum",
+      "program": "docker",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "s32-corrupt-only-owned-v6-checksum",
+      "program": "docker",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "full-private-database-snapshot",
+      "program": "docker",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "unit-identity",
+      "program": "systemctl",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "unit-identity",
+      "program": "systemctl",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "s32-transient-properties",
+      "program": "systemctl",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "s32-offline-cli-1",
+      "program": "sudo",
+      "allowed_exits": [
+        1
+      ]
+    },
+    {
+      "label": "s32-transient-properties",
+      "program": "systemctl",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "s32-unit-object",
+      "program": "busctl",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "s32-credential-binding",
+      "program": "busctl",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "s32-private-schema-refusal-journal",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "s32-stop-owned-transient",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "s32-transient-properties",
+      "program": "systemctl",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "s32-reset-owned-failure",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "s32-transient-properties",
+      "program": "systemctl",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "full-private-database-snapshot",
+      "program": "docker",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "s32-repair-only-original-fixture-checksum",
+      "program": "docker",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "full-private-database-snapshot",
+      "program": "docker",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "s32-start-app",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "s32-start-proxy",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "unit-identity",
+      "program": "systemctl",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "running-executable",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "running-user",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "running-arguments",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "credential-environment",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "unit-identity",
+      "program": "systemctl",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "running-executable",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "running-user",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "running-arguments",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "accounting-snapshot",
+      "program": "docker",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "s32-private-migration-journals",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "s32-stop-proxy",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "s32-stop-app",
+      "program": "sudo",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "unit-identity",
+      "program": "systemctl",
+      "allowed_exits": [
+        0
+      ]
+    },
+    {
+      "label": "unit-identity",
+      "program": "systemctl",
+      "allowed_exits": [
+        0
+      ]
+    }
+  ],
+  "requests": [
+    {
+      "method": "POST",
+      "path_pattern": "/login",
+      "status": 303
+    },
+    {
+      "method": "GET",
+      "path_pattern": "/quota/status",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path_pattern": "/quality/jobs/job-3/report",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path_pattern": "/backup",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path_pattern": "/login",
+      "status": 303
+    },
+    {
+      "method": "POST",
+      "path_pattern": "/projects/project-[0-9a-f]{32}/open",
+      "status": 303
+    },
+    {
+      "method": "GET",
+      "path_pattern": "/quality/jobs/job-3/report",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path_pattern": "/quota",
+      "status": 403
+    }
+  ]
+}

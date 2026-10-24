@@ -41,6 +41,9 @@ assert {'process-intelligence-rs', 'pi_convert', 'CANDIDATE_STATUS.md',
         'docs/PROJECT_QUOTA_CONTRACT.md', 'docs/LINUX_TLS_DEPLOYMENT.md',
         'tools/sprint30/verify-evidence.py', 'evidence/sprint30/project-quota/manifest.json'} <= actual
 assert 'tools/sprint31/systemd-profile-ci.py' in actual
+assert 'tools/sprint32/offline-migration-ci.py' in actual
+assert {'tools/sprint32/verify-offline-evidence.py', 'tools/sprint32/offline-command-contract.json',
+        'evidence/sprint32/offline-migration/manifest.json', 'docs/SPRINT_32_REPORT.md'} <= actual
 assert {'tools/sprint31/verify-service-evidence.py', 'tools/sprint31/service-command-contract.json',
         'evidence/sprint31/systemd-profile/manifest.json', 'docs/LINUX_SERVICE_OPERATIONS.md'} <= actual
 assert not any(p.startswith('.local/') or p.endswith(('.key', '.dump')) for p in actual)
@@ -70,10 +73,17 @@ service_evidence = subprocess.run([sys.executable, '-I', '-B', 'tools/sprint31/v
 service_result = json.loads(service_evidence.stdout)
 assert service_result['status'] == 'S31_SELECTED_SERVICE_EVIDENCE_PASS' and service_result['cases'] == 19
 assert service_result['semantic_refusal_controls'] == 10
+
+offline_evidence = subprocess.run([sys.executable, '-I', '-B', 'tools/sprint32/verify-offline-evidence.py', 'evidence/sprint32/offline-migration', '--self-test'],
+                                cwd=destination, check=True, timeout=30, capture_output=True)
+offline_result = json.loads(offline_evidence.stdout)
+assert offline_result['status'] == 'S32_SELECTED_OFFLINE_EVIDENCE_PASS' and offline_result['cases'] == 7
+assert offline_result['base_cases'] == 19 and offline_result['semantic_refusal_controls'] == 14
 downloaded = os.environ.get('S30_PACKAGE_DOWNLOADED') == 'yes'
 print(json.dumps(dict(status='S30_DOWNLOADED_LINUX_PACKAGE_PASS' if downloaded else 'S30_EXTRACTED_LINUX_PACKAGE_PASS', source_commit=manifest['source_commit'],
     archive_sha256=hashlib.sha256(archive.read_bytes()).hexdigest(), files=len(actual), reports=results,
     build_environment=environment,
     evidence_verification=evidence_result,
     service_evidence_verification=service_result,
+    offline_evidence_verification=offline_result,
     scope='artifact downloaded in a separate Linux CI job' if downloaded else 'archive generated and extracted in CI; not a separately downloaded artifact or production install')))
