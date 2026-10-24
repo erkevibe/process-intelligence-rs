@@ -197,10 +197,21 @@ pub(crate) fn panel(value: &Value) -> String {
         }
         _ => "Количество трасс и вариантов не определено: расчёт не выполнен.".into(),
     };
-    let relation = if value["on_construction_log"] == true {
-        "Оценка на журнале построения модели."
-    } else {
-        "Выбран другой журнал. Само это различие не доказывает независимость от данных построения."
+    let relation = match value["training_relation"].as_str() {
+        Some("training_snapshot") => "Оценка на точном снимке обучающих вариантов.",
+        Some("same_log_changed") => {
+            "Тот же журнал, но его версия или набор данных отличается от сохранённого обучения."
+        }
+        Some("same_variants_other_log") => {
+            "Варианты совпадают с обучением; независимость контрольных данных не установлена."
+        }
+        Some("different_log_unverified") => {
+            "Выбран другой журнал. Независимость данных нужно обеспечить отдельно."
+        }
+        _ if value["on_construction_log"] == true => {
+            "Тот же журнал. Точный снимок обучения этой модели не сохранён."
+        }
+        _ => "Происхождение обучения не сохранено; независимость данных не установлена.",
     };
     format!(
         "<section id=\"quality-result\" class=\"platform-card\" aria-live=\"polite\"><h2>Результат оценки</h2><p>Модель: {} · версия {}. Журнал: {} · версия анализа {}.</p><p>{relation}</p><div class=\"stats-grid\">{}{}{}</div><p>{counts} Простота характеризует структуру сети и не доказывает корректность процесса.</p><details><summary>Данные расчёта</summary><pre>{}</pre></details></section>",
@@ -335,7 +346,16 @@ fn compute(
             json!({"schema_version":1,"profile":"application_bounded_v1","metrics":{"fitness":issue,"precision":{"status":"inconclusive","reason":"model_not_admitted"},"simplicity":{"status":"inconclusive","reason":"model_not_admitted"}}})
         }
     };
-    let value = json!({"model_id":id,"model_name":model.name,"model_revision":model.revision,"log_id":form.log_id,"log_name":log.filename,"analysis_version":log.analysis_version,"source_sha256":log.source_sha256,"on_construction_log":model.source_log.as_deref()==Some(form.log_id.as_str()),"saved_history":false,"report":report});
+    let variants_sha256 = crate::storage::sha256(&crate::quality_store::bytes(&rows, 1024 * 1024)?);
+    let relation = crate::quality_store::training_relation(
+        &model,
+        state.actor.as_ref().map_or("", |a| a.project_id.as_str()),
+        &form.log_id,
+        log.analysis_version,
+        &log.source_sha256,
+        &variants_sha256,
+    );
+    let value = json!({"model_id":id,"model_name":model.name,"model_revision":model.revision,"log_id":form.log_id,"log_name":log.filename,"analysis_version":log.analysis_version,"source_sha256":log.source_sha256,"on_construction_log":model.source_log.as_deref()==Some(form.log_id.as_str()),"training_relation":relation,"saved_history":false,"report":report});
     observer("publish");
     let mut repo = state.repository.lock().expect("repository mutex");
     let current_model = repo

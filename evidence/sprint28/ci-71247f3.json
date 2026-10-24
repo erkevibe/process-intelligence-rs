@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "source_commit": "71247f323ea4a303a19bef20b4ebfe5151bacf1f",
+  "repository": "erkevibe/process-intelligence-rs",
+  "pull_request": 41,
+  "checks": [
+    {
+      "run_id": 40107079865,
+      "job_id": 120910885168,
+      "conclusion": "success"
+    },
+    {
+      "run_id": 40107076673,
+      "job_id": 120910876155,
+      "conclusion": "success"
+    }
+  ],
+  "all_targets": {
+    "groups": 52,
+    "passed": 210,
+    "failed": 0,
+    "ignored": 29
+  },
+  "separate_postgres_tests": {
+    "count": 5,
+    "names": [
+      "Sprint25 preview",
+      "Sprint26 durable quality",
+      "Sprint26 populated v3 migration",
+      "Sprint28 durable discovery",
+      "Sprint28 populated v4 migration"
+    ],
+    "conclusion": "success"
+  },
+  "source": "GitHub connected API job logs and steps",
+  "scope": "Historical source commit; final head requires its own CI. Windows/browser not claimed by this receipt."
+}

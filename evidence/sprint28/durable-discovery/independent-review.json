@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "status": "PASS_SPRINT28_FINAL_LOCAL_PRODUCT_AND_EVIDENCE_REVIEW",
+  "product_head": "71247f323ea4a303a19bef20b4ebfe5151bacf1f",
+  "created_utc": "2026-10-24T15:45:04.7854477Z",
+  "blockers": [],
+  "verified": {
+    "original_training_relation": "different_log_unverified",
+    "browser_imported_model": "model-35",
+    "simplicity": 1,
+    "app_shutdown_exit": 137,
+    "old_binary_before_after_sql_bytes_identical": true,
+    "http_body_hashes": 32,
+    "product_sources_unchanged_from_head": true,
+    "matching_source_pins": 91,
+    "imported_training_relation": "training_unknown",
+    "fitness": 1,
+    "verify08_stream_hashes": 8,
+    "control_input": "ABBB C, frequency1",
+    "observed_screenshot": "browser-roundtrip.png",
+    "precision": "5/8",
+    "verify08_zero_exit_records": 4,
+    "browser_original_model": "model-32",
+    "full_downloaded_metric_objects_identical": true,
+    "core_native_records": 17,
+    "core_complete_stream_hashes": 34,
+    "control_log": "log-29",
+    "old_binary_refusal_exit": 1
+  },
+  "resolved_findings": [
+    "StoredModel training validation shared by backup/load/write",
+    "HTTP acceptance exact identity/input/hash/metric binding",
+    "Conflict, expired request and deleted original/child tombstone assertions added",
+    "Migration refusal snapshots include full ledger and DDL"
+  ],
+  "pins": [
+    {
+      "path": "[workspace]\\.local\\sprint21\\root\\sprint28/core02/proof.json",
+      "sha256": "5b5466aeae24cd37954be6453200b30015a8516275ed75bca51e504afc383234"
+    },
+    {
+      "path": "[workspace]\\.local\\sprint21\\root\\sprint28/core02/config.json",
+      "sha256": "f7de23e6e121886b8d2dd1c0c7cb91001c5a115a69e526f95047c4479cba72e8"
+    },
+    {
+      "path": "[workspace]\\.local\\sprint21\\root\\sprint28/core02/worker-proof.json",
+      "sha256": "56592ecf9d6227c5865158dbc34a39666be1b8550a0ffcbdaa147b8dece8acdb"
+    },
+    {
+      "path": "[workspace]\\.local\\sprint21\\root\\sprint28/core02/core/core-proof.json",
+      "sha256": "3e4c0f20d6ce648e5d6b88b7277baf9a61176c2ac7b0ad099f4163d85f2c2bcc"
+    },
+    {
+      "path": "[workspace]\\.local\\sprint21\\root\\sprint28/core02/http-basic/proof.json",
+      "sha256": "6d2e1a17089672bb36e7b56ede986a0206bcc8bba15bf14b8233f8e5ce0a64e6"
+    },
+    {
+      "path": "[workspace]\\.local\\sprint21\\root\\sprint28/core02/browser-proof.json",
+      "sha256": "b298880bfaf9e2ae385590728695ec831d7de99dcca8cd6b4b1866ca0df9f0fe"
+    },
+    {
+      "path": "[workspace]\\.local\\sprint21\\root\\sprint28/core02/browser-original-report.json",
+      "sha256": "3196b000f630e5cb64370394417d2142c08a85325f703b08d7e38983f44aa5f6"
+    },
+    {
+      "path": "[workspace]\\.local\\sprint21\\root\\sprint28/core02/browser-imported-report.json",
+      "sha256": "f1f8e72dfceb25d626095daaabd446e3caf03c4bd7742fd2feac2720e780d51d"
+    },
+    {
+      "path": "[workspace]\\.local\\sprint21\\root\\sprint28/core02/browser-model.bpmn",
+      "sha256": "28d48e8db09d1c62ad47909db7fd224c5fc37dbc0e3eb9b34211c27fdf32e478"
+    },
+    {
+      "path": "[workspace]\\.local\\sprint21\\root\\sprint28/core02/browser-roundtrip.png",
+      "sha256": "afdbd76ae1d1c3aedb02272ec4d84df7d7df1ddf64c754254cbc5c07b92c29a0"
+    },
+    {
+      "path": "[workspace]\\.local\\sprint21\\root\\sprint28/core02/browser-control.png",
+      "sha256": "4aab8d6f78884c21381a800d0189d85f03de167b6afb390bcbfd37fbbc18c01a"
+    },
+    {
+      "path": "[workspace]\\.local\\sprint21\\root\\sprint28/core02/browser-training.png",
+      "sha256": "2c627a733a728885b64ec8ccdaca5277e936b45ff860485c8ca624563491bb77"
+    },
+    {
+      "path": "[workspace]\\.local\\sprint21\\root\\sprint28/core02/browser-final-ax.txt",
+      "sha256": "4d081544d5afa912cf29bfe189f9a95bd5a76204d4f947baf86e64e6342c10ab"
+    },
+    {
+      "path": "[workspace]\\.local\\sprint21\\root\\sprint28/verify08/proof.json",
+      "sha256": "1851bd41d45f103df2f770dc9c00a23682e3e7306c58c232c8318a1d8523e53e"
+    },
+    {
+      "path": "[workspace]\\.local\\sprint21\\root\\sprint28/verify08-config.json",
+      "sha256": "6c4fb0558e3bd8117e8ffea4640c728446b8f4aaa669be5a8de9c0d7866ae1b3"
+    }
+  ],
+  "limitations": [
+    "No native processes, DB operations or builds launched by reviewer",
+    "Browser interactions performed by parent; reviewer inspected actual saved screenshot, accessibility text and downloaded report identities/metrics",
+    "Core restart test verifies reopen interrupted queued job; this receipt does not claim physical kill during running discovery compute",
+    "Remote exact-head CI successes reported by parent; not fetched independently in this local receipt",
+    "Review acceptance applies to bounded structured heuristic product increment, not universal algorithm guarantees or package installation"
+  ]
+}

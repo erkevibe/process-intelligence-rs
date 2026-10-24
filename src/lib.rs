@@ -13,6 +13,8 @@ pub mod conversion;
 mod conversion_workflow;
 pub mod csv_io;
 pub mod discovery;
+mod discovery_store;
+mod discovery_workflow;
 pub mod domain;
 pub mod event_io;
 pub mod filters;
@@ -29,11 +31,13 @@ mod quality_store;
 mod quality_workflow;
 pub mod service_preview;
 pub mod storage;
+pub mod structured_discovery;
 pub mod web;
 
 mod migration_v2;
 mod migration_v3;
 mod migration_v4;
+mod migration_v5;
 mod normalized;
 
 mod repository_v2;

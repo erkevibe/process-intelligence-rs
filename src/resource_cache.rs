@@ -426,6 +426,19 @@ fn model_charge(model: &StoredModel) -> usize {
         .saturating_add(opt_string(&p.discovery))
         .saturating_add(vec_charge(&p.nodes))
         .saturating_add(vec_charge(&p.flows));
+    if let Some(t) = &model.training {
+        for value in [
+            &t.source_project_id,
+            &t.log_id,
+            &t.source_sha256,
+            &t.variants_sha256,
+            &t.algorithm,
+            &t.method_sha256,
+            &t.job_id,
+        ] {
+            bytes = bytes.saturating_add(string_charge(value));
+        }
+    }
     for n in &p.nodes {
         bytes = bytes
             .saturating_add(string_charge(&n.id))
@@ -491,6 +504,7 @@ mod tests {
             name: "M".into(),
             revision: 1,
             source_log: None,
+            training: None,
             model: crate::bpmn::parse(include_bytes!("../fixtures/sprint02/linear.bpmn")).unwrap(),
         };
         let empty_charge = model_charge(&stored);
@@ -506,6 +520,7 @@ mod tests {
             name: "m".into(),
             revision: 1,
             source_log: None,
+            training: None,
             model: crate::bpmn::ProcessModel {
                 schema_version: 1,
                 process_id: "p".into(),

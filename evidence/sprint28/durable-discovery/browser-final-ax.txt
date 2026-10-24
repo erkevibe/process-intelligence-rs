@@ -1,0 +1,71 @@
+Browser tab: 1, Title: "Задача оценки BPMN · Process Intelligence", URL: "http://127.0.0.1:3147/quality/jobs/job-33/view".
+1 AXWebArea Задача оценки BPMN · Process Intelligence, URL: 127.0.0.1:3147/quality/jobs/job-33/view
+	2 container Навигация
+		3 container
+			4 link Description: Анализ, Value: 127.0.0.1:3147/
+			5 text ·
+			6 link Description: Проекты, Value: 127.0.0.1:3147/projects
+			7 text ·
+			8 link Description: Папки, Value: 127.0.0.1:3147/folders
+			9 text ·
+			10 link Description: История, Value: 127.0.0.1:3147/audit
+			11 text ·
+			12 link Description: Журналы, Value: 127.0.0.1:3147/logs
+			13 text ·
+			14 link Description: CSV, Value: 127.0.0.1:3147/csv
+			15 text ·
+			16 link Description: Преобразования, Value: 127.0.0.1:3147/conversions
+			17 text ·
+			18 link Description: BPMN, Value: 127.0.0.1:3147/models
+			19 text ·
+			20 link Description: Оценки BPMN, Value: 127.0.0.1:3147/quality
+			21 text ·
+			22 link Description: Построение, Value: 127.0.0.1:3147/discovery
+			23 text ·
+			24 link Description: Резервная копия, Value: 127.0.0.1:3147/backup
+			25 button Выйти
+	26 container
+		27 text Рабочее пространство  /
+		28 text Задача оценки BPMN
+		29 button Description: Переключить тему, ID: platform-theme
+	30 container platform-main
+		31 heading Оценка BPMN, Value: 1
+			32 text Оценка BPMN
+		33 link Description: Все оценки, Value: 127.0.0.1:3147/quality
+		34 container quality-job-job-33
+			35 heading Завершено, Value: 2
+				36 text Завершено
+			37 text Модель: Браузер: модель с повторением BМодель: S28 training.xes · версия 1. Журнал: S28 control B3.xes · версия анализа 29.
+			38 container
+				39 text Принято: 2026-10-24 15:38:41 UTC. 
+				40 link Description: Открыть задачу, Value: 127.0.0.1:3147/quality/jobs/job-33/view
+			41 container
+				42 link Description: Показать результат, Value: 127.0.0.1:3147/quality/jobs/job-33/view
+				43 text  · 
+				44 link Description: Скачать отчёт JSON с входами, Value: 127.0.0.1:3147/quality/jobs/job-33/report
+			45 button Повторить с теми же входами
+			46 button Удалить сохранённую оценку
+			47 container quality-result
+				48 heading Результат оценки, Value: 2
+					49 text Результат оценки
+				50 text Модель: Браузер: модель с повторением BМодель: S28 training.xes · версия 1. Журнал: S28 control B3.xes · версия анализа 29.
+				51 text Выбран другой журнал. Независимость данных нужно обеспечить отдельно.
+				52 container
+					53 heading Соответствие журналу, Value: 3
+						54 text Соответствие журналу
+					55 text 100.0% Fitness: насколько модель воспроизводит наблюдённые последовательности. Расчёт выполнен в пределах указанного профиля.
+				56 container
+					57 heading Точность поведения, Value: 3
+						58 text Точность поведения
+					59 text 62.5% Precision: чем выше оценка, тем меньше лишнего поведения допускает модель. Расчёт выполнен в пределах указанного профиля.
+				60 container
+					61 heading Простота структуры, Value: 3
+						62 text Простота структуры
+					63 text 100.0% Simplicity: оценка степени связности представленной сети. Расчёт выполнен в пределах указанного профиля.
+				64 text Использовано трасс: 1. Вариантов: 1. Простота характеризует структуру сети и не доказывает корректность процесса.
+				65 button (collapsed) Данные расчёта, Secondary Actions: Expand
+					66 text Данные расчёта
+	67 container
+		68 text Process Intelligence Локальная поставка · совместимость с Apromore не подтверждена
+
+The focused UI element is 44 link Description: Скачать отчёт JSON с входами, URL: 127.0.0.1:3147/quality/jobs/job-33/report

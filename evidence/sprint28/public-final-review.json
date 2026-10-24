@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "status": "PASS_SPRINT28_PUBLIC_SOURCE_PACKAGE_AND_NATIVE_NUMERIC_REPLAY",
+  "created_utc": "2026-10-24T16:09:17.9136299Z",
+  "product_head": "71247f323ea4a303a19bef20b4ebfe5151bacf1f",
+  "blockers": [],
+  "verified": {
+    "actual_rust_numeric_replays": 3,
+    "closed_native_records": 6,
+    "positive_controls": 1,
+    "fresh_execution_claimed_by_portable_audit": false,
+    "unchanged_static_source_pins": 3,
+    "package_files": 20,
+    "package_bytes": 170001,
+    "complete_stream_hashes": 12,
+    "counterfactuals_refused": 26,
+    "derived_training_hash_matches": true,
+    "config_pins_current_hash_matches": 116,
+    "author_signature_claimed": false
+  },
+  "replay_results": [
+    {
+      "author_signature_verified": false,
+      "input_model_sha256": "cf911c9aa905d1ca671e5152fefc107ee9d207822b0c551f40954ee8f514e525",
+      "input_variants_sha256": "9ca9cdc09a1012b00b2f3a4fcd7ddfe4aa495dbe6f1b9c991dcf16fa13bc283f",
+      "method_sha256": "be4a5a27bb061b0e4fc3a35a365061b4541281d613fd9bde3742572c6defea88",
+      "numeric_replay": true,
+      "status": "quality_report_verified"
+    },
+    {
+      "author_signature_verified": false,
+      "input_model_sha256": "cf911c9aa905d1ca671e5152fefc107ee9d207822b0c551f40954ee8f514e525",
+      "input_variants_sha256": "9ca9cdc09a1012b00b2f3a4fcd7ddfe4aa495dbe6f1b9c991dcf16fa13bc283f",
+      "method_sha256": "be4a5a27bb061b0e4fc3a35a365061b4541281d613fd9bde3742572c6defea88",
+      "numeric_replay": true,
+      "status": "quality_report_verified"
+    },
+    {
+      "author_signature_verified": false,
+      "input_model_sha256": "cf911c9aa905d1ca671e5152fefc107ee9d207822b0c551f40954ee8f514e525",
+      "input_variants_sha256": "44cb821a0c65366940412a7fae7e4858d1fe80a94f3139a1c0789e31011bcd2a",
+      "method_sha256": "be4a5a27bb061b0e4fc3a35a365061b4541281d613fd9bde3742572c6defea88",
+      "numeric_replay": true,
+      "status": "quality_report_verified"
+    }
+  ],
+  "pins": [
+    {
+      "sha256": "46613b32e6e8e233de8c880e8d48ca2164806cacafb07f545c9a762bd7ab7012",
+      "path": "[workspace]\\.local\\sprint21\\root\\sprint28\\public-native05/proof.json"
+    },
+    {
+      "sha256": "952d050e5f1e676a1423fc47fdc88647377c3552435ecd43e2323a12f40cb7f0",
+      "path": "[workspace]\\.local\\sprint21\\root\\sprint28\\public-native05/config.json"
+    },
+    {
+      "sha256": "87ea344f81dead8e93eff386a5a11c93574331c724b692e4ee69005acfaf7dde",
+      "path": "[workspace]\\.local\\sprint21\\root\\sprint28\\public-native05/worker-proof.json"
+    },
+    {
+      "sha256": "afe033b79886f9d32db877a179b5da93cf3cf9c7bf9919a7661ff24de7d6431d",
+      "path": "[workspace]\\.local\\sprint21\\root\\sprint28\\public-native05/derived-training-report.json"
+    },
+    {
+      "sha256": "17dec9c24d5ca4c54d0a5d5b12ecca59ac5308539fe048524be7b2c83ee29b95",
+      "path": "[workspace]\\evidence\\sprint28\\durable-discovery\\manifest.json"
+    },
+    {
+      "sha256": "e24054166c99db70e718f59b77ba9064fecc427b4d5938dbe8c35a6e008a5d23",
+      "path": "[workspace]\\.local\\sprint21\\root\\sprint28-review\\public-final-review01.json"
+    }
+  ],
+  "limitations": [
+    "Reviewer launched no native processes/DB operations; inspected closed native captures and hashed exact configured116files",
+    "Three CLI replays verify saved report numerics; they do not independently rerun browser interactions",
+    "XML binding only supported process/node/flow semantics; DI geometry and arbitrary BPMN excluded",
+    "No author authentication; exact-head final remote CI remains separate"
+  ],
+  "source_private_receipt_sha256": "C2D548B58DD24D1AB31047729B5A5729C753054C838D6EB27AE65D2CC39A0558",
+  "projection": "Workspace prefix replaced with [workspace]; immutable source receipt retained privately."
+}

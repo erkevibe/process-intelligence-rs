@@ -20,6 +20,7 @@ pub(crate) struct Baseline {
     models: BTreeMap<String, Weak<StoredModel>>,
     conversions: BTreeMap<String, Weak<crate::conversion_workflow::ConversionArtifact>>,
     quality: BTreeMap<String, Weak<crate::quality_store::QualityArtifact>>,
+    discovery: BTreeMap<String, Weak<crate::discovery_store::DiscoveryArtifact>>,
 }
 #[derive(Clone)]
 struct LogToken {
@@ -49,6 +50,10 @@ pub(crate) struct Header {
     pub(crate) quality_jobs: BTreeMap<String, crate::quality_store::QualityMeta>,
     #[serde(default, skip_serializing_if = "BTreeMap::is_empty")]
     pub(crate) quality_requests: BTreeMap<String, crate::quality_store::RequestReceipt>,
+    #[serde(default, skip_serializing_if = "BTreeMap::is_empty")]
+    pub(crate) discovery_jobs: BTreeMap<String, crate::discovery_store::DiscoveryMeta>,
+    #[serde(default, skip_serializing_if = "BTreeMap::is_empty")]
+    pub(crate) discovery_requests: BTreeMap<String, crate::quality_store::RequestReceipt>,
     pub(crate) log_ids: Vec<String>,
     pub(crate) model_ids: Vec<String>,
 }
@@ -68,6 +73,14 @@ impl Header {
         self.audit.validate().map_err(|_| corrupt())?;
         crate::conversion_workflow::validate_metadata(&self.conversions)?;
         crate::quality_store::validate_metadata(&self.quality_jobs, &self.quality_requests)?;
+        crate::discovery_store::validate_metadata(&self.discovery_jobs, &self.discovery_requests)?;
+        if self.discovery_jobs.keys().any(|id| {
+            self.durable_jobs.contains_key(id)
+                || self.conversions.contains_key(id)
+                || self.quality_jobs.contains_key(id)
+        }) {
+            return Err(corrupt());
+        }
         if self
             .quality_jobs
             .keys()
@@ -156,6 +169,21 @@ impl Header {
                 changed = true;
             }
         }
+        for meta in self.discovery_jobs.values_mut() {
+            if !meta.snapshot.is_terminal() {
+                meta.snapshot.state = JobState::Failed;
+                meta.snapshot.stage = "interrupted".into();
+                meta.snapshot.result_id = None;
+                meta.snapshot.error = Some(crate::jobs::JobError {
+                    code: "interrupted".into(),
+                    message:
+                        "Построение прервано перезапуском. Снимок сохранён — нажмите «Повторить»."
+                            .into(),
+                });
+                meta.snapshot.job_revision += 1;
+                changed = true
+            }
+        }
         changed
     }
 }
@@ -175,6 +203,8 @@ pub(crate) fn header(repo: &Repository) -> Header {
         conversions: repo.conversions.clone(),
         quality_jobs: repo.quality_jobs.clone(),
         quality_requests: repo.quality_requests.clone(),
+        discovery_jobs: repo.discovery_jobs.clone(),
+        discovery_requests: repo.discovery_requests.clone(),
         log_ids: repo
             .log_ids
             .iter()
@@ -254,6 +284,7 @@ pub(crate) fn prepare(
         }
     }
     for (id, model) in &next.models {
+        model.validate_training()?;
         if id != &model.id
             || next.deleted_model_ids.contains(id)
             || crate::bpmn::validate(&model.model).is_err()
@@ -325,6 +356,32 @@ pub(crate) fn prepare(
     for id in &next.deleted_quality_ids {
         deletes.push(("quality".into(), id.clone()));
     }
+    for (id, artifact) in &next.discovery_artifacts {
+        let meta = next
+            .discovery_jobs
+            .values()
+            .find(|m| &m.artifact_id == id)
+            .ok_or_else(corrupt)?;
+        crate::discovery_store::validate_artifact(meta, artifact)?;
+        if next.deleted_discovery_ids.contains(id) {
+            return Err(corrupt());
+        }
+        if next
+            .persisted
+            .discovery
+            .get(id)
+            .is_none_or(|old| !Weak::ptr_eq(old, &Arc::downgrade(artifact)))
+        {
+            puts.push((
+                "discovery".into(),
+                id.clone(),
+                serde_json::to_value(artifact).map_err(|_| corrupt())?,
+            ));
+        }
+    }
+    for id in &next.deleted_discovery_ids {
+        deletes.push(("discovery".into(), id.clone()));
+    }
     for id in &next.deleted_log_ids {
         for kind in ["log_state", "log_data", "log_source", "log_analysis"] {
             deletes.push((kind.into(), id.clone()));
@@ -367,6 +424,14 @@ pub(crate) fn mark_persisted(repo: &mut Repository) {
             .quality
             .insert(id.clone(), Arc::downgrade(artifact));
     }
+    baseline
+        .discovery
+        .retain(|id, _| repo.discovery_jobs.values().any(|m| &m.artifact_id == id));
+    for (id, artifact) in &repo.discovery_artifacts {
+        baseline
+            .discovery
+            .insert(id.clone(), Arc::downgrade(artifact));
+    }
     for (id, log) in &repo.logs {
         baseline.logs.insert(id.clone(), token(log));
     }
@@ -377,11 +442,13 @@ pub(crate) fn mark_persisted(repo: &mut Repository) {
     repo.deleted_model_ids.clear();
     repo.deleted_conversion_ids.clear();
     repo.deleted_quality_ids.clear();
+    repo.deleted_discovery_ids.clear();
     if repo.lazy_resources {
         repo.logs.clear();
         repo.models.clear();
         repo.conversion_artifacts.clear();
         repo.quality_artifacts.clear();
+        repo.discovery_artifacts.clear();
     }
 }
 fn token(log: &StoredLog) -> LogToken {
@@ -439,6 +506,11 @@ pub(crate) fn load_metadata(database: &Database, project: &str) -> Result<Reposi
                 .map(|m| ("quality".into(), m.artifact_id.clone())),
         )
         .chain(
+            h.discovery_jobs
+                .values()
+                .map(|m| ("discovery".into(), m.artifact_id.clone())),
+        )
+        .chain(
             h.conversions
                 .values()
                 .map(|m| ("conversion".into(), m.artifact_id.clone())),
@@ -458,6 +530,8 @@ pub(crate) fn load_metadata(database: &Database, project: &str) -> Result<Reposi
         conversions: h.conversions,
         quality_jobs: h.quality_jobs,
         quality_requests: h.quality_requests,
+        discovery_jobs: h.discovery_jobs,
+        discovery_requests: h.discovery_requests,
         storage_revision: revision,
         log_ids: h.log_ids.into_iter().collect(),
         model_ids: h.model_ids.into_iter().collect(),
@@ -574,6 +648,7 @@ pub(crate) fn load_model(
     if model.id != id || crate::platform::exportable_model(&model.model).is_err() {
         return Err(corrupt());
     }
+    model.validate_training().map_err(|_| corrupt())?;
     Ok((Arc::new(model), vec![(kind, version)]))
 }
 // Complete semantic materialization is reserved for backup and tests.
@@ -604,6 +679,11 @@ pub(crate) fn load(database: &Database, project: &str) -> Result<Repository, Imp
     for meta in repo.quality_jobs.values() {
         let artifact = crate::quality_store::load_artifact(database, project, meta)?;
         repo.quality_artifacts
+            .insert(meta.artifact_id.clone(), artifact);
+    }
+    for meta in repo.discovery_jobs.values() {
+        let artifact = crate::discovery_store::load_artifact(database, project, meta)?;
+        repo.discovery_artifacts
             .insert(meta.artifact_id.clone(), artifact);
     }
     mark_persisted(&mut repo);

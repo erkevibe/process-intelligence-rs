@@ -1,0 +1,401 @@
+{
+  "schema_version": 1,
+  "status": "PASS_SPRINT28_BUILD_PIN_COVERAGE_CLARIFICATION",
+  "product_head": "71247f323ea4a303a19bef20b4ebfe5151bacf1f",
+  "created_utc": "2026-10-24T15:57:01.1596963Z",
+  "blockers": [],
+  "supersedes_for_build_pin_count": "final-local-review01.json",
+  "prior_receipt_sha256": "baeaa90930bb499c5c5c6559dd65248c7ce6d9809d76ac4ea7604347f5d64914",
+  "explanation": "Prior receipt counted 91 selected core02 source/checker pins: 90 src/*.rs plus tools/sprint28/discovery-http.py. verify08 build has 92 different pins: same90 src/*.rs plus Cargo.toml and Cargo.lock. There was no single omitted build pin; prior number described a different set and must not be used as total build coverage.",
+  "verified": {
+    "current_hash_matches": 92,
+    "git_normalized_src_and_cargo_diff_from_product_head_empty": true,
+    "manifest_pins": [
+      "Cargo.toml",
+      "Cargo.lock"
+    ],
+    "native_commands_rerun": false,
+    "verify08_total_pins": 92,
+    "prior_core_selected_source_checker_pins": 91,
+    "public_build_pin_count": 92,
+    "rust_source_pins": 90
+  },
+  "config_sha256": "6c4fb0558e3bd8117e8ffea4640c728446b8f4aaa669be5a8de9c0d7866ae1b3",
+  "build_proof_sha256": "1851bd41d45f103df2f770dc9c00a23682e3e7306c58c232c8318a1d8523e53e",
+  "public_build_proof_sha256": "2147362b26f07b36dd658c10e21e714d930e548f9fec864f4ef91c1f22f9cf9c",
+  "build_pins": [
+    {
+      "sha256": "75dbbc7b982ee6b1d955ccb3168b31908b109085bbdeb087af47c1f7f505ee72",
+      "path": "[workspace]\\src\\audit.rs"
+    },
+    {
+      "sha256": "a3c459c520b2b8c496f453adfd6d095d290936202bf3f3cecd74b11305892524",
+      "path": "[workspace]\\src\\auth_project_list.rs"
+    },
+    {
+      "sha256": "5af14965abbad4e00b26823e374a67995142101778c21000ed767c887dfd8ae0",
+      "path": "[workspace]\\src\\auth_sprint12_tests.rs"
+    },
+    {
+      "sha256": "9e29bbd395a01190aedda359a5df73e018c3252f15749b955f7f69c41cf6b94e",
+      "path": "[workspace]\\src\\auth.rs"
+    },
+    {
+      "sha256": "67a872acc523e25c0e1691b911654dd760ecec819e1f5db826aea1ae1207e820",
+      "path": "[workspace]\\src\\bpmn_quality_preview_tests.rs"
+    },
+    {
+      "sha256": "ff356eaa4bc6607b1d999dcb051211489c00eddaf1a25ffc67799268cf6e635d",
+      "path": "[workspace]\\src\\bpmn_quality_preview.rs"
+    },
+    {
+      "sha256": "022e70394e58a27726c9a499d354ab5226c4057791633a6d7c68d750a570987a",
+      "path": "[workspace]\\src\\bpmn.rs"
+    },
+    {
+      "sha256": "58a2fc21e432c2b9817a1eabc223f86ec2b83170c719f7c6ce9dd9ebd5a77b3c",
+      "path": "[workspace]\\src\\calendar.rs"
+    },
+    {
+      "sha256": "b7d4f6af22f1a808cb794e8e545ff2641711838d2a71a750d5c2e77d06e8b51f",
+      "path": "[workspace]\\src\\cleanup.rs"
+    },
+    {
+      "sha256": "74d5f57dc8220429a45721fdd1b6c9b948e8cf3b6554cf2b1b8fe80ce15ddfae",
+      "path": "[workspace]\\src\\conversion_adversarial_tests.rs"
+    },
+    {
+      "sha256": "a30270d1ccd210cddc6cd4877ca725069cc11d0275f7a4c51d5f2520e509c05c",
+      "path": "[workspace]\\src\\conversion_capacity_tests.rs"
+    },
+    {
+      "sha256": "da28487f9f376f91cc758949bc515ea2fa8dd64019c89eabe23c49e050451d1c",
+      "path": "[workspace]\\src\\conversion_compact_lifecycle_tests.rs"
+    },
+    {
+      "sha256": "c2d41a2aa02f3f04157f2cc4aa0a2f2d1041bf78f0a3d46ec35fd13ea29cc31c",
+      "path": "[workspace]\\src\\conversion_workflow_tests.rs"
+    },
+    {
+      "sha256": "cc9e4b9b1ab01447a9d7d5e854f5607a9abcc59e47a2c4fee535ba66c20a2f3e",
+      "path": "[workspace]\\src\\conversion_workflow.rs"
+    },
+    {
+      "sha256": "3eed3d20c0262e3cbf2bb2bf4666c33581f13ad61a9834da2b186e6623ab469d",
+      "path": "[workspace]\\src\\csv_io.rs"
+    },
+    {
+      "sha256": "dfcc40a638da10bb2d3229e2da7a898c8e48514937cb3a29a2de9bb66b916507",
+      "path": "[workspace]\\src\\discovery_store.rs"
+    },
+    {
+      "sha256": "e5cf32c3f3970f9175c3589918b450b04b880064b2912f01e7d199d7722be627",
+      "path": "[workspace]\\src\\discovery_workflow_tests.rs"
+    },
+    {
+      "sha256": "4c8d6b1077dd83b5a60b5004e26c8a31cc187776e8cf5459689da11a85c1a52a",
+      "path": "[workspace]\\src\\discovery_workflow.rs"
+    },
+    {
+      "sha256": "286e55fa7fc7c4f0dee4c28c1386e2a37813444e7a671054a6f33483cc798246",
+      "path": "[workspace]\\src\\discovery.rs"
+    },
+    {
+      "sha256": "afd8eb46be4439668e11a8092d8e77d5a5b3d55595e6464c47bbb2611ef3c662",
+      "path": "[workspace]\\src\\domain.rs"
+    },
+    {
+      "sha256": "e2f96e3ceb1f4af7d69492d0a7433259e6205397e219fc837b0adb30c4330fc8",
+      "path": "[workspace]\\src\\event_io.rs"
+    },
+    {
+      "sha256": "edbcc434e1ce1c3c45ee7d9db935c659d11cbafb75d88381d77ae6cf132eed3d",
+      "path": "[workspace]\\src\\filters.rs"
+    },
+    {
+      "sha256": "9f2cf01668642f45fc66948a597368d643249418d4216074aa8fd2ea6644af14",
+      "path": "[workspace]\\src\\folder_workflow.rs"
+    },
+    {
+      "sha256": "93c097a806d372f1827758bf03de96f8ef4a8bfbd8522ed9bf27b2355a09928f",
+      "path": "[workspace]\\src\\folders.rs"
+    },
+    {
+      "sha256": "844d87ab619aa2d2232b4103065132d30b14511944ac490a58fcf58608e8faf3",
+      "path": "[workspace]\\src\\import_provenance.rs"
+    },
+    {
+      "sha256": "40e0d93dbf670e6f3502225fc8357dbf7aac1874c12408d0d8f18d07103728b0",
+      "path": "[workspace]\\src\\jobs.rs"
+    },
+    {
+      "sha256": "e6130014173e98a9c766bb06fca5dccc9c9b6cf69e46aa0cdceebc767dae7fea",
+      "path": "[workspace]\\src\\lib.rs"
+    },
+    {
+      "sha256": "144e6c84c5eea26064c818266b6ff6ae70950349616eb4ca57d1f1df5c84f743",
+      "path": "[workspace]\\src\\main.rs"
+    },
+    {
+      "sha256": "aea3e7492940efe3115b7dac04ba74b858fbc55950fb634cadbd2b0cc3d7f171",
+      "path": "[workspace]\\src\\migration_v2.rs"
+    },
+    {
+      "sha256": "4e26066d6ddd4318d68a3bc58f0e0fc097184fd229a0bc077ec8eb6b7092256d",
+      "path": "[workspace]\\src\\migration_v3.rs"
+    },
+    {
+      "sha256": "4c2d00224c5495fd323672228f45db28d38ebd31ac001c988570b7b06a495435",
+      "path": "[workspace]\\src\\migration_v4.rs"
+    },
+    {
+      "sha256": "225c6a8c8981daa90758122d5af604f8492d6eea2e134d925e37ca7704c0a266",
+      "path": "[workspace]\\src\\migration_v5.rs"
+    },
+    {
+      "sha256": "abceead72f6651ae9d8fe067d154efb2a30b15d1a7fc6836d89513f7c247c01d",
+      "path": "[workspace]\\src\\migrations.rs"
+    },
+    {
+      "sha256": "9a7fabf144df0111b400e0bcdfad948a5427026ab48211f2ad34578e290084ad",
+      "path": "[workspace]\\src\\mining.rs"
+    },
+    {
+      "sha256": "5623cceb09e059fbf801014864aa60cf5c6614bd44a3bdf817c0e0e95bf7a2f8",
+      "path": "[workspace]\\src\\normalized.rs"
+    },
+    {
+      "sha256": "16afb4b330c016e738fdeca9d0869a4ec6c7c915e2de5a578b33504e0db865e0",
+      "path": "[workspace]\\src\\platform_render.rs"
+    },
+    {
+      "sha256": "e00f63e2d03a847f01405a4ea69a3fbdf68d0b8334dd096f270fb08341df8ede",
+      "path": "[workspace]\\src\\platform.rs"
+    },
+    {
+      "sha256": "54cd65514e1e62a2d069d302d5b53e06b38e31aa7f4842d8d0b80149cdbc3ebf",
+      "path": "[workspace]\\src\\project_list.rs"
+    },
+    {
+      "sha256": "f92e5fa315a162199ede53486478df5835ede468da93850799f3d685b30957e6",
+      "path": "[workspace]\\src\\projection_loss.rs"
+    },
+    {
+      "sha256": "d217c8fa2b3bbdf0518a51e8fa5d1a7f8dd8d24e21d2921a820998250cea5efb",
+      "path": "[workspace]\\src\\quality_store.rs"
+    },
+    {
+      "sha256": "b5cf74154f8bbc33cb192b57bd5a875b0e687851bfbbaa36f08f35ddf3e72aa4",
+      "path": "[workspace]\\src\\quality_workflow_tests.rs"
+    },
+    {
+      "sha256": "f7c16242bfd0ad7ded38de15f9112899bf1b380dccfabb6a00db02621db58464",
+      "path": "[workspace]\\src\\quality_workflow.rs"
+    },
+    {
+      "sha256": "a733d981c18789cb0f1a8cc2ce0835ebbedfaa60845efbb9a06ed82296e56e9c",
+      "path": "[workspace]\\src\\repository_v2.rs"
+    },
+    {
+      "sha256": "2cc6b5d84f022a28000cd618a657925d43a617fceac0f864b16032c21d6b5198",
+      "path": "[workspace]\\src\\resource_cache.rs"
+    },
+    {
+      "sha256": "659079cebf5879470dfa6482cac1732337f7e958c6c3e01106afd8962cd956e7",
+      "path": "[workspace]\\src\\service_preview.rs"
+    },
+    {
+      "sha256": "e5f8ae556e488c4e12f823874fbb1a3af687da55961ac036943764c77ffe333f",
+      "path": "[workspace]\\src\\storage.rs"
+    },
+    {
+      "sha256": "a0dbda4dac078bea1e72b440bfb312077d77ba54464ab493d5f7ef5efc726c1b",
+      "path": "[workspace]\\src\\structured_discovery.rs"
+    },
+    {
+      "sha256": "a13dab9c34920a273f38d66968573046df7a37720823ff6593e27f3a6e2c0ecb",
+      "path": "[workspace]\\src\\web_sprint12_http_tests.rs"
+    },
+    {
+      "sha256": "62b24e08cf4f527f7ebcafccc7f7bcc08945b998dcb02eaa307e773f6a81aa80",
+      "path": "[workspace]\\src\\web_sprint12_tests.rs"
+    },
+    {
+      "sha256": "f9418b67f5668c8b67bc561aa157455f170bc451f2f209e338a382799bd0dc3f",
+      "path": "[workspace]\\src\\web.rs"
+    },
+    {
+      "sha256": "111c4850d813a5bfb6c92e11f8f583aab78b2f864adb3d8329fc2de7ddbe29be",
+      "path": "[workspace]\\src\\xes_workflow.inc.rs"
+    },
+    {
+      "sha256": "c1d23442f55c61cb1d82baded11e5b1b928c4e1a370ab6407643a41dfae3cc35",
+      "path": "[workspace]\\src\\bpmn_quality\\bridge.rs"
+    },
+    {
+      "sha256": "993195de003d99a5ef42884bdb362a529bff55d5a21b7bb79fe0db10865285bf",
+      "path": "[workspace]\\src\\bpmn_quality\\facade.rs"
+    },
+    {
+      "sha256": "7c4d4115d78307b65bce609c39773fdf621ca1a72d5ef5d9678f22c55a7f3fdc",
+      "path": "[workspace]\\src\\bpmn_quality\\metrics.rs"
+    },
+    {
+      "sha256": "ba4ed4d64d26e1e57047e577da5c2395346e048b2c66b0e169e823effb8e3b6b",
+      "path": "[workspace]\\src\\bpmn_quality\\mod.rs"
+    },
+    {
+      "sha256": "e0352f9e2885fd19e66dfbe78697068d7a0193ae2afbd07f9d057b060fce4328",
+      "path": "[workspace]\\src\\bpmn_quality\\saved.rs"
+    },
+    {
+      "sha256": "6583a429d932866f7e592ccedb0c0e4667326e15192217855a2c08048f8de858",
+      "path": "[workspace]\\src\\bpmn_quality\\state.rs"
+    },
+    {
+      "sha256": "620468860f91b64ad21f64427e97eafdcb3d50506236ca38315485b1c29004d4",
+      "path": "[workspace]\\src\\conversion\\compact.rs"
+    },
+    {
+      "sha256": "226fe3ff20bc05e1cb36029b3dc5b9469fcd938d880011c9d43a7109a3310a93",
+      "path": "[workspace]\\src\\conversion\\logs.rs"
+    },
+    {
+      "sha256": "e5463fb0014d0e758b937c05d62ba5b6deb58bd5c35f7d76a656f12d060cbd59",
+      "path": "[workspace]\\src\\conversion\\mod.rs"
+    },
+    {
+      "sha256": "412d36111de292521718ef0458da38655b789762e54ebd0efc25c9daaac3e82f",
+      "path": "[workspace]\\src\\conversion\\net.rs"
+    },
+    {
+      "sha256": "bb97d237f71be6b1747a55ff00aefe3087d8221dc5eb1e3ebc7e6a99b8cb7674",
+      "path": "[workspace]\\src\\conversion\\xml.rs"
+    },
+    {
+      "sha256": "7d5a3e996b4b48ab1810128c1d99c00ae75e5008889c68ea1efa4f3b1a65458a",
+      "path": "[workspace]\\examples\\bpmn_quality_cohort.rs"
+    },
+    {
+      "sha256": "08b33d75f08cb634d8e64535478083ffcb032609ac1af9e8e5352bd20c1be325",
+      "path": "[workspace]\\examples\\bpmn_quality.rs"
+    },
+    {
+      "sha256": "eff3718cbc95e945210cc09d5633bdf0db74086b38a1669c1f86cca593882558",
+      "path": "[workspace]\\examples\\core_calendar_observer.rs"
+    },
+    {
+      "sha256": "e5a7f66de248540db82fd124335de50354570fdfa340ee0544a9f4ccd099bcab",
+      "path": "[workspace]\\examples\\core_filter_extended_observer.rs"
+    },
+    {
+      "sha256": "1dd7df901d89522912a7a6391a212da05d943ac0da0f1510056635c459516b6d",
+      "path": "[workspace]\\examples\\core_filter_observer.rs"
+    },
+    {
+      "sha256": "64b71a7e9e0d4a74b14b706b437b56314d66eb00633f9d13617346060e3c136b",
+      "path": "[workspace]\\examples\\discovery_alpha.rs"
+    },
+    {
+      "sha256": "0898bca5616ffb99f7e175aed90cfa88b1c90b7748531d706d6a9004504a846b",
+      "path": "[workspace]\\examples\\discovery_fitness.rs"
+    },
+    {
+      "sha256": "399d3d9884eab44d17bf35c1fe0369e05e7ec7870f9d2926a419fc4a4a457231",
+      "path": "[workspace]\\examples\\full_service_observer.rs"
+    },
+    {
+      "sha256": "1b22f73513e2c501dab662a23a0a82032cac9f7408dd20e83f721df03fc32c21",
+      "path": "[workspace]\\examples\\miner_alpha_profiles.rs"
+    },
+    {
+      "sha256": "5cc738d1d1a963b9e1f5fe627373b2442d546529d5e75ead1b87dca8e18b867e",
+      "path": "[workspace]\\examples\\miner_compare.rs"
+    },
+    {
+      "sha256": "c4e3f56b0b3962b424c4c4723c4582337f1c83266dcdc47d20fc47524e3f1dd7",
+      "path": "[workspace]\\examples\\miner_score_inductive.rs"
+    },
+    {
+      "sha256": "ceb67e9f4e0b86fae1c4a3177db8d6135d811ed9a88eea4638cea0d883d7bb4d",
+      "path": "[workspace]\\examples\\miner_score.rs"
+    },
+    {
+      "sha256": "d2380404e969ecd941bd3decb32b004c44bf3d7ef3cdc5f146c1ea0e9842b5fc",
+      "path": "[workspace]\\examples\\miner_structured.rs"
+    },
+    {
+      "sha256": "7a6c5bd891abb486f92b806e395ec9887802b8fe0c4964da52967b1c748b5d08",
+      "path": "[workspace]\\examples\\oracle_xes.rs"
+    },
+    {
+      "sha256": "073a6936af5e11796bd7d31e7fd3a8d105e4570a5b462de0ed07702640446103",
+      "path": "[workspace]\\examples\\pi_convert.rs"
+    },
+    {
+      "sha256": "be530534e070f6fb8fcdb766b3aad9f9b2b3b08ab31e05a5a76c8f20064ab505",
+      "path": "[workspace]\\examples\\service_preview.rs"
+    },
+    {
+      "sha256": "8aa6073d831ffb9e258a56fa6221e9898ad410252fe0b3e0356381700f966a3d",
+      "path": "[workspace]\\examples\\sprint12_model_serialization.rs"
+    },
+    {
+      "sha256": "747c120bd17f7efc7ff6cecebf64d71d7afad153964eea847184d71042271781",
+      "path": "[workspace]\\examples\\sprint13_legacy_hashes.rs"
+    },
+    {
+      "sha256": "dbf9d572dc89e71ac83bf8df34c26a4adb4de8efa16bf0c801ef946a807744ca",
+      "path": "[workspace]\\examples\\sprint13_recovery_exports.rs"
+    },
+    {
+      "sha256": "8db840f48f2dde77fcac4cfa224f9516b00f3c1bec821201e9c5ed07c8e69833",
+      "path": "[workspace]\\examples\\sprint23_corpus.rs"
+    },
+    {
+      "sha256": "a2821e570c39a66c49f9055d0a41445de85749e539837f4371cd1da430f4e0ee",
+      "path": "[workspace]\\examples\\conversion\\mod.rs"
+    },
+    {
+      "sha256": "13c1ef3d3a7d9e8444f905f047f9c0f9f5e060b1827519b1f7d3fbe76ecf2cd1",
+      "path": "[workspace]\\examples\\quality\\bridge.rs"
+    },
+    {
+      "sha256": "7d251f2848514f24b7c5e436ab8752d928be45b5bdd35f2bb6a3d9cea879ece1",
+      "path": "[workspace]\\examples\\quality\\cohort.rs"
+    },
+    {
+      "sha256": "267d3f2e4cd1e2cbe3ba3d1288289f5fbbb2a400363c8bcbf8caf6a4022c6904",
+      "path": "[workspace]\\examples\\quality\\metrics.rs"
+    },
+    {
+      "sha256": "412afc2112fbc2cfd5cd0c35267b898b251a79f94a0a044536c0cca194ffa86d",
+      "path": "[workspace]\\examples\\quality\\mod.rs"
+    },
+    {
+      "sha256": "5f8af25b576387de035731c1c546a9324184cff100abf0c5711628c6cfbd10a3",
+      "path": "[workspace]\\examples\\quality\\pipeline.rs"
+    },
+    {
+      "sha256": "f00ce86f5d3fc18ad8c56f9f7a85151debd945cb3ba76cae45d59695b475aaf0",
+      "path": "[workspace]\\examples\\quality\\state.rs"
+    },
+    {
+      "sha256": "3817d7c05d9079fd13846de51bd41efbb523da75f72105504b91d47cb341272e",
+      "path": "[workspace]\\examples\\structured\\miner.rs"
+    },
+    {
+      "sha256": "bc8312d69d391fbf6ba61aa419d7704208275c01e462d969932a90d076eb70ad",
+      "path": "[workspace]\\Cargo.toml"
+    },
+    {
+      "sha256": "ba1abc44412a4fd112346e138ad95d9e8d104cee6886874a41892ffa061ff534",
+      "path": "[workspace]\\Cargo.lock"
+    }
+  ],
+  "limitations": [
+    "Closure/results acceptance from prior receipt retained; this follow-up only resolves exact pin set coverage",
+    "No native process or resource scan launched",
+    "Public auditor rerun remains separate"
+  ]
+}
