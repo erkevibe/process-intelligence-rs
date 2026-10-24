@@ -1,0 +1,526 @@
+{
+  "source_after_sha256": "368906C5D863B05F140BD6B502678D92023D590AABF3EBD22DDB65E152927B57",
+  "fixture_failure": {
+    "native_exits": [
+      0,
+      1,
+      0
+    ],
+    "cause": "An unmodified saved DirectorySecurity did not persist the original DACL; explicit fresh descriptor and actual equality check corrected fixture cleanup",
+    "status": "FIRST_BASELINE_FAILED_NOT_A_PRODUCT_FINDING",
+    "qa": "B6F658D3FDF9394CFD59269DDA7F1F7FED1C7B5BA9B7CE1CB607F36CEF79B3DF"
+  },
+  "source_before_sha256": "B87418A14D3E299446C9DA3E0E7DC6BE0445B5114F43D793B5B67DB41805D8A0",
+  "scope": [
+    "Controlled local operator fixture only; not standalone privilege escalation",
+    "DACL state strings contain local account identifiers and remain private; public digests are SHA256 of exact UTF8 SDDL/state strings, without BOM or normalization",
+    "Windows15 actual; Linux13+2 skipped not yet executed at this capture",
+    "Static existing-path checks only, not atomic protection against concurrent replacement",
+    "Ordinary paths reached deliberate missing-config refusal after private ACL; no fresh full database backup/restore or PS5 execution claim"
+  ],
+  "schema_version": 1,
+  "windows": {
+    "skipped": 0,
+    "passed": 15,
+    "negative_cases": 12,
+    "ordinary_admissions": 3,
+    "checks": [
+      {
+        "expected_error_id": "Unsafe archive path: links and reparse points inside installation .local are not allowed.",
+        "before": {
+          "sentinel_sha256": "2F8B1D73CA070FFC136BFB9EC8BB71DA0A59662D46D527E8EFFAECBDA8E9BE62",
+          "entries": [
+            "sentinel.txt"
+          ],
+          "local_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "outside_child_acl_sha256": "1591593B8F5B019B52BDA218AAB6BB016D93FA9E8F91DD6925D8B48F1C55793F",
+          "outside_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "actual_parent_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966"
+        },
+        "status": "PASS",
+        "ordinary_admitted_to_missing_config": false,
+        "parent_existed_before": true,
+        "collision_before": null,
+        "after": {
+          "sentinel_sha256": "2F8B1D73CA070FFC136BFB9EC8BB71DA0A59662D46D527E8EFFAECBDA8E9BE62",
+          "entries": [
+            "sentinel.txt"
+          ],
+          "local_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "outside_child_acl_sha256": "1591593B8F5B019B52BDA218AAB6BB016D93FA9E8F91DD6925D8B48F1C55793F",
+          "outside_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "actual_parent_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966"
+        },
+        "parent_exists_after": true,
+        "private_original_case_sha256": "DCB0BE14507B9E8CFE9E28993A4A9340A32C7219FB267CED3E13618BAA8C61E6",
+        "id": "root-link",
+        "collision_after": null
+      },
+      {
+        "expected_error_id": "Unsafe archive path: links and reparse points inside installation .local are not allowed.",
+        "before": {
+          "sentinel_sha256": "2F8B1D73CA070FFC136BFB9EC8BB71DA0A59662D46D527E8EFFAECBDA8E9BE62",
+          "entries": [
+            "sentinel.txt"
+          ],
+          "local_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "outside_child_acl_sha256": "1591593B8F5B019B52BDA218AAB6BB016D93FA9E8F91DD6925D8B48F1C55793F",
+          "outside_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "actual_parent_acl_sha256": "1591593B8F5B019B52BDA218AAB6BB016D93FA9E8F91DD6925D8B48F1C55793F"
+        },
+        "status": "PASS",
+        "ordinary_admitted_to_missing_config": false,
+        "parent_existed_before": true,
+        "collision_before": null,
+        "after": {
+          "sentinel_sha256": "2F8B1D73CA070FFC136BFB9EC8BB71DA0A59662D46D527E8EFFAECBDA8E9BE62",
+          "entries": [
+            "sentinel.txt"
+          ],
+          "local_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "outside_child_acl_sha256": "1591593B8F5B019B52BDA218AAB6BB016D93FA9E8F91DD6925D8B48F1C55793F",
+          "outside_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "actual_parent_acl_sha256": "1591593B8F5B019B52BDA218AAB6BB016D93FA9E8F91DD6925D8B48F1C55793F"
+        },
+        "parent_exists_after": true,
+        "private_original_case_sha256": "7AAAEE96ECECDFA0F4BB469E9CB327868BDB34058D40457FE5A8BE65091687C0",
+        "id": "parent-link",
+        "collision_after": null
+      },
+      {
+        "expected_error_id": "Unsafe archive path: links and reparse points inside installation .local are not allowed.",
+        "before": {
+          "sentinel_sha256": "2F8B1D73CA070FFC136BFB9EC8BB71DA0A59662D46D527E8EFFAECBDA8E9BE62",
+          "entries": [
+            "sentinel.txt"
+          ],
+          "local_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "outside_child_acl_sha256": "1591593B8F5B019B52BDA218AAB6BB016D93FA9E8F91DD6925D8B48F1C55793F",
+          "outside_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "actual_parent_acl_sha256": "1591593B8F5B019B52BDA218AAB6BB016D93FA9E8F91DD6925D8B48F1C55793F"
+        },
+        "status": "PASS",
+        "ordinary_admitted_to_missing_config": false,
+        "parent_existed_before": true,
+        "collision_before": null,
+        "after": {
+          "sentinel_sha256": "2F8B1D73CA070FFC136BFB9EC8BB71DA0A59662D46D527E8EFFAECBDA8E9BE62",
+          "entries": [
+            "sentinel.txt"
+          ],
+          "local_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "outside_child_acl_sha256": "1591593B8F5B019B52BDA218AAB6BB016D93FA9E8F91DD6925D8B48F1C55793F",
+          "outside_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "actual_parent_acl_sha256": "1591593B8F5B019B52BDA218AAB6BB016D93FA9E8F91DD6925D8B48F1C55793F"
+        },
+        "parent_exists_after": true,
+        "private_original_case_sha256": "047416039DBCBF37F78323AB06625DAEA548DA82C459A78CCF0D3A651363F573",
+        "id": "restore-parent-link",
+        "collision_after": null
+      },
+      {
+        "expected_error_id": "Unsafe archive path: links and reparse points inside installation .local are not allowed.",
+        "before": {
+          "sentinel_sha256": "2F8B1D73CA070FFC136BFB9EC8BB71DA0A59662D46D527E8EFFAECBDA8E9BE62",
+          "entries": [
+            "sentinel.txt"
+          ],
+          "local_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "outside_child_acl_sha256": "1591593B8F5B019B52BDA218AAB6BB016D93FA9E8F91DD6925D8B48F1C55793F",
+          "outside_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "actual_parent_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966"
+        },
+        "status": "PASS",
+        "ordinary_admitted_to_missing_config": false,
+        "parent_existed_before": true,
+        "collision_before": null,
+        "after": {
+          "sentinel_sha256": "2F8B1D73CA070FFC136BFB9EC8BB71DA0A59662D46D527E8EFFAECBDA8E9BE62",
+          "entries": [
+            "sentinel.txt"
+          ],
+          "local_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "outside_child_acl_sha256": "1591593B8F5B019B52BDA218AAB6BB016D93FA9E8F91DD6925D8B48F1C55793F",
+          "outside_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "actual_parent_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966"
+        },
+        "parent_exists_after": true,
+        "private_original_case_sha256": "B092DE47BA43D2C2A947A0459498F7E15BA1B5404C6BA0C74210C1AF51821392",
+        "id": "archive-link",
+        "collision_after": null
+      },
+      {
+        "expected_error_id": "Unsafe archive path: links and reparse points inside installation .local are not allowed.",
+        "before": {
+          "sentinel_sha256": "2F8B1D73CA070FFC136BFB9EC8BB71DA0A59662D46D527E8EFFAECBDA8E9BE62",
+          "entries": [
+            "sentinel.txt"
+          ],
+          "local_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "outside_child_acl_sha256": "1591593B8F5B019B52BDA218AAB6BB016D93FA9E8F91DD6925D8B48F1C55793F",
+          "outside_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "actual_parent_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966"
+        },
+        "status": "PASS",
+        "ordinary_admitted_to_missing_config": false,
+        "parent_existed_before": true,
+        "collision_before": null,
+        "after": {
+          "sentinel_sha256": "2F8B1D73CA070FFC136BFB9EC8BB71DA0A59662D46D527E8EFFAECBDA8E9BE62",
+          "entries": [
+            "sentinel.txt"
+          ],
+          "local_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "outside_child_acl_sha256": "1591593B8F5B019B52BDA218AAB6BB016D93FA9E8F91DD6925D8B48F1C55793F",
+          "outside_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "actual_parent_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966"
+        },
+        "parent_exists_after": true,
+        "private_original_case_sha256": "34BF1FB678888075A3AA29A6E349210A3784488665D57825EE1233D15D739E31",
+        "id": "manifest-link",
+        "collision_after": null
+      },
+      {
+        "expected_error_id": "Unsafe archive path: links and reparse points inside installation .local are not allowed.",
+        "before": {
+          "sentinel_sha256": "2F8B1D73CA070FFC136BFB9EC8BB71DA0A59662D46D527E8EFFAECBDA8E9BE62",
+          "entries": [
+            "sentinel.txt"
+          ],
+          "local_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "outside_child_acl_sha256": "1591593B8F5B019B52BDA218AAB6BB016D93FA9E8F91DD6925D8B48F1C55793F",
+          "outside_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "actual_parent_acl_sha256": "1B38F75A398E811A05A75D174F39B0AC0EBDB74557225CBEE35EDAB659DAF504"
+        },
+        "status": "PASS",
+        "ordinary_admitted_to_missing_config": false,
+        "parent_existed_before": true,
+        "collision_before": null,
+        "after": {
+          "sentinel_sha256": "2F8B1D73CA070FFC136BFB9EC8BB71DA0A59662D46D527E8EFFAECBDA8E9BE62",
+          "entries": [
+            "sentinel.txt"
+          ],
+          "local_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "outside_child_acl_sha256": "1591593B8F5B019B52BDA218AAB6BB016D93FA9E8F91DD6925D8B48F1C55793F",
+          "outside_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "actual_parent_acl_sha256": "1B38F75A398E811A05A75D174F39B0AC0EBDB74557225CBEE35EDAB659DAF504"
+        },
+        "parent_exists_after": true,
+        "private_original_case_sha256": "03604C3BC4741B9F678C0A6C04956F57CAB12AC4FB0810FD8A64503A8E5C04D7",
+        "id": "broken-parent-link",
+        "collision_after": null
+      },
+      {
+        "expected_error_id": "Backup archive or manifest already exists; choose a new filename.",
+        "before": {
+          "sentinel_sha256": "2F8B1D73CA070FFC136BFB9EC8BB71DA0A59662D46D527E8EFFAECBDA8E9BE62",
+          "entries": [
+            "sentinel.txt"
+          ],
+          "local_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "outside_child_acl_sha256": "1591593B8F5B019B52BDA218AAB6BB016D93FA9E8F91DD6925D8B48F1C55793F",
+          "outside_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "actual_parent_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966"
+        },
+        "status": "PASS",
+        "ordinary_admitted_to_missing_config": false,
+        "parent_existed_before": true,
+        "collision_before": "5F9647BACE42A39D4E4B102863AFC421E4A855518B7453D58C3D036BD00D0B35",
+        "after": {
+          "sentinel_sha256": "2F8B1D73CA070FFC136BFB9EC8BB71DA0A59662D46D527E8EFFAECBDA8E9BE62",
+          "entries": [
+            "sentinel.txt"
+          ],
+          "local_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "outside_child_acl_sha256": "1591593B8F5B019B52BDA218AAB6BB016D93FA9E8F91DD6925D8B48F1C55793F",
+          "outside_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "actual_parent_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966"
+        },
+        "parent_exists_after": true,
+        "private_original_case_sha256": "C1761160F615391097A5B303E5587EA42CA89E9C73054A33550AA0E59BB21859",
+        "id": "archive-collision",
+        "collision_after": "5F9647BACE42A39D4E4B102863AFC421E4A855518B7453D58C3D036BD00D0B35"
+      },
+      {
+        "expected_error_id": "Backup archive or manifest already exists; choose a new filename.",
+        "before": {
+          "sentinel_sha256": "2F8B1D73CA070FFC136BFB9EC8BB71DA0A59662D46D527E8EFFAECBDA8E9BE62",
+          "entries": [
+            "sentinel.txt"
+          ],
+          "local_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "outside_child_acl_sha256": "1591593B8F5B019B52BDA218AAB6BB016D93FA9E8F91DD6925D8B48F1C55793F",
+          "outside_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "actual_parent_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966"
+        },
+        "status": "PASS",
+        "ordinary_admitted_to_missing_config": false,
+        "parent_existed_before": true,
+        "collision_before": "EDB47BC2366F610DBE76855EDB8CC1D1D95DAD15758DB1BEB1D835C16296319B",
+        "after": {
+          "sentinel_sha256": "2F8B1D73CA070FFC136BFB9EC8BB71DA0A59662D46D527E8EFFAECBDA8E9BE62",
+          "entries": [
+            "sentinel.txt"
+          ],
+          "local_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "outside_child_acl_sha256": "1591593B8F5B019B52BDA218AAB6BB016D93FA9E8F91DD6925D8B48F1C55793F",
+          "outside_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "actual_parent_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966"
+        },
+        "parent_exists_after": true,
+        "private_original_case_sha256": "747EEF41ABA406607E546BAD13EEFF03742310714E03815E92462E03276117C9",
+        "id": "manifest-collision",
+        "collision_after": "EDB47BC2366F610DBE76855EDB8CC1D1D95DAD15758DB1BEB1D835C16296319B"
+      },
+      {
+        "expected_error_id": "Archive parent must be a directory.",
+        "before": {
+          "sentinel_sha256": "2F8B1D73CA070FFC136BFB9EC8BB71DA0A59662D46D527E8EFFAECBDA8E9BE62",
+          "entries": [
+            "sentinel.txt"
+          ],
+          "local_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "outside_child_acl_sha256": "1591593B8F5B019B52BDA218AAB6BB016D93FA9E8F91DD6925D8B48F1C55793F",
+          "outside_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "actual_parent_acl_sha256": "E7263BEFD22D94CDC29A4127B38C0283098D5A62154691E0DFD70224F9522E5F"
+        },
+        "status": "PASS",
+        "ordinary_admitted_to_missing_config": false,
+        "parent_existed_before": false,
+        "collision_before": null,
+        "after": {
+          "sentinel_sha256": "2F8B1D73CA070FFC136BFB9EC8BB71DA0A59662D46D527E8EFFAECBDA8E9BE62",
+          "entries": [
+            "sentinel.txt"
+          ],
+          "local_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "outside_child_acl_sha256": "1591593B8F5B019B52BDA218AAB6BB016D93FA9E8F91DD6925D8B48F1C55793F",
+          "outside_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "actual_parent_acl_sha256": "E7263BEFD22D94CDC29A4127B38C0283098D5A62154691E0DFD70224F9522E5F"
+        },
+        "parent_exists_after": false,
+        "private_original_case_sha256": "3DFAAF84AA20977512A9732417BAD7663A3810CBB44E6B8DDD7543D0B762102A",
+        "id": "parent-file",
+        "collision_after": null
+      },
+      {
+        "expected_error_id": "Archive and manifest targets must be regular files.",
+        "before": {
+          "sentinel_sha256": "2F8B1D73CA070FFC136BFB9EC8BB71DA0A59662D46D527E8EFFAECBDA8E9BE62",
+          "entries": [
+            "sentinel.txt"
+          ],
+          "local_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "outside_child_acl_sha256": "1591593B8F5B019B52BDA218AAB6BB016D93FA9E8F91DD6925D8B48F1C55793F",
+          "outside_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "actual_parent_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966"
+        },
+        "status": "PASS",
+        "ordinary_admitted_to_missing_config": false,
+        "parent_existed_before": true,
+        "collision_before": null,
+        "after": {
+          "sentinel_sha256": "2F8B1D73CA070FFC136BFB9EC8BB71DA0A59662D46D527E8EFFAECBDA8E9BE62",
+          "entries": [
+            "sentinel.txt"
+          ],
+          "local_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "outside_child_acl_sha256": "1591593B8F5B019B52BDA218AAB6BB016D93FA9E8F91DD6925D8B48F1C55793F",
+          "outside_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "actual_parent_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966"
+        },
+        "parent_exists_after": true,
+        "private_original_case_sha256": "BA5FCCFFB36438CACA58920FA08EA03CF25806FEC08B905616622088591B98C1",
+        "id": "directory-leaf",
+        "collision_after": null
+      },
+      {
+        "expected_error_id": "Restore requires an existing regular archive and manifest.",
+        "before": {
+          "sentinel_sha256": "2F8B1D73CA070FFC136BFB9EC8BB71DA0A59662D46D527E8EFFAECBDA8E9BE62",
+          "entries": [
+            "sentinel.txt"
+          ],
+          "local_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "outside_child_acl_sha256": "1591593B8F5B019B52BDA218AAB6BB016D93FA9E8F91DD6925D8B48F1C55793F",
+          "outside_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "actual_parent_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966"
+        },
+        "status": "PASS",
+        "ordinary_admitted_to_missing_config": false,
+        "parent_existed_before": true,
+        "collision_before": null,
+        "after": {
+          "sentinel_sha256": "2F8B1D73CA070FFC136BFB9EC8BB71DA0A59662D46D527E8EFFAECBDA8E9BE62",
+          "entries": [
+            "sentinel.txt"
+          ],
+          "local_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "outside_child_acl_sha256": "1591593B8F5B019B52BDA218AAB6BB016D93FA9E8F91DD6925D8B48F1C55793F",
+          "outside_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "actual_parent_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966"
+        },
+        "parent_exists_after": true,
+        "private_original_case_sha256": "97D09761335963428636F34F375A58F7402FC1322F607F012BF117066A9CB546",
+        "id": "restore-missing",
+        "collision_after": null
+      },
+      {
+        "expected_error_id": "Store private database archives inside this installation .local directory.",
+        "before": {
+          "sentinel_sha256": "2F8B1D73CA070FFC136BFB9EC8BB71DA0A59662D46D527E8EFFAECBDA8E9BE62",
+          "entries": [
+            "sentinel.txt"
+          ],
+          "local_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "outside_child_acl_sha256": "1591593B8F5B019B52BDA218AAB6BB016D93FA9E8F91DD6925D8B48F1C55793F",
+          "outside_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "actual_parent_acl_sha256": "08B6A0BC6906CD596F1458BE5AC2911C478709B27E4F3C52E8EDD0293E2F4C56"
+        },
+        "status": "PASS",
+        "ordinary_admitted_to_missing_config": false,
+        "parent_existed_before": false,
+        "collision_before": null,
+        "after": {
+          "sentinel_sha256": "2F8B1D73CA070FFC136BFB9EC8BB71DA0A59662D46D527E8EFFAECBDA8E9BE62",
+          "entries": [
+            "sentinel.txt"
+          ],
+          "local_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "outside_child_acl_sha256": "1591593B8F5B019B52BDA218AAB6BB016D93FA9E8F91DD6925D8B48F1C55793F",
+          "outside_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "actual_parent_acl_sha256": "08B6A0BC6906CD596F1458BE5AC2911C478709B27E4F3C52E8EDD0293E2F4C56"
+        },
+        "parent_exists_after": false,
+        "private_original_case_sha256": "7EA7D5A50DA445B089F299C6F732D05F6AD2AF01BF39EF22D7707995128E552F",
+        "id": "prefix-escape",
+        "collision_after": null
+      },
+      {
+        "expected_error_id": "PathNotFound,Microsoft.PowerShell.Commands.GetContentCommand",
+        "before": {
+          "sentinel_sha256": "2F8B1D73CA070FFC136BFB9EC8BB71DA0A59662D46D527E8EFFAECBDA8E9BE62",
+          "entries": [
+            "sentinel.txt"
+          ],
+          "local_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "outside_child_acl_sha256": "1591593B8F5B019B52BDA218AAB6BB016D93FA9E8F91DD6925D8B48F1C55793F",
+          "outside_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "actual_parent_acl_sha256": "08B6A0BC6906CD596F1458BE5AC2911C478709B27E4F3C52E8EDD0293E2F4C56"
+        },
+        "status": "PASS",
+        "ordinary_admitted_to_missing_config": true,
+        "parent_existed_before": false,
+        "collision_before": null,
+        "after": {
+          "sentinel_sha256": "2F8B1D73CA070FFC136BFB9EC8BB71DA0A59662D46D527E8EFFAECBDA8E9BE62",
+          "entries": [
+            "sentinel.txt"
+          ],
+          "local_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "outside_child_acl_sha256": "1591593B8F5B019B52BDA218AAB6BB016D93FA9E8F91DD6925D8B48F1C55793F",
+          "outside_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "actual_parent_acl_sha256": "B4AD3064F5550D4B19ADAACEB1033F2FE7388B75BED66F34DD1DE7550BE63E29"
+        },
+        "parent_exists_after": true,
+        "private_original_case_sha256": "A46C8D9021B03DFC4B254AF8D4AC41095845A098C7D7F37258522E3828261B32",
+        "id": "case-variant",
+        "collision_after": null
+      },
+      {
+        "expected_error_id": "PathNotFound,Microsoft.PowerShell.Commands.GetContentCommand",
+        "before": {
+          "sentinel_sha256": "2F8B1D73CA070FFC136BFB9EC8BB71DA0A59662D46D527E8EFFAECBDA8E9BE62",
+          "entries": [
+            "sentinel.txt"
+          ],
+          "local_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "outside_child_acl_sha256": "1591593B8F5B019B52BDA218AAB6BB016D93FA9E8F91DD6925D8B48F1C55793F",
+          "outside_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "actual_parent_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966"
+        },
+        "status": "PASS",
+        "ordinary_admitted_to_missing_config": true,
+        "parent_existed_before": true,
+        "collision_before": null,
+        "after": {
+          "sentinel_sha256": "2F8B1D73CA070FFC136BFB9EC8BB71DA0A59662D46D527E8EFFAECBDA8E9BE62",
+          "entries": [
+            "sentinel.txt"
+          ],
+          "local_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "outside_child_acl_sha256": "1591593B8F5B019B52BDA218AAB6BB016D93FA9E8F91DD6925D8B48F1C55793F",
+          "outside_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "actual_parent_acl_sha256": "B4AD3064F5550D4B19ADAACEB1033F2FE7388B75BED66F34DD1DE7550BE63E29"
+        },
+        "parent_exists_after": true,
+        "private_original_case_sha256": "893313234A6DC878347FD851F46DF45AA9A7EC4882F18BB58F14A71664EED358",
+        "id": "ordinary-existing",
+        "collision_after": null
+      },
+      {
+        "expected_error_id": "PathNotFound,Microsoft.PowerShell.Commands.GetContentCommand",
+        "before": {
+          "sentinel_sha256": "2F8B1D73CA070FFC136BFB9EC8BB71DA0A59662D46D527E8EFFAECBDA8E9BE62",
+          "entries": [
+            "sentinel.txt"
+          ],
+          "local_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "outside_child_acl_sha256": "1591593B8F5B019B52BDA218AAB6BB016D93FA9E8F91DD6925D8B48F1C55793F",
+          "outside_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "actual_parent_acl_sha256": "08B6A0BC6906CD596F1458BE5AC2911C478709B27E4F3C52E8EDD0293E2F4C56"
+        },
+        "status": "PASS",
+        "ordinary_admitted_to_missing_config": true,
+        "parent_existed_before": false,
+        "collision_before": null,
+        "after": {
+          "sentinel_sha256": "2F8B1D73CA070FFC136BFB9EC8BB71DA0A59662D46D527E8EFFAECBDA8E9BE62",
+          "entries": [
+            "sentinel.txt"
+          ],
+          "local_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "outside_child_acl_sha256": "1591593B8F5B019B52BDA218AAB6BB016D93FA9E8F91DD6925D8B48F1C55793F",
+          "outside_root_acl_sha256": "26917BEB7137FB87C18694C956CF4732E840B60869FB15F4E7DD3C65AF3CD966",
+          "actual_parent_acl_sha256": "B4AD3064F5550D4B19ADAACEB1033F2FE7388B75BED66F34DD1DE7550BE63E29"
+        },
+        "parent_exists_after": true,
+        "private_original_case_sha256": "3BC9A11FC9E4867948A0CFB415298801F575667D9C70D612BF0FA8B309F395B7",
+        "id": "ordinary-new",
+        "collision_after": null
+      }
+    ],
+    "original_private_proof_sha256": "0606DF2C6F51D30ED39AF68BD8C633CD4A4D9330EFE3F2A10731BF64C6F35AA5"
+  },
+  "status": "LOCAL_BACKUP_PATH_FIX_ACCEPTED_PUBLIC_DELIVERY_PENDING",
+  "controls_sha256": "407DC0923E6A77B15733C39949D6584F13B6B8E9B68F1CDD015000CBC340255C",
+  "public_delivery_pending": true,
+  "actual_acl_control": {
+    "initial_sha256": "B4AD3064F5550D4B19ADAACEB1033F2FE7388B75BED66F34DD1DE7550BE63E29",
+    "mutated_sha256": "08F21812D04C75ED383C8B4282C114E2CD5E5D79E5B88E778D0D448EBD5387F1",
+    "saved_descriptor_did_not_restore": true,
+    "fresh_descriptor_restored": true,
+    "saved_descriptor_result_sha256": "08F21812D04C75ED383C8B4282C114E2CD5E5D79E5B88E778D0D448EBD5387F1",
+    "fresh_descriptor_result_sha256": "B4AD3064F5550D4B19ADAACEB1033F2FE7388B75BED66F34DD1DE7550BE63E29",
+    "original_private_proof_sha256": "06CD3B90CCB5CA1CC81548FC5295B68CB56BC17B246D2E3F381CFE69AC1EC19E"
+  },
+  "accepted_native_records": 7,
+  "utc": "2026-10-23T20:19:07.5037578+00:00",
+  "accepted_full_private_raw_streams": 14,
+  "baseline": {
+    "fixture_private_acl_restored": true,
+    "original_private_proof_sha256": "5B454A834F12DAA74FCE133F2AF008A8674A2433D39D40DC69D4CAF3F18AB2B5",
+    "junction_removed": true,
+    "allow_rule_count_before": 2,
+    "acl_before_sha256": "08F21812D04C75ED383C8B4282C114E2CD5E5D79E5B88E778D0D448EBD5387F1",
+    "sentinel_after": "1F08B0A93BF3133B94CFFDDFE4BE748EFE65CE088DD5F01DDD70E1B7275DA047",
+    "status": "ACTUAL_OUTSIDE_INSTALLATION_LOCAL_ACL_MUTATION_CONFIRMED",
+    "archive_created": false,
+    "acl_after_sha256": "B4AD3064F5550D4B19ADAACEB1033F2FE7388B75BED66F34DD1DE7550BE63E29",
+    "pg_or_real_config": false,
+    "sentinel_before": "1F08B0A93BF3133B94CFFDDFE4BE748EFE65CE088DD5F01DDD70E1B7275DA047",
+    "allow_rule_count_after": 1
+  },
+  "postgres_or_real_config": false
+}

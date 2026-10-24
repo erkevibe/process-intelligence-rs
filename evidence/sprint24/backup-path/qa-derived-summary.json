@@ -1,0 +1,31 @@
+{
+  "status": "DERIVED_SAFE_PUBLIC_SUMMARY_ACCEPTED",
+  "summary_sha256": "ECACAE03F56D36DEECD4AADCD56F54BD8E3687942B8ADA5BCDBC82268EA689B6",
+  "method": "Independently recomputed SHA256 over exact UTF8 state strings without BOM or normalization; every15 private case raw hash and mapped field compared",
+  "case_count": 15,
+  "derivation_issues": [],
+  "privacy_checks": {
+    "local_account_sid_absent": true,
+    "absolute_drive_unc_file_postgres_uri_patterns_absent": true,
+    "raw_sddl_omitted": true
+  },
+  "counts": {
+    "baseline_allow_rules_before": 2,
+    "after": 1,
+    "accepted_experiment_native_records": 7,
+    "private_full_streams": 14,
+    "failed_initial_native_records_excluded": 3
+  },
+  "review": [
+    "Baseline proof and ACL-only proof hashes and all state digests match originals",
+    "All15 before/after state digests, sentinels, entries, parent existence, collision hashes and reason/status fields match originals",
+    "7native14 streams = corrected baseline3 + ACLregression1 + fixedcontrols3, excludes failedbaseline3 and branch/public tools",
+    "Derived summary explicitly not byte projection; private raw ACL/SDDL and local SID excluded",
+    "Linux and public delivery pending; no PS5 or PostgreSQL happy-path claim"
+  ],
+  "limits": [
+    "Digest substitution hides state text; it does not permit public reproduction of private ACL measurements",
+    "Private original records remain independent local gates"
+  ],
+  "utc": "2026-10-23T20:20:00Z"
+}

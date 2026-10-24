@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "agent_name": "td_s20_delivery",
+  "actual_utc": "2026-10-23T20:11:13.846Z",
+  "status": "ACTUAL_SCOPED_BACKUP_PATH_BOUNDARY_FINDING_CONFIRMED",
+  "source_sha256": "B87418A14D3E299446C9DA3E0E7DC6BE0445B5114F43D793B5B67DB41805D8A0",
+  "baseline_proof_sha256": "5B454A834F12DAA74FCE133F2AF008A8674A2433D39D40DC69D4CAF3F18AB2B5",
+  "before_cleanup_observation_sha256": "A39122F0B963E0BB93B31618812D1691325B567C26067DAEF9D12E1591DE00C1",
+  "actual_review": {
+    "native_count": 3,
+    "full_streams": 6,
+    "all_exit0": true,
+    "raw_hash_length_capture_mismatches": 0,
+    "ordinary_descendant_parent_resolved_through_known_junction_to_owned_outside_child": true,
+    "outside_child_access_sddl_changed": true,
+    "synthetic_sentinel_bytes_unchanged": true,
+    "expected_missing_config_error": true,
+    "archive_created": false,
+    "real_config_or_postgres_invoked": false,
+    "exact_junction_removed_nonrecursively": true,
+    "private_acl_restore_readback_passed": true,
+    "parent_cleanup_before_post_guard": true
+  },
+  "finding": "Lexically contained archive path crossed an existing ancestor junction. Exact maintained helper reset the ordinary outside-child directory DACL before reading its deliberately missing config. This confirms a local operator path-boundary/ACL side effect within caller permissions.",
+  "risk_limits": [
+    "No remote attack, privilege escalation, arbitrary production mutation, leaked credentials or actual outside archive write proved.",
+    "Baseline01 remains failed; this finding derives only from successful02 persisted pre-cleanup observation.",
+    "Static reparse checks do not guarantee concurrent replacement race safety."
+  ],
+  "targeted_repair_criteria": [
+    "Validate canonical .local containment and every existing .local/descendant component through both archive and manifest before directory creation, ACL mutation, config read or native invocation. Include .local root, ancestor directory, archive leaf and manifest leaf; reject reparses and unexpected path types.",
+    "Backup rejects existing archive OR sidecar before any parent mutation. Restore accepts only existing ordinary nonreparse archive+manifest and validates target identifier before side effects. Do not silently overwrite a preexisting sidecar.",
+    "Preserve valid contained path/private ACL and existing database/pg_dump/restore behavior; no changes to schema/roles/quota or source/target database safety.",
+    "Maintain Windows PowerShell5 compatibility: do not introduce Path.GetRelativePath, DirectoryInfo.ResolveLinkTarget or PS7-only parameters into maintained helper. Fixture-only pwsh7 identity helpers are separate.",
+    "Actual controls: .local-root reparse, traversed parent reparse, archive/manifest leaf reparse, ordinary archive/manifest collisions, ordinary safe path admission reaching deliberate missing config; verify outside SDDL/nonce/tree unchanged for corrected unsafe cases and exact cleanup before scans.",
+    "No false atomic/TOCTOU, full backup or PostgreSQL success claim from these no-PG controls; byte-exact B874 historical source and all failed captures retained."
+  ],
+  "scope_and_timing": "Root sole author/executor, QA+TD independent source/actual gates. Conditional existing adoption only; native21:30:03/delivery22:00:03 unchanged.",
+  "authorship": "Root authored/executed experimental source and cleanup; TD independently rehashed actual captures and reviewed original/projection/cleanup records without native calls.",
+  "blocking_findings": []
+}

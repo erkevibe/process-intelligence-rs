@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "utc": "2026-10-23T20:21:52.449Z",
+  "role": "Customer",
+  "agent_name": "customer_s23_delivery",
+  "decision": "ACCEPT_FINITE_LOCAL_BACKUP_PATH_CRITERIA_AND_DOCS_PUBLIC_PENDING",
+  "own_reading": "Read exactderivedsummaryECAC, full report068D, additiveRecovery683C/Roadmap2B2C and independentQA2CD5/A3CE/86005 actualreceipts; managedFS only.",
+  "criteria": [
+    {
+      "id": "C24-BACKUP-01",
+      "status": "ACCEPT_LOCAL_ACTUAL_DEFECT",
+      "basis": "ExactoldB874 realcontrolledjunctionancestor changes ordinaryoutsidefixture DACL2rules→1 beforemissingconfig; sentinelunchanged/noarchive/noPG. Failedinitialfixture separate, latercorrectedfixture andACLregression proveactualcleanup."
+    },
+    {
+      "id": "C24-BACKUP-02",
+      "status": "ACCEPT_LOCAL_FINITE_FIX",
+      "basis": "Fixed368906 twelveactualWindows refusals beforeconfig/PG, outside/local/parentstates/sentinels/collisions preserved. Scopeexistingpathreparse/static checks, not atomicconcurrentswap."
+    },
+    {
+      "id": "C24-BACKUP-03",
+      "status": "ACCEPT_PATH_ADMISSION_ONLY",
+      "basis": "ThreeordinaryWindowspaths reachdeliberatemissingconfig afteractualprivateACL; nofullbackup/restore orfreshPS5/Linux claim."
+    },
+    {
+      "id": "C24-BACKUP-04",
+      "status": "ACCEPT_LOCAL_CLEANUP_PUBLIC_PENDING",
+      "basis": "Sixfixedlinkslots absent,15fixtureACLrestorations actualbeforeguard; sevenacceptednative14full streams distinctfromfailedfixture3. ExactCI/download/finalquiet pending."
+    }
+  ],
+  "public_privacy": "Derivedsummary explicitlynotbyteprojection; exactUTF8SDDL/states digests andoriginalprivatecasehashes independentlyverifiedQA86005, rawSDDL/SID/privatecaptures omitted. Customer clarityreview doesnot replace independentbyteprivacyreview.",
+  "documents": [
+    {
+      "path": "docs/SPRINT_24_BACKUP_PATH_REPORT.md",
+      "sha256": "068D84748CDE57A0BC9F9700C7C79DDADABAB27D2C2126B657DE11D3F8D21055"
+    },
+    {
+      "path": "docs/DATABASE_RECOVERY.md",
+      "sha256": "683C1F306EAB0FEB3E62BA875E4DACE66831092B5260907AF73EFA24DD626F96"
+    },
+    {
+      "path": "docs/ROADMAP.md",
+      "sha256": "2B2C650F144036B4F1BCE1981AF08C391540B671383EBAF296EC7010387A66F1"
+    }
+  ],
+  "findings": [],
+  "limitations": [
+    "No privilegeescalation/realdataexfiltration/realarchivewrite demonstrated.",
+    "No PostgreSQL backup/restore rerun, freshPS5, atomicTOCTOU/HA/PITR/enterprisecomplete claim.",
+    "Linux13+2 expected only until actualCI.",
+    "Failedfixture retained as failure, notproductdefectreproduction or acceptedruntime."
+  ],
+  "deadline": "21:30native/22:00public fixed; finalCI/readback/quiet required beforeREADY.",
+  "public_delivery_accepted": false,
+  "human_acceptance": false
+}
