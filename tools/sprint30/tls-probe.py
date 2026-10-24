@@ -38,7 +38,7 @@ client = urllib.request.build_opener(urllib.request.ProxyHandler({}),
     urllib.request.HTTPCookieProcessor(jar), NoRedirect())
 
 
-def request(method, path, body=None, headers=None, base='https://localhost:8443'):
+def request(method, path, body=None, headers=None, base='https://localhost:8443', transport=None):
     headers=dict(headers or {})
     if method not in ('GET','HEAD'):
         headers.setdefault('Origin','https://localhost:8443')
@@ -47,7 +47,7 @@ def request(method, path, body=None, headers=None, base='https://localhost:8443'
         headers = dict(headers or {}, **{'Content-Type':'application/x-www-form-urlencoded'})
     req = urllib.request.Request(base+path, data=body, headers=headers or {}, method=method)
     try:
-        response = client.open(req, timeout=15)
+        response = (transport or client).open(req, timeout=15)
     except urllib.error.HTTPError as error:
         response = error
     with response:
@@ -101,6 +101,22 @@ status, _, _ = request('POST','/quota',dict(revision=enabled_quota['revision'],p
 check('owner_disables_quota_through_tls', status == 303)
 status, _, raw = request('GET','/quota/status')
 check('disabled_quota_preserves_data', status == 200 and json.loads(raw)['enabled'] is False and json.loads(raw)['payload_used'] == quota['payload_used'])
+viewer_jar = http.cookiejar.CookieJar()
+viewer = urllib.request.build_opener(urllib.request.ProxyHandler({}),
+    urllib.request.HTTPSHandler(context=context), urllib.request.HTTPCookieProcessor(viewer_jar), NoRedirect())
+status, headers, _ = request('POST','/login',dict(username='s29_api_viewer01',password='S29ApiViewerPassword123'),transport=viewer)
+check('viewer_tls_login_secure_cookie', status == 303 and bool(list(viewer_jar)) and all(c.secure for c in viewer_jar))
+status, _, baseline = request('GET','/backup')
+assert status == 200
+status, _, raw = request('GET','/quota/status',transport=viewer)
+viewer_quota = json.loads(raw)
+check('viewer_reads_quota_through_tls', status == 200 and viewer_quota['enabled'] is False and viewer_quota['payload_used'] == quota['payload_used'])
+status, _, raw = request('GET','/quota',transport=viewer)
+check('viewer_quota_page_has_no_owner_form', status == 200 and b'name="payload_allowance"' not in raw)
+status, _, raw = request('POST','/quota',dict(revision=viewer_quota['revision'],mode='enabled',payload_allowance=0),transport=viewer)
+check('viewer_quota_write_refused_through_tls', status == 403 and json.loads(raw)['code'] == 'access_denied')
+status, _, after = request('GET','/backup')
+check('viewer_tls_refusal_preserves_backup_bytes', status == 200 and after == baseline)
 status, headers, _ = request('POST','/logout',{})
 check('logout_expiry_cookie_stays_secure', status == 303 and '; Secure' in headers.get('Set-Cookie','') and 'Max-Age=0' in headers.get('Set-Cookie',''))
 status, _, raw = request('GET','/backup')
