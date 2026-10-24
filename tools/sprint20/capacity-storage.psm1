@@ -10,6 +10,11 @@ using System.ComponentModel;
 using System.Runtime.InteropServices;
 using Microsoft.Win32.SafeHandles;
 public static class PiS20CapacityStorage {
+ public static StandardInfo InspectPath(string path){
+  using(var stream=File.Open(path,FileMode.Open,FileAccess.Read,FileShare.ReadWrite|FileShare.Delete)){
+   return Inspect(stream);
+  }
+ }
  [StructLayout(LayoutKind.Sequential)] public struct StandardInfo {
   public long AllocationSize; public long EndOfFile; public uint NumberOfLinks;
   [MarshalAs(UnmanagedType.U1)] public bool DeletePending;

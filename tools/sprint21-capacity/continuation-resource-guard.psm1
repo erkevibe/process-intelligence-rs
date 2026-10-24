@@ -66,8 +66,7 @@ function Get-S20ResourceSnapshot([string]$Root,[string]$Target) {
    if($attributes -band [IO.FileAttributes]::ReparsePoint){throw 'resource_reparse_refused'}
    if($attributes -band [IO.FileAttributes]::Directory){$queue.Enqueue([IO.DirectoryInfo]::new($entry.FullName));continue}
    try{
-    $stream=[IO.File]::Open($entry.FullName,[IO.FileMode]::Open,[IO.FileAccess]::Read,([IO.FileShare]::ReadWrite -bor [IO.FileShare]::Delete))
-    try{$storage=[PiS20CapacityStorage]::Inspect($stream)}finally{$stream.Dispose()}
+    $storage=[PiS20CapacityStorage]::InspectPath($entry.FullName)
    }catch{
     if(Test-S20GoneTargetError $_.Exception $entry.FullName $compiler){$skipped++;continue}
     if(Test-S21GonePgInternalInitError $_.Exception $entry.FullName $base){$skippedPgInit++;continue};throw
