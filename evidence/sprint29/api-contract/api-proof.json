@@ -1,0 +1,360 @@
+{
+  "api_support_sla_claimed": false,
+  "cases": [
+    {
+      "case": "unauthenticated_redirect_is_not_json_success",
+      "outcome": "pass"
+    },
+    {
+      "case": "saved_discovery_identity",
+      "outcome": "pass"
+    },
+    {
+      "case": "ungranted_user_cannot_open_project",
+      "outcome": "pass"
+    },
+    {
+      "case": "foreign_project_hides_resource:/discovery/jobs/job-20",
+      "outcome": "pass"
+    },
+    {
+      "case": "foreign_project_hides_resource:/discovery/jobs/job-20/report",
+      "outcome": "pass"
+    },
+    {
+      "case": "completed_quality_bytes_survive_new_process",
+      "outcome": "pass"
+    },
+    {
+      "case": "quality_export_identity_and_schema",
+      "outcome": "pass"
+    },
+    {
+      "case": "owner_no_store:/discovery/jobs/job-20",
+      "outcome": "pass"
+    },
+    {
+      "case": "owner_no_store:/discovery/jobs/job-20/report",
+      "outcome": "pass"
+    },
+    {
+      "case": "owner_no_store:/quality/jobs/job-25/report",
+      "outcome": "pass"
+    },
+    {
+      "case": "terminal_metadata_sse_closes",
+      "outcome": "pass"
+    },
+    {
+      "case": "terminal_sse_no_store",
+      "outcome": "pass"
+    },
+    {
+      "case": "replay_same_id_0",
+      "outcome": "pass"
+    },
+    {
+      "case": "replay_same_id_1",
+      "outcome": "pass"
+    },
+    {
+      "case": "replay_same_id_2",
+      "outcome": "pass"
+    },
+    {
+      "case": "same_key_changed_form_409",
+      "outcome": "pass"
+    },
+    {
+      "case": "domain_json_error_422",
+      "outcome": "pass"
+    },
+    {
+      "case": "domain_html_error_422",
+      "outcome": "pass"
+    },
+    {
+      "case": "unknown_form_field_refused_before_mutation",
+      "outcome": "pass"
+    },
+    {
+      "case": "unknown_scoped_job_404",
+      "outcome": "pass"
+    },
+    {
+      "case": "reads_replays_and_refusals_preserve_project_backup_bytes",
+      "outcome": "pass"
+    },
+    {
+      "case": "viewer_read:/discovery/jobs/job-20",
+      "outcome": "pass"
+    },
+    {
+      "case": "viewer_read:/discovery/jobs/job-20/report",
+      "outcome": "pass"
+    },
+    {
+      "case": "viewer_read:/quality/jobs/job-25/report",
+      "outcome": "pass"
+    },
+    {
+      "case": "viewer_write_forbidden_retry",
+      "outcome": "pass"
+    },
+    {
+      "case": "viewer_write_forbidden_cancel",
+      "outcome": "pass"
+    },
+    {
+      "case": "viewer_write_forbidden_delete",
+      "outcome": "pass"
+    },
+    {
+      "case": "viewer_refusals_preserve_verified_project_backup_bytes",
+      "outcome": "pass"
+    }
+  ],
+  "completed_report_sha256": "f300c26dd8eb933c57affefc3ab04ab498f13db4a1cc79c468a2031fcd7a1f1d",
+  "deployment_tls_ha_claimed": false,
+  "project_backup_after_sha256": "62073e97ce8edbce05786b826052f3ff798a5a5f2f4c82d07560a1cf8ef28dc6",
+  "project_backup_before_sha256": "62073e97ce8edbce05786b826052f3ff798a5a5f2f4c82d07560a1cf8ef28dc6",
+  "replay_job_id": "job-20",
+  "replay_model_id": "model-22",
+  "requests": [
+    {
+      "bytes": 0,
+      "method": "GET",
+      "path": "/discovery/jobs/job-20",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": 303
+    },
+    {
+      "bytes": 0,
+      "method": "POST",
+      "path": "/login",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": 303
+    },
+    {
+      "bytes": 960,
+      "method": "GET",
+      "path": "/discovery/jobs/job-20",
+      "sha256": "bcc6e30f364d0b55d90ec0e6e204015be2a94f82fc3cdd8b0eaf27e814729ba5",
+      "status": 200
+    },
+    {
+      "bytes": 0,
+      "method": "POST",
+      "path": "/users",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": 303
+    },
+    {
+      "bytes": 0,
+      "method": "POST",
+      "path": "/login",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": 303
+    },
+    {
+      "bytes": 67,
+      "method": "POST",
+      "path": "/projects/project-a6faffa426dc4a169dff1373e023c5b8/open",
+      "sha256": "2a6f877c295db66156f2fff16c0895fe6739c0a0ec15aba4f85df2ab1bf66684",
+      "status": 403
+    },
+    {
+      "bytes": 66,
+      "method": "GET",
+      "path": "/discovery/jobs/job-20",
+      "sha256": "6b7a1b15db1c07da85a41c289b5c35e6a3e66d7d805c96719fa757949a40b03a",
+      "status": 404
+    },
+    {
+      "bytes": 66,
+      "method": "GET",
+      "path": "/discovery/jobs/job-20/report",
+      "sha256": "6b7a1b15db1c07da85a41c289b5c35e6a3e66d7d805c96719fa757949a40b03a",
+      "status": 404
+    },
+    {
+      "bytes": 0,
+      "method": "POST",
+      "path": "/projects/project-a6faffa426dc4a169dff1373e023c5b8/members",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": 303
+    },
+    {
+      "bytes": 0,
+      "method": "POST",
+      "path": "/projects/project-a6faffa426dc4a169dff1373e023c5b8/open",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "status": 303
+    },
+    {
+      "bytes": 3275,
+      "method": "GET",
+      "path": "/quality/jobs/job-25/report",
+      "sha256": "f300c26dd8eb933c57affefc3ab04ab498f13db4a1cc79c468a2031fcd7a1f1d",
+      "status": 200
+    },
+    {
+      "bytes": 141194,
+      "method": "GET",
+      "path": "/backup",
+      "sha256": "62073e97ce8edbce05786b826052f3ff798a5a5f2f4c82d07560a1cf8ef28dc6",
+      "status": 200
+    },
+    {
+      "bytes": 960,
+      "method": "GET",
+      "path": "/discovery/jobs/job-20",
+      "sha256": "bcc6e30f364d0b55d90ec0e6e204015be2a94f82fc3cdd8b0eaf27e814729ba5",
+      "status": 200
+    },
+    {
+      "bytes": 4111,
+      "method": "GET",
+      "path": "/discovery/jobs/job-20/report",
+      "sha256": "dc940f1f0c34b56cae72efd2a835cc081348d79f20ca96b378cd41f006d6399b",
+      "status": 200
+    },
+    {
+      "bytes": 3275,
+      "method": "GET",
+      "path": "/quality/jobs/job-25/report",
+      "sha256": "f300c26dd8eb933c57affefc3ab04ab498f13db4a1cc79c468a2031fcd7a1f1d",
+      "status": 200
+    },
+    {
+      "bytes": 1221,
+      "method": "GET",
+      "path": "/discovery/jobs/job-20/events",
+      "sha256": "ae521976ce2385b25ce14b4fd2a1e711287e5801554a2ae97364c01bfaca9c5d",
+      "status": 200
+    },
+    {
+      "bytes": 960,
+      "method": "POST",
+      "path": "/logs/log-19/discovery/jobs",
+      "sha256": "bcc6e30f364d0b55d90ec0e6e204015be2a94f82fc3cdd8b0eaf27e814729ba5",
+      "status": 202
+    },
+    {
+      "bytes": 960,
+      "method": "POST",
+      "path": "/logs/log-19/discovery/jobs",
+      "sha256": "bcc6e30f364d0b55d90ec0e6e204015be2a94f82fc3cdd8b0eaf27e814729ba5",
+      "status": 202
+    },
+    {
+      "bytes": 960,
+      "method": "POST",
+      "path": "/logs/log-19/discovery/jobs",
+      "sha256": "bcc6e30f364d0b55d90ec0e6e204015be2a94f82fc3cdd8b0eaf27e814729ba5",
+      "status": 202
+    },
+    {
+      "bytes": 108,
+      "method": "POST",
+      "path": "/logs/log-19/discovery/jobs",
+      "sha256": "0e310f83e91809ca684cf5ea5b6c68db28091c8a34569978e6660137a34a532a",
+      "status": 409
+    },
+    {
+      "bytes": 105,
+      "method": "POST",
+      "path": "/logs/log-19/discovery/jobs",
+      "sha256": "94cc54bb66a9e9461a7c7636c602e0033c8d8e8fdc4f2e4cb5cf9ad19cb8e139",
+      "status": 422
+    },
+    {
+      "bytes": 2584,
+      "method": "POST",
+      "path": "/logs/log-19/discovery/jobs",
+      "sha256": "c6d36b3e87c9e0d0e9e65d31bb153496a6db97434c068d8c8767437c85643fe9",
+      "status": 422
+    },
+    {
+      "bytes": 130,
+      "method": "POST",
+      "path": "/logs/log-19/discovery/jobs",
+      "sha256": "426cbd72ff7f0c719535e534afafa0c89ca5ec9a283b00837e50f088594804bf",
+      "status": 422
+    },
+    {
+      "bytes": 66,
+      "method": "GET",
+      "path": "/discovery/jobs/job-999999999",
+      "sha256": "6b7a1b15db1c07da85a41c289b5c35e6a3e66d7d805c96719fa757949a40b03a",
+      "status": 404
+    },
+    {
+      "bytes": 141194,
+      "method": "GET",
+      "path": "/backup",
+      "sha256": "62073e97ce8edbce05786b826052f3ff798a5a5f2f4c82d07560a1cf8ef28dc6",
+      "status": 200
+    },
+    {
+      "bytes": 960,
+      "method": "GET",
+      "path": "/discovery/jobs/job-20",
+      "sha256": "bcc6e30f364d0b55d90ec0e6e204015be2a94f82fc3cdd8b0eaf27e814729ba5",
+      "status": 200
+    },
+    {
+      "bytes": 4111,
+      "method": "GET",
+      "path": "/discovery/jobs/job-20/report",
+      "sha256": "dc940f1f0c34b56cae72efd2a835cc081348d79f20ca96b378cd41f006d6399b",
+      "status": 200
+    },
+    {
+      "bytes": 3275,
+      "method": "GET",
+      "path": "/quality/jobs/job-25/report",
+      "sha256": "f300c26dd8eb933c57affefc3ab04ab498f13db4a1cc79c468a2031fcd7a1f1d",
+      "status": 200
+    },
+    {
+      "bytes": 98,
+      "method": "POST",
+      "path": "/discovery/jobs/job-20/retry",
+      "sha256": "e8b39ee28961f0f537f279b9f0e78c1f5c418d406ca9b614eb472b96e1b07c60",
+      "status": 403
+    },
+    {
+      "bytes": 98,
+      "method": "POST",
+      "path": "/discovery/jobs/job-20/cancel",
+      "sha256": "e8b39ee28961f0f537f279b9f0e78c1f5c418d406ca9b614eb472b96e1b07c60",
+      "status": 403
+    },
+    {
+      "bytes": 98,
+      "method": "POST",
+      "path": "/discovery/jobs/job-20/delete",
+      "sha256": "e8b39ee28961f0f537f279b9f0e78c1f5c418d406ca9b614eb472b96e1b07c60",
+      "status": 403
+    },
+    {
+      "bytes": 141194,
+      "method": "GET",
+      "path": "/backup",
+      "sha256": "62073e97ce8edbce05786b826052f3ff798a5a5f2f4c82d07560a1cf8ef28dc6",
+      "status": 200
+    },
+    {
+      "bytes": 37,
+      "method": "GET",
+      "path": "/health",
+      "sha256": "0edbe0a32721f728f3892ceb0c5ccd8c53e87eaaeccf3a042ea5d3940b9596b8",
+      "status": 200
+    }
+  ],
+  "schema_version": 1,
+  "server_version": "0.10.0",
+  "status": "S29_API_CONTRACT_PROBE_PASS",
+  "synthetic_fixture_only": true
+}
