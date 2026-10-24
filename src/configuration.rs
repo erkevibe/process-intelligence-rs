@@ -117,6 +117,10 @@ impl PublicOrigin {
     }
     pub(crate) fn matches_host(&self, host: &str) -> bool {
         self.authority.eq_ignore_ascii_case(host)
+            || (self.port == 443
+                && host
+                    .strip_suffix(":443")
+                    .is_some_and(|authority| self.authority.eq_ignore_ascii_case(authority)))
     }
     pub(crate) fn as_str(&self) -> &str {
         &self.origin
