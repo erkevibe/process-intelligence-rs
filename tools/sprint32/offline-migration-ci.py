@@ -21,6 +21,7 @@ HERE = Path(__file__).resolve()
 service = module('s31_fixture', HERE.parents[1] / 'sprint31/systemd-profile-ci.py')
 evidence = module('s31_evidence', HERE.parents[1] / 'sprint31/verify-service-evidence.py')
 UNITS = ('pi-s32-migrate-repeat.service', 'pi-s32-migrate-refuse.service')
+SCHEMA_REFUSAL = 'Схема или сохранённые данные не поддерживаются. Исходные записи не изменены; проверьте состояние миграции.'
 
 
 class OfflineRehearsal:
@@ -89,6 +90,20 @@ class OfflineRehearsal:
         f.installed.remove(unit)
         return state
 
+    def credential_binding(self, unit):
+        assert unit in UNITS
+        encoded = ''.join(char if char.isascii() and char.isalnum() else '_' + format(ord(char), '02x') for char in unit)
+        path = '/org/freedesktop/systemd1/unit/' + encoded
+        owner = evidence.load(self.f.call('s32-unit-object', ['busctl', '--json=short', 'call',
+            'org.freedesktop.systemd1', '/org/freedesktop/systemd1', 'org.freedesktop.systemd1.Manager', 'GetUnit', 's', unit]).stdout)
+        assert owner == dict(type='o', data=[path])
+        binding = evidence.load(self.f.call('s32-credential-binding', ['busctl', '--json=short', 'get-property',
+            'org.freedesktop.systemd1', path, 'org.freedesktop.systemd1.Service', 'LoadCredential']).stdout)
+        # LoadCredential is a(ss), not a scalar. Read the actual D-Bus value;
+        # systemctl's human-readable formatter need not represent this type.
+        assert binding == dict(type='a(ss)', data=[['database-url', '/etc/process-intelligence/database-url']])
+        return dict(unit=unit, object_path=path, property=binding)
+
     def cli(self, unit, expected):
         f = self.f
         assert unit in UNITS and expected in (0, 1)
@@ -122,14 +137,16 @@ class OfflineRehearsal:
             safe[name] = value if len(value) <= 512 and not any(secret in value for secret in secrets) else '<redacted>'
         self.transient_diagnostics.append(dict(unit=unit, wrapper_exit=completed.returncode, safe_properties=safe,
             environment_matches=props.get('Environment') == settings['Environment'],
-            credential_matches=props.get('LoadCredential') == settings['LoadCredential'],
+            credential_scalar_matches=props.get('LoadCredential') == settings['LoadCredential'],
             expected_exec_argv='argv[]=/opt/process-intelligence/current/process-intelligence-rs --migrate-storage ;' in props.get('ExecStart', '')))
+        binding = self.credential_binding(unit)
+        self.transient_diagnostics[-1]['typed_credential_binding_verified'] = True
         assert props['LoadState'] == 'loaded' and props['Transient'] == props['RemainAfterExit'] == 'yes'
         assert props['Type'] == 'oneshot' and props['Restart'] == 'no' and props['SuccessExitStatus'] == ''
         assert props['FragmentPath'] == '/run/systemd/transient/' + unit
         assert props['User'] == props['Group'] == 'process-intelligence'
         assert props['WorkingDirectory'] == '/opt/process-intelligence/current'
-        assert props['LoadCredential'] == settings['LoadCredential'] and props['Environment'] == settings['Environment']
+        assert props['Environment'] == settings['Environment']
         assert set(props['UnsetEnvironment'].split()) == {'PI_DATABASE_URL', 'PI_EPHEMERAL'}
         assert props['NoNewPrivileges'] == 'yes' and props['ProtectSystem'] == 'strict'
         assert props['MainPID'] == '0' and int(props['ExecMainPID']) > 1 and props['ExecMainCode'] == '1'
@@ -139,7 +156,18 @@ class OfflineRehearsal:
         assert props['SubState'] == ('exited' if expected == 0 else 'failed')
         assert 'argv[]=/opt/process-intelligence/current/process-intelligence-rs --migrate-storage ;' in props['ExecStart']
         assert 'ignore_errors=no' in props['ExecStart']
+        reason = None
+        diagnostic_source = None
+        if expected == 1:
+            raw = f.call('s32-private-schema-refusal-journal', ['sudo', 'journalctl', '-u', unit, '--no-pager', '-o', 'json', '-n', '50']).stdout
+            entries = [evidence.load(line) for line in raw.splitlines()]
+            assert any(isinstance(row.get('MESSAGE'), str) and SCHEMA_REFUSAL in row['MESSAGE']
+                and str(row.get('_PID', '')) == props['ExecMainPID'] and row.get('_SYSTEMD_UNIT') == unit
+                for row in entries), 'expected schema refusal diagnostic from actual CLI PID/unit not observed'
+            reason = 'schema_unsupported'
+            diagnostic_source = dict(unit=unit, pid=props['ExecMainPID'], matched_message_sha256=service.digest(SCHEMA_REFUSAL.encode()))
         return dict(wrapper_native_exit=completed.returncode, configured_unit_properties=props,
+                    credential_binding=binding, normalized_refusal_reason=reason, refusal_journal_source=diagnostic_source,
                     retired=self.retire(unit), process_proc_identity_observed=False)
 
     def exercise(self):
