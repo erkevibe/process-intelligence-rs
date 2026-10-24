@@ -1,0 +1,1 @@
+# Synthetic fixture: must never execute.

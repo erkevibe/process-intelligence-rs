@@ -1,6 +1,6 @@
 //! Project-scoped local platform. Database operations run only on blocking workers.
 use crate::{
-    auth::{Actor, Auth, Role},
+    auth::{Actor, Auth, ProjectListChange, Role},
     bpmn::ProcessModel,
     calendar::CalendarSpec,
     csv_io::{self, CsvMapping, NormalizationOrder},
@@ -39,6 +39,7 @@ pub(crate) struct StoredModel {
 struct Cached {
     repository: Arc<Mutex<Repository>>,
     jobs: Arc<JobStore>,
+    conversion_jobs: Arc<JobStore>,
 }
 struct PendingCsv {
     bytes: Vec<u8>,
@@ -116,6 +117,12 @@ impl Platform {
                 })
                 .chain(
                     header
+                        .conversions
+                        .values()
+                        .map(|m| ("conversion".into(), m.artifact_id.clone())),
+                )
+                .chain(
+                    header
                         .model_ids
                         .iter()
                         .map(|id| ("model".into(), id.clone())),
@@ -132,9 +139,20 @@ impl Platform {
                 .values()
                 .filter(|job| !job.is_terminal())
                 .map(|job| job.id.clone())
+                .chain(
+                    header
+                        .conversions
+                        .values()
+                        .filter(|m| !m.snapshot.is_terminal())
+                        .map(|m| m.snapshot.id.clone()),
+                )
                 .collect();
             if header.recover() {
-                header.audit.append(
+                let mut recovery_parameters = json!({"policy":"nonterminal_to_failed_after_restart","jobs":header.durable_jobs});
+                if !header.conversions.is_empty() {
+                    recovery_parameters["conversions"] = json!(header.conversions);
+                }
+                header.audit.append_business(
                     "system",
                     id,
                     "jobs_interrupted_after_restart",
@@ -142,6 +160,7 @@ impl Platform {
                     revision
                         .checked_add(1)
                         .ok_or_else(|| failure("storage_conflict", "Счётчик проекта исчерпан."))?,
+                    &recovery_parameters,
                 )?;
                 self.database
                     .write_project(crate::normalized::ProjectWrite {
@@ -162,10 +181,22 @@ impl Platform {
             .values()
             .filter(|job| !job.is_terminal())
             .map(|job| job.id.clone())
+            .chain(
+                header
+                    .conversions
+                    .values()
+                    .filter(|m| !m.snapshot.is_terminal())
+                    .map(|m| m.snapshot.id.clone()),
+            )
             .collect();
         if header.recover() {
             repository.durable_jobs = header.durable_jobs;
-            repository.audit.append(
+            repository.conversions = header.conversions;
+            let mut recovery_parameters = json!({"policy":"nonterminal_to_failed_after_restart","jobs":repository.durable_jobs});
+            if !repository.conversions.is_empty() {
+                recovery_parameters["conversions"] = json!(repository.conversions);
+            }
+            repository.audit.append_business(
                 "system",
                 id,
                 "jobs_interrupted_after_restart",
@@ -174,6 +205,7 @@ impl Platform {
                     .storage_revision
                     .checked_add(1)
                     .ok_or_else(|| failure("storage_conflict", "Счётчик проекта исчерпан."))?,
+                &recovery_parameters,
             )?;
             let write = crate::repository_v2::prepare(id, repository, false)?;
             repository.storage_revision = self.database.write_project(write)?;
@@ -198,6 +230,15 @@ impl Platform {
             .cloned()
             .collect::<Vec<_>>();
         let jobs = Arc::new(JobStore::restore_with_slots(&snapshots, self.slots.clone()));
+        let conversion_snapshots = repository
+            .conversions
+            .values()
+            .map(|m| m.snapshot.clone())
+            .collect::<Vec<_>>();
+        let conversion_jobs = Arc::new(JobStore::restore_with_slots(
+            &conversion_snapshots,
+            self.slots.clone(),
+        ));
         self.workspaces
             .lock()
             .expect("workspace mutex")
@@ -205,6 +246,7 @@ impl Platform {
             .or_insert_with(|| Cached {
                 repository: Arc::new(Mutex::new(repository)),
                 jobs,
+                conversion_jobs,
             });
         Ok(())
     }
@@ -216,6 +258,7 @@ impl Platform {
         let mut state = root.clone();
         state.repository = cached.repository.clone();
         state.jobs = cached.jobs.clone();
+        state.conversion_jobs = cached.conversion_jobs.clone();
         state.actor = Some(actor);
         Ok(state)
     }
@@ -263,9 +306,11 @@ fn response_error(error: ImportError) -> Response {
         "access_denied" => StatusCode::FORBIDDEN,
         "not_found" => StatusCode::NOT_FOUND,
         "project_capacity" => StatusCode::PAYLOAD_TOO_LARGE,
-        "storage_conflict" | "model_conflict" | "preview_conflict" | "project_conflict" => {
-            StatusCode::CONFLICT
-        }
+        "storage_conflict"
+        | "model_conflict"
+        | "preview_conflict"
+        | "project_conflict"
+        | "project_list_conflict" => StatusCode::CONFLICT,
         "storage_unavailable" | "storage_busy" | "confirmation_uncertain" => {
             StatusCode::SERVICE_UNAVAILABLE
         }
@@ -287,9 +332,9 @@ async fn blocking<T: Send + 'static>(
         )
     })?
 }
-fn page(title: &str, body: String) -> Response {
+pub(crate) fn page(title: &str, body: String) -> Response {
     let nonce = uuid::Uuid::new_v4().simple().to_string();
-    let nav = "<nav><a href=\"/\">Анализ</a> · <a href=\"/projects\">Проекты</a> · <a href=\"/folders\">Папки</a> · <a href=\"/audit\">История</a> · <a href=\"/logs\">Журналы</a> · <a href=\"/csv\">CSV</a> · <a href=\"/models\">BPMN</a> · <a href=\"/backup\">Резервная копия</a><form method=\"post\" action=\"/logout\"><button>Выйти</button></form></nav>";
+    let nav = "<nav><a href=\"/\">Анализ</a> · <a href=\"/projects\">Проекты</a> · <a href=\"/folders\">Папки</a> · <a href=\"/audit\">История</a> · <a href=\"/logs\">Журналы</a> · <a href=\"/csv\">CSV</a> · <a href=\"/conversions\">Преобразования</a> · <a href=\"/models\">BPMN</a> · <a href=\"/backup\">Резервная копия</a><form method=\"post\" action=\"/logout\"><button>Выйти</button></form></nav>";
     let html = include_str!("../templates/platform.html")
         .replace("{{NONCE}}", &nonce)
         .replace("{{TITLE}}", &render::html_escape(title))
@@ -328,11 +373,46 @@ pub(crate) fn routes() -> Router<AppState> {
         )
         .route("/logout", post(logout))
         .route("/projects", get(projects).post(create_project))
+        .route("/project-list/json", get(project_list_json))
+        .route(
+            "/project-list/folders",
+            post(project_list_create).layer(DefaultBodyLimit::max(4096)),
+        )
+        .route(
+            "/project-list/folders/{id}/rename",
+            post(project_list_rename).layer(DefaultBodyLimit::max(4096)),
+        )
+        .route(
+            "/project-list/folders/{id}/move",
+            post(project_list_move).layer(DefaultBodyLimit::max(4096)),
+        )
+        .route(
+            "/project-list/folders/{id}/archive",
+            post(project_list_archive).layer(DefaultBodyLimit::max(4096)),
+        )
+        .route(
+            "/project-list/folders/{id}/unarchive",
+            post(project_list_unarchive).layer(DefaultBodyLimit::max(4096)),
+        )
+        .route(
+            "/project-list/folders/{id}/delete",
+            post(project_list_delete).layer(DefaultBodyLimit::max(4096)),
+        )
+        .route(
+            "/projects/{id}/move",
+            post(move_project_in_list).layer(DefaultBodyLimit::max(4096)),
+        )
         .route("/projects/{id}/open", post(open_project))
         .route("/projects/{id}/members", post(membership))
         .route("/projects/{id}/rename", post(rename_project))
         .route("/projects/{id}/archive", post(archive_project))
         .route("/projects/{id}/unarchive", post(unarchive_project))
+        .route(
+            "/projects/{id}/delete",
+            get(project_delete_preview)
+                .post(project_delete)
+                .layer(DefaultBodyLimit::max(4096)),
+        )
         .route("/audit", get(audit_page))
         .route("/audit/export", get(audit_export))
         .route("/folders", get(folders_page).post(folder_create))
@@ -444,9 +524,205 @@ async fn logout(Workspace(state): Workspace, headers: HeaderMap) -> Response {
     }
 }
 async fn projects(Workspace(state): Workspace) -> Response {
-    match (platform(&state), actor(&state)) {
-        (Ok(p), Ok(a)) => page("Проекты", render::projects(&a, &p.auth.projects(&a))),
-        _ => response_error(failure("access_denied", "Войдите в проект.")),
+    match blocking(move || {
+        let a = actor(&state)?;
+        let view = platform(&state)?
+            .auth
+            .project_list_view(&a, current_session(&state)?)?;
+        Ok((a, view))
+    })
+    .await
+    {
+        Ok((a, view)) => page("Проекты", render::projects(&a, &view.projects, &view)),
+        Err(e) => response_error(e),
+    }
+}
+
+async fn project_list_json(Workspace(state): Workspace) -> Response {
+    match blocking(move || {
+        let a = actor(&state)?;
+        let view = platform(&state)?
+            .auth
+            .project_list_view(&a, current_session(&state)?)?;
+        let projects = view
+            .projects
+            .iter()
+            .filter_map(|project| {
+                project.members.get(&a.id).map(|role| {
+                    json!({
+                        "id":project.id,"name":project.name,"revision":project.revision,
+                        "archived":project.archived,"role":role,
+                        "folder_id":view.project_folders.get(&project.id)
+                    })
+                })
+            })
+            .collect::<Vec<_>>();
+        Ok(json!({"revision":view.revision,"folders":view.folders,
+            "project_folders":view.project_folders,"projects":projects}))
+    })
+    .await
+    {
+        Ok(view) => Json(view).into_response(),
+        Err(e) => response_error(e),
+    }
+}
+
+#[derive(Deserialize)]
+#[serde(deny_unknown_fields)]
+struct ProjectListCreateForm {
+    catalog_revision: u64,
+    name: String,
+    #[serde(default)]
+    parent: String,
+}
+#[derive(Deserialize)]
+#[serde(deny_unknown_fields)]
+struct ProjectListRenameForm {
+    catalog_revision: u64,
+    name: String,
+}
+#[derive(Deserialize)]
+#[serde(deny_unknown_fields)]
+struct ProjectListParentForm {
+    catalog_revision: u64,
+    #[serde(default)]
+    parent: String,
+}
+#[derive(Deserialize)]
+#[serde(deny_unknown_fields)]
+struct ProjectListRevisionForm {
+    catalog_revision: u64,
+}
+#[derive(Deserialize)]
+#[serde(deny_unknown_fields)]
+struct ProjectListAssignmentForm {
+    catalog_revision: u64,
+    project_revision: u64,
+    #[serde(default)]
+    destination: String,
+}
+
+async fn change_project_list(
+    state: AppState,
+    revision: u64,
+    change: ProjectListChange,
+) -> Response {
+    match blocking(move || {
+        platform(&state)?.auth.change_project_list(
+            &actor(&state)?,
+            current_session(&state)?,
+            revision,
+            change,
+        )
+    })
+    .await
+    {
+        Ok(_) => redirect("/projects"),
+        Err(e) => response_error(e),
+    }
+}
+async fn project_list_create(
+    Workspace(state): Workspace,
+    Form(form): Form<ProjectListCreateForm>,
+) -> Response {
+    change_project_list(
+        state,
+        form.catalog_revision,
+        ProjectListChange::Create {
+            name: form.name,
+            parent: (!form.parent.is_empty()).then_some(form.parent),
+        },
+    )
+    .await
+}
+async fn project_list_rename(
+    Workspace(state): Workspace,
+    Path(id): Path<String>,
+    Form(form): Form<ProjectListRenameForm>,
+) -> Response {
+    change_project_list(
+        state,
+        form.catalog_revision,
+        ProjectListChange::Rename {
+            id,
+            name: form.name,
+        },
+    )
+    .await
+}
+async fn project_list_move(
+    Workspace(state): Workspace,
+    Path(id): Path<String>,
+    Form(form): Form<ProjectListParentForm>,
+) -> Response {
+    change_project_list(
+        state,
+        form.catalog_revision,
+        ProjectListChange::Move {
+            id,
+            parent: (!form.parent.is_empty()).then_some(form.parent),
+        },
+    )
+    .await
+}
+async fn project_list_archive(
+    Workspace(state): Workspace,
+    Path(id): Path<String>,
+    Form(form): Form<ProjectListRevisionForm>,
+) -> Response {
+    change_project_list(
+        state,
+        form.catalog_revision,
+        ProjectListChange::Archive { id, archived: true },
+    )
+    .await
+}
+async fn project_list_unarchive(
+    Workspace(state): Workspace,
+    Path(id): Path<String>,
+    Form(form): Form<ProjectListRevisionForm>,
+) -> Response {
+    change_project_list(
+        state,
+        form.catalog_revision,
+        ProjectListChange::Archive {
+            id,
+            archived: false,
+        },
+    )
+    .await
+}
+async fn project_list_delete(
+    Workspace(state): Workspace,
+    Path(id): Path<String>,
+    Form(form): Form<ProjectListRevisionForm>,
+) -> Response {
+    change_project_list(
+        state,
+        form.catalog_revision,
+        ProjectListChange::Delete { id },
+    )
+    .await
+}
+async fn move_project_in_list(
+    Workspace(state): Workspace,
+    Path(id): Path<String>,
+    Form(form): Form<ProjectListAssignmentForm>,
+) -> Response {
+    match blocking(move || {
+        platform(&state)?.auth.move_project_in_list(
+            &actor(&state)?,
+            current_session(&state)?,
+            &id,
+            (!form.destination.is_empty()).then_some(form.destination.as_str()),
+            form.catalog_revision,
+            form.project_revision,
+        )
+    })
+    .await
+    {
+        Ok(()) => redirect("/projects"),
+        Err(e) => response_error(e),
     }
 }
 #[derive(Deserialize)]
@@ -541,8 +817,69 @@ async fn audit_export(Workspace(state): Workspace) -> Response {
     match blocking(move || {
         state.validate_resource_actor()?; let a = actor(&state)?; let p = platform(&state)?;
         let repo = state.repository.lock().expect("repository");
-        Ok(json!({"schema_version":1,"scope":"successful project commits; retained last512 plus owner-visible auth projection","project_id":a.project_id,"project_total":repo.audit.total,"project_dropped":repo.audit.total.saturating_sub(repo.audit.entries.len() as u64),"project_entries":repo.audit.entries,"auth_owner_projection":p.auth.audit(&a)}))
+        Ok(json!({"schema_version":2,"scope":"server business mutations committed; legacy policy/outcome unknown; client project-backup history explicitly unverified; retained last512 per scope","project_id":a.project_id,"project_total":repo.audit.total,"project_dropped":repo.audit.total.saturating_sub(repo.audit.entries.len() as u64),"project_entries":repo.audit.entries,"auth_owner_projection":p.auth.audit(&a),"deletion_owner_projection":p.auth.deletion_audit(&a,current_session(&state)?)?}))
     }).await { Ok(report) => Json(report).into_response(), Err(e) => response_error(e) }
+}
+#[derive(Deserialize)]
+#[serde(deny_unknown_fields)]
+struct ProjectDeleteForm {
+    confirmation_id: String,
+    phrase: String,
+    revision: u64,
+    digest: String,
+}
+async fn project_delete_preview(Workspace(state): Workspace, Path(id): Path<String>) -> Response {
+    match blocking(move || {
+        let preview = platform(&state)?.auth.deletion_preview(
+            &actor(&state)?,
+            current_session(&state)?,
+            &id,
+        )?;
+        Ok(render::project_delete(&preview))
+    })
+    .await
+    {
+        Ok(body) => page("Постоянное удаление проекта", body),
+        Err(error) => response_error(error),
+    }
+}
+async fn project_delete(
+    Workspace(state): Workspace,
+    Path(id): Path<String>,
+    Form(form): Form<ProjectDeleteForm>,
+) -> Response {
+    match blocking(move || {
+        let p = platform(&state)?;
+        p.auth.delete_project(
+            &actor(&state)?,
+            current_session(&state)?,
+            &id,
+            crate::auth::ProjectDeletionConfirmation {
+                id: &form.confirmation_id,
+                phrase: &form.phrase,
+                revision: form.revision,
+                digest: &form.digest,
+            },
+        )?;
+        // These maps are retired only after the atomic commit was acknowledged.
+        // Captured requests still recheck current Auth before any publication.
+        p.workspaces.lock().expect("workspace mutex").remove(&id);
+        p.pending
+            .lock()
+            .expect("pending CSV mutex")
+            .retain(|_, pending| pending.project != id);
+        p.pending_xes
+            .lock()
+            .expect("pending XES mutex")
+            .retain(|_, pending| pending.project != id);
+        p.resources.invalidate_project(&id);
+        Ok(())
+    })
+    .await
+    {
+        Ok(()) => redirect("/projects"),
+        Err(error) => response_error(error),
+    }
 }
 async fn audit_page(Workspace(state): Workspace) -> Response {
     match blocking(move || {
@@ -550,7 +887,11 @@ async fn audit_page(Workspace(state): Workspace) -> Response {
         let a = actor(&state)?;
         let p = platform(&state)?;
         let repo = state.repository.lock().expect("repository");
-        Ok(render::audit(&repo.audit, &p.auth.audit(&a)))
+        Ok(render::audit(
+            &repo.audit,
+            &json!({"project_auth":p.auth.audit(&a),
+            "deleted_projects":p.auth.deletion_audit(&a,current_session(&state)?)?}),
+        ))
     })
     .await
     {
@@ -791,7 +1132,7 @@ async fn csv_import(Workspace(state): Workspace, Form(form): Form<CsvForm>) -> R
         let start = Instant::now();
         let data = csv_io::parse_csv(&bytes, &mapping)?;
         let analysis = analyze(&data);
-        let log = crate::web::store_log(
+        let log = crate::web::store_log_with_policy(
             &state,
             data,
             analysis,
@@ -800,6 +1141,8 @@ async fn csv_import(Workspace(state): Workspace, Form(form): Form<CsvForm>) -> R
             sha256(&bytes),
             form.order,
             None,
+            None,
+            Some(serde_json::json!({"format":"csv","mapping":mapping})),
         )?;
         p.pending.lock().expect("CSV mutex").remove(&form.token);
         Ok(log.id)
@@ -938,7 +1281,7 @@ async fn filter_log(
         Err(e) => response_error(e),
     }
 }
-#[derive(Deserialize)]
+#[derive(Clone, Deserialize)]
 struct CalendarForm {
     #[serde(default)]
     timezone: String,
@@ -952,8 +1295,14 @@ struct CalendarForm {
 async fn set_calendar(
     Workspace(state): Workspace,
     Path(id): Path<String>,
+    headers: HeaderMap,
     Form(form): Form<CalendarForm>,
 ) -> Response {
+    let html_draft = (calendar_html_requested(&headers)
+        && form.timezone.len() + form.weekdays.len() + form.holidays.len() <= 16 * 1024)
+        .then(|| form.clone());
+    let error_state = state.clone();
+    let error_id = id.clone();
     let result = blocking(move || {
         let weekdays = form
             .weekdays
@@ -994,7 +1343,123 @@ async fn set_calendar(
     .await;
     match result {
         Ok(id) => redirect(&format!("/logs/{id}/tools")),
-        Err(e) => response_error(e),
+        Err(e) => match html_draft {
+            Some(draft)
+                if matches!(
+                    e.code.as_str(),
+                    "calendar" | "calendar_policy" | "calendar_timezone"
+                ) =>
+            {
+                tokio::task::spawn_blocking(move || {
+                    calendar_form_error(&error_state, &error_id, &draft, e)
+                })
+                .await
+                .unwrap_or_else(|_| {
+                    response_error(failure(
+                        "worker_failed",
+                        "Не удалось подготовить результат.",
+                    ))
+                })
+            }
+            _ => response_error(e),
+        },
+    }
+}
+// Deliberately conservative opt-in: an explicit positive JSON range wins, while
+// wildcards never enable HTML. Invalid quality parameters keep the original API.
+fn calendar_html_requested(headers: &HeaderMap) -> bool {
+    let mut html = false;
+    let mut json = false;
+    for value in headers.get_all(header::ACCEPT).iter() {
+        let Ok(value) = value.to_str() else {
+            return false;
+        };
+        for range in value.split(',') {
+            let mut parts = range.split(';');
+            let media = parts.next().unwrap_or("").trim();
+            let mut positive = true;
+            let mut seen_quality = false;
+            for parameter in parts {
+                let Some((name, value)) = parameter.trim().split_once('=') else {
+                    return false;
+                };
+                if name.trim().eq_ignore_ascii_case("q") {
+                    if seen_quality {
+                        return false;
+                    }
+                    seen_quality = true;
+                    let value = value.trim();
+                    let valid = value == "0"
+                        || value == "1"
+                        || value.strip_prefix("0.").is_some_and(|fraction| {
+                            fraction.len() <= 3 && fraction.bytes().all(|b| b.is_ascii_digit())
+                        })
+                        || value.strip_prefix("1.").is_some_and(|fraction| {
+                            fraction.len() <= 3 && fraction.bytes().all(|b| b == b'0')
+                        });
+                    if !valid {
+                        return false;
+                    }
+                    positive = value
+                        .bytes()
+                        .any(|b| b == b'1' || (b'2'..=b'9').contains(&b));
+                }
+            }
+            if positive && media.eq_ignore_ascii_case("text/html") {
+                html = true;
+            }
+            if positive && media.eq_ignore_ascii_case("application/json") {
+                json = true;
+            }
+        }
+    }
+    html && !json
+}
+fn calendar_form_error(
+    state: &AppState,
+    id: &str,
+    form: &CalendarForm,
+    error: ImportError,
+) -> Response {
+    let mut repo = state.repository.lock().expect("repository mutex");
+    let log = match repo.get_log_base(state, id) {
+        Ok(Some(log)) => log,
+        Ok(None) => return response_error(failure("not_found", "Журнал не найден.")),
+        Err(error) => return response_error(error),
+    };
+    let draft = render::CalendarDraft {
+        timezone: &form.timezone,
+        offset_minutes: form.offset_minutes,
+        weekdays: &form.weekdays,
+        start_minute: form.start_minute,
+        end_minute: form.end_minute,
+        holidays: &form.holidays,
+    };
+    let body = format!(
+        "<h1>{}</h1><div class=\"platform-alert\" role=\"alert\" tabindex=\"-1\" autofocus><strong>Настройки не сохранены.</strong> {}</div><p>Исправьте введённые значения. Расчёт ниже использует последний сохранённый календарь.</p>{}<h2>Результаты по последнему сохранённому календарю</h2>{}",
+        render::html_escape(&log.filename),
+        render::html_escape(&error.message),
+        render::calendar_form(id, &draft),
+        render::calendar_table(&calendar_results(&log))
+    );
+    let mut response = page("Исправить календарь", body);
+    *response.status_mut() = StatusCode::UNPROCESSABLE_ENTITY;
+    response.headers_mut().insert(
+        header::CACHE_CONTROL,
+        "no-store".parse().expect("static header"),
+    );
+    response
+        .headers_mut()
+        .insert(header::VARY, "Accept".parse().expect("static header"));
+    // get_log_base validates the read first. Acquire the auth lock only for the
+    // final handoff, never recursively while loading or calculating a log.
+    match (&state.platform, &state.actor, &state.session) {
+        (Some(platform), Some(actor), Some(session)) => platform
+            .auth
+            .with_write_access(session, actor, || Ok(response))
+            .unwrap_or_else(response_error),
+        (None, None, _) => response,
+        _ => response_error(failure("access_denied", "Сначала войдите в проект.")),
     }
 }
 pub(crate) fn calendar_results(log: &StoredLog) -> Value {
@@ -1226,7 +1691,7 @@ async fn backup(Workspace(state): Workspace) -> Response {
     };
     let repo = state.repository.lock().expect("repository mutex");
     let result = (|| {
-        if repo.durable_jobs.values().any(|job| !job.is_terminal()) {
+        if repo.durable_jobs.values().any(|job| !job.is_terminal()) || repo.conversions.values().any(|m| !m.snapshot.is_terminal()) {
             return Err(failure(
                 "backup_busy",
                 "Дождитесь завершения или отмены фоновых задач перед созданием резервной копии.",
@@ -1274,6 +1739,8 @@ async fn backup(Workspace(state): Workspace) -> Response {
     }).await.unwrap_or_else(|_|response_error(failure("worker_failed","Не удалось подготовить результат.")))
 }
 fn validate_backup(repo: &Repository) -> Result<(), ImportError> {
+    crate::repository_v2::header(repo).validate()?;
+    crate::conversion_workflow::validate_full(repo)?;
     repo.audit.validate()?;
     repo.organization.validate(&repo.resource_catalog())?;
     if repo.logs.len() > 8 || repo.models.len() > 64 || repo.durable_jobs.len() > 10 {

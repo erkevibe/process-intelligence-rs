@@ -1,0 +1,111 @@
+{
+  "engine": "process_intelligence_rs::filters::apply",
+  "id": "duplicate-activities",
+  "input_sha256": "c1ddee193794e0e12f09fbd1bea584f02fb2b30327889222107f9991bc8b470d",
+  "rule_literals": [
+    "A"
+  ],
+  "schema_version": 1,
+  "scope": "Actual production filter sequential calls; full EventLog conservation only, not rich XLog metadata or public persistence",
+  "selected_source_indices": [
+    0
+  ],
+  "selected_source_log": {
+    "cases": [
+      {
+        "events": [
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          },
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 10,
+            "timestamp": "2024-01-01T00:00:39.123Z"
+          },
+          {
+            "activity": "B",
+            "lifecycle": "complete",
+            "ordinal": 17,
+            "timestamp": "2024-01-01T00:00:38.123Z"
+          },
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 24,
+            "timestamp": "2024-01-01T00:00:37.123Z"
+          }
+        ],
+        "id": "duplicate-activities-source-0",
+        "name": "duplicate-activities-trace-0"
+      }
+    ],
+    "name": "Core filter duplicate-activities",
+    "warnings": [
+      "synthetic source warning retained"
+    ]
+  },
+  "source_after_sha256": "986fee5304d41985bab3ee5a743b4374c7526ee9dae38ff042d4b87d32c4add9",
+  "source_before_sha256": "986fee5304d41985bab3ee5a743b4374c7526ee9dae38ff042d4b87d32c4add9",
+  "source_domain_before": {
+    "cases": [
+      {
+        "events": [
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          },
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 10,
+            "timestamp": "2024-01-01T00:00:39.123Z"
+          },
+          {
+            "activity": "B",
+            "lifecycle": "complete",
+            "ordinal": 17,
+            "timestamp": "2024-01-01T00:00:38.123Z"
+          },
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 24,
+            "timestamp": "2024-01-01T00:00:37.123Z"
+          }
+        ],
+        "id": "duplicate-activities-source-0",
+        "name": "duplicate-activities-trace-0"
+      },
+      {
+        "events": [
+          {
+            "activity": "B",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          },
+          {
+            "activity": "B",
+            "lifecycle": "complete",
+            "ordinal": 10,
+            "timestamp": "2024-01-01T00:00:39.123Z"
+          }
+        ],
+        "id": "duplicate-activities-source-1",
+        "name": "duplicate-activities-trace-1"
+      }
+    ],
+    "name": "Core filter duplicate-activities",
+    "warnings": [
+      "synthetic source warning retained"
+    ]
+  },
+  "source_unchanged": true,
+  "status": "ACTUAL_RUST_CASE_ACTIVITY_FILTER_OBSERVED"
+}

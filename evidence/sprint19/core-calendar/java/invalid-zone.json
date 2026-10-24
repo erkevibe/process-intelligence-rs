@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "id": "invalid-zone",
+  "input_sha256": "af4a5e26ebaac521eb9073a2c709c7d563cc026c507b975aa053a382bbce2ae3",
+  "engine": "org.apromore.calendar.model.CalendarModel",
+  "calendar_identity": {
+    "class": "org.apromore.calendar.model.CalendarModel",
+    "sha256": "875c96a343e48cdc42c613b5f65ba7b35056498e112ebffd865084c4ad8c1e39",
+    "code_source": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+  },
+  "workday_identity": {
+    "class": "org.apromore.calendar.model.WorkDayModel",
+    "sha256": "e9983bdef6b0fe12f0d7db7bb03c326fdb1259a69cdf34bb8e0d279bb3217207",
+    "code_source": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+  },
+  "builder_identity": {
+    "class": "org.apromore.calendar.builder.CalendarModelBuilder",
+    "sha256": "8e2fefee2d943e7e8864d80d9cdfdaf8ce42ebb18e3002639d449a31c81096c5",
+    "code_source": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+  },
+  "factory_identity": {
+    "class": "org.apromore.calendar.model.Calendars",
+    "sha256": "ec2958c284cb6d88b4a69b3ff24668c7311ccd19cfcd4ed396486863252ac5b2",
+    "code_source": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Calendar/build/libs/Apromore-Calendar-1.0-plain.jar"
+  },
+  "source_input_before": {
+    "schema_version": 1,
+    "id": "invalid-zone",
+    "start": "2026-06-01T09:00:00Z",
+    "end": "2026-06-01T18:00:00Z",
+    "calendar": {
+      "offset_minutes": 0,
+      "timezone": "Unknown/Nowhere",
+      "weekdays": [
+        1
+      ],
+      "start_minute": 540,
+      "end_minute": 1080,
+      "holidays": []
+    }
+  },
+  "source_input_before_sha256": "e00d853b8d9ddf7de966295f21c407b7ea06625f8530cfbd033bd7c487d93796",
+  "configuration_available": false,
+  "configuration_unchanged": null,
+  "configuration_before": null,
+  "configuration_after": null,
+  "java_zone_rules_versions": null,
+  "duration_millis": null,
+  "duration_seconds": null,
+  "duration_nanos": null,
+  "get_duration_millis_secondary": null,
+  "duration_method_invoked": false,
+  "secondary_method_invoked": false,
+  "assertions_enabled": false,
+  "main_method": "getDuration(Instant,Instant).toMillis()",
+  "secondary_method": "getDurationMillis(Instant,Instant)",
+  "outcome": "builder_refused",
+  "exception_stage": "CalendarModelBuilder.withZoneId",
+  "exception": {
+    "chain": [
+      {
+        "class": "java.time.zone.ZoneRulesException",
+        "message": "Unknown time-zone ID: Unknown/Nowhere"
+      }
+    ],
+    "root": {
+      "class": "java.time.zone.ZoneRulesException",
+      "message": "Unknown time-zone ID: Unknown/Nowhere"
+    }
+  },
+  "source_input_after": {
+    "schema_version": 1,
+    "id": "invalid-zone",
+    "start": "2026-06-01T09:00:00Z",
+    "end": "2026-06-01T18:00:00Z",
+    "calendar": {
+      "offset_minutes": 0,
+      "timezone": "Unknown/Nowhere",
+      "weekdays": [
+        1
+      ],
+      "start_minute": 540,
+      "end_minute": 1080,
+      "holidays": []
+    }
+  },
+  "source_input_after_sha256": "e00d853b8d9ddf7de966295f21c407b7ea06625f8530cfbd033bd7c487d93796"
+}

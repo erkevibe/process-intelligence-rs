@@ -1,0 +1,22 @@
+{
+  "role": "Customer",
+  "agent_name": "customer_s20_delivery",
+  "utc": "2026-10-22T23:27:27.8043286Z",
+  "kind": "ACTUAL_PREFLIGHT_PLAN_RISK_VOTE",
+  "proposal_sha256": "6DB9AD39B11A1DD5563A0174E81E3BF3A5DA2A778B1753E8A8C68FE03D9F7A1D",
+  "vote": "FOR",
+  "technical_risk": "Low",
+  "risk_appetite": "Medium",
+  "reason": "Read exact plan. Rejecting malformed worker fields and noncanonical or mismatched source pins before heavy delegation addresses observed wasted setup without changing accepted product behavior. Targeted independent QA/TD and six actual pure controls are proportionate for this bounded helper.",
+  "conditions": [
+    "Immutable configuration, explicit check-only behavior and no runner delegation on rejection",
+    "All six controls actually observed with full bounded exit/stream evidence",
+    "No acceptedCAP/product/database/compiler/limits changes or inference of missing historical native exits",
+    "Normal separate publicPR, exactHEADCI and independent public source check before hard00:06:30UTC deadline",
+    "Stop and report incomplete on time/guard/integrity failure, without extension"
+  ],
+  "human_acceptance": false,
+  "implementation_acceptance": false,
+  "native_execution": false,
+  "shared_edits": false
+}

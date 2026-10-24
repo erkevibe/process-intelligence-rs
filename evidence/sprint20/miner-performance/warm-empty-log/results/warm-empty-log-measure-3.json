@@ -1,0 +1,85 @@
+{
+  "schema_version" : 1,
+  "call_id" : "warm-empty-log-measure-3",
+  "process_id" : "warm-empty-log",
+  "case_id" : "empty-log",
+  "ordinal_in_process" : 5,
+  "role" : "measured",
+  "input_sha256" : "2dfebdb1c9abcfd2d5f46f592b9d6afb038fd880513e32509c4149914f27efba",
+  "engine_invoked" : true,
+  "engine_time_nanos" : 289200,
+  "parse_time_nanos" : 4363400,
+  "export_time_nanos" : null,
+  "status" : "algorithm_exception",
+  "input_xlog_before" : {
+    "attributes" : [ {
+      "key" : "concept:name",
+      "type" : "string",
+      "value" : "splitminer-empty-log"
+    } ],
+    "classifiers" : [ ],
+    "extensions" : [ ],
+    "global_trace_attributes" : [ ],
+    "global_event_attributes" : [ ],
+    "traces" : [ ],
+    "trace_count" : 0,
+    "event_count" : 0
+  },
+  "input_xlog_before_sha256" : "ba693029a79dc5aa58066d47dfa84da140a8cebf7acd77efd4dae9e4706e69fb",
+  "input_traces" : 0,
+  "input_events" : 0,
+  "gc_before" : {
+    "collectors" : [ {
+      "name" : "G1 Young Generation",
+      "collection_count" : 3,
+      "collection_time_millis" : 18
+    }, {
+      "name" : "G1 Old Generation",
+      "collection_count" : 0,
+      "collection_time_millis" : 0
+    } ],
+    "unsupported_negative_values_preserved" : true
+  },
+  "gc_after" : {
+    "collectors" : [ {
+      "name" : "G1 Young Generation",
+      "collection_count" : 3,
+      "collection_time_millis" : 18
+    }, {
+      "name" : "G1 Old Generation",
+      "collection_count" : 0,
+      "collection_time_millis" : 0
+    } ],
+    "unsupported_negative_values_preserved" : true
+  },
+  "exception_stage" : "mine",
+  "exception" : {
+    "chain" : [ {
+      "class" : "java.util.NoSuchElementException",
+      "message" : null,
+      "suppressed" : [ ]
+    } ],
+    "root" : {
+      "class" : "java.util.NoSuchElementException",
+      "message" : null,
+      "suppressed" : [ ]
+    },
+    "cause_chain_truncated" : false
+  },
+  "input_xlog_after" : {
+    "attributes" : [ {
+      "key" : "concept:name",
+      "type" : "string",
+      "value" : "splitminer-empty-log"
+    } ],
+    "classifiers" : [ ],
+    "extensions" : [ ],
+    "global_trace_attributes" : [ ],
+    "global_event_attributes" : [ ],
+    "traces" : [ ],
+    "trace_count" : 0,
+    "event_count" : 0
+  },
+  "input_xlog_after_sha256" : "ba693029a79dc5aa58066d47dfa84da140a8cebf7acd77efd4dae9e4706e69fb",
+  "input_xlog_unchanged" : true
+}

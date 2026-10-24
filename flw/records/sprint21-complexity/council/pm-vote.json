@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "role": "PM",
+  "agent_name": "pm_s21",
+  "utc": "2026-10-22T23:14:08.4237347+00:00",
+  "vote": "FOR",
+  "proposal_sha256": "E7B001E46F6A01D52477415C60CFE5F662DC418FB4D03B199BFAD25DC17E5041",
+  "frozen_candidate_sha256": "BEB3BC5A3F61467573D494EC52D21A031391B6119E51AE544CDCF2F9D0E13387",
+  "decision": "AUTHORIZE_ONLY_CONDITIONAL_PUBLICATION_OF_FAILED_INCOMPLETE_EVIDENCE",
+  "stage_status": "FAILED_INCOMPLETE",
+  "stage_success": false,
+  "two_case_acceptance": false,
+  "verified_subscope": "CMP10K_ONLY",
+  "reason": "Publishing the preserved failed experiment and narrow verified10K observation is useful and honest. It does not satisfy the original two-case criteria, infer a90K refusal, or repair six historical missing completions. Exact proposal keeps original failures, raw identities and measurement limits visible.",
+  "gates": [
+    "Actual freeze-owner success and complete required captures.",
+    "Only exact246frozen additions and actualCouncilfiles; acceptedCAPsource unchanged.",
+    "Normal separate sourcePR againstCAPbase; no force,merge,tag.",
+    "Both push and pull_request CI pass every step for exactcommit.",
+    "Root and independentQA each verify every Git byte of whole anonymous exact-source archive.",
+    "Both replay downloaded verified subset/package/failure/typedURI audits with stage_success=false retained.",
+    "Product and PostgreSQL remain stopped; resource bounds and23:26:12UTC publicationdeadline preserved."
+  ],
+  "not_authorized": [
+    "Any new runtime,PostgreSQL,conversion,compiler or measurement execution",
+    "Accepting the original two-case stage",
+    "Inferring90K terminal outcome/time/memory/refusal",
+    "Retcon of UNKNOWN exits or failed preparation",
+    "Enterprise,SLO,speedup,RAMhardcap or release claim"
+  ],
+  "deadline_miss_rule": "If required delivery gates remain pending at23:26:12UTC, report evidence publication incomplete rather than delivered.",
+  "human_acceptance": false
+}

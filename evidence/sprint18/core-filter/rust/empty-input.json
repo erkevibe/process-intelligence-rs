@@ -1,0 +1,29 @@
+{
+  "engine": "process_intelligence_rs::filters::apply",
+  "id": "empty-input",
+  "input_sha256": "7fc4b4c57621185d119777c5f9075299aaaebbc804d6f44a7f9b273fb7d80f8f",
+  "rule_literals": [
+    "A"
+  ],
+  "schema_version": 1,
+  "scope": "Actual production filter sequential calls; full EventLog conservation only, not rich XLog metadata or public persistence",
+  "selected_source_indices": [],
+  "selected_source_log": {
+    "cases": [],
+    "name": "Core filter empty-input",
+    "warnings": [
+      "synthetic source warning retained"
+    ]
+  },
+  "source_after_sha256": "284426cae975e1c861d3987280436315e19564958a054aa35c35d0cd92dc6769",
+  "source_before_sha256": "284426cae975e1c861d3987280436315e19564958a054aa35c35d0cd92dc6769",
+  "source_domain_before": {
+    "cases": [],
+    "name": "Core filter empty-input",
+    "warnings": [
+      "synthetic source warning retained"
+    ]
+  },
+  "source_unchanged": true,
+  "status": "ACTUAL_RUST_CASE_ACTIVITY_FILTER_OBSERVED"
+}

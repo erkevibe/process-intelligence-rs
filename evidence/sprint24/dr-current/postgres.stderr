@@ -1,0 +1,22 @@
+2026-10-24 00:31:37.770 +05 [67264] LOG:  starting PostgreSQL 18.6 on x86_64-windows, compiled by msvc-19.44.35229, 64-bit
+2026-10-24 00:31:37.772 +05 [67264] LOG:  listening on IPv4 address "127.0.0.1", port 55449
+2026-10-24 00:31:37.896 +05 [47072] LOG:  database system was interrupted; last known up at 2026-10-24 00:22:47 +05
+2026-10-24 00:31:37.911 +05 [77608] FATAL:  the database system is starting up
+2026-10-24 00:31:40.128 +05 [79300] FATAL:  the database system is starting up
+2026-10-24 00:31:42.371 +05 [69896] FATAL:  the database system is starting up
+2026-10-24 00:31:43.872 +05 [47072] LOG:  database system was not properly shut down; automatic recovery in progress
+2026-10-24 00:31:43.888 +05 [47072] LOG:  redo starts at 0/9D58DE0
+2026-10-24 00:31:43.889 +05 [47072] LOG:  invalid record length at 0/9D5AE58: expected at least 24, got 0
+2026-10-24 00:31:43.889 +05 [47072] LOG:  redo done at 0/9D5AE10 system usage: CPU: user: 0.00 s, system: 0.00 s, elapsed: 0.00 s
+2026-10-24 00:31:43.914 +05 [6280] LOG:  checkpoint starting: end-of-recovery immediate wait
+2026-10-24 00:31:43.937 +05 [6280] LOG:  checkpoint complete: wrote 2 buffers (0.0%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.004 s, sync=0.007 s, total=0.027 s; sync files=4, longest=0.003 s, average=0.002 s; distance=8 kB, estimate=8 kB; lsn=0/9D5AE58, redo lsn=0/9D5AE58
+2026-10-24 00:31:43.946 +05 [67264] LOG:  database system is ready to accept connections
+2026-10-24 00:32:39.858 +05 [11336] LOG:  could not receive data from client: An existing connection was forcibly closed by the remote host.
+	
+2026-10-24 00:33:27.481 +05 [67264] LOG:  received fast shutdown request
+2026-10-24 00:33:27.484 +05 [67264] LOG:  aborting any active transactions
+2026-10-24 00:33:27.491 +05 [67264] LOG:  background worker "logical replication launcher" (PID 75888) exited with exit code 1
+2026-10-24 00:33:27.492 +05 [6280] LOG:  shutting down
+2026-10-24 00:33:27.493 +05 [6280] LOG:  checkpoint starting: shutdown immediate
+2026-10-24 00:33:27.870 +05 [6280] LOG:  checkpoint complete: wrote 1074 buffers (26.2%), wrote 1 SLRU buffers; 0 WAL file(s) added, 0 removed, 1 recycled; write=0.039 s, sync=0.324 s, total=0.378 s; sync files=326, longest=0.002 s, average=0.001 s; distance=5302 kB, estimate=5302 kB; lsn=0/A288688, redo lsn=0/A288688
+2026-10-24 00:33:27.968 +05 [67264] LOG:  database system is shut down

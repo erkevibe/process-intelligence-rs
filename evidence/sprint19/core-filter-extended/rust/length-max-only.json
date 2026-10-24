@@ -1,0 +1,257 @@
+{
+  "engine": "process_intelligence_rs::filters::apply",
+  "engine_call_count": 1,
+  "error": null,
+  "filter_spec": {
+    "case_activity": null,
+    "max_events": 2,
+    "min_events": null,
+    "remove_activities": [],
+    "retain_activities": []
+  },
+  "filter_spec_unchanged": true,
+  "id": "length-max-only",
+  "input_sha256": "4f4bdfe1146a8ca0a2e0af8ca01a701434989d506de392a435be52a760c262b8",
+  "outcome": "filtered",
+  "schema_version": 1,
+  "scope": "Actual production filter once; source positions derived only from returned exact identities, no selection predicate or legacy export",
+  "selected_event_positions": [
+    [
+      0
+    ],
+    [
+      0,
+      1
+    ]
+  ],
+  "selected_source_indices": [
+    0,
+    1
+  ],
+  "selected_source_log": {
+    "cases": [
+      {
+        "events": [
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          }
+        ],
+        "id": "length-max-only-source-0",
+        "name": "length-max-only-trace-0"
+      },
+      {
+        "events": [
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          },
+          {
+            "activity": "B",
+            "lifecycle": "complete",
+            "ordinal": 10,
+            "timestamp": "2024-01-01T00:00:39.123Z"
+          }
+        ],
+        "id": "length-max-only-source-1",
+        "name": "length-max-only-trace-1"
+      }
+    ],
+    "name": "Extended Core filter length-max-only",
+    "warnings": [
+      "synthetic warning retained for length-max-only"
+    ]
+  },
+  "source_after_sha256": "6fd9a1dc443e70c905b25ee2b20a0b667badb5ae1e3deeb79b9a1d10b278bb41",
+  "source_before_sha256": "6fd9a1dc443e70c905b25ee2b20a0b667badb5ae1e3deeb79b9a1d10b278bb41",
+  "source_domain_after": {
+    "cases": [
+      {
+        "events": [
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          }
+        ],
+        "id": "length-max-only-source-0",
+        "name": "length-max-only-trace-0"
+      },
+      {
+        "events": [
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          },
+          {
+            "activity": "B",
+            "lifecycle": "complete",
+            "ordinal": 10,
+            "timestamp": "2024-01-01T00:00:39.123Z"
+          }
+        ],
+        "id": "length-max-only-source-1",
+        "name": "length-max-only-trace-1"
+      },
+      {
+        "events": [
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          },
+          {
+            "activity": "B",
+            "lifecycle": "complete",
+            "ordinal": 10,
+            "timestamp": "2024-01-01T00:00:39.123Z"
+          },
+          {
+            "activity": "C",
+            "lifecycle": "complete",
+            "ordinal": 17,
+            "timestamp": "2024-01-01T00:00:38.123Z"
+          }
+        ],
+        "id": "length-max-only-source-2",
+        "name": "length-max-only-trace-2"
+      },
+      {
+        "events": [
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          },
+          {
+            "activity": "B",
+            "lifecycle": "complete",
+            "ordinal": 10,
+            "timestamp": "2024-01-01T00:00:39.123Z"
+          },
+          {
+            "activity": "C",
+            "lifecycle": "complete",
+            "ordinal": 17,
+            "timestamp": "2024-01-01T00:00:38.123Z"
+          },
+          {
+            "activity": "D",
+            "lifecycle": "complete",
+            "ordinal": 24,
+            "timestamp": "2024-01-01T00:00:37.123Z"
+          }
+        ],
+        "id": "length-max-only-source-3",
+        "name": "length-max-only-trace-3"
+      }
+    ],
+    "name": "Extended Core filter length-max-only",
+    "warnings": [
+      "synthetic warning retained for length-max-only"
+    ]
+  },
+  "source_domain_before": {
+    "cases": [
+      {
+        "events": [
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          }
+        ],
+        "id": "length-max-only-source-0",
+        "name": "length-max-only-trace-0"
+      },
+      {
+        "events": [
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          },
+          {
+            "activity": "B",
+            "lifecycle": "complete",
+            "ordinal": 10,
+            "timestamp": "2024-01-01T00:00:39.123Z"
+          }
+        ],
+        "id": "length-max-only-source-1",
+        "name": "length-max-only-trace-1"
+      },
+      {
+        "events": [
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          },
+          {
+            "activity": "B",
+            "lifecycle": "complete",
+            "ordinal": 10,
+            "timestamp": "2024-01-01T00:00:39.123Z"
+          },
+          {
+            "activity": "C",
+            "lifecycle": "complete",
+            "ordinal": 17,
+            "timestamp": "2024-01-01T00:00:38.123Z"
+          }
+        ],
+        "id": "length-max-only-source-2",
+        "name": "length-max-only-trace-2"
+      },
+      {
+        "events": [
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          },
+          {
+            "activity": "B",
+            "lifecycle": "complete",
+            "ordinal": 10,
+            "timestamp": "2024-01-01T00:00:39.123Z"
+          },
+          {
+            "activity": "C",
+            "lifecycle": "complete",
+            "ordinal": 17,
+            "timestamp": "2024-01-01T00:00:38.123Z"
+          },
+          {
+            "activity": "D",
+            "lifecycle": "complete",
+            "ordinal": 24,
+            "timestamp": "2024-01-01T00:00:37.123Z"
+          }
+        ],
+        "id": "length-max-only-source-3",
+        "name": "length-max-only-trace-3"
+      }
+    ],
+    "name": "Extended Core filter length-max-only",
+    "warnings": [
+      "synthetic warning retained for length-max-only"
+    ]
+  },
+  "source_unchanged": true,
+  "status": "ACTUAL_RUST_EXTENDED_FILTER_OBSERVED"
+}

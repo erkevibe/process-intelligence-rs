@@ -61,7 +61,7 @@ fn table_contract(tx: &mut Transaction<'_>, name: &str, checks: i64) -> Result<(
     }
     Ok(())
 }
-fn baseline(client: &mut Client, adopt: bool, ready_v2: bool) -> Result<(), ImportError> {
+fn baseline(client: &mut Client, adopt: bool, ledger_count: usize) -> Result<(), ImportError> {
     let mut tx = client.transaction().map_err(|_| database_error())?;
     let table = exists(&mut tx, "public.pi_kv")?;
     let sequence = exists(&mut tx, "public.pi_resource_sequence")?;
@@ -105,7 +105,7 @@ fn baseline(client: &mut Client, adopt: bool, ready_v2: bool) -> Result<(), Impo
                 &[],
             )
             .map_err(|_| database_error())?;
-        if rows.len() != if ready_v2 { 2 } else { 1 }
+        if rows.len() != ledger_count
             || rows[0].get::<_, i32>(0) != VERSION
             || rows[0].get::<_, String>(1) != "baseline_v1"
             || rows[0].get::<_, String>(2) != checksum
@@ -130,7 +130,16 @@ fn baseline(client: &mut Client, adopt: bool, ready_v2: bool) -> Result<(), Impo
 }
 
 pub(crate) fn validate_v1(client: &mut Client) -> Result<(), ImportError> {
-    baseline(client, false, false)
+    baseline(client, false, 1)
+}
+
+pub(crate) fn validate_v2(client: &mut Client) -> Result<(), ImportError> {
+    baseline(client, false, 2)?;
+    crate::normalized::validate_ready(client)
+}
+
+pub(crate) fn validate_v3_baseline(client: &mut Client) -> Result<(), ImportError> {
+    baseline(client, false, 3)
 }
 
 pub(crate) fn apply(client: &mut Client) -> Result<(), ImportError> {
@@ -153,8 +162,9 @@ pub(crate) fn apply(client: &mut Client) -> Result<(), ImportError> {
         if shadow {
             return Err(invalid());
         }
-        baseline(client, true, false)?;
-        return crate::normalized::initialize_empty(client);
+        baseline(client, true, 1)?;
+        crate::normalized::initialize_empty(client)?;
+        return crate::migration_v3::run(client);
     }
     let version: i32 = client
         .query_one(
@@ -172,9 +182,13 @@ pub(crate) fn apply(client: &mut Client) -> Result<(), ImportError> {
             ))
         }
         2 => {
-            baseline(client, false, true)?;
-            crate::normalized::validate_ready(client)
+            validate_v2(client)?;
+            Err(ImportError::new(
+                "migration_required",
+                "Требуется офлайн-миграция базы для преобразований. Сохраните резервную копию и запустите --migrate-storage.",
+            ))
         }
+        3 => crate::migration_v3::validate_ready(client),
         _ => Err(invalid()),
     }
 }

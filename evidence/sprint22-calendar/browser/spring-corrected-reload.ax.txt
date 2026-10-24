@@ -1,0 +1,293 @@
+Browser tab: 3, Title: "Фильтры и календарь · Process Intelligence", URL: "http://127.0.0.1:3140/logs/log-3/tools".
+1 AXWebArea Фильтры и календарь · Process Intelligence, URL: 127.0.0.1:3140/logs/log-3/tools
+	2 container Навигация
+		3 link Description: pi Process Intelligence, Value: 127.0.0.1:3140/
+		4 text РАБОЧЕЕ ПРОСТРАНСТВО
+		5 container
+			6 link Description: Анализ, Value: 127.0.0.1:3140/
+			7 text ·
+			8 link Description: Проекты, Value: 127.0.0.1:3140/projects
+			9 text ·
+			10 link Description: Папки, Value: 127.0.0.1:3140/folders
+			11 text ·
+			12 link Description: История, Value: 127.0.0.1:3140/audit
+			13 text ·
+			14 link Description: Журналы, Value: 127.0.0.1:3140/logs
+			15 text ·
+			16 link Description: CSV, Value: 127.0.0.1:3140/csv
+			17 text ·
+			18 link Description: Преобразования, Value: 127.0.0.1:3140/conversions
+			19 text ·
+			20 link Description: BPMN, Value: 127.0.0.1:3140/models
+			21 text ·
+			22 link Description: Резервная копия, Value: 127.0.0.1:3140/backup
+			23 button Выйти
+		24 container
+			25 text  Локальное приложение
+			26 text Выбранные сценарии · R2–R5
+	27 container
+		28 text Рабочее пространство  /
+		29 text Фильтры и календарь
+		30 button Description: Переключить тему, ID: platform-theme
+	31 container platform-main
+		32 heading spring.csv, Value: 1
+			33 text spring.csv
+		34 container
+			35 link Description: Открыть анализ, Value: 127.0.0.1:3140/logs/log-3
+			36 text  · 
+			37 link Description: Экспорт с политиками, Value: 127.0.0.1:3140/logs/log-3/export
+		38 container
+			39 heading Выбрать трассы и действия, Value: 2
+				40 text Выбрать трассы и действия
+			41 container
+				42 text Трассы, содержащие действие
+				43 text field (settable) Трассы, содержащие действие
+			44 container
+				45 text Минимум событий в исходной трассе
+				46 stepper (settable) Минимум событий в исходной трассе
+			47 container
+				48 text Максимум событий в исходной трассе
+				49 stepper (settable) Максимум событий в исходной трассе
+			50 container Оставить только выбранные действия
+				51 text Оставить только выбранные действия
+				52 container
+					53 text Найти действие
+					54 search text field (settable) Найти действие
+				55 container
+					56 checkbox (settable, integer) Description: begin, Value: 0
+					57 text begin
+				58 container
+					59 checkbox (settable, integer) Description: end, Value: 0
+					60 text end
+				61 text Выбор сохраняется при поиске. Изменения применятся после нажатия «Применить фильтр».
+				62 text Ничего не выбрано
+				63 button Сбросить выбор
+			64 container Удалить выбранные действия
+				65 text Удалить выбранные действия
+				66 container
+					67 text Найти действие
+					68 search text field (settable) Найти действие
+				69 container
+					70 checkbox (settable, integer) Description: begin, Value: 0
+					71 text begin
+				72 container
+					73 checkbox (settable, integer) Description: end, Value: 0
+					74 text end
+				75 text Выбор сохраняется при поиске. Изменения применятся после нажатия «Применить фильтр».
+				76 text Ничего не выбрано
+				77 button Сбросить выбор
+			78 text Если ничего не выбрано, соответствующее ограничение не применяется. Сначала выбираются трассы по исходным событиям, затем в них остаются выбранные действия. Пустые трассы сохраняются. Исходный журнал не меняется; статистика и карта пересчитываются.
+			79 button Применить фильтр
+			80 button Сбросить все фильтры
+		81 container
+			82 heading Построить модель из наблюдённых вариантов, Value: 2
+				83 text Построить модель из наблюдённых вариантов
+			84 text Каждый наблюдённый вариант станет отдельным путём через выбор. Это описывает наблюдения, не доказывает параллелизм и не заменяет Split Miner.
+			85 button Построить BPMN
+		86 container
+			87 heading Рабочее время, Value: 2
+				88 text Рабочее время
+			89 container
+				90 text Фиксированное смещение UTC
+				91 pop up button (collapsed, settable) Фиксированное смещение UTC, Value: UTC+00:00, Secondary Actions: Expand
+					92 menu
+						93 UTC−14:00
+						94 UTC−13:30
+						95 UTC−13:00
+						96 UTC−12:30
+						97 UTC−12:00
+						98 UTC−11:30
+						99 UTC−11:00
+						100 UTC−10:30
+						101 UTC−10:00
+						102 UTC−09:30
+						103 UTC−09:00
+						104 UTC−08:30
+						105 UTC−08:00
+						106 UTC−07:30
+						107 UTC−07:00
+						108 UTC−06:30
+						109 UTC−06:00
+						110 UTC−05:30
+						111 UTC−05:00
+						112 UTC−04:30
+						113 UTC−04:00
+						114 UTC−03:30
+						115 UTC−03:00
+						116 UTC−02:30
+						117 UTC−02:00
+						118 UTC−01:30
+						119 UTC−01:00
+						120 UTC−00:30
+						121 (selected) UTC+00:00
+						122 UTC+00:30
+						123 UTC+01:00
+						124 UTC+01:30
+						125 UTC+02:00
+						126 UTC+02:30
+						127 UTC+03:00
+						128 UTC+03:30
+						129 UTC+04:00
+						130 UTC+04:30
+						131 UTC+05:00
+						132 UTC+05:30
+						133 UTC+06:00
+						134 UTC+06:30
+						135 UTC+07:00
+						136 UTC+07:30
+						137 UTC+08:00
+						138 UTC+08:30
+						139 UTC+09:00
+						140 UTC+09:30
+						141 UTC+10:00
+						142 UTC+10:30
+						143 UTC+11:00
+						144 UTC+11:30
+						145 UTC+12:00
+						146 UTC+12:30
+						147 UTC+13:00
+						148 UTC+13:30
+						149 UTC+14:00
+			150 container
+				151 text Рабочие дни недели
+				152 text field (settable) Рабочие дни недели, Value: 7
+			153 text 1 — понедельник, 2 — вторник, …, 7 — воскресенье. Например: 1,2,3,4,5.
+			154 container
+				155 text Именованная зона IANA (необязательно)
+				156 text field (settable) Именованная зона IANA (необязательно), Value: Europe/Berlin
+			157 container
+				158 text Начало работы
+				159 pop up button (collapsed, settable) Начало работы, Value: 01:00, Secondary Actions: Expand
+					160 menu
+						161 00:00
+						162 00:30
+						163 (selected) 01:00
+						164 01:30
+						165 02:00
+						166 02:30
+						167 03:00
+						168 03:30
+						169 04:00
+						170 04:30
+						171 05:00
+						172 05:30
+						173 06:00
+						174 06:30
+						175 07:00
+						176 07:30
+						177 08:00
+						178 08:30
+						179 09:00
+						180 09:30
+						181 10:00
+						182 10:30
+						183 11:00
+						184 11:30
+						185 12:00
+						186 12:30
+						187 13:00
+						188 13:30
+						189 14:00
+						190 14:30
+						191 15:00
+						192 15:30
+						193 16:00
+						194 16:30
+						195 17:00
+						196 17:30
+						197 18:00
+						198 18:30
+						199 19:00
+						200 19:30
+						201 20:00
+						202 20:30
+						203 21:00
+						204 21:30
+						205 22:00
+						206 22:30
+						207 23:00
+						208 23:30
+						209 24:00
+			210 container
+				211 text Конец работы
+				212 pop up button (collapsed, settable) Конец работы, Value: 04:00, Secondary Actions: Expand
+					213 menu
+						214 00:00
+						215 00:30
+						216 01:00
+						217 01:30
+						218 02:00
+						219 02:30
+						220 03:00
+						221 03:30
+						222 (selected) 04:00
+						223 04:30
+						224 05:00
+						225 05:30
+						226 06:00
+						227 06:30
+						228 07:00
+						229 07:30
+						230 08:00
+						231 08:30
+						232 09:00
+						233 09:30
+						234 10:00
+						235 10:30
+						236 11:00
+						237 11:30
+						238 12:00
+						239 12:30
+						240 13:00
+						241 13:30
+						242 14:00
+						243 14:30
+						244 15:00
+						245 15:30
+						246 16:00
+						247 16:30
+						248 17:00
+						249 17:30
+						250 18:00
+						251 18:30
+						252 19:00
+						253 19:30
+						254 20:00
+						255 20:30
+						256 21:00
+						257 21:30
+						258 22:00
+						259 22:30
+						260 23:00
+						261 23:30
+						262 24:00
+			263 container
+				264 text Нерабочие даты
+				265 text field (settable) Нерабочие даты
+			266 text Считается пересечение интервала между первым и последним временем трассы с рабочими часами. Начало включается, конец не включается. Без именованной зоны смещение UTC фиксировано. При именованной зоне учитываются сезонные переходы; несуществующие и неоднозначные рабочие границы отклоняются. Для именованной зоны выберите фиксированное смещение UTC+00:00.
+			267 button Рассчитать рабочее время
+		268 heading Рабочая длительность трасс, Value: 2
+			269 text Рабочая длительность трасс
+		270 container
+			271 heading Рабочая длительность трасс, Value: 2
+				272 text Рабочая длительность трасс
+			273 text Время между самым ранним и самым поздним событием учитывается только внутри выбранных рабочих часов. Результат сохраняет точность до миллисекунд.
+			274 table
+				275 row
+					276 cell
+						277 text Трасса
+					278 cell
+						279 text Рабочая длительность
+					280 cell
+						281 text Статус
+				282 row
+					283 cell
+						284 text case-0
+					285 cell
+						286 text 2 ч
+					287 cell
+						288 text Рассчитано
+	289 container
+		290 text Process Intelligence Локальная поставка · совместимость с Apromore не подтверждена
+
+The focused UI element is 1 AXWebArea Фильтры и календарь · Process Intelligence, URL: 127.0.0.1:3140/logs/log-3/tools

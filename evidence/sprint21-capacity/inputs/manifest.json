@@ -1,0 +1,58 @@
+{
+  "converter_executed": false,
+  "expected_core": {
+    "traces": [
+      {
+        "events": [
+          {
+            "activity": "A, \"β\"",
+            "lifecycle": "start",
+            "timestamp": "2026-10-22T01:02:03.123456789Z"
+          },
+          {
+            "activity": "line\nbreak",
+            "lifecycle": "complete",
+            "timestamp": null
+          }
+        ],
+        "name": "case-α"
+      }
+    ]
+  },
+  "files": [
+    {
+      "bytes": 430,
+      "file": "control.xes",
+      "sha256": "6BE15ABCC35C4BDF755F27307C93B0B5E4E5F90C7D715FCC4B57DC07A503516F"
+    },
+    {
+      "bytes": 125,
+      "file": "expected.csv",
+      "sha256": "F14031CC8FCDF5119AFFAF1C2490D54B779A0929754DEE6DDF8D6280971E2905"
+    },
+    {
+      "bytes": 366,
+      "file": "expected-core.json",
+      "sha256": "6E50B95CD9CE56D2B52C099BBCFB59E20AEBF128466BDA76ACD3697D7D7FB64B"
+    },
+    {
+      "bytes": 18874368,
+      "file": "padded.xes",
+      "sha256": "60ED0F346CFE59D6800D992A4BA8090109A97B7D90410721392FD00625190420"
+    }
+  ],
+  "manual_csv_bytes": 125,
+  "padded_bytes": 18874368,
+  "padding": "ASCII spaces appended after the unchanged 430-byte XES document",
+  "schema_version": 1,
+  "source_bytes": 430,
+  "source_pins": {
+    "corpus.json": "621DC9106835EB3274659A08F033DA4B74EF7CCE9A58846E4B01788C866CFE34",
+    "flat-unicode.csv": "F14031CC8FCDF5119AFFAF1C2490D54B779A0929754DEE6DDF8D6280971E2905",
+    "flat-unicode.manual-core.json": "6E50B95CD9CE56D2B52C099BBCFB59E20AEBF128466BDA76ACD3697D7D7FB64B",
+    "flat-unicode.xes": "6BE15ABCC35C4BDF755F27307C93B0B5E4E5F90C7D715FCC4B57DC07A503516F"
+  },
+  "status": "FIXED_BEFORE_MEASUREMENT",
+  "total_file_bytes_without_manifest": 18875289,
+  "workload_scope": "BYTE_VOLUME_ONLY: one trace, two events; not worst-case semantic complexity"
+}

@@ -1,0 +1,14 @@
+{
+  "utc": "2026-10-11T14:03:36.3061539Z",
+  "source_commit": "b4edef34b083d1cb7737cf648f1c051eeb94127a",
+  "sql5_observer_sha256": "C3E35EDF638EA86FC9C716A98238B48C6F1F4FA480AD1567984DB96A944BE325",
+  "sql5_decision": "Conditional Observe-only GO frozen exact10unique allowedKeys including expectedKey/currentC2/owned5450+15452/RootQuietGo. Actual targetDataRow>=10MiB/native0/fullconservation before fault review.",
+  "sql5_limits": "No timedPASS or boundedproxyRAM claim; client.write ignores backpressure. Literal4SET FIFO and only expectedKey arms, other9 knownkeys non-target.",
+  "precommit_helper_sha256": "31E3E921FD15758EB222763BA466CA0828C05B043AB3A7FFFFEE9FDFE42F5D79",
+  "precommit_contract_sha256": "E91B805A9247E7AFE89C52FC76F50C924E5F4AC01D49B2AB7AF2B38B62DA86D2",
+  "restore_helper_sha256": "A8FC6C1265E041F92210D47C105727AF6AF8E9C55E026505EC3F099EC68ECD75",
+  "precommit_decision": "Prospective STOP current restart expectation, before execution. Full sources/hash read matched.",
+  "finding": "User BEFOREDELETE trigger on public.pi_records persists; normalized.rs126 startup schema validation rejects noninternal triggers. Unchanged trigger fixture cannot justify expected restartReady200.",
+  "required_repair": "After startup capture original nofixture baseline; installtargetfixture then fullfixturePRE/errorPOST/failclosed equality; DROP only ownedfixture trigger/function, exactcatalog+managedstate restore nofixture baseline; restartmanualtarget200/noWitness. Newinstrumenthash review beforeexecution; no productchange.",
+  "no_td_execution": true
+}

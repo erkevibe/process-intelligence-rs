@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "agent_name": "qa_s20_delivery",
+  "role": "Independent QA and ProcessLogAuditor",
+  "utc": "2026-10-22T21:53:21.0960247+00:00",
+  "decision": "CAP_TECHNICAL_ACCEPTANCE_PENDING_PUBLIC_PROJECTION_AND_FINAL_DELIVERY",
+  "primary_delivery_head": "931f00ece83579de438e1e144f7cfeeca32156b3",
+  "candidate_stock_sha256": "4121BD68F1C0C05A61B039FADF20FEC5C2DA4379D8AAAFB170DC3B43861D1525",
+  "independent_original_receipts": [
+    {
+      "sha256": "883CC343CDCD678509A9222B184AD910D3163A0A706EC4B8ECCAA81D5AC5DC85",
+      "receipt": "qa/capacity-pg-acceptance03.json"
+    },
+    {
+      "sha256": "BA9299F0F3B15F9522F1C1857F283638C8C096C776D100C0A337FFEFE6B85336",
+      "receipt": "qa/capacity-crash-doc-acceptance01.json"
+    },
+    {
+      "sha256": "6CDA01EF7546B28D9E03FC6CE28BD7C00C47AC75AAC19EC50C0F8F470730ABB2",
+      "receipt": "qa/capacity-measure-partial01.json"
+    },
+    {
+      "sha256": "7677A57D5FC9041212BB946DCC972A3B446B2B2348E411FAC763D4C47DC6012B",
+      "receipt": "qa/capacity-multi-attempt-measure-acceptance01.json"
+    },
+    {
+      "sha256": "78AF4A392A7C97D6471C3AA6537FD9309F650A09E561A0E10D96E3F6BB2C6247",
+      "receipt": "qa/capacity-browser-acceptance01.json"
+    },
+    {
+      "sha256": "CEF89679B1855502040CA35B8BF9C663E8509A390B10F0DD52F78BC790D8B8FB",
+      "receipt": "qa/capacity-guard-acceptance01.json"
+    },
+    {
+      "sha256": "E3D1DB4A1F24A49CB0A96B4D202329A4E161D711C5317C76CCC207D3FA745A5D",
+      "receipt": "qa/capacity-pg-recovery-acceptance01.json"
+    },
+    {
+      "sha256": "76CA7706497E7A59C3FB7167721E9A238495E742E9E363ADCF53011A8115E765",
+      "receipt": "qa/capacity-compile11-coverage-gap01.json"
+    },
+    {
+      "sha256": "2A75F73EBAFC46FBFCE75078AC45D7FB7376F9A21813C84E724E3677FC35AFD4",
+      "receipt": "qa/capacity-browser-infrastructure-failure01.json"
+    }
+  ],
+  "accepted_controlled_capacity": {
+    "checkpoint_groups": 10,
+    "busy_observed_response_ms": 3,
+    "database_fault_failclosed_header_unchanged": true,
+    "busy_retry_heavy_fetches": 0,
+    "cancelled_worker_keeps_permit_until_actual_exit": true,
+    "unknown_length_consumed_overrun_bytes": 80,
+    "busy_upload_body_polls": 0,
+    "real_postgresql_exact_tests": 5,
+    "retention_race_current_auth_foreign_pool_and_identifier_overflow_controls": true,
+    "explicit_single_frame_overrun_bound_bytes": 65536,
+    "durable_accept_HTTP_waiter_abort_worker_completed": true,
+    "partial_body_disconnect_permits_restored": 2
+  },
+  "accepted_stock_and_type_contracts": {
+    "original_and_retry_result_pairs_survive": true,
+    "precommit_wait_to_kill_ms": 313.5191,
+    "stock_crash_original_captures": 24,
+    "unchanged_lock_timeout_ms": 2000,
+    "recovery_audit_exact_interrupted_conversion_only": true,
+    "compile_fail_type_contracts": 2
+  },
+  "accepted_multi_attempt_measurement": {
+    "original_whole_trial_status": "FAILED_RETAINED",
+    "original_pairs_byte_equal_after_new_restart": true,
+    "old_helper_provenance": "Exact-hash verified byte-preimage reconstruction, not an original saved copy or native rerun",
+    "fixed_padded_input_bytes": 18874368,
+    "original_raw_samples": 935,
+    "actual_TCP_statuses": [
+      413,
+      303,
+      413
+    ],
+    "separate_resume_memory_files": 2,
+    "manual_expected_CSV_bytes": 125,
+    "original_raw_memory_files": 10,
+    "fixed_input_manifest_sha256": "514F66245638176F87A635AEC2771610C0708A42E68349878C91A3B545E8C340",
+    "old_TCP_errno": "UNKNOWN",
+    "actual_TCP_POSTs": 3,
+    "separate_resume_original_captures": 10,
+    "separate_process_lifetimes_not_merged": true,
+    "old_TCP_exception": "OSError",
+    "successful_original_receipts": 9,
+    "actual_TCP_GETs": 7
+  },
+  "accepted_real_browser": {
+    "actual_downloads": 19,
+    "rich_metadata_refusal_and_explicit_allow": true,
+    "stored_unicode_utf8_bytes": 256,
+    "watchers": 1,
+    "intermediate_misnamed_terminal_preserved_honestly": true,
+    "terminal_templates": 0,
+    "download_HTTP_status_headers_not_observed": true,
+    "retained_panels": 8,
+    "running_revision": 1,
+    "stored_unicode_scalars": 64,
+    "frozen_manual_directions": 4,
+    "restart_downloads_byte_equal": 8,
+    "real_cancel_and_linked_retry_Datastar_without_reload": true,
+    "terminal_revision": 2
+  },
+  "accepted_operational_repairs": {
+    "guard_controls_passed": 15,
+    "postgres_owned_stale_pid_recovery_ready_SQL_and_clean_stop": true,
+    "transient_control_window_ms": 137.4803,
+    "manual_pid_or_data_edits": false,
+    "unchanged_periodic_sample_ms": 20000,
+    "actual_reparse_capability_skips": 1
+  },
+  "permanent_native_coverage_unknowns": [
+    "Primary compile04 build child native exit and both stream EOF UNKNOWN",
+    "Capacity compile11 clippy child native exit and both stream EOF UNKNOWN",
+    "Capacity first browser infrastructure PostgreSQL child native exit and both stream EOF UNKNOWN"
+  ],
+  "honest_limits": [
+    "All failed attempts remain failed; successful partial observations are accepted only through explicit multi-attempt coverage.",
+    "Working set/private commit samples and native server lifetime peaks are distinct; no RAM hard cap, production SLO, throughput or enterprise load certification.",
+    "Fixed eighteen-MiB input has one trace and two events; byte volume only, not worst-case semantic complexity.",
+    "Overlap network third request actual503 from existing payload gate is not mislabeled admission429.",
+    "PostgreSQL raw managed/auth snapshots and sensitive native streams are privately verified, not complete public raw capture coverage.",
+    "OS privilege reparse skip and earlier projector symlink/optional jsdom skips remain explicit; real browser separately exercised.",
+    "Primary accepted source delivery remains unchanged; no merge, release tag or enterprise completeness claim."
+  ],
+  "public_projection": "PENDING_ACTUAL_INDEPENDENT_OUTPUT_AUDIT",
+  "final_source_freeze_Council": "PENDING",
+  "final_delivery": [
+    "Both exact-HEAD CI",
+    "Root and independent QA anonymous whole-source readbacks plus downloaded-source pure audits",
+    "Final resources and original-process closure"
+  ]
+}

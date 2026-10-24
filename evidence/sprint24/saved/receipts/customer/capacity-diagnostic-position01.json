@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "utc": "2026-10-23T17:58:59.974Z",
+  "role": "Customer",
+  "agent_name": "customer_s23_delivery",
+  "proposal_sha256": "DC782016ED152467817726533BE09B05EAF892CBD0B8A422FBEA60DD6D67DC1B",
+  "status": "SUPPORT_PROSPECTIVE_P1_SCOPE_WITH_OPERATOR_CONDITIONS_NOT_GO",
+  "position": "SUPPORT",
+  "formal_vote": null,
+  "own_reading": "Read entire revised PM02 proposal and verifiedSHA; no shell/native/Git/product edits.",
+  "entry": "Only after actual independently accepted phaseB. Bops01 failed before PGstop remains failure; archival/faster scan is not B acceptance or guaranteed future latency.",
+  "stable_requirements": [
+    {
+      "id": "C24-P1-01",
+      "fact": "Current documented per-file/attempt limits do not describe total database footprint.",
+      "problem": "Operator lacks a safe small capacity inventory before selecting a future quota policy.",
+      "proposal": "Provide bounded read-only counts of six known record kinds/projects and measured managed relation/database physical bytes, with no document, source, auth or session contents.",
+      "acceptance": "Fixed scope/identifiers, independent manual synthetic counts, unknown kinds refused, no sensitive fields."
+    },
+    {
+      "id": "C24-P1-02",
+      "fact": "Physical database bytes exclude important host and recovery storage.",
+      "problem": "A plausible number could be misread as quota consumption or available disk.",
+      "proposal": "User output/recipe must explicitly say physical database measurement, not quota; excludes WAL, other databases, backups and filesystem free space. Managed relation sizes and total DB size are overlapping scopes, not numbers to add.",
+      "acceptance": "No quota enforcement, global storage certification, backup capacity or free-space claim."
+    },
+    {
+      "id": "C24-P1-03",
+      "fact": "READ ONLY repeatable read protects logical reads but physical file sizes may still change while PostgreSQL runs.",
+      "problem": "Operator may infer atomic simultaneous physical-size/accounting consistency from the word snapshot.",
+      "proposal": "Label logical counts as transaction-visible and physical byte values as observations during report execution; include observation time and do not imply repeatable-read freezes on-disk growth.",
+      "acceptance": "No exact sum or globally atomic physical snapshot claim; measured values are reported honestly."
+    },
+    {
+      "id": "C24-P1-04",
+      "fact": "An error may occur after a JSON row is printed but before transaction completion.",
+      "problem": "Partial or timed-out output can resemble a valid empty or complete report.",
+      "proposal": "Success requires exactly one typed JSON row, explicit completion marker after COMMIT and native exit0. Missing marker/nonzero means incomplete; keep partial file for diagnosis rather than accepting it.",
+      "acceptance": "Real same-session read-only write refusal/sentinel unchanged, ready-marked real lock timeout, bad-schema/unknown-kind refusal, bounded no completion marker cases."
+    }
+  ],
+  "risk": "Low-medium additive SQL diagnostic, targeted independent query/control/privacy and Customer instruction review proportionate; no new full historical R3 Council.",
+  "conditions": [
+    "Minimum knownV3 structure only, not full catalog certification/R3 recertification.",
+    "READ ONLY repeatable transaction with5s statement/2s lock/10s transaction limits; no migration or hidden repair.",
+    "Fresh isolated owned fixtures for real negatives; no operational user database writes.",
+    "<=90min complete delivery, exactCI/downloadedSQL+recipe readback/actualquiet, within nativefreeze and finalreserve; do not start if closure cannot fit."
+  ],
+  "actual_acceptance": false,
+  "human_acceptance": false
+}

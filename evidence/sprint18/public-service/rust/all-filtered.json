@@ -1,0 +1,97 @@
+{
+  "input_sha256": "3c3c5e3e35cae8315e2bef39e27cab65d57113c4d990eb2b0c927c9a29de950e",
+  "preview": {
+    "status": "ok",
+    "value": {
+      "changes": [
+        {
+          "action": "remove_event",
+          "case_index": 0,
+          "event_index": 0,
+          "reasons": [
+            "unsupported_lifecycle"
+          ]
+        },
+        {
+          "action": "remove_case",
+          "case_index": 0,
+          "event_index": null,
+          "reasons": [
+            "empty_case"
+          ]
+        }
+      ],
+      "fully_filtered": true,
+      "log": {
+        "cases": [],
+        "name": null,
+        "warnings": [
+          "Предварительный просмотр: исходные данные не изменены. Это не полный сервис Apromore."
+        ]
+      },
+      "policy": "apromore-validateLog-bbf24df-preview-v1",
+      "projection_report": {
+        "admission_profile": "flat_xes_no_global_defaults_or_nested_attributes",
+        "attributes": [],
+        "basis": "all_source_attributes_before_event_filtering",
+        "ignored_classifiers": 0,
+        "omitted_event_attributes": 0,
+        "omitted_extension_declarations": 0,
+        "omitted_log_attributes": 0,
+        "omitted_trace_attributes": 0,
+        "schema_version": 1,
+        "timestamp_offsets_normalized_to_utc": 0,
+        "unlisted_attribute_occurrences": 0
+      },
+      "source_cases": 1,
+      "source_events": 1
+    }
+  },
+  "raw_rust4pm": {
+    "log": {
+      "attributes": [],
+      "classifiers": [],
+      "extensions": [],
+      "global_event_attrs": null,
+      "global_trace_attrs": null,
+      "traces": [
+        {
+          "attributes": [],
+          "events": [
+            {
+              "attributes": [
+                {
+                  "key": "concept:name",
+                  "own_attributes": null,
+                  "value": {
+                    "content": "removed",
+                    "type": "String"
+                  }
+                },
+                {
+                  "key": "time:timestamp",
+                  "own_attributes": null,
+                  "value": {
+                    "content": "2024-01-01T00:00:00Z",
+                    "type": "Date"
+                  }
+                },
+                {
+                  "key": "lifecycle:transition",
+                  "own_attributes": null,
+                  "value": {
+                    "content": "suspend",
+                    "type": "String"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "status": "ok"
+  },
+  "schema_version": 1,
+  "scope": "Fixed trusted corpus only; raw Rust4PM observation is separate from application preview admission; no persistence"
+}

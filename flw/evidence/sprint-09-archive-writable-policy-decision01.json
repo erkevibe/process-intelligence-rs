@@ -1,0 +1,45 @@
+{
+  "decision_utc": "2026-10-11T09:59:26.1392624Z",
+  "baseline_plan_sha256": "C772DA29D799DB4EF550D4A8A85E918311176642453DE040A1EBD8B10A7E2A4F",
+  "subject": "Only initiating owner current-project archive: require another active writable project; choose writable replacement for affected own sessions. Only Viewer alternatives refuse before mutation/audit. Other affected users may use their own accessible Viewer project. Noncurrent archive gains no new prerequisite; current-writer gates remain.",
+  "fixed_voters": 5,
+  "actual_for": 4,
+  "actual_against": 0,
+  "pending": [
+    "QA"
+  ],
+  "verdict": "ACCEPT additive safety policy by actual strict majority; no criterion or runtime acceptance",
+  "votes": [
+    {
+      "voter": "Root",
+      "vote": "FOR",
+      "reason": "Confirmed owner-to-Viewer recovery lockout; reject before data/audit and preserve current writer gate."
+    },
+    {
+      "voter": "PM",
+      "vote": "FOR",
+      "path": "flw/evidence/sprint-09-archive-writable-policy-pm.md",
+      "sha256": "28B57D4AFE781ABD29DDC54F6243404FAD20FE9031D5EA24DC09489A2424470F"
+    },
+    {
+      "voter": "Customer",
+      "vote": "FOR",
+      "path": "flw/evidence/sprint-09-archive-writable-policy-customer.md",
+      "sha256": "BCFD02BDC4D68FF31666089B03DCA0967C700DFB6928C676408684417D54837E"
+    },
+    {
+      "voter": "TD",
+      "vote": "FOR",
+      "path": "flw/evidence/sprint-09-archive-writable-policy-td.md",
+      "sha256": "226CDD36B710C0B2DB1E9409835D7A0ECB48A6E947996BD75C87EAE666D3B3D6"
+    }
+  ],
+  "required_actual_cases": [
+    "OnlyViewer complete-state refusal",
+    "Writable alternative and recovery",
+    "Viewer-first writable-second selection",
+    "Multiple initiator sessions",
+    "Other Viewer no role gain",
+    "Current role revocation, stale CAS, restart"
+  ]
+}

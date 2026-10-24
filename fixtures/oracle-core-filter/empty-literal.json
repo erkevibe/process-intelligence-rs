@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "id": "empty-literal",
+  "rule_literals": [
+    ""
+  ],
+  "source": {
+    "name": "Core filter empty-literal",
+    "cases": [
+      {
+        "id": "empty-literal-source-0",
+        "name": "empty-literal-trace-0",
+        "events": [
+          {
+            "ordinal": 3,
+            "activity": "A",
+            "timestamp": "2024-01-01T00:00:40.123Z",
+            "lifecycle": "complete"
+          }
+        ]
+      },
+      {
+        "id": "empty-literal-source-1",
+        "name": "empty-literal-trace-1",
+        "events": [
+          {
+            "ordinal": 3,
+            "activity": "B",
+            "timestamp": "2024-01-01T00:00:40.123Z",
+            "lifecycle": "complete"
+          }
+        ]
+      }
+    ],
+    "warnings": [
+      "synthetic source warning retained"
+    ]
+  }
+}

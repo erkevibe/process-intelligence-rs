@@ -1,0 +1,118 @@
+{
+  "collector_host_death_supported": false,
+  "post_stop_probe": {
+    "exception_code": "stop_latched_no_admission",
+    "process_count_before": 2,
+    "attempted": true,
+    "refused": true,
+    "process_count_after": 2,
+    "resume_unchanged": true
+  },
+  "native_kill_operations": [
+    {
+      "operation": "TerminateJobObject",
+      "utc": "2026-10-23T03:51:23.9654822Z",
+      "job_label": "worker",
+      "pid": 0,
+      "success": true,
+      "already_stopped": true,
+      "native_error": 0
+    },
+    {
+      "operation": "TerminateJobObject",
+      "utc": "2026-10-23T03:51:23.9927291Z",
+      "job_label": "child",
+      "pid": 0,
+      "success": true,
+      "already_stopped": false,
+      "native_error": 0
+    }
+  ],
+  "control_triggered": true,
+  "kill_requests_completed_utc": "2026-10-23T03:51:23.9930560Z",
+  "kill_fault": false,
+  "receipt_write_hard_timer_still_armed": true,
+  "control": "kill-worker",
+  "failure": null,
+  "cleanup_completed_utc": "2026-10-23T03:51:24.0213724+00:00",
+  "process_count": 2,
+  "collector_finalization_deadline": "2026-10-23T03:51:48.9919507+00:00",
+  "completed_count": 2,
+  "stop_reason": "worker_exit",
+  "stop_utc": "2026-10-23T03:51:23.9919341Z",
+  "events": [
+    {
+      "utc": "2026-10-23T03:51:23.0270959+00:00",
+      "sequence": 1,
+      "stop_latched": false,
+      "event": "OWNED_SUSPENDED_CAPTURE_READY",
+      "label": "worker"
+    },
+    {
+      "utc": "2026-10-23T03:51:23.0271946+00:00",
+      "sequence": 2,
+      "stop_latched": false,
+      "event": "RESUMED",
+      "label": "worker"
+    },
+    {
+      "utc": "2026-10-23T03:51:23.5127194+00:00",
+      "sequence": 3,
+      "stop_latched": false,
+      "event": "REQUEST_START",
+      "label": "child"
+    },
+    {
+      "utc": "2026-10-23T03:51:23.5447351+00:00",
+      "sequence": 4,
+      "stop_latched": false,
+      "event": "OWNED_SUSPENDED_CAPTURE_READY",
+      "label": "child"
+    },
+    {
+      "utc": "2026-10-23T03:51:23.5448975+00:00",
+      "sequence": 5,
+      "stop_latched": false,
+      "event": "RESUMED",
+      "label": "child"
+    },
+    {
+      "utc": "2026-10-23T03:51:23.7459679+00:00",
+      "sequence": 6,
+      "stop_latched": false,
+      "event": "REQUEST_STATUS",
+      "label": "child"
+    },
+    {
+      "utc": "2026-10-23T03:51:23.9212797+00:00",
+      "sequence": 7,
+      "stop_latched": false,
+      "event": "REQUEST_STATUS",
+      "label": "child"
+    },
+    {
+      "utc": "2026-10-23T03:51:23.9632253+00:00",
+      "sequence": 8,
+      "stop_latched": false,
+      "event": "CONTROL_KILL_WORKER",
+      "label": "worker"
+    },
+    {
+      "utc": "2026-10-23T03:51:24.0060728+00:00",
+      "sequence": 9,
+      "stop_latched": true,
+      "event": "ACTUAL_EXIT_AND_CAPTURE_SAVED",
+      "label": "worker"
+    },
+    {
+      "utc": "2026-10-23T03:51:24.0206038+00:00",
+      "sequence": 10,
+      "stop_latched": true,
+      "event": "ACTUAL_EXIT_AND_CAPTURE_SAVED",
+      "label": "child"
+    }
+  ],
+  "no_new_go_after_stop": true,
+  "requests": 3,
+  "guard_failure": null
+}

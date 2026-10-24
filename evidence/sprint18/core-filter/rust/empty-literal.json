@@ -1,0 +1,82 @@
+{
+  "engine": "process_intelligence_rs::filters::apply",
+  "id": "empty-literal",
+  "input_sha256": "d8f9663885bff94276c910824ff6c63e18e78fd034d6ec8ccfbe2dee2a500368",
+  "rule_literals": [
+    ""
+  ],
+  "schema_version": 1,
+  "scope": "Actual production filter sequential calls; full EventLog conservation only, not rich XLog metadata or public persistence",
+  "selected_source_indices": [
+    0,
+    1
+  ],
+  "selected_source_log": {
+    "cases": [
+      {
+        "events": [
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          }
+        ],
+        "id": "empty-literal-source-0",
+        "name": "empty-literal-trace-0"
+      },
+      {
+        "events": [
+          {
+            "activity": "B",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          }
+        ],
+        "id": "empty-literal-source-1",
+        "name": "empty-literal-trace-1"
+      }
+    ],
+    "name": "Core filter empty-literal",
+    "warnings": [
+      "synthetic source warning retained"
+    ]
+  },
+  "source_after_sha256": "ad63ccf3dd1715950bb323469f906af65f28dcb1324c344ba66e3ee54b5137e8",
+  "source_before_sha256": "ad63ccf3dd1715950bb323469f906af65f28dcb1324c344ba66e3ee54b5137e8",
+  "source_domain_before": {
+    "cases": [
+      {
+        "events": [
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          }
+        ],
+        "id": "empty-literal-source-0",
+        "name": "empty-literal-trace-0"
+      },
+      {
+        "events": [
+          {
+            "activity": "B",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          }
+        ],
+        "id": "empty-literal-source-1",
+        "name": "empty-literal-trace-1"
+      }
+    ],
+    "name": "Core filter empty-literal",
+    "warnings": [
+      "synthetic source warning retained"
+    ]
+  },
+  "source_unchanged": true,
+  "status": "ACTUAL_RUST_CASE_ACTIVITY_FILTER_OBSERVED"
+}

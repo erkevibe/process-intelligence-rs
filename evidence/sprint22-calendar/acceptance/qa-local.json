@@ -1,0 +1,79 @@
+{
+  "schema": 1,
+  "agent_name": "qa_s20_delivery",
+  "role": "Independent QA and ProcessLogAuditor",
+  "actual_utc": "2026-10-23T06:35:17.9086428+00:00",
+  "decision": "ACCEPT_LOCAL_CALENDAR_UI_TECHNICAL_SCOPE_PENDING_FROZEN_PUBLIC_DELIVERY",
+  "proposal_sha256": "42B08F9818885D6B985AEACD5AFA40A83754EC5719EF79C74972A010FCFA22FC",
+  "c01_sha256": "4121BD68F1C0C05A61B039FADF20FEC5C2DA4379D8AAAFB170DC3B43861D1525",
+  "c02_sha256": "13A43541509807ADDA043A6AD1D32BF9F9BA44A0BBF42318F1A168632D09F32C",
+  "source_sha256": "7AE2A7EB0B526EF96FD69DC2B52486DEFF3B22433B8C621AEBA7199CFD715944",
+  "build": {
+    "existing_frozen_calendar_tests": 5,
+    "receipt_sha256": "77C88591D553F194C7EF648C5D06C58940C6B74103F922E13153636E605CE00A",
+    "all_zero_and_full_eof": true,
+    "new_actual_engine_renderer_tests": 3,
+    "raw_streams": 10,
+    "ignored": 0,
+    "native_records": 5
+  },
+  "live": {
+    "global_allocated_after": 7403625352,
+    "native_records": 16,
+    "apps_intentionally_job_stopped_exit137": 2,
+    "all_other_native_exit": 0,
+    "all_full_eof_actual_saved_hash_length_match": true,
+    "scanner_skips": 0,
+    "proof_sha256": "CEF1F2E18743C5D591348EA5348E8E5CF696929549CD38CDFC8D67361FAAFB0A",
+    "postgres_fast_stop_zero_and_pid_absent": true,
+    "readiness_exits": [
+      1,
+      1,
+      1,
+      0
+    ],
+    "root_allocated_after": 7097138112,
+    "raw_streams": 32
+  },
+  "independent_saved_audit": {
+    "native_pid": 62544,
+    "actual_result_sha256": "EEB515E80395EED285AD8F1D7DAB33D995B9BEBAC4512F34E38FBAF628204A7B",
+    "native_zero_both_eof": true,
+    "actual_submitted_calendar_forms_and_response_hashes_verified": true,
+    "actual_phase_sha256": "68CA392AD4C2AD5A140DA7B75C842330FE9BF3BE92C568276F98BC1F88D0749C",
+    "baseline_candidate_export_business_fields_equal": true,
+    "actual_unknown_and_conflict_http422_preserve_policy": true,
+    "input_bytes_read": 201331,
+    "manual_fall_ms": 14400000,
+    "boundary_reason": "calendar_boundary",
+    "source_sha256": "E56A567730924F6A8E7C64749C4F6BD2B769D91EEF04DDCC6AFDD8BBCE70F91E",
+    "manual_spring_ms": 7200000
+  },
+  "browser": {
+    "qa_review": "Saved screenshot visual inspection, full AX and selected Document network responses",
+    "both_rejected_updates_http422_prior_berlin_utc0_and4h_retained": true,
+    "independent_saved_review_sha256": "2C78F19FAA849204F690A85D48BDF2920E54694F8D0ABA0FF6CA2A9535DFDF62",
+    "spring_refusal_reload_corrected2h": true,
+    "fall_refusal_reload_corrected4h": true,
+    "calendar_datastar_or_sse_claim": false,
+    "actual_observer": "Root through cua_repl"
+  },
+  "failed_attempts_preserved": {
+    "live01": "QA checker wrong raw CSV caseid expectation; source csv_io normalizes case-0; all9native18streams full captured; no C02 executed",
+    "build01": "180-second compiler timeout; all4native8streams full captured, no testresults accepted",
+    "audit01": "Pre-Python helper-visibility failure; no Python child or result claimed"
+  },
+  "historical_unknowns_unchanged": 6,
+  "limitations": [
+    "Only two static Russian renderer explanations plus meaningful regression tests; no arithmetic/API/export/schema/filter change",
+    "Unknown timezone renderer reached via actual Rust engine errors, not fabricated persistedinvalid browserrow",
+    "Independent QA authored checker received Root and TD source review before actual Root execution",
+    "Actual browser observer Root, independent QA reviewed saved evidence; browsermarker alone notaccepted",
+    "Local technical acceptance only, no current calendar publicdelivery or tag/merge/broadR5enterpriseclosure"
+  ],
+  "future_gates": [
+    "Customer UI and independent integrated frozen candidate/privacy/process review",
+    "ExactHEAD CI and separate independent publicsource downloaded replay",
+    "Final unchanged resourcecaps and ownedprocessquiet point"
+  ]
+}

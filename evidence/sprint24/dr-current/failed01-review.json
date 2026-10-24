@@ -1,0 +1,35 @@
+{
+  "utc": "2026-10-23T19:19:34.4973344+00:00",
+  "config_sha256": "4309338940E1A666E2FE69201284A96B943093672956B8E49FC3E0CF7BCD12E8",
+  "qa": "D9A805518D0E7907E153EEEBEDB9D8C80D869730ED67F175BE4963B2948D25EB",
+  "historical_unknown_unchanged": true,
+  "worker_or_postgres_started": false,
+  "pid_absent": true,
+  "source_or_target_mutation": false,
+  "cause": "19 new command directory strings had trailing separator rejected by strict scope",
+  "status": "KNOWN_PREBROKER_CONFIG_SCOPE_FAILURE_NO_PRODUCT_EXECUTION",
+  "admission_miss": "Root and independent reviewers checked pins but missed exact percommandcwd; all guard predicates must be evaluated before fresh GO",
+  "full_streams": 4,
+  "native_count": 2,
+  "ports_bindable": [
+    55449,
+    3146
+  ],
+  "captures": [
+    {
+      "base": ".local/sprint21/root/sprint24/current-compact-dr01/collector",
+      "both_full": true,
+      "exit": 1,
+      "pid": 76640,
+      "metadata_sha256": "E01627846FD00EED1D43B770CCF83CBCB49A064480CD96E06318036EB25BA4C9"
+    },
+    {
+      "base": ".local/sprint21/root/sprint24/dr-launch-external01/dr-launch",
+      "both_full": true,
+      "exit": 1,
+      "pid": 73724,
+      "metadata_sha256": "19D9419FE9FD9F3C07E2DF1520B71942FBC12349005E94FA1F0FF16A44833FAE"
+    }
+  ],
+  "fresh_owned_services_absent": true
+}

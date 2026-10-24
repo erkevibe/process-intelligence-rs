@@ -1,0 +1,830 @@
+{
+  "schema_version": 1,
+  "status": "ACTUAL_CANONICAL_SPLITMINER_FINITE_CORPUS_OBSERVED",
+  "reference_sha256": "D95AEB271DB03418F252FFDEC7D09A3EFE1AC758A91B063740DDEF29603A30D4",
+  "canonical_build_proof_sha256": "8649B4D4F2A465954C2F999AA613FD04FF24AA818BB96DDF8390553D8E742D00",
+  "algorithm_class_sha256": "e8535a6b65b7e758a49e757d635e8797071b8e860bc8d1c6859e592eb1ee21ad",
+  "corpus_sha256": "642254ED2EE675FD4EE2167CE353C75913F0E049AAB681F668DE6184431DAAD0",
+  "old_R2_runtime_unchanged": true,
+  "structural_check_sha256": "18E04220698AA857C4AFB22BBFCC7D7FB2E16D77F4EB95BDDA39EEC67D4C05FD",
+  "QA_receipt_sha256": "D4FD778214569E28152E4B117D2AC0BE4F359DD4ADCD179B65B2451D2381B5B5",
+  "limits": [
+    "Finite trusted corpus and explicit parameter tuple only",
+    "No Rust algorithm implementation or general mining quality claim",
+    "Upstream internal safe fallback recorded by native logs; bare DFG fallback labeled separately",
+    "Raw random graph identifiers retained, no byte-stable graph/export claim"
+  ],
+  "preserved_upstream_gateway_map_ERROR_rows": [
+    "linear",
+    "self-loop",
+    "empty-trace"
+  ],
+  "cases": [
+    {
+      "id": "linear",
+      "input_sha256": "e322a6d8ff750b39022ca4a83c77cefe1dfcf0fd7f9c140cb07a56ce4ee1239d",
+      "observation_sha256": "87EC5411FBECD760DCDB95AF31A004FEEB2031FB90DA5D10C6359C8CA3ABEC2F",
+      "native_exit": 0,
+      "status": "diagram_returned",
+      "parameters": {
+        "percentile_frequency_threshold": 0.4,
+        "parallelisms_threshold": 0.1,
+        "filter_type": "WTH",
+        "parallelisms_first": false,
+        "replace_iors": true,
+        "remove_loop_activities": false,
+        "structuring_time": "NONE",
+        "classifier": "org.deckfour.xes.classification.XEventNameClassifier"
+      },
+      "graph": {
+        "label": "eDFGP-diagram",
+        "nodes": [
+          {
+            "id": "node0",
+            "label": "C",
+            "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Activity",
+            "looped": false
+          },
+          {
+            "id": "node1",
+            "label": "A",
+            "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Activity",
+            "looped": false
+          },
+          {
+            "id": "node2",
+            "label": "B",
+            "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Activity",
+            "looped": false
+          },
+          {
+            "id": "node3",
+            "label": "",
+            "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Event",
+            "event_type": "START",
+            "event_trigger": "NONE",
+            "event_use": "CATCH"
+          },
+          {
+            "id": "node4",
+            "label": "",
+            "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Event",
+            "event_type": "END",
+            "event_trigger": "NONE",
+            "event_use": "THROW"
+          }
+        ],
+        "flows": [
+          {
+            "id": "edge0",
+            "source": "node2",
+            "target": "node0",
+            "label": "",
+            "condition": null
+          },
+          {
+            "id": "edge1",
+            "source": "node3",
+            "target": "node1",
+            "label": "",
+            "condition": null
+          },
+          {
+            "id": "edge2",
+            "source": "node0",
+            "target": "node4",
+            "label": "",
+            "condition": null
+          },
+          {
+            "id": "edge3",
+            "source": "node1",
+            "target": "node2",
+            "label": "",
+            "condition": null
+          }
+        ]
+      },
+      "exception": null,
+      "bpmn_sha256": "427e4dbded59fa732b2cef5b48ab47a414a4461331bdcc4b19b13db338c0eac5",
+      "input_manual_checks": {
+        "input_traces": true,
+        "parameters": true,
+        "input_events": true
+      },
+      "scope": "Single actual canonical reference observation; no quality or Rust-equivalence claim"
+    },
+    {
+      "id": "exclusive-choice",
+      "input_sha256": "2304ae0ed58ce8ba6996476b147c0c1cb23fb7aa8bbab27dd0d65578f58cfdf5",
+      "observation_sha256": "4A8BF1EBC62875CB0EFAF0EB09ACF34C3E243464F724182DD2DAA0954EBAF623",
+      "native_exit": 0,
+      "status": "diagram_returned",
+      "parameters": {
+        "percentile_frequency_threshold": 0.4,
+        "parallelisms_threshold": 0.1,
+        "filter_type": "WTH",
+        "parallelisms_first": false,
+        "replace_iors": true,
+        "remove_loop_activities": false,
+        "structuring_time": "NONE",
+        "classifier": "org.deckfour.xes.classification.XEventNameClassifier"
+      },
+      "graph": {
+        "label": "eDFGP-diagram",
+        "nodes": [
+          {
+            "id": "node0",
+            "label": "C",
+            "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Activity",
+            "looped": false
+          },
+          {
+            "id": "node1",
+            "label": "D",
+            "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Activity",
+            "looped": false
+          },
+          {
+            "id": "node2",
+            "label": "A",
+            "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Activity",
+            "looped": false
+          },
+          {
+            "id": "node3",
+            "label": "B",
+            "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Activity",
+            "looped": false
+          },
+          {
+            "id": "node4",
+            "label": "",
+            "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Gateway",
+            "gateway_type": "DATABASED"
+          },
+          {
+            "id": "node5",
+            "label": "",
+            "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Gateway",
+            "gateway_type": "DATABASED"
+          },
+          {
+            "id": "node6",
+            "label": "",
+            "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Event",
+            "event_type": "START",
+            "event_trigger": "NONE",
+            "event_use": "CATCH"
+          },
+          {
+            "id": "node7",
+            "label": "",
+            "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Event",
+            "event_type": "END",
+            "event_trigger": "NONE",
+            "event_use": "THROW"
+          }
+        ],
+        "flows": [
+          {
+            "id": "edge0",
+            "source": "node6",
+            "target": "node2",
+            "label": "",
+            "condition": null
+          },
+          {
+            "id": "edge1",
+            "source": "node1",
+            "target": "node7",
+            "label": "",
+            "condition": null
+          },
+          {
+            "id": "edge2",
+            "source": "node2",
+            "target": "node4",
+            "label": "",
+            "condition": null
+          },
+          {
+            "id": "edge3",
+            "source": "node4",
+            "target": "node3",
+            "label": "",
+            "condition": null
+          },
+          {
+            "id": "edge4",
+            "source": "node4",
+            "target": "node0",
+            "label": "",
+            "condition": null
+          },
+          {
+            "id": "edge5",
+            "source": "node5",
+            "target": "node1",
+            "label": "",
+            "condition": null
+          },
+          {
+            "id": "edge6",
+            "source": "node0",
+            "target": "node5",
+            "label": "",
+            "condition": null
+          },
+          {
+            "id": "edge7",
+            "source": "node3",
+            "target": "node5",
+            "label": "",
+            "condition": null
+          }
+        ]
+      },
+      "exception": null,
+      "bpmn_sha256": "887070a89f35c85a315423ef9b30569b220dfa30585a96a06ac39b592032951e",
+      "input_manual_checks": {
+        "input_traces": true,
+        "parameters": true,
+        "input_events": true
+      },
+      "scope": "Single actual canonical reference observation; no quality or Rust-equivalence claim"
+    },
+    {
+      "id": "parallel-interleavings",
+      "input_sha256": "0765643359e6e28b24e16123ca136d726f9e3ff49388f98b9a8aab4120f08c20",
+      "observation_sha256": "44D8464C714B4160F16E96DF59DE4B6979EDF17124D3769366C91C7929E2EE97",
+      "native_exit": 0,
+      "status": "diagram_returned",
+      "parameters": {
+        "percentile_frequency_threshold": 0.4,
+        "parallelisms_threshold": 0.1,
+        "filter_type": "WTH",
+        "parallelisms_first": false,
+        "replace_iors": true,
+        "remove_loop_activities": false,
+        "structuring_time": "NONE",
+        "classifier": "org.deckfour.xes.classification.XEventNameClassifier"
+      },
+      "graph": {
+        "label": "eDFGP-diagram",
+        "nodes": [
+          {
+            "id": "node0",
+            "label": "C",
+            "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Activity",
+            "looped": false
+          },
+          {
+            "id": "node1",
+            "label": "D",
+            "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Activity",
+            "looped": false
+          },
+          {
+            "id": "node2",
+            "label": "A",
+            "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Activity",
+            "looped": false
+          },
+          {
+            "id": "node3",
+            "label": "B",
+            "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Activity",
+            "looped": false
+          },
+          {
+            "id": "node4",
+            "label": "",
+            "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Gateway",
+            "gateway_type": "PARALLEL"
+          },
+          {
+            "id": "node5",
+            "label": "",
+            "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Gateway",
+            "gateway_type": "PARALLEL"
+          },
+          {
+            "id": "node6",
+            "label": "",
+            "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Event",
+            "event_type": "START",
+            "event_trigger": "NONE",
+            "event_use": "CATCH"
+          },
+          {
+            "id": "node7",
+            "label": "",
+            "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Event",
+            "event_type": "END",
+            "event_trigger": "NONE",
+            "event_use": "THROW"
+          }
+        ],
+        "flows": [
+          {
+            "id": "edge0",
+            "source": "node1",
+            "target": "node7",
+            "label": "",
+            "condition": null
+          },
+          {
+            "id": "edge1",
+            "source": "node6",
+            "target": "node2",
+            "label": "",
+            "condition": null
+          },
+          {
+            "id": "edge2",
+            "source": "node2",
+            "target": "node4",
+            "label": "",
+            "condition": null
+          },
+          {
+            "id": "edge3",
+            "source": "node4",
+            "target": "node3",
+            "label": "",
+            "condition": null
+          },
+          {
+            "id": "edge4",
+            "source": "node4",
+            "target": "node0",
+            "label": "",
+            "condition": null
+          },
+          {
+            "id": "edge5",
+            "source": "node5",
+            "target": "node1",
+            "label": "",
+            "condition": null
+          },
+          {
+            "id": "edge6",
+            "source": "node3",
+            "target": "node5",
+            "label": "",
+            "condition": null
+          },
+          {
+            "id": "edge7",
+            "source": "node0",
+            "target": "node5",
+            "label": "",
+            "condition": null
+          }
+        ]
+      },
+      "exception": null,
+      "bpmn_sha256": "56e33beeab413328eb936357be0b508063d9899fdd5087b96910e4812c715c0d",
+      "input_manual_checks": {
+        "input_traces": true,
+        "parameters": true,
+        "input_events": true
+      },
+      "scope": "Single actual canonical reference observation; no quality or Rust-equivalence claim"
+    },
+    {
+      "id": "self-loop",
+      "input_sha256": "4d0caf82f37113cefdb9caeefbae81292dcb874e6750ba244cec3e8e45a9a0dc",
+      "observation_sha256": "5DD45A8DBA93F571C9E685D53B404D531959F70E9D5A349FAEF4500CEDE578F3",
+      "native_exit": 0,
+      "status": "diagram_returned",
+      "parameters": {
+        "percentile_frequency_threshold": 0.4,
+        "parallelisms_threshold": 0.1,
+        "filter_type": "WTH",
+        "parallelisms_first": false,
+        "replace_iors": true,
+        "remove_loop_activities": false,
+        "structuring_time": "NONE",
+        "classifier": "org.deckfour.xes.classification.XEventNameClassifier"
+      },
+      "graph": {
+        "label": "eDFGP-diagram",
+        "nodes": [
+          {
+            "id": "node0",
+            "label": "A",
+            "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Activity",
+            "looped": true
+          },
+          {
+            "id": "node1",
+            "label": "B",
+            "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Activity",
+            "looped": false
+          },
+          {
+            "id": "node2",
+            "label": "",
+            "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Event",
+            "event_type": "START",
+            "event_trigger": "NONE",
+            "event_use": "CATCH"
+          },
+          {
+            "id": "node3",
+            "label": "",
+            "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Event",
+            "event_type": "END",
+            "event_trigger": "NONE",
+            "event_use": "THROW"
+          }
+        ],
+        "flows": [
+          {
+            "id": "edge0",
+            "source": "node1",
+            "target": "node3",
+            "label": "",
+            "condition": null
+          },
+          {
+            "id": "edge1",
+            "source": "node2",
+            "target": "node0",
+            "label": "",
+            "condition": null
+          },
+          {
+            "id": "edge2",
+            "source": "node0",
+            "target": "node1",
+            "label": "",
+            "condition": null
+          }
+        ]
+      },
+      "exception": null,
+      "bpmn_sha256": "cc9f4863586d47b9553d41aab8ebd7bc797aeca9597d1524c087a3937cc28463",
+      "input_manual_checks": {
+        "input_traces": true,
+        "parameters": true,
+        "input_events": true
+      },
+      "scope": "Single actual canonical reference observation; no quality or Rust-equivalence claim"
+    },
+    {
+      "id": "short-loop",
+      "input_sha256": "4b941524e45d72353e69d61e6f5a600468647abb9576511364b31bfbb73d3d1b",
+      "observation_sha256": "2AD6C063362DCC4CDAC8899DAAE5D86BD0D73D68472D41B602D5AEAA9C5BC05A",
+      "native_exit": 0,
+      "status": "diagram_returned",
+      "parameters": {
+        "percentile_frequency_threshold": 0.4,
+        "parallelisms_threshold": 0.1,
+        "filter_type": "WTH",
+        "parallelisms_first": false,
+        "replace_iors": true,
+        "remove_loop_activities": false,
+        "structuring_time": "NONE",
+        "classifier": "org.deckfour.xes.classification.XEventNameClassifier"
+      },
+      "graph": {
+        "label": "eDFGP-diagram",
+        "nodes": [
+          {
+            "id": "node0",
+            "label": "C",
+            "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Activity",
+            "looped": false
+          },
+          {
+            "id": "node1",
+            "label": "",
+            "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Gateway",
+            "gateway_type": "DATABASED"
+          },
+          {
+            "id": "node2",
+            "label": "A",
+            "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Activity",
+            "looped": false
+          },
+          {
+            "id": "node3",
+            "label": "B",
+            "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Activity",
+            "looped": false
+          },
+          {
+            "id": "node4",
+            "label": "",
+            "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Gateway",
+            "gateway_type": "DATABASED"
+          },
+          {
+            "id": "node5",
+            "label": "",
+            "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Event",
+            "event_type": "START",
+            "event_trigger": "NONE",
+            "event_use": "CATCH"
+          },
+          {
+            "id": "node6",
+            "label": "",
+            "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Event",
+            "event_type": "END",
+            "event_trigger": "NONE",
+            "event_use": "THROW"
+          }
+        ],
+        "flows": [
+          {
+            "id": "edge0",
+            "source": "node0",
+            "target": "node6",
+            "label": "",
+            "condition": null
+          },
+          {
+            "id": "edge1",
+            "source": "node2",
+            "target": "node1",
+            "label": "",
+            "condition": null
+          },
+          {
+            "id": "edge2",
+            "source": "node1",
+            "target": "node0",
+            "label": "",
+            "condition": null
+          },
+          {
+            "id": "edge3",
+            "source": "node1",
+            "target": "node3",
+            "label": "",
+            "condition": null
+          },
+          {
+            "id": "edge4",
+            "source": "node4",
+            "target": "node2",
+            "label": "",
+            "condition": null
+          },
+          {
+            "id": "edge5",
+            "source": "node3",
+            "target": "node4",
+            "label": "",
+            "condition": null
+          },
+          {
+            "id": "edge6",
+            "source": "node5",
+            "target": "node4",
+            "label": "",
+            "condition": null
+          }
+        ]
+      },
+      "exception": null,
+      "bpmn_sha256": "9705eddd0b88f25f4abca3688696228046c8e99de0edb71f4b9e1375025d745a",
+      "input_manual_checks": {
+        "input_traces": true,
+        "parameters": true,
+        "input_events": true
+      },
+      "scope": "Single actual canonical reference observation; no quality or Rust-equivalence claim"
+    },
+    {
+      "id": "rare-noise",
+      "input_sha256": "03e909d2de9b618cb6655c5a2e378ddc3277b58f6607f7b6b156758db4b916ad",
+      "observation_sha256": "5A1D31070940C41AC96172D5911F263C8C7120B1FA6DD4FE95DDB30308B0219C",
+      "native_exit": 0,
+      "status": "diagram_returned",
+      "parameters": {
+        "percentile_frequency_threshold": 0.4,
+        "parallelisms_threshold": 0.1,
+        "filter_type": "WTH",
+        "parallelisms_first": false,
+        "replace_iors": true,
+        "remove_loop_activities": false,
+        "structuring_time": "NONE",
+        "classifier": "org.deckfour.xes.classification.XEventNameClassifier"
+      },
+      "graph": {
+        "label": "eDFGP-diagram",
+        "nodes": [
+          {
+            "id": "node0",
+            "label": "C",
+            "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Activity",
+            "looped": false
+          },
+          {
+            "id": "node1",
+            "label": "D",
+            "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Activity",
+            "looped": false
+          },
+          {
+            "id": "node2",
+            "label": "A",
+            "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Activity",
+            "looped": false
+          },
+          {
+            "id": "node3",
+            "label": "B",
+            "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Activity",
+            "looped": false
+          },
+          {
+            "id": "node4",
+            "label": "",
+            "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Gateway",
+            "gateway_type": "DATABASED"
+          },
+          {
+            "id": "node5",
+            "label": "",
+            "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Gateway",
+            "gateway_type": "DATABASED"
+          },
+          {
+            "id": "node6",
+            "label": "",
+            "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Event",
+            "event_type": "START",
+            "event_trigger": "NONE",
+            "event_use": "CATCH"
+          },
+          {
+            "id": "node7",
+            "label": "",
+            "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Event",
+            "event_type": "END",
+            "event_trigger": "NONE",
+            "event_use": "THROW"
+          }
+        ],
+        "flows": [
+          {
+            "id": "edge0",
+            "source": "node6",
+            "target": "node2",
+            "label": "",
+            "condition": null
+          },
+          {
+            "id": "edge1",
+            "source": "node0",
+            "target": "node7",
+            "label": "",
+            "condition": null
+          },
+          {
+            "id": "edge2",
+            "source": "node2",
+            "target": "node4",
+            "label": "",
+            "condition": null
+          },
+          {
+            "id": "edge3",
+            "source": "node4",
+            "target": "node3",
+            "label": "",
+            "condition": null
+          },
+          {
+            "id": "edge4",
+            "source": "node4",
+            "target": "node1",
+            "label": "",
+            "condition": null
+          },
+          {
+            "id": "edge5",
+            "source": "node5",
+            "target": "node0",
+            "label": "",
+            "condition": null
+          },
+          {
+            "id": "edge6",
+            "source": "node3",
+            "target": "node5",
+            "label": "",
+            "condition": null
+          },
+          {
+            "id": "edge7",
+            "source": "node1",
+            "target": "node5",
+            "label": "",
+            "condition": null
+          }
+        ]
+      },
+      "exception": null,
+      "bpmn_sha256": "e8c27393fb5deb7739004c7f2ab9c704a116bb5d102ddd0ffff04e20012ab613",
+      "input_manual_checks": {
+        "input_traces": true,
+        "parameters": true,
+        "input_events": true
+      },
+      "scope": "Single actual canonical reference observation; no quality or Rust-equivalence claim"
+    },
+    {
+      "id": "empty-log",
+      "input_sha256": "2dfebdb1c9abcfd2d5f46f592b9d6afb038fd880513e32509c4149914f27efba",
+      "observation_sha256": "031FEF9242FA8FD407BEE314EE480056E469D539408B4A8E0D29AE6EC081DACC",
+      "native_exit": 0,
+      "status": "algorithm_exception",
+      "parameters": {
+        "percentile_frequency_threshold": 0.4,
+        "parallelisms_threshold": 0.1,
+        "filter_type": "WTH",
+        "parallelisms_first": false,
+        "replace_iors": true,
+        "remove_loop_activities": false,
+        "structuring_time": "NONE",
+        "classifier": "org.deckfour.xes.classification.XEventNameClassifier"
+      },
+      "graph": null,
+      "exception": {
+        "class": "java.util.NoSuchElementException",
+        "message": null
+      },
+      "bpmn_sha256": null,
+      "input_manual_checks": {
+        "input_traces": true,
+        "parameters": true,
+        "input_events": true
+      },
+      "scope": "Single actual canonical reference observation; no quality or Rust-equivalence claim"
+    },
+    {
+      "id": "empty-trace",
+      "input_sha256": "5c22ab666b6b3ffae5dd5457a4701f45bbc65bb4dc8deb51491854b157bd3e12",
+      "observation_sha256": "79B713DAE1E31D1F4B43D967A3BE26F53A99B912299E03066BFF89F1F87AB9F6",
+      "native_exit": 0,
+      "status": "diagram_returned",
+      "parameters": {
+        "percentile_frequency_threshold": 0.4,
+        "parallelisms_threshold": 0.1,
+        "filter_type": "WTH",
+        "parallelisms_first": false,
+        "replace_iors": true,
+        "remove_loop_activities": false,
+        "structuring_time": "NONE",
+        "classifier": "org.deckfour.xes.classification.XEventNameClassifier"
+      },
+      "graph": {
+        "label": "eDFGP-diagram",
+        "nodes": [
+          {
+            "id": "node0",
+            "label": "",
+            "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Event",
+            "event_type": "START",
+            "event_trigger": "NONE",
+            "event_use": "CATCH"
+          },
+          {
+            "id": "node1",
+            "label": "",
+            "class": "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Event",
+            "event_type": "END",
+            "event_trigger": "NONE",
+            "event_use": "THROW"
+          }
+        ],
+        "flows": [
+          {
+            "id": "edge0",
+            "source": "node0",
+            "target": "node1",
+            "label": "",
+            "condition": null
+          }
+        ]
+      },
+      "exception": null,
+      "bpmn_sha256": "aca67b5e5d342b39e095a75a1d74023aebe96947252adf6b8b99319aec77fc73",
+      "input_manual_checks": {
+        "input_traces": true,
+        "parameters": true,
+        "input_events": true
+      },
+      "scope": "Single actual canonical reference observation; no quality or Rust-equivalence claim"
+    }
+  ]
+}

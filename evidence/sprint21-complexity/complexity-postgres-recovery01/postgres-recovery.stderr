@@ -1,0 +1,28 @@
+2026-10-23 03:41:30.286 +05 [41260] LOG:  starting PostgreSQL 18.6 on x86_64-windows, compiled by msvc-19.44.35229, 64-bit
+2026-10-23 03:41:30.288 +05 [41260] LOG:  listening on IPv4 address "127.0.0.1", port 55449
+2026-10-23 03:41:30.424 +05 [38848] LOG:  database system was interrupted; last known up at 2026-10-23 03:30:41 +05
+2026-10-23 03:41:30.481 +05 [38768] FATAL:  the database system is starting up
+2026-10-23 03:41:30.938 +05 [40656] FATAL:  the database system is starting up
+2026-10-23 03:41:31.360 +05 [41048] FATAL:  the database system is starting up
+2026-10-23 03:41:31.743 +05 [19104] FATAL:  the database system is starting up
+2026-10-23 03:41:32.117 +05 [38988] FATAL:  the database system is starting up
+2026-10-23 03:41:32.498 +05 [4164] FATAL:  the database system is starting up
+2026-10-23 03:41:32.872 +05 [32700] FATAL:  the database system is starting up
+2026-10-23 03:41:33.083 +05 [38848] LOG:  database system was not properly shut down; automatic recovery in progress
+2026-10-23 03:41:33.097 +05 [38848] LOG:  redo starts at 0/45D4938
+2026-10-23 03:41:33.214 +05 [38848] LOG:  invalid record length at 0/4AD4C28: expected at least 24, got 0
+2026-10-23 03:41:33.214 +05 [38848] LOG:  redo done at 0/4AD4C00 system usage: CPU: user: 0.01 s, system: 0.09 s, elapsed: 0.11 s
+2026-10-23 03:41:33.236 +05 [30460] LOG:  checkpoint starting: end-of-recovery immediate wait
+2026-10-23 03:41:33.314 +05 [39012] FATAL:  the database system is not yet accepting connections
+2026-10-23 03:41:33.314 +05 [39012] DETAIL:  Consistent recovery state has not been yet reached.
+2026-10-23 03:41:33.644 +05 [30460] LOG:  checkpoint complete: wrote 1062 buffers (25.9%), wrote 3 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.050 s, sync=0.346 s, total=0.411 s; sync files=328, longest=0.003 s, average=0.002 s; distance=5120 kB, estimate=5120 kB; lsn=0/4AD4C28, redo lsn=0/4AD4C28
+2026-10-23 03:41:33.686 +05 [37340] FATAL:  the database system is not yet accepting connections
+2026-10-23 03:41:33.686 +05 [37340] DETAIL:  Consistent recovery state has not been yet reached.
+2026-10-23 03:41:33.753 +05 [41260] LOG:  database system is ready to accept connections
+2026-10-23 03:41:35.460 +05 [41260] LOG:  received fast shutdown request
+2026-10-23 03:41:35.463 +05 [41260] LOG:  aborting any active transactions
+2026-10-23 03:41:35.470 +05 [41260] LOG:  background worker "logical replication launcher" (PID 38156) exited with exit code 1
+2026-10-23 03:41:35.471 +05 [30460] LOG:  shutting down
+2026-10-23 03:41:35.473 +05 [30460] LOG:  checkpoint starting: shutdown immediate
+2026-10-23 03:41:35.487 +05 [30460] LOG:  checkpoint complete: wrote 1 buffers (0.0%), wrote 0 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.001 s, sync=0.002 s, total=0.016 s; sync files=1, longest=0.002 s, average=0.002 s; distance=2 kB, estimate=4608 kB; lsn=0/4AD5480, redo lsn=0/4AD5480
+2026-10-23 03:41:35.513 +05 [41260] LOG:  database system is shut down

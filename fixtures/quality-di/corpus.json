@@ -1,0 +1,715 @@
+{
+  "schema_version": 1,
+  "status": "PROSPECTIVE_FROZEN_FIXTURES_BEFORE_DI_IMPLEMENTATION_OR_EXECUTION",
+  "addendum_sha256": "BE3AD397A3241405D69BADA74F70AF9A50F43B6C06A8443A171F49FD3ADE9A15",
+  "method_sha256": "8E17394B9E1E79FFD0BCDA4B2A55D0454FEFF5B3C017B91AB8E115D11F9F974D",
+  "scope": "Diagnostic eligible BPMNDI BPMNLabel source-span projection only; product parser unchanged. Original/reference XML remains immutable. StandardLoop is behavior and refused, never dropped.",
+  "construction": "All expected spans come from explicitly authored literal insertions and UTF-8 byte lengths before any candidate projection code exists; not from running a projector/parser/evaluator.",
+  "geometry_limits": {
+    "width_height_max": 1000000,
+    "finite": true,
+    "coordinate_absolute_max": 1000000,
+    "width_height_min": 0
+  },
+  "source_models": [
+    {
+      "sha256": "7c144e2c89beca87d733fb7001ac504c32a90969182a752ca2d7e8ca144327bf",
+      "file": "fixtures/quality/linear.bpmn"
+    },
+    {
+      "sha256": "08669fcdf34feb8539564806412500dd9c2bfa7d1820afb23a6eeda0ebf39193",
+      "file": "fixtures/quality/loop.bpmn"
+    }
+  ],
+  "cases": [
+    {
+      "id": "D01-shape-finite-zero-height",
+      "file": "D01-shape-finite-zero-height.bpmn",
+      "sha256": "fa4a7c503754d61ff1c3dd70fc98a761ae7e5607fbae18d07281b3b87e0e76fc",
+      "bytes": 1113,
+      "model": "linear",
+      "expected": {
+        "raw_product_import": "refused",
+        "projection_status": "projected",
+        "category": "annotation_only",
+        "no_partial_projection_on_refusal": null,
+        "spans": [
+          {
+            "byte_start": 837,
+            "byte_length": 98,
+            "subtree_sha256": "28e433ab71c5ea3dab934d54e23b58bbdd874e9b9e4878eade6fbc099b69b6d8",
+            "raw_utf8": "<bd:BPMNLabel id=\"shape-label\"><dc:Bounds x=\"101.5\" y=\"-20\" width=\"60\" height=\"0\"/></bd:BPMNLabel>",
+            "parent": {
+              "bpmnElement": "a",
+              "local_name": "BPMNShape",
+              "id": "shape-a",
+              "namespace": "http://www.omg.org/spec/BPMN/20100524/DI",
+              "direct": true
+            },
+            "label_namespace": "http://www.omg.org/spec/BPMN/20100524/DI",
+            "bounds": {
+              "height": 0,
+              "y": -20,
+              "x": 101.5,
+              "width": 60
+            }
+          }
+        ],
+        "projected_file": "D01-shape-finite-zero-height.expected-projected.bpmn",
+        "projected_sha256": "ea67291a8436b43f0ad7930a75738147681f88c18218b018eb17f401719e22f0",
+        "only_recorded_spans_removed": true,
+        "semantic_map_file": "linear-semantic-map.json",
+        "semantic_map_sha256": "f7bc51afd8f181f32cbff5cd80140d9dbef664e4f2e5bb8baa621ad99d0781cf",
+        "strict_projected_import": "accepted",
+        "reference_receives_original_xml": true,
+        "complete_observable_automata_equal_to": "linear-annotation-free.bpmn"
+      }
+    },
+    {
+      "id": "D02-edge-finite-zero-width",
+      "file": "D02-edge-finite-zero-width.bpmn",
+      "sha256": "e9917f9b98cb13455e189708fb2482e4a6bd3d8b13cb5cb03157d19d1a10d527",
+      "bytes": 1112,
+      "model": "linear",
+      "expected": {
+        "raw_product_import": "refused",
+        "projection_status": "projected",
+        "category": "annotation_only",
+        "no_partial_projection_on_refusal": null,
+        "spans": [
+          {
+            "byte_start": 953,
+            "byte_length": 97,
+            "subtree_sha256": "cda6f23361bc1fc4264230357e412b0044ea176e0d11368748fc3e9c4adf44e3",
+            "raw_utf8": "<bd:BPMNLabel id=\"edge-label\"><dc:Bounds x=\"240\" y=\"40.25\" width=\"0\" height=\"12\"/></bd:BPMNLabel>",
+            "parent": {
+              "bpmnElement": "f1",
+              "local_name": "BPMNEdge",
+              "id": "edge-f1",
+              "namespace": "http://www.omg.org/spec/BPMN/20100524/DI",
+              "direct": true
+            },
+            "label_namespace": "http://www.omg.org/spec/BPMN/20100524/DI",
+            "bounds": {
+              "height": 12,
+              "y": 40.25,
+              "x": 240,
+              "width": 0
+            }
+          }
+        ],
+        "projected_file": "D02-edge-finite-zero-width.expected-projected.bpmn",
+        "projected_sha256": "ea67291a8436b43f0ad7930a75738147681f88c18218b018eb17f401719e22f0",
+        "only_recorded_spans_removed": true,
+        "semantic_map_file": "linear-semantic-map.json",
+        "semantic_map_sha256": "f7bc51afd8f181f32cbff5cd80140d9dbef664e4f2e5bb8baa621ad99d0781cf",
+        "strict_projected_import": "accepted",
+        "reference_receives_original_xml": true,
+        "complete_observable_automata_equal_to": "linear-annotation-free.bpmn"
+      }
+    },
+    {
+      "id": "D03-empty-label-namespace-declaration",
+      "file": "D03-empty-label-namespace-declaration.bpmn",
+      "sha256": "8cae4f874d369c1ae778348ab7a06c303f18a5c697b750ddd946138103434d7a",
+      "bytes": 1096,
+      "model": "linear",
+      "expected": {
+        "raw_product_import": "refused",
+        "projection_status": "projected",
+        "category": "annotation_only",
+        "no_partial_projection_on_refusal": null,
+        "spans": [
+          {
+            "byte_start": 837,
+            "byte_length": 81,
+            "subtree_sha256": "c091e9c2da94c490f5c9a239f4678c76afa5b6af14d0cfb0aa2e0169d401fd60",
+            "raw_utf8": "<bd:BPMNLabel xmlns:note=\"urn:unused:annotation\" id=\"empty-label\"></bd:BPMNLabel>",
+            "parent": {
+              "bpmnElement": "a",
+              "local_name": "BPMNShape",
+              "id": "shape-a",
+              "namespace": "http://www.omg.org/spec/BPMN/20100524/DI",
+              "direct": true
+            },
+            "label_namespace": "http://www.omg.org/spec/BPMN/20100524/DI",
+            "bounds": null
+          }
+        ],
+        "projected_file": "D03-empty-label-namespace-declaration.expected-projected.bpmn",
+        "projected_sha256": "ea67291a8436b43f0ad7930a75738147681f88c18218b018eb17f401719e22f0",
+        "only_recorded_spans_removed": true,
+        "semantic_map_file": "linear-semantic-map.json",
+        "semantic_map_sha256": "f7bc51afd8f181f32cbff5cd80140d9dbef664e4f2e5bb8baa621ad99d0781cf",
+        "strict_projected_import": "accepted",
+        "reference_receives_original_xml": true,
+        "complete_observable_automata_equal_to": "linear-annotation-free.bpmn"
+      }
+    },
+    {
+      "id": "D04-cyclic-two-parent-labels",
+      "file": "D04-cyclic-two-parent-labels.bpmn",
+      "sha256": "8bc1a785b27c5a97e400d72577d8b12a418d9e601240d1c3e451a0306f37e0fb",
+      "bytes": 1344,
+      "model": "cyclic",
+      "expected": {
+        "raw_product_import": "refused",
+        "projection_status": "projected",
+        "category": "annotation_only",
+        "no_partial_projection_on_refusal": null,
+        "spans": [
+          {
+            "byte_start": 971,
+            "byte_length": 98,
+            "subtree_sha256": "28e433ab71c5ea3dab934d54e23b58bbdd874e9b9e4878eade6fbc099b69b6d8",
+            "raw_utf8": "<bd:BPMNLabel id=\"shape-label\"><dc:Bounds x=\"101.5\" y=\"-20\" width=\"60\" height=\"0\"/></bd:BPMNLabel>",
+            "parent": {
+              "bpmnElement": "a",
+              "local_name": "BPMNShape",
+              "id": "shape-a",
+              "namespace": "http://www.omg.org/spec/BPMN/20100524/DI",
+              "direct": true
+            },
+            "label_namespace": "http://www.omg.org/spec/BPMN/20100524/DI",
+            "bounds": {
+              "height": 0,
+              "y": -20,
+              "x": 101.5,
+              "width": 60
+            }
+          },
+          {
+            "byte_start": 1185,
+            "byte_length": 97,
+            "subtree_sha256": "cda6f23361bc1fc4264230357e412b0044ea176e0d11368748fc3e9c4adf44e3",
+            "raw_utf8": "<bd:BPMNLabel id=\"edge-label\"><dc:Bounds x=\"240\" y=\"40.25\" width=\"0\" height=\"12\"/></bd:BPMNLabel>",
+            "parent": {
+              "bpmnElement": "f1",
+              "local_name": "BPMNEdge",
+              "id": "edge-f1",
+              "namespace": "http://www.omg.org/spec/BPMN/20100524/DI",
+              "direct": true
+            },
+            "label_namespace": "http://www.omg.org/spec/BPMN/20100524/DI",
+            "bounds": {
+              "height": 12,
+              "y": 40.25,
+              "x": 240,
+              "width": 0
+            }
+          }
+        ],
+        "projected_file": "D04-cyclic-two-parent-labels.expected-projected.bpmn",
+        "projected_sha256": "6d5837626499895eef6a2ae653069e1f16e8f58f9edf99df9accd47133249296",
+        "only_recorded_spans_removed": true,
+        "semantic_map_file": "cyclic-semantic-map.json",
+        "semantic_map_sha256": "0358b5a1b8afd532259e2a09544419ea827fd3e8523d45e17999f91a3a21d2ba",
+        "strict_projected_import": "accepted",
+        "reference_receives_original_xml": true,
+        "complete_observable_automata_equal_to": "cyclic-annotation-free.bpmn"
+      }
+    },
+    {
+      "id": "D05-optional-id-zero-bounds",
+      "file": "D05-optional-id-zero-bounds.bpmn",
+      "sha256": "bb183c71bf21251ca6855a9787e612c405709219a90abe3dfda672187ccc14a1",
+      "bytes": 1089,
+      "model": "linear",
+      "expected": {
+        "raw_product_import": "refused",
+        "projection_status": "projected",
+        "category": "annotation_only",
+        "no_partial_projection_on_refusal": null,
+        "spans": [
+          {
+            "byte_start": 837,
+            "byte_length": 74,
+            "subtree_sha256": "22765c50f52c1a174a0777d8965043603a02878fd1f13be0659256e605967a2a",
+            "raw_utf8": "<bd:BPMNLabel><dc:Bounds x=\"0\" y=\"0\" width=\"0\" height=\"0\"/></bd:BPMNLabel>",
+            "parent": {
+              "bpmnElement": "a",
+              "local_name": "BPMNShape",
+              "id": "shape-a",
+              "namespace": "http://www.omg.org/spec/BPMN/20100524/DI",
+              "direct": true
+            },
+            "label_namespace": "http://www.omg.org/spec/BPMN/20100524/DI",
+            "bounds": {
+              "height": 0,
+              "y": 0,
+              "x": 0,
+              "width": 0
+            }
+          }
+        ],
+        "projected_file": "D05-optional-id-zero-bounds.expected-projected.bpmn",
+        "projected_sha256": "ea67291a8436b43f0ad7930a75738147681f88c18218b018eb17f401719e22f0",
+        "only_recorded_spans_removed": true,
+        "semantic_map_file": "linear-semantic-map.json",
+        "semantic_map_sha256": "f7bc51afd8f181f32cbff5cd80140d9dbef664e4f2e5bb8baa621ad99d0781cf",
+        "strict_projected_import": "accepted",
+        "reference_receives_original_xml": true,
+        "complete_observable_automata_equal_to": "linear-annotation-free.bpmn"
+      }
+    },
+    {
+      "id": "N01-task-inside-label",
+      "file": "N01-task-inside-label.bpmn",
+      "sha256": "9e89f9010d863f26f3bb6a2d748bd6220cc95b48c0d7f6c42a7c3be829d4ddcf",
+      "bytes": 1065,
+      "model": "linear",
+      "expected": {
+        "raw_product_import": "refused",
+        "projection_status": "refused",
+        "category": "behavior_child_in_annotation",
+        "no_partial_projection_on_refusal": true
+      }
+    },
+    {
+      "id": "N02-condition-inside-label",
+      "file": "N02-condition-inside-label.bpmn",
+      "sha256": "306092b56090db72dc2bed60dbc269fb074a3d9c30b55c0bc125faa9e741a188",
+      "bytes": 1095,
+      "model": "linear",
+      "expected": {
+        "raw_product_import": "refused",
+        "projection_status": "refused",
+        "category": "behavior_child_in_annotation",
+        "no_partial_projection_on_refusal": true
+      }
+    },
+    {
+      "id": "N03-unknown-child",
+      "file": "N03-unknown-child.bpmn",
+      "sha256": "df8f990636cd54540dbd347ef23b1f8aaecd0ff9046709ef24e416e66a27501d",
+      "bytes": 1077,
+      "model": "linear",
+      "expected": {
+        "raw_product_import": "refused",
+        "projection_status": "refused",
+        "category": "unknown_annotation_child",
+        "no_partial_projection_on_refusal": true
+      }
+    },
+    {
+      "id": "N04-wrong-label-namespace",
+      "file": "N04-wrong-label-namespace.bpmn",
+      "sha256": "11b0a8dff498bee81e83c061d680f9c5b0a5afc1d1f767f110929f48f5d83edf",
+      "bytes": 1107,
+      "model": "linear",
+      "expected": {
+        "raw_product_import": "refused",
+        "projection_status": "refused",
+        "category": "wrong_label_namespace",
+        "no_partial_projection_on_refusal": true
+      }
+    },
+    {
+      "id": "N05-negative-width",
+      "file": "N05-negative-width.bpmn",
+      "sha256": "a888f5fa063b5bc6384f1e999996bfe220b86159ca01c70283a83a9dfae4edc3",
+      "bytes": 1090,
+      "model": "linear",
+      "expected": {
+        "raw_product_import": "refused",
+        "projection_status": "refused",
+        "category": "negative_label_dimension",
+        "no_partial_projection_on_refusal": true
+      }
+    },
+    {
+      "id": "N06-nan-coordinate",
+      "file": "N06-nan-coordinate.bpmn",
+      "sha256": "17b3058fcf03916aeecb619e4c83ef491986efde31ff500d179db9a734b8c4ce",
+      "bytes": 1091,
+      "model": "linear",
+      "expected": {
+        "raw_product_import": "refused",
+        "projection_status": "refused",
+        "category": "nonfinite_label_bound",
+        "no_partial_projection_on_refusal": true
+      }
+    },
+    {
+      "id": "N07-infinite-dimension",
+      "file": "N07-infinite-dimension.bpmn",
+      "sha256": "1f5b7f9f40e86107017fa7b05120f3411d8a148e29c2ed141e46f322e431406c",
+      "bytes": 1091,
+      "model": "linear",
+      "expected": {
+        "raw_product_import": "refused",
+        "projection_status": "refused",
+        "category": "nonfinite_label_bound",
+        "no_partial_projection_on_refusal": true
+      }
+    },
+    {
+      "id": "N08-coordinate-outside-limit",
+      "file": "N08-coordinate-outside-limit.bpmn",
+      "sha256": "a86762ce5b7732b62bb81235aa1c6d50f94a6d8ebcfcb9626f7a48cd8ac9f542",
+      "bytes": 1095,
+      "model": "linear",
+      "expected": {
+        "raw_product_import": "refused",
+        "projection_status": "refused",
+        "category": "label_bound_outside_limit",
+        "no_partial_projection_on_refusal": true
+      }
+    },
+    {
+      "id": "N09-bounds-unknown-attribute",
+      "file": "N09-bounds-unknown-attribute.bpmn",
+      "sha256": "9f83e8bb1baf02456b6cb40abc16515bd1421aced0a5666f3cbbf60c51986f65",
+      "bytes": 1105,
+      "model": "linear",
+      "expected": {
+        "raw_product_import": "refused",
+        "projection_status": "refused",
+        "category": "unknown_bounds_attribute",
+        "no_partial_projection_on_refusal": true
+      }
+    },
+    {
+      "id": "N10-label-unknown-attribute",
+      "file": "N10-label-unknown-attribute.bpmn",
+      "sha256": "cfd5e7b2ff11fee3b6a477d4d57d28213aab8e023e610632ab9ed9da879360c2",
+      "bytes": 1048,
+      "model": "linear",
+      "expected": {
+        "raw_product_import": "refused",
+        "projection_status": "refused",
+        "category": "unknown_label_attribute",
+        "no_partial_projection_on_refusal": true
+      }
+    },
+    {
+      "id": "N11-nested-bounds-content",
+      "file": "N11-nested-bounds-content.bpmn",
+      "sha256": "bef5cd559cb45f96c44fa0f5053adc35d115f62c732f4ccd531038b0204b232c",
+      "bytes": 1121,
+      "model": "linear",
+      "expected": {
+        "raw_product_import": "refused",
+        "projection_status": "refused",
+        "category": "nested_bounds_content",
+        "no_partial_projection_on_refusal": true
+      }
+    },
+    {
+      "id": "N12-two-bounds",
+      "file": "N12-two-bounds.bpmn",
+      "sha256": "9fd30f8a86500ec3ea459be0e74710fc36fd21cf995c17e5f56a99b6f7a404b1",
+      "bytes": 1134,
+      "model": "linear",
+      "expected": {
+        "raw_product_import": "refused",
+        "projection_status": "refused",
+        "category": "multiple_label_bounds",
+        "no_partial_projection_on_refusal": true
+      }
+    },
+    {
+      "id": "N13-wrong-bounds-namespace",
+      "file": "N13-wrong-bounds-namespace.bpmn",
+      "sha256": "68d315b0a351048743b01d762266ba276247cfd529b46c33e126250994c36b38",
+      "bytes": 1088,
+      "model": "linear",
+      "expected": {
+        "raw_product_import": "refused",
+        "projection_status": "refused",
+        "category": "wrong_bounds_namespace",
+        "no_partial_projection_on_refusal": true
+      }
+    },
+    {
+      "id": "N14-nonnumeric-bound",
+      "file": "N14-nonnumeric-bound.bpmn",
+      "sha256": "0298286ef7cfeade12a3216d3329a2843c5818237fbe715e887ddf3e8c588853",
+      "bytes": 1091,
+      "model": "linear",
+      "expected": {
+        "raw_product_import": "refused",
+        "projection_status": "refused",
+        "category": "invalid_label_bound_number",
+        "no_partial_projection_on_refusal": true
+      }
+    },
+    {
+      "id": "N15-label-direct-plane-parent",
+      "file": "N15-label-direct-plane-parent.bpmn",
+      "sha256": "c0904da7a75ae7344bd967939232e956d984ee66f476736864e8a4d45107cd02",
+      "bytes": 1113,
+      "model": "linear",
+      "expected": {
+        "raw_product_import": "refused",
+        "projection_status": "refused",
+        "category": "bad_label_parent",
+        "no_partial_projection_on_refusal": true
+      }
+    },
+    {
+      "id": "N16-label-inside-behavior-task",
+      "file": "N16-label-inside-behavior-task.bpmn",
+      "sha256": "babb2af8754bcd7647e4b320fb956b35678af779aa4bcfaf47f9313123448aaf",
+      "bytes": 1121,
+      "model": "linear",
+      "expected": {
+        "raw_product_import": "refused",
+        "projection_status": "refused",
+        "category": "bad_label_parent",
+        "no_partial_projection_on_refusal": true
+      }
+    },
+    {
+      "id": "N17-label-root-parent",
+      "file": "N17-label-root-parent.bpmn",
+      "sha256": "d6308c2942b945c31b72721d178be2f9aae2cf1e7892d3c5030852ed00644d59",
+      "bytes": 1113,
+      "model": "linear",
+      "expected": {
+        "raw_product_import": "refused",
+        "projection_status": "refused",
+        "category": "bad_label_parent",
+        "no_partial_projection_on_refusal": true
+      }
+    },
+    {
+      "id": "N18-DTD-external-entity",
+      "file": "N18-DTD-external-entity.bpmn",
+      "sha256": "45d3e18b8fbf3b74311e8c3534c1705d78cfc660dd18c376f8061587ac13eb79",
+      "bytes": 1198,
+      "model": "linear",
+      "expected": {
+        "raw_product_import": "refused",
+        "projection_status": "refused",
+        "category": "DTD_forbidden_no_external_access",
+        "no_partial_projection_on_refusal": true
+      }
+    },
+    {
+      "id": "N19-standard-loop-original-refusal",
+      "file": "N19-standard-loop-original-refusal.bpmn",
+      "sha256": "24a9a6224df75ac9949f36c07a3900e65ca41ecefe24bcf5d4c321dfd95c6734",
+      "bytes": 1172,
+      "model": "linear",
+      "expected": {
+        "raw_product_import": "refused",
+        "projection_status": "refused",
+        "category": "quality_unsupported_standard_loop_before_both_converters",
+        "no_partial_projection_on_refusal": true
+      }
+    },
+    {
+      "id": "N20-wrong-parent-namespace",
+      "file": "N20-wrong-parent-namespace.bpmn",
+      "sha256": "d189f362140076d721110ea1248dc0053724ec6012c589e521ced8690060ac42",
+      "bytes": 1131,
+      "model": "linear",
+      "expected": {
+        "raw_product_import": "refused",
+        "projection_status": "refused",
+        "category": "bad_label_parent_namespace",
+        "no_partial_projection_on_refusal": true
+      }
+    }
+  ],
+  "annotation_free": [
+    {
+      "semantic_map": "linear-semantic-map.json",
+      "file": "linear-annotation-free.bpmn",
+      "id": "linear",
+      "sha256": "ea67291a8436b43f0ad7930a75738147681f88c18218b018eb17f401719e22f0"
+    },
+    {
+      "semantic_map": "cyclic-semantic-map.json",
+      "file": "cyclic-annotation-free.bpmn",
+      "id": "cyclic",
+      "sha256": "6d5837626499895eef6a2ae653069e1f16e8f58f9edf99df9accd47133249296"
+    }
+  ],
+  "mandatory_checks": [
+    "All original UTF-8 bytes and subtree bytes/hash/parent associations retained.",
+    "Remove only recorded positive spans; exact projected SHA and every other source byte unchanged.",
+    "Original/projected semantic node and flow maps equal; annotation-free and independent original-PM4Py complete accepting automata equal including loop.",
+    "All negatives refuse atomically, no partial normalized input, repaired model or scalar.",
+    "DTD fixture must never open external entity path.",
+    "StandardLoop refusal before either importer/converter; unrelated DI approval does not allow behavioral projection."
+  ],
+  "files": [
+    {
+      "file": "cyclic-annotation-free.bpmn",
+      "bytes": 1149,
+      "sha256": "6d5837626499895eef6a2ae653069e1f16e8f58f9edf99df9accd47133249296"
+    },
+    {
+      "file": "cyclic-semantic-map.json",
+      "bytes": 1154,
+      "sha256": "0358b5a1b8afd532259e2a09544419ea827fd3e8523d45e17999f91a3a21d2ba"
+    },
+    {
+      "file": "D01-shape-finite-zero-height.bpmn",
+      "bytes": 1113,
+      "sha256": "fa4a7c503754d61ff1c3dd70fc98a761ae7e5607fbae18d07281b3b87e0e76fc"
+    },
+    {
+      "file": "D01-shape-finite-zero-height.expected-projected.bpmn",
+      "bytes": 1015,
+      "sha256": "ea67291a8436b43f0ad7930a75738147681f88c18218b018eb17f401719e22f0"
+    },
+    {
+      "file": "D02-edge-finite-zero-width.bpmn",
+      "bytes": 1112,
+      "sha256": "e9917f9b98cb13455e189708fb2482e4a6bd3d8b13cb5cb03157d19d1a10d527"
+    },
+    {
+      "file": "D02-edge-finite-zero-width.expected-projected.bpmn",
+      "bytes": 1015,
+      "sha256": "ea67291a8436b43f0ad7930a75738147681f88c18218b018eb17f401719e22f0"
+    },
+    {
+      "file": "D03-empty-label-namespace-declaration.bpmn",
+      "bytes": 1096,
+      "sha256": "8cae4f874d369c1ae778348ab7a06c303f18a5c697b750ddd946138103434d7a"
+    },
+    {
+      "file": "D03-empty-label-namespace-declaration.expected-projected.bpmn",
+      "bytes": 1015,
+      "sha256": "ea67291a8436b43f0ad7930a75738147681f88c18218b018eb17f401719e22f0"
+    },
+    {
+      "file": "D04-cyclic-two-parent-labels.bpmn",
+      "bytes": 1344,
+      "sha256": "8bc1a785b27c5a97e400d72577d8b12a418d9e601240d1c3e451a0306f37e0fb"
+    },
+    {
+      "file": "D04-cyclic-two-parent-labels.expected-projected.bpmn",
+      "bytes": 1149,
+      "sha256": "6d5837626499895eef6a2ae653069e1f16e8f58f9edf99df9accd47133249296"
+    },
+    {
+      "file": "D05-optional-id-zero-bounds.bpmn",
+      "bytes": 1089,
+      "sha256": "bb183c71bf21251ca6855a9787e612c405709219a90abe3dfda672187ccc14a1"
+    },
+    {
+      "file": "D05-optional-id-zero-bounds.expected-projected.bpmn",
+      "bytes": 1015,
+      "sha256": "ea67291a8436b43f0ad7930a75738147681f88c18218b018eb17f401719e22f0"
+    },
+    {
+      "file": "linear-annotation-free.bpmn",
+      "bytes": 1015,
+      "sha256": "ea67291a8436b43f0ad7930a75738147681f88c18218b018eb17f401719e22f0"
+    },
+    {
+      "file": "linear-semantic-map.json",
+      "bytes": 872,
+      "sha256": "f7bc51afd8f181f32cbff5cd80140d9dbef664e4f2e5bb8baa621ad99d0781cf"
+    },
+    {
+      "file": "N01-task-inside-label.bpmn",
+      "bytes": 1065,
+      "sha256": "9e89f9010d863f26f3bb6a2d748bd6220cc95b48c0d7f6c42a7c3be829d4ddcf"
+    },
+    {
+      "file": "N02-condition-inside-label.bpmn",
+      "bytes": 1095,
+      "sha256": "306092b56090db72dc2bed60dbc269fb074a3d9c30b55c0bc125faa9e741a188"
+    },
+    {
+      "file": "N03-unknown-child.bpmn",
+      "bytes": 1077,
+      "sha256": "df8f990636cd54540dbd347ef23b1f8aaecd0ff9046709ef24e416e66a27501d"
+    },
+    {
+      "file": "N04-wrong-label-namespace.bpmn",
+      "bytes": 1107,
+      "sha256": "11b0a8dff498bee81e83c061d680f9c5b0a5afc1d1f767f110929f48f5d83edf"
+    },
+    {
+      "file": "N05-negative-width.bpmn",
+      "bytes": 1090,
+      "sha256": "a888f5fa063b5bc6384f1e999996bfe220b86159ca01c70283a83a9dfae4edc3"
+    },
+    {
+      "file": "N06-nan-coordinate.bpmn",
+      "bytes": 1091,
+      "sha256": "17b3058fcf03916aeecb619e4c83ef491986efde31ff500d179db9a734b8c4ce"
+    },
+    {
+      "file": "N07-infinite-dimension.bpmn",
+      "bytes": 1091,
+      "sha256": "1f5b7f9f40e86107017fa7b05120f3411d8a148e29c2ed141e46f322e431406c"
+    },
+    {
+      "file": "N08-coordinate-outside-limit.bpmn",
+      "bytes": 1095,
+      "sha256": "a86762ce5b7732b62bb81235aa1c6d50f94a6d8ebcfcb9626f7a48cd8ac9f542"
+    },
+    {
+      "file": "N09-bounds-unknown-attribute.bpmn",
+      "bytes": 1105,
+      "sha256": "9f83e8bb1baf02456b6cb40abc16515bd1421aced0a5666f3cbbf60c51986f65"
+    },
+    {
+      "file": "N10-label-unknown-attribute.bpmn",
+      "bytes": 1048,
+      "sha256": "cfd5e7b2ff11fee3b6a477d4d57d28213aab8e023e610632ab9ed9da879360c2"
+    },
+    {
+      "file": "N11-nested-bounds-content.bpmn",
+      "bytes": 1121,
+      "sha256": "bef5cd559cb45f96c44fa0f5053adc35d115f62c732f4ccd531038b0204b232c"
+    },
+    {
+      "file": "N12-two-bounds.bpmn",
+      "bytes": 1134,
+      "sha256": "9fd30f8a86500ec3ea459be0e74710fc36fd21cf995c17e5f56a99b6f7a404b1"
+    },
+    {
+      "file": "N13-wrong-bounds-namespace.bpmn",
+      "bytes": 1088,
+      "sha256": "68d315b0a351048743b01d762266ba276247cfd529b46c33e126250994c36b38"
+    },
+    {
+      "file": "N14-nonnumeric-bound.bpmn",
+      "bytes": 1091,
+      "sha256": "0298286ef7cfeade12a3216d3329a2843c5818237fbe715e887ddf3e8c588853"
+    },
+    {
+      "file": "N15-label-direct-plane-parent.bpmn",
+      "bytes": 1113,
+      "sha256": "c0904da7a75ae7344bd967939232e956d984ee66f476736864e8a4d45107cd02"
+    },
+    {
+      "file": "N16-label-inside-behavior-task.bpmn",
+      "bytes": 1121,
+      "sha256": "babb2af8754bcd7647e4b320fb956b35678af779aa4bcfaf47f9313123448aaf"
+    },
+    {
+      "file": "N17-label-root-parent.bpmn",
+      "bytes": 1113,
+      "sha256": "d6308c2942b945c31b72721d178be2f9aae2cf1e7892d3c5030852ed00644d59"
+    },
+    {
+      "file": "N18-DTD-external-entity.bpmn",
+      "bytes": 1198,
+      "sha256": "45d3e18b8fbf3b74311e8c3534c1705d78cfc660dd18c376f8061587ac13eb79"
+    },
+    {
+      "file": "N19-standard-loop-original-refusal.bpmn",
+      "bytes": 1172,
+      "sha256": "24a9a6224df75ac9949f36c07a3900e65ca41ecefe24bcf5d4c321dfd95c6734"
+    },
+    {
+      "file": "N20-wrong-parent-namespace.bpmn",
+      "bytes": 1131,
+      "sha256": "d189f362140076d721110ea1248dc0053724ec6012c589e521ced8690060ac42"
+    },
+    {
+      "file": "README.md",
+      "bytes": 1776,
+      "sha256": "5ef5f67bae54cf3d13aac51e0546fb6c375c93222c7e1ad4c0c0391251c308e0"
+    }
+  ]
+}

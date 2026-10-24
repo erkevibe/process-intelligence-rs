@@ -1,0 +1,22 @@
+{
+  "role": "Customer",
+  "agent_name": "customer_s20_delivery",
+  "utc": "2026-10-22T22:25:59.2308810Z",
+  "kind": "ACTUAL_COMPLEXITY_PROSPECTIVE_COUNCIL_VOTE",
+  "proposal_sha256": "235A2D0208788C250E2B6758E304DD191C6C252D10FBE2F467F43AB357D5D0B6",
+  "vote": "FOR",
+  "risk_appetite": "Medium bounded evidence-only observation",
+  "reason": "Read exact prospective proposal after reported CAP public delivery gate. Fixed10k and90k events address the observed user problem that an admitted input can exhaust report capacity. Preserving actual refusals, durable source and absent false payload is useful evidence even if neither case converts. The plan honestly distinguishes event count/report expansion from byte volume and graph complexity.",
+  "conditions": [
+    "Separate helper source admission and premeasurement fixed generator/input/oracle identities required",
+    "Accepted081runtime/schema and format/report limits remain byte-unchanged; no outcome-driven retuning or extra repeat",
+    "Both cases observed once with all outcomes retained; repeated identical rows prove fixed count/core, not order sensitivity",
+    "20minute native and60minute whole delivery clocks start at actual resolution; stop if reserve or resource/capture gates threatened",
+    "Final independent QA/TD, exact frozen Council and both exactHEADCI plus RootQA whole anonymous source and downloaded audits must finish within stage clock"
+  ],
+  "customer_wording": "Explain report capacity using observed event counts and concrete outcomes, without claiming a universal safe threshold or hardRAM bound. Refusal with preserved source is an honest supported outcome, not converted success.",
+  "human_acceptance": false,
+  "implementation_or_result_acceptance": false,
+  "native_execution": false,
+  "product_edits": false
+}

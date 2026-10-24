@@ -1,0 +1,254 @@
+{
+  "schema_version": 1,
+  "kind": "FROZEN_BEFORE_EXECUTION_GENUINE_CORE_CASE_ACTIVITY_FILTER_REFERENCE",
+  "contract_path": "docs/R5_CASE_ACTIVITY_REFERENCE_CONTRACT.md",
+  "contract_sha256": "8dfb1c10096cf04a6279a8cadd9d2c4100fcf924155b0a0fc0bf6a402938ef6a",
+  "core_commit": "bbf24dfd43e72d6992392465f875a4367cbe792b",
+  "canonical_jar_sha256": "4fc0c2cdd170c1f5cbf4fe542250c7b84deb2dfc583dc10631b6562b3894ef81",
+  "engine_class_sha256": "b07c241d7d5a430f9fd1f6cea5eb696a71eefdee7dc268ee0c81d18c464769b3",
+  "parameters": {
+    "filter_type": "CASE_EVENT_ATTRIBUTE",
+    "choice": "RETAIN",
+    "inclusion": "ANY_VALUE",
+    "section": "CASE",
+    "key": "concept:name",
+    "rule_value_operation": "EQUAL",
+    "one_java_ordered_rule_list": true
+  },
+  "input_schema": "case JSON.source is exact existing Rust EventLog serde shape; rule_literals array retains order; Java source case IDs/ordinals additionally copied into synthetic XES attributes",
+  "cases": [
+    {
+      "id": "membership",
+      "file": "membership.json",
+      "sha256": "de47249a23c473216116c4eed15d531d52dbdf6c50e4f6e11ad5682cc17a9ae3",
+      "profile": "overlap",
+      "rule_literals": [
+        "A"
+      ],
+      "expected_java": {
+        "status": "filtered",
+        "engine_invoked": true,
+        "selected_trace_indices": [
+          0,
+          2
+        ],
+        "selected_source_case_ids": [
+          "membership-source-0",
+          "membership-source-2"
+        ],
+        "source_xlog_unchanged": true,
+        "source_apm_unchanged": true
+      },
+      "expected_rust": {
+        "status": "filtered",
+        "selected_source_case_ids": [
+          "membership-source-0",
+          "membership-source-2"
+        ],
+        "source_unchanged": true
+      },
+      "full_identity_expectation": "Keep original selected complete source cases, event order, sparse ordinals, descending timestamps, lifecycle, names and warning metadata; no adapter predicate"
+    },
+    {
+      "id": "no-match",
+      "file": "no-match.json",
+      "sha256": "09a9ec54572e758f3d59831696ab97473b81598bf3fc04810979aa542fb450a8",
+      "profile": "overlap",
+      "rule_literals": [
+        "Z"
+      ],
+      "expected_java": {
+        "status": "filtered",
+        "engine_invoked": true,
+        "selected_trace_indices": [],
+        "selected_source_case_ids": [],
+        "source_xlog_unchanged": true,
+        "source_apm_unchanged": true
+      },
+      "expected_rust": {
+        "status": "filtered",
+        "selected_source_case_ids": [],
+        "source_unchanged": true
+      },
+      "full_identity_expectation": "Keep original selected complete source cases, event order, sparse ordinals, descending timestamps, lifecycle, names and warning metadata; no adapter predicate"
+    },
+    {
+      "id": "duplicate-activities",
+      "file": "duplicate-activities.json",
+      "sha256": "c1ddee193794e0e12f09fbd1bea584f02fb2b30327889222107f9991bc8b470d",
+      "profile": "overlap",
+      "rule_literals": [
+        "A"
+      ],
+      "expected_java": {
+        "status": "filtered",
+        "engine_invoked": true,
+        "selected_trace_indices": [
+          0
+        ],
+        "selected_source_case_ids": [
+          "duplicate-activities-source-0"
+        ],
+        "source_xlog_unchanged": true,
+        "source_apm_unchanged": true
+      },
+      "expected_rust": {
+        "status": "filtered",
+        "selected_source_case_ids": [
+          "duplicate-activities-source-0"
+        ],
+        "source_unchanged": true
+      },
+      "full_identity_expectation": "Keep original selected complete source cases, event order, sparse ordinals, descending timestamps, lifecycle, names and warning metadata; no adapter predicate"
+    },
+    {
+      "id": "unicode-exact",
+      "file": "unicode-exact.json",
+      "sha256": "2722330784224e45ef08dba76327c0c7ee5209fd80f383b1729432556b2fdc6f",
+      "profile": "overlap",
+      "rule_literals": [
+        "É"
+      ],
+      "expected_java": {
+        "status": "filtered",
+        "engine_invoked": true,
+        "selected_trace_indices": [
+          0
+        ],
+        "selected_source_case_ids": [
+          "unicode-exact-source-0"
+        ],
+        "source_xlog_unchanged": true,
+        "source_apm_unchanged": true
+      },
+      "expected_rust": {
+        "status": "filtered",
+        "selected_source_case_ids": [
+          "unicode-exact-source-0"
+        ],
+        "source_unchanged": true
+      },
+      "full_identity_expectation": "Keep original selected complete source cases, event order, sparse ordinals, descending timestamps, lifecycle, names and warning metadata; no adapter predicate"
+    },
+    {
+      "id": "ordered-composition",
+      "file": "ordered-composition.json",
+      "sha256": "78b641b8d1a8a942d9172d7e985556fe29379cb675a47fb4b95f5cc28acd0afc",
+      "profile": "overlap",
+      "rule_literals": [
+        "A",
+        "B"
+      ],
+      "expected_java": {
+        "status": "filtered",
+        "engine_invoked": true,
+        "selected_trace_indices": [
+          0,
+          3
+        ],
+        "selected_source_case_ids": [
+          "ordered-composition-source-0",
+          "ordered-composition-source-3"
+        ],
+        "source_xlog_unchanged": true,
+        "source_apm_unchanged": true
+      },
+      "expected_rust": {
+        "status": "filtered",
+        "selected_source_case_ids": [
+          "ordered-composition-source-0",
+          "ordered-composition-source-3"
+        ],
+        "source_unchanged": true
+      },
+      "full_identity_expectation": "Keep original selected complete source cases, event order, sparse ordinals, descending timestamps, lifecycle, names and warning metadata; no adapter predicate"
+    },
+    {
+      "id": "no-rules",
+      "file": "no-rules.json",
+      "sha256": "f56058d297814ec7cdbe88b2a1283fde47576d964b0c91f34d9dcb1c81be71fc",
+      "profile": "overlap",
+      "rule_literals": [],
+      "expected_java": {
+        "status": "filtered",
+        "engine_invoked": true,
+        "selected_trace_indices": [
+          0,
+          1
+        ],
+        "selected_source_case_ids": [
+          "no-rules-source-0",
+          "no-rules-source-1"
+        ],
+        "source_xlog_unchanged": true,
+        "source_apm_unchanged": true
+      },
+      "expected_rust": {
+        "status": "filtered",
+        "selected_source_case_ids": [
+          "no-rules-source-0",
+          "no-rules-source-1"
+        ],
+        "source_unchanged": true
+      },
+      "full_identity_expectation": "Keep original selected complete source cases, event order, sparse ordinals, descending timestamps, lifecycle, names and warning metadata; no adapter predicate"
+    },
+    {
+      "id": "empty-literal",
+      "file": "empty-literal.json",
+      "sha256": "d8f9663885bff94276c910824ff6c63e18e78fd034d6ec8ccfbe2dee2a500368",
+      "profile": "diagnostic_sentinel_difference",
+      "rule_literals": [
+        ""
+      ],
+      "expected_java": {
+        "status": "filtered",
+        "engine_invoked": true,
+        "selected_trace_indices": [],
+        "selected_source_case_ids": [],
+        "source_xlog_unchanged": true,
+        "source_apm_unchanged": true
+      },
+      "expected_rust": {
+        "status": "filtered",
+        "selected_source_case_ids": [
+          "empty-literal-source-0",
+          "empty-literal-source-1"
+        ],
+        "source_unchanged": true
+      },
+      "full_identity_expectation": "Keep original selected complete source cases, event order, sparse ordinals, descending timestamps, lifecycle, names and warning metadata; no adapter predicate"
+    },
+    {
+      "id": "empty-input",
+      "file": "empty-input.json",
+      "sha256": "7fc4b4c57621185d119777c5f9075299aaaebbc804d6f44a7f9b273fb7d80f8f",
+      "profile": "diagnostic_converter_refusal",
+      "rule_literals": [
+        "A"
+      ],
+      "expected_java": {
+        "status": "converter_refused",
+        "engine_invoked": false,
+        "selected_trace_indices": null,
+        "selected_source_case_ids": null,
+        "source_xlog_unchanged": true,
+        "source_apm_unchanged": null,
+        "exception_class": "org.apromore.apmlog.exceptions.EmptyInputException"
+      },
+      "expected_rust": {
+        "status": "filtered",
+        "selected_source_case_ids": [],
+        "source_unchanged": true
+      },
+      "full_identity_expectation": "Keep original selected complete source cases, event order, sparse ordinals, descending timestamps, lifecycle, names and warning metadata; no adapter predicate"
+    }
+  ],
+  "scope": [
+    "First six overlap cases; final two are declared diagnostic differences, never equality PASS",
+    "Actual whole original engine and real converter; no source edits, mocks, extracted predicates or toy fallback",
+    "Java repeat-call reset behavior is not sequential AND composition; only one ordered rule list is compared",
+    "No entire Core/R5, numeric length/event projection/calendar/conversion/miner quality claim"
+  ],
+  "no_engine_or_rust_filter_execution_before_freeze": true
+}

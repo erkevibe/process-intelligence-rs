@@ -1,0 +1,110 @@
+{
+  "input_sha256": "3ce20038300de8f6d9c7f65c515cf7d10eab2e7bfc4c4df8939a09d00738f182",
+  "preview": {
+    "error": {
+      "case_index": null,
+      "code": "unsupported_format",
+      "event_index": null,
+      "message": "Global defaults и вложенные list/container пока не поддерживаются."
+    },
+    "status": "rejected"
+  },
+  "raw_rust4pm": {
+    "log": {
+      "attributes": [
+        {
+          "key": "department",
+          "own_attributes": null,
+          "value": {
+            "content": "synthetic",
+            "type": "String"
+          }
+        }
+      ],
+      "classifiers": [
+        {
+          "keys": [
+            "concept:name",
+            "lifecycle:transition"
+          ],
+          "name": "Activity lifecycle"
+        }
+      ],
+      "extensions": [],
+      "global_event_attrs": [
+        {
+          "key": "resource",
+          "own_attributes": null,
+          "value": {
+            "content": "global-default",
+            "type": "String"
+          }
+        }
+      ],
+      "global_trace_attrs": null,
+      "traces": [
+        {
+          "attributes": [
+            {
+              "key": "concept:name",
+              "own_attributes": null,
+              "value": {
+                "content": "case-1",
+                "type": "String"
+              }
+            },
+            {
+              "key": "weight",
+              "own_attributes": null,
+              "value": {
+                "content": 1.5,
+                "type": "Float"
+              }
+            }
+          ],
+          "events": [
+            {
+              "attributes": [
+                {
+                  "key": "concept:name",
+                  "own_attributes": null,
+                  "value": {
+                    "content": "A",
+                    "type": "String"
+                  }
+                },
+                {
+                  "key": "time:timestamp",
+                  "own_attributes": null,
+                  "value": {
+                    "content": "2024-01-01T00:00:00.123456Z",
+                    "type": "Date"
+                  }
+                },
+                {
+                  "key": "cost",
+                  "own_attributes": null,
+                  "value": {
+                    "content": 7,
+                    "type": "Int"
+                  }
+                },
+                {
+                  "key": "approved",
+                  "own_attributes": null,
+                  "value": {
+                    "content": true,
+                    "type": "Boolean"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "status": "ok"
+  },
+  "schema_version": 1,
+  "scope": "Fixed trusted corpus only; raw Rust4PM observation is separate from application preview admission; no persistence"
+}

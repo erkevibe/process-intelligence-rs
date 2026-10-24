@@ -1,0 +1,60 @@
+{
+  "actual_checker": {
+    "capture_fault": false,
+    "raw_streams_empty_and_sha_verified": true,
+    "both_eof": true,
+    "native_exit": 0,
+    "pid": 57872
+  },
+  "measurement_admitted": false,
+  "schema": 1,
+  "utc": "2026-10-23T04:29:24.5580179+00:00",
+  "historical_unknowns_unchanged": 6,
+  "overall_phase": {
+    "success_launch_receipt_absent": true,
+    "collector_pid": 18684,
+    "stderr_bytes": 36,
+    "not_reclassified": true,
+    "both_eof": true,
+    "native_exit": 1,
+    "status": "FAILED_GUARD",
+    "cause": "Actual final resource_sample_timeout",
+    "stderr_sha256": "FE27BEC1FCA68BC305B54FD664A7BC4C2BDCB217B910BA93F4E0750E1E7B910D"
+  },
+  "conditions": [
+    "Actual byte-verified archive/resource recovery before separate pinned measurement admission.",
+    "No fixture repetition is required solely to conceal the final guard failure.",
+    "No PG/product started in adapter fixtures; six historical UNKNOWN unchanged."
+  ],
+  "decision": "ACCEPT_THREE_FUNCTIONAL_FIXTURES_ONLY_OVERALL_PHASE_FAILED_GUARD",
+  "config_sha256": "6FA1638EFDFCDA4A8E6AEFE59CE9F299A08DA9DF40551B1B7C3707F943AB76A9",
+  "independent_reads": {
+    "outer_collector_native_records": 1,
+    "total_original_records": 7,
+    "fixture_native_records": 6,
+    "fixture_raw_streams": 12,
+    "outer_stream_slots": 2,
+    "raw_length_sha_bad": 0,
+    "total_full_streams": 14
+  },
+  "agent_name": "qa_s20_delivery",
+  "resource_archive01": {
+    "all_originals_retained": true,
+    "status": "FAILED_ARCHIVE_OWN_64MIB_CAP_NO_ORIGINAL_REMOVAL",
+    "both_eof": true,
+    "native_exit": 1,
+    "partial_archives_retained": true,
+    "failure_receipt_sha256": "0B0597D3B3225A4E2E2309F25B1DF2AA804383BB7E7E128AE2964EE47EECE2F1",
+    "pid": 32004
+  },
+  "checker_sha256": "9487DFDD65720BDE934E0AE4E08624A7E0DFABBBA6F804A0E6A0C3D1DA279FCB",
+  "qa_native_execution": false,
+  "actual_checker_process_sha256": "258804024B7DBF042767FAF705C216AA3FFCF93EC8141CC435825D17108F7F1C",
+  "actual_manual_proof_sha256": "CF16B22433D30E1607163FBBF6F2F6A35C0D22F62C3694469BA2C1A86E29D294",
+  "functional_observations": {
+    "absolute": "Timer500ms STOP04:18:41.9377802Z/native kill completed04:18:41.9391803Z during blocked broker04:18:41.4344481Z..04:18:42.6441054Z; both137/fullEOF.",
+    "service": "Child0 unexpected exit; watcher attached beforeResume, expected_exit=false/triggered=true; direct STOP worker137.",
+    "memory": "Exact PID/100ns/image positive;10 actual samples with fresh final point+complete alive footer; wrong100ns beforefile refusal; killed target partial with no complete footer; expected service KILL true/triggered=false."
+  },
+  "role": "Independent QA and live ProcessLogAuditor"
+}

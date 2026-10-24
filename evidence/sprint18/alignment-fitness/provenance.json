@@ -1,0 +1,245 @@
+{
+  "source_commit": "028cf358b5a8451f06fcbbfb34336ba351e5c507",
+  "scope": "A measured optimal-alignment fitness contribution for exact admitted Petri nets and frozen synthetic training/held-out traces. Not production integration, BPMN fitness, SplitMiner parity, precision, simplicity, soundness, empirical generalization or whole R4-03 closure.",
+  "original_numeric_lexemes": "All corpus/bundle/net/PNML/training/result bytes copied unchanged",
+  "process_summary_policy": "Allowlisted fields only; original full-summary hashes retained; no console or binaries",
+  "source_files": [
+    {
+      "path": "examples/discovery_fitness.rs",
+      "sha256": "8e0264a47448685fbb7ac9aeecdb06a7470ba36297bcfabec99156c540ac332a",
+      "bytes": 23393
+    },
+    {
+      "path": "tests/sprint18_fitness.rs",
+      "sha256": "36a03a277de5e4f0e2cfbdfb63a74f6348234abd21ec0818adc1e75e90812d98",
+      "bytes": 4703
+    },
+    {
+      "path": "fixtures/discovery-fitness/corpus.json",
+      "sha256": "fab7e1952bf5fab56c210023cd6d8b13fa4e19874ed5762330c78bbda68ce075",
+      "bytes": 15222
+    },
+    {
+      "path": "Cargo.lock",
+      "sha256": "9005a089ccd3ec721e6d3209600c4cea10e0efc76c7ea4111406fb28c99f29b6",
+      "bytes": 58040
+    },
+    {
+      "path": "tools/sprint18/alignment-public-evidence.py",
+      "sha256": "778f21db7fa3702e5c6c0ae5054fe12945fdc4b85e9d5ad0c96b53eb59178bb0",
+      "bytes": 8667
+    },
+    {
+      "path": "tools/oracle/verify-alignment-evidence.py",
+      "sha256": "c1ddadb50ff1f80f50db06a2602dd2efc206642e2936fe909a97b27e4ee98236",
+      "bytes": 20750
+    }
+  ],
+  "process_summaries": [
+    {
+      "label": "build",
+      "original_sha256": "4892710d68c98782bdae8f768f2b46fd6d22b3e74ef4062e3f3b6eb8ebb2ccab",
+      "original_bytes": 793,
+      "selected_fields": {
+        "build_native_exit": 0,
+        "executable_sha256": "3967B26EF89F13803DEF240BEEB20F7C1FF0786DF2A8E15CDDDD313837286BA6",
+        "fmt_native_exit": 0,
+        "full_source_unchanged": true,
+        "rayon_threads": 1,
+        "source_archive_sha256": "A6299A719C2A112FA72C313F582E41D173772E0D251E6566671ECDA27113F36E",
+        "source_commit": "028cf358b5a8451f06fcbbfb34336ba351e5c507",
+        "status": "MANUAL_ALIGNMENT_TESTS_EXECUTED_OBSERVER_BUILT_NOT_MINED",
+        "test_native_exit": 0
+      }
+    },
+    {
+      "label": "mine",
+      "original_sha256": "7fc354c872fa0c3df0b5c57fa40b5adb166cc39acc6194d9a0eb67aaabc3832e",
+      "original_bytes": 3213,
+      "selected_fields": {
+        "observer_sha256": "3967B26EF89F13803DEF240BEEB20F7C1FF0786DF2A8E15CDDDD313837286BA6",
+        "rayon_threads": 1,
+        "source_commit": "028cf358b5a8451f06fcbbfb34336ba351e5c507",
+        "status": "ACTUAL_ALPHA_NETS_SAVED_NOT_ALIGNED",
+        "native": {
+          "capture_fault": false,
+          "completed_utc": "2026-10-21T18:44:10.6292670Z",
+          "drain_timeout": false,
+          "native_creation_utc": "2026-10-21T18:44:09.9850838Z",
+          "native_exit": 0,
+          "output_limit": false,
+          "pid": 28728,
+          "program_sha256": "3967B26EF89F13803DEF240BEEB20F7C1FF0786DF2A8E15CDDDD313837286BA6",
+          "started_utc": "2026-10-21T18:44:09.8171515Z",
+          "stderr_bytes_persisted": 0,
+          "stderr_complete": true,
+          "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "stdout_bytes_persisted": 1823,
+          "stdout_complete": true,
+          "stdout_sha256": "6B706E96DAFE5DFE222D30A5D8B895B4360031ADEAA221193B33D028D21FC1CB"
+        }
+      }
+    },
+    {
+      "label": "align",
+      "original_sha256": "405ccfc92cc67f74b670010b5249a206c6e565dcd1de4e3ea276a4813c70a5d0",
+      "original_bytes": 1877,
+      "selected_fields": {
+        "observer_sha256": "3967B26EF89F13803DEF240BEEB20F7C1FF0786DF2A8E15CDDDD313837286BA6",
+        "rayon_threads": 1,
+        "source_commit": "028cf358b5a8451f06fcbbfb34336ba351e5c507",
+        "status": "ACTUAL_SEPARATE_PETRI_ALIGNMENT_OBSERVED_NOT_WHOLE_R4_ACCEPTED",
+        "native": {
+          "capture_fault": false,
+          "completed_utc": "2026-10-21T18:46:02.1480705Z",
+          "drain_timeout": false,
+          "native_creation_utc": "2026-10-21T18:46:01.8440018Z",
+          "native_exit": 0,
+          "output_limit": false,
+          "pid": 45560,
+          "program_sha256": "3967B26EF89F13803DEF240BEEB20F7C1FF0786DF2A8E15CDDDD313837286BA6",
+          "started_utc": "2026-10-21T18:46:01.6895662Z",
+          "stderr_bytes_persisted": 0,
+          "stderr_complete": true,
+          "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "stdout_bytes_persisted": 0,
+          "stdout_complete": true,
+          "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+        }
+      }
+    },
+    {
+      "label": "build-outer",
+      "original_sha256": "3ab793340e7a1171d633bf815e8b0b2b16da5846bed97cd6c3ffd276d2ca0c1f",
+      "original_bytes": 1095,
+      "selected_fields": {
+        "capture_fault": false,
+        "completed_utc": "2026-10-21T18:42:34.6678004Z",
+        "drain_timeout": false,
+        "native_creation_utc": "2026-10-21T18:41:32.2664698Z",
+        "native_exit": 0,
+        "output_limit": false,
+        "pid": 47348,
+        "program_sha256": "362A356CE7F0940EC74F73A8FC2C990A2CC24A38A11C90BBD8ECA947110AD139",
+        "started_utc": "2026-10-21T18:41:32.2471282Z",
+        "stderr_bytes_persisted": 0,
+        "stderr_complete": true,
+        "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+        "stdout_bytes_persisted": 0,
+        "stdout_complete": true,
+        "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+      }
+    },
+    {
+      "label": "fmt-native",
+      "original_sha256": "4c700c8b7e6c9e84eeb26061e0cd2d51b12aafdf83d324bfa729dcd478929a06",
+      "original_bytes": 1123,
+      "selected_fields": {
+        "capture_fault": false,
+        "completed_utc": "2026-10-21T18:41:51.5193032Z",
+        "drain_timeout": false,
+        "native_creation_utc": "2026-10-21T18:41:49.7161769Z",
+        "native_exit": 0,
+        "output_limit": false,
+        "pid": 32780,
+        "program_sha256": "EF158B64CFEDC443156B060D61C18D05298D1D4C010857B0623333963524FD1B",
+        "started_utc": "2026-10-21T18:41:49.5479005Z",
+        "stderr_bytes_persisted": 0,
+        "stderr_complete": true,
+        "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+        "stdout_bytes_persisted": 0,
+        "stdout_complete": true,
+        "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+      }
+    },
+    {
+      "label": "test-native",
+      "original_sha256": "caa8e4daa323d7f22946cc2684c646e331198d42e4d6f452fbc0446e1c112abf",
+      "original_bytes": 1156,
+      "selected_fields": {
+        "capture_fault": false,
+        "completed_utc": "2026-10-21T18:42:27.2494327Z",
+        "drain_timeout": false,
+        "native_creation_utc": "2026-10-21T18:41:51.9242120Z",
+        "native_exit": 0,
+        "output_limit": false,
+        "pid": 47944,
+        "program_sha256": "EF158B64CFEDC443156B060D61C18D05298D1D4C010857B0623333963524FD1B",
+        "started_utc": "2026-10-21T18:41:51.7716322Z",
+        "stderr_bytes_persisted": 378,
+        "stderr_complete": true,
+        "stderr_sha256": "7228C3FE02263E07EC4CBCEBD0FEA2E6E7DA184D1F9489F4773A42BE9531B3C4",
+        "stdout_bytes_persisted": 411,
+        "stdout_complete": true,
+        "stdout_sha256": "5324CFADF83CFBBF01EF3192E3D5451BD29D6DB9739164D80D89B02B00A9E580"
+      }
+    },
+    {
+      "label": "build-native",
+      "original_sha256": "372014fd3471737893c9ac867cd1584ed845d69c514f77cf134add7f83b000ed",
+      "original_bytes": 1154,
+      "selected_fields": {
+        "capture_fault": false,
+        "completed_utc": "2026-10-21T18:42:31.5715762Z",
+        "drain_timeout": false,
+        "native_creation_utc": "2026-10-21T18:42:27.5954154Z",
+        "native_exit": 0,
+        "output_limit": false,
+        "pid": 15916,
+        "program_sha256": "EF158B64CFEDC443156B060D61C18D05298D1D4C010857B0623333963524FD1B",
+        "started_utc": "2026-10-21T18:42:27.4394681Z",
+        "stderr_bytes_persisted": 202,
+        "stderr_complete": true,
+        "stderr_sha256": "CE65D05D4360D1D3EE4B96DEE14E6D608085AF841EED864E502180AE94250275",
+        "stdout_bytes_persisted": 0,
+        "stdout_complete": true,
+        "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+      }
+    },
+    {
+      "label": "mine-outer",
+      "original_sha256": "db851482dddcb42288e84e996aa0c56be86cd77205190bf3cb127389435c7764",
+      "original_bytes": 1094,
+      "selected_fields": {
+        "capture_fault": false,
+        "completed_utc": "2026-10-21T18:44:13.3448149Z",
+        "drain_timeout": false,
+        "native_creation_utc": "2026-10-21T18:43:52.7730089Z",
+        "native_exit": 0,
+        "output_limit": false,
+        "pid": 5084,
+        "program_sha256": "362A356CE7F0940EC74F73A8FC2C990A2CC24A38A11C90BBD8ECA947110AD139",
+        "started_utc": "2026-10-21T18:43:52.7527219Z",
+        "stderr_bytes_persisted": 0,
+        "stderr_complete": true,
+        "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+        "stdout_bytes_persisted": 0,
+        "stdout_complete": true,
+        "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+      }
+    },
+    {
+      "label": "align-outer",
+      "original_sha256": "72641bb936957300062b26c5b53d5470760bf8d5856dc463709df09298ebc37e",
+      "original_bytes": 1095,
+      "selected_fields": {
+        "capture_fault": false,
+        "completed_utc": "2026-10-21T18:46:05.1427870Z",
+        "drain_timeout": false,
+        "native_creation_utc": "2026-10-21T18:45:45.2534893Z",
+        "native_exit": 0,
+        "output_limit": false,
+        "pid": 10872,
+        "program_sha256": "362A356CE7F0940EC74F73A8FC2C990A2CC24A38A11C90BBD8ECA947110AD139",
+        "started_utc": "2026-10-21T18:45:45.2335129Z",
+        "stderr_bytes_persisted": 0,
+        "stderr_complete": true,
+        "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+        "stdout_bytes_persisted": 0,
+        "stdout_complete": true,
+        "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+      }
+    }
+  ],
+  "not_acceptance": true
+}

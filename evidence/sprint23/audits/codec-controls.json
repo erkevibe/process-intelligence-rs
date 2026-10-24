@@ -1,0 +1,453 @@
+{
+  "status": "INDEPENDENT_COMPACT_CODEC_AND_REHASHED_SEMANTIC_CONTROLS_PASS",
+  "auditor_sha256": "048A57750159B49D20E3CCABB02ACB1A7C4320A1C676DAB1B91291CF7114B802",
+  "cases": [
+    {
+      "id": "manual_unicode_null_order_full_inner",
+      "expected": "accepted",
+      "observed": "accepted"
+    },
+    {
+      "id": "legacy_schema1_read",
+      "expected": "accepted",
+      "observed": "accepted"
+    },
+    {
+      "id": "compact_required_rejects_legacy",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "compact_required"
+    },
+    {
+      "id": "unknown_outer_field",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "outer_exact_fields"
+    },
+    {
+      "id": "missing_outer_field",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "outer_exact_fields"
+    },
+    {
+      "id": "schema_bool",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "outer_schema_type"
+    },
+    {
+      "id": "schema_unknown",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "outer_exact_fields"
+    },
+    {
+      "id": "profile_unknown",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "profile_inner_schema"
+    },
+    {
+      "id": "outer_inner_schema_bool",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "profile_inner_schema"
+    },
+    {
+      "id": "inner_schema_unknown",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "profile_inner_schema"
+    },
+    {
+      "id": "codec_hash_wrong",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "codec_source_identity"
+    },
+    {
+      "id": "codec_hash_uppercase",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "lowercase_hash"
+    },
+    {
+      "id": "decoded_hash_wrong",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "decoded_size_sha"
+    },
+    {
+      "id": "decoded_size_bool",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "decoded_declared_bound"
+    },
+    {
+      "id": "decoded_size_negative",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "decoded_declared_bound"
+    },
+    {
+      "id": "decoded_size_zero",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "decoded_declared_bound"
+    },
+    {
+      "id": "decoded_size_smaller",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "decoded_actual_bound"
+    },
+    {
+      "id": "decoded_size_larger",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "decoded_size_sha"
+    },
+    {
+      "id": "decoded_size_over_cap",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "decoded_declared_bound"
+    },
+    {
+      "id": "hex_odd",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "strict_lower_even_hex"
+    },
+    {
+      "id": "hex_nonhex",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "strict_lower_even_hex"
+    },
+    {
+      "id": "hex_whitespace",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "strict_lower_even_hex"
+    },
+    {
+      "id": "hex_uppercase",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "strict_lower_even_hex"
+    },
+    {
+      "id": "hex_empty",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "strict_lower_even_hex"
+    },
+    {
+      "id": "gzip_crc",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "gzip_crc_or_stream"
+    },
+    {
+      "id": "gzip_isize",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "gzip_crc_or_stream"
+    },
+    {
+      "id": "gzip_magic",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "canonical_single_gzip_header"
+    },
+    {
+      "id": "gzip_flags",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "canonical_single_gzip_header"
+    },
+    {
+      "id": "gzip_mtime",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "canonical_single_gzip_header"
+    },
+    {
+      "id": "gzip_xfl",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "canonical_single_gzip_header"
+    },
+    {
+      "id": "gzip_os",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "canonical_single_gzip_header"
+    },
+    {
+      "id": "gzip_truncated",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "one_complete_member_no_trailing_concat"
+    },
+    {
+      "id": "gzip_trailing_zero",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "one_complete_member_no_trailing_concat"
+    },
+    {
+      "id": "gzip_trailing_lf",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "one_complete_member_no_trailing_concat"
+    },
+    {
+      "id": "gzip_concatenated",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "one_complete_member_no_trailing_concat"
+    },
+    {
+      "id": "inner_invalid_utf8",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "UnicodeDecodeError",
+      "reason": "'utf-8' codec can't decode byte 0xff in position 25: invalid start byte"
+    },
+    {
+      "id": "inner_trailing_garbage",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "JSONDecodeError",
+      "reason": "Extra data: line 1 column 153 (char 152)"
+    },
+    {
+      "id": "inner_malformed",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "JSONDecodeError",
+      "reason": "Expecting property name enclosed in double quotes: line 1 column 21 (char 20)"
+    },
+    {
+      "id": "inner_duplicate_schema",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "duplicate_json_key"
+    },
+    {
+      "id": "inner_nested_duplicate",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "duplicate_json_key"
+    },
+    {
+      "id": "inner_schema_bool",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "decoded_full_inner_schema"
+    },
+    {
+      "id": "inner_schema2",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "decoded_full_inner_schema"
+    },
+    {
+      "id": "inner_scalar",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "decoded_full_inner_schema"
+    },
+    {
+      "id": "inner_overflow_float",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "nonfinite_json_float"
+    },
+    {
+      "id": "outer_duplicate_key",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "duplicate_json_key"
+    },
+    {
+      "id": "stored_byte_cap",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "stored_report_cap"
+    },
+    {
+      "id": "decoded_exact64MiB",
+      "expected": "accepted",
+      "observed": "accepted"
+    },
+    {
+      "id": "actual_expansion64MiB_plus1",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "decoded_actual_bound"
+    },
+    {
+      "id": "manual_direct_source_payload_full_evidence",
+      "expected": "accepted",
+      "observed": "accepted"
+    },
+    {
+      "id": "rehash_claimed_activity",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "claimed_full_core"
+    },
+    {
+      "id": "rehash_claimed_timestamp",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "claimed_full_core"
+    },
+    {
+      "id": "rehash_claimed_event_drop",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "claimed_full_core"
+    },
+    {
+      "id": "rehash_claimed_event_order",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "claimed_full_core"
+    },
+    {
+      "id": "rehash_ordinal_bool",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "direct_parser_identity_ordinals"
+    },
+    {
+      "id": "rehash_trace_count_bool",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "typed_event_trace_counts"
+    },
+    {
+      "id": "rehash_warning_removed",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "full_parser_warnings"
+    },
+    {
+      "id": "rehash_normalization_removed",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "typed_format_normalization"
+    },
+    {
+      "id": "rehash_loss_claim",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "typed_loss_count"
+    },
+    {
+      "id": "rehash_reason",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "direct_profile_reason"
+    },
+    {
+      "id": "rehash_profile",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "direct_profile_reason"
+    },
+    {
+      "id": "rehash_format_count_bool",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "typed_format_declarations"
+    },
+    {
+      "id": "rehash_format_present_int",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "typed_format_declarations"
+    },
+    {
+      "id": "rehash_format_normalization_count_bool",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "typed_format_normalization"
+    },
+    {
+      "id": "rehash_actual_target_field",
+      "expected": "rejected",
+      "observed": "rejected",
+      "exception_type": "ValueError",
+      "reason": "direct_ordered_source_payload_core"
+    }
+  ],
+  "accepted": 4,
+  "rejected": 60,
+  "limits": [
+    "Synthetic wire fixtures, not product conversion/native success evidence.",
+    "One actual64MiB decode and one64MiB+1 expansion rejection use bounded memory-only fixtures.",
+    "Coherently rehashed semantic forgeries checked against frozen manual source/payload, no product decoder."
+  ]
+}

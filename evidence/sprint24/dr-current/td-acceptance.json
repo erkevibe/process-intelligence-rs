@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "agent_name": "td_s20_delivery",
+  "actual_utc": "2026-10-23T19:36:28.614Z",
+  "status": "SCOPED_ACTUAL_CURRENT_COMPACT_DATABASE_RESTORE_TECHNICAL_ACCEPTANCE",
+  "config_sha256": "73AFBA494A23CE9494D512F27E30650757341A05ED5FC484705DCD1771379624",
+  "phase_source_sha256": "DFA7F74E8A8E493AD1BB92A68F93263FF91D5E749192A477FE34E8CC42A71F32",
+  "worker_source_sha256": "9AD068340E09E2DED0F8EB654AFC7C7798DF7139F434FECA4794300AFA417A4B",
+  "scope": {
+    "source_database": "pi_s23_compat01",
+    "fresh_target_database": "pi_s24_compact_dr01",
+    "stock_app_sha256": "072FB7B8ADE3C7473899424D84842477A0B96B78F5DAF2AD7F30EB05FF3E03A2",
+    "owner_users": 1,
+    "projects": 2,
+    "completed_jobs": [
+      "job-1",
+      "job-3",
+      "job-5"
+    ]
+  },
+  "process_audit": {
+    "native_count": 28,
+    "inner_including_worker": 26,
+    "full_streams": 56,
+    "raw_hash_length_mismatches": 0,
+    "identity_ownership_capture_mismatches": 0,
+    "readiness_exits": [
+      1,
+      1,
+      1,
+      0
+    ],
+    "app_exit": 137,
+    "postgres_exit": 0,
+    "other_exits": 0,
+    "source_status_and_full_eof_verified": true,
+    "raw_birth_digits_compared_without_number_reserialization": true
+  },
+  "recovery": {
+    "known_failed_owned_pg_receipts_preserved": true,
+    "ordinary_interrupted_redo_end_recovery_ready_clean_shutdown_observed": true,
+    "manual_pid_wal_delete": false,
+    "final_pid_absent": true,
+    "recovered_source_matches_failed02_full_snapshot": true
+  },
+  "database_restore": {
+    "custom_archive_identity_and_length_verified_against_worker_proof": true,
+    "archive_five_table_data_and_sequence_set_entries": true,
+    "restore_exit0_single_transaction": true,
+    "all_five_table_metadata_keyed_rows_versions_lengths_digests_ledger_and_sequence_before_login_equal": true,
+    "source_before_after_dump_final_exact_snapshot_bytes_equal": true,
+    "target_postlogin_business_equal": true,
+    "kv_only_auth": true,
+    "auth_whole_document_except_sessions_equal": true,
+    "source_and_target_other_sessions_zero_at_cohort_reads": true
+  },
+  "http": {
+    "new_owner_login_without_saved_session": true,
+    "requests": 13,
+    "durable_safe_journal_matches_proof": true,
+    "login_body_headers_cookie_not_persisted": true,
+    "actual_three_metadata_objects_and_six_payload_report_files_exact_prior_bytes": true,
+    "independent_full90000_forward_and_supplied_inverse_audit_pass": true,
+    "independent_legacy2event_audit_pass": true,
+    "legacy_current_source_file_provenance_not_claimed": true,
+    "input_HTTP_endpoint_not_claimed": true
+  },
+  "resource": {
+    "post_files": 61328,
+    "post_skips": 0,
+    "root_allocation_bytes": 8145824832,
+    "global_allocation_bytes": 8643084128,
+    "unchanged_capacity_guard": true
+  },
+  "authorship": "TD authored runner/HTTP driver/SQL/wrapper/recovery snippet. Root independently authored final integration guard and executed all native work; QA independently reviewed methods and actual evidence separately. This receipt is not sole acceptance of own method.",
+  "privacy": "Dump, auth material, SQL row fingerprints and response payloads remain private; this receipt exposes no private auth/archive/row digest values.",
+  "limits": [
+    "Full database on same PG18 only, not globals/cluster/PITR/cross-version certification.",
+    "Owner-only restored cohort; API roles/enterprise coverage carried separately.",
+    "No converter regeneration/compiler, allformats/R5/HA/SLO or input HTTP download claim.",
+    "Earlier failed attempts and admission debt remain failed and preserved.",
+    "Fresh final OS quiet, exact publication/CI/readback delivery gates remain separate."
+  ],
+  "blocking_findings": []
+}

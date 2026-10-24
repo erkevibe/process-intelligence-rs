@@ -39,6 +39,34 @@ pub struct ModelNode {
     pub label: String,
     pub x: f64,
     pub y: f64,
+    /// Nondefault imported bounds. Absence preserves historical JSON and sizes.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub dimensions: Option<NodeDimensions>,
+}
+#[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct NodeDimensions {
+    pub width: f64,
+    pub height: f64,
+}
+impl ModelNode {
+    pub fn effective_dimensions(&self) -> NodeDimensions {
+        self.dimensions
+            .unwrap_or_else(|| default_dimensions(self.kind))
+    }
+}
+fn default_dimensions(kind: NodeKind) -> NodeDimensions {
+    if kind == NodeKind::Task {
+        NodeDimensions {
+            width: 120.0,
+            height: 70.0,
+        }
+    } else {
+        NodeDimensions {
+            width: 45.0,
+            height: 45.0,
+        }
+    }
 }
 #[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
@@ -47,6 +75,8 @@ pub struct ModelFlow {
     pub source: String,
     pub target: String,
     pub waypoints: Vec<Point>,
+    #[serde(default, skip_serializing_if = "String::is_empty")]
+    pub label: String,
 }
 #[derive(Debug, Clone, Copy, PartialEq, Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
@@ -317,6 +347,7 @@ pub fn parse(input: &[u8]) -> Result<ProcessModel, ImportError> {
                 label: child.optional("name").to_owned(),
                 x: (index % 8) as f64 * 170.0 + 80.0,
                 y: (index / 8) as f64 * 110.0 + 80.0,
+                dimensions: None,
             });
         } else {
             child.check(
@@ -324,16 +355,15 @@ pub fn parse(input: &[u8]) -> Result<ProcessModel, ImportError> {
                 "sequenceFlow",
                 &["id", "name", "sourceRef", "targetRef"],
             )?;
-            if !child.children.is_empty() || !child.optional("name").is_empty() {
-                return Err(unsupported(
-                    "Условия и именованные sequenceFlow не входят в subset.",
-                ));
+            if !child.children.is_empty() {
+                return Err(unsupported("Условия sequenceFlow не входят в subset."));
             }
             model.flows.push(ModelFlow {
                 id: child.attr("id")?.to_owned(),
                 source: child.attr("sourceRef")?.to_owned(),
                 target: child.attr("targetRef")?.to_owned(),
                 waypoints: Vec::new(),
+                label: child.optional("name").to_owned(),
             });
         }
         if model.nodes.len() > MAX_NODES || model.flows.len() > MAX_FLOWS {
@@ -405,9 +435,15 @@ fn read_diagram(diagram: &Element, model: &mut ProcessModel) -> Result<(), Impor
                 }
                 node.x = number(bounds, "x")?;
                 node.y = number(bounds, "y")?;
-                if number(bounds, "width")? <= 0.0 || number(bounds, "height")? <= 0.0 {
+                let dimensions = NodeDimensions {
+                    width: number(bounds, "width")?,
+                    height: number(bounds, "height")?,
+                };
+                if dimensions.width <= 0.0 || dimensions.height <= 0.0 {
                     return Err(invalid("Размер узла должен быть положительным."));
                 }
+                node.dimensions =
+                    (dimensions != default_dimensions(node.kind)).then_some(dimensions);
             }
             "BPMNEdge" => {
                 child.check(BPMNDI, "BPMNEdge", &["id", "bpmnElement"])?;
@@ -472,17 +508,22 @@ pub fn validate_edit(original: &ProcessModel, incoming: &ProcessModel) -> Result
     let existing: BTreeMap<_, _> = original
         .nodes
         .iter()
-        .map(|node| (&node.id, node.kind))
+        .map(|node| (&node.id, (node.kind, node.effective_dimensions())))
         .collect();
     let changed: BTreeMap<_, _> = incoming
         .nodes
         .iter()
-        .map(|node| (&node.id, node.kind))
+        .map(|node| (&node.id, (node.kind, node.effective_dimensions())))
         .collect();
-    for (id, kind) in &existing {
+    for (id, (kind, dimensions)) in &existing {
         match changed.get(id) {
-            Some(incoming_kind) if incoming_kind != kind => {
+            Some((incoming_kind, _)) if incoming_kind != kind => {
                 return Err(unsupported("Тип существующего узла менять нельзя."));
+            }
+            Some((_, incoming_dimensions)) if incoming_dimensions != dimensions => {
+                return Err(unsupported(
+                    "Размеры существующих узлов сохраняются при редактировании.",
+                ));
             }
             None if *kind != NodeKind::Task => {
                 return Err(unsupported(
@@ -494,7 +535,7 @@ pub fn validate_edit(original: &ProcessModel, incoming: &ProcessModel) -> Result
     }
     if changed
         .iter()
-        .any(|(id, kind)| !existing.contains_key(id) && *kind != NodeKind::Task)
+        .any(|(id, (kind, _))| !existing.contains_key(id) && *kind != NodeKind::Task)
     {
         return Err(unsupported(
             "В редакторе можно добавлять только обычные задачи.",
@@ -527,11 +568,24 @@ pub fn validate(model: &ProcessModel) -> Result<(), ImportError> {
                 "Некорректный, повторный или слишком длинный узел BPMN.",
             ));
         }
+        let dimensions = node.effective_dimensions();
+        if !coordinate(dimensions.width)
+            || !coordinate(dimensions.height)
+            || dimensions.width <= 0.0
+            || dimensions.height <= 0.0
+        {
+            return Err(invalid("Некорректный размер узла BPMN."));
+        }
         nodes.insert(node.id.as_str(), node);
     }
     let mut incoming: BTreeMap<&str, usize> = BTreeMap::new();
     let mut outgoing: BTreeMap<&str, usize> = BTreeMap::new();
     for flow in &model.flows {
+        if flow.label.len() > 4096 || !xml_text(&flow.label) {
+            return Err(invalid(
+                "Некорректная подпись перехода: предел 4096 байт UTF-8.",
+            ));
+        }
         if !identifier(&flow.id)
             || !ids.insert(&flow.id)
             || !nodes.contains_key(flow.source.as_str())
@@ -668,8 +722,13 @@ pub fn serialize(model: &ProcessModel) -> Result<String, ImportError> {
         ));
     }
     for flow in &model.flows {
+        let name = if flow.label.is_empty() {
+            String::new()
+        } else {
+            format!(" name=\"{}\"", escape(&flow.label))
+        };
         xml.push_str(&format!(
-            "<bpmn:sequenceFlow id=\"{}\" sourceRef=\"{}\" targetRef=\"{}\"/>\n",
+            "<bpmn:sequenceFlow id=\"{}\" sourceRef=\"{}\" targetRef=\"{}\"{name}/>\n",
             escape(&flow.id),
             escape(&flow.source),
             escape(&flow.target)
@@ -680,11 +739,7 @@ pub fn serialize(model: &ProcessModel) -> Result<String, ImportError> {
     xml.push_str(&format!("</bpmn:process>\n<bpmndi:BPMNDiagram id=\"{diagram_id}\"><bpmndi:BPMNPlane id=\"{plane_id}\" bpmnElement=\"{}\">\n", escape(&model.process_id)));
     for node in &model.nodes {
         let shape_id = fresh_id(&format!("{}_di", node.id), &mut used);
-        let (width, height) = if node.kind == NodeKind::Task {
-            (120, 70)
-        } else {
-            (45, 45)
-        };
+        let NodeDimensions { width, height } = node.effective_dimensions();
         xml.push_str(&format!("<bpmndi:BPMNShape id=\"{shape_id}\" bpmnElement=\"{}\"><dc:Bounds x=\"{}\" y=\"{}\" width=\"{width}\" height=\"{height}\"/></bpmndi:BPMNShape>\n", escape(&node.id), node.x, node.y));
     }
     for flow in &model.flows {
@@ -748,6 +803,7 @@ pub fn discover(log: &EventLog) -> Result<ProcessModel, ImportError> {
                 label: "Начало".into(),
                 x: 50.0,
                 y: 80.0,
+                dimensions: None,
             },
             ModelNode {
                 id: "Choice".into(),
@@ -755,6 +811,7 @@ pub fn discover(log: &EventLog) -> Result<ProcessModel, ImportError> {
                 label: String::new(),
                 x: 200.0,
                 y: 80.0,
+                dimensions: None,
             },
             ModelNode {
                 id: "Merge".into(),
@@ -762,6 +819,7 @@ pub fn discover(log: &EventLog) -> Result<ProcessModel, ImportError> {
                 label: String::new(),
                 x: 400.0 + variants.iter().map(Vec::len).max().unwrap_or(0) as f64 * 170.0,
                 y: 80.0,
+                dimensions: None,
             },
             ModelNode {
                 id: "End".into(),
@@ -769,6 +827,7 @@ pub fn discover(log: &EventLog) -> Result<ProcessModel, ImportError> {
                 label: "Конец".into(),
                 x: 550.0 + variants.iter().map(Vec::len).max().unwrap_or(0) as f64 * 170.0,
                 y: 80.0,
+                dimensions: None,
             },
         ],
         flows: Vec::new(),
@@ -786,6 +845,7 @@ pub fn discover(log: &EventLog) -> Result<ProcessModel, ImportError> {
                 label: activity,
                 x: 370.0 + event_index as f64 * 170.0,
                 y: 80.0 + variant_index as f64 * 110.0,
+                dimensions: None,
             });
             add_flow(&mut model, &previous, &id);
             previous = id;
@@ -801,5 +861,6 @@ fn add_flow(model: &mut ProcessModel, source: &str, target: &str) {
         source: source.into(),
         target: target.into(),
         waypoints: Vec::new(),
+        label: String::new(),
     });
 }

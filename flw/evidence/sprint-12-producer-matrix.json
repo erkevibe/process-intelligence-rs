@@ -1,0 +1,229 @@
+{
+  "status": "FROZEN_BEFORE_SPRINT12_RUNTIME_NOT_EXECUTED",
+  "compatibility_only": [
+    {
+      "status": "NO-CURRENT-PRODUCER",
+      "grounds": "Only policy/render registry label; repository search found no production callsite",
+      "action": "folder_changed"
+    },
+    {
+      "status": "NO-CURRENT-PRODUCER",
+      "grounds": "Only policy/render registry label; repository search found no production callsite",
+      "action": "repository_updated"
+    }
+  ],
+  "sprint": 12,
+  "source_product": "0.7.2 source9005f6f77ca449e7d7f63889a5c874c8fbc83372; EXE B14F3D2E306DBB8FF81EC37A8BF8A70F63E53252E43079364E1C09D4AF345DE6",
+  "authoritative_inventory_sha256": "4DD474DC36D6DB519B60647FC382F01D6D7773D25BA60C2B465EB43B9B242492",
+  "required": "Every reachable producer receives actual production-path evidence and PRE-derived actor/project/resources/action/policy/time/revision/outcome plus whole-state result; no synthetic audit SQL credit",
+  "limits": "Callsite inventory is not runtime acceptance; compatibility-only labels are not invented producers; changed production code needs fresh source mapping and affected checks",
+  "actions": [
+    {
+      "parameters_shape": "empty_workspace_required,initial_user_id,default_project_id,initial_account_admin=true,default_project_role=owner",
+      "line": 248,
+      "coverage": "REQUIRED_ACTUAL_PRODUCER_NOT_YET_S12_RUN",
+      "production_callsite": "Auth::setup",
+      "path": "src/auth.rs",
+      "action": "platform_initialized",
+      "source_sha256": "CCF55A27D67EF1B9D2A0A37AB8B28B44BB5D055A0E0637C78EC2CADA62DA19F8"
+    },
+    {
+      "parameters_shape": "new_user_id,administrator_required=true,new_account_admin=false,owned_default_project_ids,default_project_role=owner",
+      "line": 738,
+      "coverage": "REQUIRED_ACTUAL_PRODUCER_NOT_YET_S12_RUN",
+      "production_callsite": "Auth::add_user",
+      "path": "src/auth.rs",
+      "action": "user_created",
+      "source_sha256": "CCF55A27D67EF1B9D2A0A37AB8B28B44BB5D055A0E0637C78EC2CADA62DA19F8"
+    },
+    {
+      "parameters_shape": "name_sha256,name_bytes,owner_id",
+      "line": 660,
+      "coverage": "REQUIRED_ACTUAL_PRODUCER_NOT_YET_S12_RUN",
+      "production_callsite": "Auth::create_project",
+      "path": "src/auth.rs",
+      "action": "project_created",
+      "source_sha256": "CCF55A27D67EF1B9D2A0A37AB8B28B44BB5D055A0E0637C78EC2CADA62DA19F8"
+    },
+    {
+      "parameters_shape": "name_sha256,name_bytes,expected_revision",
+      "line": 365,
+      "coverage": "REQUIRED_ACTUAL_PRODUCER_NOT_YET_S12_RUN",
+      "production_callsite": "Auth::rename_project",
+      "path": "src/auth.rs",
+      "action": "project_renamed",
+      "source_sha256": "CCF55A27D67EF1B9D2A0A37AB8B28B44BB5D055A0E0637C78EC2CADA62DA19F8"
+    },
+    {
+      "parameters_shape": "archived=true,expected_revision,session_policy=initiator_current_requires_writable_replacement_others_accessible",
+      "line": 403,
+      "coverage": "REQUIRED_ACTUAL_PRODUCER_NOT_YET_S12_RUN",
+      "production_callsite": "Auth::set_archived(true)",
+      "path": "src/auth.rs",
+      "action": "project_archived",
+      "source_sha256": "CCF55A27D67EF1B9D2A0A37AB8B28B44BB5D055A0E0637C78EC2CADA62DA19F8"
+    },
+    {
+      "parameters_shape": "archived=false,expected_revision,same session_policy",
+      "line": 403,
+      "coverage": "REQUIRED_ACTUAL_PRODUCER_NOT_YET_S12_RUN",
+      "production_callsite": "Auth::set_archived(false)",
+      "path": "src/auth.rs",
+      "action": "project_restored",
+      "source_sha256": "CCF55A27D67EF1B9D2A0A37AB8B28B44BB5D055A0E0637C78EC2CADA62DA19F8"
+    },
+    {
+      "parameters_shape": "project_id,project_revision,auth_revision,confirmed_id,confirmation_phrase,preview_digest,repository_revision,logs/models/folders/members,archived_required,active_jobs=0,typed_identity_required,backup_verified_by_application=false",
+      "line": 546,
+      "coverage": "REQUIRED_ACTUAL_PRODUCER_NOT_YET_S12_RUN",
+      "production_callsite": "Auth::delete_project",
+      "path": "src/auth.rs",
+      "action": "project_deleted",
+      "source_sha256": "CCF55A27D67EF1B9D2A0A37AB8B28B44BB5D055A0E0637C78EC2CADA62DA19F8"
+    },
+    {
+      "parameters_shape": "user_id,role,target_owner_required=true,grant_owner_forbidden=true",
+      "line": 775,
+      "coverage": "REQUIRED_ACTUAL_PRODUCER_NOT_YET_S12_RUN",
+      "production_callsite": "Auth::grant",
+      "path": "src/auth.rs",
+      "action": "membership_changed",
+      "source_sha256": "CCF55A27D67EF1B9D2A0A37AB8B28B44BB5D055A0E0637C78EC2CADA62DA19F8"
+    },
+    {
+      "parameters_shape": "new_project_id,name_sha256,repository_sha256,audit_import_policy=project_backup_unverified_v1,imported_audit_total,imported_audit_retained",
+      "line": 688,
+      "coverage": "REQUIRED_ACTUAL_PRODUCER_NOT_YET_S12_RUN",
+      "production_callsite": "Auth::restore_project",
+      "path": "src/auth.rs",
+      "action": "project_backup_restored",
+      "source_sha256": "CCF55A27D67EF1B9D2A0A37AB8B28B44BB5D055A0E0637C78EC2CADA62DA19F8"
+    },
+    {
+      "parameters_shape": "Server canonical JSON: action, expected_repository_revision, sorted unique resources from prepared puts/deletes+explicit IDs, validated_action_parameters, affected logs/source_sha/order/filter/calendar/preview, organization for folder actions, relevant durable_jobs, model id/revision/name/source/model_sha, actor_current/views for view_changed. PolicySHA covers full parameters, revision=PRE.storage_revision+1.",
+      "line": 1059,
+      "coverage": "REQUIRED_ACTUAL_PRODUCER_NOT_YET_S12_RUN",
+      "production_callsite": "store_log_with_policy -> commit_with_policy",
+      "path": "src/web.rs",
+      "action": "log_imported",
+      "source_sha256": "A4C5B43555251D7704F17FFE30D14A909ACC8B2531683F147BD519FC91B585B3"
+    },
+    {
+      "parameters_shape": "Server canonical JSON: action, expected_repository_revision, sorted unique resources from prepared puts/deletes+explicit IDs, validated_action_parameters, affected logs/source_sha/order/filter/calendar/preview, organization for folder actions, relevant durable_jobs, model id/revision/name/source/model_sha, actor_current/views for view_changed. PolicySHA covers full parameters, revision=PRE.storage_revision+1.",
+      "line": 1057,
+      "coverage": "REQUIRED_ACTUAL_PRODUCER_NOT_YET_S12_RUN",
+      "production_callsite": "store_log_with_policy provenance branch -> commit_with_policy",
+      "path": "src/web.rs",
+      "action": "xes_import_confirmed",
+      "source_sha256": "A4C5B43555251D7704F17FFE30D14A909ACC8B2531683F147BD519FC91B585B3"
+    },
+    {
+      "parameters_shape": "Server canonical JSON: action, expected_repository_revision, sorted unique resources from prepared puts/deletes+explicit IDs, validated_action_parameters, affected logs/source_sha/order/filter/calendar/preview, organization for folder actions, relevant durable_jobs, model id/revision/name/source/model_sha, actor_current/views for view_changed. PolicySHA covers full parameters, revision=PRE.storage_revision+1.",
+      "line": 1006,
+      "coverage": "REQUIRED_ACTUAL_PRODUCER_NOT_YET_S12_RUN",
+      "production_callsite": "apply_filter -> commit_action_resources",
+      "path": "src/platform.rs",
+      "action": "filter_applied",
+      "source_sha256": "8DD96225442DDA2EA95C22888CC218219B7C4F112AF84DE2238E038FD932CE01"
+    },
+    {
+      "parameters_shape": "Server canonical JSON: action, expected_repository_revision, sorted unique resources from prepared puts/deletes+explicit IDs, validated_action_parameters, affected logs/source_sha/order/filter/calendar/preview, organization for folder actions, relevant durable_jobs, model id/revision/name/source/model_sha, actor_current/views for view_changed. PolicySHA covers full parameters, revision=PRE.storage_revision+1.",
+      "line": 1065,
+      "coverage": "REQUIRED_ACTUAL_PRODUCER_NOT_YET_S12_RUN",
+      "production_callsite": "set_calendar -> commit_action_resources",
+      "path": "src/platform.rs",
+      "action": "calendar_changed",
+      "source_sha256": "8DD96225442DDA2EA95C22888CC218219B7C4F112AF84DE2238E038FD932CE01"
+    },
+    {
+      "parameters_shape": "Server canonical JSON: action, expected_repository_revision, sorted unique resources from prepared puts/deletes+explicit IDs, validated_action_parameters, affected logs/source_sha/order/filter/calendar/preview, organization for folder actions, relevant durable_jobs, model id/revision/name/source/model_sha, actor_current/views for view_changed. PolicySHA covers full parameters, revision=PRE.storage_revision+1.",
+      "line": 1109,
+      "coverage": "REQUIRED_ACTUAL_PRODUCER_NOT_YET_S12_RUN",
+      "production_callsite": "create_model -> commit_action_resources",
+      "path": "src/platform.rs",
+      "action": "model_created",
+      "source_sha256": "8DD96225442DDA2EA95C22888CC218219B7C4F112AF84DE2238E038FD932CE01"
+    },
+    {
+      "parameters_shape": "Server canonical JSON: action, expected_repository_revision, sorted unique resources from prepared puts/deletes+explicit IDs, validated_action_parameters, affected logs/source_sha/order/filter/calendar/preview, organization for folder actions, relevant durable_jobs, model id/revision/name/source/model_sha, actor_current/views for view_changed. PolicySHA covers full parameters, revision=PRE.storage_revision+1.",
+      "line": 1234,
+      "coverage": "REQUIRED_ACTUAL_PRODUCER_NOT_YET_S12_RUN",
+      "production_callsite": "save_model -> commit_action_resources",
+      "path": "src/platform.rs",
+      "action": "model_saved",
+      "source_sha256": "8DD96225442DDA2EA95C22888CC218219B7C4F112AF84DE2238E038FD932CE01"
+    },
+    {
+      "parameters_shape": "Server canonical JSON: action, expected_repository_revision, sorted unique resources from prepared puts/deletes+explicit IDs, validated_action_parameters, affected logs/source_sha/order/filter/calendar/preview, organization for folder actions, relevant durable_jobs, model id/revision/name/source/model_sha, actor_current/views for view_changed. PolicySHA covers full parameters, revision=PRE.storage_revision+1.",
+      "line": 93,
+      "coverage": "REQUIRED_ACTUAL_PRODUCER_NOT_YET_S12_RUN",
+      "production_callsite": "folder_create -> change -> commit_action_resources",
+      "path": "src/folder_workflow.rs",
+      "action": "folder_created",
+      "source_sha256": "9F2CF01668642F45FC66948A597368D643249418D4216074AA8FD2EA6644AF14"
+    },
+    {
+      "parameters_shape": "Server canonical JSON: action, expected_repository_revision, sorted unique resources from prepared puts/deletes+explicit IDs, validated_action_parameters, affected logs/source_sha/order/filter/calendar/preview, organization for folder actions, relevant durable_jobs, model id/revision/name/source/model_sha, actor_current/views for view_changed. PolicySHA covers full parameters, revision=PRE.storage_revision+1.",
+      "line": 114,
+      "coverage": "REQUIRED_ACTUAL_PRODUCER_NOT_YET_S12_RUN",
+      "production_callsite": "folder_rename -> change -> commit_action_resources",
+      "path": "src/folder_workflow.rs",
+      "action": "folder_renamed",
+      "source_sha256": "9F2CF01668642F45FC66948A597368D643249418D4216074AA8FD2EA6644AF14"
+    },
+    {
+      "parameters_shape": "Server canonical JSON: action, expected_repository_revision, sorted unique resources from prepared puts/deletes+explicit IDs, validated_action_parameters, affected logs/source_sha/order/filter/calendar/preview, organization for folder actions, relevant durable_jobs, model id/revision/name/source/model_sha, actor_current/views for view_changed. PolicySHA covers full parameters, revision=PRE.storage_revision+1.",
+      "line": 128,
+      "coverage": "REQUIRED_ACTUAL_PRODUCER_NOT_YET_S12_RUN",
+      "production_callsite": "folder_move -> change -> commit_action_resources",
+      "path": "src/folder_workflow.rs",
+      "action": "folder_moved",
+      "source_sha256": "9F2CF01668642F45FC66948A597368D643249418D4216074AA8FD2EA6644AF14"
+    },
+    {
+      "parameters_shape": "Server canonical JSON: action, expected_repository_revision, sorted unique resources from prepared puts/deletes+explicit IDs, validated_action_parameters, affected logs/source_sha/order/filter/calendar/preview, organization for folder actions, relevant durable_jobs, model id/revision/name/source/model_sha, actor_current/views for view_changed. PolicySHA covers full parameters, revision=PRE.storage_revision+1.",
+      "line": 148,
+      "coverage": "REQUIRED_ACTUAL_PRODUCER_NOT_YET_S12_RUN",
+      "production_callsite": "folder_delete -> change -> commit_action_resources",
+      "path": "src/folder_workflow.rs",
+      "action": "folder_deleted",
+      "source_sha256": "9F2CF01668642F45FC66948A597368D643249418D4216074AA8FD2EA6644AF14"
+    },
+    {
+      "parameters_shape": "Server canonical JSON: action, expected_repository_revision, sorted unique resources from prepared puts/deletes+explicit IDs, validated_action_parameters, affected logs/source_sha/order/filter/calendar/preview, organization for folder actions, relevant durable_jobs, model id/revision/name/source/model_sha, actor_current/views for view_changed. PolicySHA covers full parameters, revision=PRE.storage_revision+1.",
+      "line": 162,
+      "coverage": "REQUIRED_ACTUAL_PRODUCER_NOT_YET_S12_RUN",
+      "production_callsite": "folder_assign -> change -> commit_action_resources",
+      "path": "src/folder_workflow.rs",
+      "action": "resource_moved",
+      "source_sha256": "9F2CF01668642F45FC66948A597368D643249418D4216074AA8FD2EA6644AF14"
+    },
+    {
+      "parameters_shape": "Server canonical JSON: action, expected_repository_revision, sorted unique resources from prepared puts/deletes+explicit IDs, validated_action_parameters, affected logs/source_sha/order/filter/calendar/preview, organization for folder actions, relevant durable_jobs, model id/revision/name/source/model_sha, actor_current/views for view_changed. PolicySHA covers full parameters, revision=PRE.storage_revision+1.",
+      "line": 285,
+      "coverage": "REQUIRED_ACTUAL_PRODUCER_NOT_YET_S12_RUN",
+      "production_callsite": "AppState::commit -> commit_action_resources with_view_access",
+      "path": "src/web.rs",
+      "action": "view_changed",
+      "source_sha256": "A4C5B43555251D7704F17FFE30D14A909ACC8B2531683F147BD519FC91B585B3"
+    },
+    {
+      "parameters_shape": "Server canonical JSON: action, expected_repository_revision, sorted unique resources from prepared puts/deletes+explicit IDs, validated_action_parameters, affected logs/source_sha/order/filter/calendar/preview, organization for folder actions, relevant durable_jobs, model id/revision/name/source/model_sha, actor_current/views for view_changed. PolicySHA covers full parameters, revision=PRE.storage_revision+1.",
+      "line": 1098,
+      "coverage": "REQUIRED_ACTUAL_PRODUCER_NOT_YET_S12_RUN",
+      "production_callsite": "persist_job -> commit_with_action",
+      "path": "src/web.rs",
+      "action": "job_updated",
+      "source_sha256": "A4C5B43555251D7704F17FFE30D14A909ACC8B2531683F147BD519FC91B585B3"
+    },
+    {
+      "parameters_shape": "policy=nonterminal_to_failed_after_restart,jobs=complete recovered durable_jobs; actor=system,resources=PRE nonterminal IDs,revision=PRE+1",
+      "line": 137,
+      "coverage": "REQUIRED_ACTUAL_PRODUCER_NOT_YET_S12_RUN",
+      "production_callsite": "Platform::recover + recover_repository at169",
+      "path": "src/platform.rs",
+      "action": "jobs_interrupted_after_restart",
+      "source_sha256": "8DD96225442DDA2EA95C22888CC218219B7C4F112AF84DE2238E038FD932CE01"
+    }
+  ]
+}

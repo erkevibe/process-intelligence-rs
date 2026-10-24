@@ -1,0 +1,94 @@
+{
+  "original_app_started": false,
+  "native_count": 10,
+  "cause": "pg_dump command and duplicated config SHA were62hex; actual binary and pin row are64hex; Root manually transcribed wrong pin and reviewers missed crossbinding",
+  "known_pg_pid": 63344,
+  "stale_pidfile_sha256": "5EA89104E2D36C7E23CFD373DBED9C8AD3297F607BA6353747EC646756EDB496",
+  "dump_native_started": false,
+  "source_business_sql_readonly": true,
+  "actual_pg_dump_sha256": "9414DAC0554065AA6EDF739D7126B6E6E6D6FC3B56B9706B72CEE47CEE45B22C",
+  "source_snapshot": "userprofile:/\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint21\\root\\sprint24\\current-compact-dr02\\snapshot-source-before.json",
+  "utc": "2026-10-23T19:25:27.8962751+00:00",
+  "captures": [
+    {
+      "native_exit": 0,
+      "record": "userprofile:/\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint21\\root\\sprint24\\current-compact-dr02\\session\\app10k.process.json",
+      "both_full": true,
+      "pid": 55776,
+      "sha256": "E4EE187D9A2EDA0CE6C69E3623F1E32C99796FBD0970E65A32904A262F1EBD59"
+    },
+    {
+      "native_exit": 0,
+      "record": "userprofile:/\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint21\\root\\sprint24\\current-compact-dr02\\session\\check-cohort.process.json",
+      "both_full": true,
+      "pid": 74796,
+      "sha256": "F0AB1408453B431F01D761B69E10DAE2560E1601B887BAF1C3A16357686FE378"
+    },
+    {
+      "native_exit": 137,
+      "record": "userprofile:/\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint21\\root\\sprint24\\current-compact-dr02\\session\\postgres.process.json",
+      "both_full": true,
+      "pid": 63344,
+      "sha256": "3EEC690E2A8BC394339D42C2886E168F764C57989C56DDD449F99C298C087AD6"
+    },
+    {
+      "native_exit": 1,
+      "record": "userprofile:/\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint21\\root\\sprint24\\current-compact-dr02\\session\\ready-01.process.json",
+      "both_full": true,
+      "pid": 74784,
+      "sha256": "ABF96C86F60CE785A87F5CB414E1CA8748F54817787C65FC0BFE8732FBAFB9F1"
+    },
+    {
+      "native_exit": 0,
+      "record": "userprofile:/\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint21\\root\\sprint24\\current-compact-dr02\\session\\ready-02.process.json",
+      "both_full": true,
+      "pid": 68952,
+      "sha256": "6172205570B19CAEF48F3B9CA1DE10CEF3E4644C8438721D493DDC5F5CF2DB07"
+    },
+    {
+      "native_exit": 0,
+      "record": "userprofile:/\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint21\\root\\sprint24\\current-compact-dr02\\session\\source-cohort.process.json",
+      "both_full": true,
+      "pid": 76604,
+      "sha256": "A00E68CBC73F70A10A52882CC08AC022118EA99C26757EB32217A06D8B146D7A"
+    },
+    {
+      "native_exit": 0,
+      "record": "userprofile:/\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint21\\root\\sprint24\\current-compact-dr02\\session\\source10k.process.json",
+      "both_full": true,
+      "pid": 76392,
+      "sha256": "859E2E562DCA9AB4F354463771DF4DCF0848023359217B6413EF5BB91EE3F8D0"
+    },
+    {
+      "native_exit": 137,
+      "record": "userprofile:/\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint21\\root\\sprint24\\current-compact-dr02\\session\\worker.process.json",
+      "both_full": true,
+      "pid": 71696,
+      "sha256": "8D4767BB3217FF265DF4EC0436C7C316E1A9BD6882CB511041EBFC6D2FBB9928"
+    },
+    {
+      "native_exit": 1,
+      "record": "userprofile:/\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint21\\root\\sprint24\\current-compact-dr02\\collector.process.json",
+      "both_full": true,
+      "pid": 67404,
+      "sha256": "84E015EAF639F527A8FB3EC2BE89B11A7484A81C210A9B2F68C6688E68EC2580"
+    },
+    {
+      "native_exit": 1,
+      "record": "userprofile:/\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint21\\root\\sprint24\\dr-launch-external02\\dr-launch.process.json",
+      "both_full": true,
+      "pid": 56576,
+      "sha256": "5DF785F1B8884C4BA8971DE60D698960AC3396EEEC43ADBEB69033DC9DB74E17"
+    }
+  ],
+  "known_pg_exit": 137,
+  "recovery_required": "Ordinary owned stock PostgreSQL startup with known stale PID provenance, no manual PID or WAL deletion",
+  "qa": "1AEB985E207F687F59FCF1CB15B109E671B6EB40047D863C1B7AFB8B486D3924",
+  "stale_pidfile_bytes": 130,
+  "target_created": false,
+  "source_snapshot_sha256": "7F19A1A46AFE1409A78356FD44D13C9F32FC77CD35046932C5E7E31548B9D691",
+  "status": "KNOWN_BAD_PLAN_HASH_REFUSED_BEFORE_DUMP_NATIVE",
+  "known_pg_creation_filetime": "134372569672472071",
+  "historical_unknown_unchanged": true,
+  "full_streams": 20
+}

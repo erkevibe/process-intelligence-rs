@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "role": "Independent TD architecture and causal STOP review",
+  "agent_name": "td_s20_delivery",
+  "utc": "2026-10-23T03:56:25.3251432+00:00",
+  "decision": "ACCEPTED_FIXED_SYNTHETIC_OWNERSHIP_MECHANISM_SCOPE",
+  "runtime_sha256": "AEE15C33307143CB905571E375D87DFEED4D00A1DF5126417C7FCA8B99DF86B9",
+  "broker_sha256": "F6F98E9B02251BCB0AE013FDDA16DA701ABD31223D87C83702A6BF38DA30C89B",
+  "config_sha256": "8F63115F636FAD118D3D901B394B07B0734BCC94ABF56E5F7F08E8A53A31DAF5",
+  "independent_auditor_sha256": "E8099D6D75E2F221C7B6AB032026B186AE9948BB32A1E9700F1D6B952403ABAF",
+  "actual_manual_proof_sha256": "3E88A47078CE0F555149B0E046E7B291A768970187070448B1B8F32525C96C67",
+  "own_readback": {
+    "auditor_stream_hashes_verified": true,
+    "actual_stream_hash_length_mismatches": 0,
+    "auditor_both_EOF": true,
+    "native_process_records": 15,
+    "deliberately_uninitialized_streams": 2,
+    "manual_raw_oracle_mismatches": 0,
+    "native_exit_mismatches": 0,
+    "auditor_native_exit": 0,
+    "full_exact_streams": 27,
+    "deliberately_truncated_streams": 1,
+    "stream_slots": 30
+  },
+  "causal_review": [
+    "All seven cases bind exact worker/child Job kill rows with successful native results/error0; mandatory OWN01/02/03/05 actual exits and complete raw stream byte oracles verified independently by TD reads as well as QA-authored saved auditor.",
+    "OWN05 actual owned sharing IOException/HRESULT32 and S22 fixture verified. STOP precedes both native Job termination requests, which complete0.848ms after latch; cleanup43.9698ms after latch, below original25second deadline. No application grace or new Resume after STOP inferred.",
+    "Across seven cases stop-to-kill request completion0.6838..3.2275ms and stop-to-cleanup29.4383..87.7603ms are observed, not production SLO.",
+    "Every actual postSTOP admission probe rejects known latch code without changed ResumeUtc/process count. Suspended before-GO ownership and collector-outside-Job source/actual receipt binding accepted within fixed controls.",
+    "OWN04 exact4096X persisted prefix is truncated and not a complete stream. OWN06 empty initialized streams and OWN06B deliberately missing pre-pump streams remain distinct."
+  ],
+  "gate": {
+    "new_measurements_authorized_by_this_receipt": false,
+    "accepted_before_gate": true,
+    "mechanism_gate_utc": "2026-10-23T07:23:31Z"
+  },
+  "limits": [
+    "Acceptance covers current fixed synthetic worker, target, timeout, output, actual guard-refusal and negative admission scenarios. It does not establish arbitrary collector/host death, unknown descendants, or unexercised fallback behavior.",
+    "No new application/PostgreSQL/conversion measurement admitted here. Separate prospectively pinned protocol and source/config admission remain required after actual independent QA acceptance.",
+    "Historical six UNKNOWN, prior failed controls01/02/03 and03 launch-admission chronology deviation remain unchanged and separately disclosed.",
+    "Mechanism is locally accepted; final integrated candidate Council and exact-head CI/dual whole-source public delivery remain pending."
+  ],
+  "runtime_authored_by_reviewer": false
+}

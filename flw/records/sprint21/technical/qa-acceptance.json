@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "role": "Independent QA and ProcessLogAuditor",
+  "agent": "/root/qa_s20_delivery",
+  "utc": "2026-10-22T20:12:32.7059913+00:00",
+  "decision": "TECHNICAL_ACCEPTANCE_WITH_FINAL_DELIVERY_GATES_PENDING",
+  "candidate_app_sha256": "37AA55C56DA13FEBC342657B4CFF2E2B2269F19B1137DACA23297E606B6F2B8C",
+  "candidate_converter_sha256": "11820AC81B8562B45DE0FC27BBF16DC7ADF788D4C297A238F6E5E069653E675D",
+  "independent_receipts": [
+    {
+      "receipt": "candidate-b-pg-history-acceptance01.json",
+      "sha256": "233E516CECBC71E5B58AB4CBCF67EA9835BA91AC618A09F632B665F512616E8E"
+    },
+    {
+      "receipt": "candidate-b-crash-acceptance01.json",
+      "sha256": "44DB47B50E432A63C44DC5F860A8096E0CC0456B9222E899E2DC77311706AFB0"
+    },
+    {
+      "receipt": "candidate-b-browser-acceptance01.json",
+      "sha256": "901B4578DAEE89BCA1989DBAFF826BAA05B8D6C8E9F31F2FC3A4325A08AA57C9"
+    },
+    {
+      "receipt": "candidate-b-conversion-acceptance01.json",
+      "sha256": "5092E68DD1194ED95C9D44A5603F61DAAFA8946034BC878F3FF6AFFAACF10081"
+    },
+    {
+      "receipt": "public-projector-tests-acceptance01.json",
+      "sha256": "530E8CA0BC7C3CEE827956FBCE951B4DE7291D71CB7F7BA0CA176F9AF3F0F9B5"
+    },
+    {
+      "receipt": "public-selection-admission01.json",
+      "sha256": "280D664C6D3F0FED42F0D4E0FB88B875EB8F162FC7C57FC26F7A747930F98A1B"
+    }
+  ],
+  "final_B_original_native_record_groups": {
+    "compile": 8,
+    "public_projection_and_replay": 7,
+    "finite_conversion_and_audits": 88,
+    "postgres": 17,
+    "total": 174,
+    "historical": 21,
+    "browser_and_manual_audit": 9,
+    "stock_crash": 24
+  },
+  "all_these_original_native_streams_lengths_sha256_and_eof_independently_verified": true,
+  "controlled_crash_and_expected_refusal_nonzero_exits_not_relabelled": true,
+  "scientific_acceptance": {
+    "actual_inverse_processes": 16,
+    "forward_cases": 57,
+    "rich_loss_refusal_and_explicit_allow_verified": true,
+    "actual_browser_downloads": 19,
+    "newest_order_unicode_cancel_retry_real_Datastar_verified": true,
+    "boundary_cases": 9,
+    "manual_browser_directions": 4,
+    "downloads_repeated_after_actual_restart": 8,
+    "coherently_rehashed_counterfactuals_refused": 11
+  },
+  "database_acceptance": {
+    "historical_old075_populated_v2_to080_v3": true,
+    "recovery_audit_exact_conversion_resource_no_phantom": true,
+    "old_binary_actual_schema_refusal": true,
+    "real_pg_tests": 4,
+    "stock_precommit_and_postcommit_crashes": true,
+    "terminal_project_cascade": true
+  },
+  "projection": {
+    "public_data_bytes": 23254531,
+    "all_other_json_fields_and_numeric_lexemes_preserved": true,
+    "original_source_entries_rehashed": 967,
+    "selection_sha256": "086193AC7A32D47352D5A2D94DCED46F8382A69373562FE024CC422344B16125",
+    "manifest_sha256": "DA1E00E89B61D3B49CA61B92E8D24BBD354B27DF164982D8EA132C335222B1E4",
+    "no_extra_files": true,
+    "path_projected_files": 322,
+    "only_explicit_program_value_changed": true,
+    "actual_total_files_including_manifest": 857,
+    "explicit_omissions": 111,
+    "original_native_hashes_not_rebound": true,
+    "published_data_files_rehashed": 856,
+    "private_pg_omitted_streams": "Verified privately; complete public raw-stream coverage NOT claimed",
+    "scientific_bytes_exact": true
+  },
+  "honest_limits": [
+    "Compile04 child native exit and stream EOF UNKNOWN; missing process receipt never fabricated.",
+    "Historical01 original failure cause UNKNOWN because cleanup masked it; historical01/02 whole failures retained.",
+    "Projection tests01/02 actual native1 retained; stat calibration supports narrow Windows representation correction.",
+    "Initial 25-second projection deadline failure retained; no output existed; bounded packaging deadline90seconds accepted separately.",
+    "Two Windows symlink privilege tests skipped; no actual symlink coverage claimed. Node DOM test skipped without jsdom; real browser separately exercised.",
+    "Browser download HTTP status/headers unobserved; no synthetic HTTP captures invented.",
+    "Listener absence uses bounded non-atomic sampling and final available bind, not absolute never-bound proof."
+  ],
+  "pending_gates": [
+    "Exact final source/candidate freeze and actual Council vote",
+    "Exact published HEAD CI success",
+    "Root and independent QA anonymous whole-source readback and downloaded-source audits",
+    "Final resource and original-process closure audit"
+  ],
+  "private_credentials_or_raw_managed_snapshots_published": false
+}

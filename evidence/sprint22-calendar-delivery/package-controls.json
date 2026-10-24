@@ -1,0 +1,38 @@
+{
+  "status": "ACTUAL_ONE_POSITIVE_FOUR_SPECIFIC_PACKAGE_GUARDS_VERIFIED",
+  "verifier_sha256": "CA16825641A98A31D4DE0777371358D79711DD7A51663D5379A63ADBBD390573",
+  "original_manifest_sha256": "6F838B20B270CA9AE09AABB53DA2858C81A474064775DFF368C8B49FF8F291AA",
+  "results": [
+    {
+      "control": "positive-original",
+      "accepted": true
+    },
+    {
+      "control": "extra-unmanifested",
+      "accepted": false,
+      "exception": "AssertionError",
+      "specific_guard": "assert actual == names | {\"manifest.json\"}"
+    },
+    {
+      "control": "forged-outside-public-path",
+      "accepted": false,
+      "exception": "AssertionError",
+      "specific_guard": "assert public_path in names"
+    },
+    {
+      "control": "manifest-private-path",
+      "accepted": false,
+      "exception": "AssertionError",
+      "specific_guard": "assert not re.search(r\"(?<![A-Za-z0-9])"
+    },
+    {
+      "control": "directory-node-bound",
+      "accepted": false,
+      "exception": "AssertionError",
+      "specific_guard": "assert nodes <= 200"
+    }
+  ],
+  "copied_bytes": 3066676,
+  "original_untouched": true,
+  "network_or_subprocess_or_symlink_created": false
+}

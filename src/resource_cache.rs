@@ -333,6 +333,23 @@ impl ResourceCache {
             }
         }
     }
+    pub(crate) fn invalidate_project(&self, project: &str) {
+        let mut retired = Vec::new();
+        let mut state = self.state.lock().unwrap_or_else(|p| p.into_inner());
+        state.epoch = state.epoch.wrapping_add(1);
+        let keys = state
+            .entries
+            .keys()
+            .filter(|key| key.project == project)
+            .cloned()
+            .collect::<Vec<_>>();
+        for key in keys {
+            if let Some(old) = state.entries.remove(&key) {
+                state.stats.charged_bytes = state.stats.charged_bytes.saturating_sub(old.charge);
+                retired.push(old);
+            }
+        }
+    }
 }
 // Each owned heap allocation receives 32 additional bytes for alignment and
 // allocator overhead. Shared data/source are deliberately charged separately.
@@ -419,6 +436,7 @@ fn model_charge(model: &StoredModel) -> usize {
             .saturating_add(string_charge(&f.id))
             .saturating_add(string_charge(&f.source))
             .saturating_add(string_charge(&f.target))
+            .saturating_add(string_charge(&f.label))
             .saturating_add(vec_charge(&f.waypoints));
     }
     bytes
@@ -466,6 +484,22 @@ fn key_charge(key: &Key, versions: &Versions) -> usize {
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn named_flow_charge_includes_allocated_label_capacity() {
+        let mut stored = StoredModel {
+            id: "m".into(),
+            name: "M".into(),
+            revision: 1,
+            source_log: None,
+            model: crate::bpmn::parse(include_bytes!("../fixtures/sprint02/linear.bpmn")).unwrap(),
+        };
+        let empty_charge = model_charge(&stored);
+        let mut label = String::with_capacity(4096);
+        label.push_str("Ә choice");
+        let capacity = label.capacity();
+        stored.model.flows[0].label = label;
+        assert_eq!(model_charge(&stored), empty_charge + capacity + 32);
+    }
     fn model(id: &str) -> Resource {
         Resource::Model(Arc::new(StoredModel {
             id: id.into(),

@@ -1,0 +1,58 @@
+{
+  "invalid_handle_refused": true,
+  "terminal": {
+    "current_working_set_bytes": 46927872,
+    "peak_working_set_bytes": 46927872,
+    "page_faults": 11571,
+    "scope": "OS process counters since process creation, observed at caller snapshot; a terminal pre-exit snapshot excludes subsequent teardown. Working set may include shared pages; commit is not working set.",
+    "peak_private_commit_bytes": 41103360,
+    "current_private_commit_bytes": 41091072
+  },
+  "boot": {
+    "pid": 15804,
+    "nonce": "c72a80f9c4cb4cbaa7cee66363784b3e"
+  },
+  "creation_utc": "2026-10-22T08:36:49.1547263Z",
+  "baseline": {
+    "current_working_set_bytes": 13369344,
+    "peak_working_set_bytes": 13369344,
+    "page_faults": 3361,
+    "scope": "OS process counters since process creation, observed at caller snapshot; a terminal pre-exit snapshot excludes subsequent teardown. Working set may include shared pages; commit is not working set.",
+    "peak_private_commit_bytes": 7462912,
+    "current_private_commit_bytes": 7462912
+  },
+  "go_ticks": 2870491,
+  "ready_ticks": 8022905,
+  "job_before": {
+    "kernel_cpu_100ns": 781250,
+    "scope": "Fresh per-trial Job from assignment; includes assigned process and descendants; does not include pre-assignment startup. Commit is not physical working set.",
+    "peak_job_commit_bytes": 7462912,
+    "total_processes": 1,
+    "peak_single_process_commit_bytes": 7462912,
+    "page_faults": 3361,
+    "active_processes": 1,
+    "user_cpu_100ns": 468750,
+    "limit_terminated_processes": 0
+  },
+  "ready": {
+    "pid": 15804,
+    "nonce": "c72a80f9c4cb4cbaa7cee66363784b3e",
+    "allocated_bytes": 33554432,
+    "touched_pages": 8192,
+    "checksum": 165273
+  },
+  "job_live": {
+    "kernel_cpu_100ns": 1093750,
+    "scope": "Fresh per-trial Job from assignment; includes assigned process and descendants; does not include pre-assignment startup. Commit is not physical working set.",
+    "peak_job_commit_bytes": 41103360,
+    "total_processes": 1,
+    "peak_single_process_commit_bytes": 41103360,
+    "page_faults": 11571,
+    "active_processes": 1,
+    "user_cpu_100ns": 1718750,
+    "limit_terminated_processes": 0
+  },
+  "pid": 15804,
+  "stopwatch_frequency": 10000000,
+  "observed_current_private_commit_increase_bytes": 33628160
+}

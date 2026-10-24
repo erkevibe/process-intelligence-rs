@@ -1,0 +1,542 @@
+{
+  "schema_version": 1,
+  "kind": "SPRINT19_FROZEN_PROSPECTIVE_GENUINE_CALENDAR_REFERENCE",
+  "draft_path": "docs/R5_SPRINT19_DRAFT.md",
+  "draft_sha256": "f90d372f246e4c5aaca251b5e4ab4e1f6bf679c04865bd597523b095133fde36",
+  "core_commit": "bbf24dfd43e72d6992392465f875a4367cbe792b",
+  "calendar_jar_sha256": "f29983b59677978b95131b02daa43680921f81fced061eb85865596c669d2b9a",
+  "calendar_class_sha256": "875c96a343e48cdc42c613b5f65ba7b35056498e112ebffd865084c4ad8c1e39",
+  "workday_class_sha256": "e9983bdef6b0fe12f0d7db7bb03c326fdb1259a69cdf34bb8e0d279bb3217207",
+  "input_abi": "exact schema_version/id/start/end/calendar; calendar is existingRustCalendarSpec; expectations exist only in manifest",
+  "case_count": 13,
+  "cases": [
+    {
+      "id": "ordinary",
+      "file": "ordinary.json",
+      "sha256": "cb66b92afdcdf61f9e04e76beeb438f5b9848659de484e08eed51706ede85f34",
+      "profile": "overlap",
+      "expected_java": {
+        "outcome": "duration",
+        "duration_method_invoked": true,
+        "duration_millis": 32400000,
+        "exception_class": null,
+        "configuration_unchanged": true,
+        "tzdb_version_hypothesis": "2026b",
+        "duration_seconds": 32400,
+        "duration_nanos": 0,
+        "get_duration_millis_secondary": 32400000,
+        "configuration_available": true,
+        "source_input_unchanged": true
+      },
+      "expected_rust": {
+        "outcome": "duration",
+        "duration_millis": 32400000,
+        "error_code": null,
+        "configuration_unchanged": true,
+        "iana_tzdb_version": "2025b"
+      },
+      "derivation": {
+        "method": "Explicit frozen UTC boundaries and local wall-clock arithmetic; no Java/Rust/calendar API or OS zone engine executed",
+        "utc_contributing_segments": [
+          {
+            "start": "2026-06-01T09:00:00Z",
+            "end": "2026-06-01T18:00:00Z",
+            "elapsed_millis": 32400000
+          }
+        ],
+        "utc_sum_millis": 32400000,
+        "java_local_arithmetic": "Monday09:00-18:00 = 9h"
+      },
+      "comparison_policy": "Exact duration and configuration conservation equality",
+      "runtime_tzdb_not_yet_observed": true,
+      "main_duration_equality_expected": true,
+      "secondary_api_difference_expected": false
+    },
+    {
+      "id": "clip",
+      "file": "clip.json",
+      "sha256": "746f00084a5115d747d3d815f2d3bd70a279f1d5d25c596d5f940c09464afe38",
+      "profile": "overlap",
+      "expected_java": {
+        "outcome": "duration",
+        "duration_method_invoked": true,
+        "duration_millis": 2700000,
+        "exception_class": null,
+        "configuration_unchanged": true,
+        "tzdb_version_hypothesis": "2026b",
+        "duration_seconds": 2700,
+        "duration_nanos": 0,
+        "get_duration_millis_secondary": 2700000,
+        "configuration_available": true,
+        "source_input_unchanged": true
+      },
+      "expected_rust": {
+        "outcome": "duration",
+        "duration_millis": 2700000,
+        "error_code": null,
+        "configuration_unchanged": true,
+        "iana_tzdb_version": "2025b"
+      },
+      "derivation": {
+        "method": "Explicit frozen UTC boundaries and local wall-clock arithmetic; no Java/Rust/calendar API or OS zone engine executed",
+        "utc_contributing_segments": [
+          {
+            "start": "2026-06-01T09:30:00Z",
+            "end": "2026-06-01T10:15:00Z",
+            "elapsed_millis": 2700000
+          }
+        ],
+        "utc_sum_millis": 2700000,
+        "java_local_arithmetic": "Monday09:30-10:15 = 45min"
+      },
+      "comparison_policy": "Exact duration and configuration conservation equality",
+      "runtime_tzdb_not_yet_observed": true,
+      "main_duration_equality_expected": true,
+      "secondary_api_difference_expected": false
+    },
+    {
+      "id": "weekend",
+      "file": "weekend.json",
+      "sha256": "f823905e7dbd8db5aa7954cb11149a8606e330b9bc86781cedd8d10f3e6af89f",
+      "profile": "overlap",
+      "expected_java": {
+        "outcome": "duration",
+        "duration_method_invoked": true,
+        "duration_millis": 7200000,
+        "exception_class": null,
+        "configuration_unchanged": true,
+        "tzdb_version_hypothesis": "2026b",
+        "duration_seconds": 7200,
+        "duration_nanos": 0,
+        "get_duration_millis_secondary": 7200000,
+        "configuration_available": true,
+        "source_input_unchanged": true
+      },
+      "expected_rust": {
+        "outcome": "duration",
+        "duration_millis": 7200000,
+        "error_code": null,
+        "configuration_unchanged": true,
+        "iana_tzdb_version": "2025b"
+      },
+      "derivation": {
+        "method": "Explicit frozen UTC boundaries and local wall-clock arithmetic; no Java/Rust/calendar API or OS zone engine executed",
+        "utc_contributing_segments": [
+          {
+            "start": "2026-06-05T17:00:00Z",
+            "end": "2026-06-05T18:00:00Z",
+            "elapsed_millis": 3600000
+          },
+          {
+            "start": "2026-06-08T09:00:00Z",
+            "end": "2026-06-08T10:00:00Z",
+            "elapsed_millis": 3600000
+          }
+        ],
+        "utc_sum_millis": 7200000,
+        "java_local_arithmetic": "Friday1h + Monday1h; Saturday/Sunday excluded"
+      },
+      "comparison_policy": "Exact duration and configuration conservation equality",
+      "runtime_tzdb_not_yet_observed": true,
+      "main_duration_equality_expected": true,
+      "secondary_api_difference_expected": false
+    },
+    {
+      "id": "holiday",
+      "file": "holiday.json",
+      "sha256": "832821ab92726fcb6eef8c306f31202fa6236cdc06101e0125817e3f58fee837",
+      "profile": "overlap",
+      "expected_java": {
+        "outcome": "duration",
+        "duration_method_invoked": true,
+        "duration_millis": 0,
+        "exception_class": null,
+        "configuration_unchanged": true,
+        "tzdb_version_hypothesis": "2026b",
+        "duration_seconds": 0,
+        "duration_nanos": 0,
+        "get_duration_millis_secondary": 0,
+        "configuration_available": true,
+        "source_input_unchanged": true
+      },
+      "expected_rust": {
+        "outcome": "duration",
+        "duration_millis": 0,
+        "error_code": null,
+        "configuration_unchanged": true,
+        "iana_tzdb_version": "2025b"
+      },
+      "derivation": {
+        "method": "Explicit frozen UTC boundaries and local wall-clock arithmetic; no Java/Rust/calendar API or OS zone engine executed",
+        "utc_contributing_segments": [],
+        "utc_sum_millis": 0,
+        "java_local_arithmetic": "Local2026-06-01 is holiday, so working Monday contributes0"
+      },
+      "comparison_policy": "Exact duration and configuration conservation equality",
+      "runtime_tzdb_not_yet_observed": true,
+      "main_duration_equality_expected": true,
+      "secondary_api_difference_expected": false
+    },
+    {
+      "id": "nonhour-zone",
+      "file": "nonhour-zone.json",
+      "sha256": "bd574beae44a71338de38ac6d904ca624ab2d9d4e129897c6648eab3668f3014",
+      "profile": "overlap",
+      "expected_java": {
+        "outcome": "duration",
+        "duration_method_invoked": true,
+        "duration_millis": 32400000,
+        "exception_class": null,
+        "configuration_unchanged": true,
+        "tzdb_version_hypothesis": "2026b",
+        "duration_seconds": 32400,
+        "duration_nanos": 0,
+        "get_duration_millis_secondary": 32400000,
+        "configuration_available": true,
+        "source_input_unchanged": true
+      },
+      "expected_rust": {
+        "outcome": "duration",
+        "duration_millis": 32400000,
+        "error_code": null,
+        "configuration_unchanged": true,
+        "iana_tzdb_version": "2025b"
+      },
+      "derivation": {
+        "method": "Explicit frozen UTC boundaries and local wall-clock arithmetic; no Java/Rust/calendar API or OS zone engine executed",
+        "utc_contributing_segments": [
+          {
+            "start": "2026-06-01T03:15:00Z",
+            "end": "2026-06-01T12:15:00Z",
+            "elapsed_millis": 32400000
+          }
+        ],
+        "utc_sum_millis": 32400000,
+        "java_local_arithmetic": "UTC+05:45: UTC03:15-12:15 equals localMonday09-18;9h"
+      },
+      "comparison_policy": "Exact duration and configuration conservation equality",
+      "runtime_tzdb_not_yet_observed": true,
+      "main_duration_equality_expected": true,
+      "secondary_api_difference_expected": false
+    },
+    {
+      "id": "spring-elapsed",
+      "file": "spring-elapsed.json",
+      "sha256": "a74dca4c5dffc14223b88b8437ffc08713881583093fb380af9695072919b9f0",
+      "profile": "diagnostic_wall_clock_vs_elapsed",
+      "expected_java": {
+        "outcome": "duration",
+        "duration_method_invoked": true,
+        "duration_millis": 10800000,
+        "exception_class": null,
+        "configuration_unchanged": true,
+        "tzdb_version_hypothesis": "2026b",
+        "duration_seconds": 10800,
+        "duration_nanos": 0,
+        "get_duration_millis_secondary": 10800000,
+        "configuration_available": true,
+        "source_input_unchanged": true
+      },
+      "expected_rust": {
+        "outcome": "duration",
+        "duration_millis": 7200000,
+        "error_code": null,
+        "configuration_unchanged": true,
+        "iana_tzdb_version": "2025b"
+      },
+      "derivation": {
+        "method": "Explicit frozen UTC boundaries and local wall-clock arithmetic; no Java/Rust/calendar API or OS zone engine executed",
+        "utc_contributing_segments": [
+          {
+            "start": "2026-03-29T00:00:00Z",
+            "end": "2026-03-29T02:00:00Z",
+            "elapsed_millis": 7200000
+          }
+        ],
+        "utc_sum_millis": 7200000,
+        "java_local_arithmetic": "Local01:00(CET)-04:00(CEST) is3 wall-clock hours; elapsedUTC2h"
+      },
+      "comparison_policy": "Compare exact duration/configuration on overlap; retain predeclared semantic/refusal difference without equality PASS",
+      "runtime_tzdb_not_yet_observed": true,
+      "main_duration_equality_expected": false,
+      "secondary_api_difference_expected": false
+    },
+    {
+      "id": "fall-elapsed",
+      "file": "fall-elapsed.json",
+      "sha256": "90938151507eaa48d0c4ff9799e0d68392aeb4ddb468dd7f39c27d7eb1afd104",
+      "profile": "diagnostic_wall_clock_vs_elapsed",
+      "expected_java": {
+        "outcome": "duration",
+        "duration_method_invoked": true,
+        "duration_millis": 10800000,
+        "exception_class": null,
+        "configuration_unchanged": true,
+        "tzdb_version_hypothesis": "2026b",
+        "duration_seconds": 10800,
+        "duration_nanos": 0,
+        "get_duration_millis_secondary": 10800000,
+        "configuration_available": true,
+        "source_input_unchanged": true
+      },
+      "expected_rust": {
+        "outcome": "duration",
+        "duration_millis": 14400000,
+        "error_code": null,
+        "configuration_unchanged": true,
+        "iana_tzdb_version": "2025b"
+      },
+      "derivation": {
+        "method": "Explicit frozen UTC boundaries and local wall-clock arithmetic; no Java/Rust/calendar API or OS zone engine executed",
+        "utc_contributing_segments": [
+          {
+            "start": "2026-10-24T23:00:00Z",
+            "end": "2026-10-25T03:00:00Z",
+            "elapsed_millis": 14400000
+          }
+        ],
+        "utc_sum_millis": 14400000,
+        "java_local_arithmetic": "Local01:00(CEST)-04:00(CET) is3 wall-clock hours; elapsedUTC4h"
+      },
+      "comparison_policy": "Compare exact duration/configuration on overlap; retain predeclared semantic/refusal difference without equality PASS",
+      "runtime_tzdb_not_yet_observed": true,
+      "main_duration_equality_expected": false,
+      "secondary_api_difference_expected": false
+    },
+    {
+      "id": "spring-gap-boundary",
+      "file": "spring-gap-boundary.json",
+      "sha256": "86e5cd57bbf6457cab0541bcd33f12aeba515f9afbd46cfa016e5becf76238a7",
+      "profile": "diagnostic_gap_refusal",
+      "expected_java": {
+        "outcome": "duration",
+        "duration_method_invoked": true,
+        "duration_millis": 5400000,
+        "exception_class": null,
+        "configuration_unchanged": true,
+        "tzdb_version_hypothesis": "2026b",
+        "duration_seconds": 5400,
+        "duration_nanos": 0,
+        "get_duration_millis_secondary": 5400000,
+        "configuration_available": true,
+        "source_input_unchanged": true
+      },
+      "expected_rust": {
+        "outcome": "refused",
+        "duration_millis": null,
+        "error_code": "calendar_boundary",
+        "configuration_unchanged": true,
+        "iana_tzdb_version": "2025b"
+      },
+      "derivation": {
+        "method": "Explicit frozen UTC boundaries and local wall-clock arithmetic; no Java/Rust/calendar API or OS zone engine executed",
+        "utc_contributing_segments": [],
+        "utc_sum_millis": null,
+        "java_local_arithmetic": "Endpoints local01-05 clip to02:30-04 =90 wall-clock min; local02:30 does not exist, Rust rejects schedule boundary"
+      },
+      "comparison_policy": "Compare exact duration/configuration on overlap; retain predeclared semantic/refusal difference without equality PASS",
+      "runtime_tzdb_not_yet_observed": true,
+      "main_duration_equality_expected": false,
+      "secondary_api_difference_expected": false
+    },
+    {
+      "id": "fall-fold-boundary",
+      "file": "fall-fold-boundary.json",
+      "sha256": "3d913b63f88026c81eeecd85cd31b155914493b38b5dd8550902137e45bee54a",
+      "profile": "diagnostic_fold_refusal",
+      "expected_java": {
+        "outcome": "duration",
+        "duration_method_invoked": true,
+        "duration_millis": 5400000,
+        "exception_class": null,
+        "configuration_unchanged": true,
+        "tzdb_version_hypothesis": "2026b",
+        "duration_seconds": 5400,
+        "duration_nanos": 0,
+        "get_duration_millis_secondary": 5400000,
+        "configuration_available": true,
+        "source_input_unchanged": true
+      },
+      "expected_rust": {
+        "outcome": "refused",
+        "duration_millis": null,
+        "error_code": "calendar_boundary",
+        "configuration_unchanged": true,
+        "iana_tzdb_version": "2025b"
+      },
+      "derivation": {
+        "method": "Explicit frozen UTC boundaries and local wall-clock arithmetic; no Java/Rust/calendar API or OS zone engine executed",
+        "utc_contributing_segments": [],
+        "utc_sum_millis": null,
+        "java_local_arithmetic": "Endpoints local01-05 clip to02:30-04 =90 wall-clock min; local02:30 has two offsets, Rust rejects schedule boundary"
+      },
+      "comparison_policy": "Compare exact duration/configuration on overlap; retain predeclared semantic/refusal difference without equality PASS",
+      "runtime_tzdb_not_yet_observed": true,
+      "main_duration_equality_expected": false,
+      "secondary_api_difference_expected": false
+    },
+    {
+      "id": "invalid-zone",
+      "file": "invalid-zone.json",
+      "sha256": "af4a5e26ebaac521eb9073a2c709c7d563cc026c507b975aa053a382bbce2ae3",
+      "profile": "diagnostic_zone_refusal",
+      "expected_java": {
+        "outcome": "builder_refused",
+        "duration_method_invoked": false,
+        "duration_millis": null,
+        "exception_class": "java.time.zone.ZoneRulesException",
+        "configuration_unchanged": null,
+        "tzdb_version_hypothesis": null,
+        "configuration_available": false,
+        "source_input_unchanged": true,
+        "exception_stage": "CalendarModelBuilder.withZoneId"
+      },
+      "expected_rust": {
+        "outcome": "refused",
+        "duration_millis": null,
+        "error_code": "calendar_timezone",
+        "configuration_unchanged": true,
+        "iana_tzdb_version": "2025b"
+      },
+      "derivation": {
+        "method": "Explicit frozen UTC boundaries and local wall-clock arithmetic; no Java/Rust/calendar API or OS zone engine executed",
+        "utc_contributing_segments": [],
+        "utc_sum_millis": null,
+        "java_local_arithmetic": "No valid ZoneId; JavawithZoneId fails before duration invocation"
+      },
+      "comparison_policy": "Compare exact duration/configuration on overlap; retain predeclared semantic/refusal difference without equality PASS",
+      "runtime_tzdb_not_yet_observed": true,
+      "main_duration_equality_expected": false,
+      "secondary_api_difference_expected": false
+    },
+    {
+      "id": "overnight-invalid",
+      "file": "overnight-invalid.json",
+      "sha256": "63b95b988dcec9af1455d5825e696df1aa131cdafc148b845817c860a0e9fda8",
+      "profile": "diagnostic_overnight_policy",
+      "expected_java": {
+        "outcome": "duration",
+        "duration_method_invoked": true,
+        "duration_millis": -57600000,
+        "exception_class": null,
+        "configuration_unchanged": true,
+        "tzdb_version_hypothesis": "2026b",
+        "duration_seconds": -57600,
+        "duration_nanos": 0,
+        "get_duration_millis_secondary": -57600000,
+        "configuration_available": true,
+        "source_input_unchanged": true
+      },
+      "expected_rust": {
+        "outcome": "refused",
+        "duration_millis": null,
+        "error_code": "calendar_policy",
+        "configuration_unchanged": true,
+        "iana_tzdb_version": "2025b"
+      },
+      "derivation": {
+        "method": "Explicit frozen UTC boundaries and local wall-clock arithmetic; no Java/Rust/calendar API or OS zone engine executed",
+        "utc_contributing_segments": [],
+        "utc_sum_millis": null,
+        "java_local_arithmetic": "Directupstreambuilder accepts22-06; same-day helper clips22:00 to06:00 = -16h. Sourcehypothesis, not supported overnight business semantics"
+      },
+      "comparison_policy": "Compare exact duration/configuration on overlap; retain predeclared semantic/refusal difference without equality PASS",
+      "runtime_tzdb_not_yet_observed": true,
+      "main_duration_equality_expected": false,
+      "secondary_api_difference_expected": false
+    },
+    {
+      "id": "reversed",
+      "file": "reversed.json",
+      "sha256": "9f9fcb246c62125dbf193eac8a0183ebaa00ce7b87a87c373072f3d88ca23ee6",
+      "profile": "diagnostic_reversed_policy",
+      "expected_java": {
+        "outcome": "duration",
+        "duration_method_invoked": true,
+        "duration_millis": 0,
+        "exception_class": null,
+        "configuration_unchanged": true,
+        "tzdb_version_hypothesis": "2026b",
+        "duration_seconds": 0,
+        "duration_nanos": 0,
+        "get_duration_millis_secondary": 0,
+        "configuration_available": true,
+        "source_input_unchanged": true
+      },
+      "expected_rust": {
+        "outcome": "refused",
+        "duration_millis": null,
+        "error_code": "calendar_policy",
+        "configuration_unchanged": true,
+        "iana_tzdb_version": "2025b"
+      },
+      "derivation": {
+        "method": "Explicit frozen UTC boundaries and local wall-clock arithmetic; no Java/Rust/calendar API or OS zone engine executed",
+        "utc_contributing_segments": [],
+        "utc_sum_millis": null,
+        "java_local_arithmetic": "CalendarModel detects end<start and returnsDuration.ZERO; Rust rejects reversed interval"
+      },
+      "comparison_policy": "Compare exact duration/configuration on overlap; retain predeclared semantic/refusal difference without equality PASS",
+      "runtime_tzdb_not_yet_observed": true,
+      "main_duration_equality_expected": false,
+      "secondary_api_difference_expected": false
+    },
+    {
+      "id": "precision-api",
+      "file": "precision-api.json",
+      "sha256": "cda49f03a2871829ffd822843da68aa0c0f8b8d6a5dd45182beda5942224f7ad",
+      "profile": "overlap_with_secondary_api_diagnostic",
+      "expected_java": {
+        "outcome": "duration",
+        "duration_method_invoked": true,
+        "duration_millis": 1250,
+        "exception_class": null,
+        "configuration_unchanged": true,
+        "tzdb_version_hypothesis": "2026b",
+        "duration_seconds": 1,
+        "duration_nanos": 250000000,
+        "get_duration_millis_secondary": 1251,
+        "configuration_available": true,
+        "source_input_unchanged": true
+      },
+      "expected_rust": {
+        "outcome": "duration",
+        "duration_millis": 1250,
+        "error_code": null,
+        "configuration_unchanged": true,
+        "iana_tzdb_version": "2025b"
+      },
+      "derivation": {
+        "method": "Explicit frozen UTC boundaries and local wall-clock arithmetic; no Java/Rust/calendar API or OS zone engine executed",
+        "utc_contributing_segments": [
+          {
+            "start": "2026-06-01T09:00:00Z",
+            "end": "2026-06-01T09:00:01.250Z",
+            "elapsed_millis": 1250
+          }
+        ],
+        "utc_sum_millis": 1250,
+        "java_local_arithmetic": "getDuration=1s+250000000ns; toMillis1250; separate getDurationMillis compares250000000>500000 then truncated1250+1=1251"
+      },
+      "comparison_policy": "Compare exact duration/configuration on overlap; retain predeclared semantic/refusal difference without equality PASS",
+      "runtime_tzdb_not_yet_observed": true,
+      "main_duration_equality_expected": true,
+      "secondary_api_difference_expected": true
+    }
+  ],
+  "invariants": {
+    "fresh_original_builder_per_case": true,
+    "no_getDuration_implementation_or_local_predicate_in_adapter": true,
+    "explicit_workdays_times_not_withWork9to5Day_shortcut": true,
+    "holiday_type": "PUBLIC",
+    "input_and_public_config_before_after_exact": true,
+    "record_duration_seconds_and_nanos_before_toMillis": true,
+    "main_java_method": "CalendarModel.getDuration(Instant,Instant).toMillis()",
+    "secondary_java_method": "CalendarModel.getDurationMillis(Instant,Instant)",
+    "runtime_versions_required": "ZoneRulesProvider versions per admitted zone plus RustIANA_TZDB_VERSION; invalid zone exception separate",
+    "expected_version_is_unexecuted_hypothesis": true,
+    "public_configuration_fields": "zoneId, workDays(dayOfWeek/startTime/endTime/workingDay), holidays(type/date); nondeterministic creation metadata recorded before/after separately, not invented frozen values"
+  },
+  "no_engine_execution_before_freeze": true,
+  "no_whole_R5_or_calendar_parity_claim": true
+}

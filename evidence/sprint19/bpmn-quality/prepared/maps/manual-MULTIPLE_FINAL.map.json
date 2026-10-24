@@ -1,0 +1,35 @@
+{
+  "kind": "frozen_symbolic_manual_net",
+  "symbolic_spec": {
+    "arcs": [
+      [
+        "p0",
+        "a",
+        1
+      ],
+      [
+        "a",
+        "pf",
+        1
+      ]
+    ],
+    "finals": [
+      {
+        "pf": 1
+      },
+      {
+        "p0": 1
+      }
+    ],
+    "initial": {
+      "p0": 1
+    },
+    "places": [
+      "p0",
+      "pf"
+    ],
+    "transitions": {
+      "a": "A"
+    }
+  }
+}

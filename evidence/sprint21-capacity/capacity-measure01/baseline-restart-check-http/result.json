@@ -1,0 +1,140 @@
+{
+  "events": [
+    {
+      "label": "health-headers",
+      "phase_elapsed_seconds": 0.06533730000228388,
+      "status": 200
+    },
+    {
+      "label": "health",
+      "phase_elapsed_seconds": 0.06541070000093896,
+      "response_bytes": 36,
+      "response_sha256": "9B657A30CB3BC29DA8DBDE6BDB05F82EFC4CEA816D44629B8BFF900A69A66307",
+      "response_wall_seconds": 0.002584900001238566,
+      "status": 200
+    },
+    {
+      "label": "job-snapshot-headers",
+      "phase_elapsed_seconds": 0.08468310000171186,
+      "status": 200
+    },
+    {
+      "label": "job-snapshot",
+      "phase_elapsed_seconds": 0.08475520000138204,
+      "response_bytes": 633,
+      "response_sha256": "904DA7DCA14E0968214CCCBA93D1D41E26295F14A7B375E1578684206105DC9B",
+      "response_wall_seconds": 0.0066767000025720336,
+      "status": 200
+    },
+    {
+      "label": "restart-control-payload-headers",
+      "phase_elapsed_seconds": 0.11488250000184053,
+      "status": 200
+    },
+    {
+      "label": "restart-control-payload",
+      "phase_elapsed_seconds": 0.11497610000151326,
+      "response_bytes": 125,
+      "response_sha256": "F14031CC8FCDF5119AFFAF1C2490D54B779A0929754DEE6DDF8D6280971E2905",
+      "response_wall_seconds": 0.004922500000247965,
+      "status": 200
+    },
+    {
+      "label": "restart-control-report-headers",
+      "phase_elapsed_seconds": 0.14537960000234307,
+      "status": 200
+    },
+    {
+      "label": "restart-control-report",
+      "phase_elapsed_seconds": 0.1454637000024377,
+      "response_bytes": 4075,
+      "response_sha256": "B76B75C8E14E2D7CB516246CA2C504B79FC0DDA2D6A7FE6E0C72C24ABF4EB750",
+      "response_wall_seconds": 0.0042347999988123775,
+      "status": 200
+    },
+    {
+      "label": "job-snapshot-headers",
+      "phase_elapsed_seconds": 0.15200090000143973,
+      "status": 200
+    },
+    {
+      "label": "job-snapshot",
+      "phase_elapsed_seconds": 0.15204350000203704,
+      "response_bytes": 637,
+      "response_sha256": "968002EEA082A378703124F7FE9DFA7ADDC4B87489515DD6B64618A0C2C665A2",
+      "response_wall_seconds": 0.0025103000007220544,
+      "status": 200
+    },
+    {
+      "label": "restart-padded-payload-headers",
+      "phase_elapsed_seconds": 0.9017278999999689,
+      "status": 200
+    },
+    {
+      "label": "restart-padded-payload",
+      "phase_elapsed_seconds": 0.9018200999998953,
+      "response_bytes": 125,
+      "response_sha256": "F14031CC8FCDF5119AFFAF1C2490D54B779A0929754DEE6DDF8D6280971E2905",
+      "response_wall_seconds": 0.7297241000014765,
+      "status": 200
+    },
+    {
+      "label": "restart-padded-report-headers",
+      "phase_elapsed_seconds": 1.733469700000569,
+      "status": 200
+    },
+    {
+      "label": "restart-padded-report",
+      "phase_elapsed_seconds": 1.733587400001852,
+      "response_bytes": 4080,
+      "response_sha256": "2055FFD0FE3D21045062A084E4D1811E91D78DDD96B52F97F3DA526B2CCA7C78",
+      "response_wall_seconds": 0.8278091000029235,
+      "status": 200
+    }
+  ],
+  "input_manifest_sha256": "514F66245638176F87A635AEC2771610C0708A42E68349878C91A3B545E8C340",
+  "phase_wall_seconds": 1.7360603000015544,
+  "result": {
+    "all_cases_had_completed_pairs": true,
+    "case": "restart-check",
+    "cases": [
+      {
+        "case": "control",
+        "had_completed_pair": true,
+        "job_id": "job-1",
+        "payload_bytes": 125,
+        "payload_sha256": "F14031CC8FCDF5119AFFAF1C2490D54B779A0929754DEE6DDF8D6280971E2905",
+        "report_bytes": 4075,
+        "report_sha256": "B76B75C8E14E2D7CB516246CA2C504B79FC0DDA2D6A7FE6E0C72C24ABF4EB750",
+        "state": "completed",
+        "states": [
+          {
+            "phase_elapsed_seconds": 0.08493760000055772,
+            "revision": 2,
+            "state": "completed"
+          }
+        ]
+      },
+      {
+        "case": "padded",
+        "had_completed_pair": true,
+        "job_id": "job-3",
+        "payload_bytes": 125,
+        "payload_sha256": "F14031CC8FCDF5119AFFAF1C2490D54B779A0929754DEE6DDF8D6280971E2905",
+        "report_bytes": 4080,
+        "report_sha256": "2055FFD0FE3D21045062A084E4D1811E91D78DDD96B52F97F3DA526B2CCA7C78",
+        "state": "completed",
+        "states": [
+          {
+            "phase_elapsed_seconds": 0.15217090000078315,
+            "revision": 2,
+            "state": "completed"
+          }
+        ]
+      }
+    ],
+    "saved_pairs_and_terminal_states_unchanged": true
+  },
+  "server_memory_latency_slo_or_browser_acceptance_not_claimed": true,
+  "status": "OBSERVATION_COMPLETED"
+}

@@ -1,0 +1,134 @@
+{
+  "corpus_sha256": "fab7e1952bf5fab56c210023cd6d8b13fa4e19874ed5762330c78bbda68ce075",
+  "nets": [
+    {
+      "admission": {
+        "limit": 10000,
+        "markings": 4,
+        "max_tokens_per_place": 1,
+        "status": "exhaustive_reachable_marking_admission"
+      },
+      "algorithm": "alpha+++",
+      "config": {
+        "absolute_df_clean_thresh": 1,
+        "balance_thresh": 1.0,
+        "fitness_thresh": 0.0,
+        "log_repair_loop_df_thresh_rel": 10000.0,
+        "log_repair_skip_df_thresh_rel": 10000.0,
+        "relative_df_clean_thresh": 0.0,
+        "replay_thresh": 0.0
+      },
+      "elapsed_discovery_adapter_ns": 5286900,
+      "id": "A10",
+      "library": "process_mining@0.6.2",
+      "net_file": "A10.net.json",
+      "net_sha256": "4c8da007ed018e5587148ce0949933a442bcabf2b242481c7b9cc6bc496ef95b",
+      "pnml_file": "A10.pnml",
+      "pnml_sha256": "a543c8fee76b1295b9685b03577ba0f2e57e0071f9610dd6e23c6a38e44d1e3f",
+      "projected_variants": [
+        [
+          [
+            "A",
+            "B",
+            "C"
+          ],
+          20
+        ]
+      ],
+      "training_sha256": "7fac5eab2de9d4feb646aa3d2bcdcc553da01840a345cfda770e73b91dc896ad"
+    },
+    {
+      "admission": {
+        "limit": 10000,
+        "markings": 4,
+        "max_tokens_per_place": 1,
+        "status": "exhaustive_reachable_marking_admission"
+      },
+      "algorithm": "alpha+++",
+      "config": {
+        "absolute_df_clean_thresh": 1,
+        "balance_thresh": 1.0,
+        "fitness_thresh": 0.0,
+        "log_repair_loop_df_thresh_rel": 10000.0,
+        "log_repair_skip_df_thresh_rel": 10000.0,
+        "relative_df_clean_thresh": 0.0,
+        "replay_thresh": 0.0
+      },
+      "elapsed_discovery_adapter_ns": 3633000,
+      "id": "A11",
+      "library": "process_mining@0.6.2",
+      "net_file": "A11.net.json",
+      "net_sha256": "721472845f36c042f8af221cf7909f21844e16c3517f9cebbe6409b6670f6e11",
+      "pnml_file": "A11.pnml",
+      "pnml_sha256": "6e2a6b8050cf572d624fd5d90a2612692f95cfafe5ebb5e6daa01aa874786424",
+      "projected_variants": [
+        [
+          [
+            "A",
+            "B",
+            "D"
+          ],
+          20
+        ],
+        [
+          [
+            "A",
+            "C",
+            "D"
+          ],
+          20
+        ]
+      ],
+      "training_sha256": "1e04b030861589c145f186546e0912f607fd2d04fb241549b1d46f5bb005834e"
+    },
+    {
+      "admission": {
+        "limit": 10000,
+        "markings": 6,
+        "max_tokens_per_place": 1,
+        "status": "exhaustive_reachable_marking_admission"
+      },
+      "algorithm": "alpha+++",
+      "config": {
+        "absolute_df_clean_thresh": 1,
+        "balance_thresh": 1.0,
+        "fitness_thresh": 0.0,
+        "log_repair_loop_df_thresh_rel": 10000.0,
+        "log_repair_skip_df_thresh_rel": 10000.0,
+        "relative_df_clean_thresh": 0.0,
+        "replay_thresh": 0.0
+      },
+      "elapsed_discovery_adapter_ns": 3193300,
+      "id": "A12",
+      "library": "process_mining@0.6.2",
+      "net_file": "A12.net.json",
+      "net_sha256": "cf4d7983495c9df33a44aec385e878b96119c93bebbf7b963c06ca75b983296d",
+      "pnml_file": "A12.pnml",
+      "pnml_sha256": "f4ca4bef8fe132dfc6e39c6e4c73c5a662e677d1d5a1fe0fcd2b3289fb7d113e",
+      "projected_variants": [
+        [
+          [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          20
+        ],
+        [
+          [
+            "A",
+            "C",
+            "B",
+            "D"
+          ],
+          20
+        ]
+      ],
+      "training_sha256": "d28112778a63a9614dd91791411a6cd3032a7a54df90cdb750b0a5c48339c649"
+    }
+  ],
+  "observer_source_sha256": "8e0264a47448685fbb7ac9aeecdb06a7470ba36297bcfabec99156c540ac332a",
+  "phase": "mine_only_no_alignment",
+  "schema_version": 1
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "role": "TD",
+  "agent_name": "td_s20_delivery",
+  "utc": "2026-10-22T22:14:52.2038281+00:00",
+  "vote": "FOR",
+  "proposal_id": "SPRINT21_CAPACITY_FINAL_CANDIDATE_02",
+  "proposal_sha256": "E5E29E6CB5521F450C7E60FCE52A9B7D63A59164B0FB593A48A589E9DB387C26",
+  "frozen_candidate_sha256": "4BBCC387CE84A4E9535AB3C8B3F072EC75B92D240F3F53EE0ECEE916A4755EFD",
+  "checked_files": 880,
+  "workspace_mismatches": 0,
+  "staged_mode_blob_mismatches": 0,
+  "changed_from_first_freeze": [
+    ".gitattributes"
+  ],
+  "reason": "Verified the sole non-Council delta adds two narrow raw CAP stdout/stderr whitespace attributes. Product and evidence bytes remain identical; original publication failure and first votes remain historical. Existing finite technical acceptance applies to unchanged product.",
+  "conditions": [
+    "Every required gate in exact proposal02 remains mandatory, including public replay, dual exact-commit CI, dual whole anonymous archive audits and actual resource/process/deadline closure.",
+    "No hard RAM ceiling, exactly-once, speedup, production SLO, enterprise or full Apromore equivalence; same finite bounds and unchanged V3.",
+    "No release tag or merge authorized; public delivery remains pending."
+  ],
+  "actual_vote": true
+}

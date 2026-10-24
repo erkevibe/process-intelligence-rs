@@ -1,0 +1,22 @@
+{
+  "utc": "2026-10-11T14:09:12.5602709Z",
+  "source_commit": "b4edef34b083d1cb7737cf648f1c051eeb94127a",
+  "exe_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+  "input_sha256": "77CB7FD43636236B781387BF69E5EC50186E285C3971C52A50A900C930785BAD",
+  "verdict": "Supports bounded actual current C2 F01-F03 phases and expected whole-state outcomes, not overall release",
+  "checks": "All74selectedfiles fullread/hash/bytes0mismatch. Native current source/exe bindings checked. Independently rawwhole source F01/F02 PRE unchanged; F03 exact2candidateKV removed only. All3 restorefullSHA unchanged.",
+  "phases": [
+    "F01 externalbackend39088 actualxact+fivegrantedSRE witness then DELETE notforwarded13:14:38.902; Apply1/observer0.",
+    "F02 exactDELETE2 complete13:17:00.207 then COMMITnotforwarded13:17:01.374; Apply3/observer0.",
+    "F03 exactDELETE2 then realCOMMIT13:18:49.607, responsewithheld13:18:49.611; Apply3/observer0."
+  ],
+  "limits": [
+    "One TD guessed f02directory absent readfailed after74hashchecks; corrected using actual inventory paths, no test rerun.",
+    "F02 first wrong archive preparation/refused Verify preserved; no credit transfer.",
+    "No globalexactlyonce/generalPGACK guarantee/exhaustive descendant inventory."
+  ],
+  "wrapper_review": {
+    "sha256": "7BE2FDF6CC59A1CCCB24E1A611409BC9F6D1CDEBBA7ECDD65C2B6021388AD8C4",
+    "decision": "Fullread/hash matched; scopedGO native wrapper exactE06 run after primaryQuietRelease/ownedpreflights, no actualprecommitPASS"
+  }
+}

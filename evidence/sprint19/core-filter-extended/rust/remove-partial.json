@@ -1,0 +1,168 @@
+{
+  "engine": "process_intelligence_rs::filters::apply",
+  "engine_call_count": 1,
+  "error": null,
+  "filter_spec": {
+    "case_activity": null,
+    "max_events": null,
+    "min_events": null,
+    "remove_activities": [
+      "A"
+    ],
+    "retain_activities": []
+  },
+  "filter_spec_unchanged": true,
+  "id": "remove-partial",
+  "input_sha256": "4c0c1a02d112e5157ca4af15aa969f32ed2767dc416f5855e4f69bec00b4c0a3",
+  "outcome": "filtered",
+  "schema_version": 1,
+  "scope": "Actual production filter once; source positions derived only from returned exact identities, no selection predicate or legacy export",
+  "selected_event_positions": [
+    [
+      1
+    ],
+    [
+      0
+    ]
+  ],
+  "selected_source_indices": [
+    0,
+    1
+  ],
+  "selected_source_log": {
+    "cases": [
+      {
+        "events": [
+          {
+            "activity": "B",
+            "lifecycle": "complete",
+            "ordinal": 10,
+            "timestamp": "2024-01-01T00:00:39.123Z"
+          }
+        ],
+        "id": "remove-partial-source-0",
+        "name": "remove-partial-trace-0"
+      },
+      {
+        "events": [
+          {
+            "activity": "B",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          }
+        ],
+        "id": "remove-partial-source-1",
+        "name": "remove-partial-trace-1"
+      }
+    ],
+    "name": "Extended Core filter remove-partial",
+    "warnings": [
+      "synthetic warning retained for remove-partial"
+    ]
+  },
+  "source_after_sha256": "5f9c5aef6537abdac604d9a36d1b465e2883521093318d45b09ae26d9b5a1635",
+  "source_before_sha256": "5f9c5aef6537abdac604d9a36d1b465e2883521093318d45b09ae26d9b5a1635",
+  "source_domain_after": {
+    "cases": [
+      {
+        "events": [
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          },
+          {
+            "activity": "B",
+            "lifecycle": "complete",
+            "ordinal": 10,
+            "timestamp": "2024-01-01T00:00:39.123Z"
+          }
+        ],
+        "id": "remove-partial-source-0",
+        "name": "remove-partial-trace-0"
+      },
+      {
+        "events": [
+          {
+            "activity": "B",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          },
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 10,
+            "timestamp": "2024-01-01T00:00:39.123Z"
+          },
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 17,
+            "timestamp": "2024-01-01T00:00:38.123Z"
+          }
+        ],
+        "id": "remove-partial-source-1",
+        "name": "remove-partial-trace-1"
+      }
+    ],
+    "name": "Extended Core filter remove-partial",
+    "warnings": [
+      "synthetic warning retained for remove-partial"
+    ]
+  },
+  "source_domain_before": {
+    "cases": [
+      {
+        "events": [
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          },
+          {
+            "activity": "B",
+            "lifecycle": "complete",
+            "ordinal": 10,
+            "timestamp": "2024-01-01T00:00:39.123Z"
+          }
+        ],
+        "id": "remove-partial-source-0",
+        "name": "remove-partial-trace-0"
+      },
+      {
+        "events": [
+          {
+            "activity": "B",
+            "lifecycle": "complete",
+            "ordinal": 3,
+            "timestamp": "2024-01-01T00:00:40.123Z"
+          },
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 10,
+            "timestamp": "2024-01-01T00:00:39.123Z"
+          },
+          {
+            "activity": "A",
+            "lifecycle": "complete",
+            "ordinal": 17,
+            "timestamp": "2024-01-01T00:00:38.123Z"
+          }
+        ],
+        "id": "remove-partial-source-1",
+        "name": "remove-partial-trace-1"
+      }
+    ],
+    "name": "Extended Core filter remove-partial",
+    "warnings": [
+      "synthetic warning retained for remove-partial"
+    ]
+  },
+  "source_unchanged": true,
+  "status": "ACTUAL_RUST_EXTENDED_FILTER_OBSERVED"
+}

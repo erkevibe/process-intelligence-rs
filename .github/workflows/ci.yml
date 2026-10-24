@@ -11,18 +11,173 @@ jobs:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
         with:
           persist-credentials: false
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
       - name: Pinned toolchain
         run: rustup toolchain install 1.99.0 --profile minimal --component rustfmt,clippy
       - run: cargo fmt --all -- --check
       - run: cargo clippy --locked --all-targets -- -D warnings
       - run: cargo test --locked --all-targets
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24.19.0'
       - name: XES oracle provenance guards
         run: node tests/oracle_xes_tools.mjs
       - name: Service method provenance guards
         run: node tests/service-oracle-tools.mjs
+      - name: Sprint16 fieldwise comparator and BPMN geometry regressions
+        run: |
+          node tests/full_service_comparator.mjs
+          node tests/sprint16_bpmn_geometry.cjs
+          mkdir -p .local/sprint16/service
+          python3 tools/oracle/full-service-bootstrap-tests.py
+      - name: Sprint18 public-service comparator regressions
+        run: |
+          node tests/public_service_comparator.mjs
+          node tests/core_filter_comparator.mjs
+          node tests/sprint18_bpmn_labels.cjs
+          mkdir -p .local/sprint18
+          node tools/oracle/compare-public-service.mjs --matrix evidence/sprint18/public-service/reference-index.json evidence/sprint18/public-service/rust-index.json .local/sprint18/public-comparison.json
+          node tools/oracle/compare-core-filter.mjs evidence/sprint18/core-filter/java-index.json evidence/sprint18/core-filter/rust-index.json .local/sprint18/core-filter-comparison.json
+          node -e "const r=require('./.local/sprint18/core-filter-comparison.json'); if(r.case_count!==8 || r.cases.some(c=>!c.all_frozen_hypotheses_match || (c.profile==='overlap' && c.overlap_fields_match!==true))) process.exit(1);"
+      - name: Sprint18 finite Petri alignment evidence
+        run: |
+          mkdir -p .local/sprint18/alignment-tools
+          python3 -B tools/oracle/verify-alignment-evidence.py evidence/sprint18/alignment-fitness
+          python3 -B tests/alignment_evidence_tools.py --workroot .local/sprint18/alignment-tools
+      - name: Sprint19 BPMN quality and independent saved-evidence audit
+        run: |
+          mkdir -p .local/sprint19/ci-temp .local/sprint19/ci-audit
+          python3 -B tests/quality_graph_comparator.py
+          python3 -B tests/quality_net_conservation.py
+          TMPDIR="$PWD/.local/sprint19/ci-temp" python3 -B tests/sprint19_quality_di.py
+          TMPDIR="$PWD/.local/sprint19/ci-temp" python3 -B tests/sprint19_schema_hint.py
+          TMPDIR="$PWD/.local/sprint19/ci-temp" python3 -B tests/sprint19_quality_miner_project.py
+          python3 -B tools/sprint19/verify-quality-manifest.py evidence/sprint19/miner-quality
+          python3 -B tools/oracle/audit-quality-cohort.py --corpus fixtures/quality-miner/corpus.json --prepared evidence/sprint19/miner-quality/prepared --conversion evidence/sprint19/miner-quality/reference-conversion --rust evidence/sprint19/miner-quality/rust-metrics.json --reference evidence/sprint19/miner-quality/reference-metrics.json --output .local/sprint19/ci-audit/miner-audit.json
+          python3 -B tools/sprint19/verify-core-projection.py evidence/sprint19/core-calendar
+          python3 -B tools/sprint19/verify-core-projection.py evidence/sprint19/core-filter-extended
+          node tools/oracle/compare-core-calendar.mjs evidence/sprint19/core-calendar/java-index.json evidence/sprint19/core-calendar/rust-index.json .local/sprint19/ci-audit/calendar.json
+          node tools/oracle/compare-core-filter-extended.mjs evidence/sprint19/core-filter-extended/java-index.json evidence/sprint19/core-filter-extended/rust-index.json .local/sprint19/ci-audit/filter.json
+          node -e "for (const [f,n] of [['calendar',13],['filter',8]]) { const r=require('./.local/sprint19/ci-audit/'+f+'.json'); if(r.case_count!==n || r.cases.length!==n || r.cases.some(c=>!c.all_frozen_hypotheses_match || (f==='calendar' ? c.main_equality_eligible && c.main_overlap_fields_match!==true : c.profile==='overlap' && c.overlap_fields_match!==true))) process.exit(1); }"
+          node --test tools/oracle/compare-core-calendar.test.mjs tools/oracle/compare-core-filter-extended.test.mjs
+          TMPDIR="$PWD/.local/sprint19/ci-temp" python3 -B tools/oracle/core-calendar-public-projection-tests.py
+          python3 -B tools/sprint19/verify-quality-manifest.py evidence/sprint19/bpmn-quality
+          python3 -B tools/oracle/audit-quality-evidence.py --rust evidence/sprint19/bpmn-quality/rust-metrics.json --reference evidence/sprint19/bpmn-quality/reference-metrics.json --prepared evidence/sprint19/bpmn-quality/prepared --corpus fixtures/quality/corpus.json --output .local/sprint19/ci-audit/independent-audit.json
+      - name: Sprint20 conversions and saved SplitMiner measurements
+        run: |
+          mkdir -p .local/sprint20/ci
+          python3 -B tools/sprint20/verify-evidence-manifest.py evidence/sprint20
+          python3 -B tests/sprint20_evidence_manifest.py
+          python3 -B tests/conversion_evidence_auditor.py
+          python3 -B tools/oracle/audit-miner-performance-tests.py
+          python3 -B tools/oracle/audit-miner-benchmark-evidence-tests.py
+          python3 -B tools/sprint20/project-public-evidence-tests.py
+          python3 -B tests/public_projection_independent.py
+          python3 -B tools/oracle/audit-conversion-evidence.py --corpus fixtures/conversions/corpus.json --index evidence/sprint20/conversions/index.json --boundary-index evidence/sprint20/conversion-boundaries/index.json --output .local/sprint20/ci/conversion-audit.json
+          python3 -B tests/conversion_evidence_counterfactuals.py --corpus fixtures/conversions/corpus.json --index evidence/sprint20/conversions/index.json --boundary-index evidence/sprint20/conversion-boundaries/index.json --output-directory .local/sprint20/ci/conversion-counterfactuals
+          python3 -B tools/oracle/audit-miner-benchmark-evidence.py --corpus fixtures/oracle-miner-performance/corpus.json --index evidence/sprint20/miner-performance/index.json --public-projection evidence/sprint20/public-projection.json --output .local/sprint20/ci/miner-audit.json
+          python3 -c "import json; r=json.load(open('.local/sprint20/ci/miner-audit.json')); assert r['status']=='COMPLETE_FROZEN_BENCHMARK_AND_CONDITIONAL_HISTORICAL_CARRY' and not r['errors'] and r['completed_call_rows']==64 and r['full_semantic_maps']==56"
+      - name: Sprint21 conversion revisions and public evidence
+        run: |
+          mkdir -p .local/sprint21/ci
+          node tests/sprint21_conversion_revisions.cjs
+          python3 -B tests/sprint21_public_projection.py
+          python3 -B tools/oracle/audit-conversion-evidence.py --corpus fixtures/conversions/corpus.json --index evidence/sprint21/conversions/index.json --boundary-index evidence/sprint21/conversion-boundaries/index.json --output .local/sprint21/ci/conversion-audit.json
+          python3 -B tests/conversion_evidence_counterfactuals.py --corpus fixtures/conversions/corpus.json --index evidence/sprint21/conversions/index.json --boundary-index evidence/sprint21/conversion-boundaries/index.json --output-directory .local/sprint21/ci/conversion-counterfactuals
+          python3 -B tools/oracle/audit-conversion-browser-evidence.py "$PWD" evidence/sprint21/browser .local/sprint21/ci/browser-audit.json
+          python3 -B tools/oracle/audit-conversion-browser-evidence.py "$PWD" evidence/sprint21-capacity/browser .local/sprint21/ci/capacity-browser-audit.json
+      - name: Sprint22 calendar evidence and bounded package controls
+        run: |
+          mkdir -p "$RUNNER_TEMP/sprint22-calendar-controls"
+          python3 -I -B tools/sprint22-calendar/check-package-controls.py evidence/sprint22-calendar tools/sprint22-calendar "$RUNNER_TEMP/sprint22-calendar-controls" CA16825641A98A31D4DE0777371358D79711DD7A51663D5379A63ADBBD390573
+      - name: Sprint22 calendar form saved HTTP audit
+        run: |
+          python3 -I -B tools/sprint22-calendar-form/audit-http.py evidence/sprint22-calendar-form/http-c02 evidence/sprint22-calendar-form/http-c03 "$RUNNER_TEMP/sprint22-calendar-form-audit.json"
+      - name: Sprint23 compact reports and independent corpus audit
+        run: |
+          mkdir -p .local/sprint21/root/sprint23/ci-corpus .local/sprint21/root/sprint23/ci-corpus-audit .local/sprint21/root/sprint23/ci-corpus-controls
+          cargo run --locked --example sprint23_corpus -- "$PWD/.local/sprint21/root/sprint23/ci-corpus"
+          codec_sha=$(sha256sum src/conversion/compact.rs | cut -d ' ' -f 1)
+          python3 -B tools/sprint23/audit-corpus.py "$PWD/.local/sprint21/root/sprint23/ci-corpus" "$PWD/.local/sprint21/root/sprint23/ci-corpus-audit" --auditor "$PWD/tools/sprint23/audit-compact.py" --oracle "$PWD/tools/oracle/audit-conversion-evidence.py" --corpus "$PWD/fixtures/conversions/corpus.json" --source-root "$PWD" --codec-sha "$codec_sha"
+          python3 -B tools/sprint23/check-corpus-controls.py "$PWD/.local/sprint21/root/sprint23/ci-corpus" "$PWD/.local/sprint21/root/sprint23/ci-corpus-controls" --batch "$PWD/tools/sprint23/audit-corpus.py" --auditor "$PWD/tools/sprint23/audit-compact.py" --oracle "$PWD/tools/oracle/audit-conversion-evidence.py" --corpus "$PWD/fixtures/conversions/corpus.json" --source-root "$PWD" --codec-sha "$codec_sha"
+          python3 -B tools/sprint23/check-compact-controls.py "$PWD/tools/sprint23/audit-compact.py" 048A57750159B49D20E3CCABB02ACB1A7C4320A1C676DAB1B91291CF7114B802 "$PWD/tools/oracle/audit-conversion-evidence.py" "$PWD/fixtures/conversions" "$PWD/.local/sprint21/root/sprint23/ci-codec-controls.json"
+          python3 -B tools/sprint23/decode-report.py "$PWD/.local/sprint21/root/sprint23/ci-corpus/X01.compact.json" "$PWD/.local/sprint21/root/sprint23/ci-decoded-report.json" --codec-sha "$codec_sha"
+            mkdir -p .local/sprint21/root/sprint23/ci-transport-controls
+            python3 -I -B tools/sprint23/check-transport-controls.py "$PWD/tools/sprint23/evidence-transport.py" "$PWD/.local/sprint21/root/sprint23/ci-transport-controls" --workspace "$PWD" --auditor "$PWD/tools/sprint23/audit-compact.py"
+            python3 -I -B tools/sprint23/evidence-transport.py verify "$PWD/evidence/sprint23" --workspace "$PWD" --selection-sha 0E723F7BE2B611F69B2851B19812848DEF54C5B4A3BEBA773232E31945DEB858 --auditor "$PWD/tools/sprint23/audit-compact.py"
+            mkdir -p .local/sprint21/root/sprint23/ci-selfcheck-kit
+            python3 -I -B tools/sprint23/check-selfcheck-kit.py "$PWD/evidence/sprint23-kit/checker-kit.zip" 020D9517DF44BF7EC5D97BD81945729FD71C2EA9E181900E1FBF6D4406BF1509 "$PWD/.local/sprint21/root/sprint23/ci-selfcheck-kit" --doc-sha 68836A12BB2A3F6D7058D4675795FC8418DAC497778C465A16851C182E71ADE2 --workspace "$PWD" --source "$PWD/fixtures/conversions/flat-unicode.xes" --default-report "$PWD/.local/sprint21/root/sprint23/ci-corpus/X01.default.json" --compact-report "$PWD/.local/sprint21/root/sprint23/ci-corpus/X01.compact.json" --payload "$PWD/.local/sprint21/root/sprint23/ci-corpus/X01.payload"
+      - name: Sprint24 finite saved API and operational evidence
+        run: |
+          mkdir -p .local/sprint24/ci/journal
+          python3 -I -B tools/sprint24/check-journal.py --source tools/sprint24/current-api-http.py --out .local/sprint24/ci/journal
+          pwsh -NoProfile -File tools/sprint24/runtime/ops-protocol-controls02.ps1 -Protocol "$PWD/tools/sprint24/runtime/ops-pg-protocol02.psm1" -ProtocolSha CC86649476F7B2D57926477519BC0FF66ABEC340F5D88A8D6C7C6DFCA74082CF -Output "$PWD/.local/sprint24/ci/pg-protocol.json"
+          python3 -I -B tools/sprint24/check-saved.py evidence/sprint24/saved
+          mkdir -p .local/sprint21/root/sprint24/ci-saved-controls
+          python3 -I -B tools/sprint24/check-saved-controls.py --checker "$PWD/tools/sprint24/check-saved.py" --evidence "$PWD/evidence/sprint24/saved" --fixture "$PWD/.local/sprint21/root/sprint24/ci-saved-controls" --proof "$PWD/.local/sprint21/root/sprint24/ci-saved-controls-proof.json"
+          python3 -I -B tools/sprint24/compare-recovery.py --controls
+          python3 -I -B tools/sprint20/verify-evidence-manifest.py evidence/sprint24/dr-current
+          mkdir -p .local/sprint21/root/sprint24/ci-backup-path
+          pwsh -NoProfile -File tools/sprint24/backup-path-controls.ps1 -Source "$PWD/tools/database-backup.ps1" -SourceSha 368906C5D863B05F140BD6B502678D92023D590AABF3EBD22DDB65E152927B57 -Fixture "$PWD/.local/sprint21/root/sprint24/ci-backup-path"
+          python3 -I -B tools/sprint20/verify-evidence-manifest.py evidence/sprint24/backup-path
+      - name: Sprint23 saved SplitMiner scale evidence
+        run: |
+          mkdir -p .local/sprint21/root/sprint23/ci-miner-controls
+          python3 -I -B tools/sprint23-miner/check-controls.py "$PWD/tools/sprint23-miner/check-evidence.py" "$PWD/evidence/sprint23-miner/observations.zip" "$PWD/.local/sprint21/root/sprint23/ci-miner-controls" "$PWD/.local/sprint21/root/sprint23/ci-miner-controls.json"
+      - name: Diagnostic protocol and state oracle regressions
+        run: |
+          node tests/sql5-cycle-regression.cjs
+          node tests/cleanup-boundary-regression.cjs
+          node tests/stock-state-compare-regression.cjs
+          node tests/auth-delta-regression.cjs
+          node tests/audit-retention-regression.cjs
+      - name: Sprint12 lifecycle oracle regressions
+        run: |
+          node tests/sprint12-project-selector.cjs
+          mkdir -p .local/sprint12/root/ci-folder .local/sprint12/root/ci-project .local/sprint12/root/ci-resource
+          node tests/sprint12-folder-oracle.cjs .local/sprint12/root/ci-folder
+          node tests/sprint12-project-oracle.cjs .local/sprint12/root/ci-project
+          node tests/sprint12-resource-oracle.cjs .local/sprint12/root/ci-resource
+      - name: Sprint13 pure diagnostic regressions
+        run: |
+          node tests/sprint13_cleanup_boundary_regression.cjs
+          node tests/sprint13_complete_post_regression.cjs
+          mkdir -p .local/sprint13/root/ci-receipt .local/sprint13/root/ci-historical
+          cargo test --locked --lib receipt_snapshot_digest_public_calibration -- --nocapture > .local/sprint13/root/ci-receipt/rust-calibration.stdout
+          node tools/sprint13/receipt-regression.cjs .local/sprint13/root/ci-receipt .local/sprint13/root/ci-receipt/rust-calibration.stdout
+          node tools/sprint13/historical-oracle-regression.cjs .local/sprint13/root/ci-historical
+          cargo run --locked --example sprint13_recovery_exports -- --self-test
+          pwsh -NoProfile -File tests/sprint13_phase_command_names.ps1
+      - name: Sprint14 diagnostic source and deadline checks
+        run: |
+          pwsh -NoProfile -Command '& ./tests/sprint14_phase_command_names.ps1 -AdditionalFiles @("full-timeout-phase.ps1","restore-login-phase.ps1","small-holders-phase.ps1","futureclone-phase.ps1","resource-phase-budget.psm1","catalog-integration-phase.ps1","catalog-race-phase.ps1","catalog-import-phase.ps1","catalog-downgrade-phase.ps1","historical-write-phase.ps1","identity-denied-phase.ps1","browser-phase.ps1","full-lock2-hot-phase.ps1","check-profile-bindings.ps1")'
+          pwsh -NoProfile -File tools/sprint14/launch-reviewed-phase.ps1 -SelfTest
+          node --check tools/sprint14/sql5-stream-observer.cjs
+          node --check tools/sprint14/cleanup-boundary-observer.cjs
+          node --check tools/sprint14/restore-login-probe.cjs
+          node --check tools/sprint14/catalog-integration-probe.cjs
+          node --check tools/sprint14/catalog-race-probe.cjs
+          node --check tools/sprint14/catalog-import-probe.cjs
+          node --check tools/sprint14/historical-write-probe.cjs
+          node --check tools/sprint14/historical-write-state.cjs
+          node --check tools/sprint14/identity-denied-probe.cjs
+          node --check tools/sprint14/browser-bootstrap.cjs
+          node tests/sprint14_crlf_index.cjs .local/sprint14/root/ci-crlf
+      - name: Sprint15 diagnostic epoch checks
+        run: |
+          pwsh -NoProfile -Command '& ./tests/sprint15_phase_command_names.ps1 -AdditionalFiles @("resource-phase-budget.psm1","catalog-race-phase.ps1","catalog-downgrade-phase.ps1","full-lock2-hot-phase.ps1","browser-phase.ps1","check-profile-bindings.ps1","prepare-profile.ps1","launch-reviewed-phase.ps1","assert-writer-quiescence.ps1","catalog-invalid-phase.ps1","full-lock2-lifecycle-phase.ps1","full-lock2-stream-phase.ps1","owned-public-entry-service.psm1","browser-public-phase.ps1","validate-public-readback.ps1","validate-public-readback-bounded.ps1","public-readback-phase.ps1")'
+          pwsh -NoProfile -File tools/sprint15/launch-reviewed-phase.ps1 -SelfTest
+          pwsh -NoProfile -File tools/sprint15/assert-writer-quiescence.ps1 -SelfTest
+          # Linux predicates/file IO only; Windows sharing and AssertHot drive guard have native evidence.
+          pwsh -NoProfile -File tests/sprint15_hot_lifecycle.ps1
+          pwsh -NoProfile -File tests/sprint15_closed_stream.ps1 -FixtureDirectory "$RUNNER_TEMP/sprint15-closed-stream"
+          node --check tools/sprint15/catalog-race-probe.cjs
+          node --check tools/sprint15/browser-bootstrap.cjs
+          node --check tools/sprint15/cleanup-boundary-observer.cjs
       - name: Build release and local health smoke
         run: |
           cargo build --locked --release
+          cargo build --locked --release --example pi_convert
           PI_EPHEMERAL=1 target/release/process-intelligence-rs > server.log 2>&1 &
           server_pid=$!
           trap 'kill "$server_pid"' EXIT
@@ -33,8 +188,30 @@ jobs:
           grep -q '"status":"ready"' health.json
           mkdir -p dist
           cp target/release/process-intelligence-rs dist/
+          cp target/release/examples/pi_convert dist/
           cp -r static fixtures dist/
           cp README.md LICENSE docs/DEPENDENCIES.json dist/
+          cp docs/CONVERSIONS.md dist/
+            mkdir -p dist/docs dist/tools/sprint23 dist/tools/oracle
+          cp docs/COMPACT_REPORTS.md dist/docs/
+            cp docs/SELF_CHECK_RU.md dist/docs/
+          cp tools/sprint23/decode-report.py tools/sprint23/audit-compact.py dist/tools/sprint23/
+            cp tools/oracle/audit-conversion-evidence.py dist/tools/oracle/
+          cp docs/SPRINT_23_REPORT.md dist/CANDIDATE_STATUS.md
+          mkdir -p dist/tools/sprint23-miner dist/evidence
+          cp tools/sprint23-miner/*.py dist/tools/sprint23-miner/
+          cp tools/oracle/audit-miner-benchmark-evidence.py tools/oracle/audit-miner-performance.py dist/tools/oracle/
+          cp -r evidence/sprint23-miner dist/evidence/
+          cp docs/SPRINT_23_MINER_REPORT.md dist/docs/
+          cp -r tools/sprint24 dist/tools/
+          mkdir -p dist/tools/sprint20
+          cp tools/sprint20/verify-evidence-manifest.py dist/tools/sprint20/
+          cp -r evidence/sprint24 dist/evidence/
+          cp docs/CAPACITY_DIAGNOSTIC.md docs/DATABASE_RECOVERY.md docs/SPRINT_24_REPORT.md dist/docs/
+          cp docs/CURRENT_DATABASE_RESTORE.md docs/ENTERPRISE_QUOTA_PLAN.md dist/docs/
+          cp docs/SPRINT_24_DR_REPORT.md dist/docs/
+          cp docs/SPRINT_24_BACKUP_PATH_REPORT.md dist/docs/
+          cp tools/database-backup.ps1 dist/tools/
           tar -czf process-intelligence-rs-linux.tar.gz -C dist .
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
         with:

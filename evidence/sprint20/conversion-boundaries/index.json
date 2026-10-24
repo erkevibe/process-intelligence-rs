@@ -1,0 +1,231 @@
+{
+  "schema_version": 1,
+  "inputs_unchanged": true,
+  "converter_sha256": "C0BCC0C008133FB9C8EDC5AE3012422F3843070EA780F9BC1011DA3FDF66861F",
+  "external_input_sha256": "206A6259F715CB801B165B9B6D12382380D0741F88BBB2295A30BC87EF98666B",
+  "cases": [
+    {
+      "output_directory": "cases/novel-xes",
+      "id": "B01",
+      "from": "csv",
+      "input_path": "inputs/external.csv",
+      "allow_metadata_loss": false,
+      "timed_out_or_capture_stopped": false,
+      "native_exit": 0,
+      "to": "xes",
+      "expected": {
+        "status": "converted",
+        "core": {
+          "traces": [
+            {
+              "events": [
+                {
+                  "activity": "Review, café",
+                  "lifecycle": "complete",
+                  "timestamp": "2026-10-22T00:00:00.000000001Z"
+                }
+              ],
+              "name": "case-external"
+            }
+          ]
+        },
+        "no_fixture_lookup": true
+      },
+      "native_record_path": "cases/B01-capture/converter.process.json",
+      "files": [
+        {
+          "bytes": 316,
+          "sha256": "E364B698E34FA32AEB6F63065D99AD5DB8282055DE4E33CBE14EF960DF39D769",
+          "path": "payload.xes"
+        },
+        {
+          "bytes": 3832,
+          "sha256": "ED6FB205940BC42124DBFE702112691A5D3C578403334B54FA1AC8F934CF7FC5",
+          "path": "report.json"
+        }
+      ],
+      "expected_exit": 0
+    },
+    {
+      "output_directory": "cases/novel-csv",
+      "id": "B02",
+      "from": "xes",
+      "input_path": "cases/novel-xes/payload.xes",
+      "allow_metadata_loss": false,
+      "timed_out_or_capture_stopped": false,
+      "native_exit": 0,
+      "to": "csv",
+      "expected": {
+        "status": "converted",
+        "exact_csv_sha256": "206A6259F715CB801B165B9B6D12382380D0741F88BBB2295A30BC87EF98666B",
+        "core": {
+          "traces": [
+            {
+              "events": [
+                {
+                  "activity": "Review, café",
+                  "lifecycle": "complete",
+                  "timestamp": "2026-10-22T00:00:00.000000001Z"
+                }
+              ],
+              "name": "case-external"
+            }
+          ]
+        },
+        "separate_actual_inverse": true
+      },
+      "native_record_path": "cases/B02-capture/converter.process.json",
+      "files": [
+        {
+          "bytes": 106,
+          "sha256": "206A6259F715CB801B165B9B6D12382380D0741F88BBB2295A30BC87EF98666B",
+          "path": "payload.csv"
+        },
+        {
+          "bytes": 3832,
+          "sha256": "3C8329DDE71BD9A3FB63E26A636CE5409B45DB9162758E175D4A6DA2D47A4B5F",
+          "path": "report.json"
+        }
+      ],
+      "expected_exit": 0
+    },
+    {
+      "output_directory": "cases/existing-output",
+      "id": "B03",
+      "from": "csv",
+      "input_path": "inputs/external.csv",
+      "allow_metadata_loss": false,
+      "timed_out_or_capture_stopped": false,
+      "native_exit": 1,
+      "to": "xes",
+      "expected": {
+        "unchanged_marker_sha256": "07A61BF1BDBA1F8061B97415C9410E3F722A545E9DD3B7A1C56A4332529049EE",
+        "only_file": "keep.txt"
+      },
+      "native_record_path": "cases/B03-capture/converter.process.json",
+      "files": [
+        {
+          "bytes": 21,
+          "sha256": "07A61BF1BDBA1F8061B97415C9410E3F722A545E9DD3B7A1C56A4332529049EE",
+          "path": "keep.txt"
+        }
+      ],
+      "expected_exit": 1
+    },
+    {
+      "output_directory": "cases/oversized-result",
+      "id": "B04",
+      "from": "csv",
+      "input_path": "inputs/oversized.csv",
+      "allow_metadata_loss": false,
+      "timed_out_or_capture_stopped": false,
+      "native_exit": 1,
+      "to": "xes",
+      "expected": {
+        "no_output_directory": true,
+        "input_bytes": 20971521
+      },
+      "native_record_path": "cases/B04-capture/converter.process.json",
+      "files": [],
+      "expected_exit": 1
+    },
+    {
+      "output_directory": "cases/missing-result",
+      "id": "B05",
+      "from": "csv",
+      "input_path": "inputs/absent.csv",
+      "allow_metadata_loss": false,
+      "timed_out_or_capture_stopped": false,
+      "native_exit": 1,
+      "to": "xes",
+      "expected": {
+        "no_output_directory": true
+      },
+      "native_record_path": "cases/B05-capture/converter.process.json",
+      "files": [],
+      "expected_exit": 1
+    },
+    {
+      "output_directory": "cases/directory-result",
+      "id": "B06",
+      "from": "csv",
+      "input_path": "inputs",
+      "allow_metadata_loss": false,
+      "timed_out_or_capture_stopped": false,
+      "native_exit": 1,
+      "to": "xes",
+      "expected": {
+        "no_output_directory": true
+      },
+      "native_record_path": "cases/B06-capture/converter.process.json",
+      "files": [],
+      "expected_exit": 1
+    },
+    {
+      "output_directory": "cases/absent-parent/result",
+      "id": "B07",
+      "from": "csv",
+      "input_path": "inputs/external.csv",
+      "allow_metadata_loss": false,
+      "timed_out_or_capture_stopped": false,
+      "native_exit": 1,
+      "to": "xes",
+      "expected": {
+        "no_output_directory": true,
+        "no_parent_created": true
+      },
+      "native_record_path": "cases/B07-capture/converter.process.json",
+      "files": [],
+      "expected_exit": 1
+    },
+    {
+      "output_directory": "cases/whitespace-default",
+      "id": "B08",
+      "from": "csv",
+      "input_path": "inputs/whitespace.csv",
+      "allow_metadata_loss": false,
+      "timed_out_or_capture_stopped": false,
+      "native_exit": 2,
+      "to": "xes",
+      "expected": {
+        "only_report": true,
+        "status": "refused",
+        "reason": "production_xes_parser_refused"
+      },
+      "native_record_path": "cases/B08-capture/converter.process.json",
+      "files": [
+        {
+          "bytes": 1504,
+          "sha256": "E19FEED62BCD983BF257E12D0CED37E21497F5899FD2D4551E4F73EE3EB2F08D",
+          "path": "report.json"
+        }
+      ],
+      "expected_exit": 2
+    },
+    {
+      "output_directory": "cases/whitespace-allow",
+      "id": "B09",
+      "from": "csv",
+      "input_path": "inputs/whitespace.csv",
+      "allow_metadata_loss": true,
+      "timed_out_or_capture_stopped": false,
+      "native_exit": 2,
+      "to": "xes",
+      "expected": {
+        "only_report": true,
+        "status": "refused",
+        "reason": "production_xes_parser_refused"
+      },
+      "native_record_path": "cases/B09-capture/converter.process.json",
+      "files": [
+        {
+          "bytes": 1503,
+          "sha256": "43C00CBC6746CEDC3C685077A8C73E501B15CD4DA60C2D116774D17CEB1685EF",
+          "path": "report.json"
+        }
+      ],
+      "expected_exit": 2
+    }
+  ],
+  "scope": "Additional independently specified external-file/boundary observations; not part of the frozen57 and not self-asserted acceptance"
+}

@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "agent_name": "td_s20_delivery",
+  "actual_utc": "2026-10-23T20:20:14.469Z",
+  "status": "PUBLIC_DERIVED_SUMMARY_DERIVATION_PRIVACY_GO",
+  "summary_sha256": "ECACAE03F56D36DEECD4AADCD56F54BD8E3687942B8ADA5BCDBC82268EA689B6",
+  "actual_control_acceptance_sha256": "3AB80AF57DE079ADFA26B8CD89EC5EABE84F512D7BADC00D626BAC9513EDCDF1",
+  "independent_derivation": {
+    "cases": 15,
+    "all_original_percase_proof_hashes_verified": true,
+    "all_four_before_after_SDDL_or_state_digests_recomputed_exact_UTF8_noBOM_no_normalization": true,
+    "all_sentinel_tree_parent_collision_fields_verified": true,
+    "aggregate_original_proof_anchor_verified": true,
+    "baseline_two_to_one_allow_rules_verified": true,
+    "ACL_descriptor_original_and_all_four_state_digests_verified": true,
+    "mismatches": 0,
+    "raw_account_SID_or_SDDL_values_found": false,
+    "accepted_private_native_count": 7,
+    "accepted_private_full_streams": 14
+  },
+  "scope": "Derived public evidence, not byte-preserving projection of original ACL proofs. State digests may encode ABSENT/NOT_DIRECTORY/BROKEN_LINK_ACL_NOT_MEASURED rather than measured DACL; no ACL value should be inferred from hash alone.",
+  "recommendations": [
+    "Add explicit evidence_representation=DERIVED_SUMMARY_NOT_ORIGINAL_PROJECTION and per-field state kind (SDDL/absent/not-directory/broken-link-not-measured) if practical before freeze, or state the distinction unambiguously in public docs/checker.",
+    "Public projected process metadata/stdout subsets must retain separate original/projected identities and must not claim all14 private streams are public."
+  ],
+  "conditions": [
+    "Exact future public selection/artifact source/privacy gate still required; raw private SDDL/fixtures and old failed capture remain private.",
+    "No Linux/PG/full backup/PS5 or concurrent replacement guarantee inferred."
+  ],
+  "authorship": "Root authored summary; TD independently recomputed every derivation from privately audited originals with managed reads only.",
+  "blocking_findings": []
+}

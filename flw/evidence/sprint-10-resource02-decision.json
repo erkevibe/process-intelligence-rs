@@ -1,0 +1,43 @@
+{
+  "utc": "2026-10-11T15:57:32.4056413Z",
+  "proposal": "flw/evidence/sprint-10-resource02-proposal.md",
+  "proposal_sha256": "33CC9A47D3F2A2ED7580ACEE496AF258F877C7150FD04E3D218DAC5CFDECB63C",
+  "actual_for": 5,
+  "actual_against": 0,
+  "votes": [
+    {
+      "sha256": "8D47BAB0BA2B075C479E021AE3700301859C003ABD9AF9C01B11308AF3C7121B",
+      "role": "Root",
+      "vote": "FOR",
+      "path": "flw/evidence/sprint-10-resource02-root-vote.json"
+    },
+    {
+      "sha256": "6078597BD3470D98314EAC7E846165292CD43D962322433AACDF46811F8D5320",
+      "role": "PM",
+      "vote": "FOR",
+      "path": "flw/evidence/sprint-10-resource02-pm-vote.json"
+    },
+    {
+      "sha256": "B7FF9119DB1121AAB09D777FF6977758DE3DC3028ADDB4151A367F59120E8052",
+      "role": "Customer",
+      "vote": "FOR",
+      "path": "flw/evidence/sprint-10-resource02-customer-vote.json"
+    },
+    {
+      "sha256": "6A5E45A7E3EA604B70C13DE8CF485701F03AF0FCECC5F05936A204569E8ED061",
+      "role": "QA",
+      "vote": "FOR",
+      "path": "flw/evidence/sprint-10-resource02-qa-vote.json"
+    },
+    {
+      "sha256": "5201B06360EEDFA6A48808CB97EBF3394E5860EEC843562F1D1493F06D94C8CB",
+      "role": "TD",
+      "vote": "FOR",
+      "path": "flw/evidence/sprint-10-resource02-td-vote.json"
+    }
+  ],
+  "decision": "ACCEPT_CONDITIONAL_FINITE_RESOURCE_BATCH_STAGE",
+  "scope": "Per-batch helper/native/full-byte verifier/two actual joins/durable private journal gates required before each exactunlink; no actualunlink/SQL/criterion/releaseGO",
+  "criteria": "All originalR3/DISK01 OPEN",
+  "original_deadline": "2026-10-11T23:08:00Z"
+}

@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "utc": "2026-10-23T06:30:01Z",
+  "role": "Independent Customer",
+  "agent_name": "customer_s22_delivery",
+  "decision": "ACCEPT_SCOPED_OBSERVED_CALENDAR_UI",
+  "formal_vote": false,
+  "candidate_binary_sha256": "13A43541509807ADDA043A6AD1D32BF9F9BA44A0BBF42318F1A168632D09F32C",
+  "observations_sha256": "82884A7E85E495F25B4F8820C83517DBF515ED94F2A3A0393F31325DD924434E",
+  "review_method": "Personally viewed seven actual saved browser screenshots; inspected full accessibility state files for four refusal/correction reloads and both retained states plus selected Document network status proofs. No native or browser interaction performed by Customer.",
+  "observed": [
+    "Spring and fall refused rows show dash and exact approved transition explanation with working-hours/time-zone correction hint. Text is readable in the result table and remains associated with case-0.",
+    "Corrected spring reload shows 2 ч and Рассчитано; corrected fall reload shows 4 ч and Рассчитано.",
+    "Both invalid submissions visibly show existing raw JSON calendar_timezone error pages; separate selected network receipts report HTTP 422 Document.",
+    "After each invalid submission the full accessibility snapshot retains Europe/Berlin, offset UTC+00:00, 01:00 to 04:00 and 4 ч; final screenshot also shows retained 4 ч."
+  ],
+  "images_viewed": [
+    "spring-refusal-reload.png",
+    "spring-corrected-reload.png",
+    "fall-refusal-reload.png",
+    "fall-corrected-reload.png",
+    "unknown-zone-422.png",
+    "offset-conflict-422.png",
+    "final-retained-4h.png"
+  ],
+  "scope": "Customer accepts observed finite boundary refusal/correction and state-retention UI evidence only. Actual engine-derived timezone table branch remains supported by source/tests, not a persisted invalid browser row.",
+  "remaining": [
+    "Independent QA and TD integrated technical/process acceptance.",
+    "Exact final candidate proposal and actual vote if required by stage.",
+    "Exact-commit CI, public-source verification, final resource closure and deadlines."
+  ],
+  "limitations": [
+    "Raw JSON invalid-form pages remain an existing UX limitation outside the two result-table messages; no broad form UX acceptance.",
+    "No Datastar/SSE route claim, broad R5 closure, enterprise acceptance, algorithm change or public-delivery acceptance."
+  ],
+  "public_delivery_accepted": false
+}

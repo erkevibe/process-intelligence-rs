@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "agent_name": "td_s20_delivery",
+  "actual_utc": "2026-10-23T20:06:24.044Z",
+  "status": "FAILED_BASELINE_NORMALIZED_CORRECTED_EXPERIMENT_DESIGN_GO_NOT_NATIVE_GO",
+  "actual01": {
+    "native_count": 3,
+    "full_streams": 6,
+    "exits": [
+      0,
+      1,
+      0
+    ],
+    "raw_hash_length_capture_mismatches": 0,
+    "child_error": "private_directory_rules",
+    "observation_proof_absent": true,
+    "parent_cleanup_link_absent_before_postguard": true,
+    "target_preserved": true,
+    "product_defect_confirmed": false
+  },
+  "diagnosis": [
+    "The driver failed after fixture preparation at its post-cleanup private ACL assertion; no observation proof was persisted. This is a failed experiment, not a confirmed maintained-script defect.",
+    "Passing an unmodified saved DirectorySecurity object to SetAccessControl may not persist changed sections. This is a source-grounded candidate explanation, not yet actual proof; Root dedicated controlled ACL regression must distinguish it.",
+    "First archive parent was the junction leaf itself. SetAccessControl may operate on link security rather than the intended target, so its result cannot substitute for an ancestor-junction traversal experiment."
+  ],
+  "corrected_experiment": [
+    "Fresh baseline02 installation/.local/controlled-junction -> owned outside-root; create a known ordinary existing-backup-directory below outside-root; place sentinel and deliberate differing Access DACL on that child.",
+    "BackupFile is controlled-junction/existing-backup-directory/probe.dump. Its parent is an ordinary descendant reached through an ancestor junction, eliminating link-leaf ACL ambiguity. Exact B874 maintained source/missing config/nonexistent bin remain.",
+    "Persist actual source hash/error identifier/child SDDL before+after/sentinel hash and archive absence immediately after invocation BEFORE cleanup, in a separate owned proof path outside link and targetchild. Cleanup failure must not erase that observation or turn overall attempt PASS.",
+    "Remove only exact verified junction nonrecursively; restore child using fresh DirectorySecurity with explicit owner/protected current-user FullControl, then actual Access SDDL==known pretest private SDDL and sentinel rehash. Preserve outside-root ACL/nonce independently.",
+    "Parent fallback must know both fixed outside-root and child, verify no reparses on direct target paths, restore intended private child ACL on timeout/failure, verify link absence before any scanner.",
+    "Capture pure ACL regression first: known private SDDL -> deliberate UsersRead DACL -> old snapshot setter observation -> fresh explicit descriptor restore/readback. No junction/PG/real data needed; preserve exact outcomes."
+  ],
+  "criteria_unchanged": [
+    "Only an actual persisted outside-child ACL difference plus exact maintained source can confirm the scoped effect.",
+    "OS inability is SKIP/refusal, not PASS. Baseline01 stays FAILED.",
+    "No PG/config/native tool invocation, production mutation, TOCTOU guarantee, quota or successful backup claim.",
+    "Root and QA independent final exact sources/runtime admission before new attempt; fixed21:30:03 native/22:00:03 delivery remain."
+  ],
+  "authorship": "Root owns experimental sources/execution. TD independently reviewed actual3native6raw and proposes scoped managed-source design only.",
+  "blocking_native_position": "No new baseline execution admission until actual descriptor regression and final exact revised driver/parent are independently reviewed."
+}

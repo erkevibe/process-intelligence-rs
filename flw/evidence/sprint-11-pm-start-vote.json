@@ -1,0 +1,27 @@
+{
+  "role": "PM",
+  "utc": "2026-10-12T10:59:27.5060586Z",
+  "proposal": "docs/SPRINT_11_PLAN.md",
+  "proposal_sha256": "8C348D3D9F78D1BA9F49E17974D1AAD7DDFDAF09EA2E35E656B8D955FB83EC34",
+  "vote": "FOR",
+  "full_read": true,
+  "reasons": [
+    "План сохраняет исходные R3/DISK01 и полный corpus/subcases/F01–F03, реальные 5/2/10 budgets и полноценные setup/migration/RBAC gates.",
+    "Ранний feasibility cut 12:30 прекращает безрезультатную диагностику, freeze17:21 и90 минут независимой приёмки сохранены.",
+    "Общий runner и предметные регрессии соответствуют фактическому долгу Sprint10; облегчённый draft cycle не устраняет независимые destructive gates.",
+    "Диагностический неизменный0.7.1 отделён от текущего0.7.2безApply; успех диагностики не возвращает опасную функцию автоматически.",
+    "Решения S11-C01–07 соответствуют пожеланиям отдельного Customer и не объявляют исполнение."
+  ],
+  "conditions": [
+    "Только новые owned resources, фактические identity/bytes/capacity/privateACL и source review до опасного runtime.",
+    "Каждая обязательная граница имеет actual native/backend/full-state proof; маленькая диагностика не заменяет полныйSQL5.",
+    "Полный clause verdict и отдельная конкретная финальная приёмка; no automatic release/tag/merge/user install.",
+    "Старый19-port baseline отсутствовал до действий; не выдавать за сохранение ранее работающих процессов."
+  ],
+  "limits": [
+    "Голос разрешает выполнение этапа, не PASS/R3/DISK01/enterprise и не release.",
+    "Исторические proofs/установки/частичные failed outputs неизменны; секреты не публикуются.",
+    "Нет обещания всегоR2–R5 за восемь часов."
+  ],
+  "customer_request_sha256": "351BE1B54CAF1ABDC8DA5CCAFA583155EF82120670D44918CC296B638722FE3C"
+}

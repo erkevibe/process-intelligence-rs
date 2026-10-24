@@ -324,7 +324,35 @@ async fn old_completed_job_reconnect_does_not_replace_new_current_analysis() {
     upload(&app, "/jobs", include_bytes!("../fixtures/manual.xes")).await;
     let old = terminal(&app).await;
     assert_eq!(old["state"], "completed");
-    upload(&app, "/logs", include_bytes!("../fixtures/semantics.xes")).await;
+    // Terminal publication precedes release of the worker's CPU lease. Only
+    // explicit pre-admission busy refusals are safe to retry; no mutation or
+    // unknown storage outcome is retried here.
+    tokio::time::timeout(Duration::from_secs(5), async {
+        loop {
+            let response = app
+                .clone()
+                .oneshot(req(
+                    "POST",
+                    "/logs",
+                    Some("multipart/form-data; boundary=qa"),
+                    multipart(include_bytes!("../fixtures/semantics.xes")),
+                ))
+                .await
+                .unwrap();
+            let status = response.status();
+            let body = text(response).await;
+            if status == StatusCode::TOO_MANY_REQUESTS {
+                let refusal: Value = serde_json::from_str(&body).unwrap();
+                assert_eq!(refusal["code"], "busy");
+                tokio::time::sleep(Duration::from_millis(1)).await;
+                continue;
+            }
+            assert_eq!(status, StatusCode::OK);
+            break;
+        }
+    })
+    .await
+    .expect("completed worker releases CPU admission within bound");
     let new = json(&app, "/logs/log-2/export").await;
     assert_eq!(new["analysis"]["events"], 4);
     let reconnect = app

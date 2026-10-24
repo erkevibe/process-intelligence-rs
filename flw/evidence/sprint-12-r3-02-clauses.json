@@ -1,0 +1,153 @@
+{
+  "utc": "2026-10-19T10:34:53.9364248Z",
+  "sprint": 12,
+  "criterion": "R3-02",
+  "status": "FINITE_CLAUSES_A_TO_F_SUPPORTED_G_PENDING_NOT_FINAL_ACCEPTANCE",
+  "original_sources": [
+    "docs/SPRINT_08_SCOPE.md",
+    "docs/SPRINT_09_SPECIFICATION.md"
+  ],
+  "adopted_plan_sha256": "F8A97D992BB01B649CB262EA7DEF0DEDB20516F3D861A9113B1D7ADFDB8580F5",
+  "product": {
+    "version": "0.7.2",
+    "source": "9005f6f77ca449e7d7f63889a5c874c8fbc83372",
+    "exe_sha256": "B14F3D2E306DBB8FF81EC37A8BF8A70F63E53252E43079364E1C09D4AF345DE6",
+    "zip_sha256": "EE1DD55968FEB636F5D7EA66DFB26B4F3DF83E236094A70EF3F254C322542A64",
+    "supplement_head": "PENDING_EXACT_FINAL_BINDING_NOT_BINARY_BUILD_SOURCE"
+  },
+  "proof_hashes": {
+    "cas": "10A816AEDD0EBF27A894B473C384875B489331A44D888CD73890FB9F21E88D64",
+    "native": "484CBC67B370EF7E111D6367A258D8D7FDE5E25FB60A449F6596DCFC7FAA8FC5",
+    "http": "35BACE8BE36A603BA50D60C7EF80530B19D5D6CA7464E67F45EBFE4AA02395AB",
+    "graph": "47D377B4649510EFCF22E97853601942D824A64F2BA900852A40BABC71E67BB5",
+    "project": "08923034AA0166F4DCA139B542B510505829973A2D93A1D2B7CB45959FD7BF1A",
+    "folder": "AF9C0BCCB948DC5EC2CD4131EBFCD10F089A4238606A8953CA3318A856189E93",
+    "jobs": "33B98799EB4292E49E8CA4EA7F417B9E31240E765193200191D11353051918FE",
+    "trustPrimary": "9E3752E9B18753B124C60BE8969ACFEFBCC2A7C1DE4C630EEB527142C4709888",
+    "trustSummary": "630A1EA3FB69B57A75F9866329B68123B908D6271B03193B7E41EC8AE8CFFAD1",
+    "trustProjection": "F0EB8CAD4300B5755046A3C004705395222EFD0ABF7A0E38DD55E7634FF254B0",
+    "resource": "7EEDAA2DC68DBFD30A7B4ACF9B96012FA446A90FF369832699C69F32269869BD",
+    "access": "24DBBE173E4BA45E1E87386C0DA8D5AC06B2CC0361ABCC2EEAB5EED87541F203",
+    "retention": "14A77AD81F57E7FDAE7D6A5F620F396EF4138EB69E6712CF0D7294EA5AEE4A4C",
+    "sourceC": "57D7D5546ADA3DD5CDFE39E484443B3BF761BDA882AF6B42244D1F8754C82C8F",
+    "producers": "611892CCD152CFD0DC62EEE9A956AC6EA9F0690D8E7D3D2B5C0D684ECF59C801",
+    "replay": "F1E43CE81EBC96B0E2EC81EBC4517E127D902556579D76019270713A2519307E",
+    "sourceIdentityAndTrust555": "1EF3BB7EB23536EBE92192EFECEB1D09137BF9EA201DBE147CC79B63338E1DAF"
+  },
+  "clauses": [
+    {
+      "id": "A",
+      "original_clause": "Actor/project/resource/action/policy/time/result withoutsecrets, allagreedcurrentbusinessproducers",
+      "status": "FINITE_SUPPORTED",
+      "proofs": [
+        "producers",
+        "project",
+        "folder",
+        "resource",
+        "native",
+        "jobs"
+      ],
+      "grounds": "23actualcallers Auth9/repository14 independentlyPREderived expectedmutation/event/policyparameters/hash/time/revision/resources; no syntheticpositiveevents or count-onlycriterion",
+      "bounds": "Businesssuccessledger notallsecurity/sessionevents. Nativejob timebounds are source-reviewed executedassertions, notindependentwireclock. Two compatibilitylabels have nocurrentproducer."
+    },
+    {
+      "id": "B",
+      "original_clause": "Atomicmutation+audit, refusal/cancellation/storagefailure cannotcreatefalsecommittedsuccess",
+      "status": "FINITE_SUPPORTED",
+      "proofs": [
+        "project",
+        "folder",
+        "resource",
+        "native",
+        "jobs",
+        "http",
+        "cas"
+      ],
+      "grounds": "Wholeexpectedmanaged/Authstate for mutations/refusals, actualSQLtriggerrollback/jobcachepublishorder and oneCASwinner; actualproductionrouterHTTPcancel/activejob/lastwritable",
+      "bounds": "Native/inprocessHTTP/stockTCP distinguished. SavedserdeRepository excludes internal-skipped/externalcachefields; no wholephysicalmemory claim. Actualworkerterminalpersistence notthreadexit."
+    },
+    {
+      "id": "C",
+      "original_clause": "UnknownCOMMIT outcome notreportedassuccess, noautomaticblindretry",
+      "status": "SOURCE_BOUND_FAIL_CLOSED_SUPPORTED",
+      "proofs": [
+        "sourceC",
+        "native",
+        "jobs",
+        "http"
+      ],
+      "grounds": "TDbinarymatched9005commonstoragecommit/request paths: success/version replies onlyaftercommitOk; errors/timeouts failclosed503/unconfirmed, noautomaticretry; Auth/repository publication followsacknowledgedstorage success",
+      "bounds": "Sourceverificationplusactualrollback/publicationproof, notcurrentproductlive lostACKtest. Unknowncommit mayhavecommitted; no rollback/exactlyonce/HA assertion."
+    },
+    {
+      "id": "D",
+      "original_clause": "Tamper/foreignrefusal, legacyunknown and importedunverifiedhistory truthful, nosecret scopedexport",
+      "status": "EXACT_SOURCE_REUSE_AND_ACTUAL_ACCESS_SUPPORTED",
+      "proofs": [
+        "trustSummary",
+        "trustPrimary",
+        "trustProjection",
+        "sourceC",
+        "access",
+        "sourceIdentityAndTrust555"
+      ],
+      "grounds": "TDindependentlyrehashed555Trust05files/zeromismatch andsource9005/EXEB14identity;12specificpolicy/outcome/origin/unknownfieldrefusals plus4PREderivedownerprojections. Newactualaccess supplies formerownerpositive513/512witness vs editor/viewer/foreign0 and4deletedtargetrefusals withfullrawconservation.",
+      "bounds": "Trust05 syntheticabsentpolicyseed notgenuinehistoricalproducer; oldcookie/headerwire/requestclocklimits retained. Trustownerprojections alone were insufficientforeignsurvivorproof; newaccess specificallyclosesgap. Exportrestrictedbusinessfields/digests andsanitizedpublicassetreviewrequired, notuniversalsecurityaudit."
+    },
+    {
+      "id": "E",
+      "original_clause": "Verifiableorder, monotonicsequence, boundedretention/export andsurvivorprojection",
+      "status": "FINITE_THREE_SCOPES_SUPPORTED",
+      "proofs": [
+        "retention",
+        "replay",
+        "access"
+      ],
+      "additional_source_reuse": "S11 audit-retention02-actual-independent01.json SHA F8B6C3C6615136F3E902CAD413E732946B4003E2AE87CB6FAAC4B7F3F5E364E2; unchangedAuthrename512513scopeonly",
+      "grounds": "Repository512513 andformerowner512513 by1018actualbusinessoperations/3071savedHTTPbodies, completeindependentboundaryorder/oldestdrop/total/dropped/wholeexpectedstate; sourceboundAuthretentionreuse isthirdscope",
+      "bounds": "Not everytransientvictimcreate/archive fullPGsnapshot inretentionrun; correspondingpercommit semantics separatelyproject32. No arbitraryfutureuniversalretentionclaim."
+    },
+    {
+      "id": "F",
+      "original_clause": "Durableaudit andsafe backup/restart/newrestore",
+      "status": "FINITE_SUPPORTED",
+      "proofs": [
+        "replay",
+        "access"
+      ],
+      "grounds": "Freshcompleteproject/resource/retentionstate backup→newuntouchedverificationcopy noapp/login; actualcontrolledsamehostcrash/restart andseparateruntime recoverycopy; completeexports andnamedmanaged/Auth/sequencecomparisons",
+      "bounds": "No physicalclusteridentity/infrastructureHA orarbitraryhistoricalmigration. Missingstartupchildnative staysmissing; actualownPG/appfault exits separatelyrecorded; finalPGclean0."
+    },
+    {
+      "id": "G",
+      "original_clause": "Immutablecandidate, independentfinalacceptance andpublicdelivery",
+      "status": "PENDING_MANDATORY_GATES",
+      "proofs": [],
+      "required": [
+        "Localchecks03 independentlyaccepted3A6B10; priorfailurespreserved; finalCI/publicdelivery stillrequired",
+        "Finalreport/guide/clause/index/sourceandpackagebindings frozen andindependentlyreviewed",
+        "Fiveactualexactfinalproposalvotes anddecision; thiscrosswalknotvote",
+        "SuccessfulexactfinalsupplementHEADCI andseparate9005binarysourceprovenance",
+        "Approvedlimitedprerelease exact0.7.2tag9005onlyifabsent/nooverwrite; fullpublicZIPsource/evidencedownload/filetree/SHA/manifest/EXE",
+        "Finalprotectedresourcesnapshot/noprivaterawpublication"
+      ],
+      "bounds": "Majoritydoesnotwaivefailedmandatorygate. No release/tag/merge/userinstallation occursbythisfile."
+    }
+  ],
+  "assessment": "No furtherproductclausegap identifiedafteracceptedfourroleaccess+Trust05exactreuse+sourceC. R3-02eligibleforconcretefinitecriterionproposal, notyetPASS untilGactuallycomplete. FullR3-01 remainsOPENliteralprojectmovement/anyunclosedclauses; fullR3/R2-R5/enterpriseOPEN.",
+  "public_metadata_only": true,
+  "raw_private_reports_published": false,
+  "vote": null,
+  "qa_final_source_binding": {
+    "report_basename": "trust05-source-clause-c-independent01.json",
+    "sha256": "D9BFBC513985ACCC7C45462679A6A091796203D2FD05F03316DDEEAF6BE7BEA8",
+    "scope": "555files/8runtimeblobs;12specificrefusals19wholeconserved38rawpairs;finitefailedclosed"
+  },
+  "local_checks": {
+    "sha256": "3A6B10F5D4CF83B76E69D0E827F3B858F27EB9A4069D7F54C4834F323C06196F",
+    "passed": 100,
+    "failed": 0,
+    "status": "FINITE_ACCEPTED",
+    "ignored": 18
+  }
+}

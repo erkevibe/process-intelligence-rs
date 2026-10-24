@@ -1,0 +1,127 @@
+{
+  "status": "FIXED_SCALE_BUNDLE_ONE_POSITIVE_TWO_SPECIFIC_NEGATIVES_PASS",
+  "checker_sha256": "151d5f5feb64f3c4cd01700ca8ff72f79fc6941556c673b9a1f4419363977869",
+  "bundle_sha256": "c571d7b3c48d6df58dae8147f2afd94f1897af3b5ced14086ac29727db5c6148",
+  "public_audit_sha256": "2d14be0b5d3c8af4727ce11da1e1190c1c34285947d1c5456795ecb3246ab359",
+  "positive_count": 1,
+  "specific_negative_count": 2,
+  "negative_reasons": [
+    "bundle_sha256",
+    "fresh_empty_output"
+  ],
+  "corrupt_output_files": 0,
+  "positive_files": 26,
+  "positive_bytes": 1083999,
+  "positive_before_after": {
+    "public-audit.json": {
+      "bytes": 36078,
+      "sha256": "2d14be0b5d3c8af4727ce11da1e1190c1c34285947d1c5456795ecb3246ab359"
+    },
+    "public-projection.json": {
+      "bytes": 17570,
+      "sha256": "bd4a03849189e65120ef74fbff435bf3639c5c9d7f518b8dedea5e8fcc1098a1"
+    },
+    "miner-performance/compiled-build-proof.json": {
+      "bytes": 1438,
+      "sha256": "f9df11263d27cbabb99034891c82abf96ca5f8d6691faa918cb5d0ef61330a08"
+    },
+    "miner-performance/environment.json": {
+      "bytes": 3169,
+      "sha256": "86c4069fdec2ebd6bfa729297a9435010908b2bd3d9597f75ec1046a46bd41f1"
+    },
+    "miner-performance/hardware.json": {
+      "bytes": 859,
+      "sha256": "de36d49b78e5bd48b4a2d83cd5d6a5417dd889df101867e67e6f78834839e938"
+    },
+    "miner-performance/index.json": {
+      "bytes": 3656,
+      "sha256": "00542a753deaa3db2b19f19fe52c4c7d18e0c65d8e37a51f99fe7bcc86150524"
+    },
+    "miner-performance/launch-result.json": {
+      "bytes": 312,
+      "sha256": "5e0bd4dd5441b2099b5aab588b68ba848afed8321ed56a6561684d0a74636ff5"
+    },
+    "miner-performance/resource-after.json": {
+      "bytes": 468,
+      "sha256": "14ba9a6341b963ec7f2ef053d4a908c9d8380914b41d346a893c53ebd1ca3f09"
+    },
+    "miner-performance/resource-before-java.json": {
+      "bytes": 468,
+      "sha256": "0557861b8195cec94f822215fc55ee92d932d402cfa70bf7d0cf5e90d085be61"
+    },
+    "miner-performance/resource-before.json": {
+      "bytes": 468,
+      "sha256": "ec8e1c77b1f80e42a81fc4b80847dd7d12f7d3dffc46db3f724f286dfc16c8a8"
+    },
+    "miner-performance/scale-linear-1500.xes": {
+      "bytes": 109566,
+      "sha256": "c2196dd7376c94f17e2b6b5a4cdbe5ec620b10ca008130418abc6d7558af59f1"
+    },
+    "miner-performance/cold-r1-scale-linear/boot-counters.json": {
+      "bytes": 1526,
+      "sha256": "863e957e6b78b7f77a5e8720d5bdd8330a662bd42c542dc6265dd4c0d31cae17"
+    },
+    "miner-performance/cold-r1-scale-linear/live-counters.json": {
+      "bytes": 1876,
+      "sha256": "88c2a7fbb66eedf00dc76fbd838aeba06c7942d5ddde8b230ae0fedce5988c43"
+    },
+    "miner-performance/cold-r1-scale-linear/trial.json": {
+      "bytes": 2481,
+      "sha256": "d34d54a4c69cd2d4d0f979a665f456d20a539833678228c429f4823a63c93480"
+    },
+    "miner-performance/cold-r1-scale-linear/results/cold-r1-scale-linear-measure-1.bpmn": {
+      "bytes": 2569,
+      "sha256": "4d0c7502010481e845ba15f2ad588e1da4d7e60b3967ac92f015a34c79a62b7c"
+    },
+    "miner-performance/cold-r1-scale-linear/results/cold-r1-scale-linear-measure-1.json": {
+      "bytes": 594105,
+      "sha256": "bfb6798320d1b9c1ef516474b87be2be7c04db45da83680d276c61de2a49b9a6"
+    },
+    "miner-performance/cold-r1-scale-linear/results/iteration-ledger.jsonl": {
+      "bytes": 441,
+      "sha256": "183996431f2a3a001a75a783b41367ef829ea58e1cf7c92c48dc9727d68aed22"
+    },
+    "miner-performance/cold-r1-scale-linear/results/summary.json": {
+      "bytes": 297159,
+      "sha256": "91409faa27cec30691f61f2df57573c7452b71a8c0e8bab055603772a8721a7a"
+    },
+    "miner-performance/cold-r1-scale-linear/results/terminal-ready.json": {
+      "bytes": 595,
+      "sha256": "aba4b903c70e83f7681bb2d51f8ba5c15c43999f0f1f4229cd0fbae98b3fa182"
+    },
+    "miner-performance/cold-r1-scale-linear/capture/benchmark.process.json": {
+      "bytes": 970,
+      "sha256": "6f624a960ffce08dfef8b575102bc513fc26f3ce10f9cff1fd5fdd00a0a581fa"
+    },
+    "miner-performance/cold-r1-scale-linear/capture/benchmark.raw.stderr": {
+      "bytes": 92,
+      "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3"
+    },
+    "miner-performance/cold-r1-scale-linear/capture/benchmark.raw.stdout": {
+      "bytes": 913,
+      "sha256": "3ea06a8c90ee498ca9afce684c68d70fd6efbef03dd58858e701bee9c3f2c9bd"
+    },
+    "miner-performance/cold-r1-scale-linear/capture/benchmark.start.json": {
+      "bytes": 640,
+      "sha256": "a1b0366b9f5c922428c0000c397e98c2e478f0c9a4a66fdaaf9c6c7d19824ef9"
+    },
+    "miner-performance/cold-r1-scale-linear/capture/benchmark.stderr": {
+      "bytes": 92,
+      "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3"
+    },
+    "miner-performance/cold-r1-scale-linear/capture/benchmark.stdout": {
+      "bytes": 913,
+      "sha256": "68128fc40a18e79a01de2eadce3094876203e6041c90bd3caec7e37582df5343"
+    },
+    "miner-audit/independent-audit.json": {
+      "bytes": 5575,
+      "sha256": "61870368a2c5e265ed881e3da4b0f0a90a6610069a5b6a6e776094f47b0d5879"
+    }
+  },
+  "positive_bytes_unchanged": true,
+  "fixture_files": 27,
+  "fixture_bytes": 1121821,
+  "original_bundle_unchanged": true,
+  "new_engine_execution": false,
+  "scope": "Known fixed ZIP and reviewed checker, not a generic malicious archive or filesystem-race claim."
+}

@@ -1,0 +1,391 @@
+{
+  "schema_version": 1,
+  "kind": "S24_P1_ATTEMPT01_ACTUAL_FAILURE_REVIEW",
+  "utc": "2026-10-23T18:16:45.945Z",
+  "decision": "FAILED_PARTIAL_ONLY_NO_DIAGNOSTIC_ACCEPTANCE",
+  "config_sha256": "EFA602700BF769C65004AFA4B17964A66DD667905D0816E1825864334702B474",
+  "first_cause": {
+    "source": "worker-failure.json",
+    "message": "positive_contract",
+    "classification": "harness_numeric_type_oracle",
+    "basis": "Raw SQL JSON schema_version=1 and expected database/read-only/isolation/counts match; source worker04 permits Int32 only for schema_version. Root separately confirmed actual parsed Int64(1), attributed to Root actual parser observation, not QA native."
+  },
+  "broker": {
+    "failure": null,
+    "guard_failure": null,
+    "kill_fault": false,
+    "stop_reason": "worker_exit"
+  },
+  "native_inventory": [
+    {
+      "file": ".local/sprint21/root/sprint24/capacity-diagnostic01/collector.process.json",
+      "sha256": "36F55B9267A79AA49872B8A8AC99424C0C44816101D15543835CB58035CF4AFE",
+      "pid": 79140,
+      "exit": 1,
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "length_match": true,
+          "hash_match": true,
+          "complete": true
+        },
+        {
+          "side": "stderr",
+          "bytes": 320,
+          "sha256": "3847DF970E8EF38DF60F7D347812AABB94CC0320CEB95F8923A73DB26164A9F2",
+          "length_match": true,
+          "hash_match": true,
+          "complete": true
+        }
+      ]
+    },
+    {
+      "file": ".local/sprint21/root/sprint24/capacity-diagnostic01/session/app10k.process.json",
+      "sha256": "D07AD1C5432FE58833EC05B6BA7B3661C19C09249EECB14A8EEF429C4CC06407",
+      "pid": 79680,
+      "birth": "134372529413460981",
+      "exit": 0,
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 1347,
+          "sha256": "19E3FED73D9979071A1714CB10390034C7D6451D92E95080AFB0FB8BB299393D",
+          "length_match": true,
+          "hash_match": true,
+          "complete": true,
+          "eof": true,
+          "truncated": false,
+          "fault": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "length_match": true,
+          "hash_match": true,
+          "complete": true,
+          "eof": true,
+          "truncated": false,
+          "fault": false
+        }
+      ]
+    },
+    {
+      "file": ".local/sprint21/root/sprint24/capacity-diagnostic01/session/create-control.process.json",
+      "sha256": "036FF7886DA2175D5505B93E82F3C286B5408C9B9CEEC2EA96180B9119BDD3BF",
+      "pid": 67768,
+      "birth": "134372529344311042",
+      "exit": 0,
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "length_match": true,
+          "hash_match": true,
+          "complete": true,
+          "eof": true,
+          "truncated": false,
+          "fault": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "length_match": true,
+          "hash_match": true,
+          "complete": true,
+          "eof": true,
+          "truncated": false,
+          "fault": false
+        }
+      ]
+    },
+    {
+      "file": ".local/sprint21/root/sprint24/capacity-diagnostic01/session/create-empty.process.json",
+      "sha256": "7990E1D46F1DA1500C27CF8EBA16B66629F9A0DA931F1CADE2BF04D6C911BA68",
+      "pid": 26420,
+      "birth": "134372529367400324",
+      "exit": 0,
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "length_match": true,
+          "hash_match": true,
+          "complete": true,
+          "eof": true,
+          "truncated": false,
+          "fault": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "length_match": true,
+          "hash_match": true,
+          "complete": true,
+          "eof": true,
+          "truncated": false,
+          "fault": false
+        }
+      ]
+    },
+    {
+      "file": ".local/sprint21/root/sprint24/capacity-diagnostic01/session/postgres.process.json",
+      "sha256": "4209F792D9A65C67290D045D3442648C5F469AD399D472884448B341C90C76BF",
+      "pid": 77440,
+      "birth": "134372529272949108",
+      "exit": 137,
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "length_match": true,
+          "hash_match": true,
+          "complete": true,
+          "eof": true,
+          "truncated": false,
+          "fault": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 485,
+          "sha256": "712E3393AB3077D7EDB1DCAE23B89FA7118F90BF2EEE45D247B90CB9BE01B0FA",
+          "length_match": true,
+          "hash_match": true,
+          "complete": true,
+          "eof": true,
+          "truncated": false,
+          "fault": false
+        }
+      ]
+    },
+    {
+      "file": ".local/sprint21/root/sprint24/capacity-diagnostic01/session/ready-01.process.json",
+      "sha256": "45DE62EF04CA8CB07E9E2FE4008E41F011FBBF406DEECB081639706B8A380AB4",
+      "pid": 79484,
+      "birth": "134372529274887164",
+      "exit": 1,
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 41,
+          "sha256": "62285DBF9A623B155EF5FBB74B1E0BB1AAC8583FF3EDECDF23D4EE6D4804EC5B",
+          "length_match": true,
+          "hash_match": true,
+          "complete": true,
+          "eof": true,
+          "truncated": false,
+          "fault": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "length_match": true,
+          "hash_match": true,
+          "complete": true,
+          "eof": true,
+          "truncated": false,
+          "fault": false
+        }
+      ]
+    },
+    {
+      "file": ".local/sprint21/root/sprint24/capacity-diagnostic01/session/ready-02.process.json",
+      "sha256": "8D49CEAD419D3F047E57DDDE6529AD331B0E9324AFE9B8AFA97C46F5A61AD992",
+      "pid": 76908,
+      "birth": "134372529298408135",
+      "exit": 0,
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 41,
+          "sha256": "48F05044D763F65E81DF5FA8BE71F5A81EC224D0B419A9BFA6132B7FBC62D7F4",
+          "length_match": true,
+          "hash_match": true,
+          "complete": true,
+          "eof": true,
+          "truncated": false,
+          "fault": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "length_match": true,
+          "hash_match": true,
+          "complete": true,
+          "eof": true,
+          "truncated": false,
+          "fault": false
+        }
+      ]
+    },
+    {
+      "file": ".local/sprint21/root/sprint24/capacity-diagnostic01/session/setup-control.process.json",
+      "sha256": "64B675BAB2768B36D7718F3D1EA4DA921F5A79503BF345486BE5F66C6FBFE03A",
+      "pid": 62508,
+      "birth": "134372529390431991",
+      "exit": 0,
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "length_match": true,
+          "hash_match": true,
+          "complete": true,
+          "eof": true,
+          "truncated": false,
+          "fault": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "length_match": true,
+          "hash_match": true,
+          "complete": true,
+          "eof": true,
+          "truncated": false,
+          "fault": false
+        }
+      ]
+    },
+    {
+      "file": ".local/sprint21/root/sprint24/capacity-diagnostic01/session/source10k.process.json",
+      "sha256": "A280BE27FA9381BED9630CAB861B8098D4D2A2BF0B0E3DD4141A3D7D2E843E0A",
+      "pid": 11336,
+      "birth": "134372529321380365",
+      "exit": 0,
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 201,
+          "sha256": "3699F9DE01C6F1900C70B0854E67F15448110E3F567A5E2AACA8D2FBA05E32FC",
+          "length_match": true,
+          "hash_match": true,
+          "complete": true,
+          "eof": true,
+          "truncated": false,
+          "fault": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "length_match": true,
+          "hash_match": true,
+          "complete": true,
+          "eof": true,
+          "truncated": false,
+          "fault": false
+        }
+      ]
+    },
+    {
+      "file": ".local/sprint21/root/sprint24/capacity-diagnostic01/session/worker.process.json",
+      "sha256": "5B38EDC1A19EC55FB2E8705F2ACEC430F0E30BF62D116F910118ECA7BDBEBD99",
+      "pid": 64456,
+      "birth": "134372529264398555",
+      "exit": 1,
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "length_match": true,
+          "hash_match": true,
+          "complete": true,
+          "eof": true,
+          "truncated": false,
+          "fault": false
+        },
+        {
+          "side": "stderr",
+          "bytes": 316,
+          "sha256": "715689F1142205FE06D59712906F059C1FA233BF394C25AE0001AD3B63F51EF3",
+          "length_match": true,
+          "hash_match": true,
+          "complete": true,
+          "eof": true,
+          "truncated": false,
+          "fault": false
+        }
+      ]
+    },
+    {
+      "file": ".local/sprint21/root/sprint24/capacity-launch01/launch.process.json",
+      "sha256": "274FE97A7A35BD3C85F2484286E1C3C8480C6E8C10617AF3DD149DEAFDDF1CE7",
+      "pid": 59496,
+      "exit": 1,
+      "streams": [
+        {
+          "side": "stdout",
+          "bytes": 0,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "length_match": true,
+          "hash_match": true,
+          "complete": true
+        },
+        {
+          "side": "stderr",
+          "bytes": 315,
+          "sha256": "ACF659DD643E8265F43B53F6ADCF123ECE4DE3B64BD139FA3BDAA963865AD522",
+          "length_match": true,
+          "hash_match": true,
+          "complete": true
+        }
+      ]
+    }
+  ],
+  "native_count": 11,
+  "full_stream_count": 22,
+  "raw_mismatches": 0,
+  "sql_partial": {
+    "native_exit": 0,
+    "stdout_bytes": 1347,
+    "stdout_sha256": "19E3FED73D9979071A1714CB10390034C7D6451D92E95080AFB0FB8BB299393D",
+    "postcommit_marker": "CAPACITY_DIAGNOSTIC_COMMITTED_V1",
+    "report_values": {
+      "schema_version": 1,
+      "project_count": 1,
+      "record_counts": {
+        "conversion": 0,
+        "log_analysis": 1,
+        "log_data": 1,
+        "log_source": 1,
+        "log_state": 1,
+        "model": 0
+      },
+      "read_only": "on",
+      "isolation": "repeatable read"
+    },
+    "accepted_as_full_P1": false
+  },
+  "unexecuted": [
+    "read-only write refusal",
+    "empty schema refusal",
+    "unknown kind refusal",
+    "real granted lock timeout",
+    "sentinel check",
+    "final SAMPLE and clean PostgreSQL stop"
+  ],
+  "closure": {
+    "postgres_exit": 137,
+    "worker_exit": 1,
+    "collector_exit": 1,
+    "outer_exit": 1,
+    "full_capture": true,
+    "clean_pg_shutdown_claim": false
+  },
+  "debt": "QA prospective source review missed Int32-only schema_version versus actual Int64 parsing; correction must accept exact integer types, never bool/string/coercion. Fresh recovery and new source/config admission required; no blind retry.",
+  "historical_failures_preserved": true,
+  "no_native_or_scan_by_QA": true
+}

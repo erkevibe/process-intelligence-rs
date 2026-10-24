@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "role": "PM",
+  "agent_name": "pm_s21",
+  "utc": "2026-10-22T22:14:52.9983727+00:00",
+  "vote": "FOR",
+  "proposal_sha256": "E5E29E6CB5521F450C7E60FCE52A9B7D63A59164B0FB593A48A589E9DB387C26",
+  "frozen_candidate_sha256": "4BBCC387CE84A4E9535AB3C8B3F072EC75B92D240F3F53EE0ECEE916A4755EFD",
+  "decision": "FRESH_EXACT_DELTA_VOTE_APPROVE_LOCAL_CANDIDATE_CONDITIONAL_PUBLIC_DELIVERY",
+  "review": "Read attempt02 exact proposal and the two narrow CAP raw stdout/stderr whitespace attributes. They preserve authentic evidence bytes instead of editing raw logs to satisfy whitespace checking; product and evidence identities remain unchanged. Prior failed publication remains failed before commit or push.",
+  "previous_vote_retained": "Prior attempt01 vote remains historical and is not reused as a vote for changed bytes.",
+  "requirements": "All prior finite CAP01..05 dispositions and optionalCAP06 scope retained. No new runtime behavior or tests implied by packaging correction.",
+  "delivery_conditions": [
+    "Fresh public replay captures complete and actual.",
+    "No non-Council changes outside exact freeze or accepted base.",
+    "Separate PR on primary accepted base; both push and pull_request CI exactHEAD pass.",
+    "Root and QA independently compare every whole anonymous source file and replay required downloaded-source primary/CAP audits.",
+    "Actual owned-process closure, disk/free-space budgets, original nativefreeze and sprintdeadline remain required."
+  ],
+  "honest_limits": [
+    "Permanent native UNKNOWN and failed multi-attempt history preserved.",
+    "No RAMhardcap,globalquota,exactlyonce,SLO,enterprise,tag or merge claim.",
+    "Complexity follow-on draft remains unapproved and unexecuted; this vote does not authorize it."
+  ],
+  "human_acceptance": false
+}

@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "id": "SPRINT21_PREFLIGHT_BOUNDED_PLAN_01",
+  "utc": "2026-10-22T23:26:30Z",
+  "predecessor_delivery_sha256": "83E96A20C654049B061F23ADE632CBA5CF40BE163407678A77EA4B7D4A04B48C",
+  "risk_appetite": "Medium",
+  "technical_risk": "Low",
+  "fixed_roster": [
+    "Root",
+    "QA",
+    "TD",
+    "PM",
+    "Customer"
+  ],
+  "requested_decision": "Authorize a separate <=40-minute configuration preflight helper and wrapper with proportionate targeted QA/TD review",
+  "time_budget_minutes": 40,
+  "hard_deadline_utc": "2026-10-23T00:06:30Z",
+  "global_native_freeze_utc": "2026-10-23T00:30:37Z",
+  "scope": [
+    "New tools/sprint21-preflight sources and focused documentation/records only; Root authors, QA/TD independently review",
+    "Strict JSON duplicate-key rejection; all CAP runner/worker mandatory field names and types checked before any phase/resource launch",
+    "All source pins must be canonical uppercase64hex and unique after Windows path normalization; reject conflicts, missing files and actual SHA256 mismatch; never infer hashes or silently rewrite input",
+    "Bounded non-mutating validator, explicit workspace/config SHA binding, finite file/count/byte/time caps and no subprocesses from Python",
+    "New wrapper validates with pinned Python before any existing runner delegation; CheckOnly succeeds without delegating; rejected configuration never reaches runner",
+    "Existing accepted CAP sources, resource thresholds, product code, database/schema, compiler and original failed attempts remain unchanged"
+  ],
+  "controls": [
+    "PREFLIGHT01 valid bounded synthetic config accepted in CheckOnly mode without any feature process",
+    "PREFLIGHT02 missing mandatory worker fields rejected before runner delegation",
+    "PREFLIGHT03 lowercase source pin rejected before runner delegation",
+    "PREFLIGHT04 invalid64hex pin rejected before runner delegation",
+    "PREFLIGHT05 conflicting normalized duplicate pin rejected before runner delegation",
+    "PREFLIGHT06 changed pinned bytes rejected before runner delegation"
+  ],
+  "review_and_delivery": [
+    "Real five-member plan Council invitation already delivered; majority decision before implementation",
+    "Independent QA and TD targeted source review and six actual finite pure controls; draft corrections do not require full candidate re-freeze loop",
+    "Capture actual native command exit and complete bounded streams; no application/PostgreSQL/compiler or converter measurements",
+    "Normal separate public branch/PR, exact-head CI success and independent public source verification within stage time budget",
+    "No claim that preflight proves arbitrary phase correctness, validates ACLs, fixes resource timeout cause or reconstructs six historical UNKNOWN exits"
+  ],
+  "stop_rule": "Stop new work on any guard, time, byte or source-integrity failure; preserve failed evidence and report incomplete delivery. No clock extension or experiment rerun.",
+  "implementation_started": false
+}

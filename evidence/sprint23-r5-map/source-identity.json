@@ -1,0 +1,132 @@
+{
+  "canonical_baseline_supersedes": "candidate.json is earlier retained snapshot; accepted proposal binds candidate02.json",
+  "comparison": "Exact Git blob and mode, 15 predetermined paths. Changed files require separate context/acceptance; no transitive equivalence inference.",
+  "rows": [
+    {
+      "verdict": "SAME_DIRECT_GIT_BLOB_AND_MODE_ONLY",
+      "current_mode": "100644",
+      "accepted_mode": "100644",
+      "accepted_blob": "8881f4e1b1256757a3cfa7788800de4424a6411f",
+      "path": "src/calendar.rs",
+      "current_blob": "8881f4e1b1256757a3cfa7788800de4424a6411f"
+    },
+    {
+      "verdict": "SAME_DIRECT_GIT_BLOB_AND_MODE_ONLY",
+      "current_mode": "100644",
+      "accepted_mode": "100644",
+      "accepted_blob": "a0464765fac071b9ea56a2538c8bf5157f65babb",
+      "path": "src/filters.rs",
+      "current_blob": "a0464765fac071b9ea56a2538c8bf5157f65babb"
+    },
+    {
+      "verdict": "SAME_DIRECT_GIT_BLOB_AND_MODE_ONLY",
+      "current_mode": "100644",
+      "accepted_mode": "100644",
+      "accepted_blob": "e401bb1a3e5206905b2f94222798b64c6a78f547",
+      "path": "src/domain.rs",
+      "current_blob": "e401bb1a3e5206905b2f94222798b64c6a78f547"
+    },
+    {
+      "verdict": "CHANGED_CONTEXT_REVIEW_REQUIRED",
+      "current_mode": "100644",
+      "accepted_mode": "100644",
+      "accepted_blob": "91107bd9d8514a7ab691a3fcc1487ec27a0bbcd6",
+      "path": "src/lib.rs",
+      "current_blob": "c183b2491f0d99ed39195d641502ab68cb31a2c9"
+    },
+    {
+      "verdict": "CHANGED_CONTEXT_REVIEW_REQUIRED",
+      "current_mode": "100644",
+      "accepted_mode": "100644",
+      "accepted_blob": "d46946d11348996014889d561dd33c0060fb3702",
+      "path": "src/web.rs",
+      "current_blob": "4c43618a6cbb7a28b5525ec885b19697bf0f23aa"
+    },
+    {
+      "verdict": "CHANGED_CONTEXT_REVIEW_REQUIRED",
+      "current_mode": "100644",
+      "accepted_mode": "100644",
+      "accepted_blob": "d9060d02c4cd0e325f5496e0496f243f1e234782",
+      "path": "Cargo.toml",
+      "current_blob": "5e43cc395c22419dfc254d05c94ef5c57cd3fcb3"
+    },
+    {
+      "verdict": "CHANGED_CONTEXT_REVIEW_REQUIRED",
+      "current_mode": "100644",
+      "accepted_mode": "100644",
+      "accepted_blob": "d1534a53436d30508f93964242884074190fea50",
+      "path": "Cargo.lock",
+      "current_blob": "b5820fde8661544f573969c5bc09ac78b3e08f36"
+    },
+    {
+      "verdict": "SAME_DIRECT_GIT_BLOB_AND_MODE_ONLY",
+      "current_mode": "100644",
+      "accepted_mode": "100644",
+      "accepted_blob": "0e0aaa47c43553debf4dc0d1cfa5e2ea12b8cbbd",
+      "path": "examples/core_calendar_observer.rs",
+      "current_blob": "0e0aaa47c43553debf4dc0d1cfa5e2ea12b8cbbd"
+    },
+    {
+      "verdict": "SAME_DIRECT_GIT_BLOB_AND_MODE_ONLY",
+      "current_mode": "100644",
+      "accepted_mode": "100644",
+      "accepted_blob": "20801387f64def24901c030616555775ee426634",
+      "path": "examples/core_filter_extended_observer.rs",
+      "current_blob": "20801387f64def24901c030616555775ee426634"
+    },
+    {
+      "verdict": "CHANGED_CONTEXT_REVIEW_REQUIRED",
+      "current_mode": "100644",
+      "accepted_mode": "100644",
+      "accepted_blob": "ef852ae40a25f3bbf9cf6ae53da0864614f34370",
+      "path": "examples/pi_convert.rs",
+      "current_blob": "67fb209887388e8e8b1ef331ecbadf62418cc926"
+    },
+    {
+      "verdict": "SAME_DIRECT_GIT_BLOB_AND_MODE_ONLY",
+      "current_mode": "100644",
+      "accepted_mode": "100644",
+      "accepted_blob": "287d0e0052df5b76c34c668001958a40bfe49489",
+      "path": "tools/oracle/audit-miner-performance.py",
+      "current_blob": "287d0e0052df5b76c34c668001958a40bfe49489"
+    },
+    {
+      "verdict": "SAME_DIRECT_GIT_BLOB_AND_MODE_ONLY",
+      "current_mode": "100644",
+      "accepted_mode": "100644",
+      "accepted_blob": "5c940b916fba415d387ced57feebcd8dcdeb76a3",
+      "path": "tools/oracle/audit-miner-benchmark-evidence.py",
+      "current_blob": "5c940b916fba415d387ced57feebcd8dcdeb76a3"
+    },
+    {
+      "verdict": "SAME_DIRECT_GIT_BLOB_AND_MODE_ONLY",
+      "current_mode": "100644",
+      "accepted_mode": "100644",
+      "accepted_blob": "98214fa2dd7e9bab7b5a40c9ebbdd07b8473c175",
+      "path": "fixtures/oracle-core-calendar/corpus.json",
+      "current_blob": "98214fa2dd7e9bab7b5a40c9ebbdd07b8473c175"
+    },
+    {
+      "verdict": "SAME_DIRECT_GIT_BLOB_AND_MODE_ONLY",
+      "current_mode": "100644",
+      "accepted_mode": "100644",
+      "accepted_blob": "7789004c485d7240f2dc45435b3b263c990d78b0",
+      "path": "fixtures/oracle-core-filter-extended/corpus.json",
+      "current_blob": "7789004c485d7240f2dc45435b3b263c990d78b0"
+    },
+    {
+      "verdict": "SAME_DIRECT_GIT_BLOB_AND_MODE_ONLY",
+      "current_mode": "100644",
+      "accepted_mode": "100644",
+      "accepted_blob": "d119796a191b848e169f8f2a7fc9fe885d5b2ade",
+      "path": "fixtures/oracle-miner-performance/corpus.json",
+      "current_blob": "d119796a191b848e169f8f2a7fc9fe885d5b2ade"
+    }
+  ],
+  "accepted_candidate_sha256": "2D3D8A4032189506C9EC8A491D769A3337FF77363582AE92B26384F4910247FA",
+  "current_head": "c805c059b737293164b33be915b937d0028fe011",
+  "accepted_candidate_path": "flw/evidence/sprint-20-final/candidate02.json",
+  "kind": "SOURCE_IDENTITY_MAP_NOT_RUNTIME_RECERTIFICATION",
+  "remaining": "Current entire HTTP/API context OPEN_REVALIDATION; independent accepted conversion and miner observations remain separately scoped",
+  "schema_version": 1
+}

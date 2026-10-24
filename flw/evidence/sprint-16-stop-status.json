@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "status": "TIME_LIMIT_EXPIRED_CANDIDATE_NOT_ACCEPTED",
+  "deadline_utc": "2026-10-20T21:16:17Z",
+  "permission_observed_utc": "2026-10-21T06:17:24Z",
+  "browser_permission_now_granted": true,
+  "permission_does_not_extend_budget": true,
+  "source_commit": "2660ede595fb37e9ff75613e562f8c08c8d4c6fd",
+  "exe_sha256": "C55A78BEFF5A5C455BCD2F2D420339932444CE86DE28EFBB8D407254A263DE25",
+  "private_zip_sha256": "862427638D49AB02513184C0069DD13A6E7876D7EA023E511D4A3E1359E83D79",
+  "actual_UI": [
+    "XES upload/preview/loss notice/confirm",
+    "Datastar trace selection",
+    "durable history view",
+    "BPMN upload/select/edit/save revision2"
+  ],
+  "actual_api_before": [
+    "source exact bytes",
+    "model JSON/XML geometry",
+    "history exactsource/policy"
+  ],
+  "actual_native_restart": true,
+  "cold_postmaster_clean_exit": 0,
+  "after_restart_UI_and_reimport_verified": false,
+  "after_API": "Delayed command ECONNREFUSED after controlled fixture had stopped; no product failure or PASS inferred",
+  "final_council_acceptance": false,
+  "release_published": false,
+  "remaining": [
+    "finish finite reimport and after-restart verification",
+    "independent final QA/TD",
+    "final Council",
+    "diagnostic HEAD CI/public delivery/readback"
+  ],
+  "no_full_R2_R4_R5_or_enterprise_claim": true
+}

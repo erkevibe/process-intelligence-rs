@@ -1,0 +1,467 @@
+{
+  "schema_version" : 1,
+  "call_id" : "warm-self-loop-measure-3",
+  "process_id" : "warm-self-loop",
+  "case_id" : "self-loop",
+  "ordinal_in_process" : 5,
+  "role" : "measured",
+  "input_sha256" : "4d0caf82f37113cefdb9caeefbae81292dcb874e6750ba244cec3e8e45a9a0dc",
+  "engine_invoked" : true,
+  "engine_time_nanos" : 6801800,
+  "parse_time_nanos" : 7141501,
+  "export_time_nanos" : 17823400,
+  "status" : "diagram_returned",
+  "input_xlog_before" : {
+    "attributes" : [ {
+      "key" : "concept:name",
+      "type" : "string",
+      "value" : "splitminer-self-loop"
+    } ],
+    "classifiers" : [ ],
+    "extensions" : [ ],
+    "global_trace_attributes" : [ ],
+    "global_event_attributes" : [ ],
+    "traces" : [ {
+      "attributes" : [ {
+        "key" : "concept:name",
+        "type" : "string",
+        "value" : "case-0"
+      } ],
+      "events" : [ {
+        "attributes" : [ {
+          "key" : "concept:name",
+          "type" : "string",
+          "value" : "A"
+        }, {
+          "key" : "lifecycle:transition",
+          "type" : "string",
+          "value" : "complete"
+        }, {
+          "key" : "time:timestamp",
+          "type" : "date",
+          "value" : 1704067200000,
+          "text" : "2024-01-01T00:00:00Z"
+        } ]
+      }, {
+        "attributes" : [ {
+          "key" : "concept:name",
+          "type" : "string",
+          "value" : "A"
+        }, {
+          "key" : "lifecycle:transition",
+          "type" : "string",
+          "value" : "complete"
+        }, {
+          "key" : "time:timestamp",
+          "type" : "date",
+          "value" : 1704067201000,
+          "text" : "2024-01-01T00:00:01Z"
+        } ]
+      }, {
+        "attributes" : [ {
+          "key" : "concept:name",
+          "type" : "string",
+          "value" : "B"
+        }, {
+          "key" : "lifecycle:transition",
+          "type" : "string",
+          "value" : "complete"
+        }, {
+          "key" : "time:timestamp",
+          "type" : "date",
+          "value" : 1704067202000,
+          "text" : "2024-01-01T00:00:02Z"
+        } ]
+      } ]
+    }, {
+      "attributes" : [ {
+        "key" : "concept:name",
+        "type" : "string",
+        "value" : "case-1"
+      } ],
+      "events" : [ {
+        "attributes" : [ {
+          "key" : "concept:name",
+          "type" : "string",
+          "value" : "A"
+        }, {
+          "key" : "lifecycle:transition",
+          "type" : "string",
+          "value" : "complete"
+        }, {
+          "key" : "time:timestamp",
+          "type" : "date",
+          "value" : 1704067200000,
+          "text" : "2024-01-01T00:00:00Z"
+        } ]
+      }, {
+        "attributes" : [ {
+          "key" : "concept:name",
+          "type" : "string",
+          "value" : "B"
+        }, {
+          "key" : "lifecycle:transition",
+          "type" : "string",
+          "value" : "complete"
+        }, {
+          "key" : "time:timestamp",
+          "type" : "date",
+          "value" : 1704067201000,
+          "text" : "2024-01-01T00:00:01Z"
+        } ]
+      } ]
+    }, {
+      "attributes" : [ {
+        "key" : "concept:name",
+        "type" : "string",
+        "value" : "case-2"
+      } ],
+      "events" : [ {
+        "attributes" : [ {
+          "key" : "concept:name",
+          "type" : "string",
+          "value" : "A"
+        }, {
+          "key" : "lifecycle:transition",
+          "type" : "string",
+          "value" : "complete"
+        }, {
+          "key" : "time:timestamp",
+          "type" : "date",
+          "value" : 1704067200000,
+          "text" : "2024-01-01T00:00:00Z"
+        } ]
+      }, {
+        "attributes" : [ {
+          "key" : "concept:name",
+          "type" : "string",
+          "value" : "A"
+        }, {
+          "key" : "lifecycle:transition",
+          "type" : "string",
+          "value" : "complete"
+        }, {
+          "key" : "time:timestamp",
+          "type" : "date",
+          "value" : 1704067201000,
+          "text" : "2024-01-01T00:00:01Z"
+        } ]
+      }, {
+        "attributes" : [ {
+          "key" : "concept:name",
+          "type" : "string",
+          "value" : "A"
+        }, {
+          "key" : "lifecycle:transition",
+          "type" : "string",
+          "value" : "complete"
+        }, {
+          "key" : "time:timestamp",
+          "type" : "date",
+          "value" : 1704067202000,
+          "text" : "2024-01-01T00:00:02Z"
+        } ]
+      }, {
+        "attributes" : [ {
+          "key" : "concept:name",
+          "type" : "string",
+          "value" : "B"
+        }, {
+          "key" : "lifecycle:transition",
+          "type" : "string",
+          "value" : "complete"
+        }, {
+          "key" : "time:timestamp",
+          "type" : "date",
+          "value" : 1704067203000,
+          "text" : "2024-01-01T00:00:03Z"
+        } ]
+      } ]
+    } ],
+    "trace_count" : 3,
+    "event_count" : 9
+  },
+  "input_xlog_before_sha256" : "cd7b8d433b18946e46cf02b3b895cb410957acccd926d5fd4cc888ffdc4ce67d",
+  "input_traces" : 3,
+  "input_events" : 9,
+  "gc_before" : {
+    "collectors" : [ {
+      "name" : "G1 Young Generation",
+      "collection_count" : 5,
+      "collection_time_millis" : 30
+    }, {
+      "name" : "G1 Old Generation",
+      "collection_count" : 0,
+      "collection_time_millis" : 0
+    } ],
+    "unsupported_negative_values_preserved" : true
+  },
+  "gc_after" : {
+    "collectors" : [ {
+      "name" : "G1 Young Generation",
+      "collection_count" : 5,
+      "collection_time_millis" : 30
+    }, {
+      "name" : "G1 Old Generation",
+      "collection_count" : 0,
+      "collection_time_millis" : 0
+    } ],
+    "unsupported_negative_values_preserved" : true
+  },
+  "returned_same_as_miner_field" : true,
+  "graph" : {
+    "label" : "eDFGP-diagram",
+    "nodes" : [ {
+      "id" : "node0",
+      "label" : "A",
+      "class" : "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Activity",
+      "parent_subprocess" : null,
+      "script" : false,
+      "service" : false,
+      "receive" : false,
+      "send" : false,
+      "collapsed" : false,
+      "looped" : true,
+      "adhoc" : false,
+      "compensation" : false,
+      "multiinstance" : false
+    }, {
+      "id" : "node1",
+      "label" : "B",
+      "class" : "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Activity",
+      "parent_subprocess" : null,
+      "script" : false,
+      "service" : false,
+      "receive" : false,
+      "send" : false,
+      "collapsed" : false,
+      "looped" : false,
+      "adhoc" : false,
+      "compensation" : false,
+      "multiinstance" : false
+    }, {
+      "id" : "node2",
+      "label" : "",
+      "class" : "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Event",
+      "parent_subprocess" : null,
+      "event_type" : "START",
+      "event_trigger" : "NONE",
+      "event_use" : "CATCH",
+      "interrupting" : "true",
+      "parallel_multiple" : null
+    }, {
+      "id" : "node3",
+      "label" : "",
+      "class" : "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Event",
+      "parent_subprocess" : null,
+      "event_type" : "END",
+      "event_trigger" : "NONE",
+      "event_use" : "THROW",
+      "interrupting" : "true",
+      "parallel_multiple" : null
+    } ],
+    "flows" : [ {
+      "id" : "edge0",
+      "source" : "node2",
+      "target" : "node0",
+      "label" : "",
+      "condition" : null,
+      "text_annotation" : null,
+      "parent_subprocess" : null
+    }, {
+      "id" : "edge1",
+      "source" : "node0",
+      "target" : "node1",
+      "label" : "",
+      "condition" : null,
+      "text_annotation" : null,
+      "parent_subprocess" : null
+    }, {
+      "id" : "edge2",
+      "source" : "node1",
+      "target" : "node3",
+      "label" : "",
+      "condition" : null,
+      "text_annotation" : null,
+      "parent_subprocess" : null
+    } ],
+    "full_exported_semantic_authority" : "raw BPMN XML; graph fields do not replace full XML bijection"
+  },
+  "bpmn" : {
+    "file" : "warm-self-loop-measure-3.bpmn",
+    "sha256" : "1fb5537c69bfebb08820220809404c5e2473d6ccd1dc3775a8efdccdf3268ca6",
+    "bytes" : 2190
+  },
+  "input_xlog_after" : {
+    "attributes" : [ {
+      "key" : "concept:name",
+      "type" : "string",
+      "value" : "splitminer-self-loop"
+    } ],
+    "classifiers" : [ ],
+    "extensions" : [ ],
+    "global_trace_attributes" : [ ],
+    "global_event_attributes" : [ ],
+    "traces" : [ {
+      "attributes" : [ {
+        "key" : "concept:name",
+        "type" : "string",
+        "value" : "case-0"
+      } ],
+      "events" : [ {
+        "attributes" : [ {
+          "key" : "concept:name",
+          "type" : "string",
+          "value" : "A"
+        }, {
+          "key" : "lifecycle:transition",
+          "type" : "string",
+          "value" : "complete"
+        }, {
+          "key" : "time:timestamp",
+          "type" : "date",
+          "value" : 1704067200000,
+          "text" : "2024-01-01T00:00:00Z"
+        } ]
+      }, {
+        "attributes" : [ {
+          "key" : "concept:name",
+          "type" : "string",
+          "value" : "A"
+        }, {
+          "key" : "lifecycle:transition",
+          "type" : "string",
+          "value" : "complete"
+        }, {
+          "key" : "time:timestamp",
+          "type" : "date",
+          "value" : 1704067201000,
+          "text" : "2024-01-01T00:00:01Z"
+        } ]
+      }, {
+        "attributes" : [ {
+          "key" : "concept:name",
+          "type" : "string",
+          "value" : "B"
+        }, {
+          "key" : "lifecycle:transition",
+          "type" : "string",
+          "value" : "complete"
+        }, {
+          "key" : "time:timestamp",
+          "type" : "date",
+          "value" : 1704067202000,
+          "text" : "2024-01-01T00:00:02Z"
+        } ]
+      } ]
+    }, {
+      "attributes" : [ {
+        "key" : "concept:name",
+        "type" : "string",
+        "value" : "case-1"
+      } ],
+      "events" : [ {
+        "attributes" : [ {
+          "key" : "concept:name",
+          "type" : "string",
+          "value" : "A"
+        }, {
+          "key" : "lifecycle:transition",
+          "type" : "string",
+          "value" : "complete"
+        }, {
+          "key" : "time:timestamp",
+          "type" : "date",
+          "value" : 1704067200000,
+          "text" : "2024-01-01T00:00:00Z"
+        } ]
+      }, {
+        "attributes" : [ {
+          "key" : "concept:name",
+          "type" : "string",
+          "value" : "B"
+        }, {
+          "key" : "lifecycle:transition",
+          "type" : "string",
+          "value" : "complete"
+        }, {
+          "key" : "time:timestamp",
+          "type" : "date",
+          "value" : 1704067201000,
+          "text" : "2024-01-01T00:00:01Z"
+        } ]
+      } ]
+    }, {
+      "attributes" : [ {
+        "key" : "concept:name",
+        "type" : "string",
+        "value" : "case-2"
+      } ],
+      "events" : [ {
+        "attributes" : [ {
+          "key" : "concept:name",
+          "type" : "string",
+          "value" : "A"
+        }, {
+          "key" : "lifecycle:transition",
+          "type" : "string",
+          "value" : "complete"
+        }, {
+          "key" : "time:timestamp",
+          "type" : "date",
+          "value" : 1704067200000,
+          "text" : "2024-01-01T00:00:00Z"
+        } ]
+      }, {
+        "attributes" : [ {
+          "key" : "concept:name",
+          "type" : "string",
+          "value" : "A"
+        }, {
+          "key" : "lifecycle:transition",
+          "type" : "string",
+          "value" : "complete"
+        }, {
+          "key" : "time:timestamp",
+          "type" : "date",
+          "value" : 1704067201000,
+          "text" : "2024-01-01T00:00:01Z"
+        } ]
+      }, {
+        "attributes" : [ {
+          "key" : "concept:name",
+          "type" : "string",
+          "value" : "A"
+        }, {
+          "key" : "lifecycle:transition",
+          "type" : "string",
+          "value" : "complete"
+        }, {
+          "key" : "time:timestamp",
+          "type" : "date",
+          "value" : 1704067202000,
+          "text" : "2024-01-01T00:00:02Z"
+        } ]
+      }, {
+        "attributes" : [ {
+          "key" : "concept:name",
+          "type" : "string",
+          "value" : "B"
+        }, {
+          "key" : "lifecycle:transition",
+          "type" : "string",
+          "value" : "complete"
+        }, {
+          "key" : "time:timestamp",
+          "type" : "date",
+          "value" : 1704067203000,
+          "text" : "2024-01-01T00:00:03Z"
+        } ]
+      } ]
+    } ],
+    "trace_count" : 3,
+    "event_count" : 9
+  },
+  "input_xlog_after_sha256" : "cd7b8d433b18946e46cf02b3b895cb410957acccd926d5fd4cc888ffdc4ce67d",
+  "input_xlog_unchanged" : true
+}

@@ -1,0 +1,276 @@
+{
+  "schema_version": 1,
+  "utc": "2026-10-23T18:08:47.535Z",
+  "agent_name": "td_s20_delivery",
+  "decision": "ACCEPT_FINITE_ACTUAL_OPS02",
+  "authorship": "TD authored broker/runner; Root and QA independent method and actual reviews remain separately bound. TD independently reviewed Root HTTP checker and actual raw records/results.",
+  "proof_sha256": "507D2A39B228AE774286EFA511F7058806BBF6AB066DE8FDC4E48A336E7C8C63",
+  "records": [
+    {
+      "label": "app-duplicate",
+      "sha256": "4E691EAD8137E081F147AA6114D5B53BAE180C210BF8AC1FCF3B68929EB0CB52",
+      "pid": 74808,
+      "birth": "134372522908342019",
+      "exit": 1
+    },
+    {
+      "label": "app-live",
+      "sha256": "1BD539CA7EDF99C8972530F63C56F533B5CE93D1A68A258D50EAC2F53C35FA4D",
+      "pid": 79840,
+      "birth": "134372522853575878",
+      "exit": 137
+    },
+    {
+      "label": "app-restarted",
+      "sha256": "D551A28112AF72D353C9ECD65DAF38F21F68B28CF96D5E3EF574E7E89F1477AC",
+      "pid": 71368,
+      "birth": "134372523590236667",
+      "exit": 137
+    },
+    {
+      "label": "cluster-g1",
+      "sha256": "19134987CF43FD9F4CBBC9C3D9F8FC2E64669F47E4D390EC3C31E3CCB47A4E26",
+      "pid": 48916,
+      "birth": "134372522806361338",
+      "exit": 0
+    },
+    {
+      "label": "cluster-g2",
+      "sha256": "5D0FA52263AE13719D359C5EAAB773B01A840A251A171468FAAF1D946F6D6D74",
+      "pid": 59760,
+      "birth": "134372523541735656",
+      "exit": 0
+    },
+    {
+      "label": "create-db",
+      "sha256": "2E997F3D644DCA31DECB97F64491F7F3ED594C9B02F654A8616C09DD762C7332",
+      "pid": 78932,
+      "birth": "134372522829626864",
+      "exit": 0
+    },
+    {
+      "label": "http-down",
+      "sha256": "681FF6C1A0FC949442B309F7861737DF366447809841177EDE779595423F8569",
+      "pid": 62884,
+      "birth": "134372523471318537",
+      "exit": 0
+    },
+    {
+      "label": "http-latched",
+      "sha256": "786BF66B1F8AFC2ED35C382DF8DF2233EC763BAE4CA3703772A3ABAB90A155DA",
+      "pid": 78064,
+      "birth": "134372523564035542",
+      "exit": 0
+    },
+    {
+      "label": "http-lease-check",
+      "sha256": "2355654F986420167F574057E932531CBB855F1B8868B254FF6847A4D2E53C22",
+      "pid": 75188,
+      "birth": "134372523113279622",
+      "exit": 0
+    },
+    {
+      "label": "http-restored",
+      "sha256": "179D3DB6BA0731CA4EB7262725741FC02442030026D991B61FEE4F3271BD4532",
+      "pid": 78576,
+      "birth": "134372523596096110",
+      "exit": 0
+    },
+    {
+      "label": "http-seed",
+      "sha256": "505AC655F48AFFD2F96B712B7A87D20D8FD640E9AF31609A2BE3E469B4C1910B",
+      "pid": 45992,
+      "birth": "134372522860880237",
+      "exit": 0
+    },
+    {
+      "label": "pg-stop-g1",
+      "sha256": "6067F6C3359D4B23C4C76889DB7817D617AA4262814E778725ED63A67A2EB480",
+      "pid": 78864,
+      "birth": "134372523301758509",
+      "exit": 0
+    },
+    {
+      "label": "pg-stop-g2",
+      "sha256": "2B839E73AF1DAF65CA093266C1BFD8430AE1610213DE860D59821E99726A318A",
+      "pid": 56344,
+      "birth": "134372523768902520",
+      "exit": 0
+    },
+    {
+      "label": "postgres-g1",
+      "sha256": "78BE05FF1A6A4EE90749517830B8146A19E5430505525367210E2620AC35F309",
+      "pid": 76896,
+      "birth": "134372522759434094",
+      "exit": 0
+    },
+    {
+      "label": "postgres-g2",
+      "sha256": "6FE24B915FB186298B4EF1815F1667E597068CE025198F8387564428C4E97A82",
+      "pid": 65644,
+      "birth": "134372523494887664",
+      "exit": 0
+    },
+    {
+      "label": "ready-g1-01",
+      "sha256": "38EC15FA946C1DDA4688273304DFA2DA295A04A00796FC515D88AE6B0534E1D9",
+      "pid": 76380,
+      "birth": "134372522760901348",
+      "exit": 1
+    },
+    {
+      "label": "ready-g1-02",
+      "sha256": "B1E5B427256095D34A339952C8ACE5278F9307A7230A7310F659E86079162291",
+      "pid": 76156,
+      "birth": "134372522784021233",
+      "exit": 0
+    },
+    {
+      "label": "ready-g2-01",
+      "sha256": "95AB6F9333BC44FBA0E0CB02CB205529986A5DC43724E12BCFA551C57BE00262",
+      "pid": 16364,
+      "birth": "134372523496072997",
+      "exit": 1
+    },
+    {
+      "label": "ready-g2-02",
+      "sha256": "361138619F2CB82143B10169695E524734AFAEB26AEB0CC70EDDBB541B2B4FAB",
+      "pid": 67920,
+      "birth": "134372523518839944",
+      "exit": 0
+    },
+    {
+      "label": "snapshot-after",
+      "sha256": "2A0690861A4EA43D7117C750E0698FA90C6F25E907BAFB1462D6FF292842B23E",
+      "pid": 49364,
+      "birth": "134372523618696918",
+      "exit": 0
+    },
+    {
+      "label": "snapshot-before",
+      "sha256": "CF9ACCF07836F2E240E74B960E35D40DECDFE05CA8AC5D0946EDA7554E9BD340",
+      "pid": 66352,
+      "birth": "134372522883907979",
+      "exit": 0
+    },
+    {
+      "label": "snapshot-lease",
+      "sha256": "5EFCE7D068A2766E939FB51290D2AD8A4D8D6005FC001CF1AD83793807C0F744",
+      "pid": 67848,
+      "birth": "134372522931852881",
+      "exit": 0
+    },
+    {
+      "label": "worker",
+      "sha256": "CBA5A8F944DCB6DEAC893C959FF28D10D33039AC02658A70002D09B1EDBC3704",
+      "pid": 59288,
+      "birth": "134372522751122769",
+      "exit": 0
+    },
+    {
+      "label": "collector",
+      "sha256": "C19D6759DD2623D3B8F147704C4B6BAEB306B59D25E2E6A97DB3FC0B5AB3CE44",
+      "pid": 56832,
+      "exit": 0
+    },
+    {
+      "label": "launcher",
+      "sha256": "14C0FC36055FC8C6288A0B27610D4F03D4DC9C5D67CE68751C13A80C9E1A3CD8",
+      "pid": 78244,
+      "exit": 0
+    }
+  ],
+  "full_streams": 50,
+  "http": [
+    {
+      "mode": "seed",
+      "requests": 11,
+      "statuses": [
+        200,
+        303,
+        200,
+        200,
+        200,
+        200,
+        303,
+        303,
+        200,
+        200,
+        200
+      ],
+      "proof_sha256": "E5D1C3465FB81A8A8448EB2D043C808708A82A80AB9D5B6A19C143A97410A024"
+    },
+    {
+      "mode": "lease-check",
+      "requests": 4,
+      "statuses": [
+        200,
+        200,
+        200,
+        200
+      ],
+      "proof_sha256": "1BD9944C901331B6C06D08B410F532C24A50D4F7C497322402226FFFFB285470"
+    },
+    {
+      "mode": "down",
+      "requests": 3,
+      "statuses": [
+        503,
+        503,
+        503
+      ],
+      "proof_sha256": "81105A01334C0BE560DE8EF2B4336B4F41B2F36CB5799B1DC7C21D6D929B14D3"
+    },
+    {
+      "mode": "latched",
+      "requests": 3,
+      "statuses": [
+        503,
+        503,
+        503
+      ],
+      "proof_sha256": "5FAAF45701471CD64542065DC9C585304CAFB2DF860C80EA28E86CD0DE81E8A5"
+    },
+    {
+      "mode": "restored",
+      "requests": 4,
+      "statuses": [
+        200,
+        200,
+        200,
+        200
+      ],
+      "proof_sha256": "A3F4D47BC20916CF92286813A3970D99462057876EF00FDD464CB11449C4C562"
+    }
+  ],
+  "transactions": [
+    {
+      "generation": "postgres-g1",
+      "pg_pid": 76896,
+      "completed_utc": "2026-10-23T18:05:46.8462932+00:00",
+      "stop_window_seconds": 19,
+      "pid_absent": true,
+      "both_full_eof": true
+    },
+    {
+      "generation": "postgres-g2",
+      "pg_pid": 65644,
+      "completed_utc": "2026-10-23T18:06:29.4294646+00:00",
+      "stop_window_seconds": 19,
+      "pid_absent": true,
+      "both_full_eof": true
+    }
+  ],
+  "snapshot_sha256": "3DED7544815648148964199645FA6CE4EAEAE7785E9E3E4C9ECA2F8FC03F59B6",
+  "checked": [
+    "All persisted raw native stream SHA/length/full closure checked; expected duplicate1/apps137/readiness1 distinguished from successful commands.",
+    "Duplicate exact localized refusal, first app healthy; before/lease/after durable project+record snapshots byte-identical.",
+    "Two owned distinct PG generations cleanstop0/full captures, 19-second stop windows and unchanged serial guards; no broker primary/guard failure.",
+    "Actual 503 health and filter/calendar writes with PG down; same app remains latched after PG restart; explicit app restart restores200 and byte-identical backup/export/project audit."
+  ],
+  "limits": [
+    "Finite single-writer/outage/restart fixture only; no HA, automatic reconnect, availability SLO, global quota or broad enterprise certification.",
+    "Ops01 remains failed timeout, all its evidence preserved. No new engines/scans executed by TD."
+  ],
+  "blocking_findings": []
+}

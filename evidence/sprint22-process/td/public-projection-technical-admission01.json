@@ -1,0 +1,31 @@
+{
+  "transport_current_sha256": "CF05209E0DE10D39ED753A9E1BEF7F568A7207A33F7DD54D42C92E40042F5559",
+  "transport_current_delta": "Policy pin only; actual corpus encode/decode still required.",
+  "scope": "Source review and synthetic transport result review only; no publication/final candidate vote",
+  "transport_actual_controls_result_sha256": "FC7865767B6637C5E688C1531FA100F8694509E616CE0BF99B25598E40CEAAB1",
+  "failures_preserved": [
+    "Privacy03 legitimate /health refused by former generic path policy; actual failure retained",
+    "Old private auditor safe() missed bug and original failure retained",
+    "Original adapter wholeFAILED_GUARD and sixhistoricalUNKNOWN unchanged"
+  ],
+  "agent_name": "td_s20_delivery",
+  "conditions": [
+    "Root execute privacy04 current62negative6actualpositive checker after QA exact GO",
+    "Projection exact selection only after actual privacy04 PASS",
+    "One projected cluster stdout explicitly binds original descriptor SHA/length to projectionmanifest and projected bytes; no native descriptor rebinding",
+    "Final actual corpus transport roundtrip and all public replay audits before frozen candidate acceptance"
+  ],
+  "privacy_checker_sha256": "60DA6B499EBB40ADF5818C6301CF0878DBE96FEDF9A0C5545866BC722666E46E",
+  "utc": "2026-10-23T05:14:41.7030576+00:00",
+  "public_measurement_auditor_sha256": "5FB4BE73B49D4708271851C5E7676BD40B74674D091F4B829771188FB8C1CD8E",
+  "decision": "FOR_BOUNDED_PRIVACY04_AND_CONDITIONAL_PROJECTION",
+  "projector_sha256": "E29223B3CB01729BAB84A1979D80C6F7EAEE1A8CCAF6EE90C4FDAD8DD2EBFB88",
+  "transport_actual_algorithm_controls": 33,
+  "selection_review": {
+    "auth_omissions": 2,
+    "entries": 348,
+    "source_hash_mismatches": 0,
+    "ipc_entries": 0
+  },
+  "selection_sha256": "8BF0F5C0E8332D6D43D0FAAD39988F9EFAD56FCAAD79FEC47B049C23AF8880C9"
+}

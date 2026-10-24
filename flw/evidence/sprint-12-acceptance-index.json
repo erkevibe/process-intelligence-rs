@@ -1,0 +1,397 @@
+{
+  "utc": "2026-10-19T10:34:13.7027844Z",
+  "sprint": 12,
+  "status": "SAFE_PUBLIC_METADATA_DRAFT_NOT_FINAL_ACCEPTANCE",
+  "scope": "Finite coherent lifecycle and business-audit candidate0.7.2; report metadata only, no private rawreports or payload",
+  "product": {
+    "version": "0.7.2",
+    "source_commit": "9005f6f77ca449e7d7f63889a5c874c8fbc83372",
+    "exe_sha256": "B14F3D2E306DBB8FF81EC37A8BF8A70F63E53252E43079364E1C09D4AF345DE6",
+    "zip_sha256": "EE1DD55968FEB636F5D7EA66DFB26B4F3DF83E236094A70EF3F254C322542A64",
+    "manifest_sha256": "3773A24A132F49E8A62448DDD8A9056C86499FF36C282097F32A53A75BD24D41",
+    "sprint12_source_head": "CODE_CANDIDATE_6a804d307d8e7e0b98f31cc90849d98e8cd25fa5_FINAL_METADATA_HEAD_IN_DELIVERY_RECEIPT_NOT_BINARY_BUILD_SOURCE",
+    "cleanup": "DISABLED"
+  },
+  "public_repository_references": [
+    {
+      "path": "docs/SPRINT_12_PLAN.md",
+      "sha256": "F8A97D992BB01B649CB262EA7DEF0DEDB20516F3D861A9113B1D7ADFDB8580F5"
+    },
+    {
+      "path": "flw/evidence/sprint-12-producer-matrix.json",
+      "sha256": "611892CCD152CFD0DC62EEE9A956AC6EA9F0690D8E7D3D2B5C0D684ECF59C801"
+    },
+    {
+      "path": "flw/evidence/sprint-12-coverage-ledger.json",
+      "sha256": "09A7E15160B453D2FB8EF7B01936E72E52827368FEB882E831817841B01882E8"
+    }
+  ],
+  "selected_private_metadata": [
+    {
+      "role": "QA",
+      "private_report_basename": "profile-calibration-actual01.json",
+      "sha256": "1DCB4FBBCEF76D834F98B378A4DB9CECEBB34832E5557DC8941A11422D4117F3",
+      "bytes": 7170,
+      "reported_verdict": "S12_BENIGN_FIXED_PROFILE_CALIBRATION_ACTUAL_INDEPENDENTLY_VERIFIED",
+      "finite_boundary": "48 finite owned-runtime calibration checks; not product acceptance",
+      "raw_report_published": false
+    },
+    {
+      "role": "QA",
+      "private_report_basename": "stock-baseline-actual01.json",
+      "sha256": "353E40767BA4B69845740A36AEDC32F9F982DAC3C5DFCDB04C7317DC4C04A85D",
+      "bytes": 7177,
+      "reported_verdict": "FINITE_S12_STOCK_BASELINE_NATIVE_FULLSTATE_HTTP_INDEPENDENTLY_VERIFIED",
+      "finite_boundary": "Finite fresh stock setup/restart/backup/recovery; named sequence rules and own resources",
+      "raw_report_published": false
+    },
+    {
+      "role": "QA",
+      "private_report_basename": "folder-lifecycle02-actual-independent01.json",
+      "sha256": "AF9C0BCCB948DC5EC2CD4131EBFCD10F089A4238606A8953CA3318A856189E93",
+      "bytes": 17331,
+      "reported_verdict": "FRESH_FOLDER18_NATIVE_CAPTURE_AND_LITERAL_FULLSTATE_INDEPENDENTLY_VERIFIED",
+      "finite_boundary": "18 actualHTTP cases9success9refusal; complete expected managed state; no literalprojectmove",
+      "raw_report_published": false
+    },
+    {
+      "role": "QA",
+      "private_report_basename": "native-pg02-actual-independent01.json",
+      "sha256": "484CBC67B370EF7E111D6367A258D8D7FDE5E25FB60A449F6596DCFC7FAA8FC5",
+      "bytes": 10446,
+      "reported_verdict": "FRESH_NATIVE4_ACTUAL_FINITE_INDEPENDENTLY_VERIFIED",
+      "finite_boundary": "Four native productionAPI cases: Auth switch/revoke/archive/delete plus actual job persistence/recovery; not stockTCP",
+      "raw_report_published": false
+    },
+    {
+      "role": "QA",
+      "private_report_basename": "native-jobs-actual-independent01.json",
+      "sha256": "33B98799EB4292E49E8CA4EA7F417B9E31240E765193200191D11353051918FE",
+      "bytes": 2162,
+      "reported_verdict": "NATIVE_JOB_LITERAL7_COMMITS_ROLLBACK_CACHE_AND_RECOVERY_INDEPENDENTLY_VERIFIED",
+      "finite_boundary": "Seven literal persist_job stages and actual startup recovery/SQLrollback; source-bound time assertions",
+      "raw_report_published": false
+    },
+    {
+      "role": "QA",
+      "private_report_basename": "native-job-cache-scope-addendum01.json",
+      "sha256": "F9926AF29FB7D0273C9468E3C8F58A4F2959190A89E4C04F7FFC010861BED288",
+      "bytes": 1120,
+      "reported_verdict": "NATIVE_JOB_CACHE_PROJECTION_SCOPE_ADDENDUM",
+      "finite_boundary": "Saved serializable Repository projection excludes serde-skipped fields/external ResourceCache/wholeprocess memory",
+      "raw_report_published": false
+    },
+    {
+      "role": "QA",
+      "private_report_basename": "project-http32-fresh02-actual-independent01.json",
+      "sha256": "08923034AA0166F4DCA139B542B510505829973A2D93A1D2B7CB45959FD7BF1A",
+      "bytes": 23769,
+      "reported_verdict": "FRESH_PROJECT_HTTP32_FULLSTATE_POLICY_NATIVE_INDEPENDENTLY_VERIFIED",
+      "finite_boundary": "32 sequential actualHTTP fullstate cases22success10refusal;9Auth producers; no universalpayload orconcurrency",
+      "raw_report_published": false
+    },
+    {
+      "role": "QA",
+      "private_report_basename": "resource11-actual-independent01.json",
+      "sha256": "7EEDAA2DC68DBFD30A7B4ACF9B96012FA446A90FF369832699C69F32269869BD",
+      "bytes": 2111,
+      "reported_verdict": "FINITE_RESOURCE11_ACCEPTED",
+      "finite_boundary": "11 finite resourceHTTP cases including7remainingproducers with literal data/model/policy expectations",
+      "raw_report_published": false
+    },
+    {
+      "role": "QA",
+      "private_report_basename": "mixed-retention-actual-independent01.json",
+      "sha256": "CABF56BF3DDF7CFF41381FA26605A3C13A2B833B979C7ABC7836754A26AF2729",
+      "bytes": 2451,
+      "reported_verdict": "FINITE_FOUR_BOUNDARY_RETENTION_ACCEPTED",
+      "finite_boundary": "Four repository/survivor512513 boundaries1018actualbusinessoperations3071savedHTTPbodies; fullboundary state not everytransientcommit",
+      "raw_report_published": false
+    },
+    {
+      "role": "QA",
+      "private_report_basename": "fresh-replay-actual-independent01.json",
+      "sha256": "F1E43CE81EBC96B0E2EC81EBC4517E127D902556579D76019270713A2519307E",
+      "bytes": 3434,
+      "reported_verdict": "FRESH_FOUR_PHASE_REPLAY_INDEPENDENTLY_ACCEPTED",
+      "finite_boundary": "Fresh project32/resource11/retention/recovery sequence; fullbackup/newuntouchedverification/separateruntime recovery; samehostonly",
+      "raw_report_published": false
+    },
+    {
+      "role": "QA",
+      "private_report_basename": "replay-recovery-actual-semantic01.json",
+      "sha256": "FF4DD9DBC899BDCC21FD4194998048171D04B5334EDCDCFC862C81303AB244D7",
+      "bytes": 4550,
+      "reported_verdict": "INDEPENDENT_MIXED_RECOVERY_PASS",
+      "finite_boundary": "Independent mixedrawstate/export/namedsequence transforms and verificationcopy noapp/login; missingstarterchildnative remainsmissing",
+      "raw_report_published": false
+    },
+    {
+      "role": "QA",
+      "private_report_basename": "native-http-actual-independent01.json",
+      "sha256": "35BACE8BE36A603BA50D60C7EF80530B19D5D6CA7464E67F45EBFE4AA02395AB",
+      "bytes": 737,
+      "reported_verdict": "NATIVE_REAL_HTTP_SAFETY_INDEPENDENT_PASS",
+      "finite_boundary": "Actual inprocessproductionrouter/middleware/handlers HTTPjobs/cancel/activejobdelete/lastwritable refusals; not stockTCP orbrowser",
+      "raw_report_published": false
+    },
+    {
+      "role": "QA",
+      "private_report_basename": "stock-cas-actual-independent01.json",
+      "sha256": "10A816AEDD0EBF27A894B473C384875B489331A44D888CD73890FB9F21E88D64",
+      "bytes": 437,
+      "reported_verdict": "STOCK_OVERLAPPING_HTTP_CAS_INDEPENDENT_PASS",
+      "finite_boundary": "Two overlappingstockTCPclientrequests onecommit oneconflict wholeexpectedstate; not heldfinalAuthinstruction",
+      "raw_report_published": false
+    },
+    {
+      "role": "QA",
+      "private_report_basename": "ui-seeded-actual-independent01.json",
+      "sha256": "05BB945E21058A9C5C9221EB7BAD8E9C1D2D31E91068C471302DE43B44C1C79F",
+      "bytes": 1509,
+      "reported_verdict": "FINITE_SEEDED_UI_INDEPENDENTLY_ACCEPTED",
+      "finite_boundary": "14browsersteps7JPG onAPIseeded CSV/XES/BPMN; previewcancelonly; noUIupload/permanentdelete/perclickfullstate claim",
+      "raw_report_published": false
+    },
+    {
+      "role": "QA",
+      "private_report_basename": "ui-graph-actual-independent01.json",
+      "sha256": "47D377B4649510EFCF22E97853601942D824A64F2BA900852A40BABC71E67BB5",
+      "bytes": 1268,
+      "reported_verdict": "FINITE_GRAPH_BOTH_DIRECTIONS_INDEPENDENTLY_ACCEPTED",
+      "finite_boundary": "Optional4actualbrowserchecks boththreshold directions/reload and4individuallyviewedJPG; nointernalCytoscape diagnostic count",
+      "raw_report_published": false
+    },
+    {
+      "role": "TechnicalDebt",
+      "private_report_basename": "final-gap-review01.json",
+      "sha256": "1EF3BB7EB23536EBE92192EFECEB1D09137BF9EA201DBE147CC79B63338E1DAF",
+      "bytes": 5520,
+      "reported_verdict": "FINITE_INCREMENT_SUPPORTED_FULL_R3_02_STILL_PENDING_EXACT_ACCESS_CROSSWALK_AND_DELIVERY",
+      "finite_boundary": "Historicalfinalgapreview: exact9005/B14identity/555Trust05rehashes accepted; identifiedsurvivoraccessgap subsequentlyresolvedbyactualaccess24DB, reportnotrewritten",
+      "raw_report_published": false
+    },
+    {
+      "role": "QA",
+      "private_report_basename": "folder-lifecycle-failed01-review.json",
+      "sha256": "BC6ECBE48AD129830FE48709EB0ED37282B70114E249021883CAA5F175B08E5E",
+      "bytes": 5939,
+      "reported_verdict": "FAILED_FIXTURE_HTTP_CONTRACT_NOT_PRODUCT_FAILURE",
+      "finite_boundary": "FAILEDfixture expected400 insteadcorrect422folder_cycle; prefix5onlycredit; failedDBpreserved",
+      "raw_report_published": false
+    },
+    {
+      "role": "QA",
+      "private_report_basename": "project-http-failed01-review.json",
+      "sha256": "590E7CF410C27757B19B298B018575D1DB14395693CEFBC7417AFBF710FA0B44",
+      "bytes": 5054,
+      "reported_verdict": "PROJECT01_FAILED_DOM_FIXTURE_CONTRACT_ONLY",
+      "finite_boundary": "FAILEDinitialprojectfixture/parser branch; onlyindependentlyclosedprefixcredit, fresh02separate",
+      "raw_report_published": false
+    },
+    {
+      "role": "QA",
+      "private_report_basename": "native-pg-failed01-review.json",
+      "sha256": "A1F53A71D8C86EA8BB88B4552596E5FF577A223C4FFACC95807756BC01A37145",
+      "bytes": 4853,
+      "reported_verdict": "NATIVE_ACCEPTANCE01_FAILED_FIXTURE_RESERVED_LEGACY_READ",
+      "finite_boundary": "FAILEDinitialnativeattempt retained; correctedfreshnative02 not historicalrewrite",
+      "raw_report_published": false
+    },
+    {
+      "role": "QA",
+      "private_report_basename": "mixed-recovery-failed01-independent.json",
+      "sha256": "40FCF9EBE9C41534A563018A899488E433FDFE73C98793E4131349D5D51D80BB",
+      "bytes": 918,
+      "reported_verdict": "ACTUAL_WRAPPER_FAILURE_NO_RECOVERY_ACCEPTANCE",
+      "finite_boundary": "FAILEDrecovery beforebackup duePowerShellCompare alias; uniquehelper+dispatchregression andnewwholefreshreplay separate",
+      "raw_report_published": false
+    },
+    {
+      "role": "QA",
+      "private_report_basename": "ui-route01-failed-independent01.json",
+      "sha256": "982E99C97052BC2999C83FA8AD155D8862AFFCD5437B53C0CA18EAC2AD40F84A",
+      "bytes": 3562,
+      "reported_verdict": "UI01_EXPIRED_PARTIAL_ONLY_NO_FULL_UI_ACCEPTANCE",
+      "finite_boundary": "FAILEDexternalfilechooser/tool and20minfixtureexpiry; noimportPOST andnobrowseruploadcredit",
+      "raw_report_published": false
+    },
+    {
+      "role": "QA",
+      "private_report_basename": "ui-seeded-graph-redraw-finding01.json",
+      "sha256": "7B50B072578A797340FA3D2561A05CA960086F6D7EBFBA288BDD3A0890758960",
+      "bytes": 1530,
+      "reported_verdict": "BROWSER_GRAPH_REDRAW_NOT_ACCEPTED",
+      "finite_boundary": "HistoricalincorrectQAgraphfinding; withdrawn by separatevisualcorrection, not productdefect",
+      "raw_report_published": false
+    },
+    {
+      "role": "QA",
+      "private_report_basename": "ui-seeded-graph-visual-correction01.json",
+      "sha256": "AE56EBF4863EB0DED78FAC1D44137B5022441BE35FC2915C19AB3160A8444606",
+      "bytes": 1520,
+      "reported_verdict": "QA_VISUAL_FINDING_RETRACTED",
+      "finite_boundary": "Immutablewithdrawal afterindividualJPGassociation review; graphchanged and persisted; no0.7.3fixinvented",
+      "raw_report_published": false
+    },
+    {
+      "role": "QA",
+      "private_report_basename": "final-local-checks-failed01.json",
+      "sha256": "C369432D2D8982E7146E51CADE5CFDD339E9F4D47BAC4924922B0861E1319D36",
+      "bytes": 1102,
+      "reported_verdict": "LOCAL_CHECKS01_CLIPPY_FAILURE_NO_ALLCHECKS_ACCEPTANCE",
+      "finite_boundary": "FAILEDchecks01 clippytest-onlytoo_many_arguments; fmtpassed buttests/model/Node9notexecuted; checks02 subsequentlyFAILED6750;checks03accepted3A6B10",
+      "raw_report_published": false
+    },
+    {
+      "role": "Customer",
+      "private_report_basename": "ui-acceptance-correction02.json",
+      "sha256": "A3C70AB60A32AA9F3879F3096A63041066C86CB44580B7A7DE4FFCEA0A7B9B74",
+      "bytes": 2200,
+      "reported_verdict": "SCOPED_ADDENDUM_OR_CORRECTION",
+      "finite_boundary": "CorrectedfinitecustomerUIposition afterexactindividualimageassociation; noadditionalindependentvoter",
+      "raw_report_published": false
+    },
+    {
+      "role": "QA",
+      "private_report_basename": "audit-access-actual-independent01.json",
+      "sha256": "24DBBE173E4BA45E1E87386C0DA8D5AC06B2CC0361ABCC2EEAB5EED87541F203",
+      "bytes": 1225,
+      "reported_verdict": "FOUR_ROLE_AUDIT_ACCESS_INDEPENDENTLY_ACCEPTED",
+      "finite_boundary": "Fouractualcurrent-role scopedexports and4deletedtargetrefusals; ownerpositive513total/512retained witness, editor/viewer/foreign0; fullrawread/refusalconservation",
+      "raw_report_published": false
+    },
+    {
+      "role": "TechnicalDebt",
+      "private_report_basename": "r3-02-clause-c-source-review01.json",
+      "sha256": "57D7D5546ADA3DD5CDFE39E484443B3BF761BDA882AF6B42244D1F8754C82C8F",
+      "bytes": 4974,
+      "reported_verdict": "FINITE_SOURCE_CLAUSE_C_FAILED_CLOSED_NO_AUTORETRY_VERIFIED",
+      "finite_boundary": "Exact9005productionbody source review: commit success replies/publication onlyaftercommitOk,503/unconfirmed failclosed/noautomaticretry; notuniversalACKruntime",
+      "raw_report_published": false
+    },
+    {
+      "role": "QA",
+      "private_report_basename": "final-local-checks-failed02.json",
+      "sha256": "6750E666BBA43650FEEF45A39170074EB8670BDA4BA23FBBE54C792FDFB3A409",
+      "bytes": 1489,
+      "reported_verdict": "CHECKS02_ACTUAL_TEST_FAILURE_NO_ALLCHECKS_PASS",
+      "finite_boundary": "FAILEDchecks02:fmt/clippyPASS,cargotest429pre-admissionbusy-tailfailure; model/Node9notexecuted. Testonlyboundedexplicitknownbusyrepair/checks03 subsequentlyaccepted3A6B10",
+      "raw_report_published": false
+    },
+    {
+      "bytes": 591,
+      "sha256": "3A6B10F5D4CF83B76E69D0E827F3B858F27EB9A4069D7F54C4834F323C06196F",
+      "reported_verdict": "FINITE_LOCAL_CHECKS_ACCEPTED",
+      "finite_boundary": "100passed18ignored0failed;24Rustsuites;4cargo9Nodezero/full",
+      "role": "QA",
+      "private_report_basename": "final-local-checks03-actual-independent01.json"
+    },
+    {
+      "bytes": 2832,
+      "sha256": "D9BFBC513985ACCC7C45462679A6A091796203D2FD05F03316DDEEAF6BE7BEA8",
+      "reported_verdict": "FINITE_TRUST05_SOURCE_AND_FAIL_CLOSED_PATHS_VERIFIED",
+      "finite_boundary": "555files;12specificrefusals19conserved38rawpairs;8runtimeblobs9005;no live lostACK claim",
+      "role": "QA",
+      "private_report_basename": "trust05-source-clause-c-independent01.json"
+    },
+    {
+      "bytes": 4045,
+      "sha256": "952AC38A719D0688296FAB80D606E8459C81868CAD203A6A2B6911E2DC4DCF23",
+      "reported_verdict": "FINITE_A_F_ELIGIBLE_G_PENDING",
+      "finite_boundary": "All28src matched9005; actualaccessclosesgap;70changedfiles privacy scan",
+      "role": "TechnicalDebt",
+      "private_report_basename": "final-gap-review02.json"
+    },
+    {
+      "bytes": 3891,
+      "sha256": "F32A3882F9F00A1BA639E769CAAE635D187CA4D5DB7B9AC3E63CE194BDA1A5CD",
+      "reported_verdict": "FINITE_UI_USEFUL_FINAL_GATES_PENDING",
+      "finite_boundary": "Fourimagesindividuallyconfirmed0to3to0to0;falsefindingwithdrawn;noupload/deletePOSTcredit",
+      "role": "Customer",
+      "private_report_basename": "preproposal-position03.json"
+    }
+  ],
+  "exact_source_bound_reuse": [
+    {
+      "origin": "S11",
+      "role": "QA",
+      "private_report_basename": "audit-retention02-actual-independent01.json",
+      "sha256": "F8B6C3C6615136F3E902CAD413E732946B4003E2AE87CB6FAAC4B7F3F5E364E2",
+      "bytes": 1621464,
+      "finite_boundary": "Authowner projectrename512513 only; completefinitePREderivedfields/export; exactunchangedsource required",
+      "identity_binding": "TD final-gap-review01 records current9005/B14contract identity; noautomaticexpansionofearlierfinitecase",
+      "raw_report_published": false
+    },
+    {
+      "origin": "S10",
+      "role": "QA",
+      "private_report_basename": "trust05-independent-summary01.json",
+      "sha256": "630A1EA3FB69B57A75F9866329B68123B908D6271B03193B7E41EC8AE8CFFAD1",
+      "bytes": 1961,
+      "finite_boundary": "555files boundedfiniteTrust05 summary12tamper/refusals4exports; ownerprojection notforeignsurvivorproof",
+      "identity_binding": "TD final-gap-review01 records current9005/B14contract identity; noautomaticexpansionofearlierfinitecase",
+      "raw_report_published": false
+    },
+    {
+      "origin": "S10",
+      "role": "QA",
+      "private_report_basename": "trust05-actual-independent04.json",
+      "sha256": "9E3752E9B18753B124C60BE8969ACFEFBCC2A7C1DE4C630EEB527142C4709888",
+      "bytes": 93190,
+      "finite_boundary": "PrimaryfiniteactualTrust05savedbytesreview; complementsprojectionreport, notoriginalcriterionacceptance",
+      "identity_binding": "TD final-gap-review01 records current9005/B14contract identity; noautomaticexpansionofearlierfinitecase",
+      "raw_report_published": false
+    },
+    {
+      "origin": "S10",
+      "role": "QA",
+      "private_report_basename": "trust05-projection-review02.json",
+      "sha256": "F0EB8CAD4300B5755046A3C004705395222EFD0ABF7A0E38DD55E7634FF254B0",
+      "bytes": 792,
+      "finite_boundary": "FourPREderivedownerexportprojections/archive/sessionboundpreview; syntheticlegacyseed nothistoricalproducer",
+      "identity_binding": "TD final-gap-review01 records current9005/B14contract identity; noautomaticexpansionofearlierfinitecase",
+      "raw_report_published": false
+    }
+  ],
+  "pending": [
+    {
+      "gate": "LOCAL_CHECKS03",
+      "status": "FINITE_ACCEPTED",
+      "condition": "Actual3A6B10:100passed18ignored0failed;4cargo9Nodezero/full;separatePGreceipts"
+    },
+    {
+      "gate": "AUDIT_ACCESS",
+      "status": "FINITE_ACCEPTED",
+      "condition": "Actualfourrolepositive513/512survivorfixture independentlyaccepted24DBBE173E4BA45E1E87386C0DA8D5AC06B2CC0361ABCC2EEAB5EED87541F203; specificdeletedtargetrefusals/fullconservation; notuniversalACLsecurity"
+    },
+    {
+      "gate": "FINAL_CLAUSE_VERDICT_AND_FIVE_VOTES",
+      "status": "PENDING",
+      "condition": "Exactfrozenproposal/actualindependentvotes, R3-02notacceptedbythismetadata"
+    },
+    {
+      "gate": "FINAL_HEAD_CI",
+      "status": "PENDING",
+      "condition": "ActualsuccessfulimmutablefinalsupplementHEADCI; oldcandidate/sourceCIseparatelyattributed"
+    },
+    {
+      "gate": "PUBLIC_PRERELEASE_AND_COMPLETE_DOWNLOAD",
+      "status": "PENDING",
+      "condition": "Exact0.7.2tag9005onlyifabsent; approvedlimitedprerelease/nooverwrite; fullindependentZIP/source/supplementdownload/filetree/SHA/PRbindings"
+    },
+    {
+      "gate": "FINAL_PROTECTED_RESOURCE_SNAPSHOT",
+      "status": "PENDING",
+      "condition": "Namedownprocess/port/disk/protectedartifactstate, notcontinuouswholehostaudit"
+    }
+  ],
+  "original_criteria": {
+    "R3_01": "OPEN literalprojectmovement and anyunclosedoriginalclauses",
+    "R3_02": "ELIGIBLE_FOR_EXACT_FINITE_CRITERION_PROPOSAL_AFTER_FINAL_GATES; actualaccessgapclosed, Trust05/sourceCbound; NOT_ACCEPTED_BY_INDEX",
+    "R3_03_04": "OPEN broaderhistoricalmigration/cleanupcorpus",
+    "full_R3_R2_R5_enterprise": "OPEN"
+  },
+  "privacy": "Only role, controlledreportbasename, size,SHA, scopedverdict and explicitboundaries selected. No privatepayload/Auth/cookie/password/config/dump/privateURL/localabsolute paths. Privatefixtures are not publiclyreplayable fromthisindex.",
+  "revision_note": "Reviewcandidate includes independent checks03/Trust05/sourceC/A-F/UI; finalCouncil/CI/publicdelivery remainnonwaivable."
+}

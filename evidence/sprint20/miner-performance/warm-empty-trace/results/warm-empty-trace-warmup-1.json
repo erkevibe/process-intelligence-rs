@@ -1,0 +1,125 @@
+{
+  "schema_version" : 1,
+  "call_id" : "warm-empty-trace-warmup-1",
+  "process_id" : "warm-empty-trace",
+  "case_id" : "empty-trace",
+  "ordinal_in_process" : 1,
+  "role" : "warmup",
+  "input_sha256" : "5c22ab666b6b3ffae5dd5457a4701f45bbc65bb4dc8deb51491854b157bd3e12",
+  "engine_invoked" : true,
+  "engine_time_nanos" : 130296201,
+  "parse_time_nanos" : 561594201,
+  "export_time_nanos" : 592479300,
+  "status" : "diagram_returned",
+  "input_xlog_before" : {
+    "attributes" : [ {
+      "key" : "concept:name",
+      "type" : "string",
+      "value" : "splitminer-empty-trace"
+    } ],
+    "classifiers" : [ ],
+    "extensions" : [ ],
+    "global_trace_attributes" : [ ],
+    "global_event_attributes" : [ ],
+    "traces" : [ {
+      "attributes" : [ {
+        "key" : "concept:name",
+        "type" : "string",
+        "value" : "case-0"
+      } ],
+      "events" : [ ]
+    } ],
+    "trace_count" : 1,
+    "event_count" : 0
+  },
+  "input_xlog_before_sha256" : "7b89125945e38ef61f9fd47ca526f225c8f65346f77faaa52f0ac7e5ac5f8160",
+  "input_traces" : 1,
+  "input_events" : 0,
+  "gc_before" : {
+    "collectors" : [ {
+      "name" : "G1 Young Generation",
+      "collection_count" : 3,
+      "collection_time_millis" : 17
+    }, {
+      "name" : "G1 Old Generation",
+      "collection_count" : 0,
+      "collection_time_millis" : 0
+    } ],
+    "unsupported_negative_values_preserved" : true
+  },
+  "gc_after" : {
+    "collectors" : [ {
+      "name" : "G1 Young Generation",
+      "collection_count" : 4,
+      "collection_time_millis" : 21
+    }, {
+      "name" : "G1 Old Generation",
+      "collection_count" : 0,
+      "collection_time_millis" : 0
+    } ],
+    "unsupported_negative_values_preserved" : true
+  },
+  "returned_same_as_miner_field" : true,
+  "graph" : {
+    "label" : "eDFGP-diagram",
+    "nodes" : [ {
+      "id" : "node0",
+      "label" : "",
+      "class" : "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Event",
+      "parent_subprocess" : null,
+      "event_type" : "START",
+      "event_trigger" : "NONE",
+      "event_use" : "CATCH",
+      "interrupting" : "true",
+      "parallel_multiple" : null
+    }, {
+      "id" : "node1",
+      "label" : "",
+      "class" : "org.apromore.processmining.models.graphbased.directed.bpmn.elements.Event",
+      "parent_subprocess" : null,
+      "event_type" : "END",
+      "event_trigger" : "NONE",
+      "event_use" : "THROW",
+      "interrupting" : "true",
+      "parallel_multiple" : null
+    } ],
+    "flows" : [ {
+      "id" : "edge0",
+      "source" : "node0",
+      "target" : "node1",
+      "label" : "",
+      "condition" : null,
+      "text_annotation" : null,
+      "parent_subprocess" : null
+    } ],
+    "full_exported_semantic_authority" : "raw BPMN XML; graph fields do not replace full XML bijection"
+  },
+  "bpmn" : {
+    "file" : "warm-empty-trace-warmup-1.bpmn",
+    "sha256" : "65a6f3ec58d2016480a325e64eba065d877684bf16ff35f2f40efa29dc9118fb",
+    "bytes" : 1296
+  },
+  "input_xlog_after" : {
+    "attributes" : [ {
+      "key" : "concept:name",
+      "type" : "string",
+      "value" : "splitminer-empty-trace"
+    } ],
+    "classifiers" : [ ],
+    "extensions" : [ ],
+    "global_trace_attributes" : [ ],
+    "global_event_attributes" : [ ],
+    "traces" : [ {
+      "attributes" : [ {
+        "key" : "concept:name",
+        "type" : "string",
+        "value" : "case-0"
+      } ],
+      "events" : [ ]
+    } ],
+    "trace_count" : 1,
+    "event_count" : 0
+  },
+  "input_xlog_after_sha256" : "7b89125945e38ef61f9fd47ca526f225c8f65346f77faaa52f0ac7e5ac5f8160",
+  "input_xlog_unchanged" : true
+}

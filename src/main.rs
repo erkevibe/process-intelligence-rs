@@ -1,8 +1,9 @@
 use process_intelligence_rs::web::{AppState, router};
 
 #[tokio::main]
-async fn main() -> Result<(), Box<dyn std::error::Error>> {
+async fn main() -> Result<std::process::ExitCode, Box<dyn std::error::Error>> {
     tracing_subscriber::fmt()
+        .with_writer(std::io::stderr)
         .with_env_filter(
             tracing_subscriber::EnvFilter::try_from_default_env().unwrap_or_else(|_| "info".into()),
         )
@@ -10,8 +11,38 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .init();
     let args: Vec<String> = std::env::args().skip(1).collect();
     if !args.is_empty() {
+        if args == ["--cleanup-storage-verify"] || args == ["--cleanup-storage-apply"] {
+            let mode = if args[0] == "--cleanup-storage-verify" {
+                "verify"
+            } else {
+                "apply"
+            };
+            let result =
+                tokio::task::spawn_blocking(move || process_intelligence_rs::cleanup::run(mode))
+                    .await?;
+            return Ok(match result {
+                Ok(value) => {
+                    println!("{value}");
+                    match value["outcome"].as_str() {
+                        Some("cleanup_outcome_unconfirmed") => std::process::ExitCode::from(2),
+                        Some("cleanup_committed_receipt_failed") => std::process::ExitCode::from(3),
+                        Some("cleanup_verified" | "cleanup_empty" | "cleanup_committed") => {
+                            std::process::ExitCode::SUCCESS
+                        }
+                        _ => std::process::ExitCode::FAILURE,
+                    }
+                }
+                Err(error) => {
+                    println!(
+                        "{}",
+                        serde_json::json!({"outcome":"cleanup_refused","code":error.code,"message":error.message})
+                    );
+                    std::process::ExitCode::FAILURE
+                }
+            });
+        }
         if args != ["--migrate-storage"] {
-            return Err(std::io::Error::other("Supported option: --migrate-storage").into());
+            return Err(std::io::Error::other("Supported options: --migrate-storage, --cleanup-storage-verify, --cleanup-storage-apply").into());
         }
         let url = std::env::var("PI_DATABASE_URL").map_err(|_| {
             std::io::Error::other("Private PI_DATABASE_URL is required for offline migration.")
@@ -19,7 +50,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         tokio::task::spawn_blocking(move || process_intelligence_rs::storage::migrate_offline(url))
             .await?
             .map_err(|e| std::io::Error::other(e.message))?;
-        return Ok(());
+        return Ok(std::process::ExitCode::SUCCESS);
     }
     let port: u16 = std::env::var("PORT")
         .unwrap_or_else(|_| "3000".into())
@@ -41,5 +72,5 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             tracing::info!("app_stopping");
         })
         .await?;
-    Ok(())
+    Ok(std::process::ExitCode::SUCCESS)
 }

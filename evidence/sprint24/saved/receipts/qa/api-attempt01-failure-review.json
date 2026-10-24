@@ -1,0 +1,312 @@
+{
+  "schema_version": 1,
+  "utc": "2026-10-23T16:44:58.290Z",
+  "role": "QA/ProcessLogAuditor",
+  "decision": "FAILED_OUTPUT_LIMIT_NO_API_ACCEPTANCE",
+  "config_sha256": "FE74D6A722493DECAD9E2955D06D02FF627DE8AE140D78DF98230AF6FF629059",
+  "actual": {
+    "native_records": 9,
+    "stream_slots": 18,
+    "full_streams": 17,
+    "truncated_streams": 1,
+    "descriptor_mismatches": 0,
+    "inventory": [
+      {
+        "label": "app10k",
+        "pid": 62712,
+        "native_creation_filetime": 134372474139111890,
+        "native_creation_utc": null,
+        "exit": 137,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "descriptor_match": true,
+            "eof": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 65536,
+            "sha256": "0D0A8830EDD70471A43FD23FC4D5A6FF657D3400F6BCCD5EBCC15B83CA887177",
+            "descriptor_match": true,
+            "eof": true,
+            "complete": false,
+            "truncated": true,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "child",
+        "pid": 75592,
+        "native_creation_filetime": 134372474114049630,
+        "native_creation_utc": null,
+        "exit": 0,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "descriptor_match": true,
+            "eof": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "descriptor_match": true,
+            "eof": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "http90k",
+        "pid": 60516,
+        "native_creation_filetime": 134372474147102160,
+        "native_creation_utc": null,
+        "exit": 137,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "descriptor_match": true,
+            "eof": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "descriptor_match": true,
+            "eof": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "postgres",
+        "pid": 1240,
+        "native_creation_filetime": 134372474062652740,
+        "native_creation_utc": null,
+        "exit": 137,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "descriptor_match": true,
+            "eof": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 482,
+            "sha256": "6053E25CAD57069925D25A280CB32A1DB733AFAC346344DB1D4D5E078F9C47C5",
+            "descriptor_match": true,
+            "eof": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "ready-01",
+        "pid": 67964,
+        "native_creation_filetime": 134372474064319860,
+        "native_creation_utc": null,
+        "exit": 1,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 41,
+            "sha256": "62285DBF9A623B155EF5FBB74B1E0BB1AAC8583FF3EDECDF23D4EE6D4804EC5B",
+            "descriptor_match": true,
+            "eof": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "descriptor_match": true,
+            "eof": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "ready-02",
+        "pid": 70040,
+        "native_creation_filetime": 134372474088105000,
+        "native_creation_utc": null,
+        "exit": 0,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 41,
+            "sha256": "48F05044D763F65E81DF5FA8BE71F5A81EC224D0B419A9BFA6132B7FBC62D7F4",
+            "descriptor_match": true,
+            "eof": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "descriptor_match": true,
+            "eof": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "source10k",
+        "pid": 73768,
+        "native_creation_filetime": 134372474091156140,
+        "native_creation_utc": null,
+        "exit": 0,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 201,
+            "sha256": "3699F9DE01C6F1900C70B0854E67F15448110E3F567A5E2AACA8D2FBA05E32FC",
+            "descriptor_match": true,
+            "eof": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "descriptor_match": true,
+            "eof": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "worker",
+        "pid": 71628,
+        "native_creation_filetime": 134372474052806540,
+        "native_creation_utc": null,
+        "exit": 137,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "descriptor_match": true,
+            "eof": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "descriptor_match": true,
+            "eof": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "collector",
+        "pid": 34356,
+        "native_creation_filetime": null,
+        "native_creation_utc": "2026-10-23T16:43:04.2134815Z",
+        "exit": 1,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "descriptor_match": true,
+            "eof": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 311,
+            "sha256": "7F290CACBC0DC3E1FD7A4A0A5F499AE75BC6A39D718DC3245AA96729AFCCEB81",
+            "descriptor_match": true,
+            "eof": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      }
+    ]
+  },
+  "cause": {
+    "stop_reason": "output_or_capture_fault",
+    "guard_failure": null,
+    "primary_exception": null,
+    "kill_fault": false,
+    "secondary_diagnostics": [],
+    "app_stderr_persisted": 65536,
+    "app_stderr_observed": 65557,
+    "app_stderr_eof": true,
+    "app_stderr_complete": false,
+    "app_stderr_truncated": true
+  },
+  "observed_stderr_summary": {
+    "complete_JSON_lines": 267,
+    "partial_last_fragment": 1,
+    "groups": {
+      "INFO|process_intelligence_rs::migrations|schema_ready": 2,
+      "INFO|process_intelligence_rs::migration_v3|migration_v3_complete": 1,
+      "INFO|process_intelligence_rs|app_started": 1,
+      "INFO|process_intelligence_rs::web|request_completed": 108,
+      "INFO|process_intelligence_rs::storage|storage_committed": 11,
+      "INFO|process_intelligence_rs::storage|normalized_committed": 33,
+      "INFO|process_intelligence_rs::storage|resource_payload_read": 99,
+      "INFO|process_intelligence_rs::resource_cache|resource_cache_loaded": 12
+    }
+  },
+  "partial_scope": [
+    "Readiness first1 then0; exactclusteridentity andCREATE actual0 before first app and prechecker start.",
+    "No secondapp/postchecker/finalSAMPLE/fastPGstop records. Prechecker killed137;110saved partial HTTP files are not proof of complete assertions.",
+    "Application stderr output limit was enforced; final bytes lost beyond cap explicitly observed. No guard failure or lost original cause is inferred.",
+    "All9actual owned records have retained closed native exits;18raw saved streams rehashed,17complete and1intentional bounded truncation. No blanket fullEOF/fullcapture claim.",
+    "Outer tool closure and final quiet/resource/recovery remain Root actual gates; this receipt covers observed collector/inner records only."
+  ],
+  "method": "Managed known-file metadata/raw hash review only, no shell/Git/native/interpreter/resource scan.",
+  "next_gate": "Preserveapi01/preflight/source/config and every partial raw file; any correction requires explicit prospective source/config/output review, no automatic unchanged retry. Historical UNKNOWN unchanged."
+}

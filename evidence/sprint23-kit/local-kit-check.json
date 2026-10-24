@@ -1,0 +1,36 @@
+{
+  "status": "ISOLATED_FIVE_MEMBER_SELFCHECK_KIT_PASS",
+  "kit_sha256": "020D9517DF44BF7EC5D97BD81945729FD71C2EA9E181900E1FBF6D4406BF1509",
+  "legacy_and_compact_full_semantic_audits": 2,
+  "manual_events": 2,
+  "exact_decoded_bytes_sha256": "E5BB8629BCF3F4DB5F5A588B9912E609ED954D8AF3EB056493866EABB3D2A71B",
+  "negative_controls": [
+    {
+      "case": "changed_source",
+      "reason": "direct_source_binding",
+      "rejected": true
+    },
+    {
+      "case": "changed_payload",
+      "reason": "direct_payload_binding",
+      "rejected": true
+    },
+    {
+      "case": "existing_output",
+      "reason": "fresh_output",
+      "rejected": true
+    }
+  ],
+  "kit_members": [
+    "SHA256SUMS",
+    "docs/SELF_CHECK_RU.md",
+    "tools/oracle/audit-conversion-evidence.py",
+    "tools/sprint23/audit-compact.py",
+    "tools/sprint23/decode-report.py"
+  ],
+  "output_bytes": 84346,
+  "limits": [
+    "Only actual extracted kit code imported; source/payload are separate fixed fixtures.",
+    "Finite self-check tooling proof; no product conversion or generic authenticity signature."
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "events": [
+    {
+      "label": "health-headers",
+      "phase_elapsed_seconds": 0.04581730000063544,
+      "status": 200
+    },
+    {
+      "label": "health",
+      "phase_elapsed_seconds": 0.04589000000123633,
+      "response_bytes": 36,
+      "response_sha256": "9B657A30CB3BC29DA8DBDE6BDB05F82EFC4CEA816D44629B8BFF900A69A66307",
+      "response_wall_seconds": 0.0030845000001136214,
+      "status": 200
+    },
+    {
+      "label": "setup-headers",
+      "phase_elapsed_seconds": 0.676472900002409,
+      "status": 303
+    },
+    {
+      "label": "setup",
+      "phase_elapsed_seconds": 0.6765472000006412,
+      "response_bytes": 0,
+      "response_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "response_wall_seconds": 0.6123826000002737,
+      "status": 303
+    }
+  ],
+  "input_manifest_sha256": "514F66245638176F87A635AEC2771610C0708A42E68349878C91A3B545E8C340",
+  "phase_wall_seconds": 0.6785378999993554,
+  "result": {
+    "case": "setup",
+    "health": {
+      "status": "ready",
+      "version": "0.8.0"
+    },
+    "status": "ACTUAL_FRESH_ACCOUNT_AND_SESSION"
+  },
+  "server_memory_latency_slo_or_browser_acceptance_not_claimed": true,
+  "status": "OBSERVATION_COMPLETED"
+}

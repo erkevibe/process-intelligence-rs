@@ -1,0 +1,124 @@
+{
+  "places": {
+    "6ead1e45-6085-41b1-92a1-df940a95a84a": {
+      "id": "6ead1e45-6085-41b1-92a1-df940a95a84a"
+    },
+    "6209f465-cb42-4497-93be-8ed96e37e01b": {
+      "id": "6209f465-cb42-4497-93be-8ed96e37e01b"
+    },
+    "fbefa137-e8e4-43d1-b28c-24b8ff37919a": {
+      "id": "fbefa137-e8e4-43d1-b28c-24b8ff37919a"
+    },
+    "de3128ef-488c-4f23-9658-19ab2fc9f88a": {
+      "id": "de3128ef-488c-4f23-9658-19ab2fc9f88a"
+    }
+  },
+  "transitions": {
+    "e1ccf139-3556-40f9-9b4d-091840e8a9d2": {
+      "label": "D",
+      "id": "e1ccf139-3556-40f9-9b4d-091840e8a9d2"
+    },
+    "b7482182-cf1f-4ba9-ad34-181ef045818e": {
+      "label": "A",
+      "id": "b7482182-cf1f-4ba9-ad34-181ef045818e"
+    },
+    "52fd99b1-2aab-4a53-bf9b-c0bf20971480": {
+      "label": "C",
+      "id": "52fd99b1-2aab-4a53-bf9b-c0bf20971480"
+    },
+    "d4f86d8d-a6fe-4534-8a2a-31a4850c35c1": {
+      "label": "B",
+      "id": "d4f86d8d-a6fe-4534-8a2a-31a4850c35c1"
+    }
+  },
+  "arcs": [
+    {
+      "from_to": {
+        "type": "TransitionPlace",
+        "nodes": [
+          "b7482182-cf1f-4ba9-ad34-181ef045818e",
+          "6209f465-cb42-4497-93be-8ed96e37e01b"
+        ]
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "type": "PlaceTransition",
+        "nodes": [
+          "6209f465-cb42-4497-93be-8ed96e37e01b",
+          "d4f86d8d-a6fe-4534-8a2a-31a4850c35c1"
+        ]
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "type": "PlaceTransition",
+        "nodes": [
+          "6209f465-cb42-4497-93be-8ed96e37e01b",
+          "52fd99b1-2aab-4a53-bf9b-c0bf20971480"
+        ]
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "type": "TransitionPlace",
+        "nodes": [
+          "d4f86d8d-a6fe-4534-8a2a-31a4850c35c1",
+          "fbefa137-e8e4-43d1-b28c-24b8ff37919a"
+        ]
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "type": "TransitionPlace",
+        "nodes": [
+          "52fd99b1-2aab-4a53-bf9b-c0bf20971480",
+          "fbefa137-e8e4-43d1-b28c-24b8ff37919a"
+        ]
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "type": "PlaceTransition",
+        "nodes": [
+          "fbefa137-e8e4-43d1-b28c-24b8ff37919a",
+          "e1ccf139-3556-40f9-9b4d-091840e8a9d2"
+        ]
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "type": "PlaceTransition",
+        "nodes": [
+          "6ead1e45-6085-41b1-92a1-df940a95a84a",
+          "b7482182-cf1f-4ba9-ad34-181ef045818e"
+        ]
+      },
+      "weight": 1
+    },
+    {
+      "from_to": {
+        "type": "TransitionPlace",
+        "nodes": [
+          "e1ccf139-3556-40f9-9b4d-091840e8a9d2",
+          "de3128ef-488c-4f23-9658-19ab2fc9f88a"
+        ]
+      },
+      "weight": 1
+    }
+  ],
+  "initial_marking": {
+    "6ead1e45-6085-41b1-92a1-df940a95a84a": 1
+  },
+  "final_markings": [
+    {
+      "de3128ef-488c-4f23-9658-19ab2fc9f88a": 1
+    }
+  ]
+}

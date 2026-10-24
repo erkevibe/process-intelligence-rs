@@ -1,0 +1,865 @@
+{
+  "allow_metadata_loss": false,
+  "app_sha256": "4121BD68F1C0C05A61B039FADF20FEC5C2DA4379D8AAAFB170DC3B43861D1525",
+  "artifact_id": "conversion-2",
+  "case": "CMP10K",
+  "case_wall_seconds": 4.600525000001653,
+  "downloads": {
+    "payload": {
+      "available": true,
+      "bytes": 510035,
+      "file": "payload.bin",
+      "http_status": 200,
+      "sha256": "274D41E6981B602B47758A54274F7FC68E9118416DE92E745B2584C25B01135A"
+    },
+    "report": {
+      "available": true,
+      "bytes": 3222364,
+      "file": "report.bin",
+      "http_status": 200,
+      "sha256": "6E49BE8C6FC36C602B9CB30BBF7F8B11A68E90256FCDACB7431C26ABA3A8F9BE"
+    }
+  },
+  "events": [
+    {
+      "label": "health",
+      "method": "GET",
+      "path": "/health",
+      "request_start": {
+        "case_elapsed_seconds": 0.02506310000171652,
+        "utc": "2026-10-23T04:50:09.194449+00:00"
+      },
+      "request_wall_seconds": 0.016130299998621922,
+      "response_bytes": 36,
+      "response_complete": {
+        "case_elapsed_seconds": 0.04116719999728957,
+        "utc": "2026-10-23T04:50:09.210564+00:00"
+      },
+      "response_headers_observed": {
+        "case_elapsed_seconds": 0.04096869999921182,
+        "utc": "2026-10-23T04:50:09.210352+00:00"
+      },
+      "response_sha256": "CAE42C93BD1819F177627190E9581DEAA568BE503CF82B8238A8A3B4C5085831",
+      "status": 200
+    },
+    {
+      "label": "setup",
+      "method": "POST",
+      "path": "/setup",
+      "request_start": {
+        "case_elapsed_seconds": 0.04361549999885028,
+        "utc": "2026-10-23T04:50:09.213005+00:00"
+      },
+      "request_wall_seconds": 0.5740866999985883,
+      "response_bytes": 0,
+      "response_complete": {
+        "case_elapsed_seconds": 0.6176840999978594,
+        "utc": "2026-10-23T04:50:09.787024+00:00"
+      },
+      "response_headers_observed": {
+        "case_elapsed_seconds": 0.6173379000028945,
+        "utc": "2026-10-23T04:50:09.786650+00:00"
+      },
+      "response_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "status": 303
+    },
+    {
+      "label": "projects-before",
+      "method": "GET",
+      "path": "/project-list/json",
+      "request_start": {
+        "case_elapsed_seconds": 0.6199651999995694,
+        "utc": "2026-10-23T04:50:09.789298+00:00"
+      },
+      "request_wall_seconds": 0.018590200001199264,
+      "response_bytes": 202,
+      "response_complete": {
+        "case_elapsed_seconds": 0.6385375000027125,
+        "utc": "2026-10-23T04:50:09.807876+00:00"
+      },
+      "response_headers_observed": {
+        "case_elapsed_seconds": 0.6383248999991338,
+        "utc": "2026-10-23T04:50:09.807655+00:00"
+      },
+      "response_sha256": "BE6F7F94C35104706E796048A9E07618EE2B816A331CE57B930578447C4B019D",
+      "status": 200
+    },
+    {
+      "label": "create-fresh-project",
+      "method": "POST",
+      "path": "/projects",
+      "request_start": {
+        "case_elapsed_seconds": 0.6388602000006358,
+        "utc": "2026-10-23T04:50:09.808192+00:00"
+      },
+      "request_wall_seconds": 0.01678820000233827,
+      "response_bytes": 0,
+      "response_complete": {
+        "case_elapsed_seconds": 0.6556315999987419,
+        "utc": "2026-10-23T04:50:09.824969+00:00"
+      },
+      "response_headers_observed": {
+        "case_elapsed_seconds": 0.6554360000009183,
+        "utc": "2026-10-23T04:50:09.824764+00:00"
+      },
+      "response_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "status": 303
+    },
+    {
+      "label": "projects-after",
+      "method": "GET",
+      "path": "/project-list/json",
+      "request_start": {
+        "case_elapsed_seconds": 0.6558624000026612,
+        "utc": "2026-10-23T04:50:09.825192+00:00"
+      },
+      "request_wall_seconds": 0.029687800000829156,
+      "response_bytes": 348,
+      "response_complete": {
+        "case_elapsed_seconds": 0.6855320000031497,
+        "utc": "2026-10-23T04:50:09.854867+00:00"
+      },
+      "response_headers_observed": {
+        "case_elapsed_seconds": 0.6852451000013389,
+        "utc": "2026-10-23T04:50:09.854563+00:00"
+      },
+      "response_sha256": "B28E4F07FE55F4F000C3A85D6EFAD7D72F5958B7F8D6780CB3EF703B01DF9DB4",
+      "status": 200
+    },
+    {
+      "label": "open-fresh-project",
+      "method": "POST",
+      "path": "/projects/project-007cf92a583f452e9ed08576bd205fc1/open",
+      "request_start": {
+        "case_elapsed_seconds": 0.6860394000032102,
+        "utc": "2026-10-23T04:50:09.855373+00:00"
+      },
+      "request_wall_seconds": 0.017941699996299576,
+      "response_bytes": 0,
+      "response_complete": {
+        "case_elapsed_seconds": 0.7039727000010316,
+        "utc": "2026-10-23T04:50:09.873305+00:00"
+      },
+      "response_headers_observed": {
+        "case_elapsed_seconds": 0.703699300000153,
+        "utc": "2026-10-23T04:50:09.873014+00:00"
+      },
+      "response_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "status": 303
+    },
+    {
+      "label": "empty-conversion-list",
+      "method": "GET",
+      "path": "/conversions",
+      "request_start": {
+        "case_elapsed_seconds": 0.7043036000031861,
+        "utc": "2026-10-23T04:50:09.873628+00:00"
+      },
+      "request_wall_seconds": 0.029069399999571033,
+      "response_bytes": 3919,
+      "response_complete": {
+        "case_elapsed_seconds": 0.7333549999966635,
+        "utc": "2026-10-23T04:50:09.902685+00:00"
+      },
+      "response_headers_observed": {
+        "case_elapsed_seconds": 0.733062899998913,
+        "utc": "2026-10-23T04:50:09.902376+00:00"
+      },
+      "response_sha256": "FCB20896EBD5C7526A1DBF5A339569F28B83918B67C8ABC57C31A0974D001C3E",
+      "status": 200
+    },
+    {
+      "label": "only-conversion-upload",
+      "method": "POST",
+      "path": "/conversions",
+      "request_start": {
+        "case_elapsed_seconds": 0.7345196000023861,
+        "utc": "2026-10-23T04:50:09.903851+00:00"
+      },
+      "request_wall_seconds": 0.21137070000258973,
+      "response_bytes": 0,
+      "response_complete": {
+        "case_elapsed_seconds": 0.9458843999964301,
+        "utc": "2026-10-23T04:50:10.115194+00:00"
+      },
+      "response_headers_observed": {
+        "case_elapsed_seconds": 0.9455276000007871,
+        "utc": "2026-10-23T04:50:10.114817+00:00"
+      },
+      "response_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "status": 303
+    },
+    {
+      "label": "accepted-conversion-list",
+      "method": "GET",
+      "path": "/conversions",
+      "request_start": {
+        "case_elapsed_seconds": 0.946904700002051,
+        "utc": "2026-10-23T04:50:10.116211+00:00"
+      },
+      "request_wall_seconds": 0.019373600000108127,
+      "response_bytes": 4332,
+      "response_complete": {
+        "case_elapsed_seconds": 0.9662667000011425,
+        "utc": "2026-10-23T04:50:10.135575+00:00"
+      },
+      "response_headers_observed": {
+        "case_elapsed_seconds": 0.9660662000023876,
+        "utc": "2026-10-23T04:50:10.135365+00:00"
+      },
+      "response_sha256": "AC45E5ECC17133464F2567A730656580573D5334A411F060F012FE97A643C013",
+      "status": 200
+    },
+    {
+      "label": "job-snapshot",
+      "method": "GET",
+      "path": "/conversions/jobs/job-1",
+      "request_start": {
+        "case_elapsed_seconds": 0.9667665000015404,
+        "utc": "2026-10-23T04:50:10.136075+00:00"
+      },
+      "request_wall_seconds": 0.015945500002999324,
+      "response_bytes": 492,
+      "response_complete": {
+        "case_elapsed_seconds": 0.9827062999975169,
+        "utc": "2026-10-23T04:50:10.152012+00:00"
+      },
+      "response_headers_observed": {
+        "case_elapsed_seconds": 0.9825256999974954,
+        "utc": "2026-10-23T04:50:10.151824+00:00"
+      },
+      "response_sha256": "024FF244F9C0BB974DD4AD9CD2ECBA368CBFE4CC0921B80AE80FA77BF73A798D",
+      "status": 200
+    },
+    {
+      "label": "job-snapshot",
+      "method": "GET",
+      "path": "/conversions/jobs/job-1",
+      "request_start": {
+        "case_elapsed_seconds": 1.084828799997922,
+        "utc": "2026-10-23T04:50:10.254114+00:00"
+      },
+      "request_wall_seconds": 0.02514349999546539,
+      "response_bytes": 492,
+      "response_complete": {
+        "case_elapsed_seconds": 1.10995019999973,
+        "utc": "2026-10-23T04:50:10.279243+00:00"
+      },
+      "response_headers_observed": {
+        "case_elapsed_seconds": 1.1097168999986025,
+        "utc": "2026-10-23T04:50:10.279002+00:00"
+      },
+      "response_sha256": "024FF244F9C0BB974DD4AD9CD2ECBA368CBFE4CC0921B80AE80FA77BF73A798D",
+      "status": 200
+    },
+    {
+      "label": "job-snapshot",
+      "method": "GET",
+      "path": "/conversions/jobs/job-1",
+      "request_start": {
+        "case_elapsed_seconds": 1.2123682000019471,
+        "utc": "2026-10-23T04:50:10.381642+00:00"
+      },
+      "request_wall_seconds": 0.022862300000269897,
+      "response_bytes": 492,
+      "response_complete": {
+        "case_elapsed_seconds": 1.2352103000011994,
+        "utc": "2026-10-23T04:50:10.404492+00:00"
+      },
+      "response_headers_observed": {
+        "case_elapsed_seconds": 1.2349909999975353,
+        "utc": "2026-10-23T04:50:10.404264+00:00"
+      },
+      "response_sha256": "024FF244F9C0BB974DD4AD9CD2ECBA368CBFE4CC0921B80AE80FA77BF73A798D",
+      "status": 200
+    },
+    {
+      "label": "job-snapshot",
+      "method": "GET",
+      "path": "/conversions/jobs/job-1",
+      "request_start": {
+        "case_elapsed_seconds": 1.337425700003223,
+        "utc": "2026-10-23T04:50:10.506683+00:00"
+      },
+      "request_wall_seconds": 0.021726499995565973,
+      "response_bytes": 492,
+      "response_complete": {
+        "case_elapsed_seconds": 1.3591257000007317,
+        "utc": "2026-10-23T04:50:10.528395+00:00"
+      },
+      "response_headers_observed": {
+        "case_elapsed_seconds": 1.3589037999990978,
+        "utc": "2026-10-23T04:50:10.528164+00:00"
+      },
+      "response_sha256": "024FF244F9C0BB974DD4AD9CD2ECBA368CBFE4CC0921B80AE80FA77BF73A798D",
+      "status": 200
+    },
+    {
+      "label": "job-snapshot",
+      "method": "GET",
+      "path": "/conversions/jobs/job-1",
+      "request_start": {
+        "case_elapsed_seconds": 1.4614663000029395,
+        "utc": "2026-10-23T04:50:10.630716+00:00"
+      },
+      "request_wall_seconds": 0.024686700002348516,
+      "response_bytes": 492,
+      "response_complete": {
+        "case_elapsed_seconds": 1.4861326000027475,
+        "utc": "2026-10-23T04:50:10.655390+00:00"
+      },
+      "response_headers_observed": {
+        "case_elapsed_seconds": 1.4858853999976418,
+        "utc": "2026-10-23T04:50:10.655135+00:00"
+      },
+      "response_sha256": "024FF244F9C0BB974DD4AD9CD2ECBA368CBFE4CC0921B80AE80FA77BF73A798D",
+      "status": 200
+    },
+    {
+      "label": "job-snapshot",
+      "method": "GET",
+      "path": "/conversions/jobs/job-1",
+      "request_start": {
+        "case_elapsed_seconds": 1.5885314999977709,
+        "utc": "2026-10-23T04:50:10.757766+00:00"
+      },
+      "request_wall_seconds": 0.02103450000140583,
+      "response_bytes": 492,
+      "response_complete": {
+        "case_elapsed_seconds": 1.6095417000033194,
+        "utc": "2026-10-23T04:50:10.778787+00:00"
+      },
+      "response_headers_observed": {
+        "case_elapsed_seconds": 1.6092981999972835,
+        "utc": "2026-10-23T04:50:10.778534+00:00"
+      },
+      "response_sha256": "024FF244F9C0BB974DD4AD9CD2ECBA368CBFE4CC0921B80AE80FA77BF73A798D",
+      "status": 200
+    },
+    {
+      "label": "job-snapshot",
+      "method": "GET",
+      "path": "/conversions/jobs/job-1",
+      "request_start": {
+        "case_elapsed_seconds": 1.7121018999969237,
+        "utc": "2026-10-23T04:50:10.881316+00:00"
+      },
+      "request_wall_seconds": 0.0236291999972309,
+      "response_bytes": 492,
+      "response_complete": {
+        "case_elapsed_seconds": 1.7356987000021036,
+        "utc": "2026-10-23T04:50:10.904931+00:00"
+      },
+      "response_headers_observed": {
+        "case_elapsed_seconds": 1.7354708999992,
+        "utc": "2026-10-23T04:50:10.904696+00:00"
+      },
+      "response_sha256": "024FF244F9C0BB974DD4AD9CD2ECBA368CBFE4CC0921B80AE80FA77BF73A798D",
+      "status": 200
+    },
+    {
+      "label": "job-snapshot",
+      "method": "GET",
+      "path": "/conversions/jobs/job-1",
+      "request_start": {
+        "case_elapsed_seconds": 1.8381415999974706,
+        "utc": "2026-10-23T04:50:11.007353+00:00"
+      },
+      "request_wall_seconds": 0.0249859000032302,
+      "response_bytes": 492,
+      "response_complete": {
+        "case_elapsed_seconds": 1.8631048000024748,
+        "utc": "2026-10-23T04:50:11.032325+00:00"
+      },
+      "response_headers_observed": {
+        "case_elapsed_seconds": 1.8628656000000774,
+        "utc": "2026-10-23T04:50:11.032074+00:00"
+      },
+      "response_sha256": "024FF244F9C0BB974DD4AD9CD2ECBA368CBFE4CC0921B80AE80FA77BF73A798D",
+      "status": 200
+    },
+    {
+      "label": "job-snapshot",
+      "method": "GET",
+      "path": "/conversions/jobs/job-1",
+      "request_start": {
+        "case_elapsed_seconds": 1.9667248999976437,
+        "utc": "2026-10-23T04:50:11.135924+00:00"
+      },
+      "request_wall_seconds": 0.023692800001299474,
+      "response_bytes": 492,
+      "response_complete": {
+        "case_elapsed_seconds": 1.9903945999976713,
+        "utc": "2026-10-23T04:50:11.159603+00:00"
+      },
+      "response_headers_observed": {
+        "case_elapsed_seconds": 1.9901889999964624,
+        "utc": "2026-10-23T04:50:11.159389+00:00"
+      },
+      "response_sha256": "024FF244F9C0BB974DD4AD9CD2ECBA368CBFE4CC0921B80AE80FA77BF73A798D",
+      "status": 200
+    },
+    {
+      "label": "job-snapshot",
+      "method": "GET",
+      "path": "/conversions/jobs/job-1",
+      "request_start": {
+        "case_elapsed_seconds": 2.092703000002075,
+        "utc": "2026-10-23T04:50:11.261886+00:00"
+      },
+      "request_wall_seconds": 0.02339380000194069,
+      "response_bytes": 492,
+      "response_complete": {
+        "case_elapsed_seconds": 2.1160673999984283,
+        "utc": "2026-10-23T04:50:11.285263+00:00"
+      },
+      "response_headers_observed": {
+        "case_elapsed_seconds": 2.1157869000016944,
+        "utc": "2026-10-23T04:50:11.284974+00:00"
+      },
+      "response_sha256": "024FF244F9C0BB974DD4AD9CD2ECBA368CBFE4CC0921B80AE80FA77BF73A798D",
+      "status": 200
+    },
+    {
+      "label": "job-snapshot",
+      "method": "GET",
+      "path": "/conversions/jobs/job-1",
+      "request_start": {
+        "case_elapsed_seconds": 2.218579599997611,
+        "utc": "2026-10-23T04:50:11.387751+00:00"
+      },
+      "request_wall_seconds": 0.022209900002053473,
+      "response_bytes": 492,
+      "response_complete": {
+        "case_elapsed_seconds": 2.2407624999977998,
+        "utc": "2026-10-23T04:50:11.409946+00:00"
+      },
+      "response_headers_observed": {
+        "case_elapsed_seconds": 2.2405251000018325,
+        "utc": "2026-10-23T04:50:11.409700+00:00"
+      },
+      "response_sha256": "024FF244F9C0BB974DD4AD9CD2ECBA368CBFE4CC0921B80AE80FA77BF73A798D",
+      "status": 200
+    },
+    {
+      "label": "job-snapshot",
+      "method": "GET",
+      "path": "/conversions/jobs/job-1",
+      "request_start": {
+        "case_elapsed_seconds": 2.342949999998382,
+        "utc": "2026-10-23T04:50:11.512115+00:00"
+      },
+      "request_wall_seconds": 0.023245100004714914,
+      "response_bytes": 492,
+      "response_complete": {
+        "case_elapsed_seconds": 2.3661753999986104,
+        "utc": "2026-10-23T04:50:11.535347+00:00"
+      },
+      "response_headers_observed": {
+        "case_elapsed_seconds": 2.36594480000349,
+        "utc": "2026-10-23T04:50:11.535108+00:00"
+      },
+      "response_sha256": "024FF244F9C0BB974DD4AD9CD2ECBA368CBFE4CC0921B80AE80FA77BF73A798D",
+      "status": 200
+    },
+    {
+      "label": "job-snapshot",
+      "method": "GET",
+      "path": "/conversions/jobs/job-1",
+      "request_start": {
+        "case_elapsed_seconds": 2.468052099997294,
+        "utc": "2026-10-23T04:50:11.637203+00:00"
+      },
+      "request_wall_seconds": 0.02241209999920102,
+      "response_bytes": 492,
+      "response_complete": {
+        "case_elapsed_seconds": 2.4904423999978462,
+        "utc": "2026-10-23T04:50:11.659602+00:00"
+      },
+      "response_headers_observed": {
+        "case_elapsed_seconds": 2.4902140999984113,
+        "utc": "2026-10-23T04:50:11.659366+00:00"
+      },
+      "response_sha256": "024FF244F9C0BB974DD4AD9CD2ECBA368CBFE4CC0921B80AE80FA77BF73A798D",
+      "status": 200
+    },
+    {
+      "label": "job-snapshot",
+      "method": "GET",
+      "path": "/conversions/jobs/job-1",
+      "request_start": {
+        "case_elapsed_seconds": 2.5925779000026523,
+        "utc": "2026-10-23T04:50:11.761718+00:00"
+      },
+      "request_wall_seconds": 0.023356399993645027,
+      "response_bytes": 492,
+      "response_complete": {
+        "case_elapsed_seconds": 2.6159138000002713,
+        "utc": "2026-10-23T04:50:11.785062+00:00"
+      },
+      "response_headers_observed": {
+        "case_elapsed_seconds": 2.615679900001851,
+        "utc": "2026-10-23T04:50:11.784819+00:00"
+      },
+      "response_sha256": "024FF244F9C0BB974DD4AD9CD2ECBA368CBFE4CC0921B80AE80FA77BF73A798D",
+      "status": 200
+    },
+    {
+      "label": "job-snapshot",
+      "method": "GET",
+      "path": "/conversions/jobs/job-1",
+      "request_start": {
+        "case_elapsed_seconds": 2.718694700000924,
+        "utc": "2026-10-23T04:50:11.887803+00:00"
+      },
+      "request_wall_seconds": 0.8575204000007943,
+      "response_bytes": 627,
+      "response_complete": {
+        "case_elapsed_seconds": 3.5761666000034893,
+        "utc": "2026-10-23T04:50:12.745219+00:00"
+      },
+      "response_headers_observed": {
+        "case_elapsed_seconds": 3.575714500002505,
+        "utc": "2026-10-23T04:50:12.744743+00:00"
+      },
+      "response_sha256": "3256E2ED903E57F6B1B948D8932FCD101948E68A5F2FC4F89ED0D84034910A1B",
+      "status": 200
+    },
+    {
+      "label": "terminal-payload",
+      "method": "GET",
+      "path": "/conversions/jobs/job-1/payload",
+      "request_start": {
+        "case_elapsed_seconds": 3.58033869999781,
+        "utc": "2026-10-23T04:50:12.749371+00:00"
+      },
+      "request_wall_seconds": 0.4881789999999455,
+      "response_bytes": 510035,
+      "response_complete": {
+        "case_elapsed_seconds": 4.06848170000012,
+        "utc": "2026-10-23T04:50:13.237464+00:00"
+      },
+      "response_headers_observed": {
+        "case_elapsed_seconds": 4.065737899996748,
+        "utc": "2026-10-23T04:50:13.234723+00:00"
+      },
+      "response_sha256": "274D41E6981B602B47758A54274F7FC68E9118416DE92E745B2584C25B01135A",
+      "status": 200
+    },
+    {
+      "label": "terminal-report",
+      "method": "GET",
+      "path": "/conversions/jobs/job-1/report",
+      "request_start": {
+        "case_elapsed_seconds": 4.072237499996845,
+        "utc": "2026-10-23T04:50:13.241226+00:00"
+      },
+      "request_wall_seconds": 0.4612635999947088,
+      "response_bytes": 3222364,
+      "response_complete": {
+        "case_elapsed_seconds": 4.533467499997641,
+        "utc": "2026-10-23T04:50:13.702409+00:00"
+      },
+      "response_headers_observed": {
+        "case_elapsed_seconds": 4.5198984000016935,
+        "utc": "2026-10-23T04:50:13.688835+00:00"
+      },
+      "response_sha256": "6E49BE8C6FC36C602B9CB30BBF7F8B11A68E90256FCDACB7431C26ABA3A8F9BE",
+      "status": 200
+    }
+  ],
+  "events_expected": 10000,
+  "finished_utc": "2026-10-23T04:50:13.769457+00:00",
+  "first_poll": {
+    "case_elapsed_seconds": 0.9667571000027237,
+    "utc": "2026-10-23T04:50:10.136056+00:00"
+  },
+  "input_bytes": 1210135,
+  "input_manifest_sha256": "59DA6F7A7A61826A579F93C394D1EFDF7DDEBE9D550E8120E1BB1EF8D5BDCC43",
+  "input_sha256": "FEB62E2EBA2469264021333C71074A32049DFD049F58AC2A59B2896437AA7793",
+  "job_id": "job-1",
+  "manual_core_verification": {
+    "fixed_values_match": true,
+    "newline_normalization": "csv.reader UTF8 newline-empty; raw serializer not preasserted",
+    "order_sensitivity_not_claimed": true,
+    "rows": 10000,
+    "trace_count": 1
+  },
+  "manual_oracle_sha256": "72BDCA179C36069FB75060D439E64C8E4DF45622A89FF4190BA215A4CF47E5CC",
+  "metadata": {
+    "allow_loss": false,
+    "artifact_id": "conversion-2",
+    "created_at": "2026-10-23T04:50:09.981887300Z",
+    "filename": "CMP10K.xes",
+    "from": "xes",
+    "input_bytes": 1210135,
+    "owner": "user-70e03cb737f3453ea8f01b2677aa9035",
+    "payload_sha256": "274d41e6981b602b47758a54274f7fc68e9118416de92e745b2584c25b01135a",
+    "report_sha256": "6e49be8c6fc36c602b9cb30bbf7f8b11a68e90256fcdacb7431c26aba3a8f9be",
+    "retry_of": null,
+    "snapshot": {
+      "cancel_requested": false,
+      "error": null,
+      "id": "job-1",
+      "job_revision": 2,
+      "result_id": "conversion-2",
+      "stage": "completed",
+      "state": "completed"
+    },
+    "source_sha256": "feb62e2eba2469264021333c71074a32049dfd049f58ac2a59b2896437aa7793",
+    "to": "csv"
+  },
+  "outcome": {
+    "cancel_requested": false,
+    "error": null,
+    "id": "job-1",
+    "job_revision": 2,
+    "result_id": "conversion-2",
+    "stage": "completed",
+    "state": "completed"
+  },
+  "project_id": "project-007cf92a583f452e9ed08576bd205fc1",
+  "request_upload_response": {
+    "case_elapsed_seconds": 0.946241600002395,
+    "utc": "2026-10-23T04:50:10.115539+00:00"
+  },
+  "request_upload_start": {
+    "case_elapsed_seconds": 0.7345105999993393,
+    "utc": "2026-10-23T04:50:09.903830+00:00"
+  },
+  "scope": "One fixed count observation; identical repeated values do not test ordering sensitivity. HTTP/poll wall observations are not CPU/admission/queue internals. Durable source hash/bytes observed in metadata, not independent source-byte retrieval. Server memory is measured by external owned observer. No SLO or RAM cap.",
+  "started_utc": "2026-10-23T04:50:09.169412+00:00",
+  "states": [
+    {
+      "observed": {
+        "case_elapsed_seconds": 0.9829542000006768,
+        "utc": "2026-10-23T04:50:10.152253+00:00"
+      },
+      "snapshot": {
+        "cancel_requested": false,
+        "error": null,
+        "id": "job-1",
+        "job_revision": 1,
+        "result_id": null,
+        "stage": "converting",
+        "state": "running"
+      }
+    },
+    {
+      "observed": {
+        "case_elapsed_seconds": 1.1102289999980712,
+        "utc": "2026-10-23T04:50:10.279514+00:00"
+      },
+      "snapshot": {
+        "cancel_requested": false,
+        "error": null,
+        "id": "job-1",
+        "job_revision": 1,
+        "result_id": null,
+        "stage": "converting",
+        "state": "running"
+      }
+    },
+    {
+      "observed": {
+        "case_elapsed_seconds": 1.2354444000011426,
+        "utc": "2026-10-23T04:50:10.404725+00:00"
+      },
+      "snapshot": {
+        "cancel_requested": false,
+        "error": null,
+        "id": "job-1",
+        "job_revision": 1,
+        "result_id": null,
+        "stage": "converting",
+        "state": "running"
+      }
+    },
+    {
+      "observed": {
+        "case_elapsed_seconds": 1.3593983999962802,
+        "utc": "2026-10-23T04:50:10.528659+00:00"
+      },
+      "snapshot": {
+        "cancel_requested": false,
+        "error": null,
+        "id": "job-1",
+        "job_revision": 1,
+        "result_id": null,
+        "stage": "converting",
+        "state": "running"
+      }
+    },
+    {
+      "observed": {
+        "case_elapsed_seconds": 1.4864151000001584,
+        "utc": "2026-10-23T04:50:10.655665+00:00"
+      },
+      "snapshot": {
+        "cancel_requested": false,
+        "error": null,
+        "id": "job-1",
+        "job_revision": 1,
+        "result_id": null,
+        "stage": "converting",
+        "state": "running"
+      }
+    },
+    {
+      "observed": {
+        "case_elapsed_seconds": 1.6098483000023407,
+        "utc": "2026-10-23T04:50:10.779085+00:00"
+      },
+      "snapshot": {
+        "cancel_requested": false,
+        "error": null,
+        "id": "job-1",
+        "job_revision": 1,
+        "result_id": null,
+        "stage": "converting",
+        "state": "running"
+      }
+    },
+    {
+      "observed": {
+        "case_elapsed_seconds": 1.7359616000030655,
+        "utc": "2026-10-23T04:50:10.905186+00:00"
+      },
+      "snapshot": {
+        "cancel_requested": false,
+        "error": null,
+        "id": "job-1",
+        "job_revision": 1,
+        "result_id": null,
+        "stage": "converting",
+        "state": "running"
+      }
+    },
+    {
+      "observed": {
+        "case_elapsed_seconds": 1.863360700001067,
+        "utc": "2026-10-23T04:50:11.032580+00:00"
+      },
+      "snapshot": {
+        "cancel_requested": false,
+        "error": null,
+        "id": "job-1",
+        "job_revision": 1,
+        "result_id": null,
+        "stage": "converting",
+        "state": "running"
+      }
+    },
+    {
+      "observed": {
+        "case_elapsed_seconds": 1.9906444000007468,
+        "utc": "2026-10-23T04:50:11.159844+00:00"
+      },
+      "snapshot": {
+        "cancel_requested": false,
+        "error": null,
+        "id": "job-1",
+        "job_revision": 1,
+        "result_id": null,
+        "stage": "converting",
+        "state": "running"
+      }
+    },
+    {
+      "observed": {
+        "case_elapsed_seconds": 2.116376099998888,
+        "utc": "2026-10-23T04:50:11.285563+00:00"
+      },
+      "snapshot": {
+        "cancel_requested": false,
+        "error": null,
+        "id": "job-1",
+        "job_revision": 1,
+        "result_id": null,
+        "stage": "converting",
+        "state": "running"
+      }
+    },
+    {
+      "observed": {
+        "case_elapsed_seconds": 2.2410541999997804,
+        "utc": "2026-10-23T04:50:11.410231+00:00"
+      },
+      "snapshot": {
+        "cancel_requested": false,
+        "error": null,
+        "id": "job-1",
+        "job_revision": 1,
+        "result_id": null,
+        "stage": "converting",
+        "state": "running"
+      }
+    },
+    {
+      "observed": {
+        "case_elapsed_seconds": 2.366417500001262,
+        "utc": "2026-10-23T04:50:11.535589+00:00"
+      },
+      "snapshot": {
+        "cancel_requested": false,
+        "error": null,
+        "id": "job-1",
+        "job_revision": 1,
+        "result_id": null,
+        "stage": "converting",
+        "state": "running"
+      }
+    },
+    {
+      "observed": {
+        "case_elapsed_seconds": 2.490677299996605,
+        "utc": "2026-10-23T04:50:11.659837+00:00"
+      },
+      "snapshot": {
+        "cancel_requested": false,
+        "error": null,
+        "id": "job-1",
+        "job_revision": 1,
+        "result_id": null,
+        "stage": "converting",
+        "state": "running"
+      }
+    },
+    {
+      "observed": {
+        "case_elapsed_seconds": 2.6162209000031,
+        "utc": "2026-10-23T04:50:11.785361+00:00"
+      },
+      "snapshot": {
+        "cancel_requested": false,
+        "error": null,
+        "id": "job-1",
+        "job_revision": 1,
+        "result_id": null,
+        "stage": "converting",
+        "state": "running"
+      }
+    },
+    {
+      "observed": {
+        "case_elapsed_seconds": 3.5767072000016924,
+        "utc": "2026-10-23T04:50:12.745748+00:00"
+      },
+      "snapshot": {
+        "cancel_requested": false,
+        "error": null,
+        "id": "job-1",
+        "job_revision": 2,
+        "result_id": "conversion-2",
+        "stage": "completed",
+        "state": "completed"
+      }
+    }
+  ],
+  "status": "OBSERVATION_COMPLETED",
+  "submitted_conversions": 1,
+  "terminal_poll": {
+    "case_elapsed_seconds": 3.5789057000001776,
+    "utc": "2026-10-23T04:50:12.747941+00:00"
+  }
+}

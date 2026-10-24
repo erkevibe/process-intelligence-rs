@@ -1,0 +1,76 @@
+{
+  "process": {
+    "id": "p",
+    "isExecutable": false
+  },
+  "nodes": [
+    {
+      "kind": "start",
+      "id": "s",
+      "label": ""
+    },
+    {
+      "kind": "task",
+      "id": "a",
+      "label": "A"
+    },
+    {
+      "kind": "exclusive_gateway",
+      "id": "g",
+      "label": ""
+    },
+    {
+      "kind": "task",
+      "id": "b",
+      "label": "B"
+    },
+    {
+      "kind": "task",
+      "id": "c",
+      "label": "C"
+    },
+    {
+      "kind": "end",
+      "id": "e",
+      "label": ""
+    }
+  ],
+  "flows": [
+    {
+      "source": "s",
+      "id": "f0",
+      "target": "a",
+      "label": ""
+    },
+    {
+      "source": "a",
+      "id": "f1",
+      "target": "g",
+      "label": ""
+    },
+    {
+      "source": "g",
+      "id": "f2",
+      "target": "b",
+      "label": ""
+    },
+    {
+      "source": "b",
+      "id": "f3",
+      "target": "g",
+      "label": ""
+    },
+    {
+      "source": "g",
+      "id": "f4",
+      "target": "c",
+      "label": ""
+    },
+    {
+      "source": "c",
+      "id": "f5",
+      "target": "e",
+      "label": ""
+    }
+  ]
+}

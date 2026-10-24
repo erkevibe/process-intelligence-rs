@@ -1,0 +1,142 @@
+{
+  "utc": "2026-10-11T13:24:56.4409347Z",
+  "second_refusal": {
+    "stderr": {
+      "bytes": 248,
+      "sha256": "56A9433E337EA5138E333802E35FA2D65CAB9228600CAEE59348F8E3E16EE429",
+      "private_file": ".local/sprint09/qa/guards-c2-01/c14oldplan-repeat.stderr"
+    },
+    "stdout": {
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "private_file": ".local/sprint09/qa/guards-c2-01/c14oldplan-repeat.stdout"
+    },
+    "expected_guard": "cleanup_changed",
+    "process": {
+      "bytes": 680,
+      "sha256": "56815F50CB2F0C54953495FAC45A599F04287CFC33D90141C3742A7E1B44F749",
+      "private_file": ".local/sprint09/qa/guards-c2-01/c14oldplan-repeat.process.json"
+    },
+    "result": {
+      "bytes": 539,
+      "sha256": "561A9DD7539C1F4014017F4B31820E8EF998CD28FDFA2FCD1E945D02790FA80D",
+      "private_file": ".local/sprint09/qa/guards-c2-01/c14oldplan.result.json"
+    },
+    "native_process": {
+      "start_utc": "2026-10-11T12:48:42.6356001Z",
+      "stderr_sha256": "56A9433E337EA5138E333802E35FA2D65CAB9228600CAEE59348F8E3E16EE429",
+      "label": "c14oldplan-repeat",
+      "creation_utc": "2026-10-11T12:48:42.6376126Z",
+      "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+      "end_utc": "2026-10-11T12:48:45.9730382Z",
+      "pid": 10512,
+      "native_exit": 1,
+      "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+      "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    "full_postfirst_equals_postsecond_both_databases": true
+  },
+  "plan": {
+    "bytes": 5339,
+    "sha256": "A3F7D0D847F660FA1FC35AE0E65B0EBFF5A4F719F9248E7C132F2025D8A49DFD",
+    "private_file": ".local/sprint09/qa/guards-c2-01/c14oldplan.plan.json"
+  },
+  "runtime_sql_rerun": false,
+  "clarification": "First-pre precedes successful commit. Result.pre is first-post, immediately before second Apply; result.post is repeat-post. Comparison of first-pre to repeat-post crosses intended successful deletion and cannot test second-refusal conservation.",
+  "hash_domain_note": "Receipt logical pre/post SHA belongs to product logical snapshot domain; saved full-catalog stream SHA is a distinct independent domain.",
+  "original_matrix_sha256": "D8E35431CFF959805CCA84653298541C8119A1D7E1BD1D3AEF704CC44DEDD388",
+  "case": "c14oldplan",
+  "epochs": [
+    {
+      "first_commit_post_and_second_refusal_pre": {
+        "bytes": 72081,
+        "sha256": "6390280F0E137757FED87774013117CD96F145291C476168A8DCA2F7545DF44D",
+        "private_file": ".local/sprint09/qa/guards-c2-01/c14oldplan-first-post-pi_restore_s9_gc2_c14oldplan_s.stdout"
+      },
+      "first_commit_pre": {
+        "bytes": 80171,
+        "sha256": "E5EB6EF0A56ABADB179286F6CF14D972A479BF18C8793383F9DE4558AC67B8F8",
+        "private_file": ".local/sprint09/qa/guards-c2-01/c14oldplan-first-pre-pi_restore_s9_gc2_c14oldplan_s.stdout"
+      },
+      "second_epoch_byte_equal": true,
+      "side": "s",
+      "second_refusal_post": {
+        "bytes": 72081,
+        "sha256": "6390280F0E137757FED87774013117CD96F145291C476168A8DCA2F7545DF44D",
+        "private_file": ".local/sprint09/qa/guards-c2-01/c14oldplan-repeat-post-pi_restore_s9_gc2_c14oldplan_s.stdout"
+      }
+    },
+    {
+      "first_commit_post_and_second_refusal_pre": {
+        "bytes": 80171,
+        "sha256": "3A2E61E907586F5CBCB76CD414C6E369B743B00C6B6305F7F792DAC43EE4CFCD",
+        "private_file": ".local/sprint09/qa/guards-c2-01/c14oldplan-first-post-pi_restore_s9_gc2_c14oldplan_r.stdout"
+      },
+      "first_commit_pre": {
+        "bytes": 80171,
+        "sha256": "3A2E61E907586F5CBCB76CD414C6E369B743B00C6B6305F7F792DAC43EE4CFCD",
+        "private_file": ".local/sprint09/qa/guards-c2-01/c14oldplan-first-pre-pi_restore_s9_gc2_c14oldplan_r.stdout"
+      },
+      "second_epoch_byte_equal": true,
+      "side": "r",
+      "second_refusal_post": {
+        "bytes": 80171,
+        "sha256": "3A2E61E907586F5CBCB76CD414C6E369B743B00C6B6305F7F792DAC43EE4CFCD",
+        "private_file": ".local/sprint09/qa/guards-c2-01/c14oldplan-repeat-post-pi_restore_s9_gc2_c14oldplan_r.stdout"
+      }
+    }
+  ],
+  "author": "/root/qa_cleanup_guards_s9",
+  "primary_failed_wrong_epoch_verification_preserved": true,
+  "first_commit": {
+    "native_process": {
+      "start_utc": "2026-10-11T12:48:34.4181877Z",
+      "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "label": "c14oldplan-first-apply",
+      "creation_utc": "2026-10-11T12:48:34.4197837Z",
+      "executable": "C:\\Users\\alikh\\OneDrive\\Documents\\ChatGPT\\ProcessMining\\.local\\sprint09\\qa\\package-c2\\process-intelligence-rs-0.7.1-windows-x86_64\\process-intelligence-rs.exe",
+      "end_utc": "2026-10-11T12:48:42.1579282Z",
+      "pid": 51592,
+      "native_exit": 0,
+      "executable_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+      "stdout_sha256": "C98AABDA31675E6C437851CDECD9C62BEA40407CE81B6C6859645D9553A6CD7D"
+    },
+    "stderr": {
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "private_file": ".local/sprint09/qa/guards-c2-01/c14oldplan-first-apply.stderr"
+    },
+    "all_other_full_values_versions_sequence_catalog_preserved": true,
+    "stdout": {
+      "bytes": 179,
+      "sha256": "C98AABDA31675E6C437851CDECD9C62BEA40407CE81B6C6859645D9553A6CD7D",
+      "private_file": ".local/sprint09/qa/guards-c2-01/c14oldplan-first-apply.stdout"
+    },
+    "candidate_keys": [
+      "repository/project-04bb7253f83041a99ca27a94c727131a",
+      "repository/project-225e3ef8a0134cdaabc90b11e5aece6c"
+    ],
+    "restore_conserved": true,
+    "removed_full_rows_sha256": "E5EB6EF0A56ABADB179286F6CF14D972A479BF18C8793383F9DE4558AC67B8F8",
+    "exactly_two_candidate_kv_rows_removed": true,
+    "process": {
+      "bytes": 685,
+      "sha256": "4778A7F98F1C661B7B0342BE9B1BA81F11A39F340E128582FC3A6DB6A641319D",
+      "private_file": ".local/sprint09/qa/guards-c2-01/c14oldplan-first-apply.process.json"
+    },
+    "expected_full_source": {
+      "bytes": 72081,
+      "sha256": "6390280F0E137757FED87774013117CD96F145291C476168A8DCA2F7545DF44D",
+      "private_file": ".local/sprint09/qa/guards-c2-01/c14oldplan-first-expected.stdout"
+    }
+  },
+  "exe_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+  "source_commit": "b4edef34b083d1cb7737cf648f1c051eeb94127a",
+  "format": 1,
+  "original_evidence_unchanged": true,
+  "receipt": {
+    "bytes": 803,
+    "sha256": "A5C38CE2112380C3A8FF2180FDCB09A5022A2298F957EEE23E90ABC6BBE00B69",
+    "private_file": ".local/sprint09/qa/guards-c2-01/c14oldplan.plan.json.receipt.json"
+  }
+}

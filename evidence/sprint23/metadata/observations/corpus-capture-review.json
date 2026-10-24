@@ -1,0 +1,39 @@
+{
+  "earlier_emitter_success_is_separate_from_failed_original_batch": true,
+  "streams": 10,
+  "inverse_pairs": 9,
+  "utc": "2026-10-23T12:30:38.7247423+00:00",
+  "native_count": 5,
+  "case_count": 29,
+  "records": [
+    {
+      "file": "collector.process.json",
+      "native_exit": 0,
+      "full_streams": 2
+    },
+    {
+      "file": "audit.process.json",
+      "native_exit": 0,
+      "full_streams": 2
+    },
+    {
+      "file": "corrected-90k-audit.process.json",
+      "native_exit": 0,
+      "full_streams": 2
+    },
+    {
+      "file": "corrected-codec-controls.process.json",
+      "native_exit": 0,
+      "full_streams": 2
+    },
+    {
+      "file": "worker.process.json",
+      "native_exit": 0,
+      "full_streams": 2
+    }
+  ],
+  "large_events": 90000,
+  "status": "ROOT_ACTUAL_CAPTURE_AND_RESULT_CHECK_PASS_REQUIRES_INDEPENDENT_ACCEPTANCE",
+  "controls": 64,
+  "reports": 58
+}

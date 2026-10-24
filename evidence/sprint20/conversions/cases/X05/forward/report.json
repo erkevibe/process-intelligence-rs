@@ -1,0 +1,108 @@
+{
+  "allow_metadata_loss": false,
+  "details": {
+    "losses": [
+      {
+        "event": null,
+        "key": "concept:name",
+        "kind": "xes_scalar",
+        "location": {
+          "byte_offset": 60
+        },
+        "scope": "log",
+        "trace": null,
+        "type": "string",
+        "value": "Rich"
+      },
+      {
+        "event": null,
+        "key": "customer",
+        "kind": "xes_scalar",
+        "location": {
+          "byte_offset": 148
+        },
+        "scope": "trace",
+        "trace": 0,
+        "type": "string",
+        "value": "C"
+      },
+      {
+        "event": 0,
+        "key": "org:resource",
+        "kind": "xes_scalar",
+        "location": {
+          "byte_offset": 227
+        },
+        "scope": "event",
+        "trace": 0,
+        "type": "string",
+        "value": "R"
+      },
+      {
+        "event": 0,
+        "key": "cost",
+        "kind": "xes_scalar",
+        "location": {
+          "byte_offset": 265
+        },
+        "scope": "event",
+        "trace": 0,
+        "type": "int",
+        "value": "7"
+      },
+      {
+        "event": 0,
+        "key": "score",
+        "kind": "xes_scalar",
+        "location": {
+          "byte_offset": 292
+        },
+        "scope": "event",
+        "trace": 0,
+        "type": "float",
+        "value": "1.5"
+      },
+      {
+        "event": 0,
+        "key": "approved",
+        "kind": "xes_scalar",
+        "location": {
+          "byte_offset": 324
+        },
+        "scope": "event",
+        "trace": 0,
+        "type": "boolean",
+        "value": "true"
+      }
+    ],
+    "metadata_loss_count": 6,
+    "normalizations": [],
+    "parser_warnings": [
+      "Порядок событий — как в XML. Lifecycle start/complete не объединяются.",
+      "Совместимость с Apromore ещё не подтверждена legacy oracle."
+    ]
+  },
+  "from": "xes",
+  "input_bytes": 384,
+  "input_sha256": "7baaeabe3190192d422009ec57f812dd822f9be3cb3fde7e381091bf9c39fe54",
+  "method_sha256": "49dc32d1f4219965ea57cc79caa9355974269fab989cc38d09173c8e734e619b",
+  "not_general_format_support": true,
+  "payload_file": null,
+  "reason": "extra_metadata",
+  "schema_version": 1,
+  "sources": {
+    "Cargo.lock": "9005a089ccd3ec721e6d3209600c4cea10e0efc76c7ea4111406fb28c99f29b6",
+    "examples/conversion/logs.rs": "6765fc8a72c47c72b548689ed3f1249ca8e56ff560f08b04b25aef75177c94fe",
+    "examples/conversion/mod.rs": "0dee3aad92715daedc1d37164c911762cf519152e6fb8276e40e05af0b3051b5",
+    "examples/conversion/net.rs": "0850a692536f428facef5e2763c313781f75e42f8ed27d2f3ee8f4b80508d750",
+    "examples/conversion/xml.rs": "a1ff196c278638d3b63f395ad09ea8c8135a2f0021163cd73f30001c4fb21846",
+    "examples/pi_convert.rs": "f3935a0c1926c78807a9a94e7526062107c612093bf81680ff98e1d8bae51d4d",
+    "locked_process_mining": "0.6.2",
+    "src/csv_io.rs": "3eed3d20c0262e3cbf2bb2bf4666c33581f13ad61a9834da2b186e6623ab469d",
+    "src/event_io.rs": "e2f96e3ceb1f4af7d69492d0a7433259e6205397e219fc837b0adb30c4330fc8"
+  },
+  "status": "loss_refused",
+  "target_bytes": null,
+  "target_sha256": null,
+  "to": "csv"
+}

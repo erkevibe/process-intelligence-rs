@@ -1,0 +1,41 @@
+{
+  "utc": "2026-10-11T15:15:24.3381424Z",
+  "decision": "ACCEPT_SPRINT10_STAGE_EXECUTION",
+  "proposal_sha256": "2159EDABEBC07752E6F0663096897D0DACC66B4632E223C4E81C72F9DCCE7340",
+  "invitation_sha256": "0C2EEE852185D73852B9746D50B08B369B5DDE7380E66BBEE7347AE6DF5D50D3",
+  "fixed_members": 5,
+  "actual_for": 5,
+  "actual_against": 0,
+  "votes": [
+    {
+      "path": "flw/evidence/sprint-10-root-start-vote01.json",
+      "role": "Root",
+      "sha256": "ADF1F619169E9A51F3DB56D3F638DC71173864B288AC5CC566C4182D2BE73B37"
+    },
+    {
+      "path": "flw/evidence/sprint-10-pm-start-vote01.json",
+      "role": "PM",
+      "sha256": "E1428EA76CF5D93AD4E8FBAF84C066EB9674712B80C5DFCD996793803CBF1841"
+    },
+    {
+      "path": "flw/evidence/sprint-10-customer-start-vote01.json",
+      "role": "Customer",
+      "sha256": "586923D603C095E9CEB721D67AFAC8424E38CB82526C1B79E58E7D11333CD27F"
+    },
+    {
+      "path": "flw/evidence/sprint-10-qa-start-vote01.json",
+      "role": "QA_ProcessLogAuditor",
+      "sha256": "28D1D5D31806BA5CADF19A6F27229376E0706A6B7D57723D6AED12FCBDBF07A1"
+    },
+    {
+      "path": "flw/evidence/sprint-10-td-start-vote01.json",
+      "role": "TechnicalDebt",
+      "sha256": "089B050CBD9EDA041420CA839833550A8CA653B8EFF749E5414DAC3BD69A62CC"
+    }
+  ],
+  "criterion_acceptance": false,
+  "release_authorized": false,
+  "runtime_cutoff_utc": "2026-10-11T21:38:00Z",
+  "deadline_utc": "2026-10-11T23:08:00Z",
+  "conditions": "All exact plan guards and independent prospective reviews before activation remain binding. No old vote transfer or production SQL substitution. All previous OPEN unchanged."
+}

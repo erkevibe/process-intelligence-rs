@@ -86,6 +86,13 @@ enum Command {
     ResourceVersions(String, String, Vec<String>),
     ResourceSummaries(String),
     ProjectWrite(crate::normalized::ProjectWrite),
+    ProjectDelete(ProjectDelete),
+}
+pub(crate) struct ProjectDelete {
+    pub(crate) project: String,
+    pub(crate) expected_auth: u64,
+    pub(crate) auth_document: Value,
+    pub(crate) expected_project: u64,
 }
 enum Reply {
     Ready,
@@ -158,7 +165,29 @@ impl Database {
                         tracing::info!(%project,records=summaries.len(),"resource_summary_read");
                         Ok(Reply::Summaries(summaries))
                     },
-                    Command::ProjectWrite(write)=>{let mut tx=client.transaction().map_err(|_|unavailable())?;let version=crate::normalized::write(&mut tx,&write)?;validate_record_index(&mut tx,&write.project,&write.metadata)?;tx.commit().map_err(|_|unavailable())?;tracing::info!(records_written=write.puts.len(),records_deleted=write.deletes.len(),project_revision=version,"normalized_committed");Ok(Reply::Version(version))},                    Command::Lease=>{if lease_held{return Ok(Reply::Ready);}let row=client.query_one("SELECT pg_try_advisory_lock($1)",&[&LEASE]).map_err(|_|unavailable())?;if !row.get::<_,bool>(0){return Err(ImportError::new("app_already_running","С этой базой уже работает приложение. Остановите прежний экземпляр."));}lease_held=true;Ok(Reply::Ready)},
+                    Command::ProjectWrite(write)=>{let mut tx=client.transaction().map_err(|_|unavailable())?;let version=crate::normalized::write(&mut tx,&write)?;validate_record_index(&mut tx,&write.project,&write.metadata)?;tx.commit().map_err(|_|unavailable())?;tracing::info!(records_written=write.puts.len(),records_deleted=write.deletes.len(),project_revision=version,"normalized_committed");Ok(Reply::Version(version))},
+                    Command::ProjectDelete(write)=>{
+                        crate::auth::validate_stored(&write.auth_document)?;
+                        validate_document_capacity(&write.auth_document,false)?;
+                        if write.expected_auth>=i64::MAX as u64 || write.expected_project>=i64::MAX as u64 || write.project.is_empty(){return Err(crate::normalized::invalid());}
+                        let mut tx=client.transaction().map_err(|_|unavailable())?;
+                        let previous=tx.query_opt("SELECT version,document FROM public.pi_kv WHERE key='auth' FOR UPDATE",&[]).map_err(|_|unavailable())?.ok_or_else(crate::normalized::invalid)?;
+                        let previous_value:Value=previous.get(1);
+                        if previous.get::<_,i64>(0) as u64 != write.expected_auth
+                            || previous_value.get("projects").and_then(|v|v.get(&write.project)).is_none()
+                            || write.auth_document.get("projects").and_then(|v|v.get(&write.project)).is_some(){return Err(ImportError::new("storage_conflict","Проект или права изменились. Обновите страницу."));}
+                        let header=tx.query_opt("SELECT version FROM public.pi_projects WHERE project_id=$1 FOR UPDATE",&[&write.project]).map_err(|_|unavailable())?;
+                        if header.as_ref().map_or(0,|r|r.get::<_,i64>(0) as u64)!=write.expected_project{return Err(ImportError::new("storage_conflict","Данные проекта изменились. Обновите страницу."));}
+                        let auth=tx.query_one("UPDATE public.pi_kv SET document=$1,version=version+1 WHERE key='auth' AND version=$2 RETURNING version",&[&write.auth_document,&(write.expected_auth as i64)]).map_err(|_|unavailable())?;
+                        tx.execute("DELETE FROM public.pi_records WHERE project_id=$1",&[&write.project]).map_err(|_|unavailable())?;
+                        tx.execute("DELETE FROM public.pi_migration_v2 WHERE project_id=$1",&[&write.project]).map_err(|_|unavailable())?;
+                        tx.execute("DELETE FROM public.pi_kv WHERE key=$1",&[&format!("repository/{}",write.project)]).map_err(|_|unavailable())?;
+                        let removed=tx.execute("DELETE FROM public.pi_projects WHERE project_id=$1 AND version=$2",&[&write.project,&(write.expected_project as i64)]).map_err(|_|unavailable())?;
+                        if removed!=u64::from(write.expected_project!=0){return Err(crate::normalized::invalid());}
+                        tx.commit().map_err(|_|unavailable())?;
+                        tracing::info!("project_delete_committed");Ok(Reply::Version(auth.get::<_,i64>(0) as u64))
+                    },
+                    Command::Lease=>{if lease_held{return Ok(Reply::Ready);}let row=client.query_one("SELECT pg_try_advisory_lock($1)",&[&LEASE]).map_err(|_|unavailable())?;if !row.get::<_,bool>(0){return Err(ImportError::new("app_already_running","С этой базой уже работает приложение. Остановите прежний экземпляр."));}lease_held=true;Ok(Reply::Ready)},
                     Command::Health=>{client.query_one("SELECT 1",&[]).map_err(|_|unavailable())?;Ok(Reply::Ready)},
                     Command::Read(key)=>{
                         let row=client.query_opt("SELECT version,document FROM pi_kv WHERE key=$1",&[&key]).map_err(|_|unavailable())?;
@@ -326,6 +355,11 @@ fn validate_record_index(
                 .map(|kind| (kind.to_string(), id.clone()))
         })
         .chain(h.model_ids.iter().map(|id| ("model".into(), id.clone())))
+        .chain(
+            h.conversions
+                .values()
+                .map(|m| ("conversion".into(), m.artifact_id.clone())),
+        )
         .collect();
     let actual: BTreeSet<(String, String)> = tx
         .query(
@@ -432,7 +466,15 @@ pub fn migrate_offline(url: String) -> Result<(), ImportError> {
             "Остановите приложение перед офлайн-миграцией.",
         ));
     }
-    crate::migration_v2::run(&mut client)
+    crate::migration_v3::migrate_offline(&mut client)
+}
+impl Database {
+    pub(crate) fn delete_project(&self, write: ProjectDelete) -> Result<u64, ImportError> {
+        match self.request(Command::ProjectDelete(write))? {
+            Reply::Version(version) => Ok(version),
+            _ => unreachable!(),
+        }
+    }
 }
 
 #[cfg(test)]

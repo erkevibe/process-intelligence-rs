@@ -1,11 +1,13 @@
 //! Pure HTML renderers. Route authorization and persistence belong to platform.
 use crate::{
-    auth::{Actor, Project, Role},
+    auth::{Actor, Project, ProjectListView, Role},
     bpmn::ProcessModel,
     calendar::CalendarSpec,
     csv_io::CsvPreview,
     filters::FilterSpec,
+    project_list::ListFolder,
 };
+use std::collections::{BTreeMap, BTreeSet};
 
 pub(crate) fn html_escape(value: &str) -> String {
     value
@@ -34,7 +36,149 @@ fn route_id(id: &str) -> String {
         .collect()
 }
 
-pub(crate) fn projects(actor: &Actor, projects: &[Project]) -> String {
+fn list_path(view: &ProjectListView, folder: Option<&str>) -> (String, bool) {
+    let folders = view
+        .folders
+        .iter()
+        .map(|folder| (folder.id.as_str(), folder))
+        .collect::<BTreeMap<_, _>>();
+    let mut cursor = folder;
+    let mut parts = Vec::new();
+    let mut archived = false;
+    let mut seen = BTreeSet::new();
+    while let Some(id) = cursor {
+        if !seen.insert(id) || seen.len() > 64 {
+            break;
+        }
+        let Some(folder) = folders.get(id) else {
+            break;
+        };
+        archived |= folder.archived;
+        parts.push(folder.name.as_str());
+        cursor = folder.parent_id.as_deref();
+    }
+    parts.reverse();
+    (
+        if parts.is_empty() {
+            "Корень списка".into()
+        } else {
+            parts.join(" / ")
+        },
+        archived,
+    )
+}
+
+fn active_destination(
+    view: &ProjectListView,
+    actor: &Actor,
+    folder: &ListFolder,
+    moving: Option<&str>,
+) -> bool {
+    let folders = view
+        .folders
+        .iter()
+        .map(|folder| (folder.id.as_str(), folder))
+        .collect::<BTreeMap<_, _>>();
+    let mut cursor = Some(folder.id.as_str());
+    let mut seen = BTreeSet::new();
+    while let Some(id) = cursor {
+        if Some(id) == moving || !seen.insert(id) || seen.len() > 64 {
+            return false;
+        }
+        let Some(folder) = folders.get(id) else {
+            return false;
+        };
+        if folder.owner_id != actor.id || folder.archived {
+            return false;
+        }
+        cursor = folder.parent_id.as_deref();
+    }
+    true
+}
+
+fn destination_options(
+    view: &ProjectListView,
+    actor: &Actor,
+    selected: Option<&str>,
+    moving: Option<&str>,
+) -> String {
+    let mut html = format!(
+        "<option value=\"\" {}>Корень списка</option>",
+        if selected.is_none() { "selected" } else { "" }
+    );
+    for folder in &view.folders {
+        if !active_destination(view, actor, folder, moving) {
+            continue;
+        }
+        let (label, _) = list_path(view, Some(&folder.id));
+        html.push_str(&format!(
+            "<option value=\"{}\" {}>{}</option>",
+            html_escape(&folder.id),
+            if selected == Some(folder.id.as_str()) {
+                "selected"
+            } else {
+                ""
+            },
+            html_escape(&label)
+        ));
+    }
+    html
+}
+
+fn project_placement(actor: &Actor, project: &Project, view: &ProjectListView) -> String {
+    if !actor.role.can_write() || project.members.get(&actor.id) != Some(&Role::Owner) {
+        return String::new();
+    }
+    let options = destination_options(
+        view,
+        actor,
+        view.project_folders.get(&project.id).map(String::as_str),
+        None,
+    );
+    format!(
+        "<tr><td colspan=\"3\"><details><summary>Переместить проект в папку списка</summary><form class=\"platform-form\" method=\"post\" action=\"/projects/{}/move\"><input type=\"hidden\" name=\"catalog_revision\" value=\"{}\"><input type=\"hidden\" name=\"project_revision\" value=\"{}\"><label>Куда переместить<select name=\"destination\">{options}</select></label><small>Участники, права, журналы и модели сохранятся. Вернуть свой проект в корень можно из любой папки.</small><button class=\"button\">Переместить проект</button></form></details></td></tr>",
+        route_id(&project.id),
+        view.revision,
+        project.revision
+    )
+}
+
+fn project_list_folders(actor: &Actor, view: &ProjectListView) -> String {
+    let mut html = String::from(
+        "<section class=\"platform-card\" id=\"project-list-folders\"><h2>Папки списка проектов</h2><p>Эти папки упорядочивают список проектов. Права остаются у участников каждого проекта и не наследуются от папки. Папки внутри проекта доступны отдельно в разделе «Папки проекта».</p><p>Архив папки сохраняет доступ к проектам, но запрещает добавлять проекты и папки в её ветку.</p>",
+    );
+    if actor.role.can_write() {
+        let options = destination_options(view, actor, None, None);
+        html.push_str(&format!("<form class=\"platform-form\" method=\"post\" action=\"/project-list/folders\"><input type=\"hidden\" name=\"catalog_revision\" value=\"{}\"><label>Название папки<input name=\"name\" required maxlength=\"200\"></label><label>Родительская папка<select name=\"parent\">{options}</select></label><button class=\"button\">Создать папку списка</button></form>", view.revision));
+    }
+    if view.folders.is_empty() {
+        html.push_str("<p>Папок пока нет.</p>");
+    }
+    for folder in &view.folders {
+        let (label, archived_path) = list_path(view, Some(&folder.id));
+        html.push_str(&format!(
+            "<div class=\"platform-note\"><strong>{}</strong>{}",
+            html_escape(&label),
+            if archived_path {
+                " <span class=\"platform-badge\">Папка в архивной ветке</span>"
+            } else {
+                ""
+            }
+        ));
+        if actor.role.can_write() && folder.owner_id == actor.id {
+            let id = route_id(&folder.id);
+            let options =
+                destination_options(view, actor, folder.parent_id.as_deref(), Some(&folder.id));
+            html.push_str(&format!("<details><summary>Управление папкой</summary><form class=\"platform-form\" method=\"post\" action=\"/project-list/folders/{id}/rename\"><input type=\"hidden\" name=\"catalog_revision\" value=\"{}\"><label>Название<input name=\"name\" value=\"{}\" required maxlength=\"200\"></label><button class=\"small-button\">Переименовать папку</button></form><form class=\"platform-form\" method=\"post\" action=\"/project-list/folders/{id}/move\"><input type=\"hidden\" name=\"catalog_revision\" value=\"{}\"><label>Новая родительская папка<select name=\"parent\">{options}</select></label><button class=\"small-button\">Переместить папку</button></form>", view.revision, html_escape(&folder.name), view.revision));
+            html.push_str(&format!("<form method=\"post\" action=\"/project-list/folders/{id}/{}\"><input type=\"hidden\" name=\"catalog_revision\" value=\"{}\"><button class=\"small-button\">{}</button></form><form method=\"post\" action=\"/project-list/folders/{id}/delete\"><input type=\"hidden\" name=\"catalog_revision\" value=\"{}\"><small>Удаление доступно только для пустой папки. Проекты и дочерние папки не удаляются.</small><button class=\"small-button\">Удалить пустую папку</button></form></details>", if folder.archived { "unarchive" } else { "archive" }, view.revision, if folder.archived { "Вернуть папку из архива" } else { "Архивировать папку" }, view.revision));
+        }
+        html.push_str("</div>");
+    }
+    html.push_str("</section>");
+    html
+}
+
+pub(crate) fn projects(actor: &Actor, projects: &[Project], view: &ProjectListView) -> String {
     let mut html = format!(
         "<section class=\"platform-heading\"><div class=\"eyebrow\">РАБОЧИЕ ПРОЕКТЫ</div><h1>Ваши проекты</h1><p>Вы вошли как <strong>{}</strong>. Журналы и модели доступны участникам своего проекта.</p></section><section class=\"platform-card\"><div class=\"platform-table-wrap\"><table class=\"platform-table\"><thead><tr><th>Проект</th><th>Ваши права</th><th>Открыть</th></tr></thead><tbody>",
         html_escape(&actor.username)
@@ -45,25 +189,44 @@ pub(crate) fn projects(actor: &Actor, projects: &[Project]) -> String {
         };
         let id = route_id(&project.id);
         let current = project.id == actor.project_id;
+        let (folder_path, archived_folder) = list_path(
+            view,
+            view.project_folders.get(&project.id).map(String::as_str),
+        );
+        let placement_label = format!(
+            "<p class=\"platform-note\">Папка списка: {}{}</p>",
+            html_escape(&folder_path),
+            if archived_folder {
+                " <span class=\"platform-badge\">Архив папки — доступ к проекту сохранён</span>"
+            } else {
+                ""
+            }
+        );
         if project.archived {
             html.push_str(&format!(
-                "<tr><td>{} <span class=\"platform-badge\">Архив</span></td><td>{}</td><td>",
+                "<tr><td>{}{placement_label} <span class=\"platform-badge\">Архив</span></td><td>{}</td><td>",
                 html_escape(&project.name),
                 role_label(role)
             ));
             if role == Role::Owner && actor.role.can_write() {
                 html.push_str(&format!("<form method=\"post\" action=\"/projects/{id}/unarchive\"><input type=\"hidden\" name=\"revision\" value=\"{}\"><button class=\"small-button\">Вернуть из архива</button></form>", project.revision));
+                html.push_str(&format!(
+                    "<p><a href=\"/projects/{id}/delete\">Проверить постоянное удаление</a></p>"
+                ));
             }
             html.push_str("</td></tr>");
+            html.push_str(&project_placement(actor, project, view));
             continue;
         }
-        html.push_str(&format!("<tr><td>{} {}</td><td>{}</td><td><form method=\"post\" action=\"/projects/{id}/open\"><button class=\"small-button\" type=\"submit\">{}</button></form></td></tr>", html_escape(&project.name), if current { "<span class=\"platform-badge\">Текущий</span>" } else { "" }, role_label(role), if current { "Открыть текущий" } else { "Открыть" }));
+        html.push_str(&format!("<tr><td>{} {}{placement_label}</td><td>{}</td><td><form method=\"post\" action=\"/projects/{id}/open\"><button class=\"small-button\" type=\"submit\">{}</button></form></td></tr>", html_escape(&project.name), if current { "<span class=\"platform-badge\">Текущий</span>" } else { "" }, role_label(role), if current { "Открыть текущий" } else { "Открыть" }));
+        html.push_str(&project_placement(actor, project, view));
         if role == Role::Owner && actor.role.can_write() {
             html.push_str(&format!("<tr><td colspan=\"3\"><details><summary>Название и архив</summary><form class=\"platform-form\" method=\"post\" action=\"/projects/{id}/rename\"><input type=\"hidden\" name=\"revision\" value=\"{}\"><label>Название проекта<input name=\"name\" value=\"{}\" required maxlength=\"200\"></label><button class=\"button\">Переименовать</button></form><form method=\"post\" action=\"/projects/{id}/archive\"><input type=\"hidden\" name=\"revision\" value=\"{}\"><p>Архив закрывает доступ к проекту до восстановления и сохраняет данные. Для текущего проекта нужен другой доступный проект.</p><button class=\"button\">Архивировать проект</button></form></details></td></tr>", project.revision, html_escape(&project.name), project.revision));
             html.push_str(&format!("<tr><td colspan=\"3\"><details><summary>Дать доступ к проекту «{}»</summary><form class=\"platform-form\" method=\"post\" action=\"/projects/{id}/members\"><label>Имя пользователя<input name=\"username\" required maxlength=\"80\" autocomplete=\"off\"></label><label>Права<select name=\"role\"><option value=\"viewer\">Наблюдатель — просмотр и экспорт</option><option value=\"editor\">Редактор — просмотр и изменение</option></select></label><button class=\"button\" type=\"submit\">Предоставить доступ</button><small>Пользователь должен уже иметь учётную запись. Эта операция изменяет его права в выбранном проекте.</small></form></details></td></tr>", html_escape(&project.name)));
         }
     }
     html.push_str("</tbody></table></div></section>");
+    html.push_str(&project_list_folders(actor, view));
     if actor.role.can_write() {
         html.push_str("<section class=\"platform-card\"><h2>Новый проект</h2><form class=\"platform-form\" method=\"post\" action=\"/projects\"><label>Название<input name=\"name\" required maxlength=\"200\" placeholder=\"Например, обработка заявок\"></label><button class=\"button primary\" type=\"submit\">Создать проект</button></form></section>");
     } else {
@@ -79,9 +242,25 @@ pub(crate) fn projects(actor: &Actor, projects: &[Project]) -> String {
 pub(crate) fn csv_upload() -> String {
     "<section class=\"platform-heading\"><div class=\"eyebrow\">ИМПОРТ ЖУРНАЛА</div><h1>Загрузить таблицу CSV</h1><p>Сначала проверьте строки и выберите колонки. Анализ начнётся после подтверждения.</p></section><section class=\"platform-card\"><form class=\"platform-form\" method=\"post\" action=\"/csv/preview\" enctype=\"multipart/form-data\"><label>Файл CSV<input type=\"file\" name=\"file\" accept=\".csv,text/csv\" required></label><label>Разделитель<select name=\"delimiter\"><option value=\"comma\">Запятая</option><option value=\"semicolon\">Точка с запятой</option><option value=\"tab\">Табуляция</option></select></label><small>UTF-8, первая строка — названия колонок. До 20 MiB и 100 000 событий. Значения с разделителем внутри должны быть заключены в кавычки.</small><button class=\"button primary\" type=\"submit\">Проверить таблицу</button></form></section>".to_owned()
 }
+pub(crate) fn project_delete(p: &crate::auth::ProjectDeletionPreview) -> String {
+    let id = route_id(&p.project_id);
+    format!(
+        "<section class=\"platform-card\"><h1>Удалить проект навсегда</h1><h2>{}</h2><p>Точный ID: <code>{}</code></p><p>Будут удалены: {} журналов с исходниками и анализами, {} моделей, {} папок и доступ {} участников. Незавершённых задач: {}.</p><p><strong>Вернуть проект одной кнопкой нельзя.</strong> Без заранее сохранённой резервной копии восстановление невозможно. До удаления сохраните копию и проверьте её восстановление в новую базу. Приложение не проверяет наличие вашей копии.</p><p>Резервные копии и прежние версии PostgreSQL могут сохранить удалённые данные. Эта операция не обещает физическое стирание или немедленное уменьшение файлов на диске. У бывших владельцев останется краткое свидетельство удаления без содержимого проекта.</p><form class=\"platform-form\" method=\"post\" action=\"/projects/{id}/delete\"><input type=\"hidden\" name=\"revision\" value=\"{}\"><input type=\"hidden\" name=\"digest\" value=\"{}\"><label>Введите точный ID проекта<input name=\"confirmation_id\" required autocomplete=\"off\"></label><label>Введите УДАЛИТЬ<input name=\"phrase\" required autocomplete=\"off\"></label><button class=\"button\" {}>Удалить проект навсегда</button></form><p><a href=\"/projects\">Отмена — вернуться к проектам</a></p></section>",
+        html_escape(&p.name),
+        html_escape(&p.project_id),
+        p.logs,
+        p.models,
+        p.folders,
+        p.members,
+        p.active_jobs,
+        p.revision,
+        html_escape(&p.digest),
+        if p.active_jobs == 0 { "" } else { "disabled" }
+    )
+}
 pub(crate) fn audit(trail: &crate::audit::AuditTrail, auth: &serde_json::Value) -> String {
     let mut html = format!(
-        "<section class=\"platform-card\"><h1>История успешных действий</h1><p>В проекте зарегистрировано {} изменений. Сохранены последние {} записей; более ранних вне этого журнала: {}. Подтверждённые исходники и подробные изменения импорта хранятся отдельно у журнала.</p><p><a href=\"/audit/export\">Скачать историю JSON</a></p><table class=\"platform-table\"><thead><tr><th>№</th><th>Время UTC</th><th>Действие</th><th>Кто</th><th>Ресурсы</th></tr></thead><tbody>",
+        "<section class=\"platform-card\"><h1>История действий</h1><p>Всего записей: {}. Сохранены последние {} записей; более ранних вне этого журнала: {}. Новые действия этого сервера подтверждены; результат старых записей неизвестен. История из загруженной копии не проверена: её автор, время и результат указаны в файле, а не подтверждены этим сервером. Подробные изменения импорта хранятся отдельно у журнала.</p><p><a href=\"/audit/export\">Скачать историю JSON</a></p><table class=\"platform-table\"><thead><tr><th>№</th><th>Время UTC</th><th>Действие</th><th>Кто</th><th>Ресурсы</th></tr></thead><tbody>",
         trail.total,
         trail.entries.len(),
         trail.total.saturating_sub(trail.entries.len() as u64)
@@ -106,11 +285,52 @@ pub(crate) fn audit(trail: &crate::audit::AuditTrail, auth: &serde_json::Value) 
             "repository_updated" => "Обновление проекта",
             other => other,
         };
+        let policy = if e.origin.is_some() {
+            "История из загруженной копии — происхождение не проверено".into()
+        } else {
+            e.policy
+                .as_ref()
+                .map(|p| {
+                    let rule = match p.rule.as_str() {
+                        "strict_import_v1" => "Строгая проверка импорта",
+                        "service_preview_confirm_v1" => {
+                            "Подтверждение показанных изменений импорта"
+                        }
+                        "source_case_then_activity_projection_v1" => {
+                            "Фильтры случаев, затем событий"
+                        }
+                        "half_open_business_calendar_v1" => "Расчёт по рабочему календарю",
+                        "validated_model_project_cas_v1" => "Проверка модели и версии проекта",
+                        "project_catalog_folder_cas_v1" => "Проверка связей папок и версии проекта",
+                        "actor_private_view_v1" => "Личное представление пользователя",
+                        "durable_job_transition_v1" => "Сохранение перехода задачи",
+                        "restart_interrupted_job_v1" => "Восстановление задач после перезапуска",
+                        _ => "Проверенная политика действия",
+                    };
+                    format!(
+                        "{} (версия {}); отпечаток параметров {}",
+                        rule, p.version, p.parameters_sha256
+                    )
+                })
+                .unwrap_or_else(|| "Политика не сохранена в старой записи".into())
+        };
+        let outcome = if e.origin.is_some() {
+            "Результат не подтверждён этим сервером"
+        } else if e.outcome.is_some() {
+            "Изменение сохранено"
+        } else {
+            "Результат не сохранён в старой записи"
+        };
         html.push_str(&format!(
             "<tr><td>{}</td><td>{}</td><td>{}</td><td>{}</td><td>{}</td></tr>",
             e.sequence,
             e.at,
-            html_escape(label),
+            format_args!(
+                "{}<br><small>{}<br>{}</small>",
+                html_escape(label),
+                html_escape(&policy),
+                outcome
+            ),
             html_escape(&e.actor),
             html_escape(&e.resources.join(", "))
         ));
@@ -227,8 +447,9 @@ pub(crate) fn xes_preview(
         .iter()
         .filter(|c| c.action == "default_lifecycle")
         .count();
+    let projection = projection_notice(&preview.projection_report);
     let mut html = format!(
-        "<section class=\"platform-card\"><h1>Изменения перед импортом</h1><p>Файл: <strong>{}</strong>. Пока ничего не сохранено.</p><dl><dt>Трассы</dt><dd>{} → {}</dd><dt>События</dt><dd>{} → {remaining}</dd><dt>Добавлен lifecycle=complete</dt><dd>{defaults}</dd><dt>SHA256 исходника</dt><dd><code>{digest}</code></dd><dt>Политика</dt><dd>{}</dd></dl><p>Исходные индексы начинаются с нуля и сохраняются после удаления. Изменения относятся к исходным событиям.</p><table class=\"platform-table\"><thead><tr><th>Трасса</th><th>Событие</th><th>Действие</th><th>Причины</th></tr></thead><tbody>",
+        "<section class=\"platform-card\"><h1>Изменения перед импортом</h1><p>Файл: <strong>{}</strong>. Пока ничего не сохранено.</p><dl><dt>Трассы</dt><dd>{} → {}</dd><dt>События</dt><dd>{} → {remaining}</dd><dt>Добавлен lifecycle=complete</dt><dd>{defaults}</dd><dt>SHA256 исходника</dt><dd><code>{digest}</code></dd><dt>Политика</dt><dd>{}</dd></dl>{projection}<p>Исходные индексы начинаются с нуля и сохраняются после удаления. Изменения относятся к исходным событиям.</p><table class=\"platform-table\"><thead><tr><th>Трасса</th><th>Событие</th><th>Действие</th><th>Причины</th></tr></thead><tbody>",
         html_escape(filename),
         preview.source_cases,
         preview.log.cases.len(),
@@ -271,6 +492,45 @@ pub(crate) fn xes_preview(
         html.push_str(&format!("<form class=\"platform-form\" method=\"post\" action=\"/xes/import\"><input type=\"hidden\" name=\"token\" value=\"{token}\"><label><input type=\"checkbox\" name=\"consent\" value=\"yes\" required> Сохранить новый журнал с показанными изменениями, исходным файлом и историей импорта</label><button class=\"button primary\" type=\"submit\">Подтвердить импорт</button></form><p>После начала подтверждения отмена не принимается. Не закрывайте страницу до ответа. Повтор того же подтверждения открывает тот же журнал в течение пяти минут, пока приложение не перезапущено.</p>"));
     }
     html.push_str(&format!("<form method=\"post\" action=\"/xes/cancel\"><input type=\"hidden\" name=\"token\" value=\"{token}\"><button class=\"button\" type=\"submit\">Отменить просмотр</button></form></section>"));
+    html
+}
+
+fn projection_notice(report: &crate::service_preview::ProjectionReport) -> String {
+    if !report.has_omissions() && report.timestamp_offsets_normalized_to_utc == 0 {
+        return String::new();
+    }
+    let mut html = format!(
+        "<section aria-label=\"Поля вне анализа\"><h2>Какие данные не попадут в анализ</h2><p>Анализ использует имя действия, время и lifecycle. Для имён журнала и трасс используются строковые concept:name. Дополнительных полей в исходнике: журнала — {}, трасс — {}, событий — {}. Классификаторов вне анализа: {}. Объявлений расширений: {}.</p><p>Подсчёт включает весь исходный файл до удаления событий. После подтверждения исходный XES сохранится для скачивания; эти поля не будут доступны в CSV и результатах анализа.</p>",
+        report.omitted_log_attributes,
+        report.omitted_trace_attributes,
+        report.omitted_event_attributes,
+        report.ignored_classifiers,
+        report.omitted_extension_declarations
+    );
+    if report.timestamp_offsets_normalized_to_utc > 0 {
+        html.push_str(&format!("<p>У {} исходных отметок времени смещение часового пояса приводится к UTC. У сохранённых событий сам момент времени не меняется.</p>", report.timestamp_offsets_normalized_to_utc));
+    }
+    if !report.attributes.is_empty() {
+        html.push_str("<ul>");
+        for attribute in report.attributes.iter().take(20) {
+            let scope = match attribute.scope {
+                "log" => "Журнал",
+                "trace" => "Трасса",
+                _ => "Событие",
+            };
+            html.push_str(&format!(
+                "<li>{scope}: <code>{}</code> ({}) — {}</li>",
+                html_escape(&attribute.key),
+                html_escape(attribute.value_type),
+                attribute.occurrences
+            ));
+        }
+        html.push_str("</ul><p>Показаны первые 20 групп полей; подробности — в отчёте JSON.</p>");
+    }
+    if report.unlisted_attribute_occurrences > 0 {
+        html.push_str(&format!("<p>В кратком списке не перечислены ещё {} вхождений полей из-за ограничения размера отчёта. Итоговые счётчики включают их все; полные данные остаются в исходном XES.</p>", report.unlisted_attribute_occurrences));
+    }
+    html.push_str("</section>");
     html
 }
 
@@ -522,6 +782,12 @@ pub(crate) fn calendar_table(results: &serde_json::Value) -> String {
                 Some("missing_timestamps") => "Нет времени событий",
                 Some("calendar_limit") => "Интервал превышает предел календаря",
                 Some("calendar_policy") => "Проверьте параметры календаря",
+                Some("calendar_timezone") => {
+                    "Название часового пояса неизвестно или несовместимо со смещением. Укажите существующее название со смещением 0 либо только смещение UTC."
+                }
+                Some("calendar_boundary") => {
+                    "Расчёт остановлен из-за перехода местного времени. Измените рабочие часы или часовой пояс."
+                }
                 _ => "Длительность не проверена",
             };
             ("—".into(), status)
@@ -611,39 +877,67 @@ pub(crate) fn log_tools(
         .map(ToString::to_string)
         .collect::<Vec<_>>()
         .join(",");
+    html.push_str(&calendar_form_raw_id(
+        &id,
+        &CalendarDraft {
+            timezone: calendar.timezone.as_deref().unwrap_or(""),
+            offset_minutes: calendar.offset_minutes,
+            weekdays: &weekdays,
+            start_minute: calendar.start_minute,
+            end_minute: calendar.end_minute,
+            holidays: &holidays,
+        },
+    ));
+    html
+}
+
+pub(crate) struct CalendarDraft<'a> {
+    pub timezone: &'a str,
+    pub offset_minutes: i32,
+    pub weekdays: &'a str,
+    pub start_minute: u32,
+    pub end_minute: u32,
+    pub holidays: &'a str,
+}
+pub(crate) fn calendar_form(id: &str, draft: &CalendarDraft<'_>) -> String {
+    calendar_form_raw_id(&route_id(id), draft)
+}
+// Internal caller already encoded its route ID; never encode it twice.
+fn calendar_form_raw_id(id: &str, draft: &CalendarDraft<'_>) -> String {
+    let mut html = String::new();
     html.push_str(&format!("<section class=\"platform-card\"><h2>Рабочее время</h2><form class=\"platform-form\" method=\"post\" action=\"/logs/{id}/calendar\"><label>Фиксированное смещение UTC<select name=\"offset_minutes\">"));
     // Named zone input is rendered below the fixed offset selector.
     let mut offsets: Vec<i32> = (-840..=840).step_by(30).collect();
-    if !offsets.contains(&calendar.offset_minutes) {
-        offsets.push(calendar.offset_minutes);
+    if !offsets.contains(&draft.offset_minutes) {
+        offsets.push(draft.offset_minutes);
         offsets.sort_unstable();
     }
     for offset in offsets {
         html.push_str(&format!(
             "<option value=\"{offset}\" {}>UTC{}{:02}:{:02}</option>",
-            if offset == calendar.offset_minutes {
+            if offset == draft.offset_minutes {
                 "selected"
             } else {
                 ""
             },
             if offset >= 0 { "+" } else { "−" },
-            offset.abs() / 60,
-            offset.abs() % 60
+            offset.unsigned_abs() / 60,
+            offset.unsigned_abs() % 60
         ));
     }
-    html.push_str(&format!("</select></label><label>Рабочие дни недели<input name=\"weekdays\" value=\"{}\" required></label><small>1 — понедельник, 2 — вторник, …, 7 — воскресенье. Например: 1,2,3,4,5.</small><div class=\"platform-fields\">", html_escape(&weekdays)));
-    html.push_str(&format!("<label>Именованная зона IANA (необязательно)<input name=\"timezone\" value=\"{}\" maxlength=\"128\" placeholder=\"Europe/Berlin\"></label>", html_escape(calendar.timezone.as_deref().unwrap_or(""))));
+    html.push_str(&format!("</select></label><label>Рабочие дни недели<input name=\"weekdays\" value=\"{}\" required></label><small>1 — понедельник, 2 — вторник, …, 7 — воскресенье. Например: 1,2,3,4,5.</small><div class=\"platform-fields\">", html_escape(draft.weekdays)));
+    html.push_str(&format!("<label>Именованная зона IANA (необязательно)<input name=\"timezone\" value=\"{}\" maxlength=\"128\" placeholder=\"Europe/Berlin\"></label>", html_escape(draft.timezone)));
     html.push_str(&minute_select(
         "start_minute",
         "Начало работы",
-        calendar.start_minute,
+        draft.start_minute,
     ));
     html.push_str(&minute_select(
         "end_minute",
         "Конец работы",
-        calendar.end_minute,
+        draft.end_minute,
     ));
-    html.push_str(&format!("</div><label>Нерабочие даты<input name=\"holidays\" value=\"{}\" placeholder=\"2026-12-31,2027-01-01\"></label><small>Считается пересечение интервала между первым и последним временем трассы с рабочими часами. Начало включается, конец не включается. Без именованной зоны смещение UTC фиксировано. При именованной зоне учитываются сезонные переходы; несуществующие и неоднозначные рабочие границы отклоняются. Для именованной зоны выберите фиксированное смещение UTC+00:00.</small><button class=\"button\" type=\"submit\">Рассчитать рабочее время</button></form></section>", html_escape(&holidays)));
+    html.push_str(&format!("</div><label>Нерабочие даты<input name=\"holidays\" value=\"{}\" placeholder=\"2026-12-31,2027-01-01\"></label><small>Считается пересечение интервала между первым и последним временем трассы с рабочими часами. Начало включается, конец не включается. Без именованной зоны смещение UTC фиксировано. При именованной зоне учитываются сезонные переходы; несуществующие и неоднозначные рабочие границы отклоняются. Для именованной зоны выберите фиксированное смещение UTC+00:00.</small><button class=\"button\" type=\"submit\">Рассчитать рабочее время</button></form></section>", html_escape(draft.holidays)));
     html
 }
 
@@ -656,7 +950,7 @@ pub(crate) fn model_editor(
     let id = route_id(id);
     let json = match serde_json::to_string(model) { Ok(json) => html_escape(&json), Err(_) => return "<div class=\"platform-alert\" role=\"alert\">Не удалось отобразить модель.</div>".into() };
     let mut html = format!(
-        "<section class=\"platform-heading\"><div class=\"eyebrow\">МОДЕЛЬ ПРОЦЕССА</div><h1>{}</h1><p>Круги — начало и конец, прямоугольники — действия, ромбы × и + — выбор и параллельный шлюз.</p><div class=\"platform-actions\"><a class=\"button\" href=\"/models/{id}/export\">Скачать BPMN</a><a class=\"button\" href=\"/models/{id}/json\">Скачать JSON</a><span class=\"platform-badge\">Версия {revision}</span></div></section><div id=\"bpmn-data\" hidden data-editable=\"{writable}\">{json}</div><div class=\"bpmn-layout\"><section class=\"platform-card bpmn-diagram-card\"><header class=\"bpmn-toolbar\"><strong>Диаграмма</strong><button id=\"bpmn-fit\" type=\"button\" class=\"small-button\">Вписать</button></header><div class=\"bpmn-diagram\"><div id=\"bpmn-cy\" role=\"img\" aria-label=\"Модель процесса BPMN\"></div></div><div class=\"bpmn-caption\">Выберите узел или переход; подпись и положение показаны для узла. Масштаб меняется колёсиком.</div></section><section class=\"platform-card bpmn-editor\"><h2>Выбранный элемент</h2>",
+        "<section class=\"platform-heading\"><div class=\"eyebrow\">МОДЕЛЬ ПРОЦЕССА</div><h1>{}</h1><p>Круги — начало и конец, прямоугольники — действия, ромбы × и + — выбор и параллельный шлюз.</p><div class=\"platform-actions\"><a class=\"button\" href=\"/models/{id}/export\">Скачать BPMN</a><a class=\"button\" href=\"/models/{id}/json\">Скачать JSON</a><span class=\"platform-badge\">Версия {revision}</span></div></section><div id=\"bpmn-data\" hidden data-editable=\"{writable}\">{json}</div><div class=\"bpmn-layout\"><section class=\"platform-card bpmn-diagram-card\"><header class=\"bpmn-toolbar\"><strong>Диаграмма</strong><button id=\"bpmn-fit\" type=\"button\" class=\"small-button\">Вписать</button></header><div class=\"bpmn-diagram\"><div id=\"bpmn-cy\" role=\"img\" aria-label=\"Модель процесса BPMN\"></div></div><div class=\"bpmn-caption\">Выберите узел или переход; подпись показана для выбранного элемента, положение — для узла. Масштаб меняется колёсиком.</div></section><section class=\"platform-card bpmn-editor\"><h2>Выбранный элемент</h2>",
         html_escape(&model.name)
     );
     if writable {
@@ -664,9 +958,9 @@ pub(crate) fn model_editor(
     } else {
         html.push_str("<div class=\"platform-form\">");
     }
-    html.push_str("<label>Идентификатор<input id=\"bpmn-node-id\" readonly disabled></label><label>Подпись<input id=\"bpmn-node-label\" disabled maxlength=\"4096\"></label><div class=\"platform-fields\"><label>Положение X<input id=\"bpmn-node-x\" type=\"number\" step=\"any\" min=\"-1000000\" max=\"1000000\" disabled></label><label>Положение Y<input id=\"bpmn-node-y\" type=\"number\" step=\"any\" min=\"-1000000\" max=\"1000000\" disabled></label></div><p id=\"bpmn-node-hint\" class=\"platform-note\">Выберите узел на диаграмме.</p>");
+    html.push_str("<label>Идентификатор<input id=\"bpmn-node-id\" readonly disabled></label><label>Подпись<input id=\"bpmn-node-label\" disabled maxlength=\"4096\"></label><div class=\"platform-fields\"><label>Положение X<input id=\"bpmn-node-x\" type=\"number\" step=\"any\" min=\"-1000000\" max=\"1000000\" disabled></label><label>Положение Y<input id=\"bpmn-node-y\" type=\"number\" step=\"any\" min=\"-1000000\" max=\"1000000\" disabled></label></div><p id=\"bpmn-node-hint\" class=\"platform-note\">Выберите узел или переход на диаграмме.</p>");
     if writable {
-        html.push_str("<button id=\"bpmn-apply-node\" class=\"button\" type=\"button\" disabled>Изменить черновик</button><button id=\"bpmn-delete-element\" class=\"button\" type=\"button\" disabled>Удалить выбранное</button><hr><label>Название новой задачи<input id=\"bpmn-new-task-label\" maxlength=\"4096\" value=\"Новое действие\"></label><button id=\"bpmn-add-task\" class=\"button\" type=\"button\">Добавить задачу</button><label>Переход из узла<select id=\"bpmn-flow-source\"></select></label><label>В узел<select id=\"bpmn-flow-target\"></select></label><button id=\"bpmn-add-flow\" class=\"button\" type=\"button\">Добавить переход</button><button class=\"button primary\" type=\"submit\">Сохранить модель</button><p class=\"platform-note\">Добавляйте задачи и переходы, удаляйте выбранную задачу или переход. Начало, конец и шлюзы сохраняются. Удаление задачи убирает её переходы из черновика. Для сохранения каждый узел должен лежать на пути от начала к концу. Подпись и положение выбранного узла применяются при сохранении; изменения подтверждаются после обновления страницы.</p></form>");
+        html.push_str("<button id=\"bpmn-apply-node\" class=\"button\" type=\"button\" disabled>Изменить черновик</button><button id=\"bpmn-delete-element\" class=\"button\" type=\"button\" disabled>Удалить выбранное</button><hr><label>Название новой задачи<input id=\"bpmn-new-task-label\" maxlength=\"4096\" value=\"Новое действие\"></label><button id=\"bpmn-add-task\" class=\"button\" type=\"button\">Добавить задачу</button><label>Переход из узла<select id=\"bpmn-flow-source\"></select></label><label>В узел<select id=\"bpmn-flow-target\"></select></label><button id=\"bpmn-add-flow\" class=\"button\" type=\"button\">Добавить переход</button><button class=\"button primary\" type=\"submit\">Сохранить модель</button><p class=\"platform-note\">Добавляйте задачи и переходы, удаляйте выбранную задачу или переход. Начало, конец и шлюзы сохраняются. Удаление задачи убирает её переходы из черновика. Для сохранения каждый узел должен лежать на пути от начала к концу. Подпись выбранного элемента и положение узла применяются при сохранении; изменения подтверждаются после обновления страницы.</p></form>");
     } else {
         html.push_str(
             "<p class=\"platform-note\">Просмотр: изменения доступны редактору проекта.</p></div>",
@@ -680,8 +974,123 @@ pub(crate) fn model_editor(
             html.push_str("<p class=\"platform-note\">Основа построена из наблюдённых вариантов. Сохранённые изменения могут отличаться от исходных последовательностей; качество обобщения и совместимость с Apromore не подтверждены.</p>");
         }
     }
-    html.push_str("<p class=\"platform-note\">Поддерживается один неисполняемый процесс с обычными задачами, началом, концом, шлюзами и последовательными переходами. Условия, расширения и другие элементы отклоняются при импорте.</p>");
+    html.push_str("<p class=\"platform-note\">Поддерживается один неисполняемый процесс с обычными задачами, началом, концом, шлюзами и последовательными переходами. Подписи переходов — текст, а не условия. Условия, default flow, BPMNLabel DI, расширения и другие элементы отклоняются при импорте.</p>");
     html
+}
+
+#[cfg(test)]
+mod calendar_explanation_tests {
+    use super::calendar_table;
+    use crate::calendar::{CalendarSpec, business_millis};
+    use chrono::{DateTime, Utc};
+    use serde_json::json;
+
+    fn utc(value: &str) -> DateTime<Utc> {
+        DateTime::parse_from_rfc3339(value)
+            .unwrap()
+            .with_timezone(&Utc)
+    }
+
+    #[test]
+    fn actual_timezone_failures_offer_a_valid_configuration_without_a_duration() {
+        for (zone, offset) in [("Unknown/Nowhere", 0), ("Europe/Berlin", 60)] {
+            let calendar = CalendarSpec {
+                timezone: Some(zone.into()),
+                offset_minutes: offset,
+                ..Default::default()
+            };
+            let instant = utc("2026-06-01T00:00:00Z");
+            let error = business_millis(instant, instant, &calendar).unwrap_err();
+            assert_eq!(error.code, "calendar_timezone");
+            let html = calendar_table(&json!([{
+                "case_id": "<case>&", "status": "unverified", "reason": error.code
+            }]));
+            assert!(html.contains("неизвестно или несовместимо со смещением"));
+            assert!(html.contains("со смещением 0 либо только смещение UTC"));
+            assert!(html.contains("<td>—</td>"));
+            assert!(html.contains("&lt;case&gt;&amp;"));
+            assert!(!html.contains("<case>"));
+            assert!(!html.contains("Рассчитано"));
+        }
+    }
+
+    #[test]
+    fn real_gap_fold_and_historical_transition_refusals_then_manual_corrections() {
+        for (start, end, expected) in [
+            ("2026-03-28T23:00:00Z", "2026-03-29T22:00:00Z", 7_200_000),
+            ("2026-10-24T22:00:00Z", "2026-10-25T23:00:00Z", 14_400_000),
+        ] {
+            let mut calendar = CalendarSpec {
+                timezone: Some("Europe/Berlin".into()),
+                weekdays: vec![7],
+                start_minute: 150,
+                end_minute: 240,
+                ..Default::default()
+            };
+            let error = business_millis(utc(start), utc(end), &calendar).unwrap_err();
+            assert_eq!(error.code, "calendar_boundary");
+            let html = calendar_table(&json!([{
+                "case_id": "transition", "status": "unverified", "reason": error.code
+            }]));
+            assert!(html.contains("Расчёт остановлен из-за перехода местного времени"));
+            assert!(html.contains("Измените рабочие часы или часовой пояс"));
+            assert!(html.contains("<td>—</td>"));
+            calendar.start_minute = 60;
+            let millis = business_millis(utc(start), utc(end), &calendar).unwrap();
+            assert_eq!(millis, expected);
+            let html = calendar_table(&json!([{
+                "case_id": "corrected", "status": "computed", "business_millis": millis
+            }]));
+            assert!(html.contains("Рассчитано"));
+            assert!(html.contains(if expected == 7_200_000 {
+                "2 ч"
+            } else {
+                "4 ч"
+            }));
+            assert!(!html.contains("<td>—</td>"));
+        }
+        let historical = CalendarSpec {
+            timezone: Some("Pacific/Apia".into()),
+            weekdays: vec![1, 2, 3, 4, 5, 6, 7],
+            start_minute: 0,
+            end_minute: 1440,
+            ..Default::default()
+        };
+        let error = business_millis(
+            utc("1892-07-04T11:26:55Z"),
+            utc("1892-07-04T11:26:56Z"),
+            &historical,
+        )
+        .unwrap_err();
+        assert_eq!(error.code, "calendar_boundary");
+        let html = calendar_table(&json!([{
+            "case_id": "historical", "status": "unverified", "reason": error.code
+        }]));
+        assert!(html.contains("перехода местного времени"));
+        assert!(html.contains("<td>—</td>"));
+    }
+
+    #[test]
+    fn existing_refusals_and_unknown_reason_stay_safe() {
+        let html = calendar_table(&json!([
+            {"case_id":"missing","reason":"missing_timestamps"},
+            {"case_id":"limit","reason":"calendar_limit"},
+            {"case_id":"policy","reason":"calendar_policy"},
+            {"case_id":"<unknown>","reason":"<script>injected()</script>"}
+        ]));
+        for message in [
+            "Нет времени событий",
+            "Интервал превышает предел календаря",
+            "Проверьте параметры календаря",
+            "Длительность не проверена",
+            "&lt;unknown&gt;",
+        ] {
+            assert!(html.contains(message));
+        }
+        assert_eq!(html.matches("<td>—</td>").count(), 4);
+        assert!(!html.contains("injected"));
+        assert!(!html.contains("<script>"));
+    }
 }
 
 #[cfg(test)]
@@ -719,5 +1128,117 @@ mod c06_tests {
         assert_eq!(html.matches("<td>Сохранённый анализ</td>").count(), 2);
         assert!(html.contains("Целостность данных проверяется при открытии; незавершённые обработки находятся в задачах"));
         assert!(!html.contains("action=\"/restore\""));
+    }
+}
+
+#[cfg(test)]
+mod projection_report_tests {
+    use super::*;
+
+    #[test]
+    fn preview_discloses_omissions_before_consent_and_escapes_keys_without_values() {
+        let input = br#"<log><classifier name="By resource" keys="org:resource"/>
+        <trace><event><string key="concept:name" value="A"/>
+        <date key="time:timestamp" value="2026-01-01T05:00:00+05:00"/>
+        <string key="&lt;script&gt;&amp;" value="PRIVATE_VALUE"/>
+        </event></trace></log>"#;
+        let preview = crate::service_preview::preview_xes(input).unwrap();
+        let html = xes_preview("token", &preview, "digest", "<img>");
+        assert!(html.contains("Какие данные не попадут в анализ"));
+        assert!(html.contains("Классификаторов вне анализа: 1"));
+        assert!(html.contains("&lt;script&gt;&amp;"));
+        assert!(html.contains("&lt;img&gt;"));
+        assert!(!html.contains("<script>"));
+        assert!(!html.contains("PRIVATE_VALUE"));
+        assert!(html.contains("исходный XES сохранится"));
+        assert!(
+            html.find("Какие данные не попадут в анализ").unwrap()
+                < html.find("Подтвердить импорт").unwrap()
+        );
+        assert!(html.contains("сам момент времени не меняется"));
+        assert!(html.contains("action=\"/xes/import\""));
+    }
+}
+
+#[cfg(test)]
+mod project_list_tests {
+    use super::*;
+
+    fn actor(role: Role) -> Actor {
+        Actor {
+            id: "owner".into(),
+            username: "Owner".into(),
+            project_id: "project".into(),
+            role,
+            admin: false,
+        }
+    }
+
+    #[test]
+    fn destinations_exclude_foreign_archived_branches_and_moving_subtree() {
+        let folder = |id: &str, owner: &str, parent: Option<&str>, archived| ListFolder {
+            id: id.into(),
+            name: format!("<{id}>"),
+            owner_id: owner.into(),
+            parent_id: parent.map(str::to_owned),
+            archived,
+        };
+        let view = ProjectListView {
+            projects: vec![],
+            revision: 7,
+            folders: vec![
+                folder("root", "owner", None, false),
+                folder("child", "owner", Some("root"), false),
+                folder("archived", "owner", None, true),
+                folder("under-archive", "owner", Some("archived"), false),
+                folder("foreign", "other", None, false),
+            ],
+            project_folders: BTreeMap::new(),
+        };
+        let options = destination_options(&view, &actor(Role::Owner), None, None);
+        assert!(options.contains("value=\"root\""));
+        assert!(options.contains("&lt;root&gt; / &lt;child&gt;"));
+        assert!(!options.contains("value=\"archived\""));
+        assert!(!options.contains("value=\"under-archive\""));
+        assert!(!options.contains("value=\"foreign\""));
+        let moving = destination_options(&view, &actor(Role::Owner), None, Some("root"));
+        assert!(!moving.contains("value=\"root\""));
+        assert!(!moving.contains("value=\"child\""));
+    }
+
+    #[test]
+    fn archived_project_keeps_path_and_owner_move_while_viewer_has_no_mutations() {
+        let project = Project {
+            id: "project".into(),
+            name: "<Project>".into(),
+            members: BTreeMap::from([("owner".into(), Role::Owner)]),
+            archived: true,
+            revision: 9,
+        };
+        let view = ProjectListView {
+            projects: vec![project.clone()],
+            revision: 8,
+            folders: vec![ListFolder {
+                id: "folder".into(),
+                name: "<Folder>".into(),
+                owner_id: "owner".into(),
+                parent_id: None,
+                archived: true,
+            }],
+            project_folders: BTreeMap::from([("project".into(), "folder".into())]),
+        };
+        let html = projects(&actor(Role::Owner), &view.projects, &view);
+        assert!(html.contains("&lt;Project&gt;"));
+        assert!(html.contains("&lt;Folder&gt;"));
+        assert!(html.contains("Архив папки — доступ к проекту сохранён"));
+        assert!(html.contains("action=\"/projects/project/move\""));
+        assert!(html.contains("name=\"catalog_revision\" value=\"8\""));
+        assert!(html.contains("name=\"project_revision\" value=\"9\""));
+        assert!(html.contains("action=\"/projects/project/unarchive\""));
+        assert!(!html.contains("<Folder>"));
+        let readonly = projects(&actor(Role::Viewer), &view.projects, &view);
+        assert!(!readonly.contains("action=\"/projects/project/move\""));
+        assert!(!readonly.contains("action=\"/project-list/folders"));
+        assert!(!readonly.contains("action=\"/projects/project/unarchive\""));
     }
 }

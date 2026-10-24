@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "status": "independent_eight_row_miner_cohort_audit_passed",
+  "cohort_sha256": "6dac7a9b69d553590f342ed4b836140678a9f2c072cc806119f0ecc48ace208d",
+  "bundle_sha256": "ea7309b02c583e230afb57ccf474d62cdb49c9af61f39a0206a46200cca1b4bf",
+  "rust_sha256": "e8fcd60e4e7a84711c1f75a7c7bb5c5bcbb470d74dac9e2feebe1757c29b881a",
+  "reference_sha256": "20bf97142d0e113be85c4da5c602c93dbae9f0e4dc940e0361a05395111d4484",
+  "cases": [
+    {
+      "id": "linear",
+      "status": "conserved_equivalent_and_independently_audited",
+      "equivalence": {
+        "status": "equivalent",
+        "visited_subset_pairs": 4,
+        "method": "complete_tau_closure_subset_pair_bisimulation_of_observable_accepting_automata"
+      },
+      "groups": [
+        {
+          "group": "training_log",
+          "log": "1",
+          "average": "1",
+          "precision": "1",
+          "activated": 6,
+          "escaping": 0,
+          "simplicity": "1",
+          "reference_status": "measured"
+        }
+      ]
+    },
+    {
+      "id": "exclusive-choice",
+      "status": "conserved_equivalent_and_independently_audited",
+      "equivalence": {
+        "status": "equivalent",
+        "visited_subset_pairs": 5,
+        "method": "complete_tau_closure_subset_pair_bisimulation_of_observable_accepting_automata"
+      },
+      "groups": [
+        {
+          "group": "training_log",
+          "log": "1",
+          "average": "1",
+          "precision": "1",
+          "activated": 16,
+          "escaping": 0,
+          "simplicity": "1",
+          "reference_status": "measured"
+        }
+      ]
+    },
+    {
+      "id": "parallel-interleavings",
+      "status": "conserved_equivalent_and_independently_audited",
+      "equivalence": {
+        "status": "equivalent",
+        "visited_subset_pairs": 6,
+        "method": "complete_tau_closure_subset_pair_bisimulation_of_observable_accepting_automata"
+      },
+      "groups": [
+        {
+          "group": "training_log",
+          "log": "1",
+          "average": "1",
+          "precision": "1",
+          "activated": 30,
+          "escaping": 0,
+          "simplicity": "1",
+          "reference_status": "measured"
+        }
+      ]
+    },
+    {
+      "id": "self-loop",
+      "status": "unsupported_standard_loop_retained"
+    },
+    {
+      "id": "short-loop",
+      "status": "conserved_equivalent_and_independently_audited",
+      "equivalence": {
+        "status": "equivalent",
+        "visited_subset_pairs": 4,
+        "method": "complete_tau_closure_subset_pair_bisimulation_of_observable_accepting_automata"
+      },
+      "groups": [
+        {
+          "group": "training_log",
+          "log": "1",
+          "average": "1",
+          "precision": "17/18",
+          "activated": 18,
+          "escaping": 1,
+          "simplicity": "1",
+          "reference_status": "measured"
+        }
+      ]
+    },
+    {
+      "id": "rare-noise",
+      "status": "conserved_equivalent_and_independently_audited",
+      "equivalence": {
+        "status": "equivalent",
+        "visited_subset_pairs": 5,
+        "method": "complete_tau_closure_subset_pair_bisimulation_of_observable_accepting_automata"
+      },
+      "groups": [
+        {
+          "group": "training_log",
+          "log": "1",
+          "average": "1",
+          "precision": "1",
+          "activated": 40,
+          "escaping": 0,
+          "simplicity": "1",
+          "reference_status": "measured"
+        }
+      ]
+    },
+    {
+      "id": "empty-log",
+      "status": "historical_empty_log_exception_retained"
+    },
+    {
+      "id": "empty-trace",
+      "status": "conserved_equivalent_and_independently_audited",
+      "equivalence": {
+        "status": "equivalent",
+        "visited_subset_pairs": 1,
+        "method": "complete_tau_closure_subset_pair_bisimulation_of_observable_accepting_automata"
+      },
+      "groups": [
+        {
+          "group": "training_log",
+          "log": "1",
+          "average": "1",
+          "precision": "None",
+          "activated": 0,
+          "escaping": 0,
+          "simplicity": "1",
+          "reference_status": "not_applicable_no_activated_labels"
+        }
+      ]
+    }
+  ],
+  "not_whole_R4_acceptance": true,
+  "scope": "Historical miner source-training cohort only; exact projection, full conserved accepting languages, independent costs/paths/rational/prefix metrics. Unsupported loop and empty exception remain explicit; no new mining or heldout evidence."
+}

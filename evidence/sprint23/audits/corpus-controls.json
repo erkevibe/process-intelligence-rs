@@ -1,0 +1,26 @@
+{
+  "status": "FINITE_CORPUS_COUNTERFACTUALS_PASS",
+  "rejections": [
+    {
+      "case": "index_hash",
+      "rejected": true,
+      "reason": "artifact_pin"
+    },
+    {
+      "case": "typed_report",
+      "rejected": true,
+      "reason": "outer_schema_type"
+    },
+    {
+      "case": "extra_file",
+      "rejected": true,
+      "reason": "exact_emitted_files_and_9_inverse"
+    }
+  ],
+  "original_index_sha256": "9a598871725afef56cff21ead65d31ec54afe97720174782bb7372e9af9a8857",
+  "staged_and_audit_bytes": 601996,
+  "native_execution_verified": false,
+  "limits": [
+    "Three specific saved mutations only; original positive cohort is a separate run."
+  ]
+}

@@ -1,0 +1,228 @@
+{
+  "events": [
+    {
+      "label": "health-headers",
+      "phase_elapsed_seconds": 0.06173359999957029,
+      "status": 200
+    },
+    {
+      "label": "health",
+      "phase_elapsed_seconds": 0.061809599999833154,
+      "response_bytes": 36,
+      "response_sha256": "CAE42C93BD1819F177627190E9581DEAA568BE503CF82B8238A8A3B4C5085831",
+      "response_wall_seconds": 0.0033167000001412816,
+      "status": 200
+    },
+    {
+      "label": "conversion-list-headers",
+      "phase_elapsed_seconds": 0.07709289999911562,
+      "status": 200
+    },
+    {
+      "label": "conversion-list",
+      "phase_elapsed_seconds": 0.07716079999954673,
+      "response_bytes": 5316,
+      "response_sha256": "45D21DD8C226CDA97E7E0BF361EC11023738B03F18CD81A946741F868326BB25",
+      "response_wall_seconds": 0.0030099000032350887,
+      "status": 200
+    },
+    {
+      "label": "overlap-third-response-headers",
+      "phase_elapsed_seconds": 0.3744572999967204,
+      "status": 503
+    },
+    {
+      "label": "overlap-third-response",
+      "phase_elapsed_seconds": 0.37449869999909424,
+      "response_bytes": 138,
+      "response_sha256": "552DEE75F184C8724B72104905DA9E591388B16C30B8223E4B17F77DB5F95D0D",
+      "response_wall_seconds": 0.0009849000016401988,
+      "status": 503
+    },
+    {
+      "classification": "existing heavy gate or actual observed response; not new admission proof",
+      "declared_content_length": 809,
+      "file_bytes_sent": 430,
+      "file_finished_phase_seconds": 0.3734673999970255,
+      "filename": "capacity-third-control.xes",
+      "input_bytes": 430,
+      "input_sha256": "6BE15ABCC35C4BDF755F27307C93B0B5E4E5F90C7D715FCC4B57DC07A503516F",
+      "label": "overlap-third-stream",
+      "multipart_suffix_sent": true,
+      "status": 503
+    },
+    {
+      "label": "conversion-list-headers",
+      "phase_elapsed_seconds": 2.2356139999974403,
+      "status": 200
+    },
+    {
+      "label": "conversion-list",
+      "phase_elapsed_seconds": 2.2356865000001562,
+      "response_bytes": 5316,
+      "response_sha256": "7878147D716F301C6A90A78FDADA2C88CB261BE343419D6ECCA6F992C58DEBB8",
+      "response_wall_seconds": 0.0034038000012515113,
+      "status": 200
+    },
+    {
+      "label": "conversion-list-headers",
+      "phase_elapsed_seconds": 2.2518390999975963,
+      "status": 200
+    },
+    {
+      "label": "conversion-list",
+      "phase_elapsed_seconds": 2.2519056999990426,
+      "response_bytes": 5316,
+      "response_sha256": "DAA3F411D07547E79945A731708F68430C35EBCB7A334FFDEE4D53B3E47547C1",
+      "response_wall_seconds": 0.003315699999802746,
+      "status": 200
+    },
+    {
+      "label": "control-after-overlap-upload-headers",
+      "phase_elapsed_seconds": 2.277478099997097,
+      "status": 303
+    },
+    {
+      "label": "control-after-overlap-upload",
+      "phase_elapsed_seconds": 2.2775479999982053,
+      "response_bytes": 0,
+      "response_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "response_wall_seconds": 0.013481799996952759,
+      "status": 303
+    },
+    {
+      "after_file_send_wall_seconds": 0.013533400000596885,
+      "declared_content_length": 817,
+      "file_bytes_sent": 430,
+      "file_finished_phase_seconds": 2.2640247999988787,
+      "filename": "capacity-control-after-overlap.xes",
+      "input_bytes": 430,
+      "input_sha256": "6BE15ABCC35C4BDF755F27307C93B0B5E4E5F90C7D715FCC4B57DC07A503516F",
+      "label": "control-after-overlap-upload-stream",
+      "multipart_suffix_sent": true
+    },
+    {
+      "label": "conversion-list-headers",
+      "phase_elapsed_seconds": 2.306052099997032,
+      "status": 200
+    },
+    {
+      "label": "conversion-list",
+      "phase_elapsed_seconds": 2.3061323999972956,
+      "response_bytes": 6029,
+      "response_sha256": "3A05A83148587835772060F758B5B99121E5EE13E6AA2255E8A31DD9F952CE9F",
+      "response_wall_seconds": 0.010829200000443961,
+      "status": 200
+    },
+    {
+      "label": "accepted-job-metadata-headers",
+      "phase_elapsed_seconds": 2.310190899999725,
+      "status": 200
+    },
+    {
+      "label": "accepted-job-metadata",
+      "phase_elapsed_seconds": 2.3102282999971067,
+      "response_bytes": 647,
+      "response_sha256": "4A235797842F8ADA444A1CF5AF68708AEE8D040E1CD3D6F1D17A82E1D8D5D91A",
+      "response_wall_seconds": 0.0030721000002813525,
+      "status": 200
+    },
+    {
+      "label": "job-snapshot-headers",
+      "phase_elapsed_seconds": 2.3286392999980308,
+      "status": 200
+    },
+    {
+      "label": "job-snapshot",
+      "phase_elapsed_seconds": 2.3286907999972755,
+      "response_bytes": 647,
+      "response_sha256": "4A235797842F8ADA444A1CF5AF68708AEE8D040E1CD3D6F1D17A82E1D8D5D91A",
+      "response_wall_seconds": 0.0023897999999462627,
+      "status": 200
+    },
+    {
+      "label": "control-after-overlap-payload-headers",
+      "phase_elapsed_seconds": 2.346364499997435,
+      "status": 200
+    },
+    {
+      "label": "control-after-overlap-payload",
+      "phase_elapsed_seconds": 2.3464413000001514,
+      "response_bytes": 125,
+      "response_sha256": "F14031CC8FCDF5119AFFAF1C2490D54B779A0929754DEE6DDF8D6280971E2905",
+      "response_wall_seconds": 0.005058999999164371,
+      "status": 200
+    },
+    {
+      "label": "control-after-overlap-report-headers",
+      "phase_elapsed_seconds": 2.3769130000000587,
+      "status": 200
+    },
+    {
+      "label": "control-after-overlap-report",
+      "phase_elapsed_seconds": 2.3769951999965997,
+      "response_bytes": 4075,
+      "response_sha256": "E544722F17E13847864B6B8843AC015A1272B4AF5C6B475ADDFB024C20CE7104",
+      "response_wall_seconds": 0.005349700000806479,
+      "status": 200
+    }
+  ],
+  "input_manifest_sha256": "514F66245638176F87A635AEC2771610C0708A42E68349878C91A3B545E8C340",
+  "phase_wall_seconds": 2.381099499998527,
+  "result": {
+    "case": "overlap",
+    "followup": {
+      "artifact_id": "conversion-6",
+      "case": "control",
+      "input_bytes": 430,
+      "job_id": "job-5",
+      "loss_consent": false,
+      "manual_csv_and_independent_core_match": true,
+      "outcome": "CONVERTED_AND_MANUALLY_VERIFIED",
+      "payload_bytes": 125,
+      "payload_sha256": "F14031CC8FCDF5119AFFAF1C2490D54B779A0929754DEE6DDF8D6280971E2905",
+      "report_bytes": 4075,
+      "report_sha256": "E544722F17E13847864B6B8843AC015A1272B4AF5C6B475ADDFB024C20CE7104",
+      "source_sha256": "6BE15ABCC35C4BDF755F27307C93B0B5E4E5F90C7D715FCC4B57DC07A503516F",
+      "stage": "completed",
+      "state": "completed",
+      "states": [
+        {
+          "phase_elapsed_seconds": 2.3288375999982236,
+          "revision": 2,
+          "state": "completed"
+        }
+      ]
+    },
+    "incomplete_clients_closed": [
+      {
+        "client_closed_without_multipart_suffix": true,
+        "closed_phase_seconds": 2.2170763999965857,
+        "declared_content_length": 18874746,
+        "file_bytes_sent": 18874368,
+        "file_finished_phase_seconds": 0.21637489999920945,
+        "filename": "capacity-incomplete-1.xes",
+        "input_bytes": 18874368,
+        "input_sha256": "60ED0F346CFE59D6800D992A4BA8090109A97B7D90410721392FD00625190420",
+        "multipart_suffix_sent": false
+      },
+      {
+        "client_closed_without_multipart_suffix": true,
+        "closed_phase_seconds": 2.2171400999977777,
+        "declared_content_length": 18874746,
+        "file_bytes_sent": 18874368,
+        "file_finished_phase_seconds": 0.35971710000012536,
+        "filename": "capacity-incomplete-2.xes",
+        "input_bytes": 18874368,
+        "input_sha256": "60ED0F346CFE59D6800D992A4BA8090109A97B7D90410721392FD00625190420",
+        "multipart_suffix_sent": false
+      }
+    ],
+    "incomplete_clients_created_no_durable_jobs_observed": true,
+    "maximum_clients": 3,
+    "scope": "finite byte-volume observation; existing 503/429 codes retain actual meaning; not body-poll-zero or RAM hard-cap proof",
+    "third_status": 503
+  },
+  "server_memory_latency_slo_or_browser_acceptance_not_claimed": true,
+  "status": "OBSERVATION_COMPLETED"
+}

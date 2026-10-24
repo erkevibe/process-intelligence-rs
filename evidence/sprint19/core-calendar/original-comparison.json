@@ -1,0 +1,1394 @@
+{
+  "schema_version": 1,
+  "status": "ACTUAL_FINITE_COMPARISON_COMPLETED",
+  "corpus_sha256": "f363e0952bcc8c153b7e269eba6535787a856a7e8693961fdaeaf6cc77de347e",
+  "java_index_sha256": "0815bfd30064102e2cd7fbac41c73d0c4c9413f3eb1c0165087c4c1c56844658",
+  "rust_index_sha256": "bac2af9534289ca543303a938a0c2780d77b90439ba5978e9931d71ea8eb365b",
+  "case_count": 13,
+  "cases": [
+    {
+      "id": "ordinary",
+      "profile": "overlap",
+      "input_sha256": "cb66b92afdcdf61f9e04e76beeb438f5b9848659de484e08eed51706ede85f34",
+      "java": {
+        "outcome": "duration",
+        "duration_method_invoked": true,
+        "duration_millis": 32400000,
+        "exception_class": null,
+        "configuration_unchanged": true,
+        "tzdb_version_hypothesis": "2026b",
+        "configuration_available": true,
+        "source_input_unchanged": true,
+        "duration_seconds": 32400,
+        "duration_nanos": 0,
+        "get_duration_millis_secondary": 32400000
+      },
+      "rust": {
+        "outcome": "duration",
+        "duration_millis": 32400000,
+        "error_code": null,
+        "configuration_unchanged": true,
+        "iana_tzdb_version": "2025b"
+      },
+      "java_outer_outcome": "duration",
+      "main_succeeded": true,
+      "secondary_succeeded": true,
+      "secondary_exception": null,
+      "main_duration_tuple_consistent": true,
+      "main_duration_equal": true,
+      "main_equality_eligible": true,
+      "main_overlap_fields_match": true,
+      "secondary_api_difference_expected": false,
+      "secondary_equality_not_claimed": false,
+      "configuration_binds_input": true,
+      "configuration_after_main_conserved": true,
+      "actual_java_zone_rules_versions": [
+        "2026b"
+      ],
+      "actual_rust_iana_tzdb_version": "2025b",
+      "rust_offsets_directly_observed": false,
+      "rust_duration_checked_against_frozen_utc_segments": true,
+      "independent_offset_checks": {
+        "start": {
+          "matches": true,
+          "observed_offset_seconds": 0,
+          "expected_offset_seconds": 0,
+          "instant_matches": true
+        },
+        "end": {
+          "matches": true,
+          "observed_offset_seconds": 0,
+          "expected_offset_seconds": 0,
+          "instant_matches": true
+        }
+      },
+      "independent_offset_checks_match": true,
+      "frozen_utc_derivation_valid": true,
+      "original_manual_hypotheses": {
+        "java": {
+          "outcome": "duration",
+          "duration_method_invoked": true,
+          "duration_millis": 32400000,
+          "exception_class": null,
+          "configuration_unchanged": true,
+          "tzdb_version_hypothesis": "2026b",
+          "duration_seconds": 32400,
+          "duration_nanos": 0,
+          "get_duration_millis_secondary": 32400000,
+          "configuration_available": true,
+          "source_input_unchanged": true
+        },
+        "rust": {
+          "outcome": "duration",
+          "duration_millis": 32400000,
+          "error_code": null,
+          "configuration_unchanged": true,
+          "iana_tzdb_version": "2025b"
+        }
+      },
+      "hypothesis_checks": {
+        "java": {
+          "outcome": true,
+          "duration_method_invoked": true,
+          "duration_millis": true,
+          "exception_class": true,
+          "configuration_unchanged": true,
+          "tzdb_version_hypothesis": true,
+          "duration_seconds": true,
+          "duration_nanos": true,
+          "get_duration_millis_secondary": true,
+          "configuration_available": true,
+          "source_input_unchanged": true
+        },
+        "rust": {
+          "outcome": true,
+          "duration_millis": true,
+          "error_code": true,
+          "configuration_unchanged": true,
+          "iana_tzdb_version": true
+        }
+      },
+      "all_frozen_hypotheses_match": true,
+      "declared_diagnostic": false,
+      "no_whole_calendar_parity_claim": true,
+      "java_observation_sha256": "32EC56DDC6BDA9F17F94BA44EE7F0AE4349C185B2ED9C3C561156395A1152503",
+      "rust_observation_sha256": "62079E731C210AD252E9A5C95B641FB04E9891157ED81255CA53FF8B04C8D272"
+    },
+    {
+      "id": "clip",
+      "profile": "overlap",
+      "input_sha256": "746f00084a5115d747d3d815f2d3bd70a279f1d5d25c596d5f940c09464afe38",
+      "java": {
+        "outcome": "duration",
+        "duration_method_invoked": true,
+        "duration_millis": 2700000,
+        "exception_class": null,
+        "configuration_unchanged": true,
+        "tzdb_version_hypothesis": "2026b",
+        "configuration_available": true,
+        "source_input_unchanged": true,
+        "duration_seconds": 2700,
+        "duration_nanos": 0,
+        "get_duration_millis_secondary": 2700000
+      },
+      "rust": {
+        "outcome": "duration",
+        "duration_millis": 2700000,
+        "error_code": null,
+        "configuration_unchanged": true,
+        "iana_tzdb_version": "2025b"
+      },
+      "java_outer_outcome": "duration",
+      "main_succeeded": true,
+      "secondary_succeeded": true,
+      "secondary_exception": null,
+      "main_duration_tuple_consistent": true,
+      "main_duration_equal": true,
+      "main_equality_eligible": true,
+      "main_overlap_fields_match": true,
+      "secondary_api_difference_expected": false,
+      "secondary_equality_not_claimed": false,
+      "configuration_binds_input": true,
+      "configuration_after_main_conserved": true,
+      "actual_java_zone_rules_versions": [
+        "2026b"
+      ],
+      "actual_rust_iana_tzdb_version": "2025b",
+      "rust_offsets_directly_observed": false,
+      "rust_duration_checked_against_frozen_utc_segments": true,
+      "independent_offset_checks": {
+        "start": {
+          "matches": true,
+          "observed_offset_seconds": 0,
+          "expected_offset_seconds": 0,
+          "instant_matches": true
+        },
+        "end": {
+          "matches": true,
+          "observed_offset_seconds": 0,
+          "expected_offset_seconds": 0,
+          "instant_matches": true
+        }
+      },
+      "independent_offset_checks_match": true,
+      "frozen_utc_derivation_valid": true,
+      "original_manual_hypotheses": {
+        "java": {
+          "outcome": "duration",
+          "duration_method_invoked": true,
+          "duration_millis": 2700000,
+          "exception_class": null,
+          "configuration_unchanged": true,
+          "tzdb_version_hypothesis": "2026b",
+          "duration_seconds": 2700,
+          "duration_nanos": 0,
+          "get_duration_millis_secondary": 2700000,
+          "configuration_available": true,
+          "source_input_unchanged": true
+        },
+        "rust": {
+          "outcome": "duration",
+          "duration_millis": 2700000,
+          "error_code": null,
+          "configuration_unchanged": true,
+          "iana_tzdb_version": "2025b"
+        }
+      },
+      "hypothesis_checks": {
+        "java": {
+          "outcome": true,
+          "duration_method_invoked": true,
+          "duration_millis": true,
+          "exception_class": true,
+          "configuration_unchanged": true,
+          "tzdb_version_hypothesis": true,
+          "duration_seconds": true,
+          "duration_nanos": true,
+          "get_duration_millis_secondary": true,
+          "configuration_available": true,
+          "source_input_unchanged": true
+        },
+        "rust": {
+          "outcome": true,
+          "duration_millis": true,
+          "error_code": true,
+          "configuration_unchanged": true,
+          "iana_tzdb_version": true
+        }
+      },
+      "all_frozen_hypotheses_match": true,
+      "declared_diagnostic": false,
+      "no_whole_calendar_parity_claim": true,
+      "java_observation_sha256": "6FFEF0A3322EDC33A90D550A0FAA9D201ACE45F3ADBFBF44BC0B01B523E14A1E",
+      "rust_observation_sha256": "BBECF027B0CCEBD5BB345E6FDA31FB135F8FF6309582FF183545B46A9B7C2697"
+    },
+    {
+      "id": "weekend",
+      "profile": "overlap",
+      "input_sha256": "f823905e7dbd8db5aa7954cb11149a8606e330b9bc86781cedd8d10f3e6af89f",
+      "java": {
+        "outcome": "duration",
+        "duration_method_invoked": true,
+        "duration_millis": 7200000,
+        "exception_class": null,
+        "configuration_unchanged": true,
+        "tzdb_version_hypothesis": "2026b",
+        "configuration_available": true,
+        "source_input_unchanged": true,
+        "duration_seconds": 7200,
+        "duration_nanos": 0,
+        "get_duration_millis_secondary": 7200000
+      },
+      "rust": {
+        "outcome": "duration",
+        "duration_millis": 7200000,
+        "error_code": null,
+        "configuration_unchanged": true,
+        "iana_tzdb_version": "2025b"
+      },
+      "java_outer_outcome": "duration",
+      "main_succeeded": true,
+      "secondary_succeeded": true,
+      "secondary_exception": null,
+      "main_duration_tuple_consistent": true,
+      "main_duration_equal": true,
+      "main_equality_eligible": true,
+      "main_overlap_fields_match": true,
+      "secondary_api_difference_expected": false,
+      "secondary_equality_not_claimed": false,
+      "configuration_binds_input": true,
+      "configuration_after_main_conserved": true,
+      "actual_java_zone_rules_versions": [
+        "2026b"
+      ],
+      "actual_rust_iana_tzdb_version": "2025b",
+      "rust_offsets_directly_observed": false,
+      "rust_duration_checked_against_frozen_utc_segments": true,
+      "independent_offset_checks": {
+        "start": {
+          "matches": true,
+          "observed_offset_seconds": 0,
+          "expected_offset_seconds": 0,
+          "instant_matches": true
+        },
+        "end": {
+          "matches": true,
+          "observed_offset_seconds": 0,
+          "expected_offset_seconds": 0,
+          "instant_matches": true
+        }
+      },
+      "independent_offset_checks_match": true,
+      "frozen_utc_derivation_valid": true,
+      "original_manual_hypotheses": {
+        "java": {
+          "outcome": "duration",
+          "duration_method_invoked": true,
+          "duration_millis": 7200000,
+          "exception_class": null,
+          "configuration_unchanged": true,
+          "tzdb_version_hypothesis": "2026b",
+          "duration_seconds": 7200,
+          "duration_nanos": 0,
+          "get_duration_millis_secondary": 7200000,
+          "configuration_available": true,
+          "source_input_unchanged": true
+        },
+        "rust": {
+          "outcome": "duration",
+          "duration_millis": 7200000,
+          "error_code": null,
+          "configuration_unchanged": true,
+          "iana_tzdb_version": "2025b"
+        }
+      },
+      "hypothesis_checks": {
+        "java": {
+          "outcome": true,
+          "duration_method_invoked": true,
+          "duration_millis": true,
+          "exception_class": true,
+          "configuration_unchanged": true,
+          "tzdb_version_hypothesis": true,
+          "duration_seconds": true,
+          "duration_nanos": true,
+          "get_duration_millis_secondary": true,
+          "configuration_available": true,
+          "source_input_unchanged": true
+        },
+        "rust": {
+          "outcome": true,
+          "duration_millis": true,
+          "error_code": true,
+          "configuration_unchanged": true,
+          "iana_tzdb_version": true
+        }
+      },
+      "all_frozen_hypotheses_match": true,
+      "declared_diagnostic": false,
+      "no_whole_calendar_parity_claim": true,
+      "java_observation_sha256": "FD82E8BD84E42029D13103EB4C6F9EDE81CB0BF50195344C5CAA02DE201496C7",
+      "rust_observation_sha256": "D9EED8A6ABC946B05235264217C6574FA5FB1EA4AA9502DB05E298C4DB66C29F"
+    },
+    {
+      "id": "holiday",
+      "profile": "overlap",
+      "input_sha256": "832821ab92726fcb6eef8c306f31202fa6236cdc06101e0125817e3f58fee837",
+      "java": {
+        "outcome": "duration",
+        "duration_method_invoked": true,
+        "duration_millis": 0,
+        "exception_class": null,
+        "configuration_unchanged": true,
+        "tzdb_version_hypothesis": "2026b",
+        "configuration_available": true,
+        "source_input_unchanged": true,
+        "duration_seconds": 0,
+        "duration_nanos": 0,
+        "get_duration_millis_secondary": 0
+      },
+      "rust": {
+        "outcome": "duration",
+        "duration_millis": 0,
+        "error_code": null,
+        "configuration_unchanged": true,
+        "iana_tzdb_version": "2025b"
+      },
+      "java_outer_outcome": "duration",
+      "main_succeeded": true,
+      "secondary_succeeded": true,
+      "secondary_exception": null,
+      "main_duration_tuple_consistent": true,
+      "main_duration_equal": true,
+      "main_equality_eligible": true,
+      "main_overlap_fields_match": true,
+      "secondary_api_difference_expected": false,
+      "secondary_equality_not_claimed": false,
+      "configuration_binds_input": true,
+      "configuration_after_main_conserved": true,
+      "actual_java_zone_rules_versions": [
+        "2026b"
+      ],
+      "actual_rust_iana_tzdb_version": "2025b",
+      "rust_offsets_directly_observed": false,
+      "rust_duration_checked_against_frozen_utc_segments": true,
+      "independent_offset_checks": {
+        "start": {
+          "matches": true,
+          "observed_offset_seconds": 0,
+          "expected_offset_seconds": 0,
+          "instant_matches": true
+        },
+        "end": {
+          "matches": true,
+          "observed_offset_seconds": 0,
+          "expected_offset_seconds": 0,
+          "instant_matches": true
+        }
+      },
+      "independent_offset_checks_match": true,
+      "frozen_utc_derivation_valid": true,
+      "original_manual_hypotheses": {
+        "java": {
+          "outcome": "duration",
+          "duration_method_invoked": true,
+          "duration_millis": 0,
+          "exception_class": null,
+          "configuration_unchanged": true,
+          "tzdb_version_hypothesis": "2026b",
+          "duration_seconds": 0,
+          "duration_nanos": 0,
+          "get_duration_millis_secondary": 0,
+          "configuration_available": true,
+          "source_input_unchanged": true
+        },
+        "rust": {
+          "outcome": "duration",
+          "duration_millis": 0,
+          "error_code": null,
+          "configuration_unchanged": true,
+          "iana_tzdb_version": "2025b"
+        }
+      },
+      "hypothesis_checks": {
+        "java": {
+          "outcome": true,
+          "duration_method_invoked": true,
+          "duration_millis": true,
+          "exception_class": true,
+          "configuration_unchanged": true,
+          "tzdb_version_hypothesis": true,
+          "duration_seconds": true,
+          "duration_nanos": true,
+          "get_duration_millis_secondary": true,
+          "configuration_available": true,
+          "source_input_unchanged": true
+        },
+        "rust": {
+          "outcome": true,
+          "duration_millis": true,
+          "error_code": true,
+          "configuration_unchanged": true,
+          "iana_tzdb_version": true
+        }
+      },
+      "all_frozen_hypotheses_match": true,
+      "declared_diagnostic": false,
+      "no_whole_calendar_parity_claim": true,
+      "java_observation_sha256": "C120F8B108BD595A098470BCC00961D96313237043DB466044327BC7A76B82FF",
+      "rust_observation_sha256": "E8170D10CEDC6F947728F2EBAD12C7AAA75D4770942D7427F133B8EB9D33ED22"
+    },
+    {
+      "id": "nonhour-zone",
+      "profile": "overlap",
+      "input_sha256": "bd574beae44a71338de38ac6d904ca624ab2d9d4e129897c6648eab3668f3014",
+      "java": {
+        "outcome": "duration",
+        "duration_method_invoked": true,
+        "duration_millis": 32400000,
+        "exception_class": null,
+        "configuration_unchanged": true,
+        "tzdb_version_hypothesis": "2026b",
+        "configuration_available": true,
+        "source_input_unchanged": true,
+        "duration_seconds": 32400,
+        "duration_nanos": 0,
+        "get_duration_millis_secondary": 32400000
+      },
+      "rust": {
+        "outcome": "duration",
+        "duration_millis": 32400000,
+        "error_code": null,
+        "configuration_unchanged": true,
+        "iana_tzdb_version": "2025b"
+      },
+      "java_outer_outcome": "duration",
+      "main_succeeded": true,
+      "secondary_succeeded": true,
+      "secondary_exception": null,
+      "main_duration_tuple_consistent": true,
+      "main_duration_equal": true,
+      "main_equality_eligible": true,
+      "main_overlap_fields_match": true,
+      "secondary_api_difference_expected": false,
+      "secondary_equality_not_claimed": false,
+      "configuration_binds_input": true,
+      "configuration_after_main_conserved": true,
+      "actual_java_zone_rules_versions": [
+        "2026b"
+      ],
+      "actual_rust_iana_tzdb_version": "2025b",
+      "rust_offsets_directly_observed": false,
+      "rust_duration_checked_against_frozen_utc_segments": true,
+      "independent_offset_checks": {
+        "start": {
+          "matches": true,
+          "observed_offset_seconds": 20700,
+          "expected_offset_seconds": 20700,
+          "instant_matches": true
+        },
+        "end": {
+          "matches": true,
+          "observed_offset_seconds": 20700,
+          "expected_offset_seconds": 20700,
+          "instant_matches": true
+        }
+      },
+      "independent_offset_checks_match": true,
+      "frozen_utc_derivation_valid": true,
+      "original_manual_hypotheses": {
+        "java": {
+          "outcome": "duration",
+          "duration_method_invoked": true,
+          "duration_millis": 32400000,
+          "exception_class": null,
+          "configuration_unchanged": true,
+          "tzdb_version_hypothesis": "2026b",
+          "duration_seconds": 32400,
+          "duration_nanos": 0,
+          "get_duration_millis_secondary": 32400000,
+          "configuration_available": true,
+          "source_input_unchanged": true
+        },
+        "rust": {
+          "outcome": "duration",
+          "duration_millis": 32400000,
+          "error_code": null,
+          "configuration_unchanged": true,
+          "iana_tzdb_version": "2025b"
+        }
+      },
+      "hypothesis_checks": {
+        "java": {
+          "outcome": true,
+          "duration_method_invoked": true,
+          "duration_millis": true,
+          "exception_class": true,
+          "configuration_unchanged": true,
+          "tzdb_version_hypothesis": true,
+          "duration_seconds": true,
+          "duration_nanos": true,
+          "get_duration_millis_secondary": true,
+          "configuration_available": true,
+          "source_input_unchanged": true
+        },
+        "rust": {
+          "outcome": true,
+          "duration_millis": true,
+          "error_code": true,
+          "configuration_unchanged": true,
+          "iana_tzdb_version": true
+        }
+      },
+      "all_frozen_hypotheses_match": true,
+      "declared_diagnostic": false,
+      "no_whole_calendar_parity_claim": true,
+      "java_observation_sha256": "609AA6AA03F427A90BA2D0C783394AAB9F782071DA6C81C926C70BA3D0F21CE8",
+      "rust_observation_sha256": "58CE9DFC5F3372C1F8D17C9C78B8EF559C9618E30D90F9E78BD20F72BE796972"
+    },
+    {
+      "id": "spring-elapsed",
+      "profile": "diagnostic_wall_clock_vs_elapsed",
+      "input_sha256": "a74dca4c5dffc14223b88b8437ffc08713881583093fb380af9695072919b9f0",
+      "java": {
+        "outcome": "duration",
+        "duration_method_invoked": true,
+        "duration_millis": 10800000,
+        "exception_class": null,
+        "configuration_unchanged": true,
+        "tzdb_version_hypothesis": "2026b",
+        "configuration_available": true,
+        "source_input_unchanged": true,
+        "duration_seconds": 10800,
+        "duration_nanos": 0,
+        "get_duration_millis_secondary": 10800000
+      },
+      "rust": {
+        "outcome": "duration",
+        "duration_millis": 7200000,
+        "error_code": null,
+        "configuration_unchanged": true,
+        "iana_tzdb_version": "2025b"
+      },
+      "java_outer_outcome": "duration",
+      "main_succeeded": true,
+      "secondary_succeeded": true,
+      "secondary_exception": null,
+      "main_duration_tuple_consistent": true,
+      "main_duration_equal": false,
+      "main_equality_eligible": false,
+      "main_overlap_fields_match": null,
+      "secondary_api_difference_expected": false,
+      "secondary_equality_not_claimed": false,
+      "configuration_binds_input": true,
+      "configuration_after_main_conserved": true,
+      "actual_java_zone_rules_versions": [
+        "2026b"
+      ],
+      "actual_rust_iana_tzdb_version": "2025b",
+      "rust_offsets_directly_observed": false,
+      "rust_duration_checked_against_frozen_utc_segments": true,
+      "independent_offset_checks": {
+        "start": {
+          "matches": true,
+          "observed_offset_seconds": 3600,
+          "expected_offset_seconds": 3600,
+          "instant_matches": true
+        },
+        "end": {
+          "matches": true,
+          "observed_offset_seconds": 7200,
+          "expected_offset_seconds": 7200,
+          "instant_matches": true
+        }
+      },
+      "independent_offset_checks_match": true,
+      "frozen_utc_derivation_valid": true,
+      "original_manual_hypotheses": {
+        "java": {
+          "outcome": "duration",
+          "duration_method_invoked": true,
+          "duration_millis": 10800000,
+          "exception_class": null,
+          "configuration_unchanged": true,
+          "tzdb_version_hypothesis": "2026b",
+          "duration_seconds": 10800,
+          "duration_nanos": 0,
+          "get_duration_millis_secondary": 10800000,
+          "configuration_available": true,
+          "source_input_unchanged": true
+        },
+        "rust": {
+          "outcome": "duration",
+          "duration_millis": 7200000,
+          "error_code": null,
+          "configuration_unchanged": true,
+          "iana_tzdb_version": "2025b"
+        }
+      },
+      "hypothesis_checks": {
+        "java": {
+          "outcome": true,
+          "duration_method_invoked": true,
+          "duration_millis": true,
+          "exception_class": true,
+          "configuration_unchanged": true,
+          "tzdb_version_hypothesis": true,
+          "duration_seconds": true,
+          "duration_nanos": true,
+          "get_duration_millis_secondary": true,
+          "configuration_available": true,
+          "source_input_unchanged": true
+        },
+        "rust": {
+          "outcome": true,
+          "duration_millis": true,
+          "error_code": true,
+          "configuration_unchanged": true,
+          "iana_tzdb_version": true
+        }
+      },
+      "all_frozen_hypotheses_match": true,
+      "declared_diagnostic": true,
+      "no_whole_calendar_parity_claim": true,
+      "java_observation_sha256": "32B04A3F9E1B958E9C22E65CE0E890BC0A7D9F574E55E0D3A18F7E7BCC175D88",
+      "rust_observation_sha256": "8256E7240DF9632DE000B3269F6D8BAC6654C2EC911E8A6F03CA2D483E8D07B0"
+    },
+    {
+      "id": "fall-elapsed",
+      "profile": "diagnostic_wall_clock_vs_elapsed",
+      "input_sha256": "90938151507eaa48d0c4ff9799e0d68392aeb4ddb468dd7f39c27d7eb1afd104",
+      "java": {
+        "outcome": "duration",
+        "duration_method_invoked": true,
+        "duration_millis": 10800000,
+        "exception_class": null,
+        "configuration_unchanged": true,
+        "tzdb_version_hypothesis": "2026b",
+        "configuration_available": true,
+        "source_input_unchanged": true,
+        "duration_seconds": 10800,
+        "duration_nanos": 0,
+        "get_duration_millis_secondary": 10800000
+      },
+      "rust": {
+        "outcome": "duration",
+        "duration_millis": 14400000,
+        "error_code": null,
+        "configuration_unchanged": true,
+        "iana_tzdb_version": "2025b"
+      },
+      "java_outer_outcome": "duration",
+      "main_succeeded": true,
+      "secondary_succeeded": true,
+      "secondary_exception": null,
+      "main_duration_tuple_consistent": true,
+      "main_duration_equal": false,
+      "main_equality_eligible": false,
+      "main_overlap_fields_match": null,
+      "secondary_api_difference_expected": false,
+      "secondary_equality_not_claimed": false,
+      "configuration_binds_input": true,
+      "configuration_after_main_conserved": true,
+      "actual_java_zone_rules_versions": [
+        "2026b"
+      ],
+      "actual_rust_iana_tzdb_version": "2025b",
+      "rust_offsets_directly_observed": false,
+      "rust_duration_checked_against_frozen_utc_segments": true,
+      "independent_offset_checks": {
+        "start": {
+          "matches": true,
+          "observed_offset_seconds": 7200,
+          "expected_offset_seconds": 7200,
+          "instant_matches": true
+        },
+        "end": {
+          "matches": true,
+          "observed_offset_seconds": 3600,
+          "expected_offset_seconds": 3600,
+          "instant_matches": true
+        }
+      },
+      "independent_offset_checks_match": true,
+      "frozen_utc_derivation_valid": true,
+      "original_manual_hypotheses": {
+        "java": {
+          "outcome": "duration",
+          "duration_method_invoked": true,
+          "duration_millis": 10800000,
+          "exception_class": null,
+          "configuration_unchanged": true,
+          "tzdb_version_hypothesis": "2026b",
+          "duration_seconds": 10800,
+          "duration_nanos": 0,
+          "get_duration_millis_secondary": 10800000,
+          "configuration_available": true,
+          "source_input_unchanged": true
+        },
+        "rust": {
+          "outcome": "duration",
+          "duration_millis": 14400000,
+          "error_code": null,
+          "configuration_unchanged": true,
+          "iana_tzdb_version": "2025b"
+        }
+      },
+      "hypothesis_checks": {
+        "java": {
+          "outcome": true,
+          "duration_method_invoked": true,
+          "duration_millis": true,
+          "exception_class": true,
+          "configuration_unchanged": true,
+          "tzdb_version_hypothesis": true,
+          "duration_seconds": true,
+          "duration_nanos": true,
+          "get_duration_millis_secondary": true,
+          "configuration_available": true,
+          "source_input_unchanged": true
+        },
+        "rust": {
+          "outcome": true,
+          "duration_millis": true,
+          "error_code": true,
+          "configuration_unchanged": true,
+          "iana_tzdb_version": true
+        }
+      },
+      "all_frozen_hypotheses_match": true,
+      "declared_diagnostic": true,
+      "no_whole_calendar_parity_claim": true,
+      "java_observation_sha256": "0B8C1877F0DB47C38142C9DE983EDB4D074E2CEA063916D4DA24D0E53DE3AFD7",
+      "rust_observation_sha256": "4AE60C935668388E7336771236480996DB75C48F7DB41EC11388465FA944B509"
+    },
+    {
+      "id": "spring-gap-boundary",
+      "profile": "diagnostic_gap_refusal",
+      "input_sha256": "86e5cd57bbf6457cab0541bcd33f12aeba515f9afbd46cfa016e5becf76238a7",
+      "java": {
+        "outcome": "duration",
+        "duration_method_invoked": true,
+        "duration_millis": 5400000,
+        "exception_class": null,
+        "configuration_unchanged": true,
+        "tzdb_version_hypothesis": "2026b",
+        "configuration_available": true,
+        "source_input_unchanged": true,
+        "duration_seconds": 5400,
+        "duration_nanos": 0,
+        "get_duration_millis_secondary": 5400000
+      },
+      "rust": {
+        "outcome": "refused",
+        "duration_millis": null,
+        "error_code": "calendar_boundary",
+        "configuration_unchanged": true,
+        "iana_tzdb_version": "2025b"
+      },
+      "java_outer_outcome": "duration",
+      "main_succeeded": true,
+      "secondary_succeeded": true,
+      "secondary_exception": null,
+      "main_duration_tuple_consistent": true,
+      "main_duration_equal": false,
+      "main_equality_eligible": false,
+      "main_overlap_fields_match": null,
+      "secondary_api_difference_expected": false,
+      "secondary_equality_not_claimed": false,
+      "configuration_binds_input": true,
+      "configuration_after_main_conserved": true,
+      "actual_java_zone_rules_versions": [
+        "2026b"
+      ],
+      "actual_rust_iana_tzdb_version": "2025b",
+      "rust_offsets_directly_observed": false,
+      "rust_duration_checked_against_frozen_utc_segments": true,
+      "independent_offset_checks": {
+        "start": {
+          "matches": true,
+          "observed_offset_seconds": 3600,
+          "expected_offset_seconds": 3600,
+          "instant_matches": true
+        },
+        "end": {
+          "matches": true,
+          "observed_offset_seconds": 7200,
+          "expected_offset_seconds": 7200,
+          "instant_matches": true
+        }
+      },
+      "independent_offset_checks_match": true,
+      "frozen_utc_derivation_valid": true,
+      "original_manual_hypotheses": {
+        "java": {
+          "outcome": "duration",
+          "duration_method_invoked": true,
+          "duration_millis": 5400000,
+          "exception_class": null,
+          "configuration_unchanged": true,
+          "tzdb_version_hypothesis": "2026b",
+          "duration_seconds": 5400,
+          "duration_nanos": 0,
+          "get_duration_millis_secondary": 5400000,
+          "configuration_available": true,
+          "source_input_unchanged": true
+        },
+        "rust": {
+          "outcome": "refused",
+          "duration_millis": null,
+          "error_code": "calendar_boundary",
+          "configuration_unchanged": true,
+          "iana_tzdb_version": "2025b"
+        }
+      },
+      "hypothesis_checks": {
+        "java": {
+          "outcome": true,
+          "duration_method_invoked": true,
+          "duration_millis": true,
+          "exception_class": true,
+          "configuration_unchanged": true,
+          "tzdb_version_hypothesis": true,
+          "duration_seconds": true,
+          "duration_nanos": true,
+          "get_duration_millis_secondary": true,
+          "configuration_available": true,
+          "source_input_unchanged": true
+        },
+        "rust": {
+          "outcome": true,
+          "duration_millis": true,
+          "error_code": true,
+          "configuration_unchanged": true,
+          "iana_tzdb_version": true
+        }
+      },
+      "all_frozen_hypotheses_match": true,
+      "declared_diagnostic": true,
+      "no_whole_calendar_parity_claim": true,
+      "java_observation_sha256": "640834DBAFED012BC35C03D422E4A79C8C5584DAA3ADA6E9B6112EFD5E815735",
+      "rust_observation_sha256": "646C381ACDB28966DC600DDF717DC79A66A0996A4BBE7E297984FB8FBD6DA128"
+    },
+    {
+      "id": "fall-fold-boundary",
+      "profile": "diagnostic_fold_refusal",
+      "input_sha256": "3d913b63f88026c81eeecd85cd31b155914493b38b5dd8550902137e45bee54a",
+      "java": {
+        "outcome": "duration",
+        "duration_method_invoked": true,
+        "duration_millis": 5400000,
+        "exception_class": null,
+        "configuration_unchanged": true,
+        "tzdb_version_hypothesis": "2026b",
+        "configuration_available": true,
+        "source_input_unchanged": true,
+        "duration_seconds": 5400,
+        "duration_nanos": 0,
+        "get_duration_millis_secondary": 5400000
+      },
+      "rust": {
+        "outcome": "refused",
+        "duration_millis": null,
+        "error_code": "calendar_boundary",
+        "configuration_unchanged": true,
+        "iana_tzdb_version": "2025b"
+      },
+      "java_outer_outcome": "duration",
+      "main_succeeded": true,
+      "secondary_succeeded": true,
+      "secondary_exception": null,
+      "main_duration_tuple_consistent": true,
+      "main_duration_equal": false,
+      "main_equality_eligible": false,
+      "main_overlap_fields_match": null,
+      "secondary_api_difference_expected": false,
+      "secondary_equality_not_claimed": false,
+      "configuration_binds_input": true,
+      "configuration_after_main_conserved": true,
+      "actual_java_zone_rules_versions": [
+        "2026b"
+      ],
+      "actual_rust_iana_tzdb_version": "2025b",
+      "rust_offsets_directly_observed": false,
+      "rust_duration_checked_against_frozen_utc_segments": true,
+      "independent_offset_checks": {
+        "start": {
+          "matches": true,
+          "observed_offset_seconds": 7200,
+          "expected_offset_seconds": 7200,
+          "instant_matches": true
+        },
+        "end": {
+          "matches": true,
+          "observed_offset_seconds": 3600,
+          "expected_offset_seconds": 3600,
+          "instant_matches": true
+        }
+      },
+      "independent_offset_checks_match": true,
+      "frozen_utc_derivation_valid": true,
+      "original_manual_hypotheses": {
+        "java": {
+          "outcome": "duration",
+          "duration_method_invoked": true,
+          "duration_millis": 5400000,
+          "exception_class": null,
+          "configuration_unchanged": true,
+          "tzdb_version_hypothesis": "2026b",
+          "duration_seconds": 5400,
+          "duration_nanos": 0,
+          "get_duration_millis_secondary": 5400000,
+          "configuration_available": true,
+          "source_input_unchanged": true
+        },
+        "rust": {
+          "outcome": "refused",
+          "duration_millis": null,
+          "error_code": "calendar_boundary",
+          "configuration_unchanged": true,
+          "iana_tzdb_version": "2025b"
+        }
+      },
+      "hypothesis_checks": {
+        "java": {
+          "outcome": true,
+          "duration_method_invoked": true,
+          "duration_millis": true,
+          "exception_class": true,
+          "configuration_unchanged": true,
+          "tzdb_version_hypothesis": true,
+          "duration_seconds": true,
+          "duration_nanos": true,
+          "get_duration_millis_secondary": true,
+          "configuration_available": true,
+          "source_input_unchanged": true
+        },
+        "rust": {
+          "outcome": true,
+          "duration_millis": true,
+          "error_code": true,
+          "configuration_unchanged": true,
+          "iana_tzdb_version": true
+        }
+      },
+      "all_frozen_hypotheses_match": true,
+      "declared_diagnostic": true,
+      "no_whole_calendar_parity_claim": true,
+      "java_observation_sha256": "6950CE50F1EE4857E162E615FDBA351A0A0D587696D2B435376CB01401393A69",
+      "rust_observation_sha256": "95CD61CA2FF62C30C10E4889D9A083D16BDA52A9EF2C7E28E0214878DC79EB1F"
+    },
+    {
+      "id": "invalid-zone",
+      "profile": "diagnostic_zone_refusal",
+      "input_sha256": "af4a5e26ebaac521eb9073a2c709c7d563cc026c507b975aa053a382bbce2ae3",
+      "java": {
+        "outcome": "builder_refused",
+        "duration_method_invoked": false,
+        "duration_millis": null,
+        "exception_class": "java.time.zone.ZoneRulesException",
+        "configuration_unchanged": null,
+        "tzdb_version_hypothesis": null,
+        "configuration_available": false,
+        "source_input_unchanged": true,
+        "exception_stage": "CalendarModelBuilder.withZoneId"
+      },
+      "rust": {
+        "outcome": "refused",
+        "duration_millis": null,
+        "error_code": "calendar_timezone",
+        "configuration_unchanged": true,
+        "iana_tzdb_version": "2025b"
+      },
+      "java_outer_outcome": "builder_refused",
+      "main_succeeded": false,
+      "secondary_succeeded": false,
+      "secondary_exception": null,
+      "main_duration_tuple_consistent": null,
+      "main_duration_equal": false,
+      "main_equality_eligible": false,
+      "main_overlap_fields_match": null,
+      "secondary_api_difference_expected": false,
+      "secondary_equality_not_claimed": false,
+      "configuration_binds_input": null,
+      "configuration_after_main_conserved": null,
+      "actual_java_zone_rules_versions": null,
+      "actual_rust_iana_tzdb_version": "2025b",
+      "rust_offsets_directly_observed": false,
+      "rust_duration_checked_against_frozen_utc_segments": true,
+      "independent_offset_checks": null,
+      "independent_offset_checks_match": true,
+      "frozen_utc_derivation_valid": true,
+      "original_manual_hypotheses": {
+        "java": {
+          "outcome": "builder_refused",
+          "duration_method_invoked": false,
+          "duration_millis": null,
+          "exception_class": "java.time.zone.ZoneRulesException",
+          "configuration_unchanged": null,
+          "tzdb_version_hypothesis": null,
+          "configuration_available": false,
+          "source_input_unchanged": true,
+          "exception_stage": "CalendarModelBuilder.withZoneId"
+        },
+        "rust": {
+          "outcome": "refused",
+          "duration_millis": null,
+          "error_code": "calendar_timezone",
+          "configuration_unchanged": true,
+          "iana_tzdb_version": "2025b"
+        }
+      },
+      "hypothesis_checks": {
+        "java": {
+          "outcome": true,
+          "duration_method_invoked": true,
+          "duration_millis": true,
+          "exception_class": true,
+          "configuration_unchanged": true,
+          "tzdb_version_hypothesis": true,
+          "configuration_available": true,
+          "source_input_unchanged": true,
+          "exception_stage": true
+        },
+        "rust": {
+          "outcome": true,
+          "duration_millis": true,
+          "error_code": true,
+          "configuration_unchanged": true,
+          "iana_tzdb_version": true
+        }
+      },
+      "all_frozen_hypotheses_match": true,
+      "declared_diagnostic": true,
+      "no_whole_calendar_parity_claim": true,
+      "java_observation_sha256": "865948FCB24F917A55467426BAAEEB7D23E63D47DD3CE9FDFCE1F0C734F610EA",
+      "rust_observation_sha256": "0ADBD16EA49082BE3D97B4C1319E0748BE7519EAD108E15686FCBCF1B9BFC036"
+    },
+    {
+      "id": "overnight-invalid",
+      "profile": "diagnostic_overnight_policy",
+      "input_sha256": "63b95b988dcec9af1455d5825e696df1aa131cdafc148b845817c860a0e9fda8",
+      "java": {
+        "outcome": "duration",
+        "duration_method_invoked": true,
+        "duration_millis": -57600000,
+        "exception_class": null,
+        "configuration_unchanged": true,
+        "tzdb_version_hypothesis": "2026b",
+        "configuration_available": true,
+        "source_input_unchanged": true,
+        "duration_seconds": -57600,
+        "duration_nanos": 0,
+        "get_duration_millis_secondary": -57600000
+      },
+      "rust": {
+        "outcome": "refused",
+        "duration_millis": null,
+        "error_code": "calendar_policy",
+        "configuration_unchanged": true,
+        "iana_tzdb_version": "2025b"
+      },
+      "java_outer_outcome": "duration",
+      "main_succeeded": true,
+      "secondary_succeeded": true,
+      "secondary_exception": null,
+      "main_duration_tuple_consistent": true,
+      "main_duration_equal": false,
+      "main_equality_eligible": false,
+      "main_overlap_fields_match": null,
+      "secondary_api_difference_expected": false,
+      "secondary_equality_not_claimed": false,
+      "configuration_binds_input": true,
+      "configuration_after_main_conserved": true,
+      "actual_java_zone_rules_versions": [
+        "2026b"
+      ],
+      "actual_rust_iana_tzdb_version": "2025b",
+      "rust_offsets_directly_observed": false,
+      "rust_duration_checked_against_frozen_utc_segments": true,
+      "independent_offset_checks": {
+        "start": {
+          "matches": true,
+          "observed_offset_seconds": 0,
+          "expected_offset_seconds": 0,
+          "instant_matches": true
+        },
+        "end": {
+          "matches": true,
+          "observed_offset_seconds": 0,
+          "expected_offset_seconds": 0,
+          "instant_matches": true
+        }
+      },
+      "independent_offset_checks_match": true,
+      "frozen_utc_derivation_valid": true,
+      "original_manual_hypotheses": {
+        "java": {
+          "outcome": "duration",
+          "duration_method_invoked": true,
+          "duration_millis": -57600000,
+          "exception_class": null,
+          "configuration_unchanged": true,
+          "tzdb_version_hypothesis": "2026b",
+          "duration_seconds": -57600,
+          "duration_nanos": 0,
+          "get_duration_millis_secondary": -57600000,
+          "configuration_available": true,
+          "source_input_unchanged": true
+        },
+        "rust": {
+          "outcome": "refused",
+          "duration_millis": null,
+          "error_code": "calendar_policy",
+          "configuration_unchanged": true,
+          "iana_tzdb_version": "2025b"
+        }
+      },
+      "hypothesis_checks": {
+        "java": {
+          "outcome": true,
+          "duration_method_invoked": true,
+          "duration_millis": true,
+          "exception_class": true,
+          "configuration_unchanged": true,
+          "tzdb_version_hypothesis": true,
+          "duration_seconds": true,
+          "duration_nanos": true,
+          "get_duration_millis_secondary": true,
+          "configuration_available": true,
+          "source_input_unchanged": true
+        },
+        "rust": {
+          "outcome": true,
+          "duration_millis": true,
+          "error_code": true,
+          "configuration_unchanged": true,
+          "iana_tzdb_version": true
+        }
+      },
+      "all_frozen_hypotheses_match": true,
+      "declared_diagnostic": true,
+      "no_whole_calendar_parity_claim": true,
+      "java_observation_sha256": "3F5BE6CFF5BF3C7F789A9E23790044FC02CBA031A18AC3DD0729228A3A804D38",
+      "rust_observation_sha256": "4098FC7A7F2E8F0ABC0668B79579A605C4C88C5F7992081C2449D9A8005341C6"
+    },
+    {
+      "id": "reversed",
+      "profile": "diagnostic_reversed_policy",
+      "input_sha256": "9f9fcb246c62125dbf193eac8a0183ebaa00ce7b87a87c373072f3d88ca23ee6",
+      "java": {
+        "outcome": "duration",
+        "duration_method_invoked": true,
+        "duration_millis": 0,
+        "exception_class": null,
+        "configuration_unchanged": true,
+        "tzdb_version_hypothesis": "2026b",
+        "configuration_available": true,
+        "source_input_unchanged": true,
+        "duration_seconds": 0,
+        "duration_nanos": 0,
+        "get_duration_millis_secondary": 0
+      },
+      "rust": {
+        "outcome": "refused",
+        "duration_millis": null,
+        "error_code": "calendar_policy",
+        "configuration_unchanged": true,
+        "iana_tzdb_version": "2025b"
+      },
+      "java_outer_outcome": "duration",
+      "main_succeeded": true,
+      "secondary_succeeded": true,
+      "secondary_exception": null,
+      "main_duration_tuple_consistent": true,
+      "main_duration_equal": false,
+      "main_equality_eligible": false,
+      "main_overlap_fields_match": null,
+      "secondary_api_difference_expected": false,
+      "secondary_equality_not_claimed": false,
+      "configuration_binds_input": true,
+      "configuration_after_main_conserved": true,
+      "actual_java_zone_rules_versions": [
+        "2026b"
+      ],
+      "actual_rust_iana_tzdb_version": "2025b",
+      "rust_offsets_directly_observed": false,
+      "rust_duration_checked_against_frozen_utc_segments": true,
+      "independent_offset_checks": {
+        "start": {
+          "matches": true,
+          "observed_offset_seconds": 0,
+          "expected_offset_seconds": 0,
+          "instant_matches": true
+        },
+        "end": {
+          "matches": true,
+          "observed_offset_seconds": 0,
+          "expected_offset_seconds": 0,
+          "instant_matches": true
+        }
+      },
+      "independent_offset_checks_match": true,
+      "frozen_utc_derivation_valid": true,
+      "original_manual_hypotheses": {
+        "java": {
+          "outcome": "duration",
+          "duration_method_invoked": true,
+          "duration_millis": 0,
+          "exception_class": null,
+          "configuration_unchanged": true,
+          "tzdb_version_hypothesis": "2026b",
+          "duration_seconds": 0,
+          "duration_nanos": 0,
+          "get_duration_millis_secondary": 0,
+          "configuration_available": true,
+          "source_input_unchanged": true
+        },
+        "rust": {
+          "outcome": "refused",
+          "duration_millis": null,
+          "error_code": "calendar_policy",
+          "configuration_unchanged": true,
+          "iana_tzdb_version": "2025b"
+        }
+      },
+      "hypothesis_checks": {
+        "java": {
+          "outcome": true,
+          "duration_method_invoked": true,
+          "duration_millis": true,
+          "exception_class": true,
+          "configuration_unchanged": true,
+          "tzdb_version_hypothesis": true,
+          "duration_seconds": true,
+          "duration_nanos": true,
+          "get_duration_millis_secondary": true,
+          "configuration_available": true,
+          "source_input_unchanged": true
+        },
+        "rust": {
+          "outcome": true,
+          "duration_millis": true,
+          "error_code": true,
+          "configuration_unchanged": true,
+          "iana_tzdb_version": true
+        }
+      },
+      "all_frozen_hypotheses_match": true,
+      "declared_diagnostic": true,
+      "no_whole_calendar_parity_claim": true,
+      "java_observation_sha256": "A700D39FBA5170E067FAF4EAD6F52A73E37E73F650AB3BB36A1CE07161319D85",
+      "rust_observation_sha256": "B2EE39F53E8E62AF347D8266F04EA14FBC9D875175560FC2293A7A376E3AACB9"
+    },
+    {
+      "id": "precision-api",
+      "profile": "overlap_with_secondary_api_diagnostic",
+      "input_sha256": "cda49f03a2871829ffd822843da68aa0c0f8b8d6a5dd45182beda5942224f7ad",
+      "java": {
+        "outcome": "duration",
+        "duration_method_invoked": true,
+        "duration_millis": 1250,
+        "exception_class": null,
+        "configuration_unchanged": true,
+        "tzdb_version_hypothesis": "2026b",
+        "configuration_available": true,
+        "source_input_unchanged": true,
+        "duration_seconds": 1,
+        "duration_nanos": 250000000,
+        "get_duration_millis_secondary": 1251
+      },
+      "rust": {
+        "outcome": "duration",
+        "duration_millis": 1250,
+        "error_code": null,
+        "configuration_unchanged": true,
+        "iana_tzdb_version": "2025b"
+      },
+      "java_outer_outcome": "duration",
+      "main_succeeded": true,
+      "secondary_succeeded": true,
+      "secondary_exception": null,
+      "main_duration_tuple_consistent": true,
+      "main_duration_equal": true,
+      "main_equality_eligible": true,
+      "main_overlap_fields_match": true,
+      "secondary_api_difference_expected": true,
+      "secondary_equality_not_claimed": true,
+      "configuration_binds_input": true,
+      "configuration_after_main_conserved": true,
+      "actual_java_zone_rules_versions": [
+        "2026b"
+      ],
+      "actual_rust_iana_tzdb_version": "2025b",
+      "rust_offsets_directly_observed": false,
+      "rust_duration_checked_against_frozen_utc_segments": true,
+      "independent_offset_checks": {
+        "start": {
+          "matches": true,
+          "observed_offset_seconds": 0,
+          "expected_offset_seconds": 0,
+          "instant_matches": true
+        },
+        "end": {
+          "matches": true,
+          "observed_offset_seconds": 0,
+          "expected_offset_seconds": 0,
+          "instant_matches": true
+        }
+      },
+      "independent_offset_checks_match": true,
+      "frozen_utc_derivation_valid": true,
+      "original_manual_hypotheses": {
+        "java": {
+          "outcome": "duration",
+          "duration_method_invoked": true,
+          "duration_millis": 1250,
+          "exception_class": null,
+          "configuration_unchanged": true,
+          "tzdb_version_hypothesis": "2026b",
+          "duration_seconds": 1,
+          "duration_nanos": 250000000,
+          "get_duration_millis_secondary": 1251,
+          "configuration_available": true,
+          "source_input_unchanged": true
+        },
+        "rust": {
+          "outcome": "duration",
+          "duration_millis": 1250,
+          "error_code": null,
+          "configuration_unchanged": true,
+          "iana_tzdb_version": "2025b"
+        }
+      },
+      "hypothesis_checks": {
+        "java": {
+          "outcome": true,
+          "duration_method_invoked": true,
+          "duration_millis": true,
+          "exception_class": true,
+          "configuration_unchanged": true,
+          "tzdb_version_hypothesis": true,
+          "duration_seconds": true,
+          "duration_nanos": true,
+          "get_duration_millis_secondary": true,
+          "configuration_available": true,
+          "source_input_unchanged": true
+        },
+        "rust": {
+          "outcome": true,
+          "duration_millis": true,
+          "error_code": true,
+          "configuration_unchanged": true,
+          "iana_tzdb_version": true
+        }
+      },
+      "all_frozen_hypotheses_match": true,
+      "declared_diagnostic": true,
+      "no_whole_calendar_parity_claim": true,
+      "java_observation_sha256": "FA4044D08FB82DE394705803DBD496B39ED2EE2557F03B50C1876E6C1D71634A",
+      "rust_observation_sha256": "86935F279DC0AB825CC5967574C4A4D8D67B4AE950548FE9868A04986B253B48"
+    }
+  ],
+  "no_whole_R5_or_Core_parity_claim": true
+}

@@ -1,0 +1,765 @@
+{
+  "schema_version": 1,
+  "utc": "2026-10-23T17:22:09.070Z",
+  "role": "QA/ProcessLogAuditor",
+  "decision": "ACCEPT_FINITE_ACTUAL_API03_LOCAL_SCOPE",
+  "config_sha256": "61B36D4773E6473B58312659BA28891DE4E2A16218F3630EEBC51406E33C275B",
+  "phase_proof_sha256": "5D487C2A1A6BFA6F828EFF89546E5ED8BD0E8EA657A2079764A76AB807E38603",
+  "candidate": {
+    "app_sha256": "072FB7B8ADE3C7473899424D84842477A0B96B78F5DAF2AD7F30EB05FF3E03A2",
+    "source_head": "74d997f5429d2e49d4ca25362aef72e6ab746d12",
+    "checker_sha256": "9D870DF8B9FF3D74595596A414B6F6D9BB07A97A33149BF891507C7533571448"
+  },
+  "native": {
+    "count": 13,
+    "streams": 26,
+    "all_full_raw_hash_length": true,
+    "inventory": [
+      {
+        "label": "app10k",
+        "pid": 72596,
+        "birth_raw": "134372495555529798",
+        "exit": 137,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 134999,
+            "sha256": "66FF8D817163D91A4618F4A8F7AC45B04F28F3FF07310C212E44B70F5A00C368",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "app90k",
+        "pid": 75452,
+        "birth_raw": "134372495878132327",
+        "exit": 137,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 4451,
+            "sha256": "A85FBCC3721EC66AD99C58F92F2FD0EE5A49F2EBF05D60C6E0E658CDB294FE98",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "child",
+        "pid": 66140,
+        "birth_raw": "134372495530571764",
+        "exit": 0,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "http90k",
+        "pid": 78156,
+        "birth_raw": "134372495563743736",
+        "exit": 0,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 86,
+            "sha256": "09B95EEFE1A8A76A9A8D233F24ECDE06147B5975E82E93153546745831862878",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "pg-stop",
+        "pid": 69756,
+        "birth_raw": "134372496128683169",
+        "exit": 0,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 58,
+            "sha256": "3589D2BD01F8295CC7C9EC3F5E07625FCD347CCB6F33F2D80EDAFE5F5217C1FB",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "postgres",
+        "pid": 77224,
+        "birth_raw": "134372495457982709",
+        "exit": 0,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 1579,
+            "sha256": "5C1C89CFCE5E1F87F01B67B4E8779113590FCF9DBDCFD628FDAF5C494009F794",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "ready-01",
+        "pid": 66220,
+        "birth_raw": "134372495459689891",
+        "exit": 1,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 41,
+            "sha256": "62285DBF9A623B155EF5FBB74B1E0BB1AAC8583FF3EDECDF23D4EE6D4804EC5B",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "ready-02",
+        "pid": 78312,
+        "birth_raw": "134372495483300644",
+        "exit": 0,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 41,
+            "sha256": "48F05044D763F65E81DF5FA8BE71F5A81EC224D0B419A9BFA6132B7FBC62D7F4",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "source10k",
+        "pid": 69240,
+        "birth_raw": "134372495506894778",
+        "exit": 0,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 201,
+            "sha256": "3699F9DE01C6F1900C70B0854E67F15448110E3F567A5E2AACA8D2FBA05E32FC",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "source90k",
+        "pid": 55164,
+        "birth_raw": "134372495884370722",
+        "exit": 0,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 83,
+            "sha256": "EE6725106CBDE5563D6613570782F50E3395998943BEDFE9FDFDED0E3870BF1A",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "worker",
+        "pid": 75936,
+        "birth_raw": "134372495450272156",
+        "exit": 0,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "collector",
+        "pid": 72852,
+        "birth_raw": "2026-10-23T17:18:40.3204497Z",
+        "exit": 0,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      },
+      {
+        "label": "launch",
+        "pid": 64256,
+        "birth_raw": "2026-10-23T17:18:38.8227236Z",
+        "exit": 0,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false,
+            "fault": false
+          }
+        ]
+      }
+    ],
+    "broker_stop": "worker_exit",
+    "guard_failure": null,
+    "kill_fault": false,
+    "PID_absent": true,
+    "after": {
+      "skipped_vanished_pg_internal_init_entries": 0,
+      "files": 68182,
+      "root_allocation_bytes": 7984152080,
+      "scope": "non-atomic read-only sampling; vanished compiler-target entries or exact owned pgdata11/base/nonzero-decimal-OID/pg_internal.init only; second genuine absence required; 512MiB headroom mandatory",
+      "root_logical_bytes": 7945314899,
+      "skipped_vanished_target_entries": 0,
+      "logical_bytes": 8691219522,
+      "allocation_bytes": 8772888568
+    }
+  },
+  "saved_data": {
+    "pre": {
+      "requests": 231,
+      "checks": 214,
+      "proof_sha256": "94EDB6B51D57FDC34224E2876EC55C4252D594B0288286DF09C8ADC785560FAF"
+    },
+    "post": {
+      "requests": 7,
+      "checks": 5,
+      "proof_sha256": "14070CC1A04405376DF6D78AF404A5CD42DF80A99F15BA3F5FA96FD03048E3DF"
+    },
+    "all238raw_response_hashlength_match": true,
+    "typed_journals_match_proof": true,
+    "LF_and_sequences_valid": true
+  },
+  "independent_oracles": {
+    "filter_manual_profiles": [
+      {
+        "request": 25,
+        "manual_data": true,
+        "source": true,
+        "viewreset": true,
+        "unrelated": true,
+        "audit": true
+      },
+      {
+        "request": 32,
+        "manual_data": true,
+        "source": true,
+        "viewreset": true,
+        "unrelated": true,
+        "audit": true
+      },
+      {
+        "request": 39,
+        "manual_data": true,
+        "source": true,
+        "viewreset": true,
+        "unrelated": true,
+        "audit": true
+      },
+      {
+        "request": 46,
+        "manual_data": true,
+        "source": true,
+        "viewreset": true,
+        "unrelated": true,
+        "audit": true
+      },
+      {
+        "request": 53,
+        "manual_data": true,
+        "source": true,
+        "viewreset": true,
+        "unrelated": true,
+        "audit": true
+      },
+      {
+        "request": 60,
+        "manual_data": true,
+        "source": true,
+        "viewreset": true,
+        "unrelated": true,
+        "audit": true
+      },
+      {
+        "request": 67,
+        "manual_data": true,
+        "source": true,
+        "viewreset": true,
+        "unrelated": true,
+        "audit": true
+      },
+      {
+        "request": 74,
+        "manual_data": true,
+        "source": true,
+        "viewreset": true,
+        "unrelated": true,
+        "audit": true
+      },
+      {
+        "request": 81,
+        "manual_data": true,
+        "source": true,
+        "viewreset": true,
+        "unrelated": true,
+        "audit": true
+      },
+      {
+        "request": 86,
+        "manual_data": true,
+        "source": true,
+        "viewreset": true,
+        "unrelated": true,
+        "audit": true
+      },
+      {
+        "request": 93,
+        "manual_data": true,
+        "source": true,
+        "viewreset": true,
+        "unrelated": true,
+        "audit": true
+      }
+    ],
+    "calendar_manual_profiles": [
+      {
+        "request": 115,
+        "exactids": true,
+        "durations": true,
+        "statuses": true
+      },
+      {
+        "request": 119,
+        "exactids": true,
+        "durations": true,
+        "statuses": true
+      },
+      {
+        "request": 123,
+        "exactids": true,
+        "durations": true,
+        "statuses": true
+      },
+      {
+        "request": 127,
+        "exactids": true,
+        "durations": true,
+        "statuses": true
+      },
+      {
+        "request": 131,
+        "exactids": true,
+        "durations": true,
+        "statuses": true
+      }
+    ],
+    "negative_requests_no_business_mutation": [
+      {
+        "request": 97,
+        "status": 422,
+        "no_business_mutation": true
+      },
+      {
+        "request": 100,
+        "status": 422,
+        "no_business_mutation": true
+      },
+      {
+        "request": 103,
+        "status": 422,
+        "no_business_mutation": true
+      },
+      {
+        "request": 106,
+        "status": 422,
+        "no_business_mutation": true
+      },
+      {
+        "request": 109,
+        "status": 422,
+        "no_business_mutation": true
+      },
+      {
+        "request": 112,
+        "status": 422,
+        "no_business_mutation": true
+      },
+      {
+        "request": 135,
+        "status": 422,
+        "no_business_mutation": true
+      },
+      {
+        "request": 138,
+        "status": 422,
+        "no_business_mutation": true
+      },
+      {
+        "request": 141,
+        "status": 422,
+        "no_business_mutation": true
+      },
+      {
+        "request": 144,
+        "status": 422,
+        "no_business_mutation": true
+      },
+      {
+        "request": 147,
+        "status": 422,
+        "no_business_mutation": true
+      },
+      {
+        "request": 150,
+        "status": 422,
+        "no_business_mutation": true
+      },
+      {
+        "request": 153,
+        "status": 422,
+        "no_business_mutation": true
+      },
+      {
+        "request": 156,
+        "status": 422,
+        "no_business_mutation": true
+      },
+      {
+        "request": 159,
+        "status": 422,
+        "no_business_mutation": true
+      },
+      {
+        "request": 161,
+        "status": 422,
+        "no_business_mutation": true
+      },
+      {
+        "request": 164,
+        "status": 422,
+        "no_business_mutation": true
+      },
+      {
+        "request": 166,
+        "status": 422,
+        "no_business_mutation": true
+      },
+      {
+        "request": 169,
+        "status": 422,
+        "no_business_mutation": true
+      },
+      {
+        "request": 171,
+        "status": 422,
+        "no_business_mutation": true
+      },
+      {
+        "request": 174,
+        "status": 422,
+        "no_business_mutation": true
+      },
+      {
+        "request": 176,
+        "status": 422,
+        "no_business_mutation": true
+      },
+      {
+        "request": 179,
+        "status": 422,
+        "no_business_mutation": true
+      },
+      {
+        "request": 181,
+        "status": 422,
+        "no_business_mutation": true
+      },
+      {
+        "request": 184,
+        "status": 422,
+        "no_business_mutation": true
+      },
+      {
+        "request": 186,
+        "status": 422,
+        "no_business_mutation": true
+      },
+      {
+        "request": 189,
+        "status": 422,
+        "no_business_mutation": true
+      },
+      {
+        "request": 202,
+        "status": 403,
+        "no_business_mutation": true
+      },
+      {
+        "request": 205,
+        "status": 403,
+        "no_business_mutation": true
+      },
+      {
+        "request": 208,
+        "status": 404,
+        "no_business_mutation": true
+      },
+      {
+        "request": 211,
+        "status": 404,
+        "no_business_mutation": true
+      },
+      {
+        "request": 223,
+        "status": 403,
+        "no_business_mutation": true
+      },
+      {
+        "request": 224,
+        "status": 403,
+        "no_business_mutation": true
+      }
+    ],
+    "HTML_error_checks": [
+      {
+        "request": 135,
+        "escaped": true,
+        "label": true,
+        "lastsaved": true,
+        "no_store": true,
+        "vary": true
+      },
+      {
+        "request": 153,
+        "escaped": true,
+        "label": true,
+        "lastsaved": true,
+        "no_store": true,
+        "vary": true
+      },
+      {
+        "request": 161,
+        "escaped": true,
+        "label": true,
+        "lastsaved": true,
+        "no_store": true,
+        "vary": true
+      },
+      {
+        "request": 166,
+        "escaped": true,
+        "label": true,
+        "lastsaved": true,
+        "no_store": true,
+        "vary": true
+      },
+      {
+        "request": 171,
+        "escaped": true,
+        "label": true,
+        "lastsaved": true,
+        "no_store": true,
+        "vary": true
+      },
+      {
+        "request": 176,
+        "escaped": true,
+        "label": true,
+        "lastsaved": true,
+        "no_store": true,
+        "vary": true
+      },
+      {
+        "request": 181,
+        "escaped": true,
+        "label": true,
+        "lastsaved": true,
+        "no_store": true,
+        "vary": true
+      }
+    ],
+    "restart": {
+      "backup": true,
+      "exports": [
+        {
+          "id": "log-1",
+          "equal": true
+        },
+        {
+          "id": "log-2",
+          "equal": true
+        }
+      ],
+      "project_audit": true
+    }
+  },
+  "actual_findings": [
+    "Independently constructed fourcase10event orderedmanualcore matches11filteroutputs inclcasepredicate-before-projection,emptycase retention,threshold100001empty,unknownfieldignore/reset; sourceimmutable/allviewsreset/unrelatedcalendarlog preserved/audit+1 checked.",
+    "FiveexactcalendarcaseIDs bind ordinary8h/weekend8h/Berlin2h4h/holiday and missingtimestamprefusal; no count-only acceptance.",
+    "All33captured rejectedmutation requests compared fullnearestbefore/afterbusinessbackup unchanged; sevenactualHTMLresponses escaped/lastsaved/no-store/Vary. NumericPOSTextractor now422plain78B as sourcegrounded.",
+    "Actualowner/editorfilter success, viewerdenial, outsiderforeignID404/nodisclosure, anonymous403export/303filterredirect, sequentialeditortoviewer403 observed; authrolechangesseparatefrombusinesssnapshots.",
+    "Fullprojectbackup/twologexports/projectaudit rawtypedidentity survive actualsamebinarynewprocess; authownerprojectionnotusedasprojectauditidentity.",
+    "Actual13native26full/0hashlengthortruncationfaults;twoapp137intentional,checkerprepost0/PGstop0/PG0/workercollectorouter0,readiness1then0; no guardfailure."
+  ],
+  "limits": [
+    "Finite named HTTP scenarios only, not allAPI/authrace/R5/enterprise acceptance. No browser interaction or freshJava/legacyengine execution claimed.",
+    "Not complete Cartesianrole-by-route coverage: editorpositivecalendar and anonymouscalendar are not separatelyexercised; those rows notinferred from editorfilter/viewer calendar.",
+    "Localactualacceptance only; publication/exactCI/downloadedreplay and phaseB exactproposal/source/controls/runtime remainfuture.",
+    "EarlierAPI01truncation/lostmap and API02incorrectoracle remainfailedseparateattempts; historical6UNKNOWN/lostbuildcause unchanged."
+  ],
+  "authorship": "RootHTTPchecker author; QAindependentlysource-reviewed then recomputed manualsaveddata/nativeoracles managed; TDharness author separatelyreviewed. No QA shell/native/interpreter/Git/scans."
+}

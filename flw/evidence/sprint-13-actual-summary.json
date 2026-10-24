@@ -1,0 +1,251 @@
+{
+  "schema_version": 1,
+  "sprint": 13,
+  "author_role": "Developer",
+  "status": "SANITIZED_ACTUAL_EVIDENCE_SUMMARY_PENDING_ROOT_QA_TD_REVIEW",
+  "scope": "Finite results from preserved private evidence; not release or whole-roadmap acceptance",
+  "runtime_cutoff_utc": "2026-10-19T19:44:42Z",
+  "evidence_policy": {
+    "references_are_relative": true,
+    "referenced_private_evidence_is_not_published": true,
+    "summary_preparation": "Read-only small metadata and review records; no new product, database, HTTP or compiler execution",
+    "failed_attempts_remain_failed": true,
+    "no_acceptance_inferred_from_case_counts": true
+  },
+  "candidate": {
+    "version": "0.7.3",
+    "distribution_status": "PRIVATE_TEST_CANDIDATE_NOT_PUBLIC_RELEASE",
+    "product_source_commit": "3f0b3caa34b9b4beaf4422f78c2e31c0f97d3209",
+    "executable_sha256": "23563DFF8FE93F339AD7F12FD0783AC3E2C53B8D9368C00D772A8FBABBE5F292",
+    "archive_sha256": "E79866DA3E9348CFA3EA08542D1A9FB405A47D9F7C5AE15F56979A4559AE3A4C",
+    "archive_bytes": 57505214,
+    "manifest_sha256": "868D4CAD2BBBC57A5A0BCC55A82FF9C933C1260B16ECCD09510BF84FFD8AFF42",
+    "manifest_listed_files": 1754,
+    "package_files_including_manifest": 1755,
+    "proof": {
+      "path": ".local/sprint13/root/package01/package-result.json",
+      "sha256": "B52275615A4985C8B530C6B44C365E6FF258E1FF38EA0C16672E00E22BA3BFC1",
+      "author_role": "Root",
+      "verdict": "IMMUTABLE_CANDIDATE_PACKAGE_FULL_TREE_AND_ZIP_READBACK_READY_FOR_REVIEW"
+    },
+    "delivery_source_head": null,
+    "delivery_source_head_note": "Root records final delivery revision separately; no guessed HEAD or public asset claim"
+  },
+  "finite_results": [
+    {
+      "id": "historical-migration03",
+      "status": "INDEPENDENTLY_REVIEWED_FINITE",
+      "facts": {
+        "projects": 10,
+        "logs": 20,
+        "models": 14,
+        "normalized_records": 94,
+        "forward_and_resumed_rows": 130,
+        "interrupted_partial_projects": 1,
+        "interrupted_partial_records": 5,
+        "interrupted_partial_markers": 1,
+        "partial_ledger_version_2_present": false,
+        "forward_noop_whole_state_equal": true,
+        "forward_resume_difference_limited_to_bounded_ledger_time": true,
+        "postgres_clean_exit_proved": true
+      },
+      "reviews": [
+        {"author_role":"QA","path":".local/sprint13/qa/historical-migration03-actual-independent01.json","sha256":"B4F7E6E83784C38C2CD3C77D10603718AF466197CE8C3FBCAEC4967DC21F8A5B","verdict":"ACTUAL_FULL_HISTORICAL_FINITE_OFFLINE_EVIDENCE_REVIEWED_QA_ORACLE_AUTHOR_LIMIT"},
+        {"author_role":"TD","path":".local/sprint13/td/historical-migration03-actual01.json","sha256":"E77B75D719E6878D3B7CA8C0B98E6B2498018D78C8E9C5CFA69164E4B53D7AE3","verdict":"ACCEPTED_FINITE_FULL_GENUINE03_OFFLINE_FORWARD_PARTIAL_INTERRUPT_RESUME_NOOP"}
+      ],
+      "limits": ["Offline migration only; interruption after a committed-record log is not an exact DELETE/COMMIT wire boundary", "QA-authored projection has separate TD semantic review", "No whole R3, HTTP recovery, downgrade or future-schema acceptance"]
+    },
+    {
+      "id": "project-list-rbac02",
+      "status": "INDEPENDENTLY_REVIEWED_FINITE_SMALL_S",
+      "facts": {"cases":179,"committed_catalog_operations":144,"specific_refusals":35,"project_moves":5,"http_bodies_checked":2176,"auth_version_delta":692,"bounded_new_sessions":4,"other_managed_state_preserved":true,"postgres_clean_exit_proved":true,"app_stop_was_controlled_forced":true},
+      "reviews": [
+        {"author_role":"QA","path":".local/sprint13/qa/project-list02-actual-independent01.json","sha256":"D8289F6CF8858F111168EF815396DD252DF1648CF4362604BF45E6918A37AEBE","verdict":"ACTUAL_RESTORED_SMALL_S_HTTP_AND_WHOLE_AUTH_DELTA_INDEPENDENTLY_ACCEPTED"},
+        {"author_role":"TD","path":".local/sprint13/td/project-list02-actual01.json","sha256":"D9FB537936131D3C272191EAEA6A88F46BA755E385CF368150D4862433D6B77D","verdict":"ACCEPTED_FINITE_RESTORED_SMALLS_PROJECT_LIST_HTTP_AND_PHASE_WHOLE_AUTH_DELTA"}
+      ],
+      "limits": ["Synthetic maintained SmallS; phase-boundary whole Auth/state comparison, not per-action SQL atomicity", "No concurrent CAS/revocation, restart, browser or Datastar proof", "No historical full C18 or whole R3 acceptance"]
+    },
+    {
+      "id": "small-cleanup-corpus32",
+      "status": "THIRTY_TWO_FINITE_CAPSULES_NOT_ONE_CLEAN_PHASE",
+      "facts": {"named_capsules":32,"distribution_by_attempt":{"small-corpus03":9,"small-corpus04":18,"small-corpus05":5},"source_restore_whole_values_checked":true,"utf8_key_boundary_bytes":[512,513],"plan_boundary_bytes":[4194304,4194305],"known_commit_receipt_failure_native_exit":3},
+      "case_ids": ["C01","C03","C04","C06.archive_byte","C06.manifest_sha","C06.manifest_size","C06.archive_substitution","C07","C08.restore_value","C09","C10","C11.marker_source_sha","C11.marker_checksum","C11.unknown_legacy_key","C11.missing_header","C12.ledger1","C12.malformed_stage","C12.future_schema","C12.trigger","C12.rls","C12.rule","C14","C15.stale_plan_sha","C15.wrong_confirmation","C15.plan_identity_changed","C16.managed_rows.at","C16.managed_rows.over","C16.key_utf8_bytes.at","C16.key_utf8_bytes.over","C16.plan_bytes.at","C16.plan_bytes.over","operator.receipt_fail"],
+      "reviews": [
+        {"author_role":"QA","path":".local/sprint13/qa/small-corpus-finite-ledger01.json","sha256":"97155C62BB828FB1609DE2640A0651F32DC44BE265360CF23B64EF64115723BA","verdict":"THIRTY_TWO_NAMED_FINITE_SMALL_S_CAPSULES_REVIEWED_NOT_ORIGINAL_CORPUS_CLOSURE"},
+        {"author_role":"TD","path":".local/sprint13/td/small-corpus32-actual01.json","sha256":"BDDA1A1811EA438B743CE1DD302B26290A584368121224AD884A54A30B55FCE6","verdict":"THIRTY_TWO_NAMED_FINITE_SMALL_S_CAPSULES_INDEPENDENTLY_ACCEPTED_NOT_ORIGINAL_CORPUS_CLOSURE"}
+      ],
+      "limits": ["Attempts 03 and 04 remain failed phases; 04 has no clean PostgreSQL shutdown credit", "Corruption eligibility checks C09-C12 used fresh Verify on equal corrupt pairs, not invalid-source Apply", "Empty-write declaration plus conservation is not a continuous SQL write trace", "Known commit/receipt failure is not F03", "No count-based original-corpus or release closure"]
+    },
+    {
+      "id": "full-c2-04",
+      "status": "INDEPENDENTLY_REVIEWED_FINITE_DATABASE_CLEANUP_AND_RECOVERY",
+      "facts": {"pre_rows":130,"post_rows":120,"exact_removed_legacy_rows":10,"pre_bytes":614304123,"post_bytes":307159782,"catalog_captures_equal":9,"receipt_snapshot_domain_independently_reconstructed":true,"fresh_post_backup_empty_verify_apply_conserved":true,"original_pre_recovery_conserved":true,"postgres_clean_exit_proved":true},
+      "reviews": [
+        {"author_role":"QA","path":".local/sprint13/qa/full-c2-04-actual-independent01.json","sha256":"15F7F11A5F313492C9133993D466D84AC2F8494943C3AAFAB60E74AD7384A621","verdict":"ACCEPT_ACTUAL_FULL_C2_C14_AND_C18_DATABASE_RESTORE_FINITE_SCOPE"},
+        {"author_role":"TD","path":".local/sprint13/td/full-c2-04-actual01.json","sha256":"D3EDBD38276D538EAB1F35C1FEF9721458DA9853226A5E20397970F1D1A4543A","verdict":"ACTUAL_FULL_C2_C14_AND_C18_DATABASE_RESTORE_ONLY_ACCEPTED"}
+      ],
+      "limits": ["Database restoration only; HTTP compatibility has a separate result", "Fixed UTC+05 read-only reference display leaves product UTC unchanged", "Zero writes is CLI declaration and full conservation, not continuous write trace"]
+    },
+    {
+      "id": "full-c1-01",
+      "status": "INDEPENDENTLY_REVIEWED_FINITE_CURRENT_MIGRATION_AND_DATABASE_CLEANUP",
+      "facts": {"pre_rows":130,"post_rows":120,"exact_removed_legacy_rows":10,"pre_bytes":614313810,"post_bytes":307169469,"prior_migration_reference_identical_rows":129,"only_other_row_difference":"ledger version 2 applied time within current migration interval","catalog_captures_equal":9,"receipt_snapshot_domain_independently_reconstructed":true,"fresh_empty_repeat_and_pre_recovery_conserved":true,"postgres_clean_exit_proved":true},
+      "reviews": [
+        {"author_role":"QA","path":".local/sprint13/qa/full-c1-01-actual-independent01.json","sha256":"E7B9F68BACBCADFC3130B45E5173EB4DDAC4ABD02EED2C17B580E744F546295D","verdict":"ACCEPT_ACTUAL_GENUINE03_CURRENT_C1_CLEANUP_C14_DATABASE_RECOVERY_FINITE_SCOPE"},
+        {"author_role":"TD","path":".local/sprint13/td/full-c1-01-actual01.json","sha256":"932AC2C0D6AF192E394BA17A617E60C905B7E66CE3C5CCE2C2646463D85C9A9B","verdict":"ACTUAL_CURRENT_MIGRATED_FULL_C1_C14_DATABASE_RESTORE_ONLY_ACCEPTED"}
+      ],
+      "limits": ["Current UTC migration domain, not a reused C2 golden", "Database restoration only; no whole C18, wire-fault or release acceptance"]
+    },
+    {
+      "id": "full-normal-observe",
+      "status": "INDEPENDENTLY_REVIEWED_FINITE_PROTOCOL_OBSERVATION",
+      "facts": {"actual_delete_returned_key_version_pairs":10,"actual_commit_ack_observed":true,"cli_committed_receipt_full_contract":true,"full_source_post_and_restore_pre_checked":true,"backend_absent_before_after_state_capture":true,"postgres_clean_exit_proved":true},
+      "reviews": [
+        {"author_role":"QA","path":".local/sprint13/qa/full-observe-01-actual-independent01.json","sha256":"890FB6A84FAF4113343406056CE9D22162996505D06A92E83C1C6957D498BA6F","verdict":"CURRENT_FULL_C2_BOUNDARY_OBSERVE_NATIVE0_RECEIPT_POST_VERIFIED"},
+        {"author_role":"TD","path":".local/sprint13/td/full-observe-01-actual01.json","sha256":"4CD3A8E7E2F052982151451BBA752D0565FE49D71D3310B045CA08B6F81C8E59","verdict":"CURRENT_FULL_C2_BOUNDARY_OBSERVE_NATIVE0_RECEIPT_POST_VERIFIED"}
+      ],
+      "limits": ["Normal run only; each fault requires its own result", "Closed logical budget is not a fresh final physical meter"]
+    },
+    {
+      "id": "full-f01-02",
+      "status": "INDEPENDENTLY_REVIEWED_FINITE_FAULT",
+      "facts": {"original_delete_execute_never_forwarded":true,"native_client_read_and_five_granted_locks_witnessed":true,"cli_refusal_exit":1,"observer_exit":0,"receipt_absent":true,"full_source_and_restore_pre_preserved":true,"backend_absent_before_after_state_capture":true,"postgres_clean_exit_proved":true},
+      "reviews": [
+        {"author_role":"QA","path":".local/sprint13/qa/full-f01-02-actual-independent01.json","sha256":"D73A56440A17F42309956A6BCE1961EC71B392018C301ED4FF7B6F0495E3DB3C","verdict":"CURRENT_FULL_C2_F01_HELD_ORIGINAL_DELETE_DROPPED_FULL_PRE_CONSERVED_VERIFIED"},
+        {"author_role":"TD","path":".local/sprint13/td/full-f01-02-actual01.json","sha256":"78D9976B98B99117CE185E27F9AE82452CAE5AF12224D8DD06D5E02C813DA5AE","verdict":"ACTUAL_FULL_C2_F01_HELD_ORIGINAL_DELETE_BEFORE_FORWARD_REFUSAL_COMPLETE_PRE_ACCEPTED"}
+      ],
+      "limits": ["Failed F01-01 remains failed", "Full PRE is directly captured; no rollback inferred from exit"]
+    },
+    {
+      "id": "full-f02-01",
+      "status": "INDEPENDENTLY_REVIEWED_FINITE_FAULT",
+      "facts": {"actual_delete_returned_pairs":10,"original_commit_never_forwarded":true,"cli_unconfirmed_exit":2,"explicit_automatic_retry":false,"observer_exit":0,"receipt_absent":true,"full_persisted_pre_proves_rollback_after_backend_disappearance":true,"postgres_clean_exit_proved":true},
+      "reviews": [
+        {"author_role":"QA","path":".local/sprint13/qa/full-f02-01-actual-independent01.json","sha256":"F065EC5818F447E3CEC04ECA6FB19F60D4E9EEEDB0830454397D5A4E576E8EC9","verdict":"CURRENT_FULL_C2_F02_ORIGINAL_COMMIT_NOT_FORWARDED_UNCONFIRMED_FULL_PRE_VERIFIED"},
+        {"author_role":"TD","path":".local/sprint13/td/full-f02-01-actual01.json","sha256":"8B19C475994E352E3BF06B59681DF948B0D39B28475E8A7CB15ECC15D8648A0E","verdict":"ACTUAL_FULL_C2_F02_ORIGINAL_COMMIT_NEVER_FORWARDED_UNCONFIRMED_FULL_PRE_ACCEPTED"}
+      ],
+      "limits": ["Commit outcome established from whole persisted state, not CLI exit alone"]
+    },
+    {
+      "id": "full-f03-01",
+      "status": "INDEPENDENTLY_REVIEWED_FINITE_FAULT",
+      "facts": {"actual_delete_returned_pairs":10,"actual_server_commit_ack_withheld_before_client_delivery":true,"cli_unconfirmed_exit":2,"explicit_automatic_retry":false,"observer_exit":0,"receipt_absent":true,"full_source_post_and_restore_pre_checked_after_backend_disappearance":true,"postgres_clean_exit_proved":true},
+      "reviews": [
+        {"author_role":"QA","path":".local/sprint13/qa/full-f03-01-actual-independent01.json","sha256":"29D68ACF02FD32A52AC2139EE8D5CDBDFFED6C192F6F2C3DE7D613A4A4C0BD15","verdict":"CURRENT_FULL_C2_F03_ACTUAL_COMMIT_ACK_WITHHELD_UNCONFIRMED_FULL_POST_VERIFIED"},
+        {"author_role":"TD","path":".local/sprint13/td/full-f03-01-actual01.json","sha256":"221552324810CE03AA2907283608064AAF635A431BD26522EC9E7990D18B42A0","verdict":"ACTUAL_FULL_C2_F03_SERVER_COMMIT_ACK_WITHHELD_UNCONFIRMED_FULL_POST_ACCEPTED"}
+      ],
+      "limits": ["Persisted commit proven despite unconfirmed client outcome; no automatic retry"]
+    },
+    {
+      "id": "full-tx10-01",
+      "status": "INDEPENDENTLY_REVIEWED_FINITE_SERVER_TIMEOUT",
+      "facts": {"actual_server_sqlstate":"25P04","actual_target_fifo_and_original_delete_held":true,"original_delete_never_forwarded":true,"cli_refusal_exit":1,"observer_exit":0,"receipt_absent":true,"full_source_restore_pre_and_catalog_preserved":true,"production_sql_lock_transaction_ms":[5000,2000,10000],"postgres_clean_exit_proved":true},
+      "reviews": [
+        {"author_role":"QA","path":".local/sprint13/qa/full-tx10-01-actual-independent01.json","sha256":"9A0FD173C3FF5F8116D4BBB6A7955224C3BFE87AC5F13AF8D556014D2F37C343","verdict":"CURRENT_FULL_C2_TX10_ACTUAL_SERVER_25P04_HELD_ORIGINAL_DELETE_FULL_PRE_VERIFIED"},
+        {"author_role":"TD","path":".local/sprint13/td/full-tx10-01-actual01.json","sha256":"98392C936E94A49F4906A4660B3C9FC50936F6BAC9E3D2E3C97954E5029AB7F3","verdict":"ACTUAL_FULL_C2_TX10_SERVER25P04_ORIGINAL_DELETE_HELD_REFUSAL_FULL_PRE_ACCEPTED"}
+      ],
+      "limits": ["Held-frame elapsed time is not whole-transaction duration proof", "No SQL5 or lock2 acceptance"]
+    },
+    {
+      "id": "original-pre-http-recovery",
+      "status": "INDEPENDENTLY_REVIEWED_FINITE_COMPATIBILITY_NOT_WHOLE_C18",
+      "facts": {"original_pre_rows":130,"retained_legacy_repositories":10,"legitimate_existing_credential_logins":4,"auth_mutations_replayed_exactly":31,"other_raw_rows_identical":129,"http_responses":103,"http_body_bytes_checked":73886803,"four_role_project_matrix_checks":40,"log_complete_export_objects":20,"model_json_and_exact_bpmn_pairs":14,"postgres_clean_exit_proved":true,"app_stop_was_controlled_forced":true},
+      "reviews": [
+        {"author_role":"QA","path":".local/sprint13/qa/full-recovery-http01-actual-independent01.json","sha256":"B12E8C93247B2E234C172552C985E567F343D40CCECCECF63F7398ED53F03609","verdict":"ACCEPT_FINITE_ORIGINAL_C2_PRE_RESTORED_HTTP_EXPORT_AUTH_COMPATIBILITY"},
+        {"author_role":"TD","path":".local/sprint13/td/full-recovery-http01-actual01.json","sha256":"BBE9A7A6752403E1D2CAD5F7FDDBAF120B30889FF1349F6901CBBA8A390072F1","verdict":"ACTUAL_ORIGINAL_FULL_C2_PRE_RECOVERY_HTTP_EXPORT_COMPATIBILITY_ACCEPTED_FINITE"}
+      ],
+      "limits": ["Export oracle uses the same pinned graph/calendar/BPMN primitives with audited projection, not an independently implemented algorithm", "Four-role project-open matrix is not a full export-role or write-role matrix", "No whole C18, destructive C08, downgrade/restart, browser or Datastar acceptance"]
+    }
+  ],
+  "c13_hardfreeze": {
+    "status": "WHOLE_C13_OPEN_FAILED_PHASE",
+    "outer_exit": 1,
+    "outer_full_eof": true,
+    "freeze_stop": true,
+    "finite_pre_cutoff_capsule_facts": ["source-lease","restore-lease","row-writer","table-holder"],
+    "finite_facts_only": ["Actual native-client socket/nonce/backend binding", "Held lock and cleanup_busy refusal", "Targeted user cancellation SQLSTATE57014, not statement-timeout credit", "Backend absent before complete source/restore/catalog conservation"],
+    "fifth_identity_case": "INCOMPLETE_NOT_ACCEPTED",
+    "child_native_completion_missing": true,
+    "clean_postgresql_shutdown_proof_missing": true,
+    "closed_budget_receipt_missing": true,
+    "reviews": [
+      {"author_role":"QA","path":".local/sprint13/qa/small-holders01-hardfreeze-audit01.json","sha256":"6EB54D83DFE0CC4DC166A45509B50D89BFD0FEE1E69399719511DA5D3BDC50FB","verdict":"HARD_FREEZE_FAILED_PHASE_FOUR_LIMITED_HOLDER_CAPSULE_FACTS_C13_OPEN"},
+      {"author_role":"TD","path":".local/sprint13/td/small-holders01-hardfreeze-audit01.json","sha256":"059AA7281809B0FC4175CE919B5751D9D2B0FE828DC6DD20C911D3EE23A4E34B","verdict":"FOUR_PRE_CUTOFF_SMALLS_HOLDER_CAPSULE_FACTS_REVIEWED_PHASE_HARDFREEZE_FAILED_NOT_FIVE_CASE_PASS"}
+    ],
+    "host_absence_attestation_sha256": "F0C1B6697310801A4051EBF588803E2252F91989A9A830F4EBEFABBB1B149DCB",
+    "host_absence_limit": "Root at-time ports/process absence only; not clean PostgreSQL exit, missing child EOF, full phase closure or durability reconciliation",
+    "post_cutoff_runtime_or_reconciliation_performed_for_this_summary": false
+  },
+  "resource_controls": {
+    "decision": {"author_role":"Root","path":".local/sprint13/root/resource-decision05.json","sha256":"DBE94DE5ED50E10171D109C69F7280282996176DA08E2BC4902D9023155829D2","verdict":"ADOPTED_S13_REMAINDER_STORAGE_CAPS"},
+    "proposal_sha256": "D26D27BA40743DF2972531A5E5A30FE4A07451CB8490A88713FBC2029270C21E",
+    "actual_for_roles": ["Root","QA","TD","PM","Customer"],
+    "vote_records": [
+      {"author_role":"Root","vote":"FOR","path":".local/sprint13/root/resource-vote05.json","sha256":"4BF1DF92C1F474657427D874B8B926C9A9CEF92E28CC8CAB87CD5009461802CF"},
+      {"author_role":"QA","vote":"FOR","path":".local/sprint13/qa/resource-vote05.json","sha256":"E71D86EA1D026820B1DA9119AAE4A1DA4239EDA902A0FA65424337E76FA3006D"},
+      {"author_role":"TD","vote":"FOR","path":".local/sprint13/td/resource-vote05.json","sha256":"E1DCD8CCE9787D0E0BFADD9B7BEC74F3332784A51C646C6D8028A8641AFD4037"},
+      {"author_role":"PM","vote":"FOR","path":".local/sprint13/pm/resource-vote05.json","sha256":"50DC517429AC010612F234B4F1C26ACF9A676C34DF6A9F84E7087A44B416B69E"},
+      {"author_role":"Customer","vote":"FOR","path":".local/sprint13/customer/resource-vote05.json","sha256":"0F3D8F639BDC567C94129855D3107F9A705AAD13BFCF8EA2A1F751C2DA75B26C"}
+    ],
+    "logical_cap_bytes": 68719476736,
+    "allocated_cap_bytes": 68719476736,
+    "native_metric": "FileStandardInfo.AllocationSize",
+    "scope": "All managed S13 evidence files; conservative aliases charged, explicit reserves for unmetered overhead; not whole-volume allocation",
+    "meter_sha256": "45E7B1087B4FFF672874D86E385E2F2F6541116A268BA473E4828D39F1D80F43",
+    "budget_helper_sha256": "259700A846FB19A8067974DDFACD85BEF3BF9A20DA441975FE2042AB24CB64D6",
+    "per_phase_requirement": "Fresh full native baseline plus whole uncompressed next-phase peak, allocation rounding and fixed reserves; initial free 8 GiB and runtime floor 4 GiB",
+    "new_compression_authority": false,
+    "finite_prior_compression": {
+      "exact_closed_evidence_files": 8,
+      "logical_content_bytes_unchanged": 3378744810,
+      "native_target_allocation_reduction_bytes": 2956115968,
+      "sha_acl_identity_integrity_reviewed": true,
+      "reviews": [
+        {"author_role":"QA","path":".local/sprint13/qa/evidence-compress01-actual-independent01.json","sha256":"9969AB92C73E9FB7D5865100A4274DD0F10B24A112C3EF3A1590465919CCAD16","verdict":"ACTUAL_EXACT_EIGHT_CLOSED_SQL_FILE_COMPRESSION_INDEPENDENTLY_ACCEPTED"},
+        {"author_role":"TD","path":".local/sprint13/td/evidence-compress01-actual01.json","sha256":"621E57EC369DF3A6550F5C503BCB30D3A46A0C11809A630C8D90E7F221339214","verdict":"ACTUAL_EXACT_EIGHT_CLOSED_SQL_FILES_COMPRESSION_ACCEPTED"}
+      ],
+      "limits": ["Evidence stdout only; no PostgreSQL data shrink or functional acceptance", "Initial/final namespaces plus external quiet attestation are not continuous writer attribution", "No further IOCTL or arbitrary-file authorization"]
+    }
+  },
+  "preserved_failures_and_partial_attempts": [
+    {"id":"historical01","status":"FAILED","scope":"Ready/Job handshake; no migration credit","review":{"path":".local/sprint13/qa/historical-migration01-actual-failure01.json","sha256":"68B7F6DAF1CFEECE39D04D610FC994576C567880EE1EEADDEE654DBB52497624","author_role":"QA","verdict":"FAILED_READY_JOB_HANDSHAKE_NO_MIGRATION_CREDIT"}},
+    {"id":"historical02","status":"FAILED","scope":"QA oracle timestamp representation; fresh historical03 evidence is separate","review":{"path":".local/sprint13/qa/historical-migration02-diagnosis01.json","sha256":"DEB95B82D7601C3978358BDAAF78B73A7E01FF36D0A645D836198D0BA584927F","author_role":"QA","verdict":"FAILED_QA_ORACLE_TIMESTAMP_REPRESENTATION"}},
+    {"id":"small-seed01","status":"FAILED","review":{"path":".local/sprint13/qa/small-seed01-actual-failure01.json","sha256":"A2AD1419C12D2C309B32BBCDCB4E5FD80C11CC4AD8EAF902507C22AE5A26D684","author_role":"QA","verdict":"SMALLSEED01_FAILED_FIXTURE_EXPECTATION_NO_CONSTRUCTOR_ACCEPTANCE"}},
+    {"id":"small-corpus01","status":"FAILED_BEFORE_CASE_SQL","review":{"path":".local/sprint13/qa/small-corpus01-actual-failure01.json","sha256":"97537E2874D792D3F86D5E0C38EFFD6D7D5B70C5EAE11914E6B451F122126007","author_role":"QA","verdict":"FAILED_PRE_SQL_RETAINED_POSTMASTER_CROSS_API_TIMESTAMP_GUARD"}},
+    {"id":"small-corpus02","status":"FAILED_BEFORE_NATIVE_CLEANUP","review":{"path":".local/sprint13/qa/small-corpus02-actual-failure01.json","sha256":"E29E576EE9A3CCB8080CD4F495A7F260C909BF341BB70D23B8875133411A25F5","author_role":"QA","verdict":"FAILED_POWERSHELL_ALIAS_COLLISION_BEFORE_NATIVE_CLEANUP"}},
+    {"id":"small-corpus03","status":"FAILED_PHASE_WITH_NINE_REVIEWED_CAPSULES","review":{"path":".local/sprint13/qa/small-corpus03-ninecase-actual-failure01.json","sha256":"2554B9ED4613B8ED5556479F2C6C581DDEA907A4DDB0D9D38C1B263C4400302D","author_role":"QA","verdict":"NINE_FINITE_SMALL_S_CASES_ACCEPTED_PHASE_FAILED_BEFORE_CASE10_FINAL_OPERATION"}},
+    {"id":"small-corpus04","status":"FAILED_PHASE_WITH_EIGHTEEN_REVIEWED_CAPSULES_NO_CLEAN_PG_CREDIT","review":{"path":".local/sprint13/qa/small-corpus04-eighteencase-actual-failure01.json","sha256":"27AD5C4EF92B7A214ACD19632017C8CADEE662737FCC852D3AA78EDCA6521161","author_role":"QA","verdict":"EIGHTEEN_FINITE_SMALL_S_CASES_ACCEPTED_PHASE_FAILED_CASE19_FIXTURE_AND_PG_FINALIZER"}},
+    {"id":"small-corpus05","status":"FIVE_REMAINING_CAPSULES_REVIEWED_PREVIOUS_FAILURES_NOT_ERASED","review":{"path":".local/sprint13/qa/small-corpus05-actual-independent01.json","sha256":"E3B36E330E0F7C328706D18194903EB5E6E4C33F681F71FD4FAA8A6E922D9171","author_role":"QA","verdict":"FIVE_REMAINING_FINITE_SMALL_S_CASES_INDEPENDENTLY_ACCEPTED"}},
+    {"id":"full-c2-01","status":"FAILED_BEFORE_METER_EXTRACTION_OR_PG","review":{"path":".local/sprint13/qa/full-c2-01-actual-failure01.json","sha256":"76E46F75397C7CE6D99D8A0AD8D6F7287061F0D2BF8E96B2614F4F72A95C4A3D","author_role":"QA","verdict":"ACTUAL_FAILURE_BEFORE_NATIVE_METER_PACKAGE_EXTRACTION_OR_PG"}},
+    {"id":"full-c2-02","status":"CONTROLLED_CANCEL_NO_CLEANUP_CREDIT","outer_native_exit":-1,"review":{"path":".local/sprint13/qa/full-c2-02-actual-controlled-cancel01.json","sha256":"A82EB81C6A4BA9AE1F0D8BFB190D6FDE193EACAFD23C5E3887DF0E6570330209","author_role":"QA","verdict":"ACTUAL_CONTROLLED_CANCEL_NO_CLEANUP_CREDIT"}},
+    {"id":"full-c2-03","status":"FAILED_BEFORE_VERIFY_REFERENCE_DISPLAY_MISMATCH","review":{"path":".local/sprint13/qa/full-c2-03-whole-source-diff01.json","sha256":"FD09238F9868538DAF12C62296832969D1C9A58688D909246ACA8BEBC1121CE5","author_role":"QA","verdict":"EXACT_ONLY_LEDGER_TIMESTAMP_REPRESENTATION"}},
+    {"id":"full-f01-01","status":"FAILED_HARNESS_WITNESS_NO_FAULT_ACCEPTANCE","outer_native_exit":1,"review":{"path":".local/sprint13/qa/full-f01-01-actual-failure01.json","sha256":"625991CD57ACBD68ED61498C838AA1A59AD5A43BE9670C2D95093C85C49FC743","author_role":"QA","verdict":"FAILED_F01_HARNESS_WITNESS_CONTRACT_NO_FAULT_ACCEPTANCE"}},
+    {"id":"export-reference-build01","status":"FAILED_BUILD_NOT_PROMOTED","native_exit":1,"proof":{"path":".local/sprint13/root/export-oracle-build01/result.json","sha256":"159DA4025BE8F322B81B79EF915E8BE369179DD819898B6F4175F5F43127C38D","author_role":"Root","verdict":"COMMAND_FAILED"}}
+  ],
+  "additional_preserved_failed_native_commands": {
+    "scope": "Small retained root result metadata read during delivery; no inferred cause or invented clean retry",
+    "records": [
+      {"path":".local/sprint13/root/compile02/result.json","sha256":"D2A4DC527FDEE0285D3CC427CAED17EE2B3880E04F0A4EF255E204351EC5D3F5","author_role":"Root","verdict":"COMMAND_FAILED","native_exit":101},
+      {"path":".local/sprint13/root/clippy01/result.json","sha256":"68BA3800D00D46D7148E2A63451B9E1A4C176CADA484238469CFC3D3BF21DEFF","author_role":"Root","verdict":"COMMAND_FAILED","native_exit":101},
+      {"path":".local/sprint13/root/boundary-regression02/result.json","sha256":"C3B458D625F30B4CA4C5E9DDAD4E9726DD7466C966B00450E88C3DF6F8231B88","author_role":"Root","verdict":"COMMAND_FAILED","native_exit":1},
+      {"path":".local/sprint13/root/storage-calibration01/result.json","sha256":"87CC7D9BF7097F350B07522A83CFEB41B7531F424B8FC77243490AB212F85EB1","author_role":"Root","verdict":"COMMAND_FAILED","native_exit":1},
+      {"path":".local/sprint13/root/evidence-meter01/result.json","sha256":"7BBE57B16A6B4E24364ADD468FE09BA585DBFB44F3DFF4C9F3462F7A42CEBA71","author_role":"Root","verdict":"COMMAND_FAILED","native_exit":1},
+      {"path":".local/sprint13/root/evidence-meter02/result.json","sha256":"BBDDC4426FE143B87B0433191CD89DB8C6685D5D2EBDC5E31E4D8A0586DBAACC","author_role":"Root","verdict":"COMMAND_FAILED","native_exit":1},
+      {"path":".local/sprint13/root/historical-credentials-check01/result.json","sha256":"3A14A817ECAB000EFD6457623D90A789DEFD44D4686265496D287EE61FEBFFF2","author_role":"Root","verdict":"COMMAND_FAILED","native_exit":1}
+    ],
+    "limits": ["Expected nonzero exits inside accepted fault or runner-regression scenarios are not silently reclassified as defects", "No assertion that every draft or failed command has a completed native record; missing records remain missing"]
+  },
+  "unexecuted_profiles": {"status":"NO_RUNTIME_CREDIT","policy":"Draft, stale or invalidated profiles and source-only clone/timeout preparations remain distinct from actual evidence; preserved copies are not accepted results"},
+  "remaining_open": [
+    "C13 whole criterion: fifth identity case incomplete; child completion, clean PostgreSQL shutdown and closed budget proof missing",
+    "C05 actual physical-clone criterion: source preparation does not prove an executed clone refusal",
+    "SQL5 and lock2 timeout criteria: no acceptance derived from TX10 or holder user cancellation",
+    "Whole C18 and destructive C08, complete write/export role matrix, downgrade/restart clauses",
+    "Whole original corpus crosswalk, R3, R2-R5, enterprise readiness and release acceptance",
+    "Browser/Datastar behavior not demonstrated by these HTTP/native checks",
+    "Current project-list lifecycle assignments, concurrent demotion/CAS, restart and full database backup/new restore remain unaccepted",
+    "Historical finite 0.7.2 audit acceptance is not carried forward automatically to current shared paths of the former 23 producers and seven new catalog actions",
+    "Public 0.7.3 package publication not claimed"
+  ],
+  "claim_guards": {"R3_closed":false,"C13_closed":false,"whole_C18_closed":false,"release_accepted":false,"public_0_7_3_zip_published":false,"physical_database_shrink_claimed":false,"post_cutoff_product_runtime_authorized":false}
+}

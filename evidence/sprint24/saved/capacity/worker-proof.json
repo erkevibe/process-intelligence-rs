@@ -1,0 +1,76 @@
+{
+  "read_only_write_refused": true,
+  "status": "ACTUAL_BOUNDED_CAPACITY_DIAGNOSTIC_CONTROLS",
+  "serial_capacity": {
+    "snapshot": {
+      "allocation_bytes": 8559685200,
+      "scope": "non-atomic read-only sampling; vanished compiler-target entries or exact owned pgdata11/base/nonzero-decimal-OID/pg_internal.init only; second genuine absence required; 512MiB headroom mandatory",
+      "skipped_vanished_target_entries": 0,
+      "root_allocation_bytes": 8063081512,
+      "logical_bytes": 8499461940,
+      "files": 58649,
+      "skipped_vanished_pg_internal_init_entries": 0,
+      "root_logical_bytes": 8023303603
+    },
+    "started_utc": "2026-10-23T18:24:21.2819495+00:00",
+    "source": "unchanged_serial_periodic_guard",
+    "completed_utc": "2026-10-23T18:24:34.6801067+00:00",
+    "root_guard_sha256": "8EC87E1E91F07514C18B2698F5E77B35CD7A02AB8DCEEA4FF7268FB8609C3EC6"
+  },
+  "real_granted_lock_timeout": true,
+  "unknown_kind_refused": true,
+  "report": {
+    "schema_version": 1,
+    "status": "CAPACITY_DIAGNOSTIC_ROW_REQUIRES_COMMIT_MARKER_AND_NATIVE_EXIT0",
+    "observed_at": "2026-10-23T23:23:43.89905+05:00",
+    "database": "pi_s24_ops02",
+    "transaction_read_only": "on",
+    "transaction_isolation": "repeatable read",
+    "project_count": 1,
+    "record_counts": {
+      "conversion": 0,
+      "log_analysis": 1,
+      "log_data": 1,
+      "log_source": 1,
+      "log_state": 1,
+      "model": 0
+    },
+    "managed_relations": [
+      {
+        "relation": "pi_kv",
+        "table_including_toast_bytes": 16384,
+        "indexes_bytes": 16384,
+        "total_bytes": 32768
+      },
+      {
+        "relation": "pi_migration_v2",
+        "table_including_toast_bytes": 8192,
+        "indexes_bytes": 8192,
+        "total_bytes": 16384
+      },
+      {
+        "relation": "pi_projects",
+        "table_including_toast_bytes": 16384,
+        "indexes_bytes": 16384,
+        "total_bytes": 32768
+      },
+      {
+        "relation": "pi_records",
+        "table_including_toast_bytes": 49152,
+        "indexes_bytes": 16384,
+        "total_bytes": 65536
+      },
+      {
+        "relation": "pi_schema_migrations",
+        "table_including_toast_bytes": 16384,
+        "indexes_bytes": 16384,
+        "total_bytes": 32768
+      }
+    ],
+    "database_physical_bytes": 8582847,
+    "limitations": "Logical counts are transaction-visible; physical bytes may change during execution. Managed table/TOAST/index and database sizes overlap: do not add. Not quota, schema certification, WAL, other databases, backups or filesystem free space."
+  },
+  "empty_schema_refused": true,
+  "no_apps_started": true,
+  "sentinel_unchanged": true
+}

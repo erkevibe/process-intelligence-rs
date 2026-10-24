@@ -1,0 +1,1097 @@
+{
+  "schema_version": 1,
+  "status": "FINITE_NUMERIC_LEXEME_PRESERVING_PUBLIC_FIELD_PROJECTION",
+  "profile": "filter-extended",
+  "corpus_sha256": "87d9c3731c66eedc0bf54fbb7a6652c8b20f507c9a1000f3d0ffeac46acfe5d3",
+  "source_sha256": "f9a548020af768604a9f941d30cfd07c0d419b15d36f6974c854146e5b849d2d",
+  "original_inputs": [
+    {
+      "source_alias": "workspace://fixtures/oracle-core-filter-extended/corpus.json",
+      "sha256": "87d9c3731c66eedc0bf54fbb7a6652c8b20f507c9a1000f3d0ffeac46acfe5d3",
+      "bytes": 35429
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-index.json",
+      "sha256": "222f4e5dc6ff9082af032556661177d3083a743545b5b4480abf8e6889c656ba",
+      "bytes": 3710
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-closed.json",
+      "sha256": "0dff0e1d2c0d80469ed0d7c64eba3a29d224e632d203383a849b65e1057b8010",
+      "bytes": 41864
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-closed.process.json",
+      "sha256": "72989ebe6afabf5dd2702fd00afd6627cfa59d5ad56d1334527465c3724b1776",
+      "bytes": 1213
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-closed.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-closed.stderr",
+      "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+      "bytes": 92
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-min-only.json",
+      "sha256": "90f36d4b3eb0a83396749da45f2b68feb8b314a1b179ceb6bb87c4608180ac52",
+      "bytes": 43072
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-min-only.process.json",
+      "sha256": "407c17ce0d3630efcbfcd277d0b92163dffc32ed5ecd3ddfd55bcb9ad9b78fab",
+      "bytes": 1214
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-min-only.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-min-only.stderr",
+      "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+      "bytes": 92
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-max-only.json",
+      "sha256": "e0398184e7d2061eaaf3c69b774313f0eb2e67fa8da2a70abcaf693b737d16ef",
+      "bytes": 41755
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-max-only.process.json",
+      "sha256": "8cca506b3fca3ecd0a06c45aae462d6edf681621e858b8012e13f5805e111644",
+      "bytes": 1214
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-max-only.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-max-only.stderr",
+      "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+      "bytes": 92
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-invalid.json",
+      "sha256": "04ea4b230a4d85d89bed11bf21b82433d31db7dd7faa2b9eadaf2b9c2d1149a2",
+      "bytes": 40462
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-invalid.process.json",
+      "sha256": "c39b817bde56858785a75c4701b6b9633c985dad2b85f553f0ac9e91ddfd0faa",
+      "bytes": 1214
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-invalid.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-invalid.stderr",
+      "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+      "bytes": 92
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-retain-partial.json",
+      "sha256": "8670ed02703bf4dea6c76025d92f7bd061869f901f885eb34220a79348fe4479",
+      "bytes": 24432
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-retain-partial.process.json",
+      "sha256": "fa100cb16b1405aed5ce373f7110840337a109cafea54ada387ef274ed2b212a",
+      "bytes": 1214
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-retain-partial.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-retain-partial.stderr",
+      "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+      "bytes": 92
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-remove-partial.json",
+      "sha256": "5d60c4dc3d034fd0ef5db21c217f06c3418efd8d091b595f5fc00e11f6051a5a",
+      "bytes": 24277
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-remove-partial.process.json",
+      "sha256": "773d013bf6297ebe2a630475ebbcfb47745406a1c2be5f1506a1a768412793b1",
+      "bytes": 1214
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-remove-partial.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-remove-partial.stderr",
+      "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+      "bytes": 92
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-remove-empty-case.json",
+      "sha256": "a22018454c985b77294a18fd4087c850a36a380d28c155a089b488d061f64a54",
+      "bytes": 18315
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-remove-empty-case.process.json",
+      "sha256": "8d1629e5fc8a04ee431533e944998bec1a529612e5ea16b573d5600cb102e241",
+      "bytes": 1214
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-remove-empty-case.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-remove-empty-case.stderr",
+      "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+      "bytes": 92
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-then-retain.json",
+      "sha256": "9078dce2bde35973bcd91eadc068e4994adc8862acd9c6b65073f54605d05568",
+      "bytes": 29504
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-then-retain.process.json",
+      "sha256": "cc9eecc22b606d6400af927bd0f43b08f22529a67e81c9b2690b8e9989b642f3",
+      "bytes": 1214
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-then-retain.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-then-retain.stderr",
+      "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+      "bytes": 92
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-index.json",
+      "sha256": "81dfbc4b5484c1a42f218ab66ac441f0e3a24304b03d540682193f2f84049678",
+      "bytes": 3726
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-length-closed.stdout",
+      "sha256": "3430beae1526206878e97f6901f2cb30a26d119be0a41a254046c3fd5c4b65d3",
+      "bytes": 4287
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-length-closed.process.json",
+      "sha256": "9ba26ed016690a4e70492334cffc24d42a7c188d58b1d412963be4707eddd8b0",
+      "bytes": 1263
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-length-closed.stdout",
+      "sha256": "3430beae1526206878e97f6901f2cb30a26d119be0a41a254046c3fd5c4b65d3",
+      "bytes": 4287
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-length-closed.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-length-min-only.stdout",
+      "sha256": "2884720d4f09d711b6a45b9402276f9f018f2f384d0de5b68f5614fa10592e76",
+      "bytes": 4801
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-length-min-only.process.json",
+      "sha256": "ec98006b198e466a58234294e5d56d956691d83bc1167acce90f5c2a2bc17c8b",
+      "bytes": 1262
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-length-min-only.stdout",
+      "sha256": "2884720d4f09d711b6a45b9402276f9f018f2f384d0de5b68f5614fa10592e76",
+      "bytes": 4801
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-length-min-only.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-length-max-only.stdout",
+      "sha256": "727488853e1c67bbe75d93eb919696bc126ac3600cc8e97f9b835df69abe2da1",
+      "bytes": 4156
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-length-max-only.process.json",
+      "sha256": "b473f796975095dda25eeea493e7155caf9238dea64d1541e9e887854b7d671d",
+      "bytes": 1263
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-length-max-only.stdout",
+      "sha256": "727488853e1c67bbe75d93eb919696bc126ac3600cc8e97f9b835df69abe2da1",
+      "bytes": 4156
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-length-max-only.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-length-invalid.stdout",
+      "sha256": "af6b93c55ca3f0053d34a2c4308c35266f2e91137b544e6a970ee4363c1cd118",
+      "bytes": 3719
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-length-invalid.process.json",
+      "sha256": "80addb05c99b5d1e819fb2ea1e8d6c23030875b705dc35a891b07bd553cafa13",
+      "bytes": 1263
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-length-invalid.stdout",
+      "sha256": "af6b93c55ca3f0053d34a2c4308c35266f2e91137b544e6a970ee4363c1cd118",
+      "bytes": 3719
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-length-invalid.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-retain-partial.stdout",
+      "sha256": "bba5d0b01e4a9b7a69340a096635f213c53bbae8e429d623645970e2fa8aeeba",
+      "bytes": 2916
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-retain-partial.process.json",
+      "sha256": "0f94520f0a80f571ca4b60eff62cb37ff61ed89fb93ffd40f6fd704ed39d7311",
+      "bytes": 1263
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-retain-partial.stdout",
+      "sha256": "bba5d0b01e4a9b7a69340a096635f213c53bbae8e429d623645970e2fa8aeeba",
+      "bytes": 2916
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-retain-partial.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-remove-partial.stdout",
+      "sha256": "63845551bbb7810ba66e467579d7398855efa315af1afea5efebfa8c2b0d1889",
+      "bytes": 2822
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-remove-partial.process.json",
+      "sha256": "b691ea7ec35450956bb750c6674d9b4c89f8934afbc0108e5212029b453a9174",
+      "bytes": 1263
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-remove-partial.stdout",
+      "sha256": "63845551bbb7810ba66e467579d7398855efa315af1afea5efebfa8c2b0d1889",
+      "bytes": 2822
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-remove-partial.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-remove-empty-case.stdout",
+      "sha256": "ac100e8e477184337b59220c41f4fb8786d5490d80653d6256f426a576b03d5f",
+      "bytes": 2419
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-remove-empty-case.process.json",
+      "sha256": "e54ae4c2bcc68846d8cd2adfe596d05dd5104aa230c5d342bf54920134335407",
+      "bytes": 1263
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-remove-empty-case.stdout",
+      "sha256": "ac100e8e477184337b59220c41f4fb8786d5490d80653d6256f426a576b03d5f",
+      "bytes": 2419
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-remove-empty-case.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-length-then-retain.stdout",
+      "sha256": "fbf9569d044cbd63829e65dcc91b927d2990d2937ee66042ee680623684a18cd",
+      "bytes": 3338
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-length-then-retain.process.json",
+      "sha256": "b25f3151d96c44133027aa858e8434f65e54b9f7b3199d7b8acf09b78d138626",
+      "bytes": 1263
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-length-then-retain.stdout",
+      "sha256": "fbf9569d044cbd63829e65dcc91b927d2990d2937ee66042ee680623684a18cd",
+      "bytes": 3338
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-length-then-retain.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-comparison01/comparison.json",
+      "sha256": "28887c80fc5e1e5029f2370497548b003c73682a08c734a73d03022508160f1f",
+      "bytes": 74780
+    },
+    {
+      "source_alias": "workspace://fixtures/oracle-core-filter-extended/corpus.json",
+      "sha256": "87d9c3731c66eedc0bf54fbb7a6652c8b20f507c9a1000f3d0ffeac46acfe5d3",
+      "bytes": 35429
+    },
+    {
+      "source_alias": "workspace://fixtures/oracle-core-filter-extended/length-closed.json",
+      "sha256": "bde7fc2e70446b3e3c495966f96de6537b4c6ed090a3c437533cc2113c563aa2",
+      "bytes": 2572
+    },
+    {
+      "source_alias": "workspace://fixtures/oracle-core-filter-extended/length-invalid.json",
+      "sha256": "200df1083b74bb03ebd73885528d116b99321836bdc8cdf27c005137ab44109c",
+      "bytes": 2583
+    },
+    {
+      "source_alias": "workspace://fixtures/oracle-core-filter-extended/length-max-only.json",
+      "sha256": "4f4bdfe1146a8ca0a2e0af8ca01a701434989d506de392a435be52a760c262b8",
+      "bytes": 2597
+    },
+    {
+      "source_alias": "workspace://fixtures/oracle-core-filter-extended/length-min-only.json",
+      "sha256": "19fe4532892a617d1d0baee477b8eef8ad34fdd5bff3a34c886c1c80b75cbe9c",
+      "bytes": 2597
+    },
+    {
+      "source_alias": "workspace://fixtures/oracle-core-filter-extended/length-then-retain.json",
+      "sha256": "a96a482b75decf11e309c5a71efd1f66381ccca9afcc80b7d63bf7bc001fc6a1",
+      "bytes": 1829
+    },
+    {
+      "source_alias": "workspace://fixtures/oracle-core-filter-extended/remove-empty-case.json",
+      "sha256": "bd8affee6c2117db8fa64fe4e320545c2620f7272e05de0bdf9e25492cd28861",
+      "bytes": 1179
+    },
+    {
+      "source_alias": "workspace://fixtures/oracle-core-filter-extended/remove-partial.json",
+      "sha256": "4c0c1a02d112e5157ca4af15aa969f32ed2767dc416f5855e4f69bec00b4c0a3",
+      "bytes": 1498
+    },
+    {
+      "source_alias": "workspace://fixtures/oracle-core-filter-extended/retain-partial.json",
+      "sha256": "eba7bdb6492867d234e6f6827da2a2292d2feb145b06005d450b70bffd75497e",
+      "bytes": 1498
+    }
+  ],
+  "products": [
+    {
+      "path": "java/length-closed.json",
+      "sha256": "2f3e9b5613376fe7e37eb79789ca4943b5c67b043bdea6b0fb17bba34ac2e066",
+      "bytes": 49220,
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-closed.json",
+      "original_sha256": "0dff0e1d2c0d80469ed0d7c64eba3a29d224e632d203383a849b65e1057b8010",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "native/java-length-closed.json",
+      "sha256": "ea226ce3ef99eb7b734192abbef78a49a7e9b3ac0f62fb2adce67daa5c91d006",
+      "bytes": 1120,
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-closed.process.json",
+      "original_sha256": "72989ebe6afabf5dd2702fd00afd6627cfa59d5ad56d1334527465c3724b1776",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "java/length-min-only.json",
+      "sha256": "331e965e98c20064ab4f7b694ca6a16497e156d8d0d8d8937c9675face1baa15",
+      "bytes": 50606,
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-min-only.json",
+      "original_sha256": "90f36d4b3eb0a83396749da45f2b68feb8b314a1b179ceb6bb87c4608180ac52",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "native/java-length-min-only.json",
+      "sha256": "772bf11188d97fd273ec0ef6b55dab2ee5a8ac630a4d33cc588386b7053eab45",
+      "bytes": 1121,
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-min-only.process.json",
+      "original_sha256": "407c17ce0d3630efcbfcd277d0b92163dffc32ed5ecd3ddfd55bcb9ad9b78fab",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "java/length-max-only.json",
+      "sha256": "f1929b0daf498d897fb01b08aea36d1bada22c07b0e53a0a75f0a180637a95a8",
+      "bytes": 49041,
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-max-only.json",
+      "original_sha256": "e0398184e7d2061eaaf3c69b774313f0eb2e67fa8da2a70abcaf693b737d16ef",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "native/java-length-max-only.json",
+      "sha256": "f3739f7805190c53c11742927fbf0cb706d806451e508d809048e9f0b552a3e8",
+      "bytes": 1121,
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-max-only.process.json",
+      "original_sha256": "8cca506b3fca3ecd0a06c45aae462d6edf681621e858b8012e13f5805e111644",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "java/length-invalid.json",
+      "sha256": "c8a588d2575b4cbccf79a582d3fe6b44d34f318ab6e82ef932b5079e3914dd87",
+      "bytes": 47553,
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-invalid.json",
+      "original_sha256": "04ea4b230a4d85d89bed11bf21b82433d31db7dd7faa2b9eadaf2b9c2d1149a2",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "native/java-length-invalid.json",
+      "sha256": "a338a2652b45aefbafb630cda97c5aa05801d28b6477de43dcb9624070016799",
+      "bytes": 1121,
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-invalid.process.json",
+      "original_sha256": "c39b817bde56858785a75c4701b6b9633c985dad2b85f553f0ac9e91ddfd0faa",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "java/retain-partial.json",
+      "sha256": "e1883c0df35441489aa00f4b6ca0efdc80147b4bf36dfcddf4a5f57c3ba9399b",
+      "bytes": 28049,
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-retain-partial.json",
+      "original_sha256": "8670ed02703bf4dea6c76025d92f7bd061869f901f885eb34220a79348fe4479",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "native/java-retain-partial.json",
+      "sha256": "7d043c72005539713dd9a5aa2679faadc5286fde590e25feb88bde6fda84f29c",
+      "bytes": 1121,
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-retain-partial.process.json",
+      "original_sha256": "fa100cb16b1405aed5ce373f7110840337a109cafea54ada387ef274ed2b212a",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "java/remove-partial.json",
+      "sha256": "f1b43f16b7ed162c4623d8d8e105a6807541b0971ac1fe2beb136acb3312378e",
+      "bytes": 27859,
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-remove-partial.json",
+      "original_sha256": "5d60c4dc3d034fd0ef5db21c217f06c3418efd8d091b595f5fc00e11f6051a5a",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "native/java-remove-partial.json",
+      "sha256": "68b6f348d749dfe9ae0b52e8e68e244434f20b1399037f2edf3a225a5596b720",
+      "bytes": 1121,
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-remove-partial.process.json",
+      "original_sha256": "773d013bf6297ebe2a630475ebbcfb47745406a1c2be5f1506a1a768412793b1",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "java/remove-empty-case.json",
+      "sha256": "1799c69b2b822af675688fc8f95e4a37a4a04e6ac5fc5fc8776f93c005a2f278",
+      "bytes": 20546,
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-remove-empty-case.json",
+      "original_sha256": "a22018454c985b77294a18fd4087c850a36a380d28c155a089b488d061f64a54",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "native/java-remove-empty-case.json",
+      "sha256": "4742b07b98def3d06ad1002d6a7a630586fb8a48423f89200f0652cf4e62d8ce",
+      "bytes": 1121,
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-remove-empty-case.process.json",
+      "original_sha256": "8d1629e5fc8a04ee431533e944998bec1a529612e5ea16b573d5600cb102e241",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "java/length-then-retain.json",
+      "sha256": "5f57c751d8a5a6c0472d747ee038dcf69b950171a6af49f82c096b10ea028826",
+      "bytes": 34050,
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-then-retain.json",
+      "original_sha256": "9078dce2bde35973bcd91eadc068e4994adc8862acd9c6b65073f54605d05568",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "native/java-length-then-retain.json",
+      "sha256": "89516fb8131c02735c43842a26beb05dc61d0913afb3b5e5654982e0a4bdc40e",
+      "bytes": 1121,
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-then-retain.process.json",
+      "original_sha256": "cc9eecc22b606d6400af927bd0f43b08f22529a67e81c9b2690b8e9989b642f3",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "java-index.json",
+      "sha256": "843d31684a45d6fe8113a9fcd0f8de955149eb06d21c52b8a07f72a92c499a26",
+      "bytes": 5426,
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-index.json",
+      "original_sha256": "222f4e5dc6ff9082af032556661177d3083a743545b5b4480abf8e6889c656ba",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "rust/length-closed.json",
+      "sha256": "40cbf698501e17d0dd547cb75df53476d331bdb2758f4afda601d6d5366c39ba",
+      "bytes": 7062,
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-length-closed.stdout",
+      "original_sha256": "3430beae1526206878e97f6901f2cb30a26d119be0a41a254046c3fd5c4b65d3",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "native/rust-length-closed.json",
+      "sha256": "238ebd3d3e0ab1ad7bead58849155d0e1b529f5c003d9c133058a0b8a9bc7d6e",
+      "bytes": 1169,
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-length-closed.process.json",
+      "original_sha256": "9ba26ed016690a4e70492334cffc24d42a7c188d58b1d412963be4707eddd8b0",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "rust/length-min-only.json",
+      "sha256": "7aff63ca1b6f9d3c90f48a0b5e9f05c83e7c0f6ad3d87d4df194d32c17f3d10a",
+      "bytes": 7984,
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-length-min-only.stdout",
+      "original_sha256": "2884720d4f09d711b6a45b9402276f9f018f2f384d0de5b68f5614fa10592e76",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "native/rust-length-min-only.json",
+      "sha256": "9ba6b13b5956a41a0809cdb6181d78ad29f93c08b084ae01ba20ccd26814182d",
+      "bytes": 1168,
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-length-min-only.process.json",
+      "original_sha256": "ec98006b198e466a58234294e5d56d956691d83bc1167acce90f5c2a2bc17c8b",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "rust/length-max-only.json",
+      "sha256": "4dc0dd8ebbf3b081b32aebfd91820278be31ad7d6d96c847590eca7ff908ab3b",
+      "bytes": 6761,
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-length-max-only.stdout",
+      "original_sha256": "727488853e1c67bbe75d93eb919696bc126ac3600cc8e97f9b835df69abe2da1",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "native/rust-length-max-only.json",
+      "sha256": "e01cb5a1dc4bbca625aeeb0275a614a5c74742638c5d693edc36d04df49506b8",
+      "bytes": 1169,
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-length-max-only.process.json",
+      "original_sha256": "b473f796975095dda25eeea493e7155caf9238dea64d1541e9e887854b7d671d",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "rust/length-invalid.json",
+      "sha256": "cc253b60863163bbb776c466e35a096ae909612ace4af8d0604c229348bda735",
+      "bytes": 5916,
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-length-invalid.stdout",
+      "original_sha256": "af6b93c55ca3f0053d34a2c4308c35266f2e91137b544e6a970ee4363c1cd118",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "native/rust-length-invalid.json",
+      "sha256": "3344f04892c216f19ef15775dff276e03b6fb6ee4460602f0882f1c5cf749bea",
+      "bytes": 1169,
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-length-invalid.process.json",
+      "original_sha256": "80addb05c99b5d1e819fb2ea1e8d6c23030875b705dc35a891b07bd553cafa13",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "rust/retain-partial.json",
+      "sha256": "94a80f5f7606e817b3784d17d943ed49162d9c525d13464f10ec97412e874fbf",
+      "bytes": 4541,
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-retain-partial.stdout",
+      "original_sha256": "bba5d0b01e4a9b7a69340a096635f213c53bbae8e429d623645970e2fa8aeeba",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "native/rust-retain-partial.json",
+      "sha256": "abab21a54bdd52ae7b9f63342b9dbea28300df40dd243faedd17d22f9d09c551",
+      "bytes": 1169,
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-retain-partial.process.json",
+      "original_sha256": "0f94520f0a80f571ca4b60eff62cb37ff61ed89fb93ffd40f6fd704ed39d7311",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "rust/remove-partial.json",
+      "sha256": "322210a1cfd3e34f11049dc0857fa0923276e9d132050bc5e1e973c15b8fc570",
+      "bytes": 4362,
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-remove-partial.stdout",
+      "original_sha256": "63845551bbb7810ba66e467579d7398855efa315af1afea5efebfa8c2b0d1889",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "native/rust-remove-partial.json",
+      "sha256": "52232c95e61761f089ffb8a3e2a859c6235b45efc94c6011a7ac7a826cbd0cfe",
+      "bytes": 1169,
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-remove-partial.process.json",
+      "original_sha256": "b691ea7ec35450956bb750c6674d9b4c89f8934afbc0108e5212029b453a9174",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "rust/remove-empty-case.json",
+      "sha256": "6cdc1ce425178aa7ec17a1a6e9baa8e781caf0d9e8180139dd5e234dc0148a00",
+      "bytes": 3548,
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-remove-empty-case.stdout",
+      "original_sha256": "ac100e8e477184337b59220c41f4fb8786d5490d80653d6256f426a576b03d5f",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "native/rust-remove-empty-case.json",
+      "sha256": "4d7c8636d790685ceaf7f598011a76acead6c19b6c97e10c376293e0941a258a",
+      "bytes": 1169,
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-remove-empty-case.process.json",
+      "original_sha256": "e54ae4c2bcc68846d8cd2adfe596d05dd5104aa230c5d342bf54920134335407",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "rust/length-then-retain.json",
+      "sha256": "10bc80ceda0589ba0515ba856a066a7f0dcafaa0d4b8101c559a3de07d23042a",
+      "bytes": 5225,
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-length-then-retain.stdout",
+      "original_sha256": "fbf9569d044cbd63829e65dcc91b927d2990d2937ee66042ee680623684a18cd",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "native/rust-length-then-retain.json",
+      "sha256": "6955ce2af6bc738ca4418af7f0380db8bcf2e9ac4ec5099061cb9de5c414ae31",
+      "bytes": 1169,
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-length-then-retain.process.json",
+      "original_sha256": "b25f3151d96c44133027aa858e8434f65e54b9f7b3199d7b8acf09b78d138626",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "rust-index.json",
+      "sha256": "4120f3f44b842069a95b7f2dce6463a946192ecd23e5c1cb4f6288c995cbbfbf",
+      "bytes": 5426,
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-index.json",
+      "original_sha256": "81dfbc4b5484c1a42f218ab66ac441f0e3a24304b03d540682193f2f84049678",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "original-comparison.json",
+      "sha256": "28887c80fc5e1e5029f2370497548b003c73682a08c734a73d03022508160f1f",
+      "bytes": 74780,
+      "source_alias": "workspace://.local/sprint19/root/filter-comparison01/comparison.json",
+      "original_sha256": "28887c80fc5e1e5029f2370497548b003c73682a08c734a73d03022508160f1f",
+      "numeric_tokens_unchanged": true
+    },
+    {
+      "path": "fixtures/oracle-core-filter-extended/corpus.json",
+      "sha256": "87d9c3731c66eedc0bf54fbb7a6652c8b20f507c9a1000f3d0ffeac46acfe5d3",
+      "bytes": 35429,
+      "source_alias": "workspace://fixtures/oracle-core-filter-extended/corpus.json",
+      "original_sha256": "87d9c3731c66eedc0bf54fbb7a6652c8b20f507c9a1000f3d0ffeac46acfe5d3",
+      "byte_identical_copy": true
+    },
+    {
+      "path": "fixtures/oracle-core-filter-extended/length-closed.json",
+      "sha256": "bde7fc2e70446b3e3c495966f96de6537b4c6ed090a3c437533cc2113c563aa2",
+      "bytes": 2572,
+      "source_alias": "workspace://fixtures/oracle-core-filter-extended/length-closed.json",
+      "original_sha256": "bde7fc2e70446b3e3c495966f96de6537b4c6ed090a3c437533cc2113c563aa2",
+      "byte_identical_copy": true
+    },
+    {
+      "path": "fixtures/oracle-core-filter-extended/length-invalid.json",
+      "sha256": "200df1083b74bb03ebd73885528d116b99321836bdc8cdf27c005137ab44109c",
+      "bytes": 2583,
+      "source_alias": "workspace://fixtures/oracle-core-filter-extended/length-invalid.json",
+      "original_sha256": "200df1083b74bb03ebd73885528d116b99321836bdc8cdf27c005137ab44109c",
+      "byte_identical_copy": true
+    },
+    {
+      "path": "fixtures/oracle-core-filter-extended/length-max-only.json",
+      "sha256": "4f4bdfe1146a8ca0a2e0af8ca01a701434989d506de392a435be52a760c262b8",
+      "bytes": 2597,
+      "source_alias": "workspace://fixtures/oracle-core-filter-extended/length-max-only.json",
+      "original_sha256": "4f4bdfe1146a8ca0a2e0af8ca01a701434989d506de392a435be52a760c262b8",
+      "byte_identical_copy": true
+    },
+    {
+      "path": "fixtures/oracle-core-filter-extended/length-min-only.json",
+      "sha256": "19fe4532892a617d1d0baee477b8eef8ad34fdd5bff3a34c886c1c80b75cbe9c",
+      "bytes": 2597,
+      "source_alias": "workspace://fixtures/oracle-core-filter-extended/length-min-only.json",
+      "original_sha256": "19fe4532892a617d1d0baee477b8eef8ad34fdd5bff3a34c886c1c80b75cbe9c",
+      "byte_identical_copy": true
+    },
+    {
+      "path": "fixtures/oracle-core-filter-extended/length-then-retain.json",
+      "sha256": "a96a482b75decf11e309c5a71efd1f66381ccca9afcc80b7d63bf7bc001fc6a1",
+      "bytes": 1829,
+      "source_alias": "workspace://fixtures/oracle-core-filter-extended/length-then-retain.json",
+      "original_sha256": "a96a482b75decf11e309c5a71efd1f66381ccca9afcc80b7d63bf7bc001fc6a1",
+      "byte_identical_copy": true
+    },
+    {
+      "path": "fixtures/oracle-core-filter-extended/remove-empty-case.json",
+      "sha256": "bd8affee6c2117db8fa64fe4e320545c2620f7272e05de0bdf9e25492cd28861",
+      "bytes": 1179,
+      "source_alias": "workspace://fixtures/oracle-core-filter-extended/remove-empty-case.json",
+      "original_sha256": "bd8affee6c2117db8fa64fe4e320545c2620f7272e05de0bdf9e25492cd28861",
+      "byte_identical_copy": true
+    },
+    {
+      "path": "fixtures/oracle-core-filter-extended/remove-partial.json",
+      "sha256": "4c0c1a02d112e5157ca4af15aa969f32ed2767dc416f5855e4f69bec00b4c0a3",
+      "bytes": 1498,
+      "source_alias": "workspace://fixtures/oracle-core-filter-extended/remove-partial.json",
+      "original_sha256": "4c0c1a02d112e5157ca4af15aa969f32ed2767dc416f5855e4f69bec00b4c0a3",
+      "byte_identical_copy": true
+    },
+    {
+      "path": "fixtures/oracle-core-filter-extended/retain-partial.json",
+      "sha256": "eba7bdb6492867d234e6f6827da2a2292d2feb145b06005d450b70bffd75497e",
+      "bytes": 1498,
+      "source_alias": "workspace://fixtures/oracle-core-filter-extended/retain-partial.json",
+      "original_sha256": "eba7bdb6492867d234e6f6827da2a2292d2feb145b06005d450b70bffd75497e",
+      "byte_identical_copy": true
+    },
+    {
+      "path": "README.txt",
+      "sha256": "5a0c295d7dd0bc93ba8bdd12b75c716ad2f2db407cc3bb85ed3ce3a95b44861f",
+      "bytes": 1837
+    }
+  ],
+  "redactions": [
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-closed.json",
+      "json_pointer": "/engine_identity/code_source",
+      "original_string_sha256": "e1d3b7011ef2bf7d7fe6d3ac064a70a201b6cfcc5ae38feca5e591fa1fd9002e",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-closed.json",
+      "json_pointer": "/case_length_identity/code_source",
+      "original_string_sha256": "e1d3b7011ef2bf7d7fe6d3ac064a70a201b6cfcc5ae38feca5e591fa1fd9002e",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-closed.json",
+      "json_pointer": "/converter_identity/code_source",
+      "original_string_sha256": "e1d3b7011ef2bf7d7fe6d3ac064a70a201b6cfcc5ae38feca5e591fa1fd9002e",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-closed.json",
+      "json_pointer": "/rule_identity/code_source",
+      "original_string_sha256": "e1d3b7011ef2bf7d7fe6d3ac064a70a201b6cfcc5ae38feca5e591fa1fd9002e",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-closed.json",
+      "json_pointer": "/rule_value_identity/code_source",
+      "original_string_sha256": "e1d3b7011ef2bf7d7fe6d3ac064a70a201b6cfcc5ae38feca5e591fa1fd9002e",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-closed.process.json",
+      "json_pointer": "/program",
+      "original_string_sha256": "61102b563ce2c2e7ad6fae85349b82f6c50e41f9e65f85fcfcdecb5026dc936d",
+      "published_value": "workspace://.local/sprint03/oracle/jdk/jdk-11.0.32.1+1/bin/java.exe"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-min-only.json",
+      "json_pointer": "/engine_identity/code_source",
+      "original_string_sha256": "e1d3b7011ef2bf7d7fe6d3ac064a70a201b6cfcc5ae38feca5e591fa1fd9002e",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-min-only.json",
+      "json_pointer": "/case_length_identity/code_source",
+      "original_string_sha256": "e1d3b7011ef2bf7d7fe6d3ac064a70a201b6cfcc5ae38feca5e591fa1fd9002e",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-min-only.json",
+      "json_pointer": "/converter_identity/code_source",
+      "original_string_sha256": "e1d3b7011ef2bf7d7fe6d3ac064a70a201b6cfcc5ae38feca5e591fa1fd9002e",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-min-only.json",
+      "json_pointer": "/rule_identity/code_source",
+      "original_string_sha256": "e1d3b7011ef2bf7d7fe6d3ac064a70a201b6cfcc5ae38feca5e591fa1fd9002e",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-min-only.json",
+      "json_pointer": "/rule_value_identity/code_source",
+      "original_string_sha256": "e1d3b7011ef2bf7d7fe6d3ac064a70a201b6cfcc5ae38feca5e591fa1fd9002e",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-min-only.process.json",
+      "json_pointer": "/program",
+      "original_string_sha256": "61102b563ce2c2e7ad6fae85349b82f6c50e41f9e65f85fcfcdecb5026dc936d",
+      "published_value": "workspace://.local/sprint03/oracle/jdk/jdk-11.0.32.1+1/bin/java.exe"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-max-only.json",
+      "json_pointer": "/engine_identity/code_source",
+      "original_string_sha256": "e1d3b7011ef2bf7d7fe6d3ac064a70a201b6cfcc5ae38feca5e591fa1fd9002e",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-max-only.json",
+      "json_pointer": "/case_length_identity/code_source",
+      "original_string_sha256": "e1d3b7011ef2bf7d7fe6d3ac064a70a201b6cfcc5ae38feca5e591fa1fd9002e",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-max-only.json",
+      "json_pointer": "/converter_identity/code_source",
+      "original_string_sha256": "e1d3b7011ef2bf7d7fe6d3ac064a70a201b6cfcc5ae38feca5e591fa1fd9002e",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-max-only.json",
+      "json_pointer": "/rule_identity/code_source",
+      "original_string_sha256": "e1d3b7011ef2bf7d7fe6d3ac064a70a201b6cfcc5ae38feca5e591fa1fd9002e",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-max-only.json",
+      "json_pointer": "/rule_value_identity/code_source",
+      "original_string_sha256": "e1d3b7011ef2bf7d7fe6d3ac064a70a201b6cfcc5ae38feca5e591fa1fd9002e",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-max-only.process.json",
+      "json_pointer": "/program",
+      "original_string_sha256": "61102b563ce2c2e7ad6fae85349b82f6c50e41f9e65f85fcfcdecb5026dc936d",
+      "published_value": "workspace://.local/sprint03/oracle/jdk/jdk-11.0.32.1+1/bin/java.exe"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-invalid.json",
+      "json_pointer": "/engine_identity/code_source",
+      "original_string_sha256": "e1d3b7011ef2bf7d7fe6d3ac064a70a201b6cfcc5ae38feca5e591fa1fd9002e",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-invalid.json",
+      "json_pointer": "/case_length_identity/code_source",
+      "original_string_sha256": "e1d3b7011ef2bf7d7fe6d3ac064a70a201b6cfcc5ae38feca5e591fa1fd9002e",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-invalid.json",
+      "json_pointer": "/converter_identity/code_source",
+      "original_string_sha256": "e1d3b7011ef2bf7d7fe6d3ac064a70a201b6cfcc5ae38feca5e591fa1fd9002e",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-invalid.json",
+      "json_pointer": "/rule_identity/code_source",
+      "original_string_sha256": "e1d3b7011ef2bf7d7fe6d3ac064a70a201b6cfcc5ae38feca5e591fa1fd9002e",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-invalid.json",
+      "json_pointer": "/rule_value_identity/code_source",
+      "original_string_sha256": "e1d3b7011ef2bf7d7fe6d3ac064a70a201b6cfcc5ae38feca5e591fa1fd9002e",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-invalid.process.json",
+      "json_pointer": "/program",
+      "original_string_sha256": "61102b563ce2c2e7ad6fae85349b82f6c50e41f9e65f85fcfcdecb5026dc936d",
+      "published_value": "workspace://.local/sprint03/oracle/jdk/jdk-11.0.32.1+1/bin/java.exe"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-retain-partial.json",
+      "json_pointer": "/engine_identity/code_source",
+      "original_string_sha256": "e1d3b7011ef2bf7d7fe6d3ac064a70a201b6cfcc5ae38feca5e591fa1fd9002e",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-retain-partial.json",
+      "json_pointer": "/case_length_identity/code_source",
+      "original_string_sha256": "e1d3b7011ef2bf7d7fe6d3ac064a70a201b6cfcc5ae38feca5e591fa1fd9002e",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-retain-partial.json",
+      "json_pointer": "/converter_identity/code_source",
+      "original_string_sha256": "e1d3b7011ef2bf7d7fe6d3ac064a70a201b6cfcc5ae38feca5e591fa1fd9002e",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-retain-partial.json",
+      "json_pointer": "/rule_identity/code_source",
+      "original_string_sha256": "e1d3b7011ef2bf7d7fe6d3ac064a70a201b6cfcc5ae38feca5e591fa1fd9002e",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-retain-partial.json",
+      "json_pointer": "/rule_value_identity/code_source",
+      "original_string_sha256": "e1d3b7011ef2bf7d7fe6d3ac064a70a201b6cfcc5ae38feca5e591fa1fd9002e",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-retain-partial.process.json",
+      "json_pointer": "/program",
+      "original_string_sha256": "61102b563ce2c2e7ad6fae85349b82f6c50e41f9e65f85fcfcdecb5026dc936d",
+      "published_value": "workspace://.local/sprint03/oracle/jdk/jdk-11.0.32.1+1/bin/java.exe"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-remove-partial.json",
+      "json_pointer": "/engine_identity/code_source",
+      "original_string_sha256": "e1d3b7011ef2bf7d7fe6d3ac064a70a201b6cfcc5ae38feca5e591fa1fd9002e",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-remove-partial.json",
+      "json_pointer": "/case_length_identity/code_source",
+      "original_string_sha256": "e1d3b7011ef2bf7d7fe6d3ac064a70a201b6cfcc5ae38feca5e591fa1fd9002e",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-remove-partial.json",
+      "json_pointer": "/converter_identity/code_source",
+      "original_string_sha256": "e1d3b7011ef2bf7d7fe6d3ac064a70a201b6cfcc5ae38feca5e591fa1fd9002e",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-remove-partial.json",
+      "json_pointer": "/rule_identity/code_source",
+      "original_string_sha256": "e1d3b7011ef2bf7d7fe6d3ac064a70a201b6cfcc5ae38feca5e591fa1fd9002e",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-remove-partial.json",
+      "json_pointer": "/rule_value_identity/code_source",
+      "original_string_sha256": "e1d3b7011ef2bf7d7fe6d3ac064a70a201b6cfcc5ae38feca5e591fa1fd9002e",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-remove-partial.process.json",
+      "json_pointer": "/program",
+      "original_string_sha256": "61102b563ce2c2e7ad6fae85349b82f6c50e41f9e65f85fcfcdecb5026dc936d",
+      "published_value": "workspace://.local/sprint03/oracle/jdk/jdk-11.0.32.1+1/bin/java.exe"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-remove-empty-case.json",
+      "json_pointer": "/engine_identity/code_source",
+      "original_string_sha256": "e1d3b7011ef2bf7d7fe6d3ac064a70a201b6cfcc5ae38feca5e591fa1fd9002e",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-remove-empty-case.json",
+      "json_pointer": "/case_length_identity/code_source",
+      "original_string_sha256": "e1d3b7011ef2bf7d7fe6d3ac064a70a201b6cfcc5ae38feca5e591fa1fd9002e",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-remove-empty-case.json",
+      "json_pointer": "/converter_identity/code_source",
+      "original_string_sha256": "e1d3b7011ef2bf7d7fe6d3ac064a70a201b6cfcc5ae38feca5e591fa1fd9002e",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-remove-empty-case.json",
+      "json_pointer": "/rule_identity/code_source",
+      "original_string_sha256": "e1d3b7011ef2bf7d7fe6d3ac064a70a201b6cfcc5ae38feca5e591fa1fd9002e",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-remove-empty-case.json",
+      "json_pointer": "/rule_value_identity/code_source",
+      "original_string_sha256": "e1d3b7011ef2bf7d7fe6d3ac064a70a201b6cfcc5ae38feca5e591fa1fd9002e",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-remove-empty-case.process.json",
+      "json_pointer": "/program",
+      "original_string_sha256": "61102b563ce2c2e7ad6fae85349b82f6c50e41f9e65f85fcfcdecb5026dc936d",
+      "published_value": "workspace://.local/sprint03/oracle/jdk/jdk-11.0.32.1+1/bin/java.exe"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-then-retain.json",
+      "json_pointer": "/engine_identity/code_source",
+      "original_string_sha256": "e1d3b7011ef2bf7d7fe6d3ac064a70a201b6cfcc5ae38feca5e591fa1fd9002e",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-then-retain.json",
+      "json_pointer": "/case_length_identity/code_source",
+      "original_string_sha256": "e1d3b7011ef2bf7d7fe6d3ac064a70a201b6cfcc5ae38feca5e591fa1fd9002e",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-then-retain.json",
+      "json_pointer": "/converter_identity/code_source",
+      "original_string_sha256": "e1d3b7011ef2bf7d7fe6d3ac064a70a201b6cfcc5ae38feca5e591fa1fd9002e",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-then-retain.json",
+      "json_pointer": "/rule_identity/code_source",
+      "original_string_sha256": "e1d3b7011ef2bf7d7fe6d3ac064a70a201b6cfcc5ae38feca5e591fa1fd9002e",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-then-retain.json",
+      "json_pointer": "/rule_value_identity/code_source",
+      "original_string_sha256": "e1d3b7011ef2bf7d7fe6d3ac064a70a201b6cfcc5ae38feca5e591fa1fd9002e",
+      "published_value": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/java-length-then-retain.process.json",
+      "json_pointer": "/program",
+      "original_string_sha256": "61102b563ce2c2e7ad6fae85349b82f6c50e41f9e65f85fcfcdecb5026dc936d",
+      "published_value": "workspace://.local/sprint03/oracle/jdk/jdk-11.0.32.1+1/bin/java.exe"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-length-closed.process.json",
+      "json_pointer": "/program",
+      "original_string_sha256": "134926b6e095e44f4ea4515c0cd1515b91a73f0ccf5783af83c095a19672707f",
+      "published_value": "workspace://.local/sprint19/root/target/debug/examples/core_filter_extended_observer.exe"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-length-min-only.process.json",
+      "json_pointer": "/program",
+      "original_string_sha256": "134926b6e095e44f4ea4515c0cd1515b91a73f0ccf5783af83c095a19672707f",
+      "published_value": "workspace://.local/sprint19/root/target/debug/examples/core_filter_extended_observer.exe"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-length-max-only.process.json",
+      "json_pointer": "/program",
+      "original_string_sha256": "134926b6e095e44f4ea4515c0cd1515b91a73f0ccf5783af83c095a19672707f",
+      "published_value": "workspace://.local/sprint19/root/target/debug/examples/core_filter_extended_observer.exe"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-length-invalid.process.json",
+      "json_pointer": "/program",
+      "original_string_sha256": "134926b6e095e44f4ea4515c0cd1515b91a73f0ccf5783af83c095a19672707f",
+      "published_value": "workspace://.local/sprint19/root/target/debug/examples/core_filter_extended_observer.exe"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-retain-partial.process.json",
+      "json_pointer": "/program",
+      "original_string_sha256": "134926b6e095e44f4ea4515c0cd1515b91a73f0ccf5783af83c095a19672707f",
+      "published_value": "workspace://.local/sprint19/root/target/debug/examples/core_filter_extended_observer.exe"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-remove-partial.process.json",
+      "json_pointer": "/program",
+      "original_string_sha256": "134926b6e095e44f4ea4515c0cd1515b91a73f0ccf5783af83c095a19672707f",
+      "published_value": "workspace://.local/sprint19/root/target/debug/examples/core_filter_extended_observer.exe"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-remove-empty-case.process.json",
+      "json_pointer": "/program",
+      "original_string_sha256": "134926b6e095e44f4ea4515c0cd1515b91a73f0ccf5783af83c095a19672707f",
+      "published_value": "workspace://.local/sprint19/root/target/debug/examples/core_filter_extended_observer.exe"
+    },
+    {
+      "source_alias": "workspace://.local/sprint19/root/filter-observe01/rust-length-then-retain.process.json",
+      "json_pointer": "/program",
+      "original_string_sha256": "134926b6e095e44f4ea4515c0cd1515b91a73f0ccf5783af83c095a19672707f",
+      "published_value": "workspace://.local/sprint19/root/target/debug/examples/core_filter_extended_observer.exe"
+    }
+  ],
+  "explicit_local_root_aliases": [
+    "workspace"
+  ],
+  "no_engine_or_native_process_started": true,
+  "no_original_input_modified": true,
+  "no_whole_R5_or_Core_parity_claim": true
+}

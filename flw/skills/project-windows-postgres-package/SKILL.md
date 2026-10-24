@@ -8,6 +8,29 @@ metadata:
 
 # Scope and evidence
 
+## Verify the complete command plan before starting services
+
+Sprint24 DR had two failed plan admissions: trailing working-directory separators,
+then a manually transcribed62-hex pg_dump pin. Comparing duplicated command and
+configuration fields with each other did not establish agreement with the real file.
+The broker refused both safely, but the second refusal occurred after PostgreSQL
+started and required an owned ordinary recovery.
+
+Before any service starts, evaluate every command guard: label uniqueness,
+exact admitted working directory, executable/key binding,64-hex digest, actual
+executable bytes, stream cap, service status, timeout and target connection.
+Deduplicate actual executable reads by admitted path; derive pins from the actual
+file rather than transcribing them. Keep the final broker recheck as well.
+For relocated drafts, normalize the plan to its admitted canonical directory;
+do not weaken the exact guard to hide an erroneous plan.
+
+Verified correction: actual preflight rejects the old malformed pin and a coherent
+wrong64-hex command/config pair, accepts all31 corrected commands/eight programs,
+then the independently accepted full database recovery completes28 invocations
+with56 full streams. Public evidence: `evidence/sprint24/dr-current/guard-regression.json`,
+`qa-acceptance.json` and `td-acceptance.json`. Known failed attempts remain failed;
+the private archive/auth snapshots are not public replay inputs.
+
 Use for this repository's portable Windows PostgreSQL18.6 package. Maintained setup-postgres.ps1/start-packaged.ps1 own versions and paths. Read them before changing a mechanism. This skill does not certify release acceptance, general PostgreSQL administration or interrupted initialization recovery.
 
 Real package07 evidence verified 1635 manifest file hashes/sizes, fresh bundled first initialization, app-role nonsuperuser transaction probe, and Windows PowerShell5 role-exists/database-missing recovery. Evidence belongs to source acb3cf024aecc8bcb2641854875654511288c34c, not automatically a subsequent source. Public audit: flw/evidence/sprint-02-debt.md. Raw logs remain private: .local/logs/s2-package-bootstrap-07.log, s2-package-bootstrap-recovery-07.log and s2-package-verify07.log.
@@ -51,8 +74,33 @@ Append reviewed by Root against actual independent QA/TD evidence; no runtime or
 
 For this project's Windows package/build/recovery observers, normalize both executable paths with `Path.GetFullPath` and compare ordinal-ignore-case. Forward/backslashes alone caused a real identity guard refusal; do not bypass path checks or substitute basename-only ownership.
 
-Preserve JSON creation timestamps as literal strings (`ConvertFrom-Json -DateKind String` on the tested PowerShell7), parse ISO offsets explicitly with `DateTimeOffset`, and compare UTC ticks to CIM `CreationDate.ToUniversalTime().Ticks`. Do not compare display formatting, auto-converted JSON dates, or unspecified/local DateTime ticks. Missing/ambiguous identity must refuse before any process mutation; a refused guard is not a successful kill/recovery test. The separately suspected migration-guard representation failure remains unverified until its actual isolated replay.
+Preserve JSON creation timestamps as literal strings (`ConvertFrom-Json -DateKind String` on the tested PowerShell7) and parse ISO offsets explicitly with `DateTimeOffset`. Native `GetProcessTimes` on the retained handle, `Process.StartTime` and the captured creation timestamp must agree exactly at 100ns precision. CIM on the measured Windows host exposes microseconds: require its UTC ticks to be a multiple of10 and equal `nativeTicks - (nativeTicks % 10)` using Int64 arithmetic. Do not use floating-point division, a time tolerance, display formatting or unspecified/local DateTime ticks. Keep exact PID, normalized executable and expected `-D` directory checks; missing/ambiguous identity refuses before process mutation.
+
+Sprint21 actually calibrated three fresh owned processes: native remainders5,6,6 and exact CIM integer floors, with wrong native creation(+1tick), neighboring CIM microsecond(+10ticks), PID and image all rejected. Verified helper: `tools/sprint21/process-identity.psm1`, SHA256 `9743B0F8830EF57E3FA073C1ACFB0CA7B8D51369547AD838A0D33D5AE0EF2A90`. Actual acceptance: `.local/sprint21/qa/identity-calibration-acceptance01.json` (QA,5561...) and `.local/sprint21/td/process-identity-actual-acceptance04.json` (TD,54FB8AB5...). Failed PG01 is retained unchanged. This proves the precision adapter only; a refused guard is not a successful PostgreSQL migration, kill or recovery test. Recalibrate before applying a different provider/host precision rule.
 
 Root observations in current PID + creation + normalized executable path. Build ancestry from each observed live snapshot with present parents and child creation not earlier than its current parent. Keep captured identities as PID+creation; never reuse a historical PID set as an ancestry seed. Actual Sprint08 stale PID reuse incorrectly captured unrelated QA children; the repaired observer and fresh03 passed independent targeted Council review. See sprint-08-td-pid-closure-position.md and sprint-08-qa-observer-closure01.json under flw/evidence.
 
 CIM polling is non-atomic sampling: missing paths, short-lived/exited-parent children and uncaptured child exits remain unavailable. Capture actual main native handle/exit and full streams separately. This does not authorize terminating processes or promise kernel/full-machine ancestry. Preserve contaminated/failed attempts; freeze fresh evidence for changed mechanisms rather than relabel them.
+
+## Sprint21 protocol readiness and failure-preserving cleanup
+
+A TCP listener can appear while WAL recovery still rejects SQL. Actual recovery01 failed its first SQL with startup FATAL; its PostgreSQL then stopped cleanly and removed its own PID file. Keep the whole attempt FAIL. Do not restore a stale PID file or delete it manually to replay an earlier precondition. Bind the latest actual stopped process, retained captures, absent PID file, exact data directory and available port before a fresh normal PostgreSQL start.
+
+Use pinned official pg_isready before the first SQL: tested helper `tools/sprint21/postgres-readiness.psm1` (38346099...) allows at most12 probes within20 seconds, each3-second capture/64KiB, retries only actual native1/2, and requires0. Then separately verify read-only SQL `pg_is_in_recovery()=false` and the exact connected data directory. Actual resume01 observed1,1,0, redo completion/end-of-recovery checkpoint, successful SQL, and owned fast-stop0/full EOF with PID removal. TD acceptance: `.local/sprint21/td/postgres-operational-closure03.json` (58D036C7...). This does not turn historical01 or recovery01 into a successful whole run.
+
+Persist the original main exception privately before finally cleanup. If a retained child has already exited, complete its handle/capture rather than demanding live CIM identity; require calibrated ownership before stopping a still-live child. Cleanup exceptions must not erase the primary diagnostic. Historical01's first cause remains UNKNOWN where it was masked. These repairs do not reconstruct compile04's missing child native exit/EOF or establish that every capture lifecycle failure is solved.
+
+
+## Bounded browser file selection on a live fixture
+
+For actual browser file upload, inspect the current visible DOM file input and use only currently documented computer-use APIs. Start the chooser wait and the observed input activation concurrently, with finite per-action/tool bounds shorter than remaining fixture lifetime. A timed-out chooser is a diagnostic failure: check fixture liveness and resolve the pending interaction before another upload; do not queue follow-up API/UI work after the fixture deadline. Preserve the failed attempt and distinguish tool success, page response and server-side saved bytes. Actual browser permission denials remain binding; never switch channels to bypass them. This mechanism was used for successful S16 pre-restart uploads; it does not establish completed reimport/restart or arbitrary file-picker portability.
+
+
+## Pin transitive sibling runtime dependencies
+
+When reusing a wrapper/worker, resolve each relative import from the exact copied file PSScriptRoot and verify the reachable sibling runtime modules, scope/bounds and executable hashes. Byte-identical outer code at a new path can execute a different dependency. A new sprint changes only the explicitly reviewed diagnostic paths/deadline/ports/nonce; retain real package bytes. Review the narrow resolved-path/hash diff before launch and keep the earlier failure unchanged. Do not weaken private ACL, path/reparse, native ownership, output limits or free-space guards merely to make relocation run. Full old-tree inventory is unnecessary for a small isolated wrapper relocation when protected trees remain read-only.
+
+
+## Distinguish global site permission from conversation denial
+
+For this project local browser checks, a global site allow and developer mode do not establish that the current conversation is allowed. If the normal tool returns persisted_user_denied, inspect only the relevant permission metadata and compare global versus current-conversation settings; preserve the refusal and stop blocked-origin retries. In the observed0.7.4 completion, an older conversation-specific origins deny survived global allow and desktop restarts. The user revoked that exact denial themselves, after which the normal Browser Use tool reached the existing server. Do not erase the permission file, change policy/bridge code, reset unrelated permissions or switch browser/API/host/port to bypass the refusal. Confirm actual current tool access after the user change; successful server startup, manual user navigation and full CDP are separate observations. Protect identifiers/raw diagnostics privately, and do not claim an untested cache or product fault.

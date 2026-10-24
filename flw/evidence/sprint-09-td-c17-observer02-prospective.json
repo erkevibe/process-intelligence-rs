@@ -1,0 +1,17 @@
+{
+  "utc": "2026-10-11T12:58:03.7850773Z",
+  "source_commit": "b4edef34b083d1cb7737cf648f1c051eeb94127a",
+  "instrument": ".local/sprint09/qa/c17-budget-observer02.cjs",
+  "sha256": "2BE3F08E70F8304DF5422F6256FA57ABDEBF0439B60C3F736DBEC4D095292B59",
+  "contract_sha256": "35FA8C8E0CF09E4FB4B447332905FB773F5427667F37AD2D82919E6747721616",
+  "review": "Full source and contract independently read; exact hashes matched.",
+  "decision": "Conditional GO Observe-first only, fresh exact C2 owned5450/15450 fixtures and Root QuietGo; no fault execution approval",
+  "mechanism": "Exact simple Query four-SET batch stays queued through four real SET completions; arbitrary batches and extended Parse batch refused. Typed exact RETURNING, actualBEGIN/tablelock and completedDELETE-before-COMMIT remain. Fixed360s observer lifetime does not change product5/2/10 budgets.",
+  "obligations": [
+    "Actual C2 Observe compatibility/fullPREPOST/native identities required before fault review; C1 compatibility not transferred.",
+    "C17LOCK source marker/holder.pid do not provide complete holder native PID creation/hash/streams or actual proxy-backend/database correlation; independently capture these plus real server lock_timeout SQLSTATE/log and conservation.",
+    "C17TX heldCOMMIT11s needs actual same-backend transaction_timeout PG log/state and full conservation; observer ErrorResponse exit alone insufficient.",
+    "Capture own holder rollback/possible process-instance forced termination honestly; no graceful0 inference.",
+    "SQL5 remains separate; no runtime mutation or execution by TD."
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "utc": "2026-10-11T21:08:25.5398672Z",
+  "status": "ADOPTED_LIMITED_HANDOFF_ONLY_DELIVERY_PENDING_FINAL_CHECKS",
+  "proposal_sha256": "89F74419AD6E111F515EE428A0CE11EDD1346C5790716BD590CAE54729E32B02",
+  "fixed_members": 5,
+  "for": 5,
+  "against": 0,
+  "abstain": 0,
+  "votes": [
+    {
+      "role": "root",
+      "path": "flw/evidence/sprint-10-limited-delivery-root-vote01.json",
+      "sha256": "5936921C2AB83D1278896B74BADD29951DBC1FF62C0F9CF9418B25F5F82BEE37",
+      "vote": "FOR",
+      "utc": "2026-10-11T21:06:56.5300166Z"
+    },
+    {
+      "role": "customer",
+      "path": "flw/evidence/sprint-10-limited-delivery-customer-vote01.json",
+      "sha256": "482A3D99D62910CDB55080588C3440C892BDB00DABFF1C367AFD8D4DDD4549B1",
+      "vote": "FOR",
+      "utc": "2026-10-11T21:07:14Z"
+    },
+    {
+      "role": "pm",
+      "path": "flw/evidence/sprint-10-limited-delivery-pm-vote01.json",
+      "sha256": "A28CD09A6CF4BF2DF0D11DD92D01481D15661A7D9687E67EF89B9E65E7032474",
+      "vote": "FOR",
+      "utc": "2026-10-11T21:07:05.9737753Z"
+    },
+    {
+      "role": "qa",
+      "path": "flw/evidence/sprint-10-limited-delivery-qa-vote01.json",
+      "sha256": "645546A930795B988DC4BF672B902739B02DCE83C53C5C77913E054C21D7B9B5",
+      "vote": "FOR",
+      "utc": "2026-10-11T21:07:05.6159532Z"
+    },
+    {
+      "role": "td",
+      "path": "flw/evidence/sprint-10-limited-delivery-td-vote01.json",
+      "sha256": "AC06BC838CBBE141A65F8FEB8174CD537CA572069C7CAB5398C21FD479D547DD",
+      "vote": "FOR",
+      "utc": "2026-10-11T21:07:51.1434392Z"
+    }
+  ],
+  "qa_public_review_sha256": "BB012D387F42896D38D4EB494CC8F8E08C17F582658C77DB88D5611C17B96864",
+  "td_public_review_sha256": "E0264B5B27F9840ABB43F96BAD9F11933581353AA90E725BC7E1EC43939A2A3D",
+  "candidate": "0.7.2 UNACCEPTED, source9005",
+  "open": [
+    "R3-01",
+    "R3-02",
+    "R3-03",
+    "R3-04",
+    "DISK01"
+  ],
+  "authorized": "Safe source/docs/evidence commit/push existing draft PR11; retain local candidate only",
+  "excluded": [
+    "official release",
+    "tag",
+    "merge",
+    "user installation",
+    "criterion closure",
+    "further runtime"
+  ],
+  "remaining": "Independent normalized Git content, unchanged runtime, actual new HEAD CI/PR/local ZIP and final receipt",
+  "owner": "Root integrates; independent QA/TD final verification",
+  "deadline_utc": "2026-10-11T23:08:00Z"
+}

@@ -1,0 +1,142 @@
+{
+  "utc": "2026-10-11T13:28:36.2940298Z",
+  "source_commit": "b4edef34b083d1cb7737cf648f1c051eeb94127a",
+  "exe_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+  "instrument_sha256": "2BE3F08E70F8304DF5422F6256FA57ABDEBF0439B60C3F736DBEC4D095292B59",
+  "result_sha256": "19377C0AC01B977E11281D25CABF603E76DC5F4B16B23E99D4C28075A2AF5687",
+  "trace_sha256": "EE94CC3EA08A2D77D6CDD0CC39A4837377DF4A26C2CAAA3DBBC3E2E05498B487",
+  "actual": "All2709 trace events/full local files read; native Verify/Apply/observer/parent0; four literal4SET batches; exact typedRETURNING2 DELETE2 then realCOMMIT. Independently whole19→17 source only two expected candidate KV rows removed and full restore SHA identical. No intentional fault.",
+  "decision": "Conditional prospective GO fresh owned C17LOCK/TX under Root QuietGo; no actual timed PASS",
+  "requirements": [
+    "LOCK actual same proxy backend/database plus independent actual AccessExclusive holder/native PID creation/exeSHA/fullstreams and product lock_timeout samebackend PGproof; fullPRE conserved.",
+    "TX actual samebackend product transaction_timeout PGproof and fullPRE after heldCOMMIT11s; observer refusal alone inconclusive.",
+    "Holder cleanup rollback/possible forced own child capture honest. SQL5 separate. Product5/2/10 budgets unchanged; no C1 transfer/globalACK/release acceptance."
+  ],
+  "inventory": [
+    {
+      "name": "apply.launcher.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "name": "apply.launcher.stdout.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "name": "apply.process.json",
+      "bytes": 688,
+      "sha256": "DC5C4D8976323B2FCFE187F344012E73BFF7EAC68AC521EC9A47E61AD1DE7268"
+    },
+    {
+      "name": "apply.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "name": "apply.stdout.log",
+      "bytes": 179,
+      "sha256": "E27361941F3944567D008B22C419B1F6232C9F66747B869C00B4407564570771"
+    },
+    {
+      "name": "observer-config.json",
+      "bytes": 499,
+      "sha256": "BF6FC883E15E84241262044BB5A67E0A3983BDFB350F229E0CA70B816CD15DC6"
+    },
+    {
+      "name": "observer-events.json",
+      "bytes": 528884,
+      "sha256": "EE94CC3EA08A2D77D6CDD0CC39A4837377DF4A26C2CAAA3DBBC3E2E05498B487"
+    },
+    {
+      "name": "observer.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "name": "observer.stdout.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "name": "plan.json",
+      "bytes": 5058,
+      "sha256": "B9CB3C59FC97EFE82BBB1444A32B18CBCAB79F825F1161882F4A7FE7E9236E87"
+    },
+    {
+      "name": "receipt.json",
+      "bytes": 808,
+      "sha256": "2CF987E4013211404305D5F04CF670CA086ED8642C36CAE412B9496E8692AAED"
+    },
+    {
+      "name": "restore-post.jsonl",
+      "bytes": 19661,
+      "sha256": "6A2656D0FFFBCB66919CDFF66C4671E9635C18AFB13F776852EAE58FD1CC5C1E"
+    },
+    {
+      "name": "restore-post.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "name": "restore-pre.jsonl",
+      "bytes": 19661,
+      "sha256": "6A2656D0FFFBCB66919CDFF66C4671E9635C18AFB13F776852EAE58FD1CC5C1E"
+    },
+    {
+      "name": "restore-pre.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "name": "result.json",
+      "bytes": 807,
+      "sha256": "19377C0AC01B977E11281D25CABF603E76DC5F4B16B23E99D4C28075A2AF5687"
+    },
+    {
+      "name": "source-post.jsonl",
+      "bytes": 11571,
+      "sha256": "F7BA2E90BCF97FCB153E963380BE4E01F03D27333DF85F71A330DDD36E933DB2"
+    },
+    {
+      "name": "source-post.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "name": "source-pre.jsonl",
+      "bytes": 19661,
+      "sha256": "6A2656D0FFFBCB66919CDFF66C4671E9635C18AFB13F776852EAE58FD1CC5C1E"
+    },
+    {
+      "name": "source-pre.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "name": "verify.launcher.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "name": "verify.launcher.stdout.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "name": "verify.process.json",
+      "bytes": 689,
+      "sha256": "4673476BC7D11354EEEF76221C86624D6337E135317410741858A692ACF1189C"
+    },
+    {
+      "name": "verify.stderr.log",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855"
+    },
+    {
+      "name": "verify.stdout.log",
+      "bytes": 202,
+      "sha256": "1C96F2215CB10A85A4CB86ADFF15DF0E8CDB77EA010AA7136045094E2262EA1F"
+    }
+  ]
+}

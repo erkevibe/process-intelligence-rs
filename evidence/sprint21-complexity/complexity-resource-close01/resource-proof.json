@@ -1,0 +1,23 @@
+{
+  "status": "FRESH_BOUNDED_RESOURCE_AFTER_VERIFIED_FILE_COUNT_REDUCTION",
+  "original_reason": "resource_sample_timeout during CMP90K; original three child completions UNKNOWN",
+  "sample": {
+    "allocation_bytes": 7735307008,
+    "root_logical_bytes": 7398875345,
+    "root_allocation_bytes": 7467853288,
+    "skipped_vanished_pg_internal_init_entries": 0,
+    "logical_bytes": 7632935304,
+    "scope": "non-atomic read-only sampling; vanished compiler-target entries or exact owned pgdata11/base/nonzero-decimal-OID/pg_internal.init only; second genuine absence required; 512MiB headroom mandatory",
+    "files": 96102,
+    "skipped_vanished_target_entries": 0
+  },
+  "scan_seconds_cap": 25,
+  "headroom_bytes": 536870912,
+  "entries_cap": 200000,
+  "no_measurement_repeated": true,
+  "prior_attempt_not_reclassified": true,
+  "original_complexity_owner_exit": 1,
+  "elapsed_ms": 21097.3648,
+  "free_bytes": 27540332544,
+  "utc": "2026-10-22T22:43:04.2716291+00:00"
+}

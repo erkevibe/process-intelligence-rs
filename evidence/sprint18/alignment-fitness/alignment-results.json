@@ -1,0 +1,2767 @@
+{
+  "actual_alpha_observations": [
+    {
+      "evaluations": [
+        {
+          "frozen_input": [
+            {
+              "frequency": 20,
+              "sequence": [
+                "A",
+                "B",
+                "C"
+              ]
+            }
+          ],
+          "group": "training",
+          "measurement": {
+            "admission": {
+              "limit": 10000,
+              "markings": 4,
+              "max_tokens_per_place": 1,
+              "status": "exhaustive_reachable_marking_admission"
+            },
+            "alignments": [
+              {
+                "activities": [
+                  "A",
+                  "B",
+                  "C"
+                ],
+                "frequency": 20,
+                "result": {
+                  "Ok": {
+                    "cost": 0,
+                    "moves": [
+                      {
+                        "SyncMove": {
+                          "trace_event_index": 0,
+                          "transition": "69154ab2-6d35-403a-8fca-787b9ee4a49b"
+                        }
+                      },
+                      {
+                        "SyncMove": {
+                          "trace_event_index": 1,
+                          "transition": "1812e370-900a-4886-8cc4-60c882861c6d"
+                        }
+                      },
+                      {
+                        "SyncMove": {
+                          "trace_event_index": 2,
+                          "transition": "fe407727-f9a2-4f42-a517-4c2148b96a65"
+                        }
+                      }
+                    ],
+                    "states_visited": 4
+                  }
+                }
+              }
+            ],
+            "elapsed_alignment_group_ns": 124500,
+            "empty_alignment": {
+              "cost": 3,
+              "moves": [
+                {
+                  "ModelMove": {
+                    "transition": "69154ab2-6d35-403a-8fca-787b9ee4a49b"
+                  }
+                },
+                {
+                  "ModelMove": {
+                    "transition": "1812e370-900a-4886-8cc4-60c882861c6d"
+                  }
+                },
+                {
+                  "ModelMove": {
+                    "transition": "fe407727-f9a2-4f42-a517-4c2148b96a65"
+                  }
+                }
+              ],
+              "states_visited": 4
+            },
+            "fitness": {
+              "average_fitness": 1.0,
+              "log_fitness": 1.0,
+              "perfectly_fitting_frac": 1.0,
+              "total_costs": 0
+            },
+            "integer_check": {
+              "denominator": 120,
+              "perfect_traces": 20,
+              "traces": 20,
+              "weighted_total_cost": 0
+            },
+            "memory_measurement": null,
+            "memory_policy": "OS supervisor may record process peak separately; absent here, not zero",
+            "projection": {
+              "act_to_index": {
+                "A": 0,
+                "B": 1,
+                "C": 2
+              },
+              "activities": [
+                "A",
+                "B",
+                "C"
+              ],
+              "traces": [
+                [
+                  [
+                    0,
+                    1,
+                    2
+                  ],
+                  20
+                ]
+              ]
+            },
+            "status": "measured"
+          }
+        },
+        {
+          "frozen_input": [
+            {
+              "frequency": 3,
+              "sequence": [
+                "A",
+                "B",
+                "C"
+              ]
+            },
+            {
+              "frequency": 1,
+              "sequence": [
+                "A",
+                "X",
+                "C"
+              ]
+            },
+            {
+              "frequency": 1,
+              "sequence": [
+                "A",
+                "B",
+                "C",
+                "C"
+              ]
+            }
+          ],
+          "group": "diagnostic_held_out",
+          "measurement": {
+            "admission": {
+              "limit": 10000,
+              "markings": 4,
+              "max_tokens_per_place": 1,
+              "status": "exhaustive_reachable_marking_admission"
+            },
+            "alignments": [
+              {
+                "activities": [
+                  "A",
+                  "B",
+                  "C"
+                ],
+                "frequency": 3,
+                "result": {
+                  "Ok": {
+                    "cost": 0,
+                    "moves": [
+                      {
+                        "SyncMove": {
+                          "trace_event_index": 0,
+                          "transition": "69154ab2-6d35-403a-8fca-787b9ee4a49b"
+                        }
+                      },
+                      {
+                        "SyncMove": {
+                          "trace_event_index": 1,
+                          "transition": "1812e370-900a-4886-8cc4-60c882861c6d"
+                        }
+                      },
+                      {
+                        "SyncMove": {
+                          "trace_event_index": 2,
+                          "transition": "fe407727-f9a2-4f42-a517-4c2148b96a65"
+                        }
+                      }
+                    ],
+                    "states_visited": 4
+                  }
+                }
+              },
+              {
+                "activities": [
+                  "A",
+                  "B",
+                  "C",
+                  "C"
+                ],
+                "frequency": 1,
+                "result": {
+                  "Ok": {
+                    "cost": 1,
+                    "moves": [
+                      {
+                        "SyncMove": {
+                          "trace_event_index": 0,
+                          "transition": "69154ab2-6d35-403a-8fca-787b9ee4a49b"
+                        }
+                      },
+                      {
+                        "SyncMove": {
+                          "trace_event_index": 1,
+                          "transition": "1812e370-900a-4886-8cc4-60c882861c6d"
+                        }
+                      },
+                      {
+                        "SyncMove": {
+                          "trace_event_index": 2,
+                          "transition": "fe407727-f9a2-4f42-a517-4c2148b96a65"
+                        }
+                      },
+                      {
+                        "LogMove": {
+                          "trace_event_index": 3
+                        }
+                      }
+                    ],
+                    "states_visited": 11
+                  }
+                }
+              },
+              {
+                "activities": [
+                  "A",
+                  "X",
+                  "C"
+                ],
+                "frequency": 1,
+                "result": {
+                  "Ok": {
+                    "cost": 2,
+                    "moves": [
+                      {
+                        "SyncMove": {
+                          "trace_event_index": 0,
+                          "transition": "69154ab2-6d35-403a-8fca-787b9ee4a49b"
+                        }
+                      },
+                      {
+                        "ModelMove": {
+                          "transition": "1812e370-900a-4886-8cc4-60c882861c6d"
+                        }
+                      },
+                      {
+                        "LogMove": {
+                          "trace_event_index": 1
+                        }
+                      },
+                      {
+                        "SyncMove": {
+                          "trace_event_index": 2,
+                          "transition": "fe407727-f9a2-4f42-a517-4c2148b96a65"
+                        }
+                      }
+                    ],
+                    "states_visited": 12
+                  }
+                }
+              }
+            ],
+            "elapsed_alignment_group_ns": 300600,
+            "empty_alignment": {
+              "cost": 3,
+              "moves": [
+                {
+                  "ModelMove": {
+                    "transition": "69154ab2-6d35-403a-8fca-787b9ee4a49b"
+                  }
+                },
+                {
+                  "ModelMove": {
+                    "transition": "1812e370-900a-4886-8cc4-60c882861c6d"
+                  }
+                },
+                {
+                  "ModelMove": {
+                    "transition": "fe407727-f9a2-4f42-a517-4c2148b96a65"
+                  }
+                }
+              ],
+              "states_visited": 4
+            },
+            "fitness": {
+              "average_fitness": 0.9047619047619048,
+              "log_fitness": 0.9032258064516129,
+              "perfectly_fitting_frac": 0.6,
+              "total_costs": 3
+            },
+            "integer_check": {
+              "denominator": 31,
+              "perfect_traces": 3,
+              "traces": 5,
+              "weighted_total_cost": 3
+            },
+            "memory_measurement": null,
+            "memory_policy": "OS supervisor may record process peak separately; absent here, not zero",
+            "projection": {
+              "act_to_index": {
+                "A": 0,
+                "B": 1,
+                "C": 2,
+                "X": 3
+              },
+              "activities": [
+                "A",
+                "B",
+                "C",
+                "X"
+              ],
+              "traces": [
+                [
+                  [
+                    0,
+                    1,
+                    2
+                  ],
+                  3
+                ],
+                [
+                  [
+                    0,
+                    1,
+                    2,
+                    2
+                  ],
+                  1
+                ],
+                [
+                  [
+                    0,
+                    3,
+                    2
+                  ],
+                  1
+                ]
+              ]
+            },
+            "status": "measured"
+          }
+        }
+      ],
+      "frozen_ideal_hypothesis": {
+        "actual_mined_metric": "Measured unchanged, no predetermined pass threshold; all costs and discrepancy from ideal retained.",
+        "diagnostic_held_out": [
+          {
+            "frequency": 3,
+            "sequence": [
+              "A",
+              "B",
+              "C"
+            ]
+          },
+          {
+            "frequency": 1,
+            "sequence": [
+              "A",
+              "X",
+              "C"
+            ]
+          },
+          {
+            "frequency": 1,
+            "sequence": [
+              "A",
+              "B",
+              "C",
+              "C"
+            ]
+          }
+        ],
+        "id": "A10",
+        "ideal_ground_truth_net": "SEQ",
+        "ideal_held_out_average": "19/21",
+        "ideal_held_out_costs": [
+          0,
+          2,
+          1
+        ],
+        "ideal_held_out_log_fitness": "28/31",
+        "net": "actual newly mined Alpha sequential",
+        "training": [
+          {
+            "frequency": 20,
+            "sequence": [
+              "A",
+              "B",
+              "C"
+            ]
+          }
+        ]
+      },
+      "id": "A10",
+      "net_sha256": "4c8da007ed018e5587148ce0949933a442bcabf2b242481c7b9cc6bc496ef95b"
+    },
+    {
+      "evaluations": [
+        {
+          "frozen_input": [
+            {
+              "frequency": 20,
+              "sequence": [
+                "A",
+                "B",
+                "D"
+              ]
+            },
+            {
+              "frequency": 20,
+              "sequence": [
+                "A",
+                "C",
+                "D"
+              ]
+            }
+          ],
+          "group": "training",
+          "measurement": {
+            "admission": {
+              "limit": 10000,
+              "markings": 4,
+              "max_tokens_per_place": 1,
+              "status": "exhaustive_reachable_marking_admission"
+            },
+            "alignments": [
+              {
+                "activities": [
+                  "A",
+                  "B",
+                  "D"
+                ],
+                "frequency": 20,
+                "result": {
+                  "Ok": {
+                    "cost": 0,
+                    "moves": [
+                      {
+                        "SyncMove": {
+                          "trace_event_index": 0,
+                          "transition": "b7482182-cf1f-4ba9-ad34-181ef045818e"
+                        }
+                      },
+                      {
+                        "SyncMove": {
+                          "trace_event_index": 1,
+                          "transition": "d4f86d8d-a6fe-4534-8a2a-31a4850c35c1"
+                        }
+                      },
+                      {
+                        "SyncMove": {
+                          "trace_event_index": 2,
+                          "transition": "e1ccf139-3556-40f9-9b4d-091840e8a9d2"
+                        }
+                      }
+                    ],
+                    "states_visited": 4
+                  }
+                }
+              },
+              {
+                "activities": [
+                  "A",
+                  "C",
+                  "D"
+                ],
+                "frequency": 20,
+                "result": {
+                  "Ok": {
+                    "cost": 0,
+                    "moves": [
+                      {
+                        "SyncMove": {
+                          "trace_event_index": 0,
+                          "transition": "b7482182-cf1f-4ba9-ad34-181ef045818e"
+                        }
+                      },
+                      {
+                        "SyncMove": {
+                          "trace_event_index": 1,
+                          "transition": "52fd99b1-2aab-4a53-bf9b-c0bf20971480"
+                        }
+                      },
+                      {
+                        "SyncMove": {
+                          "trace_event_index": 2,
+                          "transition": "e1ccf139-3556-40f9-9b4d-091840e8a9d2"
+                        }
+                      }
+                    ],
+                    "states_visited": 4
+                  }
+                }
+              }
+            ],
+            "elapsed_alignment_group_ns": 233100,
+            "empty_alignment": {
+              "cost": 3,
+              "moves": [
+                {
+                  "ModelMove": {
+                    "transition": "b7482182-cf1f-4ba9-ad34-181ef045818e"
+                  }
+                },
+                {
+                  "ModelMove": {
+                    "transition": "52fd99b1-2aab-4a53-bf9b-c0bf20971480"
+                  }
+                },
+                {
+                  "ModelMove": {
+                    "transition": "e1ccf139-3556-40f9-9b4d-091840e8a9d2"
+                  }
+                }
+              ],
+              "states_visited": 4
+            },
+            "fitness": {
+              "average_fitness": 1.0,
+              "log_fitness": 1.0,
+              "perfectly_fitting_frac": 1.0,
+              "total_costs": 0
+            },
+            "integer_check": {
+              "denominator": 240,
+              "perfect_traces": 40,
+              "traces": 40,
+              "weighted_total_cost": 0
+            },
+            "memory_measurement": null,
+            "memory_policy": "OS supervisor may record process peak separately; absent here, not zero",
+            "projection": {
+              "act_to_index": {
+                "A": 0,
+                "B": 1,
+                "C": 2,
+                "D": 3
+              },
+              "activities": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "traces": [
+                [
+                  [
+                    0,
+                    1,
+                    3
+                  ],
+                  20
+                ],
+                [
+                  [
+                    0,
+                    2,
+                    3
+                  ],
+                  20
+                ]
+              ]
+            },
+            "status": "measured"
+          }
+        },
+        {
+          "frozen_input": [
+            {
+              "frequency": 2,
+              "sequence": [
+                "A",
+                "B",
+                "D"
+              ]
+            },
+            {
+              "frequency": 2,
+              "sequence": [
+                "A",
+                "C",
+                "D"
+              ]
+            },
+            {
+              "frequency": 1,
+              "sequence": [
+                "A",
+                "B",
+                "B",
+                "D"
+              ]
+            },
+            {
+              "frequency": 1,
+              "sequence": [
+                "A",
+                "C"
+              ]
+            }
+          ],
+          "group": "diagnostic_held_out",
+          "measurement": {
+            "admission": {
+              "limit": 10000,
+              "markings": 4,
+              "max_tokens_per_place": 1,
+              "status": "exhaustive_reachable_marking_admission"
+            },
+            "alignments": [
+              {
+                "activities": [
+                  "A",
+                  "B",
+                  "B",
+                  "D"
+                ],
+                "frequency": 1,
+                "result": {
+                  "Ok": {
+                    "cost": 1,
+                    "moves": [
+                      {
+                        "SyncMove": {
+                          "trace_event_index": 0,
+                          "transition": "b7482182-cf1f-4ba9-ad34-181ef045818e"
+                        }
+                      },
+                      {
+                        "SyncMove": {
+                          "trace_event_index": 1,
+                          "transition": "d4f86d8d-a6fe-4534-8a2a-31a4850c35c1"
+                        }
+                      },
+                      {
+                        "LogMove": {
+                          "trace_event_index": 2
+                        }
+                      },
+                      {
+                        "SyncMove": {
+                          "trace_event_index": 3,
+                          "transition": "e1ccf139-3556-40f9-9b4d-091840e8a9d2"
+                        }
+                      }
+                    ],
+                    "states_visited": 10
+                  }
+                }
+              },
+              {
+                "activities": [
+                  "A",
+                  "B",
+                  "D"
+                ],
+                "frequency": 2,
+                "result": {
+                  "Ok": {
+                    "cost": 0,
+                    "moves": [
+                      {
+                        "SyncMove": {
+                          "trace_event_index": 0,
+                          "transition": "b7482182-cf1f-4ba9-ad34-181ef045818e"
+                        }
+                      },
+                      {
+                        "SyncMove": {
+                          "trace_event_index": 1,
+                          "transition": "d4f86d8d-a6fe-4534-8a2a-31a4850c35c1"
+                        }
+                      },
+                      {
+                        "SyncMove": {
+                          "trace_event_index": 2,
+                          "transition": "e1ccf139-3556-40f9-9b4d-091840e8a9d2"
+                        }
+                      }
+                    ],
+                    "states_visited": 4
+                  }
+                }
+              },
+              {
+                "activities": [
+                  "A",
+                  "C"
+                ],
+                "frequency": 1,
+                "result": {
+                  "Ok": {
+                    "cost": 1,
+                    "moves": [
+                      {
+                        "SyncMove": {
+                          "trace_event_index": 0,
+                          "transition": "b7482182-cf1f-4ba9-ad34-181ef045818e"
+                        }
+                      },
+                      {
+                        "SyncMove": {
+                          "trace_event_index": 1,
+                          "transition": "52fd99b1-2aab-4a53-bf9b-c0bf20971480"
+                        }
+                      },
+                      {
+                        "ModelMove": {
+                          "transition": "e1ccf139-3556-40f9-9b4d-091840e8a9d2"
+                        }
+                      }
+                    ],
+                    "states_visited": 8
+                  }
+                }
+              },
+              {
+                "activities": [
+                  "A",
+                  "C",
+                  "D"
+                ],
+                "frequency": 2,
+                "result": {
+                  "Ok": {
+                    "cost": 0,
+                    "moves": [
+                      {
+                        "SyncMove": {
+                          "trace_event_index": 0,
+                          "transition": "b7482182-cf1f-4ba9-ad34-181ef045818e"
+                        }
+                      },
+                      {
+                        "SyncMove": {
+                          "trace_event_index": 1,
+                          "transition": "52fd99b1-2aab-4a53-bf9b-c0bf20971480"
+                        }
+                      },
+                      {
+                        "SyncMove": {
+                          "trace_event_index": 2,
+                          "transition": "e1ccf139-3556-40f9-9b4d-091840e8a9d2"
+                        }
+                      }
+                    ],
+                    "states_visited": 4
+                  }
+                }
+              }
+            ],
+            "elapsed_alignment_group_ns": 241200,
+            "empty_alignment": {
+              "cost": 3,
+              "moves": [
+                {
+                  "ModelMove": {
+                    "transition": "b7482182-cf1f-4ba9-ad34-181ef045818e"
+                  }
+                },
+                {
+                  "ModelMove": {
+                    "transition": "52fd99b1-2aab-4a53-bf9b-c0bf20971480"
+                  }
+                },
+                {
+                  "ModelMove": {
+                    "transition": "e1ccf139-3556-40f9-9b4d-091840e8a9d2"
+                  }
+                }
+              ],
+              "states_visited": 4
+            },
+            "fitness": {
+              "average_fitness": 0.942857142857143,
+              "log_fitness": 0.9444444444444444,
+              "perfectly_fitting_frac": 0.6666666666666666,
+              "total_costs": 2
+            },
+            "integer_check": {
+              "denominator": 36,
+              "perfect_traces": 4,
+              "traces": 6,
+              "weighted_total_cost": 2
+            },
+            "memory_measurement": null,
+            "memory_policy": "OS supervisor may record process peak separately; absent here, not zero",
+            "projection": {
+              "act_to_index": {
+                "A": 0,
+                "B": 1,
+                "C": 2,
+                "D": 3
+              },
+              "activities": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "traces": [
+                [
+                  [
+                    0,
+                    1,
+                    1,
+                    3
+                  ],
+                  1
+                ],
+                [
+                  [
+                    0,
+                    1,
+                    3
+                  ],
+                  2
+                ],
+                [
+                  [
+                    0,
+                    2
+                  ],
+                  1
+                ],
+                [
+                  [
+                    0,
+                    2,
+                    3
+                  ],
+                  2
+                ]
+              ]
+            },
+            "status": "measured"
+          }
+        }
+      ],
+      "frozen_ideal_hypothesis": {
+        "actual_mined_metric": "Measured unchanged, no predetermined pass threshold; all costs and discrepancy from ideal retained.",
+        "diagnostic_held_out": [
+          {
+            "frequency": 2,
+            "sequence": [
+              "A",
+              "B",
+              "D"
+            ]
+          },
+          {
+            "frequency": 2,
+            "sequence": [
+              "A",
+              "C",
+              "D"
+            ]
+          },
+          {
+            "frequency": 1,
+            "sequence": [
+              "A",
+              "B",
+              "B",
+              "D"
+            ]
+          },
+          {
+            "frequency": 1,
+            "sequence": [
+              "A",
+              "C"
+            ]
+          }
+        ],
+        "id": "A11",
+        "ideal_ground_truth_net": "CHOICE",
+        "ideal_held_out_average": "33/35",
+        "ideal_held_out_costs": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "ideal_held_out_log_fitness": "17/18",
+        "net": "actual newly mined Alpha choice",
+        "training": [
+          {
+            "frequency": 20,
+            "sequence": [
+              "A",
+              "B",
+              "D"
+            ]
+          },
+          {
+            "frequency": 20,
+            "sequence": [
+              "A",
+              "C",
+              "D"
+            ]
+          }
+        ]
+      },
+      "id": "A11",
+      "net_sha256": "721472845f36c042f8af221cf7909f21844e16c3517f9cebbe6409b6670f6e11"
+    },
+    {
+      "evaluations": [
+        {
+          "frozen_input": [
+            {
+              "frequency": 20,
+              "sequence": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ]
+            },
+            {
+              "frequency": 20,
+              "sequence": [
+                "A",
+                "C",
+                "B",
+                "D"
+              ]
+            }
+          ],
+          "group": "training",
+          "measurement": {
+            "admission": {
+              "limit": 10000,
+              "markings": 6,
+              "max_tokens_per_place": 1,
+              "status": "exhaustive_reachable_marking_admission"
+            },
+            "alignments": [
+              {
+                "activities": [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ],
+                "frequency": 20,
+                "result": {
+                  "Ok": {
+                    "cost": 0,
+                    "moves": [
+                      {
+                        "SyncMove": {
+                          "trace_event_index": 0,
+                          "transition": "1112defd-3960-4409-b00a-a018a052912c"
+                        }
+                      },
+                      {
+                        "SyncMove": {
+                          "trace_event_index": 1,
+                          "transition": "f8ad300b-4dc5-4621-aa48-cb028797746f"
+                        }
+                      },
+                      {
+                        "SyncMove": {
+                          "trace_event_index": 2,
+                          "transition": "49344e14-9c6f-48c1-86de-de34c437ffd7"
+                        }
+                      },
+                      {
+                        "SyncMove": {
+                          "trace_event_index": 3,
+                          "transition": "0e388590-eb8e-4d6c-bf84-0e5bbdb78794"
+                        }
+                      }
+                    ],
+                    "states_visited": 5
+                  }
+                }
+              },
+              {
+                "activities": [
+                  "A",
+                  "C",
+                  "B",
+                  "D"
+                ],
+                "frequency": 20,
+                "result": {
+                  "Ok": {
+                    "cost": 0,
+                    "moves": [
+                      {
+                        "SyncMove": {
+                          "trace_event_index": 0,
+                          "transition": "1112defd-3960-4409-b00a-a018a052912c"
+                        }
+                      },
+                      {
+                        "SyncMove": {
+                          "trace_event_index": 1,
+                          "transition": "49344e14-9c6f-48c1-86de-de34c437ffd7"
+                        }
+                      },
+                      {
+                        "SyncMove": {
+                          "trace_event_index": 2,
+                          "transition": "f8ad300b-4dc5-4621-aa48-cb028797746f"
+                        }
+                      },
+                      {
+                        "SyncMove": {
+                          "trace_event_index": 3,
+                          "transition": "0e388590-eb8e-4d6c-bf84-0e5bbdb78794"
+                        }
+                      }
+                    ],
+                    "states_visited": 5
+                  }
+                }
+              }
+            ],
+            "elapsed_alignment_group_ns": 250300,
+            "empty_alignment": {
+              "cost": 4,
+              "moves": [
+                {
+                  "ModelMove": {
+                    "transition": "1112defd-3960-4409-b00a-a018a052912c"
+                  }
+                },
+                {
+                  "ModelMove": {
+                    "transition": "49344e14-9c6f-48c1-86de-de34c437ffd7"
+                  }
+                },
+                {
+                  "ModelMove": {
+                    "transition": "f8ad300b-4dc5-4621-aa48-cb028797746f"
+                  }
+                },
+                {
+                  "ModelMove": {
+                    "transition": "0e388590-eb8e-4d6c-bf84-0e5bbdb78794"
+                  }
+                }
+              ],
+              "states_visited": 6
+            },
+            "fitness": {
+              "average_fitness": 1.0,
+              "log_fitness": 1.0,
+              "perfectly_fitting_frac": 1.0,
+              "total_costs": 0
+            },
+            "integer_check": {
+              "denominator": 320,
+              "perfect_traces": 40,
+              "traces": 40,
+              "weighted_total_cost": 0
+            },
+            "memory_measurement": null,
+            "memory_policy": "OS supervisor may record process peak separately; absent here, not zero",
+            "projection": {
+              "act_to_index": {
+                "A": 0,
+                "B": 1,
+                "C": 2,
+                "D": 3
+              },
+              "activities": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "traces": [
+                [
+                  [
+                    0,
+                    1,
+                    2,
+                    3
+                  ],
+                  20
+                ],
+                [
+                  [
+                    0,
+                    2,
+                    1,
+                    3
+                  ],
+                  20
+                ]
+              ]
+            },
+            "status": "measured"
+          }
+        },
+        {
+          "frozen_input": [
+            {
+              "frequency": 2,
+              "sequence": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ]
+            },
+            {
+              "frequency": 2,
+              "sequence": [
+                "A",
+                "C",
+                "B",
+                "D"
+              ]
+            },
+            {
+              "frequency": 1,
+              "sequence": [
+                "A",
+                "B",
+                "D",
+                "C"
+              ]
+            },
+            {
+              "frequency": 1,
+              "sequence": [
+                "A",
+                "C",
+                "B",
+                "D",
+                "D"
+              ]
+            }
+          ],
+          "group": "diagnostic_held_out",
+          "measurement": {
+            "admission": {
+              "limit": 10000,
+              "markings": 6,
+              "max_tokens_per_place": 1,
+              "status": "exhaustive_reachable_marking_admission"
+            },
+            "alignments": [
+              {
+                "activities": [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ],
+                "frequency": 2,
+                "result": {
+                  "Ok": {
+                    "cost": 0,
+                    "moves": [
+                      {
+                        "SyncMove": {
+                          "trace_event_index": 0,
+                          "transition": "1112defd-3960-4409-b00a-a018a052912c"
+                        }
+                      },
+                      {
+                        "SyncMove": {
+                          "trace_event_index": 1,
+                          "transition": "f8ad300b-4dc5-4621-aa48-cb028797746f"
+                        }
+                      },
+                      {
+                        "SyncMove": {
+                          "trace_event_index": 2,
+                          "transition": "49344e14-9c6f-48c1-86de-de34c437ffd7"
+                        }
+                      },
+                      {
+                        "SyncMove": {
+                          "trace_event_index": 3,
+                          "transition": "0e388590-eb8e-4d6c-bf84-0e5bbdb78794"
+                        }
+                      }
+                    ],
+                    "states_visited": 5
+                  }
+                }
+              },
+              {
+                "activities": [
+                  "A",
+                  "B",
+                  "D",
+                  "C"
+                ],
+                "frequency": 1,
+                "result": {
+                  "Ok": {
+                    "cost": 2,
+                    "moves": [
+                      {
+                        "SyncMove": {
+                          "trace_event_index": 0,
+                          "transition": "1112defd-3960-4409-b00a-a018a052912c"
+                        }
+                      },
+                      {
+                        "SyncMove": {
+                          "trace_event_index": 1,
+                          "transition": "f8ad300b-4dc5-4621-aa48-cb028797746f"
+                        }
+                      },
+                      {
+                        "LogMove": {
+                          "trace_event_index": 2
+                        }
+                      },
+                      {
+                        "SyncMove": {
+                          "trace_event_index": 3,
+                          "transition": "49344e14-9c6f-48c1-86de-de34c437ffd7"
+                        }
+                      },
+                      {
+                        "ModelMove": {
+                          "transition": "0e388590-eb8e-4d6c-bf84-0e5bbdb78794"
+                        }
+                      }
+                    ],
+                    "states_visited": 22
+                  }
+                }
+              },
+              {
+                "activities": [
+                  "A",
+                  "C",
+                  "B",
+                  "D"
+                ],
+                "frequency": 2,
+                "result": {
+                  "Ok": {
+                    "cost": 0,
+                    "moves": [
+                      {
+                        "SyncMove": {
+                          "trace_event_index": 0,
+                          "transition": "1112defd-3960-4409-b00a-a018a052912c"
+                        }
+                      },
+                      {
+                        "SyncMove": {
+                          "trace_event_index": 1,
+                          "transition": "49344e14-9c6f-48c1-86de-de34c437ffd7"
+                        }
+                      },
+                      {
+                        "SyncMove": {
+                          "trace_event_index": 2,
+                          "transition": "f8ad300b-4dc5-4621-aa48-cb028797746f"
+                        }
+                      },
+                      {
+                        "SyncMove": {
+                          "trace_event_index": 3,
+                          "transition": "0e388590-eb8e-4d6c-bf84-0e5bbdb78794"
+                        }
+                      }
+                    ],
+                    "states_visited": 5
+                  }
+                }
+              },
+              {
+                "activities": [
+                  "A",
+                  "C",
+                  "B",
+                  "D",
+                  "D"
+                ],
+                "frequency": 1,
+                "result": {
+                  "Ok": {
+                    "cost": 1,
+                    "moves": [
+                      {
+                        "SyncMove": {
+                          "trace_event_index": 0,
+                          "transition": "1112defd-3960-4409-b00a-a018a052912c"
+                        }
+                      },
+                      {
+                        "SyncMove": {
+                          "trace_event_index": 1,
+                          "transition": "49344e14-9c6f-48c1-86de-de34c437ffd7"
+                        }
+                      },
+                      {
+                        "SyncMove": {
+                          "trace_event_index": 2,
+                          "transition": "f8ad300b-4dc5-4621-aa48-cb028797746f"
+                        }
+                      },
+                      {
+                        "SyncMove": {
+                          "trace_event_index": 3,
+                          "transition": "0e388590-eb8e-4d6c-bf84-0e5bbdb78794"
+                        }
+                      },
+                      {
+                        "LogMove": {
+                          "trace_event_index": 4
+                        }
+                      }
+                    ],
+                    "states_visited": 15
+                  }
+                }
+              }
+            ],
+            "elapsed_alignment_group_ns": 304100,
+            "empty_alignment": {
+              "cost": 4,
+              "moves": [
+                {
+                  "ModelMove": {
+                    "transition": "1112defd-3960-4409-b00a-a018a052912c"
+                  }
+                },
+                {
+                  "ModelMove": {
+                    "transition": "49344e14-9c6f-48c1-86de-de34c437ffd7"
+                  }
+                },
+                {
+                  "ModelMove": {
+                    "transition": "f8ad300b-4dc5-4621-aa48-cb028797746f"
+                  }
+                },
+                {
+                  "ModelMove": {
+                    "transition": "0e388590-eb8e-4d6c-bf84-0e5bbdb78794"
+                  }
+                }
+              ],
+              "states_visited": 6
+            },
+            "fitness": {
+              "average_fitness": 0.9398148148148149,
+              "log_fitness": 0.9387755102040817,
+              "perfectly_fitting_frac": 0.6666666666666666,
+              "total_costs": 3
+            },
+            "integer_check": {
+              "denominator": 49,
+              "perfect_traces": 4,
+              "traces": 6,
+              "weighted_total_cost": 3
+            },
+            "memory_measurement": null,
+            "memory_policy": "OS supervisor may record process peak separately; absent here, not zero",
+            "projection": {
+              "act_to_index": {
+                "A": 0,
+                "B": 1,
+                "C": 2,
+                "D": 3
+              },
+              "activities": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "traces": [
+                [
+                  [
+                    0,
+                    1,
+                    2,
+                    3
+                  ],
+                  2
+                ],
+                [
+                  [
+                    0,
+                    1,
+                    3,
+                    2
+                  ],
+                  1
+                ],
+                [
+                  [
+                    0,
+                    2,
+                    1,
+                    3
+                  ],
+                  2
+                ],
+                [
+                  [
+                    0,
+                    2,
+                    1,
+                    3,
+                    3
+                  ],
+                  1
+                ]
+              ]
+            },
+            "status": "measured"
+          }
+        }
+      ],
+      "frozen_ideal_hypothesis": {
+        "actual_mined_metric": "Measured unchanged, no predetermined pass threshold; all costs and discrepancy from ideal retained.",
+        "diagnostic_held_out": [
+          {
+            "frequency": 2,
+            "sequence": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          },
+          {
+            "frequency": 2,
+            "sequence": [
+              "A",
+              "C",
+              "B",
+              "D"
+            ]
+          },
+          {
+            "frequency": 1,
+            "sequence": [
+              "A",
+              "B",
+              "D",
+              "C"
+            ]
+          },
+          {
+            "frequency": 1,
+            "sequence": [
+              "A",
+              "C",
+              "B",
+              "D",
+              "D"
+            ]
+          }
+        ],
+        "id": "A12",
+        "ideal_ground_truth_net": "AND",
+        "ideal_held_out_average": "203/216",
+        "ideal_held_out_costs": [
+          0,
+          0,
+          2,
+          1
+        ],
+        "ideal_held_out_log_fitness": "46/49",
+        "net": "actual newly mined Alpha concurrent",
+        "training": [
+          {
+            "frequency": 20,
+            "sequence": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          },
+          {
+            "frequency": 20,
+            "sequence": [
+              "A",
+              "C",
+              "B",
+              "D"
+            ]
+          }
+        ]
+      },
+      "id": "A12",
+      "net_sha256": "cf4d7983495c9df33a44aec385e878b96119c93bebbf7b963c06ca75b983296d"
+    }
+  ],
+  "bundle_sha256": "47bff4a9bdf1d70baeba4f8688c79aabba4157679080c9a859e26ae37741ae5e",
+  "corpus_sha256": "fab7e1952bf5fab56c210023cd6d8b13fa4e19874ed5762330c78bbda68ce075",
+  "manual_reference_checks": {
+    "all_manual_checks_pass": true,
+    "cases": [
+      {
+        "expected": {
+          "expected_cost": 0,
+          "expected_fitness": "1",
+          "frequency": 2,
+          "id": "M01",
+          "net": "SEQ",
+          "sequence": [
+            "A",
+            "B",
+            "C"
+          ]
+        },
+        "id": "M01",
+        "measurement": {
+          "admission": {
+            "limit": 10000,
+            "markings": 4,
+            "max_tokens_per_place": 1,
+            "status": "exhaustive_reachable_marking_admission"
+          },
+          "alignments": [
+            {
+              "activities": [
+                "A",
+                "B",
+                "C"
+              ],
+              "frequency": 2,
+              "result": {
+                "Ok": {
+                  "cost": 0,
+                  "moves": [
+                    {
+                      "SyncMove": {
+                        "trace_event_index": 0,
+                        "transition": "00000000-0000-0000-0000-0000000003e9"
+                      }
+                    },
+                    {
+                      "SyncMove": {
+                        "trace_event_index": 1,
+                        "transition": "00000000-0000-0000-0000-0000000003ea"
+                      }
+                    },
+                    {
+                      "SyncMove": {
+                        "trace_event_index": 2,
+                        "transition": "00000000-0000-0000-0000-0000000003eb"
+                      }
+                    }
+                  ],
+                  "states_visited": 4
+                }
+              }
+            }
+          ],
+          "elapsed_alignment_group_ns": 1189200,
+          "empty_alignment": {
+            "cost": 3,
+            "moves": [
+              {
+                "ModelMove": {
+                  "transition": "00000000-0000-0000-0000-0000000003e9"
+                }
+              },
+              {
+                "ModelMove": {
+                  "transition": "00000000-0000-0000-0000-0000000003ea"
+                }
+              },
+              {
+                "ModelMove": {
+                  "transition": "00000000-0000-0000-0000-0000000003eb"
+                }
+              }
+            ],
+            "states_visited": 4
+          },
+          "fitness": {
+            "average_fitness": 1.0,
+            "log_fitness": 1.0,
+            "perfectly_fitting_frac": 1.0,
+            "total_costs": 0
+          },
+          "integer_check": {
+            "denominator": 12,
+            "perfect_traces": 2,
+            "traces": 2,
+            "weighted_total_cost": 0
+          },
+          "memory_measurement": null,
+          "memory_policy": "OS supervisor may record process peak separately; absent here, not zero",
+          "projection": {
+            "act_to_index": {
+              "A": 0,
+              "B": 1,
+              "C": 2
+            },
+            "activities": [
+              "A",
+              "B",
+              "C"
+            ],
+            "traces": [
+              [
+                [
+                  0,
+                  1,
+                  2
+                ],
+                2
+              ]
+            ]
+          },
+          "status": "measured"
+        },
+        "passed": true
+      },
+      {
+        "expected": {
+          "argument": "One missing B requires and suffices for one visible model move.",
+          "expected_cost": 1,
+          "expected_fitness": "4/5",
+          "frequency": 1,
+          "id": "M02",
+          "net": "SEQ",
+          "sequence": [
+            "A",
+            "C"
+          ]
+        },
+        "id": "M02",
+        "measurement": {
+          "admission": {
+            "limit": 10000,
+            "markings": 4,
+            "max_tokens_per_place": 1,
+            "status": "exhaustive_reachable_marking_admission"
+          },
+          "alignments": [
+            {
+              "activities": [
+                "A",
+                "C"
+              ],
+              "frequency": 1,
+              "result": {
+                "Ok": {
+                  "cost": 1,
+                  "moves": [
+                    {
+                      "SyncMove": {
+                        "trace_event_index": 0,
+                        "transition": "00000000-0000-0000-0000-0000000003e9"
+                      }
+                    },
+                    {
+                      "ModelMove": {
+                        "transition": "00000000-0000-0000-0000-0000000003ea"
+                      }
+                    },
+                    {
+                      "SyncMove": {
+                        "trace_event_index": 1,
+                        "transition": "00000000-0000-0000-0000-0000000003eb"
+                      }
+                    }
+                  ],
+                  "states_visited": 7
+                }
+              }
+            }
+          ],
+          "elapsed_alignment_group_ns": 92800,
+          "empty_alignment": {
+            "cost": 3,
+            "moves": [
+              {
+                "ModelMove": {
+                  "transition": "00000000-0000-0000-0000-0000000003e9"
+                }
+              },
+              {
+                "ModelMove": {
+                  "transition": "00000000-0000-0000-0000-0000000003ea"
+                }
+              },
+              {
+                "ModelMove": {
+                  "transition": "00000000-0000-0000-0000-0000000003eb"
+                }
+              }
+            ],
+            "states_visited": 4
+          },
+          "fitness": {
+            "average_fitness": 0.8,
+            "log_fitness": 0.8,
+            "perfectly_fitting_frac": 0.0,
+            "total_costs": 1
+          },
+          "integer_check": {
+            "denominator": 5,
+            "perfect_traces": 0,
+            "traces": 1,
+            "weighted_total_cost": 1
+          },
+          "memory_measurement": null,
+          "memory_policy": "OS supervisor may record process peak separately; absent here, not zero",
+          "projection": {
+            "act_to_index": {
+              "A": 0,
+              "C": 1
+            },
+            "activities": [
+              "A",
+              "C"
+            ],
+            "traces": [
+              [
+                [
+                  0,
+                  1
+                ],
+                1
+              ]
+            ]
+          },
+          "status": "measured"
+        },
+        "passed": true
+      },
+      {
+        "expected": {
+          "argument": "X has no synchronous transition, one log move plus missing B model move.",
+          "expected_cost": 2,
+          "expected_fitness": "2/3",
+          "frequency": 1,
+          "id": "M03",
+          "net": "SEQ",
+          "sequence": [
+            "A",
+            "X",
+            "C"
+          ]
+        },
+        "id": "M03",
+        "measurement": {
+          "admission": {
+            "limit": 10000,
+            "markings": 4,
+            "max_tokens_per_place": 1,
+            "status": "exhaustive_reachable_marking_admission"
+          },
+          "alignments": [
+            {
+              "activities": [
+                "A",
+                "X",
+                "C"
+              ],
+              "frequency": 1,
+              "result": {
+                "Ok": {
+                  "cost": 2,
+                  "moves": [
+                    {
+                      "SyncMove": {
+                        "trace_event_index": 0,
+                        "transition": "00000000-0000-0000-0000-0000000003e9"
+                      }
+                    },
+                    {
+                      "ModelMove": {
+                        "transition": "00000000-0000-0000-0000-0000000003ea"
+                      }
+                    },
+                    {
+                      "LogMove": {
+                        "trace_event_index": 1
+                      }
+                    },
+                    {
+                      "SyncMove": {
+                        "trace_event_index": 2,
+                        "transition": "00000000-0000-0000-0000-0000000003eb"
+                      }
+                    }
+                  ],
+                  "states_visited": 12
+                }
+              }
+            }
+          ],
+          "elapsed_alignment_group_ns": 89300,
+          "empty_alignment": {
+            "cost": 3,
+            "moves": [
+              {
+                "ModelMove": {
+                  "transition": "00000000-0000-0000-0000-0000000003e9"
+                }
+              },
+              {
+                "ModelMove": {
+                  "transition": "00000000-0000-0000-0000-0000000003ea"
+                }
+              },
+              {
+                "ModelMove": {
+                  "transition": "00000000-0000-0000-0000-0000000003eb"
+                }
+              }
+            ],
+            "states_visited": 4
+          },
+          "fitness": {
+            "average_fitness": 0.6666666666666667,
+            "log_fitness": 0.6666666666666667,
+            "perfectly_fitting_frac": 0.0,
+            "total_costs": 2
+          },
+          "integer_check": {
+            "denominator": 6,
+            "perfect_traces": 0,
+            "traces": 1,
+            "weighted_total_cost": 2
+          },
+          "memory_measurement": null,
+          "memory_policy": "OS supervisor may record process peak separately; absent here, not zero",
+          "projection": {
+            "act_to_index": {
+              "A": 0,
+              "C": 1,
+              "X": 2
+            },
+            "activities": [
+              "A",
+              "C",
+              "X"
+            ],
+            "traces": [
+              [
+                [
+                  0,
+                  2,
+                  1
+                ],
+                1
+              ]
+            ]
+          },
+          "status": "measured"
+        },
+        "passed": true
+      },
+      {
+        "expected": {
+          "argument": "Every complete path has three visible transitions.",
+          "expected_cost": 3,
+          "expected_fitness": "0",
+          "frequency": 1,
+          "id": "M04",
+          "net": "SEQ",
+          "sequence": []
+        },
+        "id": "M04",
+        "measurement": {
+          "admission": {
+            "limit": 10000,
+            "markings": 4,
+            "max_tokens_per_place": 1,
+            "status": "exhaustive_reachable_marking_admission"
+          },
+          "alignments": [
+            {
+              "activities": [],
+              "frequency": 1,
+              "result": {
+                "Ok": {
+                  "cost": 3,
+                  "moves": [
+                    {
+                      "ModelMove": {
+                        "transition": "00000000-0000-0000-0000-0000000003e9"
+                      }
+                    },
+                    {
+                      "ModelMove": {
+                        "transition": "00000000-0000-0000-0000-0000000003ea"
+                      }
+                    },
+                    {
+                      "ModelMove": {
+                        "transition": "00000000-0000-0000-0000-0000000003eb"
+                      }
+                    }
+                  ],
+                  "states_visited": 4
+                }
+              }
+            }
+          ],
+          "elapsed_alignment_group_ns": 61900,
+          "empty_alignment": {
+            "cost": 3,
+            "moves": [
+              {
+                "ModelMove": {
+                  "transition": "00000000-0000-0000-0000-0000000003e9"
+                }
+              },
+              {
+                "ModelMove": {
+                  "transition": "00000000-0000-0000-0000-0000000003ea"
+                }
+              },
+              {
+                "ModelMove": {
+                  "transition": "00000000-0000-0000-0000-0000000003eb"
+                }
+              }
+            ],
+            "states_visited": 4
+          },
+          "fitness": {
+            "average_fitness": 0.0,
+            "log_fitness": 0.0,
+            "perfectly_fitting_frac": 0.0,
+            "total_costs": 3
+          },
+          "integer_check": {
+            "denominator": 3,
+            "perfect_traces": 0,
+            "traces": 1,
+            "weighted_total_cost": 3
+          },
+          "memory_measurement": null,
+          "memory_policy": "OS supervisor may record process peak separately; absent here, not zero",
+          "projection": {
+            "act_to_index": {},
+            "activities": [],
+            "traces": [
+              [
+                [],
+                1
+              ]
+            ]
+          },
+          "status": "measured"
+        },
+        "passed": true
+      },
+      {
+        "expected": {
+          "argument": "Either alternative permits exactly one B/C, so remove the other as one log move.",
+          "expected_cost": 1,
+          "expected_fitness": "6/7",
+          "frequency": 1,
+          "id": "M05",
+          "net": "CHOICE",
+          "sequence": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ]
+        },
+        "id": "M05",
+        "measurement": {
+          "admission": {
+            "limit": 10000,
+            "markings": 4,
+            "max_tokens_per_place": 1,
+            "status": "exhaustive_reachable_marking_admission"
+          },
+          "alignments": [
+            {
+              "activities": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "frequency": 1,
+              "result": {
+                "Ok": {
+                  "cost": 1,
+                  "moves": [
+                    {
+                      "SyncMove": {
+                        "trace_event_index": 0,
+                        "transition": "00000000-0000-0000-0000-0000000003e9"
+                      }
+                    },
+                    {
+                      "SyncMove": {
+                        "trace_event_index": 1,
+                        "transition": "00000000-0000-0000-0000-0000000003ea"
+                      }
+                    },
+                    {
+                      "LogMove": {
+                        "trace_event_index": 2
+                      }
+                    },
+                    {
+                      "SyncMove": {
+                        "trace_event_index": 3,
+                        "transition": "00000000-0000-0000-0000-0000000003ec"
+                      }
+                    }
+                  ],
+                  "states_visited": 10
+                }
+              }
+            }
+          ],
+          "elapsed_alignment_group_ns": 100400,
+          "empty_alignment": {
+            "cost": 3,
+            "moves": [
+              {
+                "ModelMove": {
+                  "transition": "00000000-0000-0000-0000-0000000003e9"
+                }
+              },
+              {
+                "ModelMove": {
+                  "transition": "00000000-0000-0000-0000-0000000003eb"
+                }
+              },
+              {
+                "ModelMove": {
+                  "transition": "00000000-0000-0000-0000-0000000003ec"
+                }
+              }
+            ],
+            "states_visited": 4
+          },
+          "fitness": {
+            "average_fitness": 0.8571428571428572,
+            "log_fitness": 0.8571428571428572,
+            "perfectly_fitting_frac": 0.0,
+            "total_costs": 1
+          },
+          "integer_check": {
+            "denominator": 7,
+            "perfect_traces": 0,
+            "traces": 1,
+            "weighted_total_cost": 1
+          },
+          "memory_measurement": null,
+          "memory_policy": "OS supervisor may record process peak separately; absent here, not zero",
+          "projection": {
+            "act_to_index": {
+              "A": 0,
+              "B": 1,
+              "C": 2,
+              "D": 3
+            },
+            "activities": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ],
+            "traces": [
+              [
+                [
+                  0,
+                  1,
+                  2,
+                  3
+                ],
+                1
+              ]
+            ]
+          },
+          "status": "measured"
+        },
+        "passed": true
+      },
+      {
+        "expected": {
+          "argument": "A then zero-cost silent transition then B.",
+          "expected_cost": 0,
+          "expected_fitness": "1",
+          "frequency": 1,
+          "id": "M06",
+          "net": "TAU",
+          "sequence": [
+            "A",
+            "B"
+          ]
+        },
+        "id": "M06",
+        "measurement": {
+          "admission": {
+            "limit": 10000,
+            "markings": 4,
+            "max_tokens_per_place": 1,
+            "status": "exhaustive_reachable_marking_admission"
+          },
+          "alignments": [
+            {
+              "activities": [
+                "A",
+                "B"
+              ],
+              "frequency": 1,
+              "result": {
+                "Ok": {
+                  "cost": 0,
+                  "moves": [
+                    {
+                      "SyncMove": {
+                        "trace_event_index": 0,
+                        "transition": "00000000-0000-0000-0000-0000000003e9"
+                      }
+                    },
+                    {
+                      "ModelMove": {
+                        "transition": "00000000-0000-0000-0000-0000000003eb"
+                      }
+                    },
+                    {
+                      "SyncMove": {
+                        "trace_event_index": 1,
+                        "transition": "00000000-0000-0000-0000-0000000003ea"
+                      }
+                    }
+                  ],
+                  "states_visited": 4
+                }
+              }
+            }
+          ],
+          "elapsed_alignment_group_ns": 68000,
+          "empty_alignment": {
+            "cost": 2,
+            "moves": [
+              {
+                "ModelMove": {
+                  "transition": "00000000-0000-0000-0000-0000000003e9"
+                }
+              },
+              {
+                "ModelMove": {
+                  "transition": "00000000-0000-0000-0000-0000000003eb"
+                }
+              },
+              {
+                "ModelMove": {
+                  "transition": "00000000-0000-0000-0000-0000000003ea"
+                }
+              }
+            ],
+            "states_visited": 4
+          },
+          "fitness": {
+            "average_fitness": 1.0,
+            "log_fitness": 1.0,
+            "perfectly_fitting_frac": 1.0,
+            "total_costs": 0
+          },
+          "integer_check": {
+            "denominator": 4,
+            "perfect_traces": 1,
+            "traces": 1,
+            "weighted_total_cost": 0
+          },
+          "memory_measurement": null,
+          "memory_policy": "OS supervisor may record process peak separately; absent here, not zero",
+          "projection": {
+            "act_to_index": {
+              "A": 0,
+              "B": 1
+            },
+            "activities": [
+              "A",
+              "B"
+            ],
+            "traces": [
+              [
+                [
+                  0,
+                  1
+                ],
+                1
+              ]
+            ]
+          },
+          "status": "measured"
+        },
+        "passed": true
+      },
+      {
+        "expected": {
+          "argument": "Split enables B/C independently, join consumes both.",
+          "expected_cost": 0,
+          "expected_fitness": "1",
+          "frequency": 1,
+          "id": "M07",
+          "net": "AND",
+          "sequence": [
+            "A",
+            "C",
+            "B",
+            "D"
+          ]
+        },
+        "id": "M07",
+        "measurement": {
+          "admission": {
+            "limit": 10000,
+            "markings": 8,
+            "max_tokens_per_place": 1,
+            "status": "exhaustive_reachable_marking_admission"
+          },
+          "alignments": [
+            {
+              "activities": [
+                "A",
+                "C",
+                "B",
+                "D"
+              ],
+              "frequency": 1,
+              "result": {
+                "Ok": {
+                  "cost": 0,
+                  "moves": [
+                    {
+                      "SyncMove": {
+                        "trace_event_index": 0,
+                        "transition": "00000000-0000-0000-0000-0000000003e9"
+                      }
+                    },
+                    {
+                      "ModelMove": {
+                        "transition": "00000000-0000-0000-0000-0000000003ee"
+                      }
+                    },
+                    {
+                      "SyncMove": {
+                        "trace_event_index": 1,
+                        "transition": "00000000-0000-0000-0000-0000000003eb"
+                      }
+                    },
+                    {
+                      "SyncMove": {
+                        "trace_event_index": 2,
+                        "transition": "00000000-0000-0000-0000-0000000003ea"
+                      }
+                    },
+                    {
+                      "ModelMove": {
+                        "transition": "00000000-0000-0000-0000-0000000003ed"
+                      }
+                    },
+                    {
+                      "SyncMove": {
+                        "trace_event_index": 3,
+                        "transition": "00000000-0000-0000-0000-0000000003ec"
+                      }
+                    }
+                  ],
+                  "states_visited": 7
+                }
+              }
+            }
+          ],
+          "elapsed_alignment_group_ns": 155100,
+          "empty_alignment": {
+            "cost": 4,
+            "moves": [
+              {
+                "ModelMove": {
+                  "transition": "00000000-0000-0000-0000-0000000003e9"
+                }
+              },
+              {
+                "ModelMove": {
+                  "transition": "00000000-0000-0000-0000-0000000003ee"
+                }
+              },
+              {
+                "ModelMove": {
+                  "transition": "00000000-0000-0000-0000-0000000003ea"
+                }
+              },
+              {
+                "ModelMove": {
+                  "transition": "00000000-0000-0000-0000-0000000003eb"
+                }
+              },
+              {
+                "ModelMove": {
+                  "transition": "00000000-0000-0000-0000-0000000003ed"
+                }
+              },
+              {
+                "ModelMove": {
+                  "transition": "00000000-0000-0000-0000-0000000003ec"
+                }
+              }
+            ],
+            "states_visited": 8
+          },
+          "fitness": {
+            "average_fitness": 1.0,
+            "log_fitness": 1.0,
+            "perfectly_fitting_frac": 1.0,
+            "total_costs": 0
+          },
+          "integer_check": {
+            "denominator": 8,
+            "perfect_traces": 1,
+            "traces": 1,
+            "weighted_total_cost": 0
+          },
+          "memory_measurement": null,
+          "memory_policy": "OS supervisor may record process peak separately; absent here, not zero",
+          "projection": {
+            "act_to_index": {
+              "A": 0,
+              "B": 1,
+              "C": 2,
+              "D": 3
+            },
+            "activities": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ],
+            "traces": [
+              [
+                [
+                  0,
+                  2,
+                  1,
+                  3
+                ],
+                1
+              ]
+            ]
+          },
+          "status": "measured"
+        },
+        "passed": true
+      },
+      {
+        "expected": {
+          "argument": "Missing C requires and suffices for one model move before join.",
+          "expected_cost": 1,
+          "expected_fitness": "6/7",
+          "frequency": 1,
+          "id": "M08",
+          "net": "AND",
+          "sequence": [
+            "A",
+            "B",
+            "D"
+          ]
+        },
+        "id": "M08",
+        "measurement": {
+          "admission": {
+            "limit": 10000,
+            "markings": 8,
+            "max_tokens_per_place": 1,
+            "status": "exhaustive_reachable_marking_admission"
+          },
+          "alignments": [
+            {
+              "activities": [
+                "A",
+                "B",
+                "D"
+              ],
+              "frequency": 1,
+              "result": {
+                "Ok": {
+                  "cost": 1,
+                  "moves": [
+                    {
+                      "SyncMove": {
+                        "trace_event_index": 0,
+                        "transition": "00000000-0000-0000-0000-0000000003e9"
+                      }
+                    },
+                    {
+                      "ModelMove": {
+                        "transition": "00000000-0000-0000-0000-0000000003ee"
+                      }
+                    },
+                    {
+                      "SyncMove": {
+                        "trace_event_index": 1,
+                        "transition": "00000000-0000-0000-0000-0000000003ea"
+                      }
+                    },
+                    {
+                      "ModelMove": {
+                        "transition": "00000000-0000-0000-0000-0000000003eb"
+                      }
+                    },
+                    {
+                      "ModelMove": {
+                        "transition": "00000000-0000-0000-0000-0000000003ed"
+                      }
+                    },
+                    {
+                      "SyncMove": {
+                        "trace_event_index": 2,
+                        "transition": "00000000-0000-0000-0000-0000000003ec"
+                      }
+                    }
+                  ],
+                  "states_visited": 15
+                }
+              }
+            }
+          ],
+          "elapsed_alignment_group_ns": 150800,
+          "empty_alignment": {
+            "cost": 4,
+            "moves": [
+              {
+                "ModelMove": {
+                  "transition": "00000000-0000-0000-0000-0000000003e9"
+                }
+              },
+              {
+                "ModelMove": {
+                  "transition": "00000000-0000-0000-0000-0000000003ee"
+                }
+              },
+              {
+                "ModelMove": {
+                  "transition": "00000000-0000-0000-0000-0000000003ea"
+                }
+              },
+              {
+                "ModelMove": {
+                  "transition": "00000000-0000-0000-0000-0000000003eb"
+                }
+              },
+              {
+                "ModelMove": {
+                  "transition": "00000000-0000-0000-0000-0000000003ed"
+                }
+              },
+              {
+                "ModelMove": {
+                  "transition": "00000000-0000-0000-0000-0000000003ec"
+                }
+              }
+            ],
+            "states_visited": 8
+          },
+          "fitness": {
+            "average_fitness": 0.8571428571428572,
+            "log_fitness": 0.8571428571428572,
+            "perfectly_fitting_frac": 0.0,
+            "total_costs": 1
+          },
+          "integer_check": {
+            "denominator": 7,
+            "perfect_traces": 0,
+            "traces": 1,
+            "weighted_total_cost": 1
+          },
+          "memory_measurement": null,
+          "memory_policy": "OS supervisor may record process peak separately; absent here, not zero",
+          "projection": {
+            "act_to_index": {
+              "A": 0,
+              "B": 1,
+              "D": 2
+            },
+            "activities": [
+              "A",
+              "B",
+              "D"
+            ],
+            "traces": [
+              [
+                [
+                  0,
+                  1,
+                  2
+                ],
+                1
+              ]
+            ]
+          },
+          "status": "measured"
+        },
+        "passed": true
+      },
+      {
+        "expected": {
+          "aggregate_case_ids": [
+            "M01",
+            "M02",
+            "M03",
+            "M04"
+          ],
+          "expected_average_trace_fitness": "52/75",
+          "expected_denominator": 26,
+          "expected_event_count": 11,
+          "expected_log_fitness": "10/13",
+          "expected_perfect_fraction": "2/5",
+          "expected_trace_count": 5,
+          "expected_weighted_total_cost": 6,
+          "id": "M09",
+          "net": "SEQ"
+        },
+        "id": "M09",
+        "measurement": {
+          "admission": {
+            "limit": 10000,
+            "markings": 4,
+            "max_tokens_per_place": 1,
+            "status": "exhaustive_reachable_marking_admission"
+          },
+          "alignments": [
+            {
+              "activities": [],
+              "frequency": 1,
+              "result": {
+                "Ok": {
+                  "cost": 3,
+                  "moves": [
+                    {
+                      "ModelMove": {
+                        "transition": "00000000-0000-0000-0000-0000000003e9"
+                      }
+                    },
+                    {
+                      "ModelMove": {
+                        "transition": "00000000-0000-0000-0000-0000000003ea"
+                      }
+                    },
+                    {
+                      "ModelMove": {
+                        "transition": "00000000-0000-0000-0000-0000000003eb"
+                      }
+                    }
+                  ],
+                  "states_visited": 4
+                }
+              }
+            },
+            {
+              "activities": [
+                "A",
+                "B",
+                "C"
+              ],
+              "frequency": 2,
+              "result": {
+                "Ok": {
+                  "cost": 0,
+                  "moves": [
+                    {
+                      "SyncMove": {
+                        "trace_event_index": 0,
+                        "transition": "00000000-0000-0000-0000-0000000003e9"
+                      }
+                    },
+                    {
+                      "SyncMove": {
+                        "trace_event_index": 1,
+                        "transition": "00000000-0000-0000-0000-0000000003ea"
+                      }
+                    },
+                    {
+                      "SyncMove": {
+                        "trace_event_index": 2,
+                        "transition": "00000000-0000-0000-0000-0000000003eb"
+                      }
+                    }
+                  ],
+                  "states_visited": 4
+                }
+              }
+            },
+            {
+              "activities": [
+                "A",
+                "C"
+              ],
+              "frequency": 1,
+              "result": {
+                "Ok": {
+                  "cost": 1,
+                  "moves": [
+                    {
+                      "SyncMove": {
+                        "trace_event_index": 0,
+                        "transition": "00000000-0000-0000-0000-0000000003e9"
+                      }
+                    },
+                    {
+                      "ModelMove": {
+                        "transition": "00000000-0000-0000-0000-0000000003ea"
+                      }
+                    },
+                    {
+                      "SyncMove": {
+                        "trace_event_index": 1,
+                        "transition": "00000000-0000-0000-0000-0000000003eb"
+                      }
+                    }
+                  ],
+                  "states_visited": 7
+                }
+              }
+            },
+            {
+              "activities": [
+                "A",
+                "X",
+                "C"
+              ],
+              "frequency": 1,
+              "result": {
+                "Ok": {
+                  "cost": 2,
+                  "moves": [
+                    {
+                      "SyncMove": {
+                        "trace_event_index": 0,
+                        "transition": "00000000-0000-0000-0000-0000000003e9"
+                      }
+                    },
+                    {
+                      "ModelMove": {
+                        "transition": "00000000-0000-0000-0000-0000000003ea"
+                      }
+                    },
+                    {
+                      "LogMove": {
+                        "trace_event_index": 1
+                      }
+                    },
+                    {
+                      "SyncMove": {
+                        "trace_event_index": 2,
+                        "transition": "00000000-0000-0000-0000-0000000003eb"
+                      }
+                    }
+                  ],
+                  "states_visited": 12
+                }
+              }
+            }
+          ],
+          "elapsed_alignment_group_ns": 528000,
+          "empty_alignment": {
+            "cost": 3,
+            "moves": [
+              {
+                "ModelMove": {
+                  "transition": "00000000-0000-0000-0000-0000000003e9"
+                }
+              },
+              {
+                "ModelMove": {
+                  "transition": "00000000-0000-0000-0000-0000000003ea"
+                }
+              },
+              {
+                "ModelMove": {
+                  "transition": "00000000-0000-0000-0000-0000000003eb"
+                }
+              }
+            ],
+            "states_visited": 4
+          },
+          "fitness": {
+            "average_fitness": 0.6933333333333334,
+            "log_fitness": 0.7692307692307692,
+            "perfectly_fitting_frac": 0.4,
+            "total_costs": 6
+          },
+          "integer_check": {
+            "denominator": 26,
+            "perfect_traces": 2,
+            "traces": 5,
+            "weighted_total_cost": 6
+          },
+          "memory_measurement": null,
+          "memory_policy": "OS supervisor may record process peak separately; absent here, not zero",
+          "projection": {
+            "act_to_index": {
+              "A": 0,
+              "B": 1,
+              "C": 2,
+              "X": 3
+            },
+            "activities": [
+              "A",
+              "B",
+              "C",
+              "X"
+            ],
+            "traces": [
+              [
+                [],
+                1
+              ],
+              [
+                [
+                  0,
+                  1,
+                  2
+                ],
+                2
+              ],
+              [
+                [
+                  0,
+                  2
+                ],
+                1
+              ],
+              [
+                [
+                  0,
+                  3,
+                  2
+                ],
+                1
+              ]
+            ]
+          },
+          "status": "measured"
+        },
+        "passed": true
+      }
+    ]
+  },
+  "not_acceptance": true,
+  "observer_source_sha256": "8e0264a47448685fbb7ac9aeecdb06a7470ba36297bcfabec99156c540ac332a",
+  "phase": "align_only_no_discovery",
+  "schema_version": 1,
+  "scope": "A measured optimal-alignment fitness contribution for exact admitted Petri nets and frozen synthetic training/held-out traces. Not production integration, BPMN fitness, SplitMiner parity, precision, simplicity, soundness, empirical generalization or whole R4-03 closure."
+}

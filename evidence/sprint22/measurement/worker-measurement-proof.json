@@ -1,0 +1,32 @@
+{
+  "retuned_or_repeated": false,
+  "cases": [
+    {
+      "outcome": "completed",
+      "one_fresh_app": true,
+      "case_id": "CMP10K",
+      "http_result_sha256": "411B1CEA19416180D225FA168C6587F08EE177200EEEE2736C74C90261C83232",
+      "events": 10000,
+      "error_code": null,
+      "native_creation_filetime": 134372046069846057,
+      "app_pid": 53456,
+      "one_operation": true
+    },
+    {
+      "outcome": "failed",
+      "one_fresh_app": true,
+      "case_id": "CMP90K",
+      "http_result_sha256": "0D1220CACA8431AF38597372D9A72B1A83EC5C5C718C2E88F38A526619F388EC",
+      "events": 90000,
+      "error_code": "report_byte_limit",
+      "native_creation_filetime": 134372046164887810,
+      "app_pid": 23976,
+      "one_operation": true
+    }
+  ],
+  "observations_per_case": 1,
+  "utc": "2026-10-23T04:50:54.2360637+00:00",
+  "browser_checked": false,
+  "http_wall_is_not_cpu": true,
+  "status": "TWO_FIXED_TERMINAL_OBSERVATIONS_AND_COMPLETE_MEMORY_SOURCES"
+}

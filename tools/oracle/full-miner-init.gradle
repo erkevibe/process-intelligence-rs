@@ -1,0 +1,23 @@
+// Declared environment pin and observation task; no upstream source edits.
+import org.gradle.api.artifacts.repositories.MavenArtifactRepository
+allprojects {
+  repositories.all { repo ->
+    if (repo instanceof MavenArtifactRepository &&
+        repo.url.toString().contains('apromore/ApromoreCore_SupportLibs/master/mvn-repo')) {
+      repo.setUrl('https://raw.githubusercontent.com/apromore/ApromoreCore_SupportLibs/99887cddb0d88a107c3005f6711c1ffa67dd13e1/mvn-repo/')
+    }
+  }
+}
+gradle.rootProject { root ->
+  root.tasks.register('fullMinerRuntimeClasspath') {
+    dependsOn ':Apromore-Custom-Plugins:SplitMiner-Logic:classes'
+    dependsOn { root.project(':Apromore-Custom-Plugins:SplitMiner-Logic').configurations.runtimeClasspath }
+    doLast {
+      def miner = root.project(':Apromore-Custom-Plugins:SplitMiner-Logic')
+      def output = new File(gradle.startParameter.projectProperties['fullMinerClasspathPath'])
+      if (output.exists()) { throw new GradleException('new miner classpath receipt required') }
+      output.setText(miner.sourceSets.main.runtimeClasspath.asPath, 'UTF-8')
+      println('FULL_MINER_CLASSPATH_WRITTEN ' + output.length())
+    }
+  }
+}

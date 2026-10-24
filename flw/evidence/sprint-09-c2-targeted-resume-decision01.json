@@ -1,0 +1,42 @@
+{
+  "decision_utc": "2026-10-11T12:07:05.2507341Z",
+  "proposal": "flw/evidence/sprint-09-c2-targeted-resume-proposal01.md",
+  "proposal_sha256": "90C32341B2F7CEB30BC9C3192E6253000A54F2E7DABBBD63632453FED592106D",
+  "fixed_voters": 5,
+  "actual_for": 5,
+  "actual_against": 0,
+  "actual_abstain": 0,
+  "pending": [],
+  "votes": [
+    {
+      "path": "flw/evidence/sprint-09-root-c2-targeted-resume-vote01.json",
+      "sha256": "7EBE1C7F2C2CF54AD18D22527489AA8D5E612C637B6B158E92A8261DB1662A4C",
+      "vote": "FOR"
+    },
+    {
+      "path": "flw/evidence/sprint-09-pm-c2-targeted-resume-vote01.md",
+      "sha256": "0F1F0F19E9CF41857C4DEB5A4C5FC19BD1943C449B2A9582CB88DE55B5FB07C4",
+      "vote": "FOR"
+    },
+    {
+      "path": "flw/evidence/sprint-09-customer-c2-resume-vote.md",
+      "sha256": "FF87B11C7B7A183E451ECB1CD0BB4A3F725514E7544151085CE504649D20B522",
+      "vote": "FOR"
+    },
+    {
+      "path": "flw/evidence/sprint-09-qa-c2-targeted-resume-vote01.md",
+      "sha256": "BD73906E2E2462111AF0766EAB2F5111A38587D334A9081AC3EF19869023A9E1",
+      "vote": "FOR"
+    },
+    {
+      "path": "flw/evidence/sprint-09-td-c2-targeted-resume-vote01.md",
+      "sha256": "B4B08C50EBFCD92840791448C3434173EC1CE413FEBD65739366120BC90CF328",
+      "vote": "FOR"
+    }
+  ],
+  "verdict": "ALLOW finite exact C2 corrective verification subject to proposal gates; no STOP closure or release acceptance",
+  "independent_package_review_sha256": "6A05FA412DF0326168668C9960AB29B89F5FFC6FD04246181346E009D5AB8D27",
+  "first_gate": "Six actual causal regressions with full PRE/POST and independent QA/TD review before broader cleanup",
+  "deadline_utc": "2026-10-11T16:55:38Z",
+  "criteria": "R3-01/R3-02/R3-04 OPEN"
+}

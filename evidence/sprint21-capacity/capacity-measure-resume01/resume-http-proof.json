@@ -1,0 +1,35 @@
+{
+  "native_peaks_are_new_server_lifetime_not_per_operation": true,
+  "ram_hard_cap_slo_throughput_browser_acceptance_not_claimed": true,
+  "status": "ACTUAL_NEW_CANDIDATE_TCP_AND_RESTART_ATTEMPT",
+  "working_set_is_distinct_from_private_commit": true,
+  "intended_sample_interval_ms": 50,
+  "config_sha256": "177343B100947C4BCBB0EA09C2FE521408BE26D99A9AAE7F94D2890E464F56A8",
+  "original_trial_whole_status": "FAILED",
+  "all_native_streams_eof": true,
+  "postgres_native_exit": 0,
+  "fixed_input_manifest_sha256": "514F66245638176F87A635AEC2771610C0708A42E68349878C91A3B545E8C340",
+  "no_old_measurements_rerun_or_merged": true,
+  "servers_left_running": false,
+  "results": [
+    {
+      "result_sha256": "E4E6E23FC6086B05F582236ACA0914D2F8183BC8B47318DE8D2AE49A9AF97BA4",
+      "lane": "candidate",
+      "native_app_pid": 30808,
+      "case": "tcp-boundaries-new-attempt",
+      "native_app_creation_utc": "2026-10-22T21:23:03.7606724Z",
+      "original_process_measurement_not_merged": true
+    },
+    {
+      "result_sha256": "5DD4E8D661C32D0CB424D55174E4B8F838E5904B477701AA12A12F7D942A3184",
+      "lane": "candidate",
+      "native_app_pid": 36656,
+      "case": "restart-check-original-pairs-new-lifetime",
+      "native_app_creation_utc": "2026-10-22T21:23:08.5958146Z",
+      "original_process_measurement_not_merged": true
+    }
+  ],
+  "candidate_process_lifetimes_are_new_and_separate": true,
+  "original_trial": "capacity-measure01",
+  "combined_acceptance_requires_explicit_multi_attempt_review": true
+}

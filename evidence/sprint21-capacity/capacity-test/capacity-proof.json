@@ -1,0 +1,81 @@
+{
+  "observations": [
+    {
+      "body_polls": 0,
+      "case": "occupied_upload",
+      "elapsed_ms": 3,
+      "status": 429
+    },
+    {
+      "body_polls": 322,
+      "case": "unknown_length_stream_cap",
+      "consumed_frame_bytes": 21037136,
+      "form_limit": 21037056,
+      "maximum_overrun_frame_bytes": 65536
+    },
+    {
+      "body_polls": 4,
+      "case": "partial_body_disconnect",
+      "no_durable_header_change": true,
+      "permits_restored": 2
+    },
+    {
+      "actual_admission_error_codes": [
+        "sequence_exhausted",
+        "job_reservation_pool"
+      ],
+      "case": "restored_job_id_exhaustion_and_foreign_reservation",
+      "global_postgres_sequence_gap_is_not_a_header_mutation": true,
+      "header_unchanged": true,
+      "http_statuses": [
+        422,
+        500
+      ],
+      "permits_restored": 2
+    },
+    {
+      "case": "identifier_sequence_exhaustion",
+      "header_unchanged": true,
+      "max_and_max_minus_one_refused": true,
+      "permits_restored": 2
+    },
+    {
+      "case": "rights_revoked_after_reservation",
+      "durable_header_unchanged": true,
+      "permits_restored": 2
+    },
+    {
+      "case": "response_disconnect_during_actual_pg_accept",
+      "lock_timeout_ms_unchanged": 2000,
+      "request_waiter_cancelled": true,
+      "ungranted_wait_observed": true,
+      "worker_completed_without_http_waiter": true
+    },
+    {
+      "after_exit_capacity_restored": true,
+      "busy_body_polls": 0,
+      "case": "cancelled_worker_keeps_real_lease_until_cpu_barrier_exit"
+    },
+    {
+      "busy_body_polls": 0,
+      "busy_heavy_fetches": 0,
+      "case": "retention_seven_to_eight_race_and_full_preflight",
+      "explicit_delete_then_retry_completed": true,
+      "same_header_after_refusals": true
+    },
+    {
+      "case": "actual_database_admission_refusal_and_fail_closed",
+      "fixture_trigger_removed_even_on_assertion_failure": true,
+      "header_unchanged": true,
+      "http_status": 503,
+      "permits_restored": 2,
+      "retention_before_failure": 7,
+      "storage_worker_requires_restart": true,
+      "subsequent_body_polls": 0
+    }
+  ],
+  "permits_at_end": 2,
+  "schema_version": 3,
+  "scope": "controlled in-process HTTP and PostgreSQL; not a TCP memory/load benchmark",
+  "status": "ACTUAL_PG_HTTP_BODY_LEASE_AND_HANDOFF_CONTROLS_PASS"
+}

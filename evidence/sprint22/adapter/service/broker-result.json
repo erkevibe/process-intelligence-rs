@@ -1,0 +1,113 @@
+{
+  "guard_failure": null,
+  "kill_requests_completed_utc": "2026-10-23T04:18:39.7771787Z",
+  "no_new_go_after_stop": true,
+  "collector_finalization_deadline": "2026-10-23T04:19:04.7733274+00:00",
+  "receipt_write_hard_timer_still_armed": true,
+  "stop_utc": "2026-10-23T04:18:39.7729804Z",
+  "kill_fault": false,
+  "control": "none",
+  "service_watchers": {
+    "child": {
+      "attached_utc": "2026-10-23T04:18:39.1064689Z",
+      "expected_exit": false,
+      "triggered": true
+    }
+  },
+  "post_stop_probe": {
+    "exception_code": "stop_latched_no_admission",
+    "attempted": true,
+    "refused": true,
+    "process_count_before": 2,
+    "resume_unchanged": true,
+    "process_count_after": 2
+  },
+  "requests": 1,
+  "events": [
+    {
+      "sequence": 1,
+      "event": "OWNED_SUSPENDED_CAPTURE_READY",
+      "label": "worker",
+      "utc": "2026-10-23T04:18:38.2168303+00:00",
+      "stop_latched": false
+    },
+    {
+      "sequence": 2,
+      "event": "RESUMED",
+      "label": "worker",
+      "utc": "2026-10-23T04:18:38.2521327+00:00",
+      "stop_latched": false
+    },
+    {
+      "sequence": 3,
+      "event": "REQUEST_START",
+      "label": "child",
+      "utc": "2026-10-23T04:18:39.0360903+00:00",
+      "stop_latched": false
+    },
+    {
+      "sequence": 4,
+      "event": "OWNED_SUSPENDED_CAPTURE_READY",
+      "label": "child",
+      "utc": "2026-10-23T04:18:39.0886544+00:00",
+      "stop_latched": false
+    },
+    {
+      "sequence": 5,
+      "event": "SERVICE_EXIT_WATCH_ATTACHED",
+      "label": "child",
+      "utc": "2026-10-23T04:18:39.1118542+00:00",
+      "stop_latched": false
+    },
+    {
+      "sequence": 6,
+      "event": "RESUMED",
+      "label": "child",
+      "utc": "2026-10-23T04:18:39.1192690+00:00",
+      "stop_latched": false
+    },
+    {
+      "sequence": 7,
+      "event": "ACTUAL_EXIT_AND_CAPTURE_SAVED",
+      "label": "child",
+      "utc": "2026-10-23T04:18:39.9478628+00:00",
+      "stop_latched": true
+    },
+    {
+      "sequence": 8,
+      "event": "ACTUAL_EXIT_AND_CAPTURE_SAVED",
+      "label": "worker",
+      "utc": "2026-10-23T04:18:39.9649227+00:00",
+      "stop_latched": true
+    }
+  ],
+  "native_kill_operations": [
+    {
+      "operation": "TerminateJobObject",
+      "utc": "2026-10-23T04:18:39.7744567Z",
+      "job_label": "worker",
+      "pid": 0,
+      "success": true,
+      "already_stopped": false,
+      "native_error": 0
+    },
+    {
+      "operation": "TerminateJobObject",
+      "utc": "2026-10-23T04:18:39.7761507Z",
+      "job_label": "child",
+      "pid": 0,
+      "success": true,
+      "already_stopped": false,
+      "native_error": 0
+    }
+  ],
+  "collector_host_death_supported": false,
+  "control_triggered": false,
+  "process_count": 2,
+  "sample_barrier": null,
+  "failure": null,
+  "stop_reason": "unexpected_service_exit",
+  "absolute_stop_timer_fired": false,
+  "completed_count": 2,
+  "cleanup_completed_utc": "2026-10-23T04:18:40.0249894+00:00"
+}

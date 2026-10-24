@@ -1,0 +1,301 @@
+{
+  "schema_version": 1,
+  "utc": "2026-10-23T17:12:10.510Z",
+  "role": "QA/ProcessLogAuditor",
+  "decision": "FAILED_CHECKER_ORACLE_NO_API02_ACCEPTANCE",
+  "config_sha256": "D26E47F98AC6B6F4837EC9B79023FBBF3B3EF51F199222FE241814BD22E17D4D",
+  "actual": {
+    "native_count": 10,
+    "stream_count": 20,
+    "inventory": [
+      {
+        "label": "app10k",
+        "pid": 53804,
+        "birth_raw": "134372489642431898",
+        "exit": 137,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 113763,
+            "sha256": "B45FA93953D9882C587F3C446DB4C6501E6002FC6CE5B3E4FEBFA874D2F0D65B",
+            "match": true,
+            "complete": true,
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "label": "child",
+        "pid": 69936,
+        "birth_raw": "134372489617275609",
+        "exit": 0,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "label": "http90k",
+        "pid": 68172,
+        "birth_raw": "134372489649929634",
+        "exit": 1,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 82,
+            "sha256": "AD4CE40C707DB76F47ACE699E97A6C6ECBD6099BF2412855DC10A362D15C4861",
+            "match": true,
+            "complete": true,
+            "truncated": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 1380,
+            "sha256": "1301B88E5E7F64944BFCA3CD96AC12D8545F807DE8657EB607CF91E6196474F3",
+            "match": true,
+            "complete": true,
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "label": "postgres",
+        "pid": 73908,
+        "birth_raw": "134372489545819225",
+        "exit": 137,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 485,
+            "sha256": "524D2EC076A5199261E0CCAE99EE1B107CC3BB7C8994FF6CC6B18C6256DA0D99",
+            "match": true,
+            "complete": true,
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "label": "ready-01",
+        "pid": 75736,
+        "birth_raw": "134372489547642364",
+        "exit": 1,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 41,
+            "sha256": "62285DBF9A623B155EF5FBB74B1E0BB1AAC8583FF3EDECDF23D4EE6D4804EC5B",
+            "match": true,
+            "complete": true,
+            "truncated": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "label": "ready-02",
+        "pid": 78756,
+        "birth_raw": "134372489570618165",
+        "exit": 0,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 41,
+            "sha256": "48F05044D763F65E81DF5FA8BE71F5A81EC224D0B419A9BFA6132B7FBC62D7F4",
+            "match": true,
+            "complete": true,
+            "truncated": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "label": "source10k",
+        "pid": 73592,
+        "birth_raw": "134372489594040766",
+        "exit": 0,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 201,
+            "sha256": "3699F9DE01C6F1900C70B0854E67F15448110E3F567A5E2AACA8D2FBA05E32FC",
+            "match": true,
+            "complete": true,
+            "truncated": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "label": "worker",
+        "pid": 69080,
+        "birth_raw": "134372489537921480",
+        "exit": 1,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 311,
+            "sha256": "BF36DB27CD5C6123687F13850BD2FEAEA12903A4A7597D36213CB8388F77BF60",
+            "match": true,
+            "complete": true,
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "label": "collector",
+        "pid": 73296,
+        "birth_raw": "2026-10-23T17:08:49.8773340Z",
+        "exit": 1,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 314,
+            "sha256": "31A4EACE1E2ED80D46359E5AA194734C50E24E59EFE7DB6A4A1C494E0579D1B2",
+            "match": true,
+            "complete": true,
+            "truncated": false
+          }
+        ]
+      },
+      {
+        "label": "outer-launch",
+        "pid": 78520,
+        "birth_raw": "2026-10-23T17:08:48.0364916Z",
+        "exit": 1,
+        "streams": [
+          {
+            "side": "stdout",
+            "bytes": 0,
+            "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+            "match": true,
+            "complete": true,
+            "truncated": false
+          },
+          {
+            "side": "stderr",
+            "bytes": 310,
+            "sha256": "57F705679A47E04345C0312BF2CCE7C845CD58A55D41D36D91CFCB317EB2ABD3",
+            "match": true,
+            "complete": true,
+            "truncated": false
+          }
+        ]
+      }
+    ],
+    "all_full_hashlength": true,
+    "requests": 190,
+    "evaluated_checks": 202,
+    "all_raw_response_pins_match": true,
+    "journal_sequences_valid": true,
+    "both_journals_final_LF": true,
+    "first_failed_request": {
+      "id": 189,
+      "method": "POST",
+      "expected": 400,
+      "actual": 422,
+      "status_assertion": "failed",
+      "body_bytes": 78,
+      "response_file": "response-0189.bin",
+      "response_sha256": "3F09196BE994EE76BDF1CE5195E7E54EBEB84ABA48C28D9AC960548AC1F81839",
+      "content_type": "text/plain; charset=utf-8"
+    },
+    "prior_request_statuses_passed": 189,
+    "evaluated_check_rows_passed": 202,
+    "app_stderr_bytes": 113763,
+    "app_stderr_truncated": false
+  },
+  "primary_source_basis": {
+    "Cargo_lock": {
+      "package": "axum",
+      "version": "0.8.9",
+      "package_checksum": "31b698c5f9a010f6573133b09e0de5408834d0c82f8d7475a89fc1867a71cd90"
+    },
+    "managed_local_source": [
+      {
+        "path": "axum-0.8.9/src/form.rs",
+        "sha256": "f20a1cc31c8109bc20a9946463c39c9435814a0bed5a1f0cf4a1a64e940d7a4c"
+      },
+      {
+        "path": "axum-0.8.9/src/extract/rejection.rs",
+        "sha256": "1e9866397c2e59178dd1f5948e55cc2ecf168d8a2fee328d25832eaa1cee6a72"
+      }
+    ],
+    "behavior": "form.rs82-94 selects FailedToDeserializeFormBody for POST; rejection.rs77-81 declares422UNPROCESSABLE_ENTITY; form.rs242-274 own test distinguishesGET400 fromPOST422.",
+    "integrity_limit": "Local unpacked .cargo-checksum.json absent; source hashes recorded, package checksum is lockfile declaration, not independently reauthenticated package archive."
+  },
+  "conclusions": [
+    "Source-grounded expectation bug, not evidence of product regression; no source/product implementation change required.",
+    "Durable failed request row and202prior evaluated checks survive; do not turn partialprefix into completeAPI acceptance.",
+    "Brokerworker_exit/failure-null/guard-null/KillFaultfalse; worker1/checker1, app/PG137 fromSTOP; no secondapp/post/finalPGcleanstop.",
+    "All10ownednative20streams complete/hashed, includingRootouterlaunch; no newmissingcapture claim.",
+    "Separate stock recovery and prospectivefreshattempt admission required; attempt02/4156sources/raw/journals immutable."
+  ],
+  "method": "Managed source/knownrawfile reads/hash only; no native/HTTP/AST/shell/Git."
+}

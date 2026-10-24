@@ -1,0 +1,59 @@
+{
+  "actual_masked_foreign_admin_cases": 4,
+  "verdict": "causal six-guard regression verified; conditional broader continuation, not overall acceptance",
+  "review_failures": [
+    "Initial combined report output truncated; complete JSON parsed locally instead.",
+    "Initial PowerShell ReadOnlySpan byte comparison unsupported, emitted nonterminating errors; that comparison output discarded. Corrected strict Stop + full byte Base64 equality independently verified all12 without rerunning runtime."
+  ],
+  "holders_native0": 6,
+  "witnesses": [
+    {
+      "role": "pi_admin",
+      "case": "c13adminidle_s",
+      "server_pid": 25296,
+      "state": "idle"
+    },
+    {
+      "role": "pi_admin",
+      "case": "c13adminidle_r",
+      "server_pid": 45868,
+      "state": "idle"
+    },
+    {
+      "role": "pi_admin",
+      "case": "c13adminwriter_s",
+      "server_pid": 48384,
+      "state": "idle in transaction"
+    },
+    {
+      "role": "pi_admin",
+      "case": "c13adminwriter_r",
+      "server_pid": 49688,
+      "state": "idle in transaction"
+    },
+    {
+      "role": "pi_app",
+      "case": "c13appidles",
+      "server_pid": 50928,
+      "state": "idle"
+    },
+    {
+      "role": "pi_app",
+      "case": "c13appidler",
+      "server_pid": 45304,
+      "state": "idle"
+    }
+  ],
+  "utc": "2026-10-11T12:14:35.6116322Z",
+  "apply_native_busy1_cases": 6,
+  "inventory_mismatches": 0,
+  "all363_inventory_files_fullread_rehashed": true,
+  "closure_supplement_sha256": "FAA5C86C6A4551250F06B703126495333D241E4DDF976A2B32812E71FA788CBC",
+  "primary_report_sha256": "050FD6D89225A48CED9862DDD5C1B04BB18A13FB21FB8C09F753543F4C0233C0",
+  "exe_sha256": "7FC3812772D64D9A74EEC55413C41C6C189167FFEB279EFCE2613CA7FD6AD195",
+  "limits": "Selected saved inventory only; no complete machine/process coverage or continuous admission exclusion. Original C1 rejected. All current full corpus/fault/business/matrix/public gates remain mandatory. Broader work only Root quiet scheduling after cache native completion/free space.",
+  "independently_byte_equal_pairs": 12,
+  "public_report_sha256": "B30C29CD3E5EC8D9A5943C2CA391E6CCCDE1D4C37E7915625193871B4B3C1D19",
+  "source": "b4edef34b083d1cb7737cf648f1c051eeb94127a",
+  "remaining_clients_capture_native0": 0
+}

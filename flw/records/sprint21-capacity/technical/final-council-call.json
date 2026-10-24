@@ -1,0 +1,43 @@
+{
+  "fixed_roster": [
+    "Root",
+    "QA",
+    "TD",
+    "PM",
+    "Customer"
+  ],
+  "risk_appetite": "Medium",
+  "stage": "SPRINT21_CAPACITY_FINAL_FREEZE",
+  "schema_version": 1,
+  "silence_is_not_agreement": true,
+  "deadline_utc": "2026-10-23T02:00:37Z",
+  "record_kind": "CALL_AND_INVITATIONS_BEFORE_FROZEN_PROPOSAL",
+  "utc": "2026-10-22T21:53:45.1866435+00:00",
+  "frozen_proposal_not_yet_issued": true,
+  "invitations": [
+    {
+      "role": "QA",
+      "agent_name": "qa_s20_delivery",
+      "tool_delivery": "send_message accepted"
+    },
+    {
+      "role": "TD",
+      "agent_name": "td_s20_delivery",
+      "tool_delivery": "send_message accepted"
+    },
+    {
+      "role": "PM",
+      "agent_name": "pm_s21",
+      "tool_delivery": "send_message accepted"
+    },
+    {
+      "role": "Customer",
+      "agent_name": "customer_s20_delivery",
+      "tool_delivery": "send_message accepted"
+    }
+  ],
+  "required_for_count": "more than 2.5 of 5",
+  "native_freeze_utc": "2026-10-23T00:30:37Z",
+  "primary_commit_immutable": "931f00ece83579de438e1e144f7cfeeca32156b3",
+  "votes_requested_now": false
+}

@@ -1,0 +1,393 @@
+{
+  "app_sha256": "072FB7B8ADE3C7473899424D84842477A0B96B78F5DAF2AD7F30EB05FF3E03A2",
+  "prior_failures": [
+    {
+      "attempt": "01",
+      "native_invocations": 2,
+      "full_streams": 4,
+      "cause": "19 command working directories had a trailing separator; refused before worker/PG"
+    },
+    {
+      "attempt": "02",
+      "native_invocations": 10,
+      "full_streams": 20,
+      "cause": "Malformed62hex duplicated pg_dump plan pin; refused before dump native. Known ownedPG137 recovered in03"
+    }
+  ],
+  "backup": {
+    "single_transaction_exit_on_error": true,
+    "identity_reverified_after_restore": true,
+    "acceptance_threshold_bytes": 134217728,
+    "bytes": 174424,
+    "format": "custom full DATABASE",
+    "archive_private": true,
+    "threshold_is_post_exit_not_hard_writer_cap": true,
+    "sha256": "43E7D9200C2AA29B87A622C35F8BDE6AE3A4E7300ADC462D06657299463F1736"
+  },
+  "scope": "One synthetic mixed schema1/schema2 full logical DATABASE on same PostgreSQL18 cluster with preexisting roles",
+  "identity": {
+    "auth_fingerprints_private": true,
+    "full_five_tables_and_sequence_before_target_app_equal": true,
+    "encoding": "PG18-jsonb_send-to_jsonb-row-sha256-v1",
+    "recovered_source_preimage_equal_before_dump": true,
+    "postlogin_business_and_non_session_auth_equal": true,
+    "source_before_after_dump_final_byteidentical_fingerprint_snapshots": true
+  },
+  "acceptance": {
+    "td_original_sha256": "889ABABB73D706AE4DBF853907C09ED74FDF30D48AAA10C99AAC304A89918A74",
+    "human_acceptance": false,
+    "customer_original_sha256": "B15642B9956FE0931F5A9EFD613844BD21A49309310628E8ABC563F7F5BD48EA",
+    "public_delivery_pending": true,
+    "root_original_sha256": "8165F39A81280F74F410B1C98064E36CF91E337C962B3A1F540F8D4CFCA000C4",
+    "qa_original_sha256": "591402A418404EECFE9F221CF71AF13D300B363321AC1EDEDD2A133EFDB2B779"
+  },
+  "source_database": "pi_s23_compat01",
+  "status": "ACTUAL_LOCAL_CURRENT_COMPACT_DATABASE_RESTORE_ACCEPTED_PUBLIC_DELIVERY_PENDING",
+  "processes": {
+    "fixed_owned_services_absent": true,
+    "raw_capture_hashes_independently_verified_privately": true,
+    "pg_native_exit": 0,
+    "ordinary_known_owned_pg_crash_recovery": true,
+    "ports_bindable": [
+      55449,
+      3146
+    ],
+    "pg_stop_native_exit": 0,
+    "manual_pid_or_wal_delete": false,
+    "native_inventory": [
+      {
+        "program": "process-intelligence-rs.exe",
+        "stdout_bytes": 0,
+        "creation_filetime": "134372575394263577",
+        "pid": 79664,
+        "stderr_bytes": 5942,
+        "native_exit": 137,
+        "stderr_complete": true,
+        "label": "app-restored",
+        "stdout_complete": true
+      },
+      {
+        "program": "psql.exe",
+        "stdout_bytes": 9457,
+        "creation_filetime": "134372575113057470",
+        "pid": 69676,
+        "stderr_bytes": 0,
+        "native_exit": 0,
+        "stderr_complete": true,
+        "label": "app10k",
+        "stdout_complete": true
+      },
+      {
+        "program": "psql.exe",
+        "stdout_bytes": 9457,
+        "creation_filetime": "134372575280422727",
+        "pid": 70140,
+        "stderr_bytes": 0,
+        "native_exit": 0,
+        "stderr_complete": true,
+        "label": "app90k",
+        "stdout_complete": true
+      },
+      {
+        "program": "python.exe",
+        "stdout_bytes": 0,
+        "creation_filetime": "134372575692584685",
+        "pid": 55828,
+        "stderr_bytes": 0,
+        "native_exit": 0,
+        "stderr_complete": true,
+        "label": "audit-current",
+        "stdout_complete": true
+      },
+      {
+        "program": "python.exe",
+        "stdout_bytes": 0,
+        "creation_filetime": "134372575946887790",
+        "pid": 37848,
+        "stderr_bytes": 0,
+        "native_exit": 0,
+        "stderr_complete": true,
+        "label": "audit-legacy",
+        "stdout_complete": true
+      },
+      {
+        "program": "python.exe",
+        "stdout_bytes": 54,
+        "creation_filetime": "134372575135676683",
+        "pid": 67420,
+        "stderr_bytes": 0,
+        "native_exit": 0,
+        "stderr_complete": true,
+        "label": "check-cohort",
+        "stdout_complete": true
+      },
+      {
+        "program": "psql.exe",
+        "stdout_bytes": 9457,
+        "creation_filetime": "134372575347347246",
+        "pid": 58648,
+        "stderr_bytes": 0,
+        "native_exit": 0,
+        "stderr_complete": true,
+        "label": "child",
+        "stdout_complete": true
+      },
+      {
+        "program": "python.exe",
+        "stdout_bytes": 454,
+        "creation_filetime": "134372575669696007",
+        "pid": 77812,
+        "stderr_bytes": 0,
+        "native_exit": 0,
+        "stderr_complete": true,
+        "label": "compare-all",
+        "stdout_complete": true
+      },
+      {
+        "program": "python.exe",
+        "stdout_bytes": 51,
+        "creation_filetime": "134372575369710118",
+        "pid": 77936,
+        "stderr_bytes": 0,
+        "native_exit": 0,
+        "stderr_complete": true,
+        "label": "compare-pre",
+        "stdout_complete": true
+      },
+      {
+        "program": "psql.exe",
+        "stdout_bytes": 0,
+        "creation_filetime": "134372575302600095",
+        "pid": 75204,
+        "stderr_bytes": 0,
+        "native_exit": 0,
+        "stderr_complete": true,
+        "label": "create-target",
+        "stdout_complete": true
+      },
+      {
+        "program": "pg_dump.exe",
+        "stdout_bytes": 0,
+        "creation_filetime": "134372575158089539",
+        "pid": 66668,
+        "stderr_bytes": 0,
+        "native_exit": 0,
+        "stderr_complete": true,
+        "label": "dump-current",
+        "stdout_complete": true
+      },
+      {
+        "program": "python.exe",
+        "stdout_bytes": 0,
+        "creation_filetime": "134372575400961989",
+        "pid": 49280,
+        "stderr_bytes": 0,
+        "native_exit": 0,
+        "stderr_complete": true,
+        "label": "http90k",
+        "stdout_complete": true
+      },
+      {
+        "program": "pg_restore.exe",
+        "stdout_bytes": 1599,
+        "creation_filetime": "134372575278383713",
+        "pid": 5956,
+        "stderr_bytes": 0,
+        "native_exit": 0,
+        "stderr_complete": true,
+        "label": "list-current",
+        "stdout_complete": true
+      },
+      {
+        "program": "pg_ctl.exe",
+        "stdout_bytes": 58,
+        "creation_filetime": "134372576074115949",
+        "pid": 67076,
+        "stderr_bytes": 0,
+        "native_exit": 0,
+        "stderr_complete": true,
+        "label": "pg-stop",
+        "stdout_complete": true
+      },
+      {
+        "program": "postgres.exe",
+        "stdout_bytes": 0,
+        "creation_filetime": "134372574975894130",
+        "pid": 67264,
+        "stderr_bytes": 2431,
+        "native_exit": 0,
+        "stderr_complete": true,
+        "label": "postgres",
+        "stdout_complete": true
+      },
+      {
+        "program": "pg_isready.exe",
+        "stdout_bytes": 41,
+        "creation_filetime": "134372574977208184",
+        "pid": 74552,
+        "stderr_bytes": 0,
+        "native_exit": 1,
+        "stderr_complete": true,
+        "label": "ready-01",
+        "stdout_complete": true
+      },
+      {
+        "program": "pg_isready.exe",
+        "stdout_bytes": 41,
+        "creation_filetime": "134372574999929633",
+        "pid": 12016,
+        "stderr_bytes": 0,
+        "native_exit": 1,
+        "stderr_complete": true,
+        "label": "ready-02",
+        "stdout_complete": true
+      },
+      {
+        "program": "pg_isready.exe",
+        "stdout_bytes": 41,
+        "creation_filetime": "134372575022572633",
+        "pid": 78056,
+        "stderr_bytes": 0,
+        "native_exit": 1,
+        "stderr_complete": true,
+        "label": "ready-03",
+        "stdout_complete": true
+      },
+      {
+        "program": "pg_isready.exe",
+        "stdout_bytes": 41,
+        "creation_filetime": "134372575045043798",
+        "pid": 63068,
+        "stderr_bytes": 0,
+        "native_exit": 0,
+        "stderr_complete": true,
+        "label": "ready-04",
+        "stdout_complete": true
+      },
+      {
+        "program": "pg_restore.exe",
+        "stdout_bytes": 0,
+        "creation_filetime": "134372575324890493",
+        "pid": 73116,
+        "stderr_bytes": 0,
+        "native_exit": 0,
+        "stderr_complete": true,
+        "label": "restore-current",
+        "stdout_complete": true
+      },
+      {
+        "program": "psql.exe",
+        "stdout_bytes": 3926,
+        "creation_filetime": "134372575090371313",
+        "pid": 55996,
+        "stderr_bytes": 0,
+        "native_exit": 0,
+        "stderr_complete": true,
+        "label": "source-cohort",
+        "stdout_complete": true
+      },
+      {
+        "program": "psql.exe",
+        "stdout_bytes": 226,
+        "creation_filetime": "134372575067355182",
+        "pid": 76436,
+        "stderr_bytes": 0,
+        "native_exit": 0,
+        "stderr_complete": true,
+        "label": "source10k",
+        "stdout_complete": true
+      },
+      {
+        "program": "psql.exe",
+        "stdout_bytes": 9457,
+        "creation_filetime": "134372575646731270",
+        "pid": 55744,
+        "stderr_bytes": 0,
+        "native_exit": 0,
+        "stderr_complete": true,
+        "label": "source90k",
+        "stdout_complete": true
+      },
+      {
+        "program": "psql.exe",
+        "stdout_bytes": 9457,
+        "creation_filetime": "134372575600464397",
+        "pid": 67640,
+        "stderr_bytes": 0,
+        "native_exit": 0,
+        "stderr_complete": true,
+        "label": "target-after",
+        "stdout_complete": true
+      },
+      {
+        "program": "psql.exe",
+        "stdout_bytes": 3930,
+        "creation_filetime": "134372575623961867",
+        "pid": 79796,
+        "stderr_bytes": 0,
+        "native_exit": 0,
+        "stderr_complete": true,
+        "label": "target-cohort",
+        "stdout_complete": true
+      },
+      {
+        "program": "pwsh.exe",
+        "stdout_bytes": 0,
+        "creation_filetime": "134372574968581020",
+        "pid": 70096,
+        "stderr_bytes": 0,
+        "native_exit": 0,
+        "stderr_complete": true,
+        "label": "worker",
+        "stdout_complete": true
+      }
+    ],
+    "inner_including_worker": 26,
+    "internal_pg_children_observed_via_postmaster_log_not_individual_handles": true,
+    "full_streams": 56,
+    "pg_pid_absent": true,
+    "outer_launch_and_collector_native_exit": 0,
+    "readiness_exits": [
+      1,
+      1,
+      1,
+      0
+    ],
+    "intentional_app_exit": 137,
+    "native_invocations": 28
+  },
+  "limits": [
+    "Saved public evidence is not fresh API/PG/browser execution",
+    "FullDATABASE not fullcluster/roles/PITR/physical/crossmajor/HA/RTO/RPO/SLO",
+    "Owner-only fixture does not prove restored viewer/editor matrix or cancelled-job restore",
+    "Private dump, credentials, auth fingerprints and full downloaded payloads excluded",
+    "Historical UNKNOWN and failed attempts unchanged",
+    "Quota plan is future work; enterprise readiness not claimed"
+  ],
+  "fresh_target_database": "pi_s24_compact_dr01",
+  "http": {
+    "captured_requests": 13,
+    "input_coverage": "Full stored row identity plus source SHA/length and pinned independent source audit; no source HTTP endpoint claimed",
+    "six_payload_report_files_rehashed": true,
+    "visible_projects": 2,
+    "new_owner_login": true,
+    "health": "Bounded managed readiness assertion; individual health probes are outside13 compatibility journal events",
+    "owner_users": 1,
+    "full_metadata_equal": true,
+    "completed_jobs": [
+      "job-1",
+      "job-3",
+      "job-5"
+    ]
+  },
+  "schema_version": 1,
+  "app_version": "0.8.2",
+  "science": {
+    "legacy_events": 2,
+    "new_performance_measurement": false,
+    "forward_events": 90000,
+    "java_executed": false,
+    "new_conversion_executed": false,
+    "provided_inverse_fieldwise_checked": true
+  }
+}

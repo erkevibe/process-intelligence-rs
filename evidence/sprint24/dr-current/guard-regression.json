@@ -1,0 +1,29 @@
+{
+  "no_native_process_started": true,
+  "status": "ACTUAL_MANAGED_PREFLIGHT_GUARDS_AND_NEGATIVES_NO_PRODUCT_NATIVE",
+  "no_pid_wal_delete": true,
+  "commands": 31,
+  "all43_pins_verified": true,
+  "negative_controls": [
+    {
+      "reason": "dr_command_scope",
+      "case": "prior62hex"
+    },
+    {
+      "reason": "input_sha_mismatch",
+      "case": "matching_duplicated_wrong64"
+    },
+    {
+      "reason": "dr_failed_pg_identity_pending",
+      "case": "wrong_prior_pg_pid"
+    },
+    {
+      "reason": "input_sha_mismatch",
+      "case": "wrong_stale_pid_hash"
+    }
+  ],
+  "utc": "2026-10-23T19:28:43.6946501+00:00",
+  "config_sha256": "73AFBA494A23CE9494D512F27E30650757341A05ED5FC484705DCD1771379624",
+  "correct_programs_and_owned_stale_pg_positive": true,
+  "actual_unique_programs": 8
+}

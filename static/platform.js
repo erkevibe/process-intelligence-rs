@@ -3,7 +3,7 @@
   'use strict';
   const byId = id => document.getElementById(id);
   const css = key => getComputedStyle(document.documentElement).getPropertyValue(key).trim();
-  const sizes = kind => kind === 'task' ? { width: 120, height: 70 } : { width: 45, height: 45 };
+  const sizes = node => node.dimensions || (node.kind === 'task' ? { width: 120, height: 70 } : { width: 45, height: 45 });
   const displayLabel = node => { const symbol = node.kind === 'exclusive_gateway' ? '×' : node.kind === 'parallel_gateway' ? '+' : ''; return symbol ? symbol + (node.label ? '\n' + node.label : '') : node.label; };
   let cy = null;
   let model = null;
@@ -20,19 +20,19 @@
       { selector: 'node[kind = "end"]', style: { 'border-width': 4 } },
       { selector: 'node[kind = "exclusive_gateway"], node[kind = "parallel_gateway"]', style: { 'shape': 'diamond', 'font-size': 19 } },
       { selector: 'node[kind = "exclusive_gateway"][hasLabel = true], node[kind = "parallel_gateway"][hasLabel = true]', style: { 'text-valign': 'bottom', 'text-margin-y': 8, 'font-size': 12 } },
-      { selector: 'edge', style: { 'curve-style': 'bezier', 'width': 1.8, 'line-color': css('--edge'), 'target-arrow-color': css('--edge'), 'target-arrow-shape': 'triangle' } },
+      { selector: 'edge', style: { 'label': 'data(label)', 'color': css('--text'), 'font-family': 'Segoe UI, sans-serif', 'font-size': 12, 'text-wrap': 'wrap', 'text-max-width': 160, 'text-background-color': css('--node'), 'text-background-opacity': 0.9, 'text-background-padding': 3, 'curve-style': 'bezier', 'width': 1.8, 'line-color': css('--edge'), 'target-arrow-color': css('--edge'), 'target-arrow-shape': 'triangle' } },
       { selector: 'edge[hasBends]', style: { 'curve-style': 'segments', 'segment-weights': 'data(weights)', 'segment-distances': 'data(distances)' } },
       { selector: ':selected', style: { 'border-color': css('--green'), 'line-color': css('--green'), 'target-arrow-color': css('--green'), 'border-width': 3 } }
     ];
   }
   function diagramElements() {
     const nodes = model.nodes.map(node => {
-      const size = sizes(node.kind);
+      const size = sizes(node);
       return { group: 'nodes', data: { ...node, ...size, displayLabel: displayLabel(node), hasLabel: Boolean(node.label) }, position: { x: node.x + size.width / 2, y: node.y + size.height / 2 }, grabbable: editable };
     });
     const centers = new Map(nodes.map(node => [node.data.id, node.position]));
     const edges = model.flows.map(flow => {
-      const data = { id: flow.id, source: flow.source, target: flow.target };
+      const data = { id: flow.id, source: flow.source, target: flow.target, label: flow.label || '' };
       const from = centers.get(flow.source); const to = centers.get(flow.target);
       if (from && to && flow.waypoints.length > 2) {
         const dx = to.x - from.x; const dy = to.y - from.y; const length = Math.hypot(dx, dy);
@@ -60,20 +60,27 @@
     selected = null;
     selectedFlow = model.flows.find(flow => flow.id === flowId) || null;
     for (const id of ['bpmn-node-id', 'bpmn-node-label', 'bpmn-node-x', 'bpmn-node-y']) {
-      const field = byId(id); if (field) { field.value = id === 'bpmn-node-id' ? (selectedFlow?.id ?? '') : ''; field.disabled = true; }
+      const field = byId(id); if (field) { field.value = id === 'bpmn-node-id' ? (selectedFlow?.id ?? '') : id === 'bpmn-node-label' ? (selectedFlow?.label ?? '') : ''; field.disabled = id !== 'bpmn-node-label' || !editable || !selectedFlow; }
     }
-    const apply = byId('bpmn-apply-node'); if (apply) apply.disabled = true;
+    const apply = byId('bpmn-apply-node'); if (apply) apply.disabled = !editable || !selectedFlow;
     const remove = byId('bpmn-delete-element'); if (remove) remove.disabled = !editable || !selectedFlow;
-    const hint = byId('bpmn-node-hint'); if (hint) hint.textContent = selectedFlow ? (editable ? 'Выбран переход. Его можно удалить из черновика.' : 'Выбран переход. Изменение доступно редактору проекта.') : 'Выберите узел или переход на диаграмме.';
+    const hint = byId('bpmn-node-hint'); if (hint) hint.textContent = selectedFlow ? (editable ? 'Измените подпись перехода, затем сохраните модель. Подпись не является условием.' : 'Подпись перехода доступна для просмотра; изменение доступно редактору проекта.') : 'Выберите узел или переход на диаграмме.';
   }
   function applySelected() {
-    if (!editable || !selected) return true;
+    if (!editable) return true;
+    if (selectedFlow) {
+      const label = byId('bpmn-node-label')?.value ?? selectedFlow.label ?? '';
+      if (label) selectedFlow.label = label; else delete selectedFlow.label;
+      cy.getElementById(selectedFlow.id).data({ label }); syncField();
+      return true;
+    }
+    if (!selected) return true;
     const label = byId('bpmn-node-label')?.value ?? selected.label;
     const rawX = byId('bpmn-node-x')?.value ?? ''; const rawY = byId('bpmn-node-y')?.value ?? '';
     const x = Number(rawX); const y = Number(rawY);
     if (!rawX.trim() || !rawY.trim() || !Number.isFinite(x) || !Number.isFinite(y) || Math.abs(x) > 1000000 || Math.abs(y) > 1000000) { status('Положение должно быть числом от −1 000 000 до 1 000 000.'); return false; }
     selected.label = label; moveNode(selected, x, y);
-    const size = sizes(selected.kind); const node = cy.getElementById(selected.id);
+    const size = sizes(selected); const node = cy.getElementById(selected.id);
     node.data({ displayLabel: displayLabel(selected), hasLabel: Boolean(label) });
     node.position({ x: x + size.width / 2, y: y + size.height / 2 }); syncField();
     return true;
@@ -95,7 +102,7 @@
     cy.batch(() => { cy.elements().remove(); cy.add(diagramElements()); });
     cy.zoom(zoom); cy.pan(pan); refillFlowChoices(); syncField();
   }
-  function center(node) { const size = sizes(node.kind); return { x: node.x + size.width / 2, y: node.y + size.height / 2 }; }
+  function center(node) { const size = sizes(node); return { x: node.x + size.width / 2, y: node.y + size.height / 2 }; }
   function moveNode(node, x, y) {
     const dx = x - node.x; const dy = y - node.y;
     for (const flow of model.flows) {
@@ -118,7 +125,7 @@
     cy.on('dragfree', 'node', event => {
       if (!editable) return;
       const node = model.nodes.find(item => item.id === event.target.id()); if (!node) return;
-      const position = event.target.position(); const size = sizes(node.kind);
+      const position = event.target.position(); const size = sizes(node);
       moveNode(node, Math.round((position.x - size.width / 2) * 1000) / 1000, Math.round((position.y - size.height / 2) * 1000) / 1000);
       syncField(); selectNode(node.id); status('Положение изменено в черновике. Сохраните модель.');
     });
@@ -153,7 +160,7 @@
     byId('bpmn-save-form')?.addEventListener('submit', event => { if (!applySelected()) event.preventDefault(); else { syncField(); status('Отправляем черновик. Дождитесь подтверждения после обновления страницы.'); } });
     refillFlowChoices();
     syncField();
-    window.piBpmnSnapshot = () => ({ model: JSON.parse(JSON.stringify(model)), selected_node_id: selected?.id ?? null, pan: cy.pan(), zoom: cy.zoom(), editable });
+    window.piBpmnSnapshot = () => ({ model: JSON.parse(JSON.stringify(model)), selected_node_id: selected?.id ?? null, selected_flow_id: selectedFlow?.id ?? null, pan: cy.pan(), zoom: cy.zoom(), editable });
   }
   function initActivityPicker(picker) {
     const field = picker.dataset.field;
@@ -227,3 +234,15 @@
     document.querySelectorAll('.activity-picker').forEach(initActivityPicker);
   });
 })();
+
+// A browser submission is one intentional attempt; server retries remain explicit.
+document.addEventListener('submit', event => {
+  const form = event.target;
+  if (!(form instanceof HTMLFormElement) || !form.hasAttribute('data-conversion-submit')) return;
+  if (form.dataset.submitted === 'yes') { event.preventDefault(); return; }
+  form.dataset.submitted = 'yes';
+  for (const button of form.querySelectorAll('button[type="submit"], button:not([type])')) {
+    button.disabled = true;
+    button.textContent = 'Отправляем…';
+  }
+});

@@ -1,0 +1,274 @@
+{
+  "schema_version": 1,
+  "status": "COMPLETE_EIGHT_OUTCOME_CONSERVATION_AND_ADMITTED_LANGUAGE_CHECKS",
+  "cohort_sha256": "6dac7a9b69d553590f342ed4b836140678a9f2c072cc806119f0ecc48ace208d",
+  "bundle_sha256": "ea7309b02c583e230afb57ccf474d62cdb49c9af61f39a0206a46200cca1b4bf",
+  "reference_conversions_sha256": "43bccde892b95ca63b12e936e64ac97e424058eb8aa1314853475f013be9385c",
+  "cases": [
+    {
+      "id": "linear",
+      "prepared_status": "net_saved",
+      "original_rust_prepared": {
+        "admission_reason": null,
+        "admission_status": "admitted",
+        "graph_file": "linear.graph.json",
+        "graph_sha256": "4ff1c4ae4e5ada11592c17e647fe61657b0b6eb584786eed61c452c5364ce51c",
+        "map_file": "linear.map.json",
+        "map_sha256": "a68b67c9b592bb2761576e15ff8dec94f61fc598b83c65e1184fb0f1eaf280e4",
+        "net_file": "linear.net.json",
+        "net_sha256": "0331004c5553727c14337115c349cc8bd557ff17ee5d33ab6291ed9fc2c28cb9",
+        "status": "net_saved"
+      },
+      "reference_status": "converted_original_raw_xml",
+      "rust_conservation": {
+        "status": "exact_weighted_net_complete_graph_conservation",
+        "net_sha256": "0331004c5553727c14337115c349cc8bd557ff17ee5d33ab6291ed9fc2c28cb9",
+        "places": 6,
+        "transitions": 5,
+        "arcs": 10,
+        "states": 6,
+        "edges": 5
+      },
+      "reference_conservation": {
+        "status": "exact_weighted_net_complete_graph_conservation",
+        "net_sha256": "246837322dfcc5c4be08b692602ba36a35b03447349d80ad7538a99b6067c953",
+        "places": 16,
+        "transitions": 15,
+        "arcs": 30,
+        "states": 16,
+        "edges": 15
+      },
+      "language": {
+        "status": "equivalent",
+        "visited_subset_pairs": 4,
+        "method": "complete_tau_closure_subset_pair_bisimulation_of_observable_accepting_automata"
+      },
+      "status": "exact_saved_conservation_and_original_xml_language_equivalence"
+    },
+    {
+      "id": "exclusive-choice",
+      "prepared_status": "net_saved",
+      "original_rust_prepared": {
+        "admission_reason": null,
+        "admission_status": "admitted",
+        "graph_file": "exclusive-choice.graph.json",
+        "graph_sha256": "dccc5539f43a26471b2bc06e5ced7a21dc7023f1af04788c239587b351950844",
+        "map_file": "exclusive-choice.map.json",
+        "map_sha256": "f1e214b3919a027703dbc631b73a073eab0e07e252d75526685b10ff65e297ee",
+        "net_file": "exclusive-choice.net.json",
+        "net_sha256": "33238732c5b11d2a4f0566c2003c617a77ca092fad376880c9114d2247c51b12",
+        "status": "net_saved"
+      },
+      "reference_status": "converted_original_raw_xml",
+      "rust_conservation": {
+        "status": "exact_weighted_net_complete_graph_conservation",
+        "net_sha256": "33238732c5b11d2a4f0566c2003c617a77ca092fad376880c9114d2247c51b12",
+        "places": 10,
+        "transitions": 10,
+        "arcs": 20,
+        "states": 10,
+        "edges": 10
+      },
+      "reference_conservation": {
+        "status": "exact_weighted_net_complete_graph_conservation",
+        "net_sha256": "e70fd78551f6e2d6cfe65a2244a41bdd2b182558b5fcbe761f6649718ef3411b",
+        "places": 26,
+        "transitions": 26,
+        "arcs": 52,
+        "states": 26,
+        "edges": 26
+      },
+      "language": {
+        "status": "equivalent",
+        "visited_subset_pairs": 5,
+        "method": "complete_tau_closure_subset_pair_bisimulation_of_observable_accepting_automata"
+      },
+      "status": "exact_saved_conservation_and_original_xml_language_equivalence"
+    },
+    {
+      "id": "parallel-interleavings",
+      "prepared_status": "net_saved",
+      "original_rust_prepared": {
+        "admission_reason": null,
+        "admission_status": "admitted",
+        "graph_file": "parallel-interleavings.graph.json",
+        "graph_sha256": "dc34271ada8a929667ffaa7a7f942c1042efac00fb3911ff056b3e55799d9d85",
+        "map_file": "parallel-interleavings.map.json",
+        "map_sha256": "9d643b361f1bb05c4309638bc4f0bf1a592538594b2b32a00fdd09b32b684bf0",
+        "net_file": "parallel-interleavings.net.json",
+        "net_sha256": "a6c143309766583cbc49ada45bf75f38b218753ec316b5abcc99cc92375448a6",
+        "status": "net_saved"
+      },
+      "reference_status": "converted_original_raw_xml",
+      "rust_conservation": {
+        "status": "exact_weighted_net_complete_graph_conservation",
+        "net_sha256": "a6c143309766583cbc49ada45bf75f38b218753ec316b5abcc99cc92375448a6",
+        "places": 10,
+        "transitions": 8,
+        "arcs": 18,
+        "states": 10,
+        "edges": 10
+      },
+      "reference_conservation": {
+        "status": "exact_weighted_net_complete_graph_conservation",
+        "net_sha256": "dab089820acd3563955400b18d8e693e78dba5a1346ac87dae0422830d3200a3",
+        "places": 26,
+        "transitions": 24,
+        "arcs": 50,
+        "states": 34,
+        "edges": 42
+      },
+      "language": {
+        "status": "equivalent",
+        "visited_subset_pairs": 6,
+        "method": "complete_tau_closure_subset_pair_bisimulation_of_observable_accepting_automata"
+      },
+      "status": "exact_saved_conservation_and_original_xml_language_equivalence"
+    },
+    {
+      "id": "self-loop",
+      "prepared_status": "quality_unsupported_semantics",
+      "original_rust_prepared": {
+        "reason": "quality_unsupported_standard_loop_before_both_converters",
+        "status": "quality_unsupported_semantics"
+      },
+      "reference_status": "reference_conversion_refused",
+      "status": "unsupported_behavior_preserved_no_scalar"
+    },
+    {
+      "id": "short-loop",
+      "prepared_status": "net_saved",
+      "original_rust_prepared": {
+        "admission_reason": null,
+        "admission_status": "admitted",
+        "graph_file": "short-loop.graph.json",
+        "graph_sha256": "7b779229cf345547d90a35a1175cb17705edbc174c5a6ceb6b31522e4729a7db",
+        "map_file": "short-loop.map.json",
+        "map_sha256": "8e06bb9ae3aff0a3b82ec239aeb053687fffdde32bfa331c5505c3a48b77f180",
+        "net_file": "short-loop.net.json",
+        "net_sha256": "71c708e9effdce1463b81a6491791d9482cc45c9ccb0875a7bf38d039094f0e7",
+        "status": "net_saved"
+      },
+      "reference_status": "converted_original_raw_xml",
+      "rust_conservation": {
+        "status": "exact_weighted_net_complete_graph_conservation",
+        "net_sha256": "71c708e9effdce1463b81a6491791d9482cc45c9ccb0875a7bf38d039094f0e7",
+        "places": 9,
+        "transitions": 9,
+        "arcs": 18,
+        "states": 9,
+        "edges": 9
+      },
+      "reference_conservation": {
+        "status": "exact_weighted_net_complete_graph_conservation",
+        "net_sha256": "05a4f7a233bba1e7b09afb0c5d0e90ee765c468a5323f11cfb4e967b395aa966",
+        "places": 23,
+        "transitions": 23,
+        "arcs": 46,
+        "states": 23,
+        "edges": 23
+      },
+      "language": {
+        "status": "equivalent",
+        "visited_subset_pairs": 4,
+        "method": "complete_tau_closure_subset_pair_bisimulation_of_observable_accepting_automata"
+      },
+      "status": "exact_saved_conservation_and_original_xml_language_equivalence"
+    },
+    {
+      "id": "rare-noise",
+      "prepared_status": "net_saved",
+      "original_rust_prepared": {
+        "admission_reason": null,
+        "admission_status": "admitted",
+        "graph_file": "rare-noise.graph.json",
+        "graph_sha256": "233ee3e9ecd603fbfc251497d41b9acf79411f0621d6b796b7b778428632933b",
+        "map_file": "rare-noise.map.json",
+        "map_sha256": "f1e214b3919a027703dbc631b73a073eab0e07e252d75526685b10ff65e297ee",
+        "net_file": "rare-noise.net.json",
+        "net_sha256": "5d98ef74cac74a9ccd08920bc58565fe6d162312e74f2e0fd7c193dbc15e9f6b",
+        "status": "net_saved"
+      },
+      "reference_status": "converted_original_raw_xml",
+      "rust_conservation": {
+        "status": "exact_weighted_net_complete_graph_conservation",
+        "net_sha256": "5d98ef74cac74a9ccd08920bc58565fe6d162312e74f2e0fd7c193dbc15e9f6b",
+        "places": 10,
+        "transitions": 10,
+        "arcs": 20,
+        "states": 10,
+        "edges": 10
+      },
+      "reference_conservation": {
+        "status": "exact_weighted_net_complete_graph_conservation",
+        "net_sha256": "513469a0c643bfb21152636a200b77dd151d8d6869260d2a7dff0a74a209fa76",
+        "places": 26,
+        "transitions": 26,
+        "arcs": 52,
+        "states": 26,
+        "edges": 26
+      },
+      "language": {
+        "status": "equivalent",
+        "visited_subset_pairs": 5,
+        "method": "complete_tau_closure_subset_pair_bisimulation_of_observable_accepting_automata"
+      },
+      "status": "exact_saved_conservation_and_original_xml_language_equivalence"
+    },
+    {
+      "id": "empty-log",
+      "prepared_status": "carried_algorithm_exception",
+      "original_rust_prepared": {
+        "exception": {
+          "class": "java.util.NoSuchElementException",
+          "message": null
+        },
+        "status": "carried_algorithm_exception"
+      },
+      "reference_status": "carried_algorithm_exception",
+      "status": "historical_algorithm_exception_preserved_no_scalar"
+    },
+    {
+      "id": "empty-trace",
+      "prepared_status": "net_saved",
+      "original_rust_prepared": {
+        "admission_reason": null,
+        "admission_status": "admitted",
+        "graph_file": "empty-trace.graph.json",
+        "graph_sha256": "0b79d7da55eb6356bb6fe137f0c3608c0d4af6448234cad9865e26f951ca2e5f",
+        "map_file": "empty-trace.map.json",
+        "map_sha256": "a01c888c642d505f2efcbd366444c49c527f298169eca7bc033ea3514f6646f7",
+        "net_file": "empty-trace.net.json",
+        "net_sha256": "4f72b15d9e484c2b1636a3d07426f9843b6fa499a7314d0d9e71191aa9684a7f",
+        "status": "net_saved"
+      },
+      "reference_status": "converted_original_raw_xml",
+      "rust_conservation": {
+        "status": "exact_weighted_net_complete_graph_conservation",
+        "net_sha256": "4f72b15d9e484c2b1636a3d07426f9843b6fa499a7314d0d9e71191aa9684a7f",
+        "places": 3,
+        "transitions": 2,
+        "arcs": 4,
+        "states": 3,
+        "edges": 2
+      },
+      "reference_conservation": {
+        "status": "exact_weighted_net_complete_graph_conservation",
+        "net_sha256": "138cd54d25a1938e8323fec44deab3b9b4b5366b413591e8d175f55c472d29be",
+        "places": 7,
+        "transitions": 6,
+        "arcs": 12,
+        "states": 7,
+        "edges": 6
+      },
+      "language": {
+        "status": "equivalent",
+        "visited_subset_pairs": 1,
+        "method": "complete_tau_closure_subset_pair_bisimulation_of_observable_accepting_automata"
+      },
+      "status": "exact_saved_conservation_and_original_xml_language_equivalence"
+    }
+  ],
+  "no_metric_or_new_miner_execution": true,
+  "not_whole_R4_acceptance": true
+}

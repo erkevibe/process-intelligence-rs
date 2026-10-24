@@ -1,0 +1,31 @@
+{
+  "role": "QA/ProcessLogAuditor",
+  "agent": "/root/qa_resume11",
+  "utc": "2026-10-19T07:03:49.2803592Z",
+  "vote": "FOR",
+  "proposal_path": "flw/evidence/sprint-11-final-proposal.md",
+  "proposal_sha256": "AAC785857DB5CA09E17706D51E391EBFB53E1CDAA038069167EFEB8F0044CCA9",
+  "source_candidate": "c86edd9e82b561c3f72cb9780852e58e85111c57",
+  "scope": "Limited diagnostic source and safe evidence draft handoff only",
+  "independent_checks": [
+    "Recomputed proposal and all seven immutable linked material SHA256 values",
+    "Independently rehashed all 727 indexed evidence files and 50 source-manifest files; no mismatch",
+    "Independently streamed all63 Git blobs from source candidate through SHA256 and compared current full local bytes; no mismatch",
+    "Independently streamed all1007 files of downloaded public ZIP through canonical Git blob SHA1 against complete candidate Git tree; exact file set and no mismatch; archive D127ED0258E1029E4D5B7134B6A51008E764328CF3D340A50374781E1F10067C",
+    "Reviewed updated report/roadmap and historical QA/TD corrections; OPEN gaps and frozen unchanged0.7.2 are explicit"
+  ],
+  "ci_at_vote": {
+    "candidate_push_run": 39213149734,
+    "candidate_pr_run": 39213155237,
+    "status": "SUCCESS reported by Root fresh actual API snapshot; QA did not independently query API",
+    "final_metadata_head": "NOT_YET_CREATED_OR_VERIFIED"
+  },
+  "conditions": [
+    "Successful CI at final metadata-only HEAD is mandatory before completion",
+    "Fresh complete public final HEAD archive/tree verification and current PR/link checks are mandatory before completion",
+    "Any changed immutable bound content requires new proposal/vote",
+    "No release/tag/merge/install/cleanup enablement or full R3/DISK/R2-R5 acceptance"
+  ],
+  "no_product_runtime": true,
+  "no_stop": true
+}

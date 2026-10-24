@@ -1,0 +1,42 @@
+{
+  "kind": "ACTUAL_STAGE_RESOLUTION",
+  "implementation_conditions": [
+    "Echo only totaldraftstrings<=16KiB otherwise preserve originalJSON",
+    "Preserve invalid typed selectvalues without arithmeticpanic",
+    "Fetch authorized log then finalfresh with_write_access around pure response handoff; no recursiveauthmutex",
+    "HTML error Cache-Control no-store and Vary Accept; defaultJSONheaders unchanged",
+    "Targeted independent QA+TD/actualPG/browser beforecandidate; originalclock freeze09:53/end11:23 unchanged"
+  ],
+  "actual_for": 5,
+  "actual_utc": "2026-10-23T07:15:45.4815028+00:00",
+  "decision": "APPROVE_PROPORTIONAL_FOCUSED_STAGE",
+  "prerequisite_complete_sha256": "6477EAD2DE4D5302F3198332F5311407183F3BE0A0DC7C54AAC528F4366415BC",
+  "votes": [
+    {
+      "sha256": "93DC772F3AB6261C125DD138269FF67304AB452431766FECBCC620BEFB14D505",
+      "role": "Root",
+      "vote": "FOR"
+    },
+    {
+      "sha256": "CAABD4C123D0DCDDA33C94B3628629A803A6A42F1D84BBF17430EB66454AAC7B",
+      "role": "PM",
+      "vote": "FOR"
+    },
+    {
+      "sha256": "19A014D8273BC3AA7D4F3B24A66D7D8F1CAE88CF6A565962E397761AF92E7F7F",
+      "role": "Customer",
+      "vote": "FOR"
+    },
+    {
+      "sha256": "3E545554D4F07A00EBEF2E3D8D491BA6D5B81161CD573C7B795F3E0EF469B0B2",
+      "role": "QA",
+      "vote": "FOR"
+    },
+    {
+      "sha256": "F61B8E4BCE92D2F53395D13F48968166A0F7BB540ABE203079FE068806E65A25",
+      "role": "TD",
+      "vote": "FOR"
+    }
+  ],
+  "proposal_sha256": "23744C45CC79A80CFB241DB4B6E8AEA45ED6E6819B1922969A460FF4A15E5BDD"
+}

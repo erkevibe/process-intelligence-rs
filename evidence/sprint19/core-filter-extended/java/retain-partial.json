@@ -1,0 +1,1003 @@
+{
+  "schema_version": 1,
+  "id": "retain-partial",
+  "input_sha256": "eba7bdb6492867d234e6f6827da2a2292d2feb145b06005d450b70bffd75497e",
+  "engine_identity": {
+    "class": "org.apromore.apmlog.filter.APMLogFilter",
+    "sha256": "b07c241d7d5a430f9fd1f6cea5eb696a71eefdee7dc268ee0c81d18c464769b3",
+    "code_source": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+  },
+  "case_length_identity": {
+    "class": "org.apromore.apmlog.filter.typefilters.CaseLengthFilter",
+    "sha256": "1409e5c3cf4e730cf33eae022fc159a29c557eb98106849523ddd1e0f86c64be",
+    "code_source": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+  },
+  "converter_identity": {
+    "class": "org.apromore.apmlog.xes.XLogToImmutableLog",
+    "sha256": "01b0f16bffef26ed24bf3570fcecac0cdf3a21dd1f1757a7b54009c8c331a2e7",
+    "code_source": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+  },
+  "rule_identity": {
+    "class": "org.apromore.apmlog.filter.rules.LogFilterRuleImpl",
+    "sha256": "37bc711f897b54684e4e349c3890a217817202362f7ae1150a4e3253de693315",
+    "code_source": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+  },
+  "rule_value_identity": {
+    "class": "org.apromore.apmlog.filter.rules.RuleValue",
+    "sha256": "3d9fe85b1380bad10801140b9b747159495b3b50aa5423b5a0f8fc71bb1e4e01",
+    "code_source": "file:/workspace://.local/sprint16/service/bootstrap02/source/Apromore-Extras/APMLogModule/build/libs/APMLogModule-1.0.0-plain.jar"
+  },
+  "factory": "org.deckfour.xes.factory.XFactoryNaiveImpl",
+  "assertions_enabled": false,
+  "filter_spec": {
+    "case_activity": null,
+    "min_events": null,
+    "max_events": null,
+    "retain_activities": [
+      "A"
+    ],
+    "remove_activities": []
+  },
+  "one_java_ordered_rule_list": true,
+  "source_domain_before": {
+    "name": "Extended Core filter retain-partial",
+    "cases": [
+      {
+        "id": "retain-partial-source-0",
+        "name": "retain-partial-trace-0",
+        "events": [
+          {
+            "ordinal": 3,
+            "activity": "A",
+            "timestamp": "2024-01-01T00:00:40.123Z",
+            "lifecycle": "complete"
+          },
+          {
+            "ordinal": 10,
+            "activity": "B",
+            "timestamp": "2024-01-01T00:00:39.123Z",
+            "lifecycle": "complete"
+          }
+        ]
+      },
+      {
+        "id": "retain-partial-source-1",
+        "name": "retain-partial-trace-1",
+        "events": [
+          {
+            "ordinal": 3,
+            "activity": "B",
+            "timestamp": "2024-01-01T00:00:40.123Z",
+            "lifecycle": "complete"
+          },
+          {
+            "ordinal": 10,
+            "activity": "A",
+            "timestamp": "2024-01-01T00:00:39.123Z",
+            "lifecycle": "complete"
+          },
+          {
+            "ordinal": 17,
+            "activity": "A",
+            "timestamp": "2024-01-01T00:00:38.123Z",
+            "lifecycle": "complete"
+          }
+        ]
+      }
+    ],
+    "warnings": [
+      "synthetic warning retained for retain-partial"
+    ]
+  },
+  "source_domain_before_sha256": "dc63c54da7ffe05028b96c8a7360a11aeaf36780adf6013ed8dd9ca90160a913",
+  "source_xlog_before": {
+    "attributes": [
+      {
+        "key": "concept:name",
+        "type": "string",
+        "value": "Extended Core filter retain-partial"
+      },
+      {
+        "key": "source:warnings",
+        "type": "string",
+        "value": "[\"synthetic warning retained for retain-partial\"]"
+      }
+    ],
+    "classifiers": [],
+    "extensions": [],
+    "global_trace_attributes": [],
+    "global_event_attributes": [],
+    "traces": [
+      {
+        "attributes": [
+          {
+            "key": "case:source_id",
+            "type": "string",
+            "value": "retain-partial-source-0"
+          },
+          {
+            "key": "concept:name",
+            "type": "string",
+            "value": "retain-partial-trace-0"
+          }
+        ],
+        "events": [
+          {
+            "attributes": [
+              {
+                "key": "concept:name",
+                "type": "string",
+                "value": "A"
+              },
+              {
+                "key": "event:source_ordinal",
+                "type": "int",
+                "value": 3
+              },
+              {
+                "key": "lifecycle:transition",
+                "type": "string",
+                "value": "complete"
+              },
+              {
+                "key": "time:timestamp",
+                "type": "date",
+                "value": 1704067240123,
+                "text": "2024-01-01T00:00:40.123Z"
+              }
+            ]
+          },
+          {
+            "attributes": [
+              {
+                "key": "concept:name",
+                "type": "string",
+                "value": "B"
+              },
+              {
+                "key": "event:source_ordinal",
+                "type": "int",
+                "value": 10
+              },
+              {
+                "key": "lifecycle:transition",
+                "type": "string",
+                "value": "complete"
+              },
+              {
+                "key": "time:timestamp",
+                "type": "date",
+                "value": 1704067239123,
+                "text": "2024-01-01T00:00:39.123Z"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "attributes": [
+          {
+            "key": "case:source_id",
+            "type": "string",
+            "value": "retain-partial-source-1"
+          },
+          {
+            "key": "concept:name",
+            "type": "string",
+            "value": "retain-partial-trace-1"
+          }
+        ],
+        "events": [
+          {
+            "attributes": [
+              {
+                "key": "concept:name",
+                "type": "string",
+                "value": "B"
+              },
+              {
+                "key": "event:source_ordinal",
+                "type": "int",
+                "value": 3
+              },
+              {
+                "key": "lifecycle:transition",
+                "type": "string",
+                "value": "complete"
+              },
+              {
+                "key": "time:timestamp",
+                "type": "date",
+                "value": 1704067240123,
+                "text": "2024-01-01T00:00:40.123Z"
+              }
+            ]
+          },
+          {
+            "attributes": [
+              {
+                "key": "concept:name",
+                "type": "string",
+                "value": "A"
+              },
+              {
+                "key": "event:source_ordinal",
+                "type": "int",
+                "value": 10
+              },
+              {
+                "key": "lifecycle:transition",
+                "type": "string",
+                "value": "complete"
+              },
+              {
+                "key": "time:timestamp",
+                "type": "date",
+                "value": 1704067239123,
+                "text": "2024-01-01T00:00:39.123Z"
+              }
+            ]
+          },
+          {
+            "attributes": [
+              {
+                "key": "concept:name",
+                "type": "string",
+                "value": "A"
+              },
+              {
+                "key": "event:source_ordinal",
+                "type": "int",
+                "value": 17
+              },
+              {
+                "key": "lifecycle:transition",
+                "type": "string",
+                "value": "complete"
+              },
+              {
+                "key": "time:timestamp",
+                "type": "date",
+                "value": 1704067238123,
+                "text": "2024-01-01T00:00:38.123Z"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "trace_count": 2,
+    "event_count": 5
+  },
+  "source_xlog_before_sha256": "37a8c181fbf03966f616b10fe70e947ba70db6a71e913e15c35a0df8170d28a2",
+  "engine_invoked": true,
+  "source_xlog_after_conversion": {
+    "attributes": [
+      {
+        "key": "concept:name",
+        "type": "string",
+        "value": "Extended Core filter retain-partial"
+      },
+      {
+        "key": "source:warnings",
+        "type": "string",
+        "value": "[\"synthetic warning retained for retain-partial\"]"
+      }
+    ],
+    "classifiers": [],
+    "extensions": [],
+    "global_trace_attributes": [],
+    "global_event_attributes": [],
+    "traces": [
+      {
+        "attributes": [
+          {
+            "key": "case:source_id",
+            "type": "string",
+            "value": "retain-partial-source-0"
+          },
+          {
+            "key": "concept:name",
+            "type": "string",
+            "value": "retain-partial-trace-0"
+          }
+        ],
+        "events": [
+          {
+            "attributes": [
+              {
+                "key": "concept:name",
+                "type": "string",
+                "value": "A"
+              },
+              {
+                "key": "event:source_ordinal",
+                "type": "int",
+                "value": 3
+              },
+              {
+                "key": "lifecycle:transition",
+                "type": "string",
+                "value": "complete"
+              },
+              {
+                "key": "time:timestamp",
+                "type": "date",
+                "value": 1704067240123,
+                "text": "2024-01-01T00:00:40.123Z"
+              }
+            ]
+          },
+          {
+            "attributes": [
+              {
+                "key": "concept:name",
+                "type": "string",
+                "value": "B"
+              },
+              {
+                "key": "event:source_ordinal",
+                "type": "int",
+                "value": 10
+              },
+              {
+                "key": "lifecycle:transition",
+                "type": "string",
+                "value": "complete"
+              },
+              {
+                "key": "time:timestamp",
+                "type": "date",
+                "value": 1704067239123,
+                "text": "2024-01-01T00:00:39.123Z"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "attributes": [
+          {
+            "key": "case:source_id",
+            "type": "string",
+            "value": "retain-partial-source-1"
+          },
+          {
+            "key": "concept:name",
+            "type": "string",
+            "value": "retain-partial-trace-1"
+          }
+        ],
+        "events": [
+          {
+            "attributes": [
+              {
+                "key": "concept:name",
+                "type": "string",
+                "value": "B"
+              },
+              {
+                "key": "event:source_ordinal",
+                "type": "int",
+                "value": 3
+              },
+              {
+                "key": "lifecycle:transition",
+                "type": "string",
+                "value": "complete"
+              },
+              {
+                "key": "time:timestamp",
+                "type": "date",
+                "value": 1704067240123,
+                "text": "2024-01-01T00:00:40.123Z"
+              }
+            ]
+          },
+          {
+            "attributes": [
+              {
+                "key": "concept:name",
+                "type": "string",
+                "value": "A"
+              },
+              {
+                "key": "event:source_ordinal",
+                "type": "int",
+                "value": 10
+              },
+              {
+                "key": "lifecycle:transition",
+                "type": "string",
+                "value": "complete"
+              },
+              {
+                "key": "time:timestamp",
+                "type": "date",
+                "value": 1704067239123,
+                "text": "2024-01-01T00:00:39.123Z"
+              }
+            ]
+          },
+          {
+            "attributes": [
+              {
+                "key": "concept:name",
+                "type": "string",
+                "value": "A"
+              },
+              {
+                "key": "event:source_ordinal",
+                "type": "int",
+                "value": 17
+              },
+              {
+                "key": "lifecycle:transition",
+                "type": "string",
+                "value": "complete"
+              },
+              {
+                "key": "time:timestamp",
+                "type": "date",
+                "value": 1704067238123,
+                "text": "2024-01-01T00:00:38.123Z"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "trace_count": 2,
+    "event_count": 5
+  },
+  "source_xlog_after_conversion_sha256": "37a8c181fbf03966f616b10fe70e947ba70db6a71e913e15c35a0df8170d28a2",
+  "source_apm_before": {
+    "log_name": "Extended Core filter retain-partial",
+    "traces": [
+      {
+        "immutable_index": 0,
+        "case_id": "retain-partial-trace-0",
+        "immutable_event_count": 2,
+        "attributes": {
+          "case:source_id": "retain-partial-source-0"
+        },
+        "activities": [
+          {
+            "immutable_index": 0,
+            "immutable_trace_index": 0,
+            "mutable_trace_index": 0,
+            "parent_case_id": "retain-partial-trace-0",
+            "event_indices": [
+              0
+            ],
+            "name": "A",
+            "name_indicator": 0,
+            "start_time_ms": 1704067240123,
+            "end_time_ms": 1704067240123,
+            "attributes": {
+              "concept:name": "A",
+              "event:source_ordinal": "3"
+            }
+          },
+          {
+            "immutable_index": 1,
+            "immutable_trace_index": 0,
+            "mutable_trace_index": 0,
+            "parent_case_id": "retain-partial-trace-0",
+            "event_indices": [
+              1
+            ],
+            "name": "B",
+            "name_indicator": 1,
+            "start_time_ms": 1704067239123,
+            "end_time_ms": 1704067239123,
+            "attributes": {
+              "concept:name": "B",
+              "event:source_ordinal": "10"
+            }
+          }
+        ]
+      },
+      {
+        "immutable_index": 1,
+        "case_id": "retain-partial-trace-1",
+        "immutable_event_count": 3,
+        "attributes": {
+          "case:source_id": "retain-partial-source-1"
+        },
+        "activities": [
+          {
+            "immutable_index": 0,
+            "immutable_trace_index": 1,
+            "mutable_trace_index": 1,
+            "parent_case_id": "retain-partial-trace-1",
+            "event_indices": [
+              0
+            ],
+            "name": "B",
+            "name_indicator": 1,
+            "start_time_ms": 1704067240123,
+            "end_time_ms": 1704067240123,
+            "attributes": {
+              "concept:name": "B",
+              "event:source_ordinal": "3"
+            }
+          },
+          {
+            "immutable_index": 1,
+            "immutable_trace_index": 1,
+            "mutable_trace_index": 1,
+            "parent_case_id": "retain-partial-trace-1",
+            "event_indices": [
+              1
+            ],
+            "name": "A",
+            "name_indicator": 0,
+            "start_time_ms": 1704067239123,
+            "end_time_ms": 1704067239123,
+            "attributes": {
+              "concept:name": "A",
+              "event:source_ordinal": "10"
+            }
+          },
+          {
+            "immutable_index": 2,
+            "immutable_trace_index": 1,
+            "mutable_trace_index": 1,
+            "parent_case_id": "retain-partial-trace-1",
+            "event_indices": [
+              2
+            ],
+            "name": "A",
+            "name_indicator": 0,
+            "start_time_ms": 1704067238123,
+            "end_time_ms": 1704067238123,
+            "attributes": {
+              "concept:name": "A",
+              "event:source_ordinal": "17"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "source_apm_before_sha256": "6a4497b4e9ca47da6ba0bf8dac7859f8dbc29d14e373f9c44dda429da253258f",
+  "java_ordered_rules": [
+    {
+      "filter_type": "EVENT_EVENT_ATTRIBUTE",
+      "choice": "RETAIN",
+      "section": "EVENT",
+      "inclusion": "ANY_VALUE",
+      "key": "concept:name",
+      "primary_values": [
+        {
+          "operation": "EQUAL",
+          "long_value": null,
+          "string_set": [
+            "A"
+          ]
+        }
+      ]
+    }
+  ],
+  "engine_call_count": 1,
+  "status": "filtered",
+  "outcome": "filtered",
+  "selected_source_indices": [
+    0,
+    1
+  ],
+  "selected_event_positions": [
+    [
+      0
+    ],
+    [
+      1,
+      2
+    ]
+  ],
+  "selected_pointer_traces": [
+    {
+      "immutable_trace_index": 0,
+      "mutable_pointer_index": 0,
+      "case_id": "retain-partial-trace-0",
+      "source_case_id": "retain-partial-source-0",
+      "valid_event_indices": [
+        0
+      ],
+      "stored_activity_instance_count": 1
+    },
+    {
+      "immutable_trace_index": 1,
+      "mutable_pointer_index": 0,
+      "case_id": "retain-partial-trace-1",
+      "source_case_id": "retain-partial-source-1",
+      "valid_event_indices": [
+        1,
+        2
+      ],
+      "stored_activity_instance_count": 2
+    }
+  ],
+  "selected_source_log": {
+    "name": "Extended Core filter retain-partial",
+    "cases": [
+      {
+        "id": "retain-partial-source-0",
+        "name": "retain-partial-trace-0",
+        "events": [
+          {
+            "ordinal": 3,
+            "activity": "A",
+            "timestamp": "2024-01-01T00:00:40.123Z",
+            "lifecycle": "complete"
+          }
+        ]
+      },
+      {
+        "id": "retain-partial-source-1",
+        "name": "retain-partial-trace-1",
+        "events": [
+          {
+            "ordinal": 10,
+            "activity": "A",
+            "timestamp": "2024-01-01T00:00:39.123Z",
+            "lifecycle": "complete"
+          },
+          {
+            "ordinal": 17,
+            "activity": "A",
+            "timestamp": "2024-01-01T00:00:38.123Z",
+            "lifecycle": "complete"
+          }
+        ]
+      }
+    ],
+    "warnings": [
+      "synthetic warning retained for retain-partial"
+    ]
+  },
+  "source_apm_after": {
+    "log_name": "Extended Core filter retain-partial",
+    "traces": [
+      {
+        "immutable_index": 0,
+        "case_id": "retain-partial-trace-0",
+        "immutable_event_count": 2,
+        "attributes": {
+          "case:source_id": "retain-partial-source-0"
+        },
+        "activities": [
+          {
+            "immutable_index": 0,
+            "immutable_trace_index": 0,
+            "mutable_trace_index": 0,
+            "parent_case_id": "retain-partial-trace-0",
+            "event_indices": [
+              0
+            ],
+            "name": "A",
+            "name_indicator": 0,
+            "start_time_ms": 1704067240123,
+            "end_time_ms": 1704067240123,
+            "attributes": {
+              "concept:name": "A",
+              "event:source_ordinal": "3"
+            }
+          },
+          {
+            "immutable_index": 1,
+            "immutable_trace_index": 0,
+            "mutable_trace_index": 0,
+            "parent_case_id": "retain-partial-trace-0",
+            "event_indices": [
+              1
+            ],
+            "name": "B",
+            "name_indicator": 1,
+            "start_time_ms": 1704067239123,
+            "end_time_ms": 1704067239123,
+            "attributes": {
+              "concept:name": "B",
+              "event:source_ordinal": "10"
+            }
+          }
+        ]
+      },
+      {
+        "immutable_index": 1,
+        "case_id": "retain-partial-trace-1",
+        "immutable_event_count": 3,
+        "attributes": {
+          "case:source_id": "retain-partial-source-1"
+        },
+        "activities": [
+          {
+            "immutable_index": 0,
+            "immutable_trace_index": 1,
+            "mutable_trace_index": 1,
+            "parent_case_id": "retain-partial-trace-1",
+            "event_indices": [
+              0
+            ],
+            "name": "B",
+            "name_indicator": 1,
+            "start_time_ms": 1704067240123,
+            "end_time_ms": 1704067240123,
+            "attributes": {
+              "concept:name": "B",
+              "event:source_ordinal": "3"
+            }
+          },
+          {
+            "immutable_index": 1,
+            "immutable_trace_index": 1,
+            "mutable_trace_index": 1,
+            "parent_case_id": "retain-partial-trace-1",
+            "event_indices": [
+              1
+            ],
+            "name": "A",
+            "name_indicator": 0,
+            "start_time_ms": 1704067239123,
+            "end_time_ms": 1704067239123,
+            "attributes": {
+              "concept:name": "A",
+              "event:source_ordinal": "10"
+            }
+          },
+          {
+            "immutable_index": 2,
+            "immutable_trace_index": 1,
+            "mutable_trace_index": 1,
+            "parent_case_id": "retain-partial-trace-1",
+            "event_indices": [
+              2
+            ],
+            "name": "A",
+            "name_indicator": 0,
+            "start_time_ms": 1704067238123,
+            "end_time_ms": 1704067238123,
+            "attributes": {
+              "concept:name": "A",
+              "event:source_ordinal": "17"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "source_apm_after_sha256": "6a4497b4e9ca47da6ba0bf8dac7859f8dbc29d14e373f9c44dda429da253258f",
+  "source_xlog_after_filter": {
+    "attributes": [
+      {
+        "key": "concept:name",
+        "type": "string",
+        "value": "Extended Core filter retain-partial"
+      },
+      {
+        "key": "source:warnings",
+        "type": "string",
+        "value": "[\"synthetic warning retained for retain-partial\"]"
+      }
+    ],
+    "classifiers": [],
+    "extensions": [],
+    "global_trace_attributes": [],
+    "global_event_attributes": [],
+    "traces": [
+      {
+        "attributes": [
+          {
+            "key": "case:source_id",
+            "type": "string",
+            "value": "retain-partial-source-0"
+          },
+          {
+            "key": "concept:name",
+            "type": "string",
+            "value": "retain-partial-trace-0"
+          }
+        ],
+        "events": [
+          {
+            "attributes": [
+              {
+                "key": "concept:name",
+                "type": "string",
+                "value": "A"
+              },
+              {
+                "key": "event:source_ordinal",
+                "type": "int",
+                "value": 3
+              },
+              {
+                "key": "lifecycle:transition",
+                "type": "string",
+                "value": "complete"
+              },
+              {
+                "key": "time:timestamp",
+                "type": "date",
+                "value": 1704067240123,
+                "text": "2024-01-01T00:00:40.123Z"
+              }
+            ]
+          },
+          {
+            "attributes": [
+              {
+                "key": "concept:name",
+                "type": "string",
+                "value": "B"
+              },
+              {
+                "key": "event:source_ordinal",
+                "type": "int",
+                "value": 10
+              },
+              {
+                "key": "lifecycle:transition",
+                "type": "string",
+                "value": "complete"
+              },
+              {
+                "key": "time:timestamp",
+                "type": "date",
+                "value": 1704067239123,
+                "text": "2024-01-01T00:00:39.123Z"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "attributes": [
+          {
+            "key": "case:source_id",
+            "type": "string",
+            "value": "retain-partial-source-1"
+          },
+          {
+            "key": "concept:name",
+            "type": "string",
+            "value": "retain-partial-trace-1"
+          }
+        ],
+        "events": [
+          {
+            "attributes": [
+              {
+                "key": "concept:name",
+                "type": "string",
+                "value": "B"
+              },
+              {
+                "key": "event:source_ordinal",
+                "type": "int",
+                "value": 3
+              },
+              {
+                "key": "lifecycle:transition",
+                "type": "string",
+                "value": "complete"
+              },
+              {
+                "key": "time:timestamp",
+                "type": "date",
+                "value": 1704067240123,
+                "text": "2024-01-01T00:00:40.123Z"
+              }
+            ]
+          },
+          {
+            "attributes": [
+              {
+                "key": "concept:name",
+                "type": "string",
+                "value": "A"
+              },
+              {
+                "key": "event:source_ordinal",
+                "type": "int",
+                "value": 10
+              },
+              {
+                "key": "lifecycle:transition",
+                "type": "string",
+                "value": "complete"
+              },
+              {
+                "key": "time:timestamp",
+                "type": "date",
+                "value": 1704067239123,
+                "text": "2024-01-01T00:00:39.123Z"
+              }
+            ]
+          },
+          {
+            "attributes": [
+              {
+                "key": "concept:name",
+                "type": "string",
+                "value": "A"
+              },
+              {
+                "key": "event:source_ordinal",
+                "type": "int",
+                "value": 17
+              },
+              {
+                "key": "lifecycle:transition",
+                "type": "string",
+                "value": "complete"
+              },
+              {
+                "key": "time:timestamp",
+                "type": "date",
+                "value": 1704067238123,
+                "text": "2024-01-01T00:00:38.123Z"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "trace_count": 2,
+    "event_count": 5
+  },
+  "source_xlog_after_filter_sha256": "37a8c181fbf03966f616b10fe70e947ba70db6a71e913e15c35a0df8170d28a2",
+  "source_domain_after": {
+    "name": "Extended Core filter retain-partial",
+    "cases": [
+      {
+        "id": "retain-partial-source-0",
+        "name": "retain-partial-trace-0",
+        "events": [
+          {
+            "ordinal": 3,
+            "activity": "A",
+            "timestamp": "2024-01-01T00:00:40.123Z",
+            "lifecycle": "complete"
+          },
+          {
+            "ordinal": 10,
+            "activity": "B",
+            "timestamp": "2024-01-01T00:00:39.123Z",
+            "lifecycle": "complete"
+          }
+        ]
+      },
+      {
+        "id": "retain-partial-source-1",
+        "name": "retain-partial-trace-1",
+        "events": [
+          {
+            "ordinal": 3,
+            "activity": "B",
+            "timestamp": "2024-01-01T00:00:40.123Z",
+            "lifecycle": "complete"
+          },
+          {
+            "ordinal": 10,
+            "activity": "A",
+            "timestamp": "2024-01-01T00:00:39.123Z",
+            "lifecycle": "complete"
+          },
+          {
+            "ordinal": 17,
+            "activity": "A",
+            "timestamp": "2024-01-01T00:00:38.123Z",
+            "lifecycle": "complete"
+          }
+        ]
+      }
+    ],
+    "warnings": [
+      "synthetic warning retained for retain-partial"
+    ]
+  },
+  "source_domain_after_sha256": "dc63c54da7ffe05028b96c8a7360a11aeaf36780adf6013ed8dd9ca90160a913",
+  "selection_observation": "Source cases/events projected only by actual returned PTrace immutable indexes and valid-event BitSet; no observer predicate or APM-to-XES export"
+}

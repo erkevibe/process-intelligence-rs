@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "agent_name": "qa_s20_delivery",
+  "status": "FAILED_INCOMPLETE_COMPLEXITY_STAGE_PARTIAL_OBSERVATIONS_ONLY",
+  "created_utc": "2026-10-22T22:32:52.1762677Z",
+  "app_sha256": "4121BD68F1C0C05A61B039FADF20FEC5C2DA4379D8AAAFB170DC3B43861D1525",
+  "manifest_sha256": "59DA6F7A7A61826A579F93C394D1EFDF7DDEBE9D550E8120E1BB1EF8D5BDCC43",
+  "original_capture_review": {
+    "all_existing_streams_full_eof_and_hash_length_verified": true,
+    "worker_exit": 1,
+    "all_existing_native_exits_present": true,
+    "existing_records": 7,
+    "worker_pid": 40132
+  },
+  "cmp10k": {
+    "samples": 117,
+    "state": "completed",
+    "creation_utc": "2026-10-22T22:30:43.4701176Z",
+    "source_bytes": 1210135,
+    "pid": 21896,
+    "retained_source_and_pair_bytes_exact": true,
+    "sampled_max_private_commit": 54394880,
+    "process_lifetime_peak_private_commit": 57036800,
+    "independent_csv_rows": 10000,
+    "manual_fields_all_exact": true,
+    "process_lifetime_peak_working_set": 68558848,
+    "payload_bytes": 510035,
+    "sampled_max_working_set": 63389696,
+    "report_bytes": 3222364
+  },
+  "cmp90k": {
+    "result_absent": true,
+    "terminal_outcome_not_claimed": true
+  },
+  "new_permanent_unknowns": [
+    {
+      "role": "postgres",
+      "pid": 23044,
+      "creation_utc": "2026-10-22T22:30:40.6305015Z",
+      "native_exit": "UNKNOWN",
+      "stream_eof": "UNKNOWN"
+    },
+    {
+      "role": "cmp90k-app",
+      "pid": 39988,
+      "creation_utc": "2026-10-22T22:30:55.1979278Z",
+      "native_exit": "UNKNOWN",
+      "stream_eof": "UNKNOWN"
+    },
+    {
+      "role": "cmp90k-http-python",
+      "pid": 41888,
+      "creation_utc": "2026-10-22T22:30:57.3754013Z",
+      "native_exit": "UNKNOWN",
+      "stream_eof": "UNKNOWN"
+    }
+  ],
+  "limitations": [
+    "Root resource_sample_timeout stopped the measurement; no retry or increased scanner threshold authorized.",
+    "No combined two-case acceptance, performance SLO, ordering sensitivity, diversity or worst-case claim.",
+    "Sampled current counters and process lifetime peaks are distinct; other processes are excluded.",
+    "The independent two-case checker remains unexecuted and must reject this incomplete attempt.",
+    "Previously accepted primary and CAP deliveries remain unchanged."
+  ],
+  "root_report_not_independently_observed": [
+    "Current process absence and stale PID file state require separate recovery admission; absence cannot supply missing exit or EOF."
+  ]
+}

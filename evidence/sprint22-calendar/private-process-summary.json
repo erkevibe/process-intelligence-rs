@@ -1,0 +1,896 @@
+{
+  "kind": "TYPED_PRIVATE_NATIVE_CAPTURE_METADATA_PROJECTION",
+  "actual_utc": "2026-10-23T11:37:40.8513338+05:00",
+  "native_records": 35,
+  "full_streams": 70,
+  "scope": "Private original receipts and raw streams independently audited by QA/TD; public hashes and fields are a projection, not public raw output replay. Two test stdout files are separately copied byteexact.",
+  "records": [
+    {
+      "label": "collector",
+      "native_exit": 1,
+      "program_basename": "pwsh.exe",
+      "receipt_sha256": "05A9B5EF6BCCB84FA1A766A256415A89F110500CB85571E111576F9B72C55F4D",
+      "start_receipt_sha256": "AEB1271A98D84AF8D11C082FB7D7C48A1303635A87C728B1806375C9646C23B5",
+      "phase": "build01",
+      "streams": {
+        "stdout": {
+          "original_bytes_public": false,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "bytes": 0,
+          "complete": true
+        },
+        "stderr": {
+          "original_bytes_public": false,
+          "sha256": "9393DAE43927113964471ABC97B2210CC432B74B6363F49839C53C6AFDA027D8",
+          "bytes": 327,
+          "complete": true
+        }
+      },
+      "pid": 62716,
+      "native_creation_filetime": null,
+      "native_creation_utc": "2026-10-23T06:08:23.2692397Z"
+    },
+    {
+      "label": "child",
+      "native_exit": 0,
+      "program_basename": "rustfmt.exe",
+      "receipt_sha256": "CF8CB001239108C05A963F7D54E6B3EC7432D4EE55780CB2B80613F458CB5EEC",
+      "start_receipt_sha256": "E90265338DB268F43DBA84BB7B992FA18E4F0F2AA8D2064B0B08FC5B337D4145",
+      "phase": "build01",
+      "streams": {
+        "stdout": {
+          "original_bytes_public": false,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "bytes": 0,
+          "complete": true
+        },
+        "stderr": {
+          "original_bytes_public": false,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "bytes": 0,
+          "complete": true
+        }
+      },
+      "pid": 64852,
+      "native_creation_filetime": 134372093217430501,
+      "native_creation_utc": null
+    },
+    {
+      "label": "renderer",
+      "native_exit": 137,
+      "program_basename": "cargo.exe",
+      "receipt_sha256": "9E6DB196E86B7CFF7E92A66335EC9D1C84C8AFBAF3FD8244681F9A8B9DD83EA0",
+      "start_receipt_sha256": "86FD45B596E2A773EF342F435D61FE5C1FA16F1F5102BE8A606A0DC1C9642D45",
+      "phase": "build01",
+      "streams": {
+        "stdout": {
+          "original_bytes_public": false,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "bytes": 0,
+          "complete": true
+        },
+        "stderr": {
+          "original_bytes_public": false,
+          "sha256": "83DA76674DDF6E7CD2764CF89F1C01D2B73DCC6CDA9746CE6004EB57CF902BF4",
+          "bytes": 5688,
+          "complete": true
+        }
+      },
+      "pid": 23016,
+      "native_creation_filetime": 134372093231216441,
+      "native_creation_utc": null
+    },
+    {
+      "label": "worker",
+      "native_exit": 137,
+      "program_basename": "pwsh.exe",
+      "receipt_sha256": "127A15C9D825A17C1D21962CF40451D3CB8FAEC6F47A6556140CBF0D1762735A",
+      "start_receipt_sha256": "23C50A322769C6870DF3D59529084EF35FBCC8FE5C1C6009BB08419E1E575207",
+      "phase": "build01",
+      "streams": {
+        "stdout": {
+          "original_bytes_public": false,
+          "sha256": "279D6A026F1CE45010CC89F071CC5997755138A7A82BA81ADF9DD4866E81A1FF",
+          "bytes": 13,
+          "complete": true
+        },
+        "stderr": {
+          "original_bytes_public": false,
+          "sha256": "87E70FC18644BBC756BB64408365221FA5BF6354896D95653E32443816376BA3",
+          "bytes": 13,
+          "complete": true
+        }
+      },
+      "pid": 64684,
+      "native_creation_filetime": 134372093210204450,
+      "native_creation_utc": null
+    },
+    {
+      "label": "collector",
+      "native_exit": 0,
+      "program_basename": "pwsh.exe",
+      "receipt_sha256": "BF33603C79938DDA16B3C00F6356B73027A7942987F412CACE816F4FCE46E798",
+      "start_receipt_sha256": "D048A37D159B3D0ACDF8186A6F05B433E0256EEB05265F7CB34E1A748F5DD5D0",
+      "phase": "build02",
+      "streams": {
+        "stdout": {
+          "original_bytes_public": false,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "bytes": 0,
+          "complete": true
+        },
+        "stderr": {
+          "original_bytes_public": false,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "bytes": 0,
+          "complete": true
+        }
+      },
+      "pid": 61972,
+      "native_creation_filetime": null,
+      "native_creation_utc": "2026-10-23T06:14:11.7993135Z"
+    },
+    {
+      "label": "app-build",
+      "native_exit": 0,
+      "program_basename": "cargo.exe",
+      "receipt_sha256": "9325F01FE9A5D89F2FD50E21129DAE22BA95DE496475F4C5B490039820D1B37B",
+      "start_receipt_sha256": "1AC396F5D5583A4FA0C953FC2F3B420C670B60FF76D5C1DBBA9DB31E6321306D",
+      "phase": "build02",
+      "streams": {
+        "stdout": {
+          "original_bytes_public": false,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "bytes": 0,
+          "complete": true
+        },
+        "stderr": {
+          "original_bytes_public": false,
+          "sha256": "1EF1CF5E175DD0728FFE97EEA5CB1D878BD5643A41F04C1466F3FAEF58340A8E",
+          "bytes": 60,
+          "complete": true
+        }
+      },
+      "pid": 60356,
+      "native_creation_filetime": 134372097552396840,
+      "native_creation_utc": null
+    },
+    {
+      "label": "calendar",
+      "native_exit": 0,
+      "program_basename": "cargo.exe",
+      "receipt_sha256": "0E7D00E3606296D17E99AF5CED7E5AF84181CE05C5370C0A3B7E4DE1347E62CA",
+      "start_receipt_sha256": "24201BBB7EB6B2DC315F96D7C99D7D1F358296FF754BBFE34467E7ED90D75B37",
+      "phase": "build02",
+      "streams": {
+        "stdout": {
+          "original_bytes_public": true,
+          "sha256": "B24701E9F7C2B69D47360989A21124E48928C117D5DD684F671F59987EB6DFBF",
+          "bytes": 453,
+          "complete": true,
+          "public_path": "tests/existing-calendar.stdout"
+        },
+        "stderr": {
+          "original_bytes_public": false,
+          "sha256": "A549E184DBA1B733F740F1413284D8184AC4E0159B3864B0BE5A28E4C983D370",
+          "bytes": 284,
+          "complete": true
+        }
+      },
+      "pid": 19200,
+      "native_creation_filetime": 134372097145929094,
+      "native_creation_utc": null
+    },
+    {
+      "label": "child",
+      "native_exit": 0,
+      "program_basename": "cargo.exe",
+      "receipt_sha256": "DFCBCF2707C673C15FFABE71784726F118865F5A4CCCB7030D897BCD455EE75D",
+      "start_receipt_sha256": "039F2BE2A9634308C83579CD986243AFFA64B3EBBC39CABC711C168F05470015",
+      "phase": "build02",
+      "streams": {
+        "stdout": {
+          "original_bytes_public": true,
+          "sha256": "43DD027DF5FD65D3C51BFE05C8AAF2715A7E292D9B90F008A533BBFA5B5626F1",
+          "bytes": 477,
+          "complete": true,
+          "public_path": "tests/renderer.stdout"
+        },
+        "stderr": {
+          "original_bytes_public": false,
+          "sha256": "430FD26B294B0343A719F9A4D2F9269F76AB7650B3098ACF93749C3693160E6F",
+          "bytes": 284,
+          "complete": true
+        }
+      },
+      "pid": 19224,
+      "native_creation_filetime": 134372096704363383,
+      "native_creation_utc": null
+    },
+    {
+      "label": "worker",
+      "native_exit": 0,
+      "program_basename": "pwsh.exe",
+      "receipt_sha256": "293A3A1F6725FD27285C6F4A6620A806E34BA39A701F8BFD0ABF13FC2586CAE9",
+      "start_receipt_sha256": "86D23616167A24C43C4B875C0A78B344A207B15248B3F6A62280CD149FA0AB6F",
+      "phase": "build02",
+      "streams": {
+        "stdout": {
+          "original_bytes_public": false,
+          "sha256": "279D6A026F1CE45010CC89F071CC5997755138A7A82BA81ADF9DD4866E81A1FF",
+          "bytes": 13,
+          "complete": true
+        },
+        "stderr": {
+          "original_bytes_public": false,
+          "sha256": "87E70FC18644BBC756BB64408365221FA5BF6354896D95653E32443816376BA3",
+          "bytes": 13,
+          "complete": true
+        }
+      },
+      "pid": 35020,
+      "native_creation_filetime": 134372096695959628,
+      "native_creation_utc": null
+    },
+    {
+      "label": "collector",
+      "native_exit": 1,
+      "program_basename": "pwsh.exe",
+      "receipt_sha256": "5666DFB35FEBF9C0684453D42B24DD07B0EC1123C5C2DA2BB129305F7B6EF885",
+      "start_receipt_sha256": "39360754F0D1FECE190FFE3DAD70447E6C0CE5182BBB7AFF50B9B856DB77785D",
+      "phase": "live01",
+      "streams": {
+        "stdout": {
+          "original_bytes_public": false,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "bytes": 0,
+          "complete": true
+        },
+        "stderr": {
+          "original_bytes_public": false,
+          "sha256": "BCEBAD56BEE1356A214C1134206E5F52C75D034BD2A6F992DEA381A9EA9358BF",
+          "bytes": 346,
+          "complete": true
+        }
+      },
+      "pid": 63656,
+      "native_creation_filetime": null,
+      "native_creation_utc": "2026-10-23T06:19:04.1356070Z"
+    },
+    {
+      "label": "app10k",
+      "native_exit": 137,
+      "program_basename": "process-intelligence-rs.exe",
+      "receipt_sha256": "8A4D7D624CF8DCA384FE3C68E1929624742A00FC10AB110704AB621B3F5D89C4",
+      "start_receipt_sha256": "88ECAF4FE98AA231A38FB0DD590D53EA20906B35F73A025BEB60722E0B9305DB",
+      "phase": "live01",
+      "streams": {
+        "stdout": {
+          "original_bytes_public": false,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "bytes": 0,
+          "complete": true
+        },
+        "stderr": {
+          "original_bytes_public": false,
+          "sha256": "D43DA07F2615A40626367D49A2C509A5CD1C6911EC58AB181AB3E89D965052A9",
+          "bytes": 5456,
+          "complete": true
+        }
+      },
+      "pid": 65300,
+      "native_creation_filetime": 134372099664331717,
+      "native_creation_utc": null
+    },
+    {
+      "label": "child",
+      "native_exit": 1,
+      "program_basename": "python.exe",
+      "receipt_sha256": "9AD759E6815093CA21600F151C8A0D3DAE49B5123EA16F70ADF6FD92D9E045F5",
+      "start_receipt_sha256": "69AD25C0A1DE0A7768903410EC8F5C5CB137F0FFB167BD59210D1DC2011338DC",
+      "phase": "live01",
+      "streams": {
+        "stdout": {
+          "original_bytes_public": false,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "bytes": 0,
+          "complete": true
+        },
+        "stderr": {
+          "original_bytes_public": false,
+          "sha256": "07BF4AF76F957E78F054C501C4DC3BB5BA3E152B49671593FD99C96B77C82B68",
+          "bytes": 564,
+          "complete": true
+        }
+      },
+      "pid": 1740,
+      "native_creation_filetime": 134372099672004405,
+      "native_creation_utc": null
+    },
+    {
+      "label": "cluster-identity",
+      "native_exit": 0,
+      "program_basename": "psql.exe",
+      "receipt_sha256": "CE082844AB280DE4F0EB9FBDFB9D8AD495CE2F3244297DF2AE7A3555E5E7A47F",
+      "start_receipt_sha256": "53D3DA2E53030554CCB6B38092C2CE708736CC709B4701C10C4265D528709F14",
+      "phase": "live01",
+      "streams": {
+        "stdout": {
+          "original_bytes_public": false,
+          "sha256": "3699F9DE01C6F1900C70B0854E67F15448110E3F567A5E2AACA8D2FBA05E32FC",
+          "bytes": 201,
+          "complete": true
+        },
+        "stderr": {
+          "original_bytes_public": false,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "bytes": 0,
+          "complete": true
+        }
+      },
+      "pid": 56776,
+      "native_creation_filetime": 134372099635842942,
+      "native_creation_utc": null
+    },
+    {
+      "label": "create-db",
+      "native_exit": 0,
+      "program_basename": "psql.exe",
+      "receipt_sha256": "A165A9C625EA9515C4221E0AAE27558A8013226785AC9FD5E33771554D1815E5",
+      "start_receipt_sha256": "F00B72BD4FE133CADA959F9DB67C51771203463BE323C3FA57427461B26DB7EE",
+      "phase": "live01",
+      "streams": {
+        "stdout": {
+          "original_bytes_public": false,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "bytes": 0,
+          "complete": true
+        },
+        "stderr": {
+          "original_bytes_public": false,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "bytes": 0,
+          "complete": true
+        }
+      },
+      "pid": 59808,
+      "native_creation_filetime": 134372099649868062,
+      "native_creation_utc": null
+    },
+    {
+      "label": "postgres",
+      "native_exit": 137,
+      "program_basename": "postgres.exe",
+      "receipt_sha256": "4A9E6808648E4666CC67274609BBBD602D1EF4F6B8216D02ABC68EA152044450",
+      "start_receipt_sha256": "629D931DF9B6393CDF5E70173CD86606A54B955F783687F490D1AD8C653372F2",
+      "phase": "live01",
+      "streams": {
+        "stdout": {
+          "original_bytes_public": false,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "bytes": 0,
+          "complete": true
+        },
+        "stderr": {
+          "original_bytes_public": false,
+          "sha256": "901C34444B609B4DE1E59C71125F63EA30F93A93F27064F521D4707B574A0DE7",
+          "bytes": 485,
+          "complete": true
+        }
+      },
+      "pid": 45212,
+      "native_creation_filetime": 134372099606958462,
+      "native_creation_utc": null
+    },
+    {
+      "label": "ready-01",
+      "native_exit": 1,
+      "program_basename": "pg_isready.exe",
+      "receipt_sha256": "C228E0A3F1B27569BE9F7B0C38EC3517DF742F725204C500561EED1A501D250B",
+      "start_receipt_sha256": "5DC06A8680FBB3C75DB26490516CE9929A9D4A9F819DD795F5E1781487378108",
+      "phase": "live01",
+      "streams": {
+        "stdout": {
+          "original_bytes_public": false,
+          "sha256": "62285DBF9A623B155EF5FBB74B1E0BB1AAC8583FF3EDECDF23D4EE6D4804EC5B",
+          "bytes": 41,
+          "complete": true
+        },
+        "stderr": {
+          "original_bytes_public": false,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "bytes": 0,
+          "complete": true
+        }
+      },
+      "pid": 64832,
+      "native_creation_filetime": 134372099608618263,
+      "native_creation_utc": null
+    },
+    {
+      "label": "ready-02",
+      "native_exit": 0,
+      "program_basename": "pg_isready.exe",
+      "receipt_sha256": "D6218A1D5C5A56F448ADD8EED409B6379A2F9BFEEBB61768D2BEEAA431D80ED0",
+      "start_receipt_sha256": "6AE55B98B4018B9E6D64EB5B26EA3AEAC3AE29A46C38964861A09F4F65AFA48A",
+      "phase": "live01",
+      "streams": {
+        "stdout": {
+          "original_bytes_public": false,
+          "sha256": "48F05044D763F65E81DF5FA8BE71F5A81EC224D0B419A9BFA6132B7FBC62D7F4",
+          "bytes": 41,
+          "complete": true
+        },
+        "stderr": {
+          "original_bytes_public": false,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "bytes": 0,
+          "complete": true
+        }
+      },
+      "pid": 64176,
+      "native_creation_filetime": 134372099622962014,
+      "native_creation_utc": null
+    },
+    {
+      "label": "worker",
+      "native_exit": 1,
+      "program_basename": "pwsh.exe",
+      "receipt_sha256": "6E67925E1A7F19011415F60DAF44101ABC121B01E48F4A7C4D8177F029E55521",
+      "start_receipt_sha256": "4A3BD1A55EDB7856DF9A26E84222A585052F8056C012CDB3CAD031D6F6280EF6",
+      "phase": "live01",
+      "streams": {
+        "stdout": {
+          "original_bytes_public": false,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "bytes": 0,
+          "complete": true
+        },
+        "stderr": {
+          "original_bytes_public": false,
+          "sha256": "F168782CE713C6F782499BEE24372DF94613D4D222E6A4ACA6F89810B1B9DC07",
+          "bytes": 332,
+          "complete": true
+        }
+      },
+      "pid": 59872,
+      "native_creation_filetime": 134372099599519214,
+      "native_creation_utc": null
+    },
+    {
+      "label": "collector",
+      "native_exit": 0,
+      "program_basename": "pwsh.exe",
+      "receipt_sha256": "8AC5DC4413744FB7BC18FFA8CE87A2CACB3404D019B88F4842D370674265FE30",
+      "start_receipt_sha256": "549271D667513FAD3DD2A19600DC14075EF7790FBCED3480CCF758E7C2A4FD82",
+      "phase": "live02",
+      "streams": {
+        "stdout": {
+          "original_bytes_public": false,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "bytes": 0,
+          "complete": true
+        },
+        "stderr": {
+          "original_bytes_public": false,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "bytes": 0,
+          "complete": true
+        }
+      },
+      "pid": 64488,
+      "native_creation_filetime": null,
+      "native_creation_utc": "2026-10-23T06:23:55.2198363Z"
+    },
+    {
+      "label": "app10k",
+      "native_exit": 137,
+      "program_basename": "process-intelligence-rs.exe",
+      "receipt_sha256": "E8C344AC3B829AD1383D4172D77FB6611B0B3726768D62207BE870E883B00FF6",
+      "start_receipt_sha256": "CF11924800240A2E3F38F15488B678F103C43FC042E3C08D6446D13693066B14",
+      "phase": "live02",
+      "streams": {
+        "stdout": {
+          "original_bytes_public": false,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "bytes": 0,
+          "complete": true
+        },
+        "stderr": {
+          "original_bytes_public": false,
+          "sha256": "BB76172E2BD5FA00608F9FADCD462914BCDC8EDDC3661FFBD86726CE6B71DA3F",
+          "bytes": 14458,
+          "complete": true
+        }
+      },
+      "pid": 59560,
+      "native_creation_filetime": 134372102615189338,
+      "native_creation_utc": null
+    },
+    {
+      "label": "app90k",
+      "native_exit": 137,
+      "program_basename": "process-intelligence-rs.exe",
+      "receipt_sha256": "56A8E3F40ED8EAB2F819355D526F356C74654EF2D2FEEDDB58A4DB10013DF9B4",
+      "start_receipt_sha256": "CF45BD3EE737E8BB577EB4D3AAF24F6A6C89CEE138A056C062E3308458E313DD",
+      "phase": "live02",
+      "streams": {
+        "stdout": {
+          "original_bytes_public": false,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "bytes": 0,
+          "complete": true
+        },
+        "stderr": {
+          "original_bytes_public": false,
+          "sha256": "2D49E3C551DF5B627750C9E04267113A287029C2A828C009C0B3B8197BC7FF33",
+          "bytes": 58411,
+          "complete": true
+        }
+      },
+      "pid": 59600,
+      "native_creation_filetime": 134372102662407230,
+      "native_creation_utc": null
+    },
+    {
+      "label": "child",
+      "native_exit": 0,
+      "program_basename": "python.exe",
+      "receipt_sha256": "9605C9BE80FFED4E17CEF738B966B6364E9DEDE2C642F000BE6DE39EF53CECBB",
+      "start_receipt_sha256": "F089959EC850C958BB35EE404705F17014F557AEDCCDE909C0EB980F5DAE825F",
+      "phase": "live02",
+      "streams": {
+        "stdout": {
+          "original_bytes_public": false,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "bytes": 0,
+          "complete": true
+        },
+        "stderr": {
+          "original_bytes_public": false,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "bytes": 0,
+          "complete": true
+        }
+      },
+      "pid": 47460,
+      "native_creation_filetime": 134372102622669872,
+      "native_creation_utc": null
+    },
+    {
+      "label": "cluster-identity",
+      "native_exit": 0,
+      "program_basename": "psql.exe",
+      "receipt_sha256": "453F8F795AF9EE2A73B32A9D6412720FDE4A3428223C4D473B1EDBD928746F3A",
+      "start_receipt_sha256": "2E4DF770CDC7CDF6FB46B8E60B10341E0341F6158792185BCAB1DB961C41EB62",
+      "phase": "live02",
+      "streams": {
+        "stdout": {
+          "original_bytes_public": false,
+          "sha256": "3699F9DE01C6F1900C70B0854E67F15448110E3F567A5E2AACA8D2FBA05E32FC",
+          "bytes": 201,
+          "complete": true
+        },
+        "stderr": {
+          "original_bytes_public": false,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "bytes": 0,
+          "complete": true
+        }
+      },
+      "pid": 65188,
+      "native_creation_filetime": 134372102586657542,
+      "native_creation_utc": null
+    },
+    {
+      "label": "create-db",
+      "native_exit": 0,
+      "program_basename": "psql.exe",
+      "receipt_sha256": "175A5DB9375EAFC54EEE7651BEA072F26D66F6D490627F0DEE3424B61351577B",
+      "start_receipt_sha256": "5DC894194ADD94FFF9BA541C06AEBBEF791895CB73C9BE188A0B859E83EA6C6C",
+      "phase": "live02",
+      "streams": {
+        "stdout": {
+          "original_bytes_public": false,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "bytes": 0,
+          "complete": true
+        },
+        "stderr": {
+          "original_bytes_public": false,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "bytes": 0,
+          "complete": true
+        }
+      },
+      "pid": 55996,
+      "native_creation_filetime": 134372102600295674,
+      "native_creation_utc": null
+    },
+    {
+      "label": "http90k",
+      "native_exit": 0,
+      "program_basename": "python.exe",
+      "receipt_sha256": "C39D38AF85BBAA1B33CF957D02A688F4915DABCE5697176E70343A1963B7D2E9",
+      "start_receipt_sha256": "B1BC655F5C8B925627D790098C16D14BAAF48CEE4481B1848D61C4757CA70FD3",
+      "phase": "live02",
+      "streams": {
+        "stdout": {
+          "original_bytes_public": false,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "bytes": 0,
+          "complete": true
+        },
+        "stderr": {
+          "original_bytes_public": false,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "bytes": 0,
+          "complete": true
+        }
+      },
+      "pid": 54708,
+      "native_creation_filetime": 134372102672096501,
+      "native_creation_utc": null
+    },
+    {
+      "label": "pg-stop",
+      "native_exit": 0,
+      "program_basename": "pg_ctl.exe",
+      "receipt_sha256": "1B4A261EA791B8A5B888F53FE768BEC624C279C5C809E0B9C66F5B5E3EDB08EC",
+      "start_receipt_sha256": "B8164E0C0DF46A46848D3D161FE40D6B01D0F8E18F5977736F8E4EBEE9B3E0D6",
+      "phase": "live02",
+      "streams": {
+        "stdout": {
+          "original_bytes_public": false,
+          "sha256": "3589D2BD01F8295CC7C9EC3F5E07625FCD347CCB6F33F2D80EDAFE5F5217C1FB",
+          "bytes": 58,
+          "complete": true
+        },
+        "stderr": {
+          "original_bytes_public": false,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "bytes": 0,
+          "complete": true
+        }
+      },
+      "pid": 62060,
+      "native_creation_filetime": 134372105204330514,
+      "native_creation_utc": null
+    },
+    {
+      "label": "postgres",
+      "native_exit": 0,
+      "program_basename": "postgres.exe",
+      "receipt_sha256": "74F5149793B34575FEB228B5E1CA89842CA0B4085533A977130832DF74785DEA",
+      "start_receipt_sha256": "8FA9FBE20ED1FE3B5C22B1B3F34C70CA536383E440955B387905398FD2392730",
+      "phase": "live02",
+      "streams": {
+        "stdout": {
+          "original_bytes_public": false,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "bytes": 0,
+          "complete": true
+        },
+        "stderr": {
+          "original_bytes_public": false,
+          "sha256": "B2AA72BE857E7BCAA79931CD0E1F6FFC52FB5222DFCB62D7528AAFA3D4E5D9A4",
+          "bytes": 2592,
+          "complete": true
+        }
+      },
+      "pid": 62656,
+      "native_creation_filetime": 134372102529880016,
+      "native_creation_utc": null
+    },
+    {
+      "label": "ready-01",
+      "native_exit": 1,
+      "program_basename": "pg_isready.exe",
+      "receipt_sha256": "CB51A549C6DF3237D3CD951084FE0A84E8E57F1EA4AE4D01067AF05C58098A49",
+      "start_receipt_sha256": "CEAEA4FB78332AE991D2A56D253C5F0F50459517FCA7D5758069F595B13926A1",
+      "phase": "live02",
+      "streams": {
+        "stdout": {
+          "original_bytes_public": false,
+          "sha256": "62285DBF9A623B155EF5FBB74B1E0BB1AAC8583FF3EDECDF23D4EE6D4804EC5B",
+          "bytes": 41,
+          "complete": true
+        },
+        "stderr": {
+          "original_bytes_public": false,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "bytes": 0,
+          "complete": true
+        }
+      },
+      "pid": 63540,
+      "native_creation_filetime": 134372102531488869,
+      "native_creation_utc": null
+    },
+    {
+      "label": "ready-02",
+      "native_exit": 1,
+      "program_basename": "pg_isready.exe",
+      "receipt_sha256": "467F4372FC43DEE63B67464F47DDDBAA0E6D85275119F0FB1FC5CD8831986F54",
+      "start_receipt_sha256": "FF8A9A17539642663806332C97E73B9792EB2E309F67C13A56EF6BE2E80B9A7C",
+      "phase": "live02",
+      "streams": {
+        "stdout": {
+          "original_bytes_public": false,
+          "sha256": "62285DBF9A623B155EF5FBB74B1E0BB1AAC8583FF3EDECDF23D4EE6D4804EC5B",
+          "bytes": 41,
+          "complete": true
+        },
+        "stderr": {
+          "original_bytes_public": false,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "bytes": 0,
+          "complete": true
+        }
+      },
+      "pid": 26128,
+      "native_creation_filetime": 134372102546193717,
+      "native_creation_utc": null
+    },
+    {
+      "label": "ready-03",
+      "native_exit": 1,
+      "program_basename": "pg_isready.exe",
+      "receipt_sha256": "ADE80442E689B5A3A7A5D2465ED57CA4DCAF2B63A3B65EB2270CC84887147626",
+      "start_receipt_sha256": "623740177DB3BAA3495BE329A84B0746C0D6E04072CF71FF9087A7DFAC840363",
+      "phase": "live02",
+      "streams": {
+        "stdout": {
+          "original_bytes_public": false,
+          "sha256": "62285DBF9A623B155EF5FBB74B1E0BB1AAC8583FF3EDECDF23D4EE6D4804EC5B",
+          "bytes": 41,
+          "complete": true
+        },
+        "stderr": {
+          "original_bytes_public": false,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "bytes": 0,
+          "complete": true
+        }
+      },
+      "pid": 54564,
+      "native_creation_filetime": 134372102560219610,
+      "native_creation_utc": null
+    },
+    {
+      "label": "ready-04",
+      "native_exit": 0,
+      "program_basename": "pg_isready.exe",
+      "receipt_sha256": "9D4AEDDBABE6E4D73A3CAB8DFABC1CF3DA7298195D7F8863604A6770D99EF99A",
+      "start_receipt_sha256": "EF8DBD5E1BD9A44AA8651463F3EDCF397FC2C453716A36B7339BD66ED91C5FF3",
+      "phase": "live02",
+      "streams": {
+        "stdout": {
+          "original_bytes_public": false,
+          "sha256": "48F05044D763F65E81DF5FA8BE71F5A81EC224D0B419A9BFA6132B7FBC62D7F4",
+          "bytes": 41,
+          "complete": true
+        },
+        "stderr": {
+          "original_bytes_public": false,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "bytes": 0,
+          "complete": true
+        }
+      },
+      "pid": 54224,
+      "native_creation_filetime": 134372102574141391,
+      "native_creation_utc": null
+    },
+    {
+      "label": "source10k",
+      "native_exit": 0,
+      "program_basename": "psql.exe",
+      "receipt_sha256": "68EF01C57B8CB51D01E872DCFEC8B13E432B87A5051669680E38DF95B770C773",
+      "start_receipt_sha256": "2CE33AA7607D2A62189BAB3BDB34ED206E7FA5D483D0A1F1D34AA780CE095258",
+      "phase": "live02",
+      "streams": {
+        "stdout": {
+          "original_bytes_public": false,
+          "sha256": "FBED895F55AAEC852A7494E32D9C3C642B041B916378B62BFD896EA6861076B5",
+          "bytes": 84,
+          "complete": true
+        },
+        "stderr": {
+          "original_bytes_public": false,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "bytes": 0,
+          "complete": true
+        }
+      },
+      "pid": 55724,
+      "native_creation_filetime": 134372102646442539,
+      "native_creation_utc": null
+    },
+    {
+      "label": "source90k",
+      "native_exit": 0,
+      "program_basename": "psql.exe",
+      "receipt_sha256": "82D81CB1ABECA66A686B77947CA9BA2872D04A3940B15EBE53764281D3728983",
+      "start_receipt_sha256": "5AAFCD63659E6136421C0945B6E5D7B0F2C63DABCF7BC1637EECD195D9D87FBA",
+      "phase": "live02",
+      "streams": {
+        "stdout": {
+          "original_bytes_public": false,
+          "sha256": "FBED895F55AAEC852A7494E32D9C3C642B041B916378B62BFD896EA6861076B5",
+          "bytes": 84,
+          "complete": true
+        },
+        "stderr": {
+          "original_bytes_public": false,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "bytes": 0,
+          "complete": true
+        }
+      },
+      "pid": 64620,
+      "native_creation_filetime": 134372102684741948,
+      "native_creation_utc": null
+    },
+    {
+      "label": "worker",
+      "native_exit": 0,
+      "program_basename": "pwsh.exe",
+      "receipt_sha256": "F5D77B101911957B4D3E11EB8FEC31FC9152E5CCE58C36F1FB6361830C1AD91E",
+      "start_receipt_sha256": "61A764F6DC9CFCF0C45537729C30D0001E5D872A840D78EE50DA5830541E2B9B",
+      "phase": "live02",
+      "streams": {
+        "stdout": {
+          "original_bytes_public": false,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "bytes": 0,
+          "complete": true
+        },
+        "stderr": {
+          "original_bytes_public": false,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "bytes": 0,
+          "complete": true
+        }
+      },
+      "pid": 63648,
+      "native_creation_filetime": 134372102522568722,
+      "native_creation_utc": null
+    },
+    {
+      "label": "saved-http-audit",
+      "native_exit": 0,
+      "program_basename": "python.exe",
+      "receipt_sha256": "C47A331CE8F1C8A7F505456CAB72A13E058450910CD887B2DE9ECBF5C7FBF80C",
+      "start_receipt_sha256": "2841258F8338BFE1B624F23CDD76504F87D19356F025E2D3B73A7A7283F77137",
+      "phase": "audit02",
+      "streams": {
+        "stdout": {
+          "original_bytes_public": false,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "bytes": 0,
+          "complete": true
+        },
+        "stderr": {
+          "original_bytes_public": false,
+          "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+          "bytes": 0,
+          "complete": true
+        }
+      },
+      "pid": 62544,
+      "native_creation_filetime": null,
+      "native_creation_utc": "2026-10-23T06:34:20.8335080Z"
+    }
+  ],
+  "history": [
+    "build01 compiler180second timeout: failed, completecaptures",
+    "live01 checkerwrongrawcaseID: failed beforeC02, completecaptures",
+    "audit01 helperexportfailure beforePython: no nativePID/result",
+    "sixhistoricalUNKNOWN unchanged"
+  ],
+  "broader_r5_closed": false,
+  "all_original_native_outputs_public": false,
+  "public_original_stream_files": 2,
+  "private_original_streams": 68
+}

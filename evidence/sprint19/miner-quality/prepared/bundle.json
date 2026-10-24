@@ -1,0 +1,1975 @@
+{
+  "artifacts": {
+    "empty-log": {
+      "carried_actual_outcome": {
+        "capture_fault": false,
+        "coordinator_result_sha256": "b2b236d85caf04d5347afd37ae2bdd7ad50bab5f0ca9651398b044121b9fd6e7",
+        "drain_timeout": false,
+        "elapsed_mining_nanos": 26740900,
+        "exception": {
+          "class": "java.util.NoSuchElementException",
+          "message": null
+        },
+        "native_exit": 0,
+        "native_proof_sha256": "26c412f14b8e9a70e0d43fff3771848c5c6448fd19802f2e453af8f204bf008b",
+        "new_miner_execution": false,
+        "observation_bytes": 1184,
+        "observation_sha256": "031fef9242fa8fd407bee314ee480056e469d539408b4a8e0d29ae6ec081dacc",
+        "output_limit": false,
+        "status": "algorithm_exception",
+        "stderr_complete": true,
+        "stdout_complete": true,
+        "streams": [
+          {
+            "all_console_bytes_retained_in_historical_receipt": true,
+            "bytes": 35,
+            "name": "stdout",
+            "original_complete": true,
+            "raw_console_not_copied": true,
+            "sha256": "554af6989f04ae6b9d05c207c2b9b28a3609746246a3cb77926e5050aa059204",
+            "warning_error_and_fallback_lines": []
+          },
+          {
+            "all_console_bytes_retained_in_historical_receipt": true,
+            "bytes": 92,
+            "name": "stderr",
+            "original_complete": true,
+            "raw_console_not_copied": true,
+            "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+            "warning_error_and_fallback_lines": []
+          }
+        ]
+      },
+      "id": "empty-log",
+      "prepared": {
+        "exception": {
+          "class": "java.util.NoSuchElementException",
+          "message": null
+        },
+        "status": "carried_algorithm_exception"
+      },
+      "projection": {
+        "carried_actual_outcome": {
+          "capture_fault": false,
+          "coordinator_result_sha256": "b2b236d85caf04d5347afd37ae2bdd7ad50bab5f0ca9651398b044121b9fd6e7",
+          "drain_timeout": false,
+          "elapsed_mining_nanos": 26740900,
+          "exception": {
+            "class": "java.util.NoSuchElementException",
+            "message": null
+          },
+          "native_exit": 0,
+          "native_proof_sha256": "26c412f14b8e9a70e0d43fff3771848c5c6448fd19802f2e453af8f204bf008b",
+          "new_miner_execution": false,
+          "observation_bytes": 1184,
+          "observation_sha256": "031fef9242fa8fd407bee314ee480056e469d539408b4a8e0d29ae6ec081dacc",
+          "output_limit": false,
+          "status": "algorithm_exception",
+          "stderr_complete": true,
+          "stdout_complete": true,
+          "streams": [
+            {
+              "all_console_bytes_retained_in_historical_receipt": true,
+              "bytes": 35,
+              "name": "stdout",
+              "original_complete": true,
+              "raw_console_not_copied": true,
+              "sha256": "554af6989f04ae6b9d05c207c2b9b28a3609746246a3cb77926e5050aa059204",
+              "warning_error_and_fallback_lines": []
+            },
+            {
+              "all_console_bytes_retained_in_historical_receipt": true,
+              "bytes": 92,
+              "name": "stderr",
+              "original_complete": true,
+              "raw_console_not_copied": true,
+              "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+              "warning_error_and_fallback_lines": []
+            }
+          ]
+        },
+        "exception": {
+          "class": "java.util.NoSuchElementException",
+          "message": null
+        },
+        "id": "empty-log",
+        "raw_file": null,
+        "source_input": {
+          "bytes": 165,
+          "designation": "original_miner_training_only_no_new_heldout",
+          "event_count": 0,
+          "file": "../oracle-splitminer/empty-log.xes",
+          "heldout_log": null,
+          "original_training_variants": [],
+          "sha256": "2dfebdb1c9abcfd2d5f46f592b9d6afb038fd880513e32509c4149914f27efba",
+          "trace_count": 0,
+          "traces": [],
+          "training_log": []
+        },
+        "source_xes_file": "empty-log.xes",
+        "source_xes_sha256": "2dfebdb1c9abcfd2d5f46f592b9d6afb038fd880513e32509c4149914f27efba",
+        "status": "carried_algorithm_exception",
+        "trace_lineage_verified": true
+      },
+      "source_input": {
+        "bytes": 165,
+        "designation": "original_miner_training_only_no_new_heldout",
+        "event_count": 0,
+        "file": "../oracle-splitminer/empty-log.xes",
+        "heldout_log": null,
+        "original_training_variants": [],
+        "sha256": "2dfebdb1c9abcfd2d5f46f592b9d6afb038fd880513e32509c4149914f27efba",
+        "trace_count": 0,
+        "traces": [],
+        "training_log": []
+      }
+    },
+    "empty-trace": {
+      "carried_actual_outcome": {
+        "capture_fault": false,
+        "coordinator_result_sha256": "5c662b5ca87208c6bc007919274d630403408d57dae8faf4fec82c28cc933d1d",
+        "drain_timeout": false,
+        "elapsed_mining_nanos": 168109400,
+        "exception": null,
+        "native_exit": 0,
+        "native_proof_sha256": "14cc4a695528095aae29be61559636d957c9da0becf31dbaf78729a823f7463e",
+        "new_miner_execution": false,
+        "observation_bytes": 2169,
+        "observation_sha256": "79b713dae1e31d1f4b43d967a3be26f53a99b912299e03066bff89f1f87ab9f6",
+        "output_limit": false,
+        "status": "diagram_returned",
+        "stderr_complete": true,
+        "stdout_complete": true,
+        "streams": [
+          {
+            "all_console_bytes_retained_in_historical_receipt": true,
+            "bytes": 129,
+            "name": "stdout",
+            "original_complete": true,
+            "raw_console_not_copied": true,
+            "sha256": "2af832eb929761ad1dc62e00835f39cb2166eb06d1e6a60feb13b1d3118adba0",
+            "warning_error_and_fallback_lines": [
+              "WARNING - first gateway not found",
+              "ERROR - something went wrong initializing the gateway map"
+            ]
+          },
+          {
+            "all_console_bytes_retained_in_historical_receipt": true,
+            "bytes": 92,
+            "name": "stderr",
+            "original_complete": true,
+            "raw_console_not_copied": true,
+            "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+            "warning_error_and_fallback_lines": []
+          }
+        ]
+      },
+      "id": "empty-trace",
+      "prepared": {
+        "admission_reason": null,
+        "admission_status": "admitted",
+        "graph_file": "empty-trace.graph.json",
+        "graph_sha256": "0b79d7da55eb6356bb6fe137f0c3608c0d4af6448234cad9865e26f951ca2e5f",
+        "map_file": "empty-trace.map.json",
+        "map_sha256": "a01c888c642d505f2efcbd366444c49c527f298169eca7bc033ea3514f6646f7",
+        "net_file": "empty-trace.net.json",
+        "net_sha256": "4f72b15d9e484c2b1636a3d07426f9843b6fa499a7314d0d9e71191aa9684a7f",
+        "status": "net_saved"
+      },
+      "projection": {
+        "carried_actual_outcome": {
+          "capture_fault": false,
+          "coordinator_result_sha256": "5c662b5ca87208c6bc007919274d630403408d57dae8faf4fec82c28cc933d1d",
+          "drain_timeout": false,
+          "elapsed_mining_nanos": 168109400,
+          "exception": null,
+          "native_exit": 0,
+          "native_proof_sha256": "14cc4a695528095aae29be61559636d957c9da0becf31dbaf78729a823f7463e",
+          "new_miner_execution": false,
+          "observation_bytes": 2169,
+          "observation_sha256": "79b713dae1e31d1f4b43d967a3be26f53a99b912299e03066bff89f1f87ab9f6",
+          "output_limit": false,
+          "status": "diagram_returned",
+          "stderr_complete": true,
+          "stdout_complete": true,
+          "streams": [
+            {
+              "all_console_bytes_retained_in_historical_receipt": true,
+              "bytes": 129,
+              "name": "stdout",
+              "original_complete": true,
+              "raw_console_not_copied": true,
+              "sha256": "2af832eb929761ad1dc62e00835f39cb2166eb06d1e6a60feb13b1d3118adba0",
+              "warning_error_and_fallback_lines": [
+                "WARNING - first gateway not found",
+                "ERROR - something went wrong initializing the gateway map"
+              ]
+            },
+            {
+              "all_console_bytes_retained_in_historical_receipt": true,
+              "bytes": 92,
+              "name": "stderr",
+              "original_complete": true,
+              "raw_console_not_copied": true,
+              "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+              "warning_error_and_fallback_lines": []
+            }
+          ]
+        },
+        "di_report_file": "empty-trace.di.json",
+        "di_report_sha256": "950b999c552bfd72f55d74ef766c7415c61ab673b8657b9d9eac12a4ca18a0b8",
+        "hint_file": "empty-trace.hint.bpmn",
+        "hint_report_file": "empty-trace.hint.json",
+        "hint_report_sha256": "1473414bc3ee34cace964a6123c1afd367a07b733887360c87878d0be9cc7d90",
+        "hint_sha256": "7a6d0a609314b334a7b38664a6b64f127d8a01a581ad99a5232e87170ddb6eb4",
+        "id": "empty-trace",
+        "projected_file": "empty-trace.projected.bpmn",
+        "projected_sha256": "23211ab2068ac0551cd7cf58f3cd0ccf1e7323722c64b25f4b39e50c4909962c",
+        "raw_bytes": 1290,
+        "raw_file": "empty-trace.raw.bpmn",
+        "raw_sha256": "aca67b5e5d342b39e095a75a1d74023aebe96947252adf6b8b99319aec77fc73",
+        "source_input": {
+          "bytes": 228,
+          "designation": "original_miner_training_only_no_new_heldout",
+          "event_count": 0,
+          "file": "../oracle-splitminer/empty-trace.xes",
+          "heldout_log": null,
+          "original_training_variants": [
+            ""
+          ],
+          "sha256": "5c22ab666b6b3ffae5dd5457a4701f45bbc65bb4dc8deb51491854b157bd3e12",
+          "trace_count": 1,
+          "traces": [
+            {
+              "event_count": 0,
+              "sequence": [],
+              "source_trace_index": 0,
+              "source_trace_name": "case-0"
+            }
+          ],
+          "training_log": [
+            {
+              "frequency": 1,
+              "sequence": []
+            }
+          ]
+        },
+        "source_xes_file": "empty-trace.xes",
+        "source_xes_sha256": "5c22ab666b6b3ffae5dd5457a4701f45bbc65bb4dc8deb51491854b157bd3e12",
+        "status": "projected_pending_strict_prepare",
+        "trace_lineage_verified": true
+      },
+      "source_input": {
+        "bytes": 228,
+        "designation": "original_miner_training_only_no_new_heldout",
+        "event_count": 0,
+        "file": "../oracle-splitminer/empty-trace.xes",
+        "heldout_log": null,
+        "original_training_variants": [
+          ""
+        ],
+        "sha256": "5c22ab666b6b3ffae5dd5457a4701f45bbc65bb4dc8deb51491854b157bd3e12",
+        "trace_count": 1,
+        "traces": [
+          {
+            "event_count": 0,
+            "sequence": [],
+            "source_trace_index": 0,
+            "source_trace_name": "case-0"
+          }
+        ],
+        "training_log": [
+          {
+            "frequency": 1,
+            "sequence": []
+          }
+        ]
+      }
+    },
+    "exclusive-choice": {
+      "carried_actual_outcome": {
+        "capture_fault": false,
+        "coordinator_result_sha256": "d6b6d57195994056c281739c6cd3f0b99a2c97360065f0cace008468dda3621c",
+        "drain_timeout": false,
+        "elapsed_mining_nanos": 276719800,
+        "exception": null,
+        "native_exit": 0,
+        "native_proof_sha256": "4bf29532b9b774bf49e5d4a0ea85f896613ff25a5c0a10dd2e33fb8018b5dbbe",
+        "new_miner_execution": false,
+        "observation_bytes": 4184,
+        "observation_sha256": "4a8bf1ebc62875cb0efaf0eb09acf34c3e243464f724182dd2daa0954ebaf623",
+        "output_limit": false,
+        "status": "diagram_returned",
+        "stderr_complete": true,
+        "stdout_complete": true,
+        "streams": [
+          {
+            "all_console_bytes_retained_in_historical_receipt": true,
+            "bytes": 35,
+            "name": "stdout",
+            "original_complete": true,
+            "raw_console_not_copied": true,
+            "sha256": "554af6989f04ae6b9d05c207c2b9b28a3609746246a3cb77926e5050aa059204",
+            "warning_error_and_fallback_lines": []
+          },
+          {
+            "all_console_bytes_retained_in_historical_receipt": true,
+            "bytes": 92,
+            "name": "stderr",
+            "original_complete": true,
+            "raw_console_not_copied": true,
+            "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+            "warning_error_and_fallback_lines": []
+          }
+        ]
+      },
+      "id": "exclusive-choice",
+      "prepared": {
+        "admission_reason": null,
+        "admission_status": "admitted",
+        "graph_file": "exclusive-choice.graph.json",
+        "graph_sha256": "dccc5539f43a26471b2bc06e5ced7a21dc7023f1af04788c239587b351950844",
+        "map_file": "exclusive-choice.map.json",
+        "map_sha256": "f1e214b3919a027703dbc631b73a073eab0e07e252d75526685b10ff65e297ee",
+        "net_file": "exclusive-choice.net.json",
+        "net_sha256": "33238732c5b11d2a4f0566c2003c617a77ca092fad376880c9114d2247c51b12",
+        "status": "net_saved"
+      },
+      "projection": {
+        "carried_actual_outcome": {
+          "capture_fault": false,
+          "coordinator_result_sha256": "d6b6d57195994056c281739c6cd3f0b99a2c97360065f0cace008468dda3621c",
+          "drain_timeout": false,
+          "elapsed_mining_nanos": 276719800,
+          "exception": null,
+          "native_exit": 0,
+          "native_proof_sha256": "4bf29532b9b774bf49e5d4a0ea85f896613ff25a5c0a10dd2e33fb8018b5dbbe",
+          "new_miner_execution": false,
+          "observation_bytes": 4184,
+          "observation_sha256": "4a8bf1ebc62875cb0efaf0eb09acf34c3e243464f724182dd2daa0954ebaf623",
+          "output_limit": false,
+          "status": "diagram_returned",
+          "stderr_complete": true,
+          "stdout_complete": true,
+          "streams": [
+            {
+              "all_console_bytes_retained_in_historical_receipt": true,
+              "bytes": 35,
+              "name": "stdout",
+              "original_complete": true,
+              "raw_console_not_copied": true,
+              "sha256": "554af6989f04ae6b9d05c207c2b9b28a3609746246a3cb77926e5050aa059204",
+              "warning_error_and_fallback_lines": []
+            },
+            {
+              "all_console_bytes_retained_in_historical_receipt": true,
+              "bytes": 92,
+              "name": "stderr",
+              "original_complete": true,
+              "raw_console_not_copied": true,
+              "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+              "warning_error_and_fallback_lines": []
+            }
+          ]
+        },
+        "di_report_file": "exclusive-choice.di.json",
+        "di_report_sha256": "394f613ac1e67509b681c3b330e39d2d4c231051bcad55fe6bdb5e8614328931",
+        "hint_file": "exclusive-choice.hint.bpmn",
+        "hint_report_file": "exclusive-choice.hint.json",
+        "hint_report_sha256": "99bcb0536e2d47bc429edc351316de2177f9d311fbafa294bbd27ad15e457e94",
+        "hint_sha256": "582bd8f05812bacad86e60ec101ca01b60f31c87351d4fd1988a4b51863501ec",
+        "id": "exclusive-choice",
+        "projected_file": "exclusive-choice.projected.bpmn",
+        "projected_sha256": "cca22d9acc0591f78b1d7ad63d8f4b889cd1895264f22be53fbd9e1f346d9745",
+        "raw_bytes": 4135,
+        "raw_file": "exclusive-choice.raw.bpmn",
+        "raw_sha256": "887070a89f35c85a315423ef9b30569b220dfa30585a96a06ac39b592032951e",
+        "source_input": {
+          "bytes": 2432,
+          "designation": "original_miner_training_only_no_new_heldout",
+          "event_count": 12,
+          "file": "../oracle-splitminer/exclusive-choice.xes",
+          "heldout_log": null,
+          "original_training_variants": [
+            "ABD",
+            "ACD",
+            "ABD",
+            "ACD"
+          ],
+          "sha256": "2304ae0ed58ce8ba6996476b147c0c1cb23fb7aa8bbab27dd0d65578f58cfdf5",
+          "trace_count": 4,
+          "traces": [
+            {
+              "event_count": 3,
+              "sequence": [
+                "A",
+                "B",
+                "D"
+              ],
+              "source_trace_index": 0,
+              "source_trace_name": "case-0"
+            },
+            {
+              "event_count": 3,
+              "sequence": [
+                "A",
+                "C",
+                "D"
+              ],
+              "source_trace_index": 1,
+              "source_trace_name": "case-1"
+            },
+            {
+              "event_count": 3,
+              "sequence": [
+                "A",
+                "B",
+                "D"
+              ],
+              "source_trace_index": 2,
+              "source_trace_name": "case-2"
+            },
+            {
+              "event_count": 3,
+              "sequence": [
+                "A",
+                "C",
+                "D"
+              ],
+              "source_trace_index": 3,
+              "source_trace_name": "case-3"
+            }
+          ],
+          "training_log": [
+            {
+              "frequency": 2,
+              "sequence": [
+                "A",
+                "B",
+                "D"
+              ]
+            },
+            {
+              "frequency": 2,
+              "sequence": [
+                "A",
+                "C",
+                "D"
+              ]
+            }
+          ]
+        },
+        "source_xes_file": "exclusive-choice.xes",
+        "source_xes_sha256": "2304ae0ed58ce8ba6996476b147c0c1cb23fb7aa8bbab27dd0d65578f58cfdf5",
+        "status": "projected_pending_strict_prepare",
+        "trace_lineage_verified": true
+      },
+      "source_input": {
+        "bytes": 2432,
+        "designation": "original_miner_training_only_no_new_heldout",
+        "event_count": 12,
+        "file": "../oracle-splitminer/exclusive-choice.xes",
+        "heldout_log": null,
+        "original_training_variants": [
+          "ABD",
+          "ACD",
+          "ABD",
+          "ACD"
+        ],
+        "sha256": "2304ae0ed58ce8ba6996476b147c0c1cb23fb7aa8bbab27dd0d65578f58cfdf5",
+        "trace_count": 4,
+        "traces": [
+          {
+            "event_count": 3,
+            "sequence": [
+              "A",
+              "B",
+              "D"
+            ],
+            "source_trace_index": 0,
+            "source_trace_name": "case-0"
+          },
+          {
+            "event_count": 3,
+            "sequence": [
+              "A",
+              "C",
+              "D"
+            ],
+            "source_trace_index": 1,
+            "source_trace_name": "case-1"
+          },
+          {
+            "event_count": 3,
+            "sequence": [
+              "A",
+              "B",
+              "D"
+            ],
+            "source_trace_index": 2,
+            "source_trace_name": "case-2"
+          },
+          {
+            "event_count": 3,
+            "sequence": [
+              "A",
+              "C",
+              "D"
+            ],
+            "source_trace_index": 3,
+            "source_trace_name": "case-3"
+          }
+        ],
+        "training_log": [
+          {
+            "frequency": 2,
+            "sequence": [
+              "A",
+              "B",
+              "D"
+            ]
+          },
+          {
+            "frequency": 2,
+            "sequence": [
+              "A",
+              "C",
+              "D"
+            ]
+          }
+        ]
+      }
+    },
+    "linear": {
+      "carried_actual_outcome": {
+        "capture_fault": false,
+        "coordinator_result_sha256": "c0a0b6d848f303ec9fb2487091f8cbe789f2ffb3257a6d7b62f17b13addd8223",
+        "drain_timeout": false,
+        "elapsed_mining_nanos": 218793300,
+        "exception": null,
+        "native_exit": 0,
+        "native_proof_sha256": "4cbcf48732604f16095f25bc9db82ec17d43985fb54a9d49b5824f47f270cc73",
+        "new_miner_execution": false,
+        "observation_bytes": 3099,
+        "observation_sha256": "87ec5411fbecd760dcdb95af31a004feeb2031fb90da5d10c6359c8ca3abec2f",
+        "output_limit": false,
+        "status": "diagram_returned",
+        "stderr_complete": true,
+        "stdout_complete": true,
+        "streams": [
+          {
+            "all_console_bytes_retained_in_historical_receipt": true,
+            "bytes": 129,
+            "name": "stdout",
+            "original_complete": true,
+            "raw_console_not_copied": true,
+            "sha256": "2af832eb929761ad1dc62e00835f39cb2166eb06d1e6a60feb13b1d3118adba0",
+            "warning_error_and_fallback_lines": [
+              "WARNING - first gateway not found",
+              "ERROR - something went wrong initializing the gateway map"
+            ]
+          },
+          {
+            "all_console_bytes_retained_in_historical_receipt": true,
+            "bytes": 92,
+            "name": "stderr",
+            "original_complete": true,
+            "raw_console_not_copied": true,
+            "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+            "warning_error_and_fallback_lines": []
+          }
+        ]
+      },
+      "id": "linear",
+      "prepared": {
+        "admission_reason": null,
+        "admission_status": "admitted",
+        "graph_file": "linear.graph.json",
+        "graph_sha256": "4ff1c4ae4e5ada11592c17e647fe61657b0b6eb584786eed61c452c5364ce51c",
+        "map_file": "linear.map.json",
+        "map_sha256": "a68b67c9b592bb2761576e15ff8dec94f61fc598b83c65e1184fb0f1eaf280e4",
+        "net_file": "linear.net.json",
+        "net_sha256": "0331004c5553727c14337115c349cc8bd557ff17ee5d33ab6291ed9fc2c28cb9",
+        "status": "net_saved"
+      },
+      "projection": {
+        "carried_actual_outcome": {
+          "capture_fault": false,
+          "coordinator_result_sha256": "c0a0b6d848f303ec9fb2487091f8cbe789f2ffb3257a6d7b62f17b13addd8223",
+          "drain_timeout": false,
+          "elapsed_mining_nanos": 218793300,
+          "exception": null,
+          "native_exit": 0,
+          "native_proof_sha256": "4cbcf48732604f16095f25bc9db82ec17d43985fb54a9d49b5824f47f270cc73",
+          "new_miner_execution": false,
+          "observation_bytes": 3099,
+          "observation_sha256": "87ec5411fbecd760dcdb95af31a004feeb2031fb90da5d10c6359c8ca3abec2f",
+          "output_limit": false,
+          "status": "diagram_returned",
+          "stderr_complete": true,
+          "stdout_complete": true,
+          "streams": [
+            {
+              "all_console_bytes_retained_in_historical_receipt": true,
+              "bytes": 129,
+              "name": "stdout",
+              "original_complete": true,
+              "raw_console_not_copied": true,
+              "sha256": "2af832eb929761ad1dc62e00835f39cb2166eb06d1e6a60feb13b1d3118adba0",
+              "warning_error_and_fallback_lines": [
+                "WARNING - first gateway not found",
+                "ERROR - something went wrong initializing the gateway map"
+              ]
+            },
+            {
+              "all_console_bytes_retained_in_historical_receipt": true,
+              "bytes": 92,
+              "name": "stderr",
+              "original_complete": true,
+              "raw_console_not_copied": true,
+              "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+              "warning_error_and_fallback_lines": []
+            }
+          ]
+        },
+        "di_report_file": "linear.di.json",
+        "di_report_sha256": "aa3ac36afef979a3d247b6f8ef2f6ce7320e07b377dd32d5d30de9416e203866",
+        "hint_file": "linear.hint.bpmn",
+        "hint_report_file": "linear.hint.json",
+        "hint_report_sha256": "67db5e65fbb6d742c936f10b1b9440eee28301e5b81dbc5a98a15ede6be1b8a3",
+        "hint_sha256": "a069ed02b5e0c9ea873365465118e881a5c6b3ae9c05ee4a81899bcbd27100c2",
+        "id": "linear",
+        "projected_file": "linear.projected.bpmn",
+        "projected_sha256": "7aa8a3a800be34950fa51efea20f9f70ac950e623bc664aceb06ae66f46c899b",
+        "raw_bytes": 2565,
+        "raw_file": "linear.raw.bpmn",
+        "raw_sha256": "427e4dbded59fa732b2cef5b48ab47a414a4461331bdcc4b19b13db338c0eac5",
+        "source_input": {
+          "bytes": 1292,
+          "designation": "original_miner_training_only_no_new_heldout",
+          "event_count": 6,
+          "file": "../oracle-splitminer/linear.xes",
+          "heldout_log": null,
+          "original_training_variants": [
+            "ABC",
+            "ABC"
+          ],
+          "sha256": "e322a6d8ff750b39022ca4a83c77cefe1dfcf0fd7f9c140cb07a56ce4ee1239d",
+          "trace_count": 2,
+          "traces": [
+            {
+              "event_count": 3,
+              "sequence": [
+                "A",
+                "B",
+                "C"
+              ],
+              "source_trace_index": 0,
+              "source_trace_name": "case-0"
+            },
+            {
+              "event_count": 3,
+              "sequence": [
+                "A",
+                "B",
+                "C"
+              ],
+              "source_trace_index": 1,
+              "source_trace_name": "case-1"
+            }
+          ],
+          "training_log": [
+            {
+              "frequency": 2,
+              "sequence": [
+                "A",
+                "B",
+                "C"
+              ]
+            }
+          ]
+        },
+        "source_xes_file": "linear.xes",
+        "source_xes_sha256": "e322a6d8ff750b39022ca4a83c77cefe1dfcf0fd7f9c140cb07a56ce4ee1239d",
+        "status": "projected_pending_strict_prepare",
+        "trace_lineage_verified": true
+      },
+      "source_input": {
+        "bytes": 1292,
+        "designation": "original_miner_training_only_no_new_heldout",
+        "event_count": 6,
+        "file": "../oracle-splitminer/linear.xes",
+        "heldout_log": null,
+        "original_training_variants": [
+          "ABC",
+          "ABC"
+        ],
+        "sha256": "e322a6d8ff750b39022ca4a83c77cefe1dfcf0fd7f9c140cb07a56ce4ee1239d",
+        "trace_count": 2,
+        "traces": [
+          {
+            "event_count": 3,
+            "sequence": [
+              "A",
+              "B",
+              "C"
+            ],
+            "source_trace_index": 0,
+            "source_trace_name": "case-0"
+          },
+          {
+            "event_count": 3,
+            "sequence": [
+              "A",
+              "B",
+              "C"
+            ],
+            "source_trace_index": 1,
+            "source_trace_name": "case-1"
+          }
+        ],
+        "training_log": [
+          {
+            "frequency": 2,
+            "sequence": [
+              "A",
+              "B",
+              "C"
+            ]
+          }
+        ]
+      }
+    },
+    "parallel-interleavings": {
+      "carried_actual_outcome": {
+        "capture_fault": false,
+        "coordinator_result_sha256": "59a5b498f64edf685f649456f6d91348d7a7eb0f066ced734a2f5388fef322e2",
+        "drain_timeout": false,
+        "elapsed_mining_nanos": 283916000,
+        "exception": null,
+        "native_exit": 0,
+        "native_proof_sha256": "c221ac308e6bd708d0adfeea06a35aff85b2fa51c2812342ce5cdbaf3eafb4ed",
+        "new_miner_execution": false,
+        "observation_bytes": 4182,
+        "observation_sha256": "44d8464c714b4160f16e96df59de4b6979edf17124d3769366c91c7929e2ee97",
+        "output_limit": false,
+        "status": "diagram_returned",
+        "stderr_complete": true,
+        "stdout_complete": true,
+        "streams": [
+          {
+            "all_console_bytes_retained_in_historical_receipt": true,
+            "bytes": 35,
+            "name": "stdout",
+            "original_complete": true,
+            "raw_console_not_copied": true,
+            "sha256": "554af6989f04ae6b9d05c207c2b9b28a3609746246a3cb77926e5050aa059204",
+            "warning_error_and_fallback_lines": []
+          },
+          {
+            "all_console_bytes_retained_in_historical_receipt": true,
+            "bytes": 92,
+            "name": "stderr",
+            "original_complete": true,
+            "raw_console_not_copied": true,
+            "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+            "warning_error_and_fallback_lines": []
+          }
+        ]
+      },
+      "id": "parallel-interleavings",
+      "prepared": {
+        "admission_reason": null,
+        "admission_status": "admitted",
+        "graph_file": "parallel-interleavings.graph.json",
+        "graph_sha256": "dc34271ada8a929667ffaa7a7f942c1042efac00fb3911ff056b3e55799d9d85",
+        "map_file": "parallel-interleavings.map.json",
+        "map_sha256": "9d643b361f1bb05c4309638bc4f0bf1a592538594b2b32a00fdd09b32b684bf0",
+        "net_file": "parallel-interleavings.net.json",
+        "net_sha256": "a6c143309766583cbc49ada45bf75f38b218753ec316b5abcc99cc92375448a6",
+        "status": "net_saved"
+      },
+      "projection": {
+        "carried_actual_outcome": {
+          "capture_fault": false,
+          "coordinator_result_sha256": "59a5b498f64edf685f649456f6d91348d7a7eb0f066ced734a2f5388fef322e2",
+          "drain_timeout": false,
+          "elapsed_mining_nanos": 283916000,
+          "exception": null,
+          "native_exit": 0,
+          "native_proof_sha256": "c221ac308e6bd708d0adfeea06a35aff85b2fa51c2812342ce5cdbaf3eafb4ed",
+          "new_miner_execution": false,
+          "observation_bytes": 4182,
+          "observation_sha256": "44d8464c714b4160f16e96df59de4b6979edf17124d3769366c91c7929e2ee97",
+          "output_limit": false,
+          "status": "diagram_returned",
+          "stderr_complete": true,
+          "stdout_complete": true,
+          "streams": [
+            {
+              "all_console_bytes_retained_in_historical_receipt": true,
+              "bytes": 35,
+              "name": "stdout",
+              "original_complete": true,
+              "raw_console_not_copied": true,
+              "sha256": "554af6989f04ae6b9d05c207c2b9b28a3609746246a3cb77926e5050aa059204",
+              "warning_error_and_fallback_lines": []
+            },
+            {
+              "all_console_bytes_retained_in_historical_receipt": true,
+              "bytes": 92,
+              "name": "stderr",
+              "original_complete": true,
+              "raw_console_not_copied": true,
+              "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+              "warning_error_and_fallback_lines": []
+            }
+          ]
+        },
+        "di_report_file": "parallel-interleavings.di.json",
+        "di_report_sha256": "d64f9d82e391ccf8310f6bf0d9eaa564d99d68218dda72140298c37a08d6beb3",
+        "hint_file": "parallel-interleavings.hint.bpmn",
+        "hint_report_file": "parallel-interleavings.hint.json",
+        "hint_report_sha256": "01796ae46709bfa9a63b7776bb9fc6c238f1d8e356d75117fefb074262c1017c",
+        "hint_sha256": "aa8741fbba4b513472211016a1499c761babe4f8cbf6fe790a23a0159b955f85",
+        "id": "parallel-interleavings",
+        "projected_file": "parallel-interleavings.projected.bpmn",
+        "projected_sha256": "c3b278907b3cf67bb62f2fc0e76427c6b33be0a01dec3aa14245237536beb29e",
+        "raw_bytes": 4131,
+        "raw_file": "parallel-interleavings.raw.bpmn",
+        "raw_sha256": "56e33beeab413328eb936357be0b508063d9899fdd5087b96910e4812c715c0d",
+        "source_input": {
+          "bytes": 4576,
+          "designation": "original_miner_training_only_no_new_heldout",
+          "event_count": 24,
+          "file": "../oracle-splitminer/parallel-interleavings.xes",
+          "heldout_log": null,
+          "original_training_variants": [
+            "ABCD",
+            "ACBD",
+            "ABCD",
+            "ACBD",
+            "ABCD",
+            "ACBD"
+          ],
+          "sha256": "0765643359e6e28b24e16123ca136d726f9e3ff49388f98b9a8aab4120f08c20",
+          "trace_count": 6,
+          "traces": [
+            {
+              "event_count": 4,
+              "sequence": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "source_trace_index": 0,
+              "source_trace_name": "case-0"
+            },
+            {
+              "event_count": 4,
+              "sequence": [
+                "A",
+                "C",
+                "B",
+                "D"
+              ],
+              "source_trace_index": 1,
+              "source_trace_name": "case-1"
+            },
+            {
+              "event_count": 4,
+              "sequence": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "source_trace_index": 2,
+              "source_trace_name": "case-2"
+            },
+            {
+              "event_count": 4,
+              "sequence": [
+                "A",
+                "C",
+                "B",
+                "D"
+              ],
+              "source_trace_index": 3,
+              "source_trace_name": "case-3"
+            },
+            {
+              "event_count": 4,
+              "sequence": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ],
+              "source_trace_index": 4,
+              "source_trace_name": "case-4"
+            },
+            {
+              "event_count": 4,
+              "sequence": [
+                "A",
+                "C",
+                "B",
+                "D"
+              ],
+              "source_trace_index": 5,
+              "source_trace_name": "case-5"
+            }
+          ],
+          "training_log": [
+            {
+              "frequency": 3,
+              "sequence": [
+                "A",
+                "B",
+                "C",
+                "D"
+              ]
+            },
+            {
+              "frequency": 3,
+              "sequence": [
+                "A",
+                "C",
+                "B",
+                "D"
+              ]
+            }
+          ]
+        },
+        "source_xes_file": "parallel-interleavings.xes",
+        "source_xes_sha256": "0765643359e6e28b24e16123ca136d726f9e3ff49388f98b9a8aab4120f08c20",
+        "status": "projected_pending_strict_prepare",
+        "trace_lineage_verified": true
+      },
+      "source_input": {
+        "bytes": 4576,
+        "designation": "original_miner_training_only_no_new_heldout",
+        "event_count": 24,
+        "file": "../oracle-splitminer/parallel-interleavings.xes",
+        "heldout_log": null,
+        "original_training_variants": [
+          "ABCD",
+          "ACBD",
+          "ABCD",
+          "ACBD",
+          "ABCD",
+          "ACBD"
+        ],
+        "sha256": "0765643359e6e28b24e16123ca136d726f9e3ff49388f98b9a8aab4120f08c20",
+        "trace_count": 6,
+        "traces": [
+          {
+            "event_count": 4,
+            "sequence": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ],
+            "source_trace_index": 0,
+            "source_trace_name": "case-0"
+          },
+          {
+            "event_count": 4,
+            "sequence": [
+              "A",
+              "C",
+              "B",
+              "D"
+            ],
+            "source_trace_index": 1,
+            "source_trace_name": "case-1"
+          },
+          {
+            "event_count": 4,
+            "sequence": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ],
+            "source_trace_index": 2,
+            "source_trace_name": "case-2"
+          },
+          {
+            "event_count": 4,
+            "sequence": [
+              "A",
+              "C",
+              "B",
+              "D"
+            ],
+            "source_trace_index": 3,
+            "source_trace_name": "case-3"
+          },
+          {
+            "event_count": 4,
+            "sequence": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ],
+            "source_trace_index": 4,
+            "source_trace_name": "case-4"
+          },
+          {
+            "event_count": 4,
+            "sequence": [
+              "A",
+              "C",
+              "B",
+              "D"
+            ],
+            "source_trace_index": 5,
+            "source_trace_name": "case-5"
+          }
+        ],
+        "training_log": [
+          {
+            "frequency": 3,
+            "sequence": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ]
+          },
+          {
+            "frequency": 3,
+            "sequence": [
+              "A",
+              "C",
+              "B",
+              "D"
+            ]
+          }
+        ]
+      }
+    },
+    "rare-noise": {
+      "carried_actual_outcome": {
+        "capture_fault": false,
+        "coordinator_result_sha256": "a346ad654eef76f92f6b2b592775ddf4888e8b5e36c765600a8079a6013823f5",
+        "drain_timeout": false,
+        "elapsed_mining_nanos": 225935000,
+        "exception": null,
+        "native_exit": 0,
+        "native_proof_sha256": "b8511ef9e28e23264a355ae24d6222157cdb932d1269b6b0f1436d8507f6aa96",
+        "new_miner_execution": false,
+        "observation_bytes": 4185,
+        "observation_sha256": "5a1d31070940c41ac96172d5911f263c8c7120b1fa6dd4fe95ddb30308b0219c",
+        "output_limit": false,
+        "status": "diagram_returned",
+        "stderr_complete": true,
+        "stdout_complete": true,
+        "streams": [
+          {
+            "all_console_bytes_retained_in_historical_receipt": true,
+            "bytes": 35,
+            "name": "stdout",
+            "original_complete": true,
+            "raw_console_not_copied": true,
+            "sha256": "554af6989f04ae6b9d05c207c2b9b28a3609746246a3cb77926e5050aa059204",
+            "warning_error_and_fallback_lines": []
+          },
+          {
+            "all_console_bytes_retained_in_historical_receipt": true,
+            "bytes": 92,
+            "name": "stderr",
+            "original_complete": true,
+            "raw_console_not_copied": true,
+            "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+            "warning_error_and_fallback_lines": []
+          }
+        ]
+      },
+      "id": "rare-noise",
+      "prepared": {
+        "admission_reason": null,
+        "admission_status": "admitted",
+        "graph_file": "rare-noise.graph.json",
+        "graph_sha256": "233ee3e9ecd603fbfc251497d41b9acf79411f0621d6b796b7b778428632933b",
+        "map_file": "rare-noise.map.json",
+        "map_sha256": "f1e214b3919a027703dbc631b73a073eab0e07e252d75526685b10ff65e297ee",
+        "net_file": "rare-noise.net.json",
+        "net_sha256": "5d98ef74cac74a9ccd08920bc58565fe6d162312e74f2e0fd7c193dbc15e9f6b",
+        "status": "net_saved"
+      },
+      "projection": {
+        "carried_actual_outcome": {
+          "capture_fault": false,
+          "coordinator_result_sha256": "a346ad654eef76f92f6b2b592775ddf4888e8b5e36c765600a8079a6013823f5",
+          "drain_timeout": false,
+          "elapsed_mining_nanos": 225935000,
+          "exception": null,
+          "native_exit": 0,
+          "native_proof_sha256": "b8511ef9e28e23264a355ae24d6222157cdb932d1269b6b0f1436d8507f6aa96",
+          "new_miner_execution": false,
+          "observation_bytes": 4185,
+          "observation_sha256": "5a1d31070940c41ac96172d5911f263c8c7120b1fa6dd4fe95ddb30308b0219c",
+          "output_limit": false,
+          "status": "diagram_returned",
+          "stderr_complete": true,
+          "stdout_complete": true,
+          "streams": [
+            {
+              "all_console_bytes_retained_in_historical_receipt": true,
+              "bytes": 35,
+              "name": "stdout",
+              "original_complete": true,
+              "raw_console_not_copied": true,
+              "sha256": "554af6989f04ae6b9d05c207c2b9b28a3609746246a3cb77926e5050aa059204",
+              "warning_error_and_fallback_lines": []
+            },
+            {
+              "all_console_bytes_retained_in_historical_receipt": true,
+              "bytes": 92,
+              "name": "stderr",
+              "original_complete": true,
+              "raw_console_not_copied": true,
+              "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+              "warning_error_and_fallback_lines": []
+            }
+          ]
+        },
+        "di_report_file": "rare-noise.di.json",
+        "di_report_sha256": "3f275f16966b274c9609301898a512816411365b29d299bb4eb9e8ed89214865",
+        "hint_file": "rare-noise.hint.bpmn",
+        "hint_report_file": "rare-noise.hint.json",
+        "hint_report_sha256": "ab3874d4842ccf7ac57670d07642ca8b4dd8f8e30227bfa0c2fda8101220154d",
+        "hint_sha256": "976a31088c4aad49d227bb5ad0ab873d0e19cb6f0e028a69bff276598bb5039a",
+        "id": "rare-noise",
+        "projected_file": "rare-noise.projected.bpmn",
+        "projected_sha256": "71be679d5a6edea5790af1395c9a73c11fbf0d3618c6e1516cd30e8af5c62446",
+        "raw_bytes": 4134,
+        "raw_file": "rare-noise.raw.bpmn",
+        "raw_sha256": "e8c27393fb5deb7739004c7f2ab9c704a116bb5d102ddd0ffff04e20012ab613",
+        "source_input": {
+          "bytes": 5816,
+          "designation": "original_miner_training_only_no_new_heldout",
+          "event_count": 30,
+          "file": "../oracle-splitminer/rare-noise.xes",
+          "heldout_log": null,
+          "original_training_variants": [
+            "ABC",
+            "ABC",
+            "ABC",
+            "ABC",
+            "ABC",
+            "ABC",
+            "ABC",
+            "ABC",
+            "ABC",
+            "ADC"
+          ],
+          "sha256": "03e909d2de9b618cb6655c5a2e378ddc3277b58f6607f7b6b156758db4b916ad",
+          "trace_count": 10,
+          "traces": [
+            {
+              "event_count": 3,
+              "sequence": [
+                "A",
+                "B",
+                "C"
+              ],
+              "source_trace_index": 0,
+              "source_trace_name": "case-0"
+            },
+            {
+              "event_count": 3,
+              "sequence": [
+                "A",
+                "B",
+                "C"
+              ],
+              "source_trace_index": 1,
+              "source_trace_name": "case-1"
+            },
+            {
+              "event_count": 3,
+              "sequence": [
+                "A",
+                "B",
+                "C"
+              ],
+              "source_trace_index": 2,
+              "source_trace_name": "case-2"
+            },
+            {
+              "event_count": 3,
+              "sequence": [
+                "A",
+                "B",
+                "C"
+              ],
+              "source_trace_index": 3,
+              "source_trace_name": "case-3"
+            },
+            {
+              "event_count": 3,
+              "sequence": [
+                "A",
+                "B",
+                "C"
+              ],
+              "source_trace_index": 4,
+              "source_trace_name": "case-4"
+            },
+            {
+              "event_count": 3,
+              "sequence": [
+                "A",
+                "B",
+                "C"
+              ],
+              "source_trace_index": 5,
+              "source_trace_name": "case-5"
+            },
+            {
+              "event_count": 3,
+              "sequence": [
+                "A",
+                "B",
+                "C"
+              ],
+              "source_trace_index": 6,
+              "source_trace_name": "case-6"
+            },
+            {
+              "event_count": 3,
+              "sequence": [
+                "A",
+                "B",
+                "C"
+              ],
+              "source_trace_index": 7,
+              "source_trace_name": "case-7"
+            },
+            {
+              "event_count": 3,
+              "sequence": [
+                "A",
+                "B",
+                "C"
+              ],
+              "source_trace_index": 8,
+              "source_trace_name": "case-8"
+            },
+            {
+              "event_count": 3,
+              "sequence": [
+                "A",
+                "D",
+                "C"
+              ],
+              "source_trace_index": 9,
+              "source_trace_name": "case-9"
+            }
+          ],
+          "training_log": [
+            {
+              "frequency": 9,
+              "sequence": [
+                "A",
+                "B",
+                "C"
+              ]
+            },
+            {
+              "frequency": 1,
+              "sequence": [
+                "A",
+                "D",
+                "C"
+              ]
+            }
+          ]
+        },
+        "source_xes_file": "rare-noise.xes",
+        "source_xes_sha256": "03e909d2de9b618cb6655c5a2e378ddc3277b58f6607f7b6b156758db4b916ad",
+        "status": "projected_pending_strict_prepare",
+        "trace_lineage_verified": true
+      },
+      "source_input": {
+        "bytes": 5816,
+        "designation": "original_miner_training_only_no_new_heldout",
+        "event_count": 30,
+        "file": "../oracle-splitminer/rare-noise.xes",
+        "heldout_log": null,
+        "original_training_variants": [
+          "ABC",
+          "ABC",
+          "ABC",
+          "ABC",
+          "ABC",
+          "ABC",
+          "ABC",
+          "ABC",
+          "ABC",
+          "ADC"
+        ],
+        "sha256": "03e909d2de9b618cb6655c5a2e378ddc3277b58f6607f7b6b156758db4b916ad",
+        "trace_count": 10,
+        "traces": [
+          {
+            "event_count": 3,
+            "sequence": [
+              "A",
+              "B",
+              "C"
+            ],
+            "source_trace_index": 0,
+            "source_trace_name": "case-0"
+          },
+          {
+            "event_count": 3,
+            "sequence": [
+              "A",
+              "B",
+              "C"
+            ],
+            "source_trace_index": 1,
+            "source_trace_name": "case-1"
+          },
+          {
+            "event_count": 3,
+            "sequence": [
+              "A",
+              "B",
+              "C"
+            ],
+            "source_trace_index": 2,
+            "source_trace_name": "case-2"
+          },
+          {
+            "event_count": 3,
+            "sequence": [
+              "A",
+              "B",
+              "C"
+            ],
+            "source_trace_index": 3,
+            "source_trace_name": "case-3"
+          },
+          {
+            "event_count": 3,
+            "sequence": [
+              "A",
+              "B",
+              "C"
+            ],
+            "source_trace_index": 4,
+            "source_trace_name": "case-4"
+          },
+          {
+            "event_count": 3,
+            "sequence": [
+              "A",
+              "B",
+              "C"
+            ],
+            "source_trace_index": 5,
+            "source_trace_name": "case-5"
+          },
+          {
+            "event_count": 3,
+            "sequence": [
+              "A",
+              "B",
+              "C"
+            ],
+            "source_trace_index": 6,
+            "source_trace_name": "case-6"
+          },
+          {
+            "event_count": 3,
+            "sequence": [
+              "A",
+              "B",
+              "C"
+            ],
+            "source_trace_index": 7,
+            "source_trace_name": "case-7"
+          },
+          {
+            "event_count": 3,
+            "sequence": [
+              "A",
+              "B",
+              "C"
+            ],
+            "source_trace_index": 8,
+            "source_trace_name": "case-8"
+          },
+          {
+            "event_count": 3,
+            "sequence": [
+              "A",
+              "D",
+              "C"
+            ],
+            "source_trace_index": 9,
+            "source_trace_name": "case-9"
+          }
+        ],
+        "training_log": [
+          {
+            "frequency": 9,
+            "sequence": [
+              "A",
+              "B",
+              "C"
+            ]
+          },
+          {
+            "frequency": 1,
+            "sequence": [
+              "A",
+              "D",
+              "C"
+            ]
+          }
+        ]
+      }
+    },
+    "self-loop": {
+      "carried_actual_outcome": {
+        "capture_fault": false,
+        "coordinator_result_sha256": "e166b3164aaecdc8e47f91fe17dec15d6535b05dc22995f9be7fa6f00a85b8df",
+        "drain_timeout": false,
+        "elapsed_mining_nanos": 179061300,
+        "exception": null,
+        "native_exit": 0,
+        "native_proof_sha256": "f57e263a13bcaf8f279e78f8289f6c26bbdfa9a057c83f9ab6ac21f26f2ef338",
+        "new_miner_execution": false,
+        "observation_bytes": 2788,
+        "observation_sha256": "5dd45a8dba93f571c9e685d53b404d531959f70e9d5a349faef4500cede578f3",
+        "output_limit": false,
+        "status": "diagram_returned",
+        "stderr_complete": true,
+        "stdout_complete": true,
+        "streams": [
+          {
+            "all_console_bytes_retained_in_historical_receipt": true,
+            "bytes": 129,
+            "name": "stdout",
+            "original_complete": true,
+            "raw_console_not_copied": true,
+            "sha256": "2af832eb929761ad1dc62e00835f39cb2166eb06d1e6a60feb13b1d3118adba0",
+            "warning_error_and_fallback_lines": [
+              "WARNING - first gateway not found",
+              "ERROR - something went wrong initializing the gateway map"
+            ]
+          },
+          {
+            "all_console_bytes_retained_in_historical_receipt": true,
+            "bytes": 92,
+            "name": "stderr",
+            "original_complete": true,
+            "raw_console_not_copied": true,
+            "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+            "warning_error_and_fallback_lines": []
+          }
+        ]
+      },
+      "id": "self-loop",
+      "prepared": {
+        "reason": "quality_unsupported_standard_loop_before_both_converters",
+        "status": "quality_unsupported_semantics"
+      },
+      "projection": {
+        "carried_actual_outcome": {
+          "capture_fault": false,
+          "coordinator_result_sha256": "e166b3164aaecdc8e47f91fe17dec15d6535b05dc22995f9be7fa6f00a85b8df",
+          "drain_timeout": false,
+          "elapsed_mining_nanos": 179061300,
+          "exception": null,
+          "native_exit": 0,
+          "native_proof_sha256": "f57e263a13bcaf8f279e78f8289f6c26bbdfa9a057c83f9ab6ac21f26f2ef338",
+          "new_miner_execution": false,
+          "observation_bytes": 2788,
+          "observation_sha256": "5dd45a8dba93f571c9e685d53b404d531959f70e9d5a349faef4500cede578f3",
+          "output_limit": false,
+          "status": "diagram_returned",
+          "stderr_complete": true,
+          "stdout_complete": true,
+          "streams": [
+            {
+              "all_console_bytes_retained_in_historical_receipt": true,
+              "bytes": 129,
+              "name": "stdout",
+              "original_complete": true,
+              "raw_console_not_copied": true,
+              "sha256": "2af832eb929761ad1dc62e00835f39cb2166eb06d1e6a60feb13b1d3118adba0",
+              "warning_error_and_fallback_lines": [
+                "WARNING - first gateway not found",
+                "ERROR - something went wrong initializing the gateway map"
+              ]
+            },
+            {
+              "all_console_bytes_retained_in_historical_receipt": true,
+              "bytes": 92,
+              "name": "stderr",
+              "original_complete": true,
+              "raw_console_not_copied": true,
+              "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+              "warning_error_and_fallback_lines": []
+            }
+          ]
+        },
+        "category": "quality_unsupported_standard_loop_before_both_converters",
+        "id": "self-loop",
+        "no_partial_projection": true,
+        "raw_bytes": 2192,
+        "raw_file": "self-loop.raw.bpmn",
+        "raw_sha256": "cc9f4863586d47b9553d41aab8ebd7bc797aeca9597d1524c087a3937cc28463",
+        "source_input": {
+          "bytes": 1860,
+          "designation": "original_miner_training_only_no_new_heldout",
+          "event_count": 9,
+          "file": "../oracle-splitminer/self-loop.xes",
+          "heldout_log": null,
+          "original_training_variants": [
+            "AAB",
+            "AB",
+            "AAAB"
+          ],
+          "sha256": "4d0caf82f37113cefdb9caeefbae81292dcb874e6750ba244cec3e8e45a9a0dc",
+          "trace_count": 3,
+          "traces": [
+            {
+              "event_count": 3,
+              "sequence": [
+                "A",
+                "A",
+                "B"
+              ],
+              "source_trace_index": 0,
+              "source_trace_name": "case-0"
+            },
+            {
+              "event_count": 2,
+              "sequence": [
+                "A",
+                "B"
+              ],
+              "source_trace_index": 1,
+              "source_trace_name": "case-1"
+            },
+            {
+              "event_count": 4,
+              "sequence": [
+                "A",
+                "A",
+                "A",
+                "B"
+              ],
+              "source_trace_index": 2,
+              "source_trace_name": "case-2"
+            }
+          ],
+          "training_log": [
+            {
+              "frequency": 1,
+              "sequence": [
+                "A",
+                "A",
+                "B"
+              ]
+            },
+            {
+              "frequency": 1,
+              "sequence": [
+                "A",
+                "B"
+              ]
+            },
+            {
+              "frequency": 1,
+              "sequence": [
+                "A",
+                "A",
+                "A",
+                "B"
+              ]
+            }
+          ]
+        },
+        "source_xes_file": "self-loop.xes",
+        "source_xes_sha256": "4d0caf82f37113cefdb9caeefbae81292dcb874e6750ba244cec3e8e45a9a0dc",
+        "status": "raw_compatibility_refused",
+        "trace_lineage_verified": true
+      },
+      "source_input": {
+        "bytes": 1860,
+        "designation": "original_miner_training_only_no_new_heldout",
+        "event_count": 9,
+        "file": "../oracle-splitminer/self-loop.xes",
+        "heldout_log": null,
+        "original_training_variants": [
+          "AAB",
+          "AB",
+          "AAAB"
+        ],
+        "sha256": "4d0caf82f37113cefdb9caeefbae81292dcb874e6750ba244cec3e8e45a9a0dc",
+        "trace_count": 3,
+        "traces": [
+          {
+            "event_count": 3,
+            "sequence": [
+              "A",
+              "A",
+              "B"
+            ],
+            "source_trace_index": 0,
+            "source_trace_name": "case-0"
+          },
+          {
+            "event_count": 2,
+            "sequence": [
+              "A",
+              "B"
+            ],
+            "source_trace_index": 1,
+            "source_trace_name": "case-1"
+          },
+          {
+            "event_count": 4,
+            "sequence": [
+              "A",
+              "A",
+              "A",
+              "B"
+            ],
+            "source_trace_index": 2,
+            "source_trace_name": "case-2"
+          }
+        ],
+        "training_log": [
+          {
+            "frequency": 1,
+            "sequence": [
+              "A",
+              "A",
+              "B"
+            ]
+          },
+          {
+            "frequency": 1,
+            "sequence": [
+              "A",
+              "B"
+            ]
+          },
+          {
+            "frequency": 1,
+            "sequence": [
+              "A",
+              "A",
+              "A",
+              "B"
+            ]
+          }
+        ]
+      }
+    },
+    "short-loop": {
+      "carried_actual_outcome": {
+        "capture_fault": false,
+        "coordinator_result_sha256": "d5bacd6d62ec281d4feb12fa5fccdc902b716de5bb1448010ad11a1eeb8f4e7f",
+        "drain_timeout": false,
+        "elapsed_mining_nanos": 241085900,
+        "exception": null,
+        "native_exit": 0,
+        "native_proof_sha256": "81e8215e17bd2ac14ddffbaf59f866f6883c8d0d40a5c8ec15b88c4a2fd9d433",
+        "new_miner_execution": false,
+        "observation_bytes": 3874,
+        "observation_sha256": "2ad6c063362dcc4cdac8899daae5d86bd0d73d68472d41b602d5aeaa9c5bc05a",
+        "output_limit": false,
+        "status": "diagram_returned",
+        "stderr_complete": true,
+        "stdout_complete": true,
+        "streams": [
+          {
+            "all_console_bytes_retained_in_historical_receipt": true,
+            "bytes": 35,
+            "name": "stdout",
+            "original_complete": true,
+            "raw_console_not_copied": true,
+            "sha256": "554af6989f04ae6b9d05c207c2b9b28a3609746246a3cb77926e5050aa059204",
+            "warning_error_and_fallback_lines": []
+          },
+          {
+            "all_console_bytes_retained_in_historical_receipt": true,
+            "bytes": 92,
+            "name": "stderr",
+            "original_complete": true,
+            "raw_console_not_copied": true,
+            "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+            "warning_error_and_fallback_lines": []
+          }
+        ]
+      },
+      "id": "short-loop",
+      "prepared": {
+        "admission_reason": null,
+        "admission_status": "admitted",
+        "graph_file": "short-loop.graph.json",
+        "graph_sha256": "7b779229cf345547d90a35a1175cb17705edbc174c5a6ceb6b31522e4729a7db",
+        "map_file": "short-loop.map.json",
+        "map_sha256": "8e06bb9ae3aff0a3b82ec239aeb053687fffdde32bfa331c5505c3a48b77f180",
+        "net_file": "short-loop.net.json",
+        "net_sha256": "71c708e9effdce1463b81a6491791d9482cc45c9ccb0875a7bf38d039094f0e7",
+        "status": "net_saved"
+      },
+      "projection": {
+        "carried_actual_outcome": {
+          "capture_fault": false,
+          "coordinator_result_sha256": "d5bacd6d62ec281d4feb12fa5fccdc902b716de5bb1448010ad11a1eeb8f4e7f",
+          "drain_timeout": false,
+          "elapsed_mining_nanos": 241085900,
+          "exception": null,
+          "native_exit": 0,
+          "native_proof_sha256": "81e8215e17bd2ac14ddffbaf59f866f6883c8d0d40a5c8ec15b88c4a2fd9d433",
+          "new_miner_execution": false,
+          "observation_bytes": 3874,
+          "observation_sha256": "2ad6c063362dcc4cdac8899daae5d86bd0d73d68472d41b602d5aeaa9c5bc05a",
+          "output_limit": false,
+          "status": "diagram_returned",
+          "stderr_complete": true,
+          "stdout_complete": true,
+          "streams": [
+            {
+              "all_console_bytes_retained_in_historical_receipt": true,
+              "bytes": 35,
+              "name": "stdout",
+              "original_complete": true,
+              "raw_console_not_copied": true,
+              "sha256": "554af6989f04ae6b9d05c207c2b9b28a3609746246a3cb77926e5050aa059204",
+              "warning_error_and_fallback_lines": []
+            },
+            {
+              "all_console_bytes_retained_in_historical_receipt": true,
+              "bytes": 92,
+              "name": "stderr",
+              "original_complete": true,
+              "raw_console_not_copied": true,
+              "sha256": "d728a2410c28c83d0561d5c0edd70cca730c8ab52bf764287b1ef8d1537479b3",
+              "warning_error_and_fallback_lines": []
+            }
+          ]
+        },
+        "di_report_file": "short-loop.di.json",
+        "di_report_sha256": "1aa9422c70e09c4f4f3c140ce9c05ee3fe5b9042b5a406dd84d4a8688ad24e84",
+        "hint_file": "short-loop.hint.bpmn",
+        "hint_report_file": "short-loop.hint.json",
+        "hint_report_sha256": "1237b86648da38a20e89146cece1877c99d2064c8cc2cfefcb57fce844bfa0bd",
+        "hint_sha256": "bf7ec955e33a7bd6abe6de0c6d1474b993dc34f932b7724a4fff1c8f6c15c985",
+        "id": "short-loop",
+        "projected_file": "short-loop.projected.bpmn",
+        "projected_sha256": "e7817a609756f65dafed2ec34ca5b46e81fb6999b9e30abcb1ea2c4812005839",
+        "raw_bytes": 3779,
+        "raw_file": "short-loop.raw.bpmn",
+        "raw_sha256": "9705eddd0b88f25f4abca3688696228046c8e99de0edb71f4b9e1375025d745a",
+        "source_input": {
+          "bytes": 2365,
+          "designation": "original_miner_training_only_no_new_heldout",
+          "event_count": 12,
+          "file": "../oracle-splitminer/short-loop.xes",
+          "heldout_log": null,
+          "original_training_variants": [
+            "ABAC",
+            "AC",
+            "ABABAC"
+          ],
+          "sha256": "4b941524e45d72353e69d61e6f5a600468647abb9576511364b31bfbb73d3d1b",
+          "trace_count": 3,
+          "traces": [
+            {
+              "event_count": 4,
+              "sequence": [
+                "A",
+                "B",
+                "A",
+                "C"
+              ],
+              "source_trace_index": 0,
+              "source_trace_name": "case-0"
+            },
+            {
+              "event_count": 2,
+              "sequence": [
+                "A",
+                "C"
+              ],
+              "source_trace_index": 1,
+              "source_trace_name": "case-1"
+            },
+            {
+              "event_count": 6,
+              "sequence": [
+                "A",
+                "B",
+                "A",
+                "B",
+                "A",
+                "C"
+              ],
+              "source_trace_index": 2,
+              "source_trace_name": "case-2"
+            }
+          ],
+          "training_log": [
+            {
+              "frequency": 1,
+              "sequence": [
+                "A",
+                "B",
+                "A",
+                "C"
+              ]
+            },
+            {
+              "frequency": 1,
+              "sequence": [
+                "A",
+                "C"
+              ]
+            },
+            {
+              "frequency": 1,
+              "sequence": [
+                "A",
+                "B",
+                "A",
+                "B",
+                "A",
+                "C"
+              ]
+            }
+          ]
+        },
+        "source_xes_file": "short-loop.xes",
+        "source_xes_sha256": "4b941524e45d72353e69d61e6f5a600468647abb9576511364b31bfbb73d3d1b",
+        "status": "projected_pending_strict_prepare",
+        "trace_lineage_verified": true
+      },
+      "source_input": {
+        "bytes": 2365,
+        "designation": "original_miner_training_only_no_new_heldout",
+        "event_count": 12,
+        "file": "../oracle-splitminer/short-loop.xes",
+        "heldout_log": null,
+        "original_training_variants": [
+          "ABAC",
+          "AC",
+          "ABABAC"
+        ],
+        "sha256": "4b941524e45d72353e69d61e6f5a600468647abb9576511364b31bfbb73d3d1b",
+        "trace_count": 3,
+        "traces": [
+          {
+            "event_count": 4,
+            "sequence": [
+              "A",
+              "B",
+              "A",
+              "C"
+            ],
+            "source_trace_index": 0,
+            "source_trace_name": "case-0"
+          },
+          {
+            "event_count": 2,
+            "sequence": [
+              "A",
+              "C"
+            ],
+            "source_trace_index": 1,
+            "source_trace_name": "case-1"
+          },
+          {
+            "event_count": 6,
+            "sequence": [
+              "A",
+              "B",
+              "A",
+              "B",
+              "A",
+              "C"
+            ],
+            "source_trace_index": 2,
+            "source_trace_name": "case-2"
+          }
+        ],
+        "training_log": [
+          {
+            "frequency": 1,
+            "sequence": [
+              "A",
+              "B",
+              "A",
+              "C"
+            ]
+          },
+          {
+            "frequency": 1,
+            "sequence": [
+              "A",
+              "C"
+            ]
+          },
+          {
+            "frequency": 1,
+            "sequence": [
+              "A",
+              "B",
+              "A",
+              "B",
+              "A",
+              "C"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "cohort_sha256": "6dac7a9b69d553590f342ed4b836140678a9f2c072cc806119f0ecc48ace208d",
+  "limits": {
+    "arcs": 256,
+    "equivalence": 10000,
+    "fitness": 100000,
+    "markings": 10000,
+    "nodes": 128,
+    "prefix": 100000,
+    "tau": 10000
+  },
+  "not_acceptance": true,
+  "phase": "miner_prepare_only_no_fitness_or_precision",
+  "projection_sha256": "352d534eb98aae0e98d9c55515571fc6b4af25027a1c065abb8111436d9f8b9c",
+  "schema_version": 1,
+  "sources": {
+    "base": {
+      "Cargo.lock": "9005a089ccd3ec721e6d3209600c4cea10e0efc76c7ea4111406fb28c99f29b6",
+      "examples/bpmn_quality.rs": "08b33d75f08cb634d8e64535478083ffcb032609ac1af9e8e5352bd20c1be325",
+      "examples/quality/bridge.rs": "d62d33268e946bacaf5d59c31186be6759498547e5a3e0775072e7bc69fba057",
+      "examples/quality/metrics.rs": "855b14993b564758d7c439e75bd63d9608975e60cc67c7386bac0738fb554360",
+      "examples/quality/mod.rs": "080b426438a8890c5f3bd64f25d522346d159c9e133222ba0ff70e72e6f26fad",
+      "examples/quality/pipeline.rs": "36cd5f710274c0b2b6e7c5673e77224a6eed1fe0494499f9dc266b8b948e7b01",
+      "examples/quality/state.rs": "6583a429d932866f7e592ccedb0c0e4667326e15192217855a2c08048f8de858"
+    },
+    "examples/bpmn_quality_cohort.rs": "7d5a3e996b4b48ab1810128c1d99c00ae75e5008889c68ea1efa4f3b1a65458a",
+    "examples/quality/cohort.rs": "7d251f2848514f24b7c5e436ab8752d928be45b5bdd35f2bb6a3d9cea879ece1",
+    "tools/sprint19/quality-di.py": "1a02819cec37c3ebeb9a29aceccc562041d32601f3e16f8e1bbf0f9b8f13c729",
+    "tools/sprint19/quality-miner-project.py": "2c506461876155191833db8c8b1e098e96b722e04be48cb4e4543ef1236e2cbb",
+    "tools/sprint19/schema-hint.py": "971157628baf7b4fd7653da2e1dbe5c74dbfc09415f9fb5dafc287e28bc127c0"
+  }
+}

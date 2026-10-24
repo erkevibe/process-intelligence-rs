@@ -9,6 +9,7 @@ fn flow(id: &str, source: &str, target: &str) -> ModelFlow {
         source: source.into(),
         target: target.into(),
         waypoints: vec![],
+        label: String::new(),
     }
 }
 fn inserted() -> ProcessModel {
@@ -19,6 +20,7 @@ fn inserted() -> ProcessModel {
         label: "Жаңа <task>\nline".into(),
         x: 123.5,
         y: -234.25,
+        dimensions: None,
     });
     m.flows.iter_mut().find(|f| f.id == "ab").unwrap().target = "c".into();
     m.flows.push(flow("cb", "c", "b"));

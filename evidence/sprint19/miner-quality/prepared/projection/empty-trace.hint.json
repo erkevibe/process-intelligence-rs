@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "projection_status": "projected",
+  "category": "canonical_root_hint_only",
+  "original_sha256": "aca67b5e5d342b39e095a75a1d74023aebe96947252adf6b8b99319aec77fc73",
+  "original_bytes": 1290,
+  "projected_sha256": "7a6d0a609314b334a7b38664a6b64f127d8a01a581ad99a5232e87170ddb6eb4",
+  "projected_bytes": 1215,
+  "removed_spans": [
+    {
+      "byte_start": 427,
+      "byte_length": 75,
+      "subtree_sha256": "c1020d487b06baf350f62245146b6b5ac92d69d4837e1a11c40e3e283749fece",
+      "raw_utf8": "xsi:schemaLocation=\"http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd\"",
+      "parent": {
+        "namespace": "http://www.omg.org/spec/BPMN/20100524/MODEL",
+        "local_name": "definitions",
+        "root": true
+      },
+      "expanded_attribute": {
+        "namespace": "http://www.w3.org/2001/XMLSchema-instance",
+        "local_name": "schemaLocation"
+      },
+      "canonical_value": "http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd",
+      "separator_whitespace_not_removed": true
+    }
+  ],
+  "attribute_quote_styles": [
+    "\""
+  ],
+  "semantic_map": {
+    "process": {
+      "id": "proc_33533830",
+      "isExecutable": false
+    },
+    "nodes": [
+      {
+        "id": "node0",
+        "kind": "start",
+        "label": ""
+      },
+      {
+        "id": "node1",
+        "kind": "end",
+        "label": ""
+      }
+    ],
+    "flows": [
+      {
+        "id": "edge0",
+        "source": "node0",
+        "target": "node1",
+        "label": ""
+      }
+    ]
+  },
+  "never_resolve_schema": true,
+  "strict_projected_reparse_required": true,
+  "original_product_import_not_claimed": true,
+  "reference_must_receive_original_xml": true
+}

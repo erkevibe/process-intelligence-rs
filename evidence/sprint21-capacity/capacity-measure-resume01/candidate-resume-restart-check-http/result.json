@@ -1,0 +1,140 @@
+{
+  "events": [
+    {
+      "label": "health-headers",
+      "phase_elapsed_seconds": 0.0438386999994691,
+      "status": 200
+    },
+    {
+      "label": "health",
+      "phase_elapsed_seconds": 0.04390929999863147,
+      "response_bytes": 36,
+      "response_sha256": "CAE42C93BD1819F177627190E9581DEAA568BE503CF82B8238A8A3B4C5085831",
+      "response_wall_seconds": 0.003318900002341252,
+      "status": 200
+    },
+    {
+      "label": "job-snapshot-headers",
+      "phase_elapsed_seconds": 0.07022729999880539,
+      "status": 200
+    },
+    {
+      "label": "job-snapshot",
+      "phase_elapsed_seconds": 0.07030319999830681,
+      "response_bytes": 633,
+      "response_sha256": "2A8E3796353810D22B8E7AAC0B40B734F21CC758FB1BC416ECC84DA14D280014",
+      "response_wall_seconds": 0.007773100001941202,
+      "status": 200
+    },
+    {
+      "label": "restart-control-payload-headers",
+      "phase_elapsed_seconds": 0.09973059999902034,
+      "status": 200
+    },
+    {
+      "label": "restart-control-payload",
+      "phase_elapsed_seconds": 0.09984019999683369,
+      "response_bytes": 125,
+      "response_sha256": "F14031CC8FCDF5119AFFAF1C2490D54B779A0929754DEE6DDF8D6280971E2905",
+      "response_wall_seconds": 0.005814500000269618,
+      "status": 200
+    },
+    {
+      "label": "restart-control-report-headers",
+      "phase_elapsed_seconds": 0.1301640999990923,
+      "status": 200
+    },
+    {
+      "label": "restart-control-report",
+      "phase_elapsed_seconds": 0.13025539999944158,
+      "response_bytes": 4075,
+      "response_sha256": "E544722F17E13847864B6B8843AC015A1272B4AF5C6B475ADDFB024C20CE7104",
+      "response_wall_seconds": 0.005210200000874465,
+      "status": 200
+    },
+    {
+      "label": "job-snapshot-headers",
+      "phase_elapsed_seconds": 0.13805759999740985,
+      "status": 200
+    },
+    {
+      "label": "job-snapshot",
+      "phase_elapsed_seconds": 0.1381078999984311,
+      "response_bytes": 637,
+      "response_sha256": "5CA3CABCC524653C3187CF3B1E48881882E64706B5C23E3557A3EFCDEDFA0F21",
+      "response_wall_seconds": 0.0033468999972683378,
+      "status": 200
+    },
+    {
+      "label": "restart-padded-payload-headers",
+      "phase_elapsed_seconds": 0.9060786999980337,
+      "status": 200
+    },
+    {
+      "label": "restart-padded-payload",
+      "phase_elapsed_seconds": 0.9061798999973689,
+      "response_bytes": 125,
+      "response_sha256": "F14031CC8FCDF5119AFFAF1C2490D54B779A0929754DEE6DDF8D6280971E2905",
+      "response_wall_seconds": 0.7671125000015309,
+      "status": 200
+    },
+    {
+      "label": "restart-padded-report-headers",
+      "phase_elapsed_seconds": 1.9046481999976095,
+      "status": 200
+    },
+    {
+      "label": "restart-padded-report",
+      "phase_elapsed_seconds": 1.904745299998467,
+      "response_bytes": 4080,
+      "response_sha256": "3B637374D34AAEEDE5CE34423B550B39177B7D5B9F9B5BD16EC554B645AC283B",
+      "response_wall_seconds": 0.9743931999983033,
+      "status": 200
+    }
+  ],
+  "input_manifest_sha256": "514F66245638176F87A635AEC2771610C0708A42E68349878C91A3B545E8C340",
+  "phase_wall_seconds": 1.9069188999965263,
+  "result": {
+    "all_cases_had_completed_pairs": true,
+    "case": "restart-check",
+    "cases": [
+      {
+        "case": "control",
+        "had_completed_pair": true,
+        "job_id": "job-1",
+        "payload_bytes": 125,
+        "payload_sha256": "F14031CC8FCDF5119AFFAF1C2490D54B779A0929754DEE6DDF8D6280971E2905",
+        "report_bytes": 4075,
+        "report_sha256": "E544722F17E13847864B6B8843AC015A1272B4AF5C6B475ADDFB024C20CE7104",
+        "state": "completed",
+        "states": [
+          {
+            "phase_elapsed_seconds": 0.07050389999858453,
+            "revision": 2,
+            "state": "completed"
+          }
+        ]
+      },
+      {
+        "case": "padded",
+        "had_completed_pair": true,
+        "job_id": "job-3",
+        "payload_bytes": 125,
+        "payload_sha256": "F14031CC8FCDF5119AFFAF1C2490D54B779A0929754DEE6DDF8D6280971E2905",
+        "report_bytes": 4080,
+        "report_sha256": "3B637374D34AAEEDE5CE34423B550B39177B7D5B9F9B5BD16EC554B645AC283B",
+        "state": "completed",
+        "states": [
+          {
+            "phase_elapsed_seconds": 0.1382696999971813,
+            "revision": 2,
+            "state": "completed"
+          }
+        ]
+      }
+    ],
+    "saved_pairs_and_terminal_states_unchanged": true
+  },
+  "server_memory_latency_slo_or_browser_acceptance_not_claimed": true,
+  "status": "OBSERVATION_COMPLETED"
+}
