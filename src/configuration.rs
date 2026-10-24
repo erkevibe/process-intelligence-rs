@@ -44,6 +44,11 @@ impl PublicOrigin {
         let (host, port_text) = if let Some(rest) = raw.strip_prefix('[') {
             let (address, tail) = rest.split_once(']').ok_or_else(invalid)?;
             let address: std::net::Ipv6Addr = address.parse().map_err(|_| invalid())?;
+            // Rust formats mapped addresses with dotted IPv4, whereas browser
+            // origins use hexadecimal IPv6 pieces. Reject this narrow alias.
+            if address.to_ipv4_mapped().is_some() {
+                return Err(invalid());
+            }
             let port = if tail.is_empty() {
                 None
             } else {
@@ -176,6 +181,8 @@ mod tests {
             ("https://EXAMPLE.com:443/", "https://example.com"),
             ("https://localhost:8443", "https://localhost:8443"),
             ("https://[2001:db8::1]:8443", "https://[2001:db8::1]:8443"),
+            ("https://[::1]:8443", "https://[::1]:8443"),
+            ("https://[::127.0.0.1]:8443", "https://[::7f00:1]:8443"),
             (
                 "https://xn--e1afmkfd.xn--p1ai",
                 "https://xn--e1afmkfd.xn--p1ai",
@@ -205,6 +212,8 @@ mod tests {
             "https://0x",
             "https://0X",
             "https://example.0X",
+            "https://[::ffff:127.0.0.1]:8443",
+            "https://[::ffff:7f00:1]:8443",
         ] {
             assert!(PublicOrigin::parse(bad).is_err(), "{bad}");
         }

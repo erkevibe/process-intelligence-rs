@@ -302,6 +302,11 @@ jobs:
             sleep 0.2
           done
           grep -q '"status":"ready"' health.json
+          python3 - <<'PY'
+          import json,tomllib
+          from pathlib import Path
+          assert json.loads(Path('health.json').read_text())['version']==tomllib.loads(Path('Cargo.toml').read_text())['package']['version']
+          PY
           mkdir -p dist
           cp target/release/process-intelligence-rs dist/
           cp target/release/examples/pi_convert dist/
@@ -341,16 +346,19 @@ jobs:
           cp tools/sprint26/capacity-diagnostic.sql dist/tools/sprint26/
           cp tools/database-backup.ps1 dist/tools/
           python3 - <<'PY'
-          import hashlib,json,subprocess
+          import hashlib,json,os,platform,subprocess
           from pathlib import Path
           root=Path('dist')
+          source_commit=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
+          environment=dict(schema_version=1,source_commit=source_commit,system=platform.system(),machine=platform.machine(),glibc=os.confstr('CS_GNU_LIBC_VERSION'),os_release=Path('/etc/os-release').read_text(),rustc=subprocess.check_output(['rustc','--version'],text=True).strip())
+          (root/'BUILD_ENVIRONMENT.json').write_text(json.dumps(environment,indent=2)+'\n')
           files=[]
           for p in sorted(root.rglob('*')):
               assert not p.is_symlink()
               if p.is_file():
                   raw=p.read_bytes()
                   files.append(dict(path=p.relative_to(root).as_posix(),bytes=len(raw),sha256=hashlib.sha256(raw).hexdigest()))
-          value=dict(schema_version=1,source_commit=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),files=files)
+          value=dict(schema_version=1,source_commit=source_commit,files=files)
           (root/'PACKAGE_MANIFEST.json').write_text(json.dumps(value,indent=2)+'\n')
           PY
           tar -czf process-intelligence-rs-linux.tar.gz -C dist .

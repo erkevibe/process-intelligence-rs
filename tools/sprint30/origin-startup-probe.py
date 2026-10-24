@@ -12,7 +12,7 @@ parsed = urllib.parse.urlsplit(url)
 assert parsed.hostname == '127.0.0.1' and parsed.port == 5432 and parsed.path == '/pi_s30_origin_ci'
 assert parsed.username == 'pi_s21_app' and parsed.scheme == 'postgresql'
 cases = []
-for origin in ['https://example.com/path', 'https://0X7F000001:3148', 'https://0x', 'https://example.0X', 'https://localhost:3148']:
+for origin in ['https://example.com/path', 'https://0X7F000001:3148', 'https://0x', 'https://example.0X', 'https://localhost:3148', 'https://[::ffff:127.0.0.1]:8443', 'https://[::ffff:7f00:1]:8443']:
     env = dict(os.environ, PI_DATABASE_URL=url, PI_PUBLIC_ORIGIN=origin, PORT='3148')
     env.pop('PI_DATABASE_URL_FILE', None)
     result = subprocess.run(['target/debug/process-intelligence-rs'], env=env, capture_output=True, timeout=5)

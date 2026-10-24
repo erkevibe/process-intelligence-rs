@@ -36,10 +36,13 @@ for row in manifest['files']:
     assert len(raw) == row['bytes'] and hashlib.sha256(raw).hexdigest() == row['sha256']
 assert actual == expected | {'PACKAGE_MANIFEST.json'}
 assert {'process-intelligence-rs', 'pi_convert', 'CANDIDATE_STATUS.md',
+        'BUILD_ENVIRONMENT.json',
         'deploy/linux/Caddyfile', 'deploy/linux/process-intelligence.service',
         'docs/PROJECT_QUOTA_CONTRACT.md', 'docs/LINUX_TLS_DEPLOYMENT.md',
         'tools/sprint30/verify-evidence.py', 'evidence/sprint30/project-quota/manifest.json'} <= actual
 assert not any(p.startswith('.local/') or p.endswith(('.key', '.dump')) for p in actual)
+environment = json.loads((destination / 'BUILD_ENVIRONMENT.json').read_text())
+assert environment['source_commit'] == manifest['source_commit'] and environment['system'] == 'Linux' and environment['machine'] == 'x86_64'
 binary = (destination / 'process-intelligence-rs').resolve(strict=True)
 env = {k: v for k, v in os.environ.items() if not k.startswith('PI_DATABASE_URL')}
 results = []
@@ -59,4 +62,5 @@ subprocess.run([sys.executable, '-I', '-B', 'tools/sprint30/verify-evidence.py',
 downloaded = os.environ.get('S30_PACKAGE_DOWNLOADED') == 'yes'
 print(json.dumps(dict(status='S30_DOWNLOADED_LINUX_PACKAGE_PASS' if downloaded else 'S30_EXTRACTED_LINUX_PACKAGE_PASS', source_commit=manifest['source_commit'],
     archive_sha256=hashlib.sha256(archive.read_bytes()).hexdigest(), files=len(actual), reports=results,
+    build_environment=environment,
     scope='artifact downloaded in a separate Linux CI job' if downloaded else 'archive generated and extracted in CI; not a separately downloaded artifact or production install')))

@@ -310,7 +310,14 @@ async fn submit(
             multipart(true),
         ),
         "quality" => {
-            let revision = s.repository.lock().unwrap().models[model].revision;
+            let revision = s
+                .repository
+                .lock()
+                .unwrap()
+                .get_model(s, model)
+                .unwrap()
+                .unwrap()
+                .revision;
             (
                 format!("/models/{model}/quality/jobs"),
                 "application/x-www-form-urlencoded",
@@ -322,7 +329,14 @@ async fn submit(
             )
         }
         "discovery" => {
-            let version = s.repository.lock().unwrap().logs[log].analysis_version;
+            let version = s
+                .repository
+                .lock()
+                .unwrap()
+                .get_log(s, log)
+                .unwrap()
+                .unwrap()
+                .analysis_version;
             (
                 format!("/logs/{log}/discovery/jobs"),
                 "application/x-www-form-urlencoded",
