@@ -59,6 +59,13 @@ import hashlib,json,os
 from pathlib import Path
 p=Path(os.environ['S30_DR_OUTPUT'])
 v=json.loads((p/'after.json').read_text())
+replay=json.loads((p/'report-verification.json').read_text())
+report=json.loads((p/'after-report.json').read_text())
+assert replay['status']=='quality_report_verified' and replay['numeric_replay'] is True and replay['author_signature_verified'] is False
+assert replay['method_sha256']==report['method_sha256']
+assert replay['input_model_sha256']==report['evaluation']['input_model_sha256']
+assert replay['input_variants_sha256']==report['evaluation']['input_variants_sha256']
+v['cases'].append('restored_quality_report_numeric_replay_verified')
 v['cases'].append('full_storage_snapshot_equal_before_restored_login')
 v['storage_snapshot_sha256']=hashlib.sha256((p/'before-storage.json').read_bytes()).hexdigest()
 v['dump_sha256']=hashlib.sha256((p/'database.dump').read_bytes()).hexdigest()

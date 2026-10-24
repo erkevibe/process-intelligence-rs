@@ -310,10 +310,13 @@ jobs:
             cp tools/oracle/audit-conversion-evidence.py dist/tools/oracle/
           cp docs/SPRINT_30_REPORT.md dist/CANDIDATE_STATUS.md
           cp docs/PROJECT_QUOTA_CONTRACT.md docs/LINUX_TLS_DEPLOYMENT.md docs/SPRINT_30_REPORT.md dist/docs/
+          cp docs/*.md dist/docs/
           mkdir -p dist/deploy dist/evidence
           cp -r deploy/linux dist/deploy/
           cp -r tools/sprint30 dist/tools/
           cp -r evidence/sprint30 dist/evidence/
+          cp -r evidence/sprint28 evidence/sprint29 dist/evidence/
+          cp -r tools/sprint28 tools/sprint29 dist/tools/
           mkdir -p dist/tools/sprint23-miner dist/evidence
           cp tools/sprint23-miner/*.py dist/tools/sprint23-miner/
           cp tools/oracle/audit-miner-benchmark-evidence.py tools/oracle/audit-miner-performance.py dist/tools/oracle/
@@ -370,5 +373,33 @@ jobs:
         with:
           name: process-intelligence-rs-linux
           path: process-intelligence-rs-linux.tar.gz
+          if-no-files-found: error
+          retention-days: 14
+  downloaded-linux-package:
+    needs: linux
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      actions: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8
+        with:
+          name: process-intelligence-rs-linux
+          path: downloaded
+      - name: Verify downloaded archive and its own Linux executable
+        env:
+          S30_PACKAGE_DOWNLOADED: 'yes'
+        run: |
+          export S30_EXPECTED_SOURCE="$(git rev-parse HEAD)"
+          python3 -I -B tools/sprint30/verify-package.py downloaded/process-intelligence-rs-linux.tar.gz "$RUNNER_TEMP/sprint30-downloaded-package" evidence/sprint28/durable-discovery/browser-imported-report.json > downloaded-package-verification.json
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          name: sprint30-downloaded-package-verification
+          path: downloaded-package-verification.json
           if-no-files-found: error
           retention-days: 14

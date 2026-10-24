@@ -23,6 +23,8 @@ with tarfile.open(archive, 'r:gz') as source:
     source.extractall(destination, filter='data')
 manifest = json.loads((destination / 'PACKAGE_MANIFEST.json').read_text())
 assert set(manifest) == {'schema_version', 'source_commit', 'files'} and manifest['schema_version'] == 1
+if os.environ.get('S30_EXPECTED_SOURCE'):
+    assert manifest['source_commit'] == os.environ['S30_EXPECTED_SOURCE']
 actual = {str(p.relative_to(destination)).replace(os.sep, '/') for p in destination.rglob('*') if p.is_file()}
 expected = set()
 for row in manifest['files']:
@@ -45,9 +47,16 @@ for path in [report.resolve(strict=True), Path('evidence/sprint28/durable-discov
     completed = subprocess.run([str(binary), '--verify-quality-report', str(path)],
                                cwd=destination, env=env, capture_output=True, timeout=30, check=True)
     result = json.loads(completed.stdout)
+    export = json.loads(path.read_bytes())
+    assert set(result) == {'status', 'numeric_replay', 'author_signature_verified', 'method_sha256', 'input_model_sha256', 'input_variants_sha256'}
+    assert result['status'] == 'quality_report_verified' and result['numeric_replay'] is True and result['author_signature_verified'] is False
+    assert result['method_sha256'] == export['method_sha256']
+    assert result['input_model_sha256'] == export['evaluation']['input_model_sha256']
+    assert result['input_variants_sha256'] == export['evaluation']['input_variants_sha256']
     results.append(dict(report_sha256=hashlib.sha256(path.read_bytes()).hexdigest(), verification=result))
 subprocess.run([sys.executable, '-I', '-B', 'tools/sprint30/verify-evidence.py', 'evidence/sprint30/project-quota'],
                cwd=destination, check=True, timeout=30)
-print(json.dumps(dict(status='S30_EXTRACTED_LINUX_PACKAGE_PASS', source_commit=manifest['source_commit'],
+downloaded = os.environ.get('S30_PACKAGE_DOWNLOADED') == 'yes'
+print(json.dumps(dict(status='S30_DOWNLOADED_LINUX_PACKAGE_PASS' if downloaded else 'S30_EXTRACTED_LINUX_PACKAGE_PASS', source_commit=manifest['source_commit'],
     archive_sha256=hashlib.sha256(archive.read_bytes()).hexdigest(), files=len(actual), reports=results,
-    scope='archive generated and extracted in CI; not a separately downloaded artifact or production install')))
+    scope='artifact downloaded in a separate Linux CI job' if downloaded else 'archive generated and extracted in CI; not a separately downloaded artifact or production install')))
