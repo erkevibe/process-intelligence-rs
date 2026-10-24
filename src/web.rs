@@ -36,6 +36,7 @@ pub struct AppState {
     pub(crate) uploads: Arc<Semaphore>,
     pub(crate) jobs: Arc<JobStore>,
     pub(crate) conversion_jobs: Arc<JobStore>,
+    pub(crate) quality_jobs: Arc<JobStore>,
     pub port: u16,
     pub(crate) platform: Option<Arc<crate::platform::Platform>>,
     pub(crate) actor: Option<crate::auth::Actor>,
@@ -66,6 +67,14 @@ pub(crate) struct Repository {
         BTreeMap<String, Arc<crate::conversion_workflow::ConversionArtifact>>,
     #[serde(skip)]
     pub(crate) deleted_conversion_ids: BTreeSet<String>,
+    #[serde(default, skip_serializing_if = "BTreeMap::is_empty")]
+    pub(crate) quality_jobs: BTreeMap<String, crate::quality_store::QualityMeta>,
+    #[serde(default, skip_serializing_if = "BTreeMap::is_empty")]
+    pub(crate) quality_requests: BTreeMap<String, crate::quality_store::RequestReceipt>,
+    #[serde(default, skip_serializing_if = "BTreeMap::is_empty")]
+    pub(crate) quality_artifacts: BTreeMap<String, Arc<crate::quality_store::QualityArtifact>>,
+    #[serde(skip)]
+    pub(crate) deleted_quality_ids: BTreeSet<String>,
     #[serde(skip)]
     pub(crate) storage_revision: u64,
     #[serde(skip)]
@@ -278,12 +287,14 @@ impl AppState {
     pub fn new(port: u16) -> Self {
         let jobs = Arc::new(JobStore::new());
         let conversion_jobs = Arc::new(JobStore::restore_with_slots(&[], jobs.shared_slots()));
+        let quality_jobs = Arc::new(JobStore::restore_with_slots(&[], jobs.shared_slots()));
         Self {
             repository: Arc::new(Mutex::new(Repository::default())),
             cpu: Arc::new(Semaphore::new(1)),
             uploads: Arc::new(Semaphore::new(2)),
             jobs,
             conversion_jobs,
+            quality_jobs,
             port,
             platform: None,
             actor: None,
@@ -403,6 +414,15 @@ impl AppState {
                     )
                 })?;
             }
+            if action.starts_with("quality_") {
+                parameters["quality_jobs"] = serde_json::to_value(
+                    next.quality_jobs
+                        .iter()
+                        .filter(|(id, _)| affected_ids.contains(id.as_str()))
+                        .collect::<BTreeMap<_, _>>(),
+                )
+                .map_err(|_| crate::quality_store::corrupt())?;
+            }
             next.audit.append_business(
                 &actor.id,
                 &actor.project_id,
@@ -450,6 +470,74 @@ impl AppState {
             .as_ref()
             .map_or(Ok(fallback), |p| p.database.next_id())
     }
+    pub(crate) fn allocate_import_job(
+        &self,
+        repo: &Repository,
+    ) -> Result<String, crate::domain::ImportError> {
+        for _ in 0..64 {
+            let id = format!("job-{}", self.next_id(0)?);
+            if !repo.durable_jobs.contains_key(&id)
+                && !repo.conversions.contains_key(&id)
+                && !repo.quality_jobs.contains_key(&id)
+                && self.jobs.get(&id).is_none()
+            {
+                return Ok(id);
+            }
+        }
+        Err(crate::domain::ImportError::new(
+            "sequence_exhausted",
+            "Не удалось выделить идентификатор без замены сохранённых данных.",
+        ))
+    }
+    /// Restored IDs can be ahead of a fresh PostgreSQL sequence. Never replace
+    /// a retained job or its artifact while allocating a new operation.
+    pub(crate) fn allocate_job_pair(
+        &self,
+        repo: &Repository,
+        prefix: &str,
+    ) -> Result<(String, String, u64), crate::domain::ImportError> {
+        if !matches!(prefix, "quality" | "conversion") {
+            return Err(crate::quality_store::corrupt());
+        }
+        let exhausted = || {
+            crate::domain::ImportError::new(
+                "sequence_exhausted",
+                "Не удалось выделить новые идентификаторы без замены сохранённых данных.",
+            )
+        };
+        let mut fallback = repo.sequence.checked_add(2).ok_or_else(exhausted)? - 1;
+        for _ in 0..64 {
+            let number = self.next_id(fallback)?;
+            fallback = number.checked_add(1).ok_or_else(exhausted)?;
+            let id = format!("job-{number}");
+            if repo.durable_jobs.contains_key(&id)
+                || repo.conversions.contains_key(&id)
+                || repo.quality_jobs.contains_key(&id)
+            {
+                continue;
+            }
+            let artifact_number = self.next_id(fallback)?;
+            fallback = artifact_number.checked_add(1).ok_or_else(exhausted)?;
+            let artifact_id = format!("{prefix}-{artifact_number}");
+            if repo
+                .conversions
+                .values()
+                .any(|m| m.artifact_id == artifact_id)
+                || repo
+                    .quality_jobs
+                    .values()
+                    .any(|m| m.artifact_id == artifact_id)
+            {
+                continue;
+            }
+            return Ok((
+                id,
+                artifact_id,
+                repo.sequence.max(number).max(artifact_number),
+            ));
+        }
+        Err(exhausted())
+    }
 }
 pub(crate) struct Workspace(pub AppState);
 impl axum::extract::FromRequestParts<AppState> for Workspace {
@@ -485,6 +573,7 @@ pub fn router(state: AppState) -> Router {
         .route("/logs/{id}/graph", get(graph))
         .merge(crate::platform::routes())
         .merge(crate::conversion_workflow::routes())
+        .merge(crate::quality_workflow::routes())
         .nest_service("/static", ServeDir::new("static"))
         .layer(DefaultBodyLimit::max(
             Limits::default().max_bytes + 64 * 1024,
@@ -653,6 +742,10 @@ async fn guard_inner(State(state): State<AppState>, mut request: Request, next: 
                 || path == "/logs" && method != axum::http::Method::GET
                 || path.starts_with("/logs/")
                 || path.starts_with("/models/")
+                || path.starts_with("/quality/jobs/")
+                    && (path.ends_with("/report")
+                        || path.ends_with("/retry")
+                        || path.ends_with("/view"))
                 || path == "/models" && method != axum::http::Method::GET
                 || matches!(
                     path.as_str(),
@@ -1138,12 +1231,8 @@ async fn enqueue_job(state: AppState, content: Vec<u8>, filename: String) -> Res
     let prepare = state.clone();
     let accepted = tokio::task::spawn_blocking(move || {
         let id = if prepare.platform.is_some() {
-            Some(loop {
-                let id = format!("job-{}", prepare.next_id(0)?);
-                if prepare.jobs.get(&id).is_none() {
-                    break id;
-                }
-            })
+            let repository = prepare.repository.lock().expect("repository mutex");
+            Some(prepare.allocate_import_job(&repository)?)
         } else {
             None
         };

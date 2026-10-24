@@ -10,6 +10,27 @@ async fn main() -> Result<std::process::ExitCode, Box<dyn std::error::Error>> {
         .json()
         .init();
     let args: Vec<String> = std::env::args().skip(1).collect();
+    if args.len() == 2 && args[0] == "--verify-quality-report" {
+        use std::io::Read;
+        let file = std::fs::File::open(&args[1])?;
+        let mut bytes = Vec::new();
+        file.take(2 * 1024 * 1024 + 128 * 1024 + 16 * 1024 + 1)
+            .read_to_end(&mut bytes)?;
+        let result = process_intelligence_rs::bpmn_quality::saved::verify_export_bytes(&bytes);
+        return Ok(match result {
+            Ok(value) => {
+                println!("{value}");
+                std::process::ExitCode::SUCCESS
+            }
+            Err(e) => {
+                println!(
+                    "{}",
+                    serde_json::json!({"status":"quality_report_verification_refused","code":e.code,"message":e.message})
+                );
+                std::process::ExitCode::FAILURE
+            }
+        });
+    }
     if !args.is_empty() {
         if args == ["--cleanup-storage-verify"] || args == ["--cleanup-storage-apply"] {
             let mode = if args[0] == "--cleanup-storage-verify" {
@@ -42,7 +63,7 @@ async fn main() -> Result<std::process::ExitCode, Box<dyn std::error::Error>> {
             });
         }
         if args != ["--migrate-storage"] {
-            return Err(std::io::Error::other("Supported options: --migrate-storage, --cleanup-storage-verify, --cleanup-storage-apply").into());
+            return Err(std::io::Error::other("Supported options: --migrate-storage, --cleanup-storage-verify, --cleanup-storage-apply, --verify-quality-report FILE").into());
         }
         let url = std::env::var("PI_DATABASE_URL").map_err(|_| {
             std::io::Error::other("Private PI_DATABASE_URL is required for offline migration.")

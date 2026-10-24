@@ -8,7 +8,7 @@ const NAME: &str = "conversion_artifacts_v3";
 // This contract deliberately leaves the historical normalized_v2 DDL unchanged.
 const CONTRACT: &str = "conversion_artifacts_v3: replace pi_records kind CHECK with kind IN ('log_state','log_data','log_source','log_analysis','model','conversion'); preserve every existing record and project revision; transactional DDL and ledger";
 
-fn checksum() -> String {
+pub(crate) fn checksum() -> String {
     sha256(CONTRACT.as_bytes())
 }
 
@@ -143,7 +143,7 @@ mod tests {
         assert!(absent, "migration fixture requires an empty database");
         crate::migrations::apply(&mut client).unwrap();
         // Produce the exact historical V2 contract, without changing its checksum.
-        client.batch_execute("ALTER TABLE public.pi_records DROP CONSTRAINT pi_records_kind_check; ALTER TABLE public.pi_records ADD CONSTRAINT pi_records_kind_check CHECK(kind IN ('log_state','log_data','log_source','log_analysis','model')); DELETE FROM public.pi_schema_migrations WHERE version=3;").unwrap();
+        client.batch_execute("ALTER TABLE public.pi_records DROP CONSTRAINT pi_records_kind_check; ALTER TABLE public.pi_records ADD CONSTRAINT pi_records_kind_check CHECK(kind IN ('log_state','log_data','log_source','log_analysis','model')); DELETE FROM public.pi_schema_migrations WHERE version>=3;").unwrap();
         let original = json!({"source":"retained", "unicode":"данные", "revision":17});
         client
             .execute(
@@ -174,7 +174,7 @@ mod tests {
             .batch_execute("ALTER TABLE public.pi_records DROP CONSTRAINT unexpected_check")
             .unwrap();
         migrate_offline(&mut client).unwrap();
-        crate::migrations::apply(&mut client).unwrap();
+        validate_ready(&mut client).unwrap();
         let after: Vec<(i32, String, String, String)> = client.query("SELECT version,name,checksum,applied_at::text FROM public.pi_schema_migrations ORDER BY version", &[]).unwrap().iter().map(|r|(r.get(0),r.get(1),r.get(2),r.get(3))).collect();
         assert_eq!(&after[..2], before.as_slice());
         migrate_offline(&mut client).unwrap();

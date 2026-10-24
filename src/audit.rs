@@ -26,6 +26,9 @@ impl BusinessPolicy {
             "conversion_accepted" | "conversion_job_updated" | "conversion_deleted" => {
                 "durable_conversion_pair_cas_v1"
             }
+            "quality_accepted" | "quality_job_updated" | "quality_deleted" => {
+                "durable_quality_snapshot_cas_v1"
+            }
             "jobs_interrupted_after_restart" => "restart_interrupted_job_v1",
             "project_created" => "current_writer_new_owner_project_v1",
             "project_renamed" => "owner_project_name_cas_v1",

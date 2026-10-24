@@ -70,12 +70,15 @@ pub(crate) fn validate_ready(client: &mut Client) -> Result<(), ImportError> {
     tx.commit().map_err(|_| unavailable())
 }
 pub(crate) fn validate_schema(tx: &mut Transaction<'_>) -> Result<(), ImportError> {
-    validate_schema_version(tx, false)
+    validate_schema_version(tx, 2)
 }
 pub(crate) fn validate_schema_v3(tx: &mut Transaction<'_>) -> Result<(), ImportError> {
-    validate_schema_version(tx, true)
+    validate_schema_version(tx, 3)
 }
-fn validate_schema_version(tx: &mut Transaction<'_>, conversions: bool) -> Result<(), ImportError> {
+pub(crate) fn validate_schema_v4(tx: &mut Transaction<'_>) -> Result<(), ImportError> {
+    validate_schema_version(tx, 4)
+}
+fn validate_schema_version(tx: &mut Transaction<'_>, version: u8) -> Result<(), ImportError> {
     for (table, columns, checks, foreign, indexes) in [
         (
             "pi_projects",
@@ -163,7 +166,11 @@ fn validate_schema_version(tx: &mut Transaction<'_>, conversions: bool) -> Resul
         let expected = match table {
             "pi_projects" => vec!["CHECK ((version > 0))"],
             "pi_migration_v2" => vec!["CHECK ((source_version > 0))"],
-            _ if conversions => vec![
+            _ if version == 4 => vec![
+                "CHECK ((kind = ANY (ARRAY['log_state'::text, 'log_data'::text, 'log_source'::text, 'log_analysis'::text, 'model'::text, 'conversion'::text, 'quality'::text])))",
+                "CHECK ((version > 0))",
+            ],
+            _ if version == 3 => vec![
                 "CHECK ((kind = ANY (ARRAY['log_state'::text, 'log_data'::text, 'log_source'::text, 'log_analysis'::text, 'model'::text, 'conversion'::text])))",
                 "CHECK ((version > 0))",
             ],
@@ -181,7 +188,13 @@ fn validate_schema_version(tx: &mut Transaction<'_>, conversions: bool) -> Resul
 fn valid_kind(kind: &str) -> bool {
     matches!(
         kind,
-        "log_state" | "log_data" | "log_source" | "log_analysis" | "model" | "conversion"
+        "log_state"
+            | "log_data"
+            | "log_source"
+            | "log_analysis"
+            | "model"
+            | "conversion"
+            | "quality"
     )
 }
 pub(crate) fn validate_write(write: &ProjectWrite) -> Result<(), ImportError> {
@@ -277,6 +290,7 @@ pub(crate) fn split_repository(
         }
     }
     crate::conversion_workflow::validate_full(&repository).map_err(|_| invalid())?;
+    crate::quality_store::validate_full(&repository).map_err(|_| invalid())?;
     drop(value);
     // Restore and migration use the same immutable payload encoder as new writes.
     // A separate field splitter placed provenance in mutable log_state and made
@@ -357,6 +371,25 @@ pub(crate) fn join_repository(
     }
     if !artifacts.is_empty() {
         root.insert("conversion_artifacts".into(), Value::Object(artifacts));
+    }
+    let quality_jobs: std::collections::BTreeMap<String, crate::quality_store::QualityMeta> = root
+        .get("quality_jobs")
+        .cloned()
+        .map(serde_json::from_value)
+        .transpose()
+        .map_err(|_| invalid())?
+        .unwrap_or_default();
+    let mut quality = serde_json::Map::new();
+    for meta in quality_jobs.values() {
+        quality.insert(
+            meta.artifact_id.clone(),
+            entries
+                .remove(&("quality".into(), meta.artifact_id.clone()))
+                .ok_or_else(invalid)?,
+        );
+    }
+    if !quality.is_empty() {
+        root.insert("quality_artifacts".into(), Value::Object(quality));
     }
     if !entries.is_empty()
         || root.insert("logs".into(), Value::Object(logs)).is_some()

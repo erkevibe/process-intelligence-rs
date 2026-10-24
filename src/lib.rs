@@ -25,12 +25,15 @@ mod platform;
 mod platform_render;
 pub mod project_list;
 mod projection_loss;
+mod quality_store;
+mod quality_workflow;
 pub mod service_preview;
 pub mod storage;
 pub mod web;
 
 mod migration_v2;
 mod migration_v3;
+mod migration_v4;
 mod normalized;
 
 mod repository_v2;

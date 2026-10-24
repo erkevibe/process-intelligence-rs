@@ -1,0 +1,31 @@
+{
+  "status": "LOCAL_P1_ACCEPTED_PENDING_IMMUTABLE_COMMIT_AND_CI",
+  "schema_version": 1,
+  "precise_claims": [
+    "Native interruption captured committed queued job35 revision0, not execution inside running alignment",
+    "Restart preserved identity, exposed interrupted without report or auto resume, explicit retry job37 completed",
+    "Browser job41 cancelled and remained cancelled after reload; no assertion that the browser interrupted an active alignment phase",
+    "Parent clarified job39 was a completed unsuccessful browser attempt removed only to free retention; job41 was a fresh real browser submission"
+  ],
+  "full_suite": {
+    "ignored": 27,
+    "failed": 0,
+    "passed": 195
+  },
+  "corrected_findings": [
+    "Datastar resolved non200 without patch",
+    "retry replay after deleting original and retried job",
+    "quality nonterminal tasks in project deletion guard",
+    "numerical replay of untrusted restored quality reports",
+    "cross-kind restored job IDs during XES import allocation"
+  ],
+  "blockers": [],
+  "private_review_sha256": "46CAF8404DAA82A86F3412F00C7D613494E6293BF97E559D7CC5028E299E758D",
+  "limitations": [
+    "Final immutable commit and CI pending",
+    "Physical process kill covered a committed queued task; compute/publication cancellation and revocation covered separately by backend tests",
+    "Windows package not built or installed",
+    "Reviewer validated saved receipts and source; did not independently execute the runtime"
+  ],
+  "baseline_commit": "4ac5d20f93d57d8f3657ba75357ccbdc17e5d304"
+}

@@ -49,6 +49,8 @@ foreach($taskFile in @('README.md','LICENSE','NOTICE','Cargo.lock')){if(Test-Pat
 New-Item -ItemType Directory -Path (Join-Path $taskPackage 'tools') -Force|Out-Null
 foreach($taskFile in @('setup-postgres.ps1','start-packaged.ps1','database-backup.ps1','migrate-storage.ps1','cleanup-legacy.ps1')){Copy-Item -LiteralPath (Join-Path $taskFrozen ('tools/'+$taskFile)) -Destination (Join-Path $taskPackage 'tools')}
 Copy-Item -LiteralPath (Join-Path $taskFrozen 'tools/oracle') -Destination (Join-Path $taskPackage 'tools/oracle') -Recurse
+New-Item -ItemType Directory -Path (Join-Path $taskPackage 'tools/sprint26') -Force|Out-Null
+Copy-Item -LiteralPath (Join-Path $taskFrozen 'tools/sprint26/capacity-diagnostic.sql') -Destination (Join-Path $taskPackage 'tools/sprint26/capacity-diagnostic.sql')
 [IO.File]::WriteAllText((Join-Path $taskPackage 'Start.ps1'),"param([int]`$Port=3000,[int]`$PostgresPort=5433,[string]`$Database='process_intelligence')`r`n& (Join-Path `$PSScriptRoot 'tools/start-packaged.ps1') -Port `$Port -PostgresPort `$PostgresPort -Database `$Database`r`nexit `$LASTEXITCODE`r`n")
 $taskPgSource=Join-Path $taskRoot '.local/postgres18/pgsql'
 $taskPgTarget=Join-Path $taskPackage 'runtime/postgresql/pgsql'
