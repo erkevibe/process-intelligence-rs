@@ -19,7 +19,6 @@ root = Path(os.environ['S30_DR_OUTPUT']).resolve(strict=True)
 seed = json.loads(Path('.local/sprint29/ci-seed/proof.json').read_text())
 report = next(x for x in seed['requests'] if re.fullmatch(r'/quality/jobs/job-[0-9]+/report', x['path']) and x['status'] == 200)
 jar = http.cookiejar.CookieJar()
-client = urllib.request.build_opener(urllib.request.ProxyHandler({}), urllib.request.HTTPCookieProcessor(jar))
 
 
 class NoRedirect(urllib.request.HTTPRedirectHandler):
@@ -27,7 +26,7 @@ class NoRedirect(urllib.request.HTTPRedirectHandler):
         return None
 
 
-client.add_handler(NoRedirect())
+client = urllib.request.build_opener(urllib.request.ProxyHandler({}), urllib.request.HTTPCookieProcessor(jar), NoRedirect())
 
 
 def request(method, path, data=None):

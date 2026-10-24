@@ -101,7 +101,7 @@ jobs:
           mkdir -p .local/sprint30/ci-quota .local/sprint30/ci-migration .local/sprint30/ci-workflow
           cargo test --locked --lib -- project_quota::postgres_tests::postgres_quota_boundaries_rollback_replacement_terminal_and_concurrency --ignored --exact --nocapture --test-threads=1
           python3 -I -B tools/sprint30/audit-quota.py .local/sprint30/ci-quota/quota-records.json
-          python3 -I -B tools/sprint30/verify-evidence.py evidence/sprint30/project-quota
+          python3 -I -B tools/sprint30/verify-evidence.py evidence/sprint30/project-quota --self-test
           cargo test --locked --lib -- migration_v6::tests::populated_v5_full_accounting_repeat_and_malformed_refusals --ignored --exact --nocapture --test-threads=1
           cargo test --locked --lib -- quota_workflow_tests::postgres_all_workflows_close_after_quota_fill_and_start_revocation --ignored --exact --nocapture --test-threads=1
       - name: Sprint30 Linux trusted TLS reverse proxy contract
@@ -325,7 +325,21 @@ jobs:
           mkdir -p dist/tools/sprint26
           cp tools/sprint26/capacity-diagnostic.sql dist/tools/sprint26/
           cp tools/database-backup.ps1 dist/tools/
+          python3 - <<'PY'
+          import hashlib,json,subprocess
+          from pathlib import Path
+          root=Path('dist')
+          files=[]
+          for p in sorted(root.rglob('*')):
+              assert not p.is_symlink()
+              if p.is_file():
+                  raw=p.read_bytes()
+                  files.append(dict(path=p.relative_to(root).as_posix(),bytes=len(raw),sha256=hashlib.sha256(raw).hexdigest()))
+          value=dict(schema_version=1,source_commit=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),files=files)
+          (root/'PACKAGE_MANIFEST.json').write_text(json.dumps(value,indent=2)+'\n')
+          PY
           tar -czf process-intelligence-rs-linux.tar.gz -C dist .
+          python3 -I -B tools/sprint30/verify-package.py process-intelligence-rs-linux.tar.gz "$RUNNER_TEMP/sprint30-extracted-package" .local/sprint30/ci-dr/after-report.json > .local/sprint30/package-verification.json
       - name: Preserve selected Sprint30 observations
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
@@ -340,6 +354,7 @@ jobs:
             .local/sprint30/ci-tls/unit-verify.stderr
             .local/sprint30/ci-dr/proof.json
             .local/sprint30/ci-dr/report-verification.json
+            .local/sprint30/package-verification.json
           include-hidden-files: true
           if-no-files-found: error
           retention-days: 14
