@@ -33,6 +33,7 @@ class OfflineRehearsal:
         assert not self.output.exists() and self.output.parent.resolve().is_relative_to(fixture.workspace)
         self.output.mkdir(parents=True, mode=0o700)
         self.commands, self.requests, self.cases = [], [], []
+        self.transient_diagnostics = []
 
     @contextmanager
     def observations(self):
@@ -111,6 +112,18 @@ class OfflineRehearsal:
                  'User', 'Group', 'WorkingDirectory', 'LoadCredential', 'Environment', 'UnsetEnvironment',
                  'NoNewPrivileges', 'ProtectSystem', 'SuccessExitStatus', 'FragmentPath', 'ExecStart']
         props = self.properties(unit, names)
+        safe_names = ['LoadState', 'ActiveState', 'SubState', 'MainPID', 'ExecMainPID', 'ExecMainCode',
+            'ExecMainStatus', 'Result', 'Transient', 'Type', 'RemainAfterExit', 'Restart', 'User', 'Group',
+            'WorkingDirectory', 'NoNewPrivileges', 'ProtectSystem', 'SuccessExitStatus', 'FragmentPath', 'LoadCredential']
+        safe = {}
+        secrets = [f.database_url, f.owner_password, f.viewer_password] + f.password_history
+        for name in safe_names:
+            value = props.get(name, '<missing>')
+            safe[name] = value if len(value) <= 512 and not any(secret in value for secret in secrets) else '<redacted>'
+        self.transient_diagnostics.append(dict(unit=unit, wrapper_exit=completed.returncode, safe_properties=safe,
+            environment_matches=props.get('Environment') == settings['Environment'],
+            credential_matches=props.get('LoadCredential') == settings['LoadCredential'],
+            expected_exec_argv='argv[]=/opt/process-intelligence/current/process-intelligence-rs --migrate-storage ;' in props.get('ExecStart', '')))
         assert props['LoadState'] == 'loaded' and props['Transient'] == props['RemainAfterExit'] == 'yes'
         assert props['Type'] == 'oneshot' and props['Restart'] == 'no' and props['SuccessExitStatus'] == ''
         assert props['FragmentPath'] == '/run/systemd/transient/' + unit
@@ -205,7 +218,7 @@ if __name__ == '__main__':
             failure = (failure or '') + '; cleanup: ' + type(error).__name__ + ': ' + str(error)
     if failure:
         (rehearsal.output / 'failure.json').write_text(json.dumps(dict(status='S32_OFFLINE_REHEARSAL_FAILED', failure=failure,
-            cases=rehearsal.cases, commands=rehearsal.commands), indent=2) + '\n')
+            cases=rehearsal.cases, commands=rehearsal.commands, transient_diagnostics=rehearsal.transient_diagnostics), indent=2) + '\n')
         raise SystemExit('S32_OFFLINE_REHEARSAL_FAILED: ' + failure)
     base = f.proof()
     package = json.loads((f.workspace / 'systemd-package-verification.json').read_text())
