@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "purpose": "Prospective P2 comparison; frozen before new miner execution. Synthetic weighted traces; held-out traces never supplied to discovery.",
+  "cases": [
+    {"id":"linear","train":[{"trace":["A","B","C"],"count":20}],"held_out":[{"trace":["A","B","C"],"count":5}]},
+    {"id":"exclusive_choice","train":[{"trace":["A","B","D"],"count":12},{"trace":["A","C","D"],"count":8}],"held_out":[{"trace":["A","B","D"],"count":3},{"trace":["A","C","D"],"count":3}]},
+    {"id":"parallel_unseen_order","train":[{"trace":["A","B","C","D","E"],"count":8},{"trace":["A","C","B","D","E"],"count":8},{"trace":["A","B","D","C","E"],"count":8},{"trace":["A","D","B","C","E"],"count":8}],"held_out":[{"trace":["A","C","D","B","E"],"count":3},{"trace":["A","D","C","B","E"],"count":3}]},
+    {"id":"self_loop_unseen_repetitions","train":[{"trace":["A","B","C"],"count":10},{"trace":["A","B","B","C"],"count":10}],"held_out":[{"trace":["A","B","B","B","C"],"count":4}]},
+    {"id":"short_loop_unseen_repetitions","train":[{"trace":["A","B","C","D"],"count":10},{"trace":["A","B","C","B","C","D"],"count":10}],"held_out":[{"trace":["A","B","C","B","C","B","C","D"],"count":4}]},
+    {"id":"rare_noise","train":[{"trace":["A","B","C"],"count":20},{"trace":["A","X","C"],"count":1}],"held_out":[{"trace":["A","B","C"],"count":5}],"diagnostic_only":[{"trace":["A","X","C"],"count":1}]},
+    {"id":"empty_log","train":[],"held_out":[],"expected":"explicit_no_data"}
+  ]
+}
