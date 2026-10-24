@@ -564,9 +564,16 @@ async fn quota_page(Workspace(state): Workspace) -> Response {
         let a=actor(&state)?;
         let repo=state.repository.lock().expect("repository mutex");
         let used=platform(&state)?.database.quota_used(&a.project_id)?;
-        let mut body=format!("<p>Данные: {used} логических единиц. Резерв служебных данных: {}. Это учёт структуры данных, а не места на диске.</p><p>Квота: {}.</p>",crate::project_quota::HEADER_RESERVE,repo.quota_policy.as_ref().map_or_else(||"выключена".into(),|p|format!("лимит данных {}",p.payload_allowance)));
+        let mut body=format!("<header class=\"platform-heading\"><h1>Квота проекта</h1><p>Ограничение объёма сохраняемых данных этого проекта.</p></header><section class=\"platform-card\"><h2>Использование</h2><p>Данные: <strong>{used}</strong> учётных единиц.</p><p>Квота: {}.</p><p class=\"platform-note\">Учётные единицы отражают структуру данных, а не место на диске. Для служебных записей и завершения заданий предусмотрен отдельный резерв.</p></section>",repo.quota_policy.as_ref().map_or_else(||"выключена".into(),|p|format!("лимит данных {}",p.payload_allowance)));
+        if let Some(policy)=&repo.quota_policy {
+            if used>policy.payload_allowance {
+                body.push_str("<div class=\"platform-alert\" role=\"status\"><strong>Лимит превышен.</strong> Новые данные сверх лимита не сохраняются. Прежние данные доступны: можно читать результаты, отменять задания и освобождать место.</div>");
+            } else {
+                body.push_str(&format!("<p>Доступно ещё {} учётных единиц.</p>",policy.payload_allowance-used));
+            }
+        }
         if a.role==Role::Owner {
-            body.push_str(&format!("<form method=\"post\" action=\"/quota\"><input type=\"hidden\" name=\"revision\" value=\"{}\"><label>Лимит данных (логические единицы)<input type=\"number\" name=\"payload_allowance\" min=\"0\" value=\"{}\" required></label><label>Политика<select name=\"mode\"><option value=\"enabled\">Включена</option><option value=\"disabled\" {}>Выключена</option></select></label><button>Сохранить квоту</button></form>",repo.storage_revision,repo.quota_policy.as_ref().map_or(used,|p|p.payload_allowance),if repo.quota_policy.is_none(){"selected"}else{""}));
+            body.push_str(&format!("<section class=\"platform-card\"><h2>Изменить ограничение</h2><form class=\"platform-form\" method=\"post\" action=\"/quota\"><input type=\"hidden\" name=\"revision\" value=\"{}\"><label>Лимит данных (учётные единицы)<input type=\"number\" name=\"payload_allowance\" min=\"0\" value=\"{}\" required></label><label>Состояние<select name=\"mode\"><option value=\"enabled\">Включена</option><option value=\"disabled\" {}>Выключена</option></select></label><p class=\"platform-note\">Можно задать лимит ниже текущего объёма: прежние данные сохранятся. Ограничение меняет только владелец проекта.</p><button class=\"button button-primary\">Сохранить квоту</button></form></section>",repo.storage_revision,repo.quota_policy.as_ref().map_or(used,|p|p.payload_allowance),if repo.quota_policy.is_none(){"selected"}else{""}));
         }
         Ok(body)
     }).await {Ok(body)=>page("Квота проекта",body),Err(e)=>response_error(e)}
