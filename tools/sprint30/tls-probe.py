@@ -71,8 +71,8 @@ wrong_name = subprocess.run(['openssl','s_client','-connect','127.0.0.1:8443',
 check('trusted_ca_wrong_hostname_refused', wrong_name.returncode != 0 and b'hostname mismatch' in wrong_name.stderr.lower())
 status, headers, _ = request('GET','/quality?tls=1',base='http://localhost:8080')
 check('http_redirect_preserves_path_query', status == 308 and headers.get('Location') == 'https://localhost:8443/quality?tls=1')
-status, _, _ = request('GET','/backup',headers={'Forwarded':'proto=https;for=owner','X-Remote-User':'owner','X-User-Id':'owner'})
-check('spoofed_actor_headers_remain_anonymous', status == 303)
+status, _, raw = request('GET','/backup',headers={'Forwarded':'proto=https;for=owner','X-Remote-User':'owner','X-User-Id':'owner'})
+check('spoofed_actor_headers_remain_anonymous', status == 403 and json.loads(raw)['code'] == 'access_denied')
 status, headers, _ = request('POST','/login',dict(username='s28_owner',password='S28DiscoveryOwnerPassword123'))
 cookie = headers.get('Set-Cookie','')
 check('login_cookie_secure_httponly_samesite', status == 303 and all(v in cookie for v in ['pi_session=','; Secure','; HttpOnly','; SameSite=Strict']))
@@ -103,8 +103,8 @@ status, _, raw = request('GET','/quota/status')
 check('disabled_quota_preserves_data', status == 200 and json.loads(raw)['enabled'] is False and json.loads(raw)['payload_used'] == quota['payload_used'])
 status, headers, _ = request('POST','/logout',{})
 check('logout_expiry_cookie_stays_secure', status == 303 and '; Secure' in headers.get('Set-Cookie','') and 'Max-Age=0' in headers.get('Set-Cookie',''))
-status, _, _ = request('GET','/backup')
-check('logout_session_revoked', status == 303)
+status, _, raw = request('GET','/backup')
+check('logout_session_revoked', status == 403 and json.loads(raw)['code'] == 'access_denied')
 proof = dict(status='S30_LINUX_TLS_PROBE_PASS', cases=cases,
     ca_sha256=hashlib.sha256(ca.read_bytes()).hexdigest(),
     certificate_sha256=hashlib.sha256((root/'server.pem').read_bytes()).hexdigest(),
