@@ -68,6 +68,14 @@ jobs:
           mkdir -p .local/sprint28/ci-core
           cargo test --locked --lib -- discovery_workflow::tests::postgres_durable_discovery_publication_retries_revocation_and_recovery --ignored --exact --nocapture --test-threads=1
           cargo test --locked --lib -- migration_v5::tests::populated_v4_upgrade_preserves_data_and_rejects_malformed_contracts --ignored --exact --nocapture --test-threads=1
+      - name: Sprint28 public discovery evidence and numerical replay
+        run: |
+          mkdir -p .local/sprint28/ci-public-cases
+          python3 -I -B tools/sprint28/audit-discovery-evidence.py evidence/sprint28/durable-discovery --emit-training-export .local/sprint28/derived-training-report.json
+          python3 -I -B tools/sprint28/audit-discovery-evidence-tests.py evidence/sprint28/durable-discovery .local/sprint28/ci-public-cases
+          cargo run --locked -- --verify-quality-report evidence/sprint28/durable-discovery/browser-original-report.json
+          cargo run --locked -- --verify-quality-report evidence/sprint28/durable-discovery/browser-imported-report.json
+          cargo run --locked -- --verify-quality-report .local/sprint28/derived-training-report.json
       - name: Sprint25 shared BPMN evaluator replay and corruption controls
         run: |
           python3 -B tests/sprint25_quality_shared.py --output .local/sprint25/ci-shared-quality

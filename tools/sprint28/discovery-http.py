@@ -220,7 +220,9 @@ def main():
         assert status == 202
         qid = json.loads(raw)['snapshot']['id']
         wait(c, '/quality/jobs/', qid)
-        value = c.get_json(f'/quality/jobs/{qid}/report')
+        exported = c.get_json(f'/quality/jobs/{qid}/report')
+        value = exported['evaluation']
+        assert exported['input']['variants'] == expected_variants
         assert value['model_id'] == mid and value['log_id'] == control_log
         assert value['report']['trace_count'] == 2 and value['report']['variant_count'] == 2
         assert all(value['report']['metrics'][name]['status'] == 'measured' for name in ('fitness', 'precision', 'simplicity'))
