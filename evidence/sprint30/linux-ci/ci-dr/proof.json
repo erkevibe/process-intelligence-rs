@@ -1,0 +1,28 @@
+{
+  "status": "S30_QUOTA_POSTGRES_DR_PASS",
+  "cases": [
+    "enabled_zero_allowance_survives_full_pg_restore",
+    "overlimit_usage_and_revision_preserved",
+    "saved_quality_report_exact_bytes_preserved",
+    "saved_report_readable_after_new_process_and_login",
+    "restored_quality_report_numeric_replay_verified",
+    "full_storage_snapshot_equal_before_restored_login"
+  ],
+  "observation": {
+    "quota": {
+      "enabled": true,
+      "header_reserve": 268369920,
+      "metric": "structural_bytes_v1",
+      "payload_allowance": 0,
+      "payload_used": 58817,
+      "revision": 164,
+      "scope": "logical structural units; disk, WAL, backups and RAM excluded"
+    },
+    "report_path": "/quality/jobs/job-25/report",
+    "report_sha256": "89173b0ac0178fd8d9718dd4e7dcec0d5a6e0bddc230231e2fa21f92c6d42138"
+  },
+  "scope": "disposable CI database; no production RPO/RTO or remote-host claim",
+  "storage_snapshot_sha256": "49702b1a1aa522eb495f19b58ddc7b6cb5dc00eb8590e41e434ac134745cbb87",
+  "dump_sha256": "e2765d513005641dfddaaabf93c456c7480d0bb8a5883d83de2c989dc2559536",
+  "dump_published": false
+}

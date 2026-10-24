@@ -1,201 +1,256 @@
 {
-  "validation_commit": "aad05805a7614918af1a1640bc8b693a3819a6f9",
+  "scope": "Selected closed native captures from private owned fixture; full pinned configuration and raw streams retained locally. This projection does not replay native execution.",
+  "sampler_sha256": "A23013782DFD14D602B2BAB3940A3F7B05AA5A22EC840EAC2F909F3EAE5C3AEC",
+  "source_commit": "804955d0e5407066972d9fa8b49c22ac66580513",
+  "utc": "2026-10-25T01:50:01.4639738+05:00",
+  "user3131_untouched": true,
+  "validation_commit": "57197887345c4cd49e93aedb91698f7a5c9d2d46",
+  "after": {
+    "logical_bytes": 7658762308,
+    "allocation_bytes": 7744999000,
+    "root_logical_bytes": 7181623438,
+    "root_allocation_bytes": 7246919976,
+    "files": 99903,
+    "skipped_vanished_target_entries": 0,
+    "skipped_vanished_pg_internal_init_entries": 0,
+    "duration_ms": 7447,
+    "metadata_workers_max": 4,
+    "scope": "one non-atomic traversal with up to4 joined metadata workers; only second-confirmed exact compiler-target disappearance skipped; denied/reparse/other disappearance fails closed;25s/200000entry ceiling;512MiB headroom mandatory"
+  },
+  "config_sha256": "7A718A70143A57F3CAB2F76804529B50F12388071B30025C7ADFCCF7D46B5FF6",
   "records": [
     {
-      "label": "app-live",
+      "stderr_sha256": "2F593015D3C1F496B79AA836BF25137329E8E43AB057BA576E7EB0C4BF1707ED",
       "stdout_complete": true,
-      "source_status": "captured",
-      "stderr_sha256": "D9D5536C6E678926F29DDA7B5C84D47B78F5120263ADD0476D76D0D9D6D62A3E",
+      "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
       "native_exit": 137,
-      "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
-      "program_sha256": "781A43EACCD47F2F30F48308FAB514B93D8C83134FC630AC98F77BA25787A8E8",
-      "stderr_complete": true
+      "source_status": "captured",
+      "stderr_complete": true,
+      "program_sha256": "7F64FE18722B1D9B27E45BF0069ECC45511EB3CAA3950F71641A353279C21C21",
+      "label": "app-live"
     },
     {
-      "label": "audit-quota",
-      "stdout_complete": true,
-      "source_status": "captured",
       "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "stdout_complete": true,
+      "stdout_sha256": "11F9A04E865E050AE5EB6DC0AF58618BEAEA3AB60D98F8BEA0348C35061550D7",
       "native_exit": 0,
+      "source_status": "captured",
+      "stderr_complete": true,
+      "program_sha256": "85B71D8C6EC1905935F74BE0C9869AAE198D00E98F39DF699EC66F9C5A84CECD",
+      "label": "audit-evidence"
+    },
+    {
+      "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "stdout_complete": true,
       "stdout_sha256": "F23431CFBAABAA3C50F2D4DD5329E64200FAC271CE85615618A768EE7B16814D",
+      "native_exit": 0,
+      "source_status": "captured",
+      "stderr_complete": true,
       "program_sha256": "85B71D8C6EC1905935F74BE0C9869AAE198D00E98F39DF699EC66F9C5A84CECD",
-      "stderr_complete": true
+      "label": "audit-quota"
     },
     {
-      "label": "cluster",
-      "stdout_complete": true,
-      "source_status": "captured",
       "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
-      "native_exit": 0,
+      "stdout_complete": true,
       "stdout_sha256": "3699F9DE01C6F1900C70B0854E67F15448110E3F567A5E2AACA8D2FBA05E32FC",
+      "native_exit": 0,
+      "source_status": "captured",
+      "stderr_complete": true,
       "program_sha256": "FDE952534F520909C02DB04675588ECB1DA8D618B6E5C93E106F42A752DAF720",
-      "stderr_complete": true
+      "label": "cluster"
     },
     {
-      "label": "create-app",
-      "stdout_complete": true,
-      "source_status": "captured",
       "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
-      "native_exit": 0,
+      "stdout_complete": true,
       "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "native_exit": 0,
+      "source_status": "captured",
+      "stderr_complete": true,
       "program_sha256": "FDE952534F520909C02DB04675588ECB1DA8D618B6E5C93E106F42A752DAF720",
-      "stderr_complete": true
+      "label": "create-app"
     },
     {
-      "label": "create-core",
-      "stdout_complete": true,
-      "source_status": "captured",
       "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
-      "native_exit": 0,
+      "stdout_complete": true,
       "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "native_exit": 0,
+      "source_status": "captured",
+      "stderr_complete": true,
       "program_sha256": "FDE952534F520909C02DB04675588ECB1DA8D618B6E5C93E106F42A752DAF720",
-      "stderr_complete": true
+      "label": "create-core"
     },
     {
-      "label": "create-migration",
-      "stdout_complete": true,
-      "source_status": "captured",
       "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
-      "native_exit": 0,
+      "stdout_complete": true,
       "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "native_exit": 0,
+      "source_status": "captured",
+      "stderr_complete": true,
       "program_sha256": "FDE952534F520909C02DB04675588ECB1DA8D618B6E5C93E106F42A752DAF720",
-      "stderr_complete": true
+      "label": "create-migration"
     },
     {
-      "label": "create-workflow",
-      "stdout_complete": true,
-      "source_status": "captured",
       "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
-      "native_exit": 0,
+      "stdout_complete": true,
       "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
-      "program_sha256": "FDE952534F520909C02DB04675588ECB1DA8D618B6E5C93E106F42A752DAF720",
-      "stderr_complete": true
-    },
-    {
-      "label": "old-after",
-      "stdout_complete": true,
-      "source_status": "captured",
-      "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
       "native_exit": 0,
-      "stdout_sha256": "02034CBBD07CAA573D3B69078639F1CCFCF18DC8373C203CE49C42F344B0D551",
+      "source_status": "captured",
+      "stderr_complete": true,
       "program_sha256": "FDE952534F520909C02DB04675588ECB1DA8D618B6E5C93E106F42A752DAF720",
-      "stderr_complete": true
+      "label": "create-recovery"
     },
     {
-      "label": "old-before",
-      "stdout_complete": true,
-      "source_status": "captured",
       "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "stdout_complete": true,
+      "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
       "native_exit": 0,
-      "stdout_sha256": "02034CBBD07CAA573D3B69078639F1CCFCF18DC8373C203CE49C42F344B0D551",
+      "source_status": "captured",
+      "stderr_complete": true,
       "program_sha256": "FDE952534F520909C02DB04675588ECB1DA8D618B6E5C93E106F42A752DAF720",
-      "stderr_complete": true
+      "label": "create-workflow"
     },
     {
-      "label": "old-binary",
+      "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
       "stdout_complete": true,
+      "stdout_sha256": "106B2AC23736B4A322C32E98B58400BC0F8303C967BAB5107BE79371F37BDE01",
+      "native_exit": 0,
       "source_status": "captured",
+      "stderr_complete": true,
+      "program_sha256": "FDE952534F520909C02DB04675588ECB1DA8D618B6E5C93E106F42A752DAF720",
+      "label": "old-after"
+    },
+    {
+      "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "stdout_complete": true,
+      "stdout_sha256": "106B2AC23736B4A322C32E98B58400BC0F8303C967BAB5107BE79371F37BDE01",
+      "native_exit": 0,
+      "source_status": "captured",
+      "stderr_complete": true,
+      "program_sha256": "FDE952534F520909C02DB04675588ECB1DA8D618B6E5C93E106F42A752DAF720",
+      "label": "old-before"
+    },
+    {
       "stderr_sha256": "4575C35667D7628282A85EAD853DAB790F8541E68ABA16DC47FBA50A7CE007A1",
-      "native_exit": 1,
+      "stdout_complete": true,
       "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "native_exit": 1,
+      "source_status": "captured",
+      "stderr_complete": true,
       "program_sha256": "B3A26947F067806A990740FC0B5BD45604437E7BF7831C915F39307A8AA98EF4",
-      "stderr_complete": true
+      "label": "old-binary"
     },
     {
-      "label": "owner-http",
-      "stdout_complete": true,
-      "source_status": "captured",
       "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "stdout_complete": true,
+      "stdout_sha256": "69B611E3E634C8F41EB02F07A1B9C72673831807516B876676D051F9A3F86FEC",
       "native_exit": 0,
-      "stdout_sha256": "2AE832B62D2603F1D476ED0E72504AB11EF82A45CA9970EB5FF1D03295A3184A",
+      "source_status": "captured",
+      "stderr_complete": true,
       "program_sha256": "85B71D8C6EC1905935F74BE0C9869AAE198D00E98F39DF699EC66F9C5A84CECD",
-      "stderr_complete": true
+      "label": "owner-http"
     },
     {
-      "label": "pg-stop-g1",
-      "stdout_complete": true,
-      "source_status": "captured",
       "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
-      "native_exit": 0,
+      "stdout_complete": true,
       "stdout_sha256": "3A6747065DE8C2DBC66A6BAA73D5AB09C2C03EB8851704F973AC4B886E6805F2",
+      "native_exit": 0,
+      "source_status": "captured",
+      "stderr_complete": true,
       "program_sha256": "329DACA106CAB8F02ABE15B3A2EA9D833C60F94995D57A54161C218A940F9193",
-      "stderr_complete": true
+      "label": "pg-stop-g1"
     },
     {
-      "label": "postgres-g1",
+      "stderr_sha256": "444CB03864FCAC9DEBE899A086AE87FDFE8BE17B33133D3F38B30E41D436DE94",
       "stdout_complete": true,
-      "source_status": "captured",
-      "stderr_sha256": "1C95FB6241AD1058C961800288CDB242D05BB76F9F772E393DEF0EB956CB1EF9",
-      "native_exit": 0,
       "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "native_exit": 0,
+      "source_status": "captured",
+      "stderr_complete": true,
       "program_sha256": "8B8BF5D400487159E3E117053D3F5A89FAD0C740B310A3AC69E5720CE4F818E1",
-      "stderr_complete": true
+      "label": "postgres-g1"
     },
     {
-      "label": "ready-01",
-      "stdout_complete": true,
-      "source_status": "captured",
       "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
-      "native_exit": 1,
+      "stdout_complete": true,
       "stdout_sha256": "62285DBF9A623B155EF5FBB74B1E0BB1AAC8583FF3EDECDF23D4EE6D4804EC5B",
+      "native_exit": 1,
+      "source_status": "captured",
+      "stderr_complete": true,
       "program_sha256": "D6A42587E244014D5DFAAD9DAA406A221715220A9848A583B78ABAB14D5F86C4",
-      "stderr_complete": true
+      "label": "ready-01"
     },
     {
-      "label": "ready-02",
-      "stdout_complete": true,
-      "source_status": "captured",
       "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
-      "native_exit": 0,
+      "stdout_complete": true,
       "stdout_sha256": "48F05044D763F65E81DF5FA8BE71F5A81EC224D0B419A9BFA6132B7FBC62D7F4",
+      "native_exit": 0,
+      "source_status": "captured",
+      "stderr_complete": true,
       "program_sha256": "D6A42587E244014D5DFAAD9DAA406A221715220A9848A583B78ABAB14D5F86C4",
-      "stderr_complete": true
+      "label": "ready-02"
     },
     {
-      "label": "test-migration",
-      "stdout_complete": true,
-      "source_status": "captured",
       "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "stdout_complete": true,
+      "stdout_sha256": "9754D232E73C32EFA7AD1BC2B71E85F41ED8641C891FD8073BD700BAF3D3CAE6",
       "native_exit": 0,
-      "stdout_sha256": "BA30657B7DA218E23BBADBDA6F28E7913D64E0FF4964055D1D0C6F9357FC763A",
-      "program_sha256": "9E514111FF61B2A0977F11704B3A5370BBD171FC250054F01E76E3B67E6B6B19",
-      "stderr_complete": true
+      "source_status": "captured",
+      "stderr_complete": true,
+      "program_sha256": "03348D2AE5693E56523A651E53146C73FBE6408792A24CC967E2C54F3D9CE095",
+      "label": "test-migration"
     },
     {
-      "label": "test-quota",
-      "stdout_complete": true,
-      "source_status": "captured",
       "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "stdout_complete": true,
+      "stdout_sha256": "3A7FD654FAAFA5034295CE37C9E174F9816A5E6DA99881930CF115ECAED807A2",
       "native_exit": 0,
-      "stdout_sha256": "B68A3D0BB95B8EA823EC73D6C7A095A6BEDD2AFCEC74C63CB1AF3303F0F70BB2",
-      "program_sha256": "9E514111FF61B2A0977F11704B3A5370BBD171FC250054F01E76E3B67E6B6B19",
-      "stderr_complete": true
+      "source_status": "captured",
+      "stderr_complete": true,
+      "program_sha256": "03348D2AE5693E56523A651E53146C73FBE6408792A24CC967E2C54F3D9CE095",
+      "label": "test-quota"
     },
     {
-      "label": "test-workflow",
-      "stdout_complete": true,
-      "source_status": "captured",
       "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "stdout_complete": true,
+      "stdout_sha256": "C1AE38B9C7731E0777FCB7E9D6BDE11AF2CC06FF2252059E534360A27293F3D0",
       "native_exit": 0,
-      "stdout_sha256": "0031E0C1EBD279A45BF25DF04BB1BD8C92328CA5797848AA88C42E3EF3C20226",
-      "program_sha256": "9E514111FF61B2A0977F11704B3A5370BBD171FC250054F01E76E3B67E6B6B19",
-      "stderr_complete": true
+      "source_status": "captured",
+      "stderr_complete": true,
+      "program_sha256": "03348D2AE5693E56523A651E53146C73FBE6408792A24CC967E2C54F3D9CE095",
+      "label": "test-recovery"
     },
     {
-      "label": "worker",
-      "stdout_complete": true,
-      "source_status": "captured",
       "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "stdout_complete": true,
+      "stdout_sha256": "C01AAE82624CCAE71F584DEFD9BC025DA27FB17A1E6EE6FF99CD1260B6F20D14",
       "native_exit": 0,
+      "source_status": "captured",
+      "stderr_complete": true,
+      "program_sha256": "03348D2AE5693E56523A651E53146C73FBE6408792A24CC967E2C54F3D9CE095",
+      "label": "test-workflow"
+    },
+    {
+      "stderr_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "stdout_complete": true,
       "stdout_sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
-      "stderr_complete": true
+      "native_exit": 0,
+      "source_status": "captured",
+      "stderr_complete": true,
+      "program_sha256": "362A356CE7F0940EC74F73A8FC2C990A2CC24A38A11C90BBD8ECA947110AD139",
+      "label": "worker"
     }
   ],
-  "utc": "2026-10-25T01:03:27.7661655+05:00",
-  "source_commit": "52f03faf54ce22953c796be4b991ef4099f075d9",
-  "scope": "Selected closed native captures from private owned fixture. Configuration and full raw streams retained locally; projection is not independent replay of native execution.",
-  "user3131_untouched": true,
-  "sampler_sha256": "A23013782DFD14D602B2BAB3940A3F7B05AA5A22EC840EAC2F909F3EAE5C3AEC",
-  "config_sha256": "748E58E4B78ECED36F7432F97488320E54B01E6D7FCE2FE1B6CCB54C5F94336C",
-  "status": "S30_QUOTA_NATIVE_CORE_CLOSED"
+  "status": "S30_QUOTA_NATIVE_CORE_CLOSED",
+  "before": {
+    "logical_bytes": 7596352656,
+    "allocation_bytes": 7682359456,
+    "root_logical_bytes": 7119213786,
+    "root_allocation_bytes": 7184280432,
+    "files": 97782,
+    "skipped_vanished_target_entries": 0,
+    "skipped_vanished_pg_internal_init_entries": 0,
+    "duration_ms": 8278,
+    "metadata_workers_max": 4,
+    "scope": "one non-atomic traversal with up to4 joined metadata workers; only second-confirmed exact compiler-target disappearance skipped; denied/reparse/other disappearance fails closed;25s/200000entry ceiling;512MiB headroom mandatory"
+  }
 }

@@ -4,12 +4,13 @@ import copy
 import hashlib
 import importlib.util
 import json
+import re
 from pathlib import Path
 import sys
 import tempfile
 
 FILES = {'quota-records.json', 'quota-controls.json', 'migration-proof.json',
-         'workflow-proof.json', 'owner-http-proof.json', 'native-proof.json'}
+         'workflow-proof.json', 'recovery-proof.json', 'owner-http-proof.json', 'native-proof.json'}
 spec = importlib.util.spec_from_file_location('s30_accounting', Path(__file__).with_name('audit-quota.py'))
 accounting = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(accounting)
@@ -23,12 +24,13 @@ def load(raw):
 
 def verify(root):
     manifest = load((root / 'manifest.json').read_bytes())
-    assert set(manifest) == {'schema_version', 'scope', 'files'} and manifest['schema_version'] == 1
+    assert set(manifest) == {'schema_version', 'scope', 'files'} and type(manifest['schema_version']) is int and manifest['schema_version'] == 1
     assert {p.name for p in root.iterdir()} == FILES | {'manifest.json'}
     assert len(manifest['files']) == len(FILES)
     seen = set()
     for row in manifest['files']:
         assert set(row) == {'path', 'bytes', 'sha256'}
+        assert type(row['bytes']) is int and row['bytes'] >= 0 and re.fullmatch('[0-9a-f]{64}', row['sha256'])
         name = row['path']
         assert name in FILES and name not in seen
         seen.add(name)
@@ -47,9 +49,20 @@ def verify(root):
     assert migration['status'] == 'S30_POPULATED_V5_TO_V6_PASS'
     assert set(migration) == set(EXPECTED['migration_keys'])
     assert all(v is True for k, v in migration.items() if k not in ('status', 'payload_used'))
+    assert type(migration['payload_used']) is int and migration['payload_used'] > 0
     workflow = data['workflow-proof.json']
     assert workflow['status'] == 'S30_QUOTA_WORKFLOWS_PASS' and workflow['owner_only_policy'] is True
     assert [v['case'] for v in workflow['cases']] == EXPECTED['workflow_cases']
+    recovery = data['recovery-proof.json']
+    assert recovery['status'] == 'S30_QUOTA_QUEUED_RECOVERY_PASS'
+    assert [v['case'] for v in recovery['cases']] == EXPECTED['recovery_cases']
+    for index, row in enumerate(recovery['cases']):
+        if index % 2 == 0:
+            assert set(row) == {'case', 'job', 'job_revision', 'payload_accounting_sha256'}
+            assert type(row['job_revision']) is int and row['job_revision'] == 1
+            assert re.fullmatch(r'job-[1-9][0-9]*', row['job']) and re.fullmatch('[0-9a-f]{64}', row['payload_accounting_sha256'])
+        else:
+            assert set(row) == {'case'}
     http = data['owner-http-proof.json']
     assert http['status'] == 'S30_QUOTA_OWNER_HTTP_PASS' and len(http['cases']) == 22
     assert all(v['outcome'] == 'pass' for v in http['cases'])
@@ -75,7 +88,7 @@ def verify(root):
         pass
     else:
         raise AssertionError('altered payload accepted')
-    return dict(status='S30_SELECTED_EVIDENCE_PASS', snapshots=7, workflow_cases=14,
+    return dict(status='S30_SELECTED_EVIDENCE_PASS', snapshots=7, workflow_cases=14, recovery_cases=8,
                 owner_http_cases=22, controls='manifest hashes and altered-payload accounting refusal',
                 scope='integrity and logical accounting; native execution is retained evidence, not replayed')
 
@@ -92,6 +105,8 @@ def counterfactuals(root):
         ('quota-controls.json', lambda v: v.pop(EXPECTED['control_keys'][0])),
         ('migration-proof.json', lambda v: v.pop('repeat_no_change')),
         ('workflow-proof.json', lambda v: v['cases'][0].update(case='unrelated_case')),
+        ('recovery-proof.json', lambda v: v['cases'].pop()),
+        ('recovery-proof.json', lambda v: v['cases'][0].update(job_revision=True)),
         ('owner-http-proof.json', lambda v: v['cases'][0].update(case='unrelated_case')),
         ('owner-http-proof.json', lambda v: v['requests'][0].update(status=True)),
         ('native-proof.json', lambda v: v.update(records=[r for r in v['records'] if r['label'] != 'app-live'])),

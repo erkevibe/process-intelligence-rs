@@ -1,0 +1,27 @@
+{
+  "screenshots": [
+    {
+      "sha256": "a528c92f1a93b08c0f22c9cdc8f8b6231f68f11eec5bf64432d386363b60362c",
+      "path": "quota07-enabled.png"
+    },
+    {
+      "sha256": "084dffd9599f2cd065d8777bb92ac1c0b9c37b0773ec635dcbee3bdda475d2bd",
+      "path": "quota07-disabled.png"
+    }
+  ],
+  "app_sha256": "7F64FE18722B1D9B27E45BF0069ECC45511EB3CAA3950F71641A353279C21C21",
+  "status": "S30_QUOTA_PHYSICAL_BROWSER_PASS",
+  "utc": "2026-10-24T20:49:21.5110938+00:00",
+  "cases": [
+    "existing_owner_login",
+    "owner_enables_zero_quota",
+    "reload_keeps_enabled_zero",
+    "overlimit_warning_explains_preserved_data",
+    "overlimit_saved_log_analysis_readable",
+    "owner_disables_quota"
+  ],
+  "url": "http://localhost:3147/quota",
+  "scope": "physical in-app browser on owned HTTP loopback; TLS separately checked in LinuxCI",
+  "payload_used": 3256,
+  "source_commit": "804955d0e5407066972d9fa8b49c22ac66580513"
+}

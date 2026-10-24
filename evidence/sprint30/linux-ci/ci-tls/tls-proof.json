@@ -1,0 +1,117 @@
+{
+  "status": "S30_LINUX_TLS_PROBE_PASS",
+  "cases": [
+    {
+      "case": "trusted_ca_and_hostname_health",
+      "outcome": "pass"
+    },
+    {
+      "case": "hsts_present",
+      "outcome": "pass"
+    },
+    {
+      "case": "untrusted_ca_refused",
+      "outcome": "pass"
+    },
+    {
+      "case": "trusted_ca_wrong_hostname_refused",
+      "outcome": "pass"
+    },
+    {
+      "case": "http_redirect_preserves_path_query",
+      "outcome": "pass"
+    },
+    {
+      "case": "spoofed_actor_headers_remain_anonymous",
+      "outcome": "pass"
+    },
+    {
+      "case": "login_cookie_secure_httponly_samesite",
+      "outcome": "pass"
+    },
+    {
+      "case": "cookie_jar_secure",
+      "outcome": "pass"
+    },
+    {
+      "case": "foreign_origin_refused_without_proxy_rewrite",
+      "outcome": "pass"
+    },
+    {
+      "case": "owner_quota_status_through_tls",
+      "outcome": "pass"
+    },
+    {
+      "case": "owner_enables_quota_through_tls",
+      "outcome": "pass"
+    },
+    {
+      "case": "enabled_quota_keeps_payload_accounting",
+      "outcome": "pass"
+    },
+    {
+      "case": "authenticated_saved_discovery",
+      "outcome": "pass"
+    },
+    {
+      "case": "terminal_sse_flushed_through_proxy",
+      "outcome": "pass"
+    },
+    {
+      "case": "authenticated_backup_through_tls",
+      "outcome": "pass"
+    },
+    {
+      "case": "stale_write_keeps_conflict_through_proxy",
+      "outcome": "pass"
+    },
+    {
+      "case": "refused_write_preserves_backup_bytes",
+      "outcome": "pass"
+    },
+    {
+      "case": "owner_disables_quota_through_tls",
+      "outcome": "pass"
+    },
+    {
+      "case": "disabled_quota_preserves_data",
+      "outcome": "pass"
+    },
+    {
+      "case": "viewer_tls_login_secure_cookie",
+      "outcome": "pass"
+    },
+    {
+      "case": "viewer_selects_granted_project_through_tls",
+      "outcome": "pass"
+    },
+    {
+      "case": "viewer_reads_quota_through_tls",
+      "outcome": "pass"
+    },
+    {
+      "case": "viewer_quota_page_has_no_owner_form",
+      "outcome": "pass"
+    },
+    {
+      "case": "viewer_quota_write_refused_through_tls",
+      "outcome": "pass"
+    },
+    {
+      "case": "viewer_tls_refusal_preserves_backup_bytes",
+      "outcome": "pass"
+    },
+    {
+      "case": "logout_expiry_cookie_stays_secure",
+      "outcome": "pass"
+    },
+    {
+      "case": "logout_session_revoked",
+      "outcome": "pass"
+    }
+  ],
+  "ca_sha256": "2e33014e24135bec8586252ed9c49b43fe8988c4f357838d6a212abe9401985f",
+  "certificate_sha256": "98f47373b0b94871e86e51ed51e937e91fa1cf6fe7697ee2bb6f3433d115cdba",
+  "backup_sha256": "f0feaab9828bfeae8da49ae9c1117d9ba169b7529e92c97edb1f4eee74b022ed",
+  "scope": "ephemeral Linux Caddy fixture using explicit test CA; public DNS, ACME, real host, systemd runtime and production admission excluded"
+}

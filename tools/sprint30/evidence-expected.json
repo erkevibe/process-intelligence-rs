@@ -118,11 +118,13 @@
   ],
   "native_labels": [
     "app-live",
+    "audit-evidence",
     "audit-quota",
     "cluster",
     "create-app",
     "create-core",
     "create-migration",
+    "create-recovery",
     "create-workflow",
     "old-after",
     "old-before",
@@ -134,6 +136,7 @@
     "ready-02",
     "test-migration",
     "test-quota",
+    "test-recovery",
     "test-workflow",
     "worker"
   ],
@@ -198,5 +201,15 @@
     "owner_disables_limit",
     "disabled_policy_persisted",
     "owner_form_rendered"
+  ],
+  "recovery_cases": [
+    "generic_queued_recovered_under_zero_quota",
+    "generic_repeated_startup_header_audit_and_payload_unchanged",
+    "conversion_queued_recovered_under_zero_quota",
+    "conversion_repeated_startup_header_audit_and_payload_unchanged",
+    "quality_queued_recovered_under_zero_quota",
+    "quality_repeated_startup_header_audit_and_payload_unchanged",
+    "discovery_queued_recovered_under_zero_quota",
+    "discovery_repeated_startup_header_audit_and_payload_unchanged"
   ]
 }

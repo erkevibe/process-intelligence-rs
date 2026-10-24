@@ -6,7 +6,7 @@ permissions:
   contents: read
 jobs:
   linux:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     services:
       quality-postgres:
         image: postgres:18.0
@@ -105,6 +105,8 @@ jobs:
           cargo test --locked --lib -- project_quota::postgres_tests::postgres_quota_boundaries_rollback_replacement_terminal_and_concurrency --ignored --exact --nocapture --test-threads=1
           python3 -I -B tools/sprint30/audit-quota.py .local/sprint30/ci-quota/quota-records.json
           python3 -I -B tools/sprint30/verify-evidence.py evidence/sprint30/project-quota --self-test
+          (cd evidence/sprint30/linux-ci && sha256sum --check --strict SHA256SUMS)
+          (cd evidence/sprint30/quota-browser && sha256sum --check --strict SHA256SUMS)
           cargo test --locked --lib -- migration_v6::tests::populated_v5_full_accounting_repeat_and_malformed_refusals --ignored --exact --nocapture --test-threads=1
           cargo test --locked --lib -- quota_workflow_tests::postgres_all_workflows_close_after_quota_fill_and_start_revocation --ignored --exact --nocapture --test-threads=1
           mkdir -p .local/sprint30/ci-recovery
@@ -391,7 +393,7 @@ jobs:
           retention-days: 14
   downloaded-linux-package:
     needs: linux
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 5
     permissions:
       contents: read
