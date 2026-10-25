@@ -68,6 +68,18 @@ fn hidden(html: &[u8], name: &str) -> String {
         .unwrap()
         .into()
 }
+fn latest_log(html: &[u8]) -> String {
+    String::from_utf8_lossy(html)
+        .split("/logs/")
+        .filter_map(|s| {
+            s.split('"')
+                .next()
+                .filter(|s| s.starts_with("log-") && !s.contains('/'))
+        })
+        .max_by_key(|s| s[4..].parse::<u64>().unwrap())
+        .unwrap()
+        .into()
+}
 async fn wait(state: &AppState, path: &str, cookie: &str) -> Value {
     let end = std::time::Instant::now() + std::time::Duration::from_secs(30);
     loop {
@@ -265,6 +277,89 @@ async fn postgres_full_log_http_publication_replay_restart_and_backup() {
         crate::full_log_saved::verify_any(&qreport).unwrap()["numeric_replay"],
         true
     );
+    // A case-disjoint nonfitting control forces the long decimal that formerly
+    // changed on JSONB readback and made a valid saved report look corrupt.
+    let mut control = String::from("<log>");
+    for i in 0..126 {
+        let length = if i < 86 { 16 } else { 15 };
+        let mut labels = vec!["A00"; length - 5];
+        labels.extend(["A09", "A10", "A11", "A12", "A13"]);
+        if i == 125 {
+            labels[5] = "A22";
+        }
+        control.push_str(&format!(
+            "<trace><string key=\"concept:name\" value=\"control-{i}\"/>"
+        ));
+        for label in labels {
+            control.push_str(&format!(
+                "<event><string key=\"concept:name\" value=\"{label}\"/></event>"
+            ));
+        }
+        control.push_str("</trace>");
+    }
+    control.push_str("</log>");
+    let body = format!(
+        "--S36\r\nContent-Disposition: form-data; name=\"file\"; filename=\"control.xes\"\r\nContent-Type: application/xml\r\n\r\n{control}\r\n--S36--\r\n"
+    );
+    assert_eq!(
+        request(
+            &state,
+            "POST",
+            "/logs",
+            body.into_bytes(),
+            &cookie,
+            "multipart/form-data; boundary=S36"
+        )
+        .await
+        .0,
+        200
+    );
+    let control_log = latest_log(&get(&state, "/logs", &cookie).await);
+    let html = get(
+        &state,
+        &format!("/models/{model}/quality/new?control=1"),
+        &cookie,
+    )
+    .await;
+    let fields = format!(
+        "profile=full_log_state_machine_v1&log_id={control_log}&revision={}&request_key={}",
+        hidden(&html, "revision"),
+        hidden(&html, "request_key")
+    );
+    let (s, _, b) = form(
+        &state,
+        &format!("/models/{model}/quality/jobs"),
+        &fields,
+        &cookie,
+    )
+    .await;
+    assert_eq!(s, 202);
+    let meta: Value = serde_json::from_slice(&b).unwrap();
+    let control_job = meta["snapshot"]["id"].as_str().unwrap();
+    wait(&state, &format!("/quality/jobs/{control_job}"), &cookie).await;
+    let control_report = get(
+        &state,
+        &format!("/quality/jobs/{control_job}/report"),
+        &cookie,
+    )
+    .await;
+    let export: Value = serde_json::from_slice(&control_report).unwrap();
+    assert_eq!(
+        export["evaluation"]["report"]["metrics"]["fitness"]["integer_components"]["weighted_total_cost"],
+        1
+    );
+    assert_eq!(
+        export["evaluation"]["report"]["metrics"]["fitness"]["fitness"]["log_fitness"].as_f64(),
+        Some(0.9995242626070409_f64)
+    );
+    assert_eq!(
+        export["evaluation"]["report"]["metrics"]["precision"]["status"],
+        "requires_fitting_log"
+    );
+    assert_eq!(
+        crate::full_log_saved::verify_any(&control_report).unwrap()["numeric_replay"],
+        true
+    );
     let stable = get(&state, "/backup", &cookie).await;
     let project = done["source_project_id"].as_str().unwrap().to_owned();
     drop(state);
@@ -292,6 +387,15 @@ async fn postgres_full_log_http_publication_replay_restart_and_backup() {
         get(&state, &format!("/discovery/jobs/{job}/report"), &cookie).await
     );
     assert_eq!(stable, get(&state, "/backup", &cookie).await);
+    assert_eq!(
+        control_report,
+        get(
+            &state,
+            &format!("/quality/jobs/{control_job}/report"),
+            &cookie
+        )
+        .await
+    );
     let db = state.platform.as_ref().unwrap().database.clone();
     tokio::task::spawn_blocking(move || {
         let repo = crate::repository_v2::load(&db, &project).unwrap();
