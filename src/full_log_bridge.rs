@@ -3,7 +3,7 @@ use crate::bpmn::{self, NodeKind, ProcessModel};
 use crate::bpmn_quality::{Issue, Result};
 use process_mining::{
     PetriNet,
-    core::process_models::case_centric::petri_net::{ArcType, Marking, PlaceID, TransitionID},
+    core::process_models::case_centric::petri_net::{ArcType, Marking, PlaceID},
 };
 use serde_json::{Value, json};
 use std::collections::BTreeMap;
