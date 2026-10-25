@@ -44,7 +44,7 @@ pub(crate) fn variants_for(rows: &Value, profile: Option<&str>) -> Result<Varian
 }
 pub fn method_sha256() -> &'static str {
     static HASH: std::sync::OnceLock<String> = std::sync::OnceLock::new();
-    HASH.get_or_init(||quality::sha(&serde_json::to_vec(&json!({"algorithm":ALGORITHM,"profile":PROFILE,"source":include_str!("dfg_discovery.rs").replace("\r\n","\n"),"bridge":include_str!("full_log_bridge.rs").replace("\r\n","\n"),"legacy_quality_method":crate::quality_store::method_sha256(),"limits":limits()})).expect("method JSON")))
+    HASH.get_or_init(||quality::sha(&serde_json::to_vec(&json!({"algorithm":ALGORITHM,"profile":PROFILE,"source":include_str!("dfg_discovery.rs").replace("\r\n","\n"),"bridge":include_str!("full_log_bridge.rs").replace("\r\n","\n"),"saved_verifier":include_str!("full_log_saved.rs").replace("\r\n","\n"),"legacy_quality_method":crate::quality_store::method_sha256(),"limits":limits()})).expect("method JSON")))
 }
 pub(crate) fn quality_method(profile: Option<&str>) -> &'static str {
     if profile == Some(PROFILE) {
@@ -235,6 +235,72 @@ pub fn discover(
     }
     if flows.len() > 256 {
         return Err(Issue::refused("full_log_model_limit"));
+    }
+    // Keep each activity between its own merge/split gateways. Position by
+    // weighted source ordinal only; this is presentation, not temporal causality.
+    let mut ordinal = BTreeMap::<String, (u64, u64)>::new();
+    for (trace, frequency) in &variants {
+        for (position, label) in trace.iter().enumerate() {
+            let row = ordinal.entry(label.clone()).or_default();
+            row.0 += *frequency * position as u64;
+            row.1 += frequency;
+        }
+    }
+    let mut ordered: Vec<_> = parts.keys().collect();
+    ordered.sort_by(|a, b| {
+        let x = ordinal[*a];
+        let y = ordinal[*b];
+        (x.0 * y.1).cmp(&(y.0 * x.1)).then(a.cmp(b))
+    });
+    let positions: BTreeMap<_, _> = ordered
+        .into_iter()
+        .enumerate()
+        .map(|(i, label)| (label.clone(), i))
+        .collect();
+    for n in &mut nodes {
+        if n.kind == NodeKind::Task {
+            let i = positions[&n.label];
+            n.x = 180. + (i % 4) as f64 * 440.;
+            n.y = 160. + (i / 4) as f64 * 180.;
+            n.dimensions = Some(bpmn::NodeDimensions {
+                width: 220.,
+                height: 70.,
+            });
+        }
+    }
+    for (label, (incoming, outgoing)) in &parts {
+        let i = positions[label];
+        let x = 180. + (i % 4) as f64 * 440.;
+        let y = 160. + (i / 4) as f64 * 180.;
+        for n in &mut nodes {
+            if n.id == *incoming {
+                n.x = x - 80.;
+                n.y = y + 12.5;
+            }
+            if n.id == *outgoing {
+                n.x = x + 250.;
+                n.y = y + 12.5;
+            }
+        }
+    }
+    let bottom = 340. + (positions.len().saturating_sub(1) / 4) as f64 * 180.;
+    for n in &mut nodes {
+        if n.id == start {
+            n.x = 100.;
+            n.y = 40.;
+        }
+        if n.id == entry {
+            n.x = 180.;
+            n.y = 40.;
+        }
+        if n.id == exit {
+            n.x = 1700.;
+            n.y = bottom;
+        }
+        if n.id == end {
+            n.x = 1780.;
+            n.y = bottom;
+        }
     }
     let model = ProcessModel {
         schema_version: 1,

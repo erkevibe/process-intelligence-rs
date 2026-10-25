@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Independent XML/language and integer-metric audit of the DFG state-machine profile."""
 import collections
+import copy
 from fractions import Fraction
 import json
 from pathlib import Path
@@ -93,5 +94,21 @@ def audit(rows, xml, report):
     return dict(status='FULL_LOG_INDEPENDENT_XML_AND_INTEGER_METRICS_PASS',cases=cases,events=events,variants=len(rows),activities=len(tasks),nodes=len(nodes),flows=len(edges),precision_numerator=activated-escaping,precision_denominator=activated,simplicity_numerator=simplicity.numerator,simplicity_denominator=simplicity.denominator,scope='Exact observed language containment and DFG adjacency, single-token completion, integer training metrics; no held-out independence claim')
 
 if __name__=='__main__':
-    assert len(sys.argv)==4,'audit-full-log.py VARIANTS_JSON MODEL_BPMN REPORT_JSON'
-    print(json.dumps(audit(json.loads(Path(sys.argv[1]).read_text()),Path(sys.argv[2]).read_bytes(),json.loads(Path(sys.argv[3]).read_text())),indent=2))
+    assert len(sys.argv) in (4,5),'audit-full-log.py VARIANTS_JSON MODEL_BPMN REPORT_JSON [--self-test]'
+    rows=json.loads(Path(sys.argv[1]).read_text());xml=Path(sys.argv[2]).read_bytes();report=json.loads(Path(sys.argv[3]).read_text())
+    result=audit(rows,xml,report)
+    if len(sys.argv)==5:
+        assert sys.argv[4]=='--self-test'
+        changes=[]
+        for section,key in [('precision','numerator'),('precision','denominator'),('simplicity','numerator')]:
+            altered=copy.deepcopy(report);altered['metrics'][section][key]+=1;changes.append((rows,xml,altered))
+        altered=copy.deepcopy(report);altered['metrics']['fitness']['integer_components']['events']+=1;changes.append((rows,xml,altered))
+        altered=copy.deepcopy(rows);altered[0]['frequency']+=1;changes.append((altered,xml,report))
+        tree=ET.fromstring(xml);process=tree.find(NS+'process');process.remove(process.find(NS+'sequenceFlow'));changes.append((rows,ET.tostring(tree),report))
+        refused=0
+        for args in changes:
+            try:audit(*args)
+            except (AssertionError,KeyError,ValueError):refused+=1
+            else:raise AssertionError('semantic corruption accepted')
+        result['semantic_refusal_controls']=refused
+    print(json.dumps(result,indent=2))
