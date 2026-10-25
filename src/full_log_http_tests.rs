@@ -234,7 +234,16 @@ async fn postgres_full_log_http_publication_replay_restart_and_backup() {
         job
     );
     let model = done["model_id"].as_str().unwrap();
+    let model_html = get(&state, &format!("/models/{model}"), &cookie).await;
+    assert!(
+        String::from_utf8_lossy(&model_html)
+            .contains("Алгоритм: непосредственные переходы, без вывода параллельности")
+    );
     let html = get(&state, &format!("/models/{model}/quality/new"), &cookie).await;
+    assert!(
+        String::from_utf8_lossy(&html)
+            .contains("<option value=\"full_log_state_machine_v1\" selected>")
+    );
     let qfields = format!(
         "profile=full_log_state_machine_v1&log_id={log_id}&revision={}&request_key={}",
         hidden(&html, "revision"),

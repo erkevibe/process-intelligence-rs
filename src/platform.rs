@@ -1908,7 +1908,7 @@ async fn model(Workspace(state): Workspace, Path(id): Path<String>) -> Response 
         let mut repo = state.repository.lock().expect("repository mutex");
         match repo.get_model(&state, &id) {
             Ok(Some(m)) => {
-                let origin=m.training.as_ref().map(|t|format!("<section class=\"platform-card\"><p>Модель: {}. Алгоритм: структурные варианты v1. Обучающий снимок: версия анализа {}.</p><p><a href=\"/discovery/jobs/{}/view\">Исходное построение</a> · <a href=\"/models/{id}/quality/new?control=1\">Оценить на контрольном журнале</a></p></section>",render::html_escape(&m.name),t.analysis_version,t.job_id)).unwrap_or_default();
+                let origin=m.training.as_ref().map(|t|format!("<section class=\"platform-card\"><p>Модель: {}. Алгоритм: {}. Обучающий снимок: версия анализа {}.</p><p><a href=\"/discovery/jobs/{}/view\">Исходное построение</a> · <a href=\"/models/{id}/quality/new?control=1\">Оценить на контрольном журнале</a></p></section>",render::html_escape(&m.name),if t.algorithm==crate::dfg_discovery::ALGORITHM{"непосредственные переходы, без вывода параллельности"}else{"структурные варианты v1"},t.analysis_version,t.job_id)).unwrap_or_default();
                 page("Модель BPMN",format!("{origin}{}",render::model_editor(
                     &id,
                     &m.model,
