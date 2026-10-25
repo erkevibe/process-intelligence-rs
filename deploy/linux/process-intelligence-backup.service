@@ -1,0 +1,19 @@
+[Unit]
+Description=ProcessMining consistent database and configuration backup
+After=postgresql.service
+ConditionPathExists=!/etc/process-intelligence/maintenance
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/process-intelligence-backup
+ExecStopPost=/usr/local/sbin/process-intelligence-backup restore-service
+TimeoutStartSec=300
+TimeoutStopSec=45
+UMask=0077
+RuntimeDirectory=process-intelligence-backup
+RuntimeDirectoryMode=0700
+# Keep the restart marker if recovery itself fails; the next attempt can retry.
+RuntimeDirectoryPreserve=yes
+PrivateTmp=true
+ProtectHome=true
+NoNewPrivileges=true

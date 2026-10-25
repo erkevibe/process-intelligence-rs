@@ -1,0 +1,21 @@
+{
+	admin off
+	auto_https off
+}
+
+https://{$PI_TLS_HOST} {
+	bind {$PI_TLS_HOST}
+	tls {$PI_TLS_CERT} {$PI_TLS_KEY}
+	header Strict-Transport-Security "max-age=86400"
+	reverse_proxy 127.0.0.1:{$PI_BACKEND_PORT:3000} {
+		header_up -Forwarded
+		header_up -X-Remote-User
+		header_up -X-User-Id
+		header_down Set-Cookie "(?i)^(pi_session=.*)$" "$1; Secure"
+	}
+}
+
+http://{$PI_TLS_HOST} {
+	bind {$PI_TLS_HOST}
+	redir https://{$PI_TLS_HOST}{uri} 308
+}
