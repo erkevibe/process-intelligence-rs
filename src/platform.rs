@@ -1265,6 +1265,8 @@ struct CsvForm {
     #[serde(default)]
     timestamp_column: String,
     #[serde(default)]
+    naive_timestamp_offset: String,
+    #[serde(default)]
     lifecycle_column: String,
     order: NormalizationOrder,
 }
@@ -1298,6 +1300,8 @@ async fn csv_import(Workspace(state): Workspace, Form(form): Form<CsvForm>) -> R
             case_column: form.case_column,
             activity_column: form.activity_column,
             timestamp_column: (!form.timestamp_column.is_empty()).then_some(form.timestamp_column),
+            naive_timestamp_offset: (!form.naive_timestamp_offset.is_empty())
+                .then_some(form.naive_timestamp_offset),
             lifecycle_column: (!form.lifecycle_column.is_empty()).then_some(form.lifecycle_column),
             delimiter,
             order: form.order,

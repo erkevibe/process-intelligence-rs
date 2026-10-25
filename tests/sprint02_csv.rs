@@ -38,6 +38,7 @@ fn mapping(order: NormalizationOrder) -> CsvMapping {
         case_column: "case".into(),
         activity_column: "activity".into(),
         timestamp_column: Some("time".into()),
+        naive_timestamp_offset: None,
         lifecycle_column: Some("lifecycle".into()),
         delimiter: b',',
         order,
@@ -138,5 +139,135 @@ fn mapping_and_duplicate_header_reject() {
             &mapping(NormalizationOrder::Source)
         )
         .is_err()
+    );
+}
+
+#[test]
+fn naive_iso_dates_require_an_explicit_offset_and_keep_existing_offsets() {
+    let bytes = b"case,activity,time,lifecycle\nc,A,2020-01-01T00:37:00.123456789,complete\nc,B,2020-01-01T01:00:00+03:00,complete\n";
+    let mut m = mapping(NormalizationOrder::Source);
+    assert_eq!(parse_csv(bytes, &m).unwrap_err().code, "csv_timestamp");
+    m.naive_timestamp_offset = Some("+05:00".into());
+    let log = parse_csv(bytes, &m).unwrap();
+    assert_eq!(
+        log.cases[0].events[0].timestamp.unwrap().to_rfc3339(),
+        "2019-12-31T19:37:00.123456789+00:00"
+    );
+    assert_eq!(
+        log.cases[0].events[1].timestamp.unwrap().to_rfc3339(),
+        "2019-12-31T22:00:00+00:00"
+    );
+    assert_eq!(log.cases[0].events[0].ordinal, 0);
+    assert_eq!(log.cases[0].events[1].ordinal, 1);
+    assert_eq!(log.warnings.len(), 1);
+    assert!(log.warnings[0].contains("Событий: 1."));
+    assert!(log.warnings[0].contains("UTC+05:00"));
+    // A supplied fallback does not alter an already unambiguous file or add a warning.
+    let aware = b"case,activity,time,lifecycle\nc,A,2020-01-01T00:37:00Z,complete\n";
+    let with_fallback = parse_csv(aware, &m).unwrap();
+    m.naive_timestamp_offset = None;
+    assert_eq!(with_fallback, parse_csv(aware, &m).unwrap());
+}
+
+#[test]
+fn explicit_negative_and_fractional_offsets_have_stable_timestamp_order() {
+    let bytes = b"case,activity,time,lifecycle\nc,A,2020-01-01T00:15:00,complete\nc,B,2020-01-01T03:45:00Z,start\nc,C,2020-01-01T00:10:00,complete\n";
+    let mut m = mapping(NormalizationOrder::Timestamp);
+    m.naive_timestamp_offset = Some("-03:30".into());
+    let log = parse_csv(bytes, &m).unwrap();
+    assert_eq!(
+        log.cases[0]
+            .events
+            .iter()
+            .map(|e| e.activity.as_str())
+            .collect::<Vec<_>>(),
+        vec!["C", "A", "B"]
+    );
+    assert_eq!(
+        log.cases[0].events[0].timestamp.unwrap().to_rfc3339(),
+        "2020-01-01T03:40:00+00:00"
+    );
+    assert_eq!(
+        log.cases[0].events[1].timestamp,
+        log.cases[0].events[2].timestamp
+    );
+    assert_eq!(log.cases[0].events[1].ordinal, 0);
+    assert_eq!(log.cases[0].events[2].ordinal, 1);
+    assert_eq!(log.cases[0].events[2].lifecycle.as_deref(), Some("start"));
+}
+
+#[test]
+fn malformed_fallback_offsets_and_missing_time_mapping_are_refused() {
+    let bytes = b"case,activity,time,lifecycle\nc,A,2020-01-01T00:00:00,complete\n";
+    for offset in [
+        "",
+        "Z",
+        "5:00",
+        "+5:00",
+        "05:00",
+        "+14:01",
+        "-14:30",
+        "+15:00",
+        "+05:60",
+        "+05:00 ",
+        " +05:00",
+        "+aa:00",
+        "UTC+05:00",
+    ] {
+        let mut m = mapping(NormalizationOrder::Source);
+        m.naive_timestamp_offset = Some(offset.into());
+        assert_eq!(
+            parse_csv(bytes, &m).unwrap_err().code,
+            "csv_timezone",
+            "{offset}"
+        );
+    }
+    for offset in ["+00:00", "-00:00", "+14:00", "-14:00", "+05:45"] {
+        let mut m = mapping(NormalizationOrder::Source);
+        m.naive_timestamp_offset = Some(offset.into());
+        assert!(parse_csv(bytes, &m).is_ok(), "{offset}");
+    }
+    let mut m = mapping(NormalizationOrder::Source);
+    m.naive_timestamp_offset = Some("+00:00".into());
+    m.timestamp_column = None;
+    assert_eq!(parse_csv(bytes, &m).unwrap_err().code, "csv_mapping");
+}
+
+#[test]
+fn explicit_fallback_does_not_strip_invalid_timezone_suffixes_or_invent_missing_times() {
+    let mut m = mapping(NormalizationOrder::Source);
+    m.naive_timestamp_offset = Some("+00:00".into());
+    for value in [
+        "bad",
+        "2020-02-30T00:00:00",
+        "2020-01-01",
+        "2020-01-01T00:00:00+05:99",
+        "2020-01-01T00:00:00Zextra",
+    ] {
+        let bytes = format!("case,activity,time,lifecycle\nc,A,{value},complete\n");
+        let error = parse_csv(bytes.as_bytes(), &m).unwrap_err();
+        assert_eq!(error.code, "csv_timestamp");
+        assert!(error.message.contains("2"));
+    }
+    let missing = b"case,activity,time,lifecycle\nc,A,,complete\n";
+    assert!(
+        parse_csv(missing, &m).unwrap().cases[0].events[0]
+            .timestamp
+            .is_none()
+    );
+    m.order = NormalizationOrder::Timestamp;
+    assert_eq!(parse_csv(missing, &m).unwrap_err().code, "csv_timestamp");
+}
+
+#[test]
+fn legacy_csv_mapping_serialization_remains_unchanged_without_fallback() {
+    let legacy = serde_json::json!({"case_column":"case","activity_column":"activity","timestamp_column":"time","lifecycle_column":"lifecycle","delimiter":44,"order":"source"});
+    let mut m: CsvMapping = serde_json::from_value(legacy.clone()).unwrap();
+    assert_eq!(m.naive_timestamp_offset, None);
+    assert_eq!(serde_json::to_value(&m).unwrap(), legacy);
+    m.naive_timestamp_offset = Some("+00:00".into());
+    assert_eq!(
+        serde_json::to_value(&m).unwrap()["naive_timestamp_offset"],
+        "+00:00"
     );
 }

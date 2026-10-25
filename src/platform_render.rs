@@ -235,7 +235,7 @@ pub(crate) fn projects(actor: &Actor, projects: &[Project], view: &ProjectListVi
     if actor.admin && actor.role.can_write() {
         html.push_str("<section class=\"platform-card\"><h2>Добавить пользователя</h2><form class=\"platform-form\" method=\"post\" action=\"/users\"><label>Имя пользователя<input name=\"username\" required maxlength=\"80\" autocomplete=\"off\"></label><label>Пароль<input type=\"password\" name=\"password\" required minlength=\"12\" maxlength=\"256\" autocomplete=\"new-password\"></label><small>Не менее 12 латинских символов; для других символов проверяется длина в UTF-8. После создания предоставьте пользователю доступ к нужному проекту.</small><button class=\"button\" type=\"submit\">Создать учётную запись</button></form></section>");
     }
-    html.push_str("<p class=\"platform-note\">Приложение доступно только на этом компьютере. Совместная работа через внешний сервер требует отдельной проверки безопасности.</p>");
+    html.push_str("<p class=\"platform-note\">Владелец проекта управляет правами участников. Доступ к журналам и моделям определяется правами в выбранном проекте.</p>");
     html
 }
 
@@ -718,6 +718,7 @@ pub(crate) fn csv_mapping(token: &str, preview: &CsvPreview) -> String {
         true,
         None,
     ));
+    html.push_str("<label>Смещение UTC для дат без часового пояса<input name=\"naive_timestamp_offset\" placeholder=\"Например, +05:00\" maxlength=\"6\" autocomplete=\"off\" spellcheck=\"false\"></label><small>Оставьте пустым, если пояс указан в файле. Для дат без пояса выберите смещение явно: например, +00:00 для UTC. Это постоянное смещение, без перехода на летнее время. Часовые пояса, уже указанные в датах, сохраняются.</small>");
     html.push_str(&column_select(
         "lifecycle_column",
         "Этап жизненного цикла (необязательно)",
@@ -725,7 +726,7 @@ pub(crate) fn csv_mapping(token: &str, preview: &CsvPreview) -> String {
         true,
         None,
     ));
-    html.push_str("<label>Порядок событий<select name=\"order\"><option value=\"source\">Как в исходной таблице</option><option value=\"timestamp\">По времени события</option></select></label><small>Для порядка по времени нужно время каждого события с часовым поясом, например 2026-10-10T09:30:00+05:00. При равном времени сохраняется порядок строк. Каждое событие считается отдельно, этапы start/complete не склеиваются.</small><button class=\"button primary\" type=\"submit\">Импортировать и анализировать</button></form></section>");
+    html.push_str("<label>Порядок событий<select name=\"order\"><option value=\"source\">Как в исходной таблице</option><option value=\"timestamp\">По времени события</option></select></label><small>Для порядка по времени нужна отметка каждого события: с поясом в файле, например 2026-10-10T09:30:00+05:00, либо с явно выбранным выше смещением UTC. При равном времени сохраняется порядок строк. Каждое событие считается отдельно, этапы start/complete не склеиваются.</small><button class=\"button primary\" type=\"submit\">Импортировать и анализировать</button></form></section>");
     html
 }
 

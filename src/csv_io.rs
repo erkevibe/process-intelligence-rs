@@ -18,9 +18,32 @@ pub struct CsvMapping {
     pub case_column: String,
     pub activity_column: String,
     pub timestamp_column: Option<String>,
+    /// Explicit fallback for ISO timestamps that do not contain an offset.
+    /// Existing RFC3339 offsets always take precedence.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub naive_timestamp_offset: Option<String>,
     pub lifecycle_column: Option<String>,
     pub delimiter: u8,
     pub order: NormalizationOrder,
+}
+
+fn validate_offset(value: &str) -> Result<(), ImportError> {
+    let bytes = value.as_bytes();
+    let valid_shape = bytes.len() == 6
+        && matches!(bytes[0], b'+' | b'-')
+        && bytes[3] == b':'
+        && [1, 2, 4, 5].into_iter().all(|i| bytes[i].is_ascii_digit());
+    if valid_shape {
+        let hours = (bytes[1] - b'0') * 10 + bytes[2] - b'0';
+        let minutes = (bytes[4] - b'0') * 10 + bytes[5] - b'0';
+        if minutes < 60 && (hours < 14 || hours == 14 && minutes == 0) {
+            return Ok(());
+        }
+    }
+    Err(ImportError::new(
+        "csv_timezone",
+        "Укажите смещение UTC в формате +05:00 или -03:30, от -14:00 до +14:00.",
+    ))
 }
 #[derive(Debug, Serialize)]
 pub struct CsvPreview {
@@ -101,6 +124,15 @@ pub fn parse_csv(input: &[u8], mapping: &CsvMapping) -> Result<EventLog, ImportE
         .filter(|v| !v.is_empty())
         .map(column)
         .transpose()?;
+    if let Some(offset) = &mapping.naive_timestamp_offset {
+        validate_offset(offset)?;
+        if t.is_none() {
+            return Err(ImportError::new(
+                "csv_mapping",
+                "Для выбора часового пояса сначала выберите колонку времени события.",
+            ));
+        }
+    }
     let l = mapping
         .lifecycle_column
         .as_deref()
@@ -119,6 +151,7 @@ pub fn parse_csv(input: &[u8], mapping: &CsvMapping) -> Result<EventLog, ImportE
     }
     let mut cases: Vec<Case> = Vec::new();
     let mut case_map: BTreeMap<String, usize> = BTreeMap::new();
+    let mut interpreted_timestamps = 0usize;
     for (ordinal, record) in r.records().enumerate() {
         if ordinal >= limits.max_events {
             return Err(ImportError::new("event_limit", "Превышен предел событий."));
@@ -144,11 +177,26 @@ pub fn parse_csv(input: &[u8], mapping: &CsvMapping) -> Result<EventLog, ImportE
             .map(|i| record.get(i).unwrap_or(""))
             .filter(|v| !v.is_empty())
         {
-            Some(value) => Some(
-                DateTime::parse_from_rfc3339(value)
-                    .map_err(|_| err("csv_timestamp", "Нужен RFC3339 timestamp с часовым поясом."))?
-                    .with_timezone(&Utc),
-            ),
+            Some(value) => {
+                let timestamp = match DateTime::parse_from_rfc3339(value) {
+                    Ok(timestamp) => timestamp,
+                    Err(_) => {
+                        let parsed = mapping.naive_timestamp_offset.as_ref().and_then(|offset| {
+                            // An existing invalid suffix must not be stripped or replaced.
+                            // Keep allocation bounded even for a malformed large CSV cell.
+                            (value.len() <= 40)
+                                .then(|| DateTime::parse_from_rfc3339(&format!("{value}{offset}")))
+                                .and_then(Result::ok)
+                        });
+                        let timestamp = parsed.ok_or_else(|| {
+                            err("csv_timestamp", "Нужен RFC3339 timestamp с часовым поясом.")
+                        })?;
+                        interpreted_timestamps += 1;
+                        timestamp
+                    }
+                };
+                Some(timestamp.with_timezone(&Utc))
+            }
             None => None,
         };
         if mapping.order == NormalizationOrder::Timestamp && timestamp.is_none() {
@@ -187,6 +235,12 @@ pub fn parse_csv(input: &[u8], mapping: &CsvMapping) -> Result<EventLog, ImportE
         cases,
         warnings: Vec::new(),
     };
+    if interpreted_timestamps > 0 {
+        log.warnings.push(format!(
+            "CSV: для дат без часового пояса использовано выбранное при импорте смещение UTC{}. Событий: {interpreted_timestamps}. Смещения, указанные в файле, сохранены.",
+            mapping.naive_timestamp_offset.as_deref().expect("validated offset")
+        ));
+    }
     normalize(&mut log, mapping.order)?;
     Ok(log)
 }
