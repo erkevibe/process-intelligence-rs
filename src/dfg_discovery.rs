@@ -334,6 +334,14 @@ fn prove_state_machine_soundness(graph: &quality::state::Graph) -> Result<()> {
     Ok(())
 }
 
+pub(crate) fn optional_profile<'de, D: serde::Deserializer<'de>>(
+    deserializer: D,
+) -> std::result::Result<Option<String>, D::Error> {
+    use serde::Deserialize;
+    let value = Option::<String>::deserialize(deserializer)?;
+    Ok(value.filter(|s| !s.is_empty()))
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -418,12 +426,4 @@ mod tests {
         .unwrap_err();
         assert_eq!(error.reason, "cancelled");
     }
-}
-
-pub(crate) fn optional_profile<'de, D: serde::Deserializer<'de>>(
-    deserializer: D,
-) -> std::result::Result<Option<String>, D::Error> {
-    use serde::Deserialize;
-    let value = Option::<String>::deserialize(deserializer)?;
-    Ok(value.filter(|s| !s.is_empty()))
 }

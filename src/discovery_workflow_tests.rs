@@ -1,5 +1,44 @@
 use super::*;
 use std::collections::BTreeMap;
+
+#[test]
+fn full_profile_discovery_has_explicit_identity_and_reproducible_saved_output() {
+    let (mut meta, mut artifact) = fixture();
+    meta.profile = Some(crate::dfg_discovery::PROFILE.into());
+    artifact.input.profile = meta.profile.clone();
+    artifact.input.variants = json!([{"sequence":["A","B","C"],"frequency":625}]);
+    meta.variants_sha256 = store::input_hash(&artifact.input).unwrap();
+    meta.method_sha256 = store::method_for(meta.profile.as_deref()).into();
+    assert_eq!(
+        store::identity(&meta).algorithm,
+        crate::dfg_discovery::ALGORITHM
+    );
+    let output = store::compute(
+        &artifact.input,
+        Instant::now() + Duration::from_secs(30),
+        &mut |_| Ok(()),
+    )
+    .unwrap();
+    assert!(output.tree.is_none());
+    assert_eq!(output.training_report["trace_count"], 625);
+    meta.snapshot.state = JobState::Completed;
+    meta.output_sha256 = Some(crate::storage::sha256(
+        &quality::bytes(&output, store::MAX_OUTPUT).unwrap(),
+    ));
+    artifact.output = Some(output);
+    store::validate_artifact(&meta, &artifact).unwrap();
+    store::verify_restored(&meta, &artifact, Instant::now() + Duration::from_secs(30)).unwrap();
+    let mut forged = artifact.clone();
+    forged.output.as_mut().unwrap().training_report["metrics"]["precision"]["scalar"] = json!(0.5);
+    let mut coherent = meta.clone();
+    coherent.output_sha256 = Some(crate::storage::sha256(
+        &quality::bytes(forged.output.as_ref().unwrap(), store::MAX_OUTPUT).unwrap(),
+    ));
+    assert!(
+        store::verify_restored(&coherent, &forged, Instant::now() + Duration::from_secs(30))
+            .is_err()
+    );
+}
 fn input() -> DiscoveryInput {
     DiscoveryInput {
         profile: None,

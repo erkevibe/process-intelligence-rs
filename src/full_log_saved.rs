@@ -1,5 +1,5 @@
 //! Separate full-log verifier. Historical verifier remains frozen for old report fingerprints.
-use crate::bpmn_quality::{Result, facade};
+use crate::bpmn_quality::facade;
 use crate::{domain::ImportError, quality_store as store};
 use serde::{
     Deserialize,
