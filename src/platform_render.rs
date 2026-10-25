@@ -726,7 +726,15 @@ pub(crate) fn csv_mapping(token: &str, preview: &CsvPreview) -> String {
         true,
         None,
     ));
-    html.push_str("<label>Порядок событий<select name=\"order\"><option value=\"source\">Как в исходной таблице</option><option value=\"timestamp\">По времени события</option></select></label><small>Для порядка по времени нужна отметка каждого события: с поясом в файле, например 2026-10-10T09:30:00+05:00, либо с явно выбранным выше смещением UTC. При равном времени сохраняется порядок строк. Каждое событие считается отдельно, этапы start/complete не склеиваются.</small><button class=\"button primary\" type=\"submit\">Импортировать и анализировать</button></form></section>");
+    html.push_str("<label>Порядок событий<select name=\"order\"><option value=\"source\">Как в исходной таблице</option><option value=\"timestamp\">По времени события</option></select></label><small>Для порядка по времени нужна отметка каждого события: с поясом в файле, например 2026-10-10T09:30:00+05:00, либо с явно выбранным выше смещением UTC. При равном времени сохраняется порядок строк. Каждое событие считается отдельно, этапы start/complete не склеиваются.</small>");
+    html.push_str(&column_select(
+        "start_timestamp_column",
+        "Начало действия (для просмотра длительностей)",
+        &preview.headers,
+        true,
+        None,
+    ));
+    html.push_str("<label>Граница быстрых и медленных случаев, дней<input name=\"threshold_days\" type=\"number\" min=\"1\" max=\"3650\" value=\"28\" required></label><small>Для просмотра длительностей выберите начало действия здесь и окончание в поле времени события. Обе отметки используются в просмотре и скачанном отчёте. В сохранённый журнал импортируется одна выбранная отметка времени события.</small><button class=\"button\" type=\"submit\" formaction=\"/csv/performance\">Посмотреть длительности перед импортом</button><button class=\"button primary\" type=\"submit\">Импортировать и анализировать</button></form></section>");
     html
 }
 

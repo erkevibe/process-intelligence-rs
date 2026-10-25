@@ -13,6 +13,7 @@ pub mod configuration;
 pub mod conversion;
 mod conversion_workflow;
 pub mod csv_io;
+pub mod csv_performance;
 pub mod discovery;
 mod discovery_store;
 mod discovery_workflow;
