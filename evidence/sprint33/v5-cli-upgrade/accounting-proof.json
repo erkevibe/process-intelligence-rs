@@ -1,0 +1,438 @@
+{
+  "schema_version": 1,
+  "metric": "structural_bytes_v1",
+  "header_reserve": 268369920,
+  "snapshots": [
+    {
+      "name": "project-05cecde8830841a39fd094c54efaa6b7",
+      "payload_used": 9975,
+      "records": [
+        {
+          "kind": "log_analysis",
+          "id": "log-1",
+          "document": {
+            "cases": 1,
+            "edges": [
+              {
+                "id": "edge-0",
+                "count": 1,
+                "source": "activity-0",
+                "target": "activity-1"
+              },
+              {
+                "id": "edge-1",
+                "count": 1,
+                "source": "activity-1",
+                "target": "activity-2"
+              }
+            ],
+            "nodes": [
+              {
+                "id": "activity-0",
+                "count": 1,
+                "label": "A",
+                "end_count": 0,
+                "start_count": 1
+              },
+              {
+                "id": "activity-1",
+                "count": 1,
+                "label": "B",
+                "end_count": 0,
+                "start_count": 0
+              },
+              {
+                "id": "activity-2",
+                "count": 1,
+                "label": "C",
+                "end_count": 1,
+                "start_count": 0
+              }
+            ],
+            "events": 3,
+            "variants": [
+              {
+                "id": "variant-0",
+                "count": 1,
+                "case_ids": [
+                  "case-0"
+                ],
+                "sequence": [
+                  "A",
+                  "B",
+                  "C"
+                ]
+              }
+            ],
+            "activities": 3,
+            "max_edge_frequency": 1
+          }
+        },
+        {
+          "kind": "log_data",
+          "id": "log-1",
+          "document": {
+            "name": null,
+            "cases": [
+              {
+                "id": "case-0",
+                "name": "service",
+                "events": [
+                  {
+                    "ordinal": 0,
+                    "activity": "A",
+                    "lifecycle": null,
+                    "timestamp": null
+                  },
+                  {
+                    "ordinal": 1,
+                    "activity": "B",
+                    "lifecycle": null,
+                    "timestamp": null
+                  },
+                  {
+                    "ordinal": 2,
+                    "activity": "C",
+                    "lifecycle": null,
+                    "timestamp": null
+                  }
+                ]
+              }
+            ],
+            "warnings": [
+              "\u041f\u043e\u0440\u044f\u0434\u043e\u043a \u0441\u043e\u0431\u044b\u0442\u0438\u0439 \u2014 \u043a\u0430\u043a \u0432 XML. Lifecycle start/complete \u043d\u0435 \u043e\u0431\u044a\u0435\u0434\u0438\u043d\u044f\u044e\u0442\u0441\u044f.",
+              "\u0421\u043e\u0432\u043c\u0435\u0441\u0442\u0438\u043c\u043e\u0441\u0442\u044c \u0441 Apromore \u0435\u0449\u0451 \u043d\u0435 \u043f\u043e\u0434\u0442\u0432\u0435\u0440\u0436\u0434\u0435\u043d\u0430 legacy oracle."
+            ]
+          }
+        },
+        {
+          "kind": "log_source",
+          "id": "log-1",
+          "document": {
+            "name": null,
+            "cases": [
+              {
+                "id": "case-0",
+                "name": "service",
+                "events": [
+                  {
+                    "ordinal": 0,
+                    "activity": "A",
+                    "lifecycle": null,
+                    "timestamp": null
+                  },
+                  {
+                    "ordinal": 1,
+                    "activity": "B",
+                    "lifecycle": null,
+                    "timestamp": null
+                  },
+                  {
+                    "ordinal": 2,
+                    "activity": "C",
+                    "lifecycle": null,
+                    "timestamp": null
+                  }
+                ]
+              }
+            ],
+            "warnings": [
+              "\u041f\u043e\u0440\u044f\u0434\u043e\u043a \u0441\u043e\u0431\u044b\u0442\u0438\u0439 \u2014 \u043a\u0430\u043a \u0432 XML. Lifecycle start/complete \u043d\u0435 \u043e\u0431\u044a\u0435\u0434\u0438\u043d\u044f\u044e\u0442\u0441\u044f.",
+              "\u0421\u043e\u0432\u043c\u0435\u0441\u0442\u0438\u043c\u043e\u0441\u0442\u044c \u0441 Apromore \u0435\u0449\u0451 \u043d\u0435 \u043f\u043e\u0434\u0442\u0432\u0435\u0440\u0436\u0434\u0435\u043d\u0430 legacy oracle."
+            ]
+          }
+        },
+        {
+          "kind": "log_state",
+          "id": "log-1",
+          "document": {
+            "id": "log-1",
+            "order": "source",
+            "filters": {
+              "max_events": null,
+              "min_events": null,
+              "case_activity": null,
+              "remove_activities": [],
+              "retain_activities": []
+            },
+            "calendar": {
+              "holidays": [],
+              "weekdays": [
+                1,
+                2,
+                3,
+                4,
+                5
+              ],
+              "end_minute": 1080,
+              "start_minute": 540,
+              "offset_minutes": 0
+            },
+            "filename": "service.xes",
+            "selected": null,
+            "threshold": 1,
+            "created_at": "2026-10-25T00:22:14.221675308Z",
+            "elapsed_ms": 0,
+            "project_id": "project-05cecde8830841a39fd094c54efaa6b7",
+            "selected_case": null,
+            "source_sha256": "60e10517fe3ec2bdb5e5d1043d9ccb4445727658327d00c2b13c3d92060e9088",
+            "view_revision": 0,
+            "analysis_version": 1
+          }
+        },
+        {
+          "kind": "model",
+          "id": "model-2",
+          "document": {
+            "id": "model-2",
+            "name": "service.bpmn",
+            "model": {
+              "name": "",
+              "flows": [
+                {
+                  "id": "f0",
+                  "source": "s",
+                  "target": "a",
+                  "waypoints": []
+                },
+                {
+                  "id": "f1",
+                  "source": "a",
+                  "target": "b",
+                  "waypoints": []
+                },
+                {
+                  "id": "f2",
+                  "source": "b",
+                  "target": "c",
+                  "waypoints": []
+                },
+                {
+                  "id": "f3",
+                  "source": "c",
+                  "target": "e",
+                  "waypoints": []
+                }
+              ],
+              "nodes": [
+                {
+                  "x": 80.0,
+                  "y": 80.0,
+                  "id": "s",
+                  "kind": "start",
+                  "label": ""
+                },
+                {
+                  "x": 250.0,
+                  "y": 80.0,
+                  "id": "a",
+                  "kind": "task",
+                  "label": "A"
+                },
+                {
+                  "x": 420.0,
+                  "y": 80.0,
+                  "id": "b",
+                  "kind": "task",
+                  "label": "B"
+                },
+                {
+                  "x": 590.0,
+                  "y": 80.0,
+                  "id": "c",
+                  "kind": "task",
+                  "label": "C"
+                },
+                {
+                  "x": 760.0,
+                  "y": 80.0,
+                  "id": "e",
+                  "kind": "end",
+                  "label": ""
+                }
+              ],
+              "discovery": null,
+              "process_id": "p",
+              "schema_version": 1
+            },
+            "revision": 1,
+            "source_log": null
+          }
+        },
+        {
+          "kind": "quality",
+          "id": "quality-4",
+          "document": {
+            "id": "quality-4",
+            "input": {
+              "model": {
+                "name": "",
+                "flows": [
+                  {
+                    "id": "f0",
+                    "source": "s",
+                    "target": "a",
+                    "waypoints": []
+                  },
+                  {
+                    "id": "f1",
+                    "source": "a",
+                    "target": "b",
+                    "waypoints": []
+                  },
+                  {
+                    "id": "f2",
+                    "source": "b",
+                    "target": "c",
+                    "waypoints": []
+                  },
+                  {
+                    "id": "f3",
+                    "source": "c",
+                    "target": "e",
+                    "waypoints": []
+                  }
+                ],
+                "nodes": [
+                  {
+                    "x": 80.0,
+                    "y": 80.0,
+                    "id": "s",
+                    "kind": "start",
+                    "label": ""
+                  },
+                  {
+                    "x": 250.0,
+                    "y": 80.0,
+                    "id": "a",
+                    "kind": "task",
+                    "label": "A"
+                  },
+                  {
+                    "x": 420.0,
+                    "y": 80.0,
+                    "id": "b",
+                    "kind": "task",
+                    "label": "B"
+                  },
+                  {
+                    "x": 590.0,
+                    "y": 80.0,
+                    "id": "c",
+                    "kind": "task",
+                    "label": "C"
+                  },
+                  {
+                    "x": 760.0,
+                    "y": 80.0,
+                    "id": "e",
+                    "kind": "end",
+                    "label": ""
+                  }
+                ],
+                "discovery": null,
+                "process_id": "p",
+                "schema_version": 1
+              },
+              "variants": [
+                {
+                  "sequence": [
+                    "A",
+                    "B",
+                    "C"
+                  ],
+                  "frequency": 1
+                }
+              ]
+            },
+            "report": {
+              "log_id": "log-1",
+              "report": {
+                "limits": {
+                  "tau": 1000,
+                  "arcs": 256,
+                  "nodes": 128,
+                  "prefix": 1000,
+                  "fitness": 1000,
+                  "markings": 1000,
+                  "equivalence": 1000
+                },
+                "metrics": {
+                  "fitness": {
+                    "costs": {
+                      "log": 1,
+                      "tau": 0,
+                      "sync": 0,
+                      "model": 1
+                    },
+                    "status": "measured",
+                    "fitness": {
+                      "log_fitness": 1.0,
+                      "total_costs": 0,
+                      "average_fitness": 1.0,
+                      "perfectly_fitting_frac": 1.0
+                    },
+                    "integer_components": {
+                      "events": 3,
+                      "traces": 1,
+                      "empty_cost": 3,
+                      "log_denominator": 6,
+                      "weighted_total_cost": 0
+                    }
+                  },
+                  "precision": {
+                    "policy": "proper_prefix_all_min_tau_stop_states_label_union_fitting_log_v1",
+                    "scalar": 1.0,
+                    "status": "measured",
+                    "numerator": 3,
+                    "denominator": 3,
+                    "escaping_weight": 0,
+                    "activated_weight": 3
+                  },
+                  "simplicity": {
+                    "k": 2,
+                    "arcs": 10,
+                    "metric": "inverse_mean_arc_degree",
+                    "places": 6,
+                    "scalar": 1.0,
+                    "status": "measured",
+                    "numerator": 1,
+                    "denominator": 1,
+                    "transitions": 5,
+                    "representation": "exact_hashed_net_no_reduction",
+                    "mean_degree_numerator": 20,
+                    "mean_degree_denominator": 11
+                  }
+                },
+                "profile": "application_bounded_v1",
+                "net_sha256": "eb37c95b98a7c5516f306c89646f99fa79e3835f119743957689312712f23fea",
+                "trace_count": 1,
+                "model_sha256": "2571d22f5726396689a7788281fe15b8fd638cc702f6f8d2db705533583e400e",
+                "variant_count": 1,
+                "schema_version": 1,
+                "variants_sha256": "d46d51d4bb9fe27d0269b0065111b5a0ddb4c5ca53fc26e33a5c0b24f6f62c18",
+                "evaluation_policy": "log_evaluation_does_not_establish_training_independence",
+                "model_identity_kind": "canonical_model_json_sha256"
+              },
+              "log_name": "service.xes",
+              "model_id": "model-2",
+              "created_at": "2026-10-25T00:22:14.256944249Z",
+              "model_name": "service.bpmn",
+              "method_sha256": "be4a5a27bb061b0e4fc3a35a365061b4541281d613fd9bde3742572c6defea88",
+              "saved_history": true,
+              "source_sha256": "60e10517fe3ec2bdb5e5d1043d9ccb4445727658327d00c2b13c3d92060e9088",
+              "model_revision": 1,
+              "schema_version": 1,
+              "analysis_version": 1,
+              "source_project_id": "project-05cecde8830841a39fd094c54efaa6b7",
+              "training_relation": "training_unknown",
+              "input_model_sha256": "2571d22f5726396689a7788281fe15b8fd638cc702f6f8d2db705533583e400e",
+              "on_construction_log": false,
+              "input_variants_sha256": "d46d51d4bb9fe27d0269b0065111b5a0ddb4c5ca53fc26e33a5c0b24f6f62c18"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
