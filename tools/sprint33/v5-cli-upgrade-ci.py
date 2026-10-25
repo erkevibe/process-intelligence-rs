@@ -65,9 +65,10 @@ class Upgrade(offline.OfflineRehearsal):
         return result
 
     def recount(self):
-        records = offline.evidence.load(self.query('s33-private-records-for-recount', "SELECT coalesce(jsonb_agg(jsonb_build_object('project',project_id,'kind',kind,'id',resource_id,'version',version,'document',document) ORDER BY project_id,kind,resource_id),'[]') FROM public.pi_records;"))
-        quotas = offline.evidence.load(self.query('s33-private-quota-counters', 'SELECT jsonb_agg(to_jsonb(q) ORDER BY project_id) FROM public.pi_project_quota q;'))
-        projects = offline.evidence.load(self.query('s33-project-ids', 'SELECT jsonb_agg(project_id ORDER BY project_id) FROM public.pi_projects;'))
+        self.records_raw = self.query('s33-private-records-for-recount', "SELECT coalesce(jsonb_agg(jsonb_build_object('project',project_id,'kind',kind,'id',resource_id,'version',version,'document',document) ORDER BY project_id,kind,resource_id),'[]') FROM public.pi_records;")
+        self.quotas_raw = self.query('s33-private-quota-counters', 'SELECT jsonb_agg(to_jsonb(q) ORDER BY project_id) FROM public.pi_project_quota q;')
+        self.projects_raw = self.query('s33-project-ids', 'SELECT jsonb_agg(project_id ORDER BY project_id) FROM public.pi_projects;')
+        records, quotas, projects = map(offline.evidence.load, (self.records_raw, self.quotas_raw, self.projects_raw))
         assert [row['project_id'] for row in quotas] == projects
         summaries, snapshots = [], []
         for quota in quotas:
@@ -224,6 +225,10 @@ if __name__ == '__main__':
     assert b'BEGIN PRIVATE KEY' not in accounting_bytes
     result['accounting_input_sha256'] = offline.service.digest(accounting_bytes)
     (upgrade.output / 'accounting-proof.json').write_bytes(accounting_bytes)
+    for name, raw in [('recount-records.json', upgrade.records_raw), ('recount-quota.json', upgrade.quotas_raw), ('recount-projects.json', upgrade.projects_raw)]:
+        assert all(value.encode() not in raw for value in [f.database_url, f.owner_password, f.viewer_password] + f.password_history)
+        assert b'BEGIN PRIVATE KEY' not in raw
+        (upgrade.output / name).write_bytes(raw)
     (upgrade.output / 'proof.json').write_text(json.dumps(result, indent=2) + '\n')
     print(json.dumps(dict(status=result['status'], source_commit=f.source, cases=len(upgrade.cases),
         previous_profile_consistency='S32_LIVE_OFFLINE_OBSERVATIONS_PASS')))
