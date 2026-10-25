@@ -139,12 +139,24 @@ struct PreviewForm {
     revision: u64,
 }
 
+fn metric_percent(value: f64) -> String {
+    let percentage = 100.0 * value;
+    for places in 1..=9 {
+        let displayed = format!("{percentage:.places$}");
+        let rounded = displayed.parse::<f64>().unwrap_or(percentage);
+        if (value > 0.0 && rounded == 0.0) || (value < 1.0 && rounded == 100.0) {
+            continue;
+        }
+        return displayed + "%";
+    }
+    format!("{percentage:.9}%")
+}
 fn metric_card(title: &str, description: &str, metric: &Value, scalar: Option<f64>) -> String {
     let status = metric["status"].as_str().unwrap_or("inconclusive");
     let value = if status == "measured" {
         scalar
             .filter(|v| v.is_finite())
-            .map(|v| format!("{:.1}%", 100.0 * v))
+            .map(metric_percent)
             .unwrap_or_else(|| "Нет оценки".into())
     } else {
         match status {

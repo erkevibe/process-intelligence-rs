@@ -1,9 +1,52 @@
 use super::*;
 use std::collections::BTreeMap;
 
+#[test]
+fn explicit_full_profile_export_replays_and_refuses_numeric_forgery() {
+    let (mut meta, mut artifact) = fixture();
+    artifact.input.profile = Some(crate::dfg_discovery::PROFILE.into());
+    artifact.input.variants = json!([{"sequence":["A","B","C"],"frequency":625}]);
+    meta.profile = artifact.input.profile.clone();
+    meta.method_sha256 = crate::dfg_discovery::method_sha256().into();
+    (meta.model_sha256, meta.variants_sha256) = store::input_hashes(&artifact.input).unwrap();
+    let report = crate::dfg_discovery::evaluate(
+        &artifact.input.model,
+        &artifact.input.variants,
+        &mut |_| Ok(()),
+    )
+    .unwrap();
+    assert_eq!(report["trace_count"], 625);
+    meta.snapshot.state = JobState::Completed;
+    let envelope = store::envelope(&meta, report);
+    meta.report_sha256 = Some(crate::storage::sha256(
+        &store::bytes(&envelope, store::MAX_REPORT).unwrap(),
+    ));
+    artifact.report = Some(envelope.clone());
+    store::validate_artifact(&meta, &artifact).unwrap();
+    let export = json!({"schema_version":1,"method_sha256":meta.method_sha256,"evaluation":envelope,"input":artifact.input});
+    let bytes = serde_json::to_vec(&export).unwrap();
+    assert_eq!(
+        crate::full_log_saved::verify_any(&bytes).unwrap()["numeric_replay"],
+        true
+    );
+    assert!(crate::bpmn_quality::saved::verify_export_bytes(&bytes).is_err());
+    let mut forged = export.clone();
+    forged["evaluation"]["report"]["metrics"]["fitness"]["fitness"]["log_fitness"] = json!(0.5);
+    assert_eq!(
+        crate::full_log_saved::verify_any(&serde_json::to_vec(&forged).unwrap())
+            .unwrap_err()
+            .code,
+        "quality_report_mismatch"
+    );
+    let mut wrong_profile = artifact.clone();
+    wrong_profile.input.profile = None;
+    assert!(store::validate_artifact(&meta, &wrong_profile).is_err());
+}
+
 fn fixture() -> (QualityMeta, QualityArtifact) {
     let model = crate::bpmn::parse(include_bytes!("../fixtures/quality/linear.bpmn")).unwrap();
     let input = QualityInput {
+        profile: None,
         model,
         variants: json!([{"sequence":["A","B","C"],"frequency":1}]),
     };
@@ -11,6 +54,7 @@ fn fixture() -> (QualityMeta, QualityArtifact) {
     let jobs = crate::jobs::JobStore::new();
     let lease = jobs.create_with_id(Some("job-1".into())).unwrap();
     let m = QualityMeta {
+        profile: None,
         snapshot: lease.job.snapshot(),
         artifact_id: "quality-2".into(),
         owner: "owner".into(),
@@ -274,6 +318,7 @@ fn seed(state: &AppState) -> (String, String) {
 }
 fn submission(log: &str, revision: u64) -> SubmitForm {
     SubmitForm {
+        profile: None,
         log_id: log.into(),
         revision,
         request_key: store::request_key(),

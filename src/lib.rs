@@ -14,6 +14,7 @@ pub mod conversion;
 mod conversion_workflow;
 pub mod csv_io;
 pub mod csv_performance;
+pub mod dfg_discovery;
 pub mod discovery;
 mod discovery_store;
 mod discovery_workflow;
@@ -21,6 +22,8 @@ pub mod domain;
 pub mod event_io;
 pub mod filters;
 pub mod folders;
+mod full_log_bridge;
+pub mod full_log_saved;
 pub mod import_provenance;
 pub mod jobs;
 mod migrations;
@@ -52,3 +55,6 @@ mod quota_workflow_tests;
 
 #[cfg(test)]
 mod public_origin_tests;
+
+#[cfg(test)]
+mod full_log_http_tests;

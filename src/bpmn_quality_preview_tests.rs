@@ -18,6 +18,28 @@ use std::{
 };
 use tower::ServiceExt;
 
+#[test]
+fn rounded_display_does_not_turn_a_real_deviation_into_perfect_fitness() {
+    assert_eq!(metric_percent(2101.0 / 2102.0), "99.95%");
+    assert_eq!(metric_percent(1.0), "100.0%");
+    assert_eq!(metric_percent(0.0), "0.0%");
+    assert_eq!(metric_percent(0.625), "62.5%");
+    assert_ne!(
+        metric_percent(1.0 - 1e-8)
+            .trim_end_matches('%')
+            .parse::<f64>()
+            .unwrap(),
+        100.0
+    );
+    assert_ne!(
+        metric_percent(1e-8)
+            .trim_end_matches('%')
+            .parse::<f64>()
+            .unwrap(),
+        0.0
+    );
+}
+
 fn log(sequences: &[&[&str]]) -> EventLog {
     EventLog {
         name: None,

@@ -41,6 +41,7 @@ assert {'process-intelligence-rs', 'pi_convert', 'CANDIDATE_STATUS.md',
         'docs/PROJECT_QUOTA_CONTRACT.md', 'docs/LINUX_TLS_DEPLOYMENT.md',
         'tools/sprint30/verify-evidence.py', 'evidence/sprint30/project-quota/manifest.json'} <= actual
 assert 'tools/sprint31/systemd-profile-ci.py' in actual
+assert {'tools/sprint36/audit-full-log.py', 'docs/APROMORE_SEVEN_EXERCISES.md', 'docs/SPRINT_36_REPORT.md'} <= actual
 assert 'tools/sprint32/offline-migration-ci.py' in actual
 assert {'tools/sprint33/v5-cli-upgrade-ci.py', 'docs/SPRINT_33_REPORT.md'} <= actual
 assert {'tools/sprint33/verify-upgrade-evidence.py', 'tools/sprint33/upgrade-command-contract.json',

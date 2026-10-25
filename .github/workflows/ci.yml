@@ -31,6 +31,17 @@ jobs:
       - run: cargo fmt --all -- --check
       - run: cargo clippy --locked --all-targets -- -D warnings
       - run: cargo test --locked --all-targets
+      - name: Sprint36 full-log durable HTTP, replay, restart and backup
+        env:
+          POSTGRES_CONTAINER: ${{ job.services.quality-postgres.id }}
+          S36_FULL_DATABASE_URL: postgresql://pi_s21_app:sprint25-ci-only@127.0.0.1:5432/pi_s36_full_test
+          S36_FULL_OWNED_FIXTURE: 'yes'
+          S36_CONTROL_DATABASE_URL: postgresql://pi_s21_app:sprint25-ci-only@127.0.0.1:5432/pi_s36_control_test
+        run: |
+          docker exec "$POSTGRES_CONTAINER" psql -U pi_s21_app -d postgres -v ON_ERROR_STOP=1 -c 'CREATE DATABASE pi_s36_full_test OWNER pi_s21_app;'
+          cargo test --locked --lib -- full_log_http_tests::postgres_full_log_http_publication_replay_restart_and_backup --ignored --exact --nocapture --test-threads=1
+          docker exec "$POSTGRES_CONTAINER" psql -U pi_s21_app -d postgres -v ON_ERROR_STOP=1 -c 'CREATE DATABASE pi_s36_control_test OWNER pi_s21_app;'
+          cargo test --locked --lib -- discovery_workflow::tests::postgres_full_profile_cancel_revoke_and_interrupted_retry --ignored --exact --nocapture --test-threads=1
       - name: Sprint27 prospective miner comparison portable evidence replay
         run: python3 -I -B tools/sprint27/audit-public-miner.py evidence/sprint27/miner-comparison
       - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
@@ -331,7 +342,7 @@ jobs:
             cp docs/SELF_CHECK_RU.md dist/docs/
           cp tools/sprint23/decode-report.py tools/sprint23/audit-compact.py dist/tools/sprint23/
             cp tools/oracle/audit-conversion-evidence.py dist/tools/oracle/
-          cp docs/SPRINT_35_REPORT.md dist/CANDIDATE_STATUS.md
+          cp docs/SPRINT_36_REPORT.md dist/CANDIDATE_STATUS.md
           cp docs/PROJECT_QUOTA_CONTRACT.md docs/LINUX_TLS_DEPLOYMENT.md docs/SPRINT_30_REPORT.md dist/docs/
           cp docs/*.md dist/docs/
           mkdir -p dist/deploy dist/evidence
@@ -340,6 +351,8 @@ jobs:
           cp -r tools/sprint31 dist/tools/
           cp -r tools/sprint32 dist/tools/
           cp -r tools/sprint33 dist/tools/
+          cp -r tools/sprint36 dist/tools/
+          cp -r evidence/sprint36 dist/evidence/
           cp -r evidence/sprint30 dist/evidence/
           cp -r evidence/sprint31 dist/evidence/
           cp -r evidence/sprint32 dist/evidence/

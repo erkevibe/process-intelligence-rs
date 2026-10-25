@@ -1,0 +1,75 @@
+{
+  "evaluation_method": "flow_place_alignment_precision_single_token_v1",
+  "limits": {
+    "arcs": 1024,
+    "equivalence": 1000,
+    "fitness": 1000,
+    "markings": 1000,
+    "nodes": 512,
+    "prefix": 1000,
+    "tau": 1000
+  },
+  "marking_states": 101,
+  "metrics": {
+    "fitness": {
+      "costs": {
+        "log": 1,
+        "model": 1,
+        "sync": 0,
+        "tau": 0
+      },
+      "fitness": {
+        "average_fitness": 1.0,
+        "log_fitness": 1.0,
+        "perfectly_fitting_frac": 1.0,
+        "total_costs": 0
+      },
+      "integer_components": {
+        "empty_cost": 1,
+        "events": 9070,
+        "log_denominator": 9695,
+        "traces": 625,
+        "weighted_total_cost": 0
+      },
+      "status": "measured"
+    },
+    "precision": {
+      "activated_weight": 18061,
+      "denominator": 18061,
+      "escaping_weight": 2338,
+      "numerator": 15723,
+      "policy": "proper_prefix_all_min_tau_stop_states_label_union_fitting_log_v1",
+      "prefixes": [],
+      "scalar": 0.8705498034438846,
+      "status": "measured"
+    },
+    "simplicity": {
+      "arcs": 248,
+      "denominator": 271,
+      "k": 2,
+      "mean_degree_denominator": 225,
+      "mean_degree_numerator": 496,
+      "metric": "inverse_mean_arc_degree",
+      "numerator": 225,
+      "places": 101,
+      "representation": "exact_hashed_net_no_reduction",
+      "scalar": 0.8302583025830258,
+      "status": "measured",
+      "transitions": 124
+    }
+  },
+  "model_sha256": "d02ac467bba99cf6e17bc9c66e990d4f8e41e1f45bb7702c362d61604d1af67e",
+  "policy": "all_cases_no_sampling_single_token_no_training_independence_claim",
+  "profile": "full_log_state_machine_v1",
+  "schema_version": 1,
+  "soundness": {
+    "no_dead_transitions": true,
+    "one_safety": true,
+    "option_to_complete": true,
+    "proper_completion": true,
+    "scope": "enumerated_reachable_markings_for_this_model"
+  },
+  "trace_count": 625,
+  "variant_count": 143,
+  "variants_sha256": "b3a7190af2e55e34e65e80c2a9fbc70e0e4145559c417b58c1e91f83e71f765a"
+}

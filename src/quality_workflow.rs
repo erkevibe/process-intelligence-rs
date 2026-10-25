@@ -1,6 +1,8 @@
 //! Durable, project-scoped BPMN quality jobs. Inputs and terminal result are atomic.
+#[cfg(test)]
+use crate::bpmn_quality::facade;
 use crate::{
-    bpmn_quality::{Issue, facade},
+    bpmn_quality::Issue,
     domain::ImportError,
     jobs::{JobLease, JobSnapshot, JobState},
     platform_render::html_escape,
@@ -118,7 +120,8 @@ fn current_binding(
     }
     let model_sha =
         crate::storage::sha256(&store::bytes(&model.model, 1024 * 1024).map_err(|_| conflict())?);
-    let rows = crate::bpmn_quality_preview::rows(&log.data).map_err(|_| conflict())?;
+    let rows =
+        crate::dfg_discovery::rows_for(&log.data, m.profile.as_deref()).map_err(|_| conflict())?;
     let variants_sha =
         crate::storage::sha256(&store::bytes(&rows, 1024 * 1024).map_err(|_| conflict())?);
     if model_sha != m.model_sha256 || variants_sha != m.variants_sha256 {
@@ -213,6 +216,8 @@ fn persist_system_failure(state: &AppState, snapshot: &JobSnapshot) -> Result<()
 #[derive(Clone, Deserialize)]
 #[serde(deny_unknown_fields)]
 struct SubmitForm {
+    #[serde(default, deserialize_with = "crate::dfg_discovery::optional_profile")]
+    profile: Option<String>,
     log_id: String,
     revision: u64,
     request_key: String,
@@ -227,7 +232,13 @@ struct Accepted {
     launch: Option<(JobLease, Arc<QualityArtifact>)>,
 }
 fn form_sha(model_id: &str, form: &SubmitForm, retry_of: Option<&str>) -> String {
-    crate::storage::sha256(&serde_json::to_vec(&json!({"model_id":model_id,"log_id":form.log_id,"revision":form.revision,"retry_of":retry_of})).expect("form JSON"))
+    {
+        let mut value = json!({"model_id":model_id,"log_id":form.log_id,"revision":form.revision,"retry_of":retry_of});
+        if let Some(profile) = &form.profile {
+            value["profile"] = json!(profile);
+        }
+        crate::storage::sha256(&serde_json::to_vec(&value).expect("form JSON"))
+    }
 }
 fn accept(
     state: &AppState,
@@ -235,6 +246,12 @@ fn accept(
     form: &SubmitForm,
     retry_of: Option<&str>,
 ) -> Result<Accepted, ImportError> {
+    if !crate::dfg_discovery::profile_valid(form.profile.as_deref()) {
+        return Err(error(
+            "unsupported_profile",
+            "Выберите поддерживаемый профиль.",
+        ));
+    }
     write_access(state)?;
     let issued = store::key_time(&form.request_key)
         .ok_or_else(|| error("quality_request_key", "Откройте новую форму оценки."))?;
@@ -322,7 +339,7 @@ fn accept(
             "Названия модели и журнала должны занимать до 1024 байт без управляющих символов.",
         ));
     }
-    let variants = crate::bpmn_quality_preview::rows(&log.data)?;
+    let variants = crate::dfg_discovery::rows_for(&log.data, form.profile.as_deref())?;
     if model.model.nodes.len() > 128 || model.model.flows.len() > 256 {
         return Err(error(
             "quality_model_limit",
@@ -332,6 +349,7 @@ fn accept(
     // Bound borrowed model serialization before cloning it into durable input.
     store::bytes(&model.model, 1024 * 1024)?;
     let input = QualityInput {
+        profile: form.profile.clone(),
         model: model.model.clone(),
         variants,
     };
@@ -347,7 +365,10 @@ fn accept(
                 "Дождитесь завершения или отмены задачи.",
             ));
         }
-        if original.method_sha256 != store::method_sha256() {
+        if original.profile != form.profile
+            || original.method_sha256
+                != crate::dfg_discovery::quality_method(original.profile.as_deref())
+        {
             return Err(error(
                 "quality_method_changed",
                 "Методика изменилась. Запустите новую оценку из формы.",
@@ -386,6 +407,7 @@ fn accept(
         &variants_sha256,
     );
     let meta = QualityMeta {
+        profile: form.profile.clone(),
         snapshot: lease.job.snapshot(),
         artifact_id: artifact_id.clone(),
         owner: state.actor_id().into(),
@@ -410,7 +432,7 @@ fn accept(
         training_relation: Some(relation.into()),
         model_sha256,
         variants_sha256,
-        method_sha256: store::method_sha256().into(),
+        method_sha256: crate::dfg_discovery::quality_method(form.profile.as_deref()).into(),
         report_sha256: None,
     };
     let saved = Arc::new(QualityArtifact {
@@ -471,10 +493,10 @@ fn compute_job(
     let control = job.control();
     let deadline = Instant::now() + Duration::from_secs(30);
     let mut checkpoint_error = None;
-    let result = facade::evaluate_model(
+    let result = crate::dfg_discovery::evaluate_for(
         &input.input.model,
         &input.input.variants,
-        &Value::Null,
+        input.input.profile.as_deref(),
         &mut |stage| {
             observer(stage);
             if control.is_cancelled() {
@@ -499,7 +521,7 @@ fn compute_job(
     if let Some(e) = checkpoint_error {
         return fail_job(state, &job, e);
     }
-    let core = crate::bpmn_quality::saved::result_core(result);
+    let core = crate::dfg_discovery::result_core(result, input.input.profile.as_deref());
     observer("publish");
     job.try_complete_durable_with(
         |before| {
@@ -630,6 +652,7 @@ async fn retry(
             .cloned()
             .ok_or_else(|| error("not_found", "Задача не найдена."))?;
         let submitted = SubmitForm {
+            profile: original.profile.clone(),
             log_id: original.log_id,
             revision: original.model_revision,
             request_key: form.request_key,
@@ -775,10 +798,11 @@ async fn new_form(
         for log in logs.iter().filter(|item|item.kind=="log_state") {
             options.push_str(&format!("<option value=\"{}\"{}>{}</option>",html_escape(&log.id),if !control&&model.source_log.as_deref()==Some(log.id.as_str()) {" selected"}else{""},html_escape(&log.name)));
         }
-        let mut body=format!("<h1>Сохраняемая оценка BPMN</h1><p><strong>{}</strong> · версия {}</p><p>Сохранятся снимки модели и текущей отфильтрованной версии журнала. Порог рисунка и выбор отдельной трассы не меняют вход.</p><form method=\"post\" action=\"/models/{}/quality/jobs\" class=\"platform-form\"><input type=\"hidden\" name=\"revision\" value=\"{}\"><input type=\"hidden\" name=\"request_key\" value=\"{}\"><label>Журнал<select name=\"log_id\" required>{options}</select></label>",html_escape(&model.name),model.revision,model.id,model.revision,store::request_key());
+        let mut body=format!("<h1>Сохраняемая оценка BPMN</h1><p><strong>{}</strong> · версия {}</p><p>Сохранятся снимки модели и текущей отфильтрованной версии журнала. Порог рисунка и выбор отдельной трассы не меняют вход.</p><form method=\"post\" action=\"/models/{}/quality/jobs\" class=\"platform-form\"><input type=\"hidden\" name=\"revision\" value=\"{}\"><input type=\"hidden\" name=\"request_key\" value=\"{}\"><label>Журнал<select name=\"log_id\" required>{options}</select></label><label>Профиль оценки<select name=\"profile\"><option value=\"\">Прежний · до 64 случаев / 500 событий</option><option value=\"full_log_state_machine_v1\">Полный журнал · до 1000 случаев / 20 000 событий</option></select></label><p>Полный профиль поддерживает последовательные модели с одним токеном; параллельные модели могут быть отклонены. Все случаи учитываются без выборки.</p>",html_escape(&model.name),model.revision,model.id,model.revision,store::request_key());
+        if model.training.as_ref().is_some_and(|t|t.algorithm==crate::dfg_discovery::ALGORITHM){body=body.replacen("<option value=\"full_log_state_machine_v1\">","<option value=\"full_log_state_machine_v1\" selected>",1);}
         if actor.role.can_write() && logs.iter().any(|item|item.kind=="log_state") {body.push_str("<button class=\"button primary\" type=\"submit\">Запустить и сохранить оценку</button>");}
         else {body.push_str("<p>Для запуска нужны журнал и права редактора проекта.</p>");}
-        body.push_str(&format!("</form><p>Пределы: 64 трассы, 500 событий, 32 варианта, 1000 состояний поиска. Сохранится до восьми оценок проекта; одновременно принимаются две операции.</p><p><a href=\"/quality\">Все оценки проекта</a> · <a href=\"/models/{}/quality\">Временный предпросмотр</a></p>",model.id));
+        body.push_str(&format!("</form><p>Прежний профиль: 64 трассы, 500 событий, 32 варианта. Полный: 1000 случаев, 20 000 событий, 256 вариантов и 32 действия. Оба профиля: до 1000 состояний поиска. Сохранится до восьми оценок проекта; одновременно принимаются две операции.</p><p><a href=\"/quality\">Все оценки проекта</a> · <a href=\"/models/{}/quality\">Временный предпросмотр</a></p>",model.id));
         access_view(&state,||Ok(crate::platform::page("Оценка BPMN",body)))
     }).await {Ok(r)=>r,Err(e)=>response_error(e)}
 }

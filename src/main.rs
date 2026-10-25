@@ -16,7 +16,7 @@ async fn main() -> Result<std::process::ExitCode, Box<dyn std::error::Error>> {
         let mut bytes = Vec::new();
         file.take(2 * 1024 * 1024 + 128 * 1024 + 16 * 1024 + 1)
             .read_to_end(&mut bytes)?;
-        let result = process_intelligence_rs::bpmn_quality::saved::verify_export_bytes(&bytes);
+        let result = process_intelligence_rs::full_log_saved::verify_any(&bytes);
         return Ok(match result {
             Ok(value) => {
                 println!("{value}");

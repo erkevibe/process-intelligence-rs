@@ -126,7 +126,9 @@ fn current_binding(
         return Err(conflict());
     }
     let input = DiscoveryInput {
-        variants: crate::bpmn_quality_preview::rows(&log.data).map_err(|_| conflict())?,
+        profile: m.profile.clone(),
+        variants: crate::dfg_discovery::rows_for(&log.data, m.profile.as_deref())
+            .map_err(|_| conflict())?,
     };
     if store::input_hash(&input)? != m.variants_sha256 {
         return Err(conflict());
@@ -251,6 +253,8 @@ fn persist_system_failure(s: &AppState, snapshot: &JobSnapshot) -> Result<(), Im
 #[derive(Clone, Deserialize)]
 #[serde(deny_unknown_fields)]
 struct SubmitForm {
+    #[serde(default, deserialize_with = "crate::dfg_discovery::optional_profile")]
+    profile: Option<String>,
     analysis_version: u64,
     model_name: String,
     request_key: String,
@@ -271,6 +275,12 @@ fn accept(
     retry_of: Option<&str>,
     key: &str,
 ) -> Result<Accepted, ImportError> {
+    if form.is_some_and(|f| !crate::dfg_discovery::profile_valid(f.profile.as_deref())) {
+        return Err(error(
+            "unsupported_profile",
+            "Выберите поддерживаемый алгоритм.",
+        ));
+    }
     write_access(s)?;
     let issued = quality::key_time(key)
         .ok_or_else(|| error("discovery_request_key", "Откройте новую форму построения."))?;
@@ -279,7 +289,7 @@ fn accept(
             json!({"retry_of":id})
         } else {
             let f = form.ok_or_else(store::corrupt)?;
-            json!({"log_id":log_id,"analysis_version":f.analysis_version,"model_name":f.model_name})
+            {let mut value=json!({"log_id":log_id,"analysis_version":f.analysis_version,"model_name":f.model_name});if let Some(profile)=&f.profile{value["profile"]=json!(profile);}value}
         })
         .expect("form JSON"),
     );
@@ -358,7 +368,7 @@ fn accept(
                 "Сначала дождитесь завершения или отмените задачу.",
             ));
         }
-        if m.method_sha256 != store::method_sha256() {
+        if m.method_sha256 != store::method_for(m.profile.as_deref()) {
             return Err(error(
                 "discovery_method_changed",
                 "Метод изменился. Запустите новое построение из журнала.",
@@ -402,7 +412,8 @@ fn accept(
         }
         (
             DiscoveryInput {
-                variants: crate::bpmn_quality_preview::rows(&log.data)?,
+                profile: f.profile.clone(),
+                variants: crate::dfg_discovery::rows_for(&log.data, f.profile.as_deref())?,
             },
             log_id.into(),
             log.filename.clone(),
@@ -432,6 +443,7 @@ fn accept(
         .create_reserved(reservation, Some(id.clone()))
         .map_err(|_| error("job_admission_failed", "Не удалось принять задачу."))?;
     let m = DiscoveryMeta {
+        profile: input.profile.clone(),
         snapshot: lease.job.snapshot(),
         artifact_id: artifact_id.clone(),
         owner: s.actor_id().into(),
@@ -445,7 +457,7 @@ fn accept(
         analysis_version,
         source_sha256,
         variants_sha256,
-        method_sha256: store::method_sha256().into(),
+        method_sha256: store::method_for(input.profile.as_deref()).into(),
         model_name,
         model_id: None,
         output_sha256: None,
@@ -730,11 +742,16 @@ fn stage(stage: &str) -> &str {
 fn panel(m: &DiscoveryMeta, editable: bool, result: Option<&DiscoveryOutput>) -> String {
     let id = &m.snapshot.id;
     let mut html = format!(
-        "<section id=\"discovery-job-{id}\" class=\"platform-card\" aria-live=\"polite\"><h2>{}</h2><p>{} · журнал {} · версия анализа {}.</p><p>Алгоритм: структурные варианты v1, без фильтра шума. <a href=\"/discovery/jobs/{id}/view\">Открыть задачу</a></p>",
+        "<section id=\"discovery-job-{id}\" class=\"platform-card\" aria-live=\"polite\"><h2>{}</h2><p>{} · журнал {} · версия анализа {}.</p><p>Алгоритм: {}. <a href=\"/discovery/jobs/{id}/view\">Открыть задачу</a></p>",
         stage(&m.snapshot.stage),
         html_escape(&m.model_name),
         html_escape(&m.log_name),
-        m.analysis_version
+        m.analysis_version,
+        if m.profile.is_some() {
+            "непосредственные переходы, без вывода параллельности"
+        } else {
+            "структурные варианты v1, без фильтра шума"
+        }
     );
     if m.retry_of.is_some() {
         html.push_str("<p>Повтор использует сохранённый обучающий снимок, даже если исходный журнал изменён или удалён.</p>")
@@ -764,7 +781,7 @@ fn panel(m: &DiscoveryMeta, editable: bool, result: Option<&DiscoveryOutput>) ->
     html
 }
 async fn new_form(Workspace(s): Workspace, Path(id): Path<String>) -> Response {
-    match blocking(move||{s.validate_resource_actor()?;let mut repo=s.repository.lock().expect("repository mutex");let log=repo.get_log_base(&s,&id)?.ok_or_else(||error("not_found","Журнал не найден."))?;let editable=s.actor.as_ref().is_some_and(|a|a.role.can_write());let button=if editable{"<button class=\"button primary\">Построить и сохранить модель</button>"}else{"<p>Для запуска нужны права редактора.</p>"};let body=format!("<h1>Построить BPMN-модель</h1><p>Журнал: {} · версия {}. Сохранятся текущие варианты журнала после фильтров.</p><p>Структурные варианты v1: последовательности, выбор, параллельные ветви и простые повторения. Это ограниченная эвристика, без фильтра шума. Качество на других данных проверяется отдельно.</p><form class=\"platform-form\" method=\"post\" action=\"/logs/{id}/discovery/jobs\"><input type=\"hidden\" name=\"analysis_version\" value=\"{}\"><input type=\"hidden\" name=\"request_key\" value=\"{}\"><label>Название модели<input name=\"model_name\" required value=\"{}\" maxlength=\"1024\"></label>{button}</form><p>Пределы: 6 разных действий, 64 трассы, 500 событий, 32 варианта. Общая очередь: две операции, один вычислитель. Сохраняются восемь заданий построения.</p><p><a href=\"/discovery\">Все построения</a></p>",html_escape(&log.filename),log.analysis_version,log.analysis_version,quality::request_key(),html_escape(&format!("Модель: {}",log.filename)));access_view(&s,||Ok(crate::platform::page("Построение BPMN",body)))}).await{Ok(r)=>r,Err(e)=>response_error(e)}
+    match blocking(move||{s.validate_resource_actor()?;let mut repo=s.repository.lock().expect("repository mutex");let log=repo.get_log_base(&s,&id)?.ok_or_else(||error("not_found","Журнал не найден."))?;let editable=s.actor.as_ref().is_some_and(|a|a.role.can_write());let button=if editable{"<button class=\"button primary\">Построить и сохранить модель</button>"}else{"<p>Для запуска нужны права редактора.</p>"};let body=format!("<h1>Построить BPMN-модель</h1><p>Журнал: {} · версия {}. Сохранятся текущие варианты журнала после фильтров.</p><p>Структурные варианты v1: последовательности, выбор, параллельные ветви и простые повторения. Это ограниченная эвристика, без фильтра шума. Качество на других данных проверяется отдельно.</p><form class=\"platform-form\" method=\"post\" action=\"/logs/{id}/discovery/jobs\"><input type=\"hidden\" name=\"analysis_version\" value=\"{}\"><input type=\"hidden\" name=\"request_key\" value=\"{}\"><label>Алгоритм<select name=\"profile\"><option value=\"\">Структурные варианты v1 · малый журнал</option><option value=\"full_log_state_machine_v1\">Непосредственные переходы · полный журнал</option></select></label><p>Полный профиль: до 1000 случаев, 20 000 событий, 256 вариантов и 32 действий. Сохраняет соседства и циклы; допускает новые сочетания путей, не выводит параллельность. Качество оценивается по всем случаям.</p><label>Название модели<input name=\"model_name\" required value=\"{}\" maxlength=\"1024\"></label>{button}</form><p>Пределы структурного профиля: 6 разных действий, 64 трассы, 500 событий, 32 варианта. Общая очередь: две операции, один вычислитель. Сохраняются восемь заданий построения.</p><p><a href=\"/discovery\">Все построения</a></p>",html_escape(&log.filename),log.analysis_version,log.analysis_version,quality::request_key(),html_escape(&format!("Модель: {}",log.filename)));access_view(&s,||Ok(crate::platform::page("Построение BPMN",body)))}).await{Ok(r)=>r,Err(e)=>response_error(e)}
 }
 async fn index(Workspace(s): Workspace) -> Response {
     match blocking(move||{s.validate_resource_actor()?;let repo=s.repository.lock().expect("repository mutex");let editable=s.actor.as_ref().is_some_and(|a|a.role.can_write());let mut body=String::from("<h1>Построение моделей</h1><p>Сохранённые задачи и обучающие снимки. Новое построение можно запустить из <a href=\"/logs\">журнала</a>.</p>");let mut metas:Vec<_>=repo.discovery_jobs.values().collect();metas.sort_by_key(|a| std::cmp::Reverse(a.created_at));for m in metas{body.push_str(&panel(m,editable,None))}access_view(&s,||Ok(crate::platform::page("Построение моделей",body)))}).await{Ok(r)=>r,Err(e)=>response_error(e)}
@@ -790,7 +807,7 @@ async fn view(Workspace(s): Workspace, Path(id): Path<String>) -> Response {
     match blocking(move||{s.validate_resource_actor()?;let repo=s.repository.lock().expect("repository mutex");let m=repo.discovery_jobs.get(&id).ok_or_else(||error("not_found","Задача не найдена."))?;let editable=s.actor.as_ref().is_some_and(|a|a.role.can_write());let saved=if m.snapshot.state==JobState::Completed{Some(artifact(&s,&repo,m)?)}else{None};let inner=panel(m,editable,saved.as_ref().and_then(|a|a.output.as_ref()));let init=if !m.snapshot.is_terminal(){format!(" data-init=\"@get('/discovery/jobs/{id}/events')\"")}else{String::new()};access_view(&s,||Ok(crate::platform::page("Построение BPMN",format!("<h1>Задача построения</h1><div{init}>{inner}</div><p><a href=\"/discovery\">Все построения</a></p>"))))}).await{Ok(r)=>r,Err(e)=>response_error(e)}
 }
 async fn download(Workspace(s): Workspace, Path(id): Path<String>) -> Response {
-    match blocking(move||{s.validate_resource_actor()?;let repo=s.repository.lock().expect("repository mutex");let m=repo.discovery_jobs.get(&id).ok_or_else(||error("not_found","Задача не найдена."))?;let a=artifact(&s,&repo,m)?;let bytes=quality::bytes(&json!({"schema_version":1,"algorithm":store::ALGORITHM,"parameters":store::parameters(),"metadata":m,"artifact":a,"author_signature_verified":false}),store::MAX_ARTIFACT+16*1024)?;access_view(&s,||Ok(([(header::CONTENT_TYPE,"application/json; charset=utf-8"),(header::CONTENT_DISPOSITION,"attachment; filename=discovery-report.json")],bytes)))}).await{Ok(r)=>r.into_response(),Err(e)=>response_error(e)}
+    match blocking(move||{s.validate_resource_actor()?;let repo=s.repository.lock().expect("repository mutex");let m=repo.discovery_jobs.get(&id).ok_or_else(||error("not_found","Задача не найдена."))?;let a=artifact(&s,&repo,m)?;let bytes=quality::bytes(&json!({"schema_version":1,"algorithm":store::identity(m).algorithm,"parameters":store::parameters_for(m.profile.as_deref()),"metadata":m,"artifact":a,"author_signature_verified":false}),store::MAX_ARTIFACT+16*1024)?;access_view(&s,||Ok(([(header::CONTENT_TYPE,"application/json; charset=utf-8"),(header::CONTENT_DISPOSITION,"attachment; filename=discovery-report.json")],bytes)))}).await{Ok(r)=>r.into_response(),Err(e)=>response_error(e)}
 }
 async fn download_bpmn(Workspace(s): Workspace, Path(id): Path<String>) -> Response {
     match blocking(move || {

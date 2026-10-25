@@ -1,7 +1,207 @@
 use super::*;
 use std::collections::BTreeMap;
+
+#[test]
+fn full_profile_discovery_has_explicit_identity_and_reproducible_saved_output() {
+    let (mut meta, mut artifact) = fixture();
+    meta.profile = Some(crate::dfg_discovery::PROFILE.into());
+    artifact.input.profile = meta.profile.clone();
+    artifact.input.variants = json!([{"sequence":["A","B","C"],"frequency":625}]);
+    meta.variants_sha256 = store::input_hash(&artifact.input).unwrap();
+    meta.method_sha256 = store::method_for(meta.profile.as_deref()).into();
+    assert_eq!(
+        store::identity(&meta).algorithm,
+        crate::dfg_discovery::ALGORITHM
+    );
+    let output = store::compute(
+        &artifact.input,
+        Instant::now() + Duration::from_secs(30),
+        &mut |_| Ok(()),
+    )
+    .unwrap();
+    assert!(output.tree.is_none());
+    assert_eq!(output.training_report["trace_count"], 625);
+    meta.snapshot.state = JobState::Completed;
+    meta.output_sha256 = Some(crate::storage::sha256(
+        &quality::bytes(&output, store::MAX_OUTPUT).unwrap(),
+    ));
+    artifact.output = Some(output);
+    store::validate_artifact(&meta, &artifact).unwrap();
+    store::verify_restored(&meta, &artifact, Instant::now() + Duration::from_secs(30)).unwrap();
+    let mut forged = artifact.clone();
+    forged.output.as_mut().unwrap().training_report["metrics"]["precision"]["scalar"] = json!(0.5);
+    let mut coherent = meta.clone();
+    coherent.output_sha256 = Some(crate::storage::sha256(
+        &quality::bytes(forged.output.as_ref().unwrap(), store::MAX_OUTPUT).unwrap(),
+    ));
+    assert!(
+        store::verify_restored(&coherent, &forged, Instant::now() + Duration::from_secs(30))
+            .is_err()
+    );
+}
+
+#[test]
+#[ignore = "fresh owned S36_CONTROL_DATABASE_URL pi_s36_control_test required"]
+fn postgres_full_profile_cancel_revoke_and_interrupted_retry() {
+    assert_eq!(
+        std::env::var("S36_FULL_OWNED_FIXTURE").as_deref(),
+        Ok("yes")
+    );
+    let url = std::env::var("S36_CONTROL_DATABASE_URL").unwrap();
+    let config: postgres::Config = url.parse().unwrap();
+    assert_eq!(config.get_dbname(), Some("pi_s36_control_test"));
+    assert!(matches!(config.get_hosts(),[postgres::config::Host::Tcp(host)] if host=="127.0.0.1"));
+    {
+        let mut p = postgres::Client::connect(&url, postgres::NoTls).unwrap();
+        let n: i64 = p
+            .query_one(
+                "SELECT count(*) FROM pg_tables WHERE schemaname='public'",
+                &[],
+            )
+            .unwrap()
+            .get(0);
+        assert_eq!(n, 0);
+    }
+    let (session, project, completed, pending, bytes) = {
+        let root = AppState::open(3147, url.clone()).unwrap();
+        let p = root.platform.as_ref().unwrap().clone();
+        let session = p
+            .auth
+            .setup("s36_owner", "S36ControlOwnerPassword123")
+            .unwrap();
+        let owner = p.auth.actor(&session).unwrap();
+        let project = owner.project_id.clone();
+        let mut s = p.scope(&root, owner.clone()).unwrap();
+        s.session = Some(session.clone());
+        let log = crate::domain::EventLog {
+            name: None,
+            warnings: vec![],
+            cases: (0..625)
+                .map(|i| crate::domain::Case {
+                    id: format!("case-{i}"),
+                    name: None,
+                    events: ["A", "B", "C"]
+                        .into_iter()
+                        .enumerate()
+                        .map(|(ordinal, activity)| crate::domain::Event {
+                            ordinal,
+                            activity: activity.into(),
+                            timestamp: None,
+                            lifecycle: None,
+                        })
+                        .collect(),
+                })
+                .collect(),
+        };
+        let id = crate::web::store_log(
+            &s,
+            log.clone(),
+            crate::mining::analyze(&log),
+            "Full control".into(),
+            0,
+            crate::storage::sha256(&serde_json::to_vec(&log).unwrap()),
+            crate::csv_io::NormalizationOrder::Source,
+            None,
+        )
+        .unwrap()
+        .id
+        .clone();
+        let mut full = form(1);
+        full.profile = Some(crate::dfg_discovery::PROFILE.into());
+        let completed = run(&s, accept_new(&s, &id, &full), |_| {});
+        assert_eq!(saved(&s, &completed).0.snapshot.state, JobState::Completed);
+        let bytes = quality::bytes(saved(&s, &completed).1.as_ref(), store::MAX_ARTIFACT).unwrap();
+        full.request_key = quality::request_key();
+        let accepted = accept_new(&s, &id, &full);
+        let job = accepted.launch.as_ref().unwrap().0.job.clone();
+        let cancelled = run(&s, accepted, |stage| {
+            if stage == "publish" {
+                job.try_cancel_with(|snap| persist(&s, snap, None)).unwrap();
+            }
+        });
+        assert_eq!(saved(&s, &cancelled).0.snapshot.state, JobState::Cancelled);
+        assert!(saved(&s, &cancelled).1.output.is_none());
+        assert_eq!(s.repository.lock().unwrap().model_count(), 1);
+        p.auth
+            .add_user(
+                &owner,
+                &session,
+                "s36_editor",
+                "S36ControlEditorPassword123",
+            )
+            .unwrap();
+        p.auth
+            .grant(
+                &owner,
+                &session,
+                &project,
+                "s36_editor",
+                crate::auth::Role::Editor,
+            )
+            .unwrap();
+        let editor_session = p
+            .auth
+            .login("s36_editor", "S36ControlEditorPassword123")
+            .unwrap();
+        p.auth.switch(&editor_session, &project).unwrap();
+        let mut editor = p
+            .scope(&root, p.auth.actor(&editor_session).unwrap())
+            .unwrap();
+        editor.session = Some(editor_session);
+        full.request_key = quality::request_key();
+        let accepted = accept_new(&editor, &id, &full);
+        let revoked = run(&editor, accepted, |stage| {
+            if stage == "publish" {
+                p.auth
+                    .grant(
+                        &owner,
+                        &session,
+                        &project,
+                        "s36_editor",
+                        crate::auth::Role::Viewer,
+                    )
+                    .unwrap();
+            }
+        });
+        assert_eq!(
+            saved(&s, &revoked).0.snapshot.error.as_ref().unwrap().code,
+            "access_denied"
+        );
+        assert!(saved(&s, &revoked).1.output.is_none());
+        assert_eq!(s.repository.lock().unwrap().model_count(), 1);
+        full.request_key = quality::request_key();
+        let queued = accept_new(&s, &id, &full);
+        let pending = queued.meta.snapshot.id.clone();
+        drop(queued);
+        (session, project, completed, pending, bytes)
+    };
+    let root = reopen(&url);
+    let p = root.platform.as_ref().unwrap().clone();
+    let mut s = p.scope(&root, p.auth.actor(&session).unwrap()).unwrap();
+    s.session = Some(session);
+    assert_eq!(s.actor.as_ref().unwrap().project_id, project);
+    assert_eq!(saved(&s, &pending).0.snapshot.stage, "interrupted");
+    assert!(saved(&s, &pending).1.output.is_none());
+    assert_eq!(
+        quality::bytes(saved(&s, &completed).1.as_ref(), store::MAX_ARTIFACT).unwrap(),
+        bytes
+    );
+    let retried = run(
+        &s,
+        accept(&s, "", None, Some(&pending), &quality::request_key()).unwrap(),
+        |_| {},
+    );
+    assert_eq!(saved(&s, &retried).0.snapshot.state, JobState::Completed);
+    let repo = crate::repository_v2::load(&p.database, &project).unwrap();
+    crate::platform::validate_backup(&repo).unwrap();
+    println!(
+        "{}",
+        json!({"status":"S36_FULL_CANCEL_REVOKE_INTERRUPTED_RETRY_PASS","cases":625})
+    );
+}
 fn input() -> DiscoveryInput {
     DiscoveryInput {
+        profile: None,
         variants: json!([{"sequence":["A","B","B","C"],"frequency":10},{"sequence":["A","B","C"],"frequency":10}]),
     }
 }
@@ -10,6 +210,7 @@ fn fixture() -> (DiscoveryMeta, DiscoveryArtifact) {
     let lease = jobs.create_with_id(Some("job-1".into())).unwrap();
     let input = input();
     let m = DiscoveryMeta {
+        profile: None,
         snapshot: lease.job.snapshot(),
         artifact_id: "discovery-2".into(),
         owner: "owner".into(),
@@ -161,6 +362,7 @@ fn seed(s: &AppState) -> String {
 }
 fn form(version: u64) -> SubmitForm {
     SubmitForm {
+        profile: None,
         analysis_version: version,
         model_name: "<script>bad()</script> Модель".into(),
         request_key: quality::request_key(),
@@ -241,6 +443,7 @@ fn postgres_durable_discovery_publication_retries_revocation_and_recovery() {
         assert!(accept_new(&s, &log, &f).launch.is_none());
         assert_eq!(s.repository.lock().unwrap().storage_revision, revision);
         let mut conflicting = SubmitForm {
+            profile: None,
             analysis_version: f.analysis_version,
             model_name: "Different".into(),
             request_key: f.request_key.clone(),
