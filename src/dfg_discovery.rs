@@ -214,13 +214,14 @@ pub fn evaluate(
             .map(|(sequence, frequency)| json!({"sequence":sequence,"frequency":frequency}))
             .collect::<Vec<_>>()
     );
-    let (net, _) = quality::bridge::from_model(model)?;
+    let (net, _) = crate::full_log_bridge::from_model(model)?;
     let raw = serde_json::to_vec(
         &serde_json::to_value(&net).map_err(|_| Issue::refused("net_serialization"))?,
     )
     .map_err(|_| Issue::refused("net_serialization"))?;
     checkpoint("markings")?;
     let graph = quality::state::admit(&net, &quality::sha(&raw), limits())?;
+    prove_state_machine_soundness(&graph)?;
     checkpoint("fitness")?;
     let fitness = quality::metrics::fitness(&net, &variants, limits());
     checkpoint("precision")?;
@@ -242,4 +243,118 @@ pub fn evaluate(
     }
     checkpoint("complete")?;
     Ok(value)
+}
+
+fn prove_state_machine_soundness(graph: &quality::state::Graph) -> Result<()> {
+    if graph.final_states.len() != 1 || graph.states.iter().any(|m| m.iter().sum::<u64>() != 1) {
+        return Err(Issue::refused("full_log_not_single_token"));
+    }
+    let mut reverse = vec![Vec::new(); graph.states.len()];
+    let mut live = BTreeSet::new();
+    for edge in &graph.edges {
+        reverse[edge.to].push(edge.from);
+        live.insert(&edge.transition);
+    }
+    let mut done = BTreeSet::from([graph.final_states[0]]);
+    let mut todo = vec![graph.final_states[0]];
+    while let Some(s) = todo.pop() {
+        for previous in &reverse[s] {
+            if done.insert(*previous) {
+                todo.push(*previous);
+            }
+        }
+    }
+    if done.len() != graph.states.len()
+        || live.len() != graph.transitions.len()
+        || graph.edges.iter().any(|e| e.from == graph.final_states[0])
+    {
+        return Err(Issue::refused("full_log_not_sound"));
+    }
+    Ok(())
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    fn rows(sequences: &[(&[&str], u64)]) -> Value {
+        json!(
+            sequences
+                .iter()
+                .map(|(s, n)| json!({"sequence":s,"frequency":n}))
+                .collect::<Vec<_>>()
+        )
+    }
+    #[test]
+    fn full_profile_counts_limits_and_duplicate_rows_are_explicit() {
+        assert!(parse_rows(&rows(&[(&["A"], 625)])).is_ok());
+        for bad in [
+            rows(&[(&["A"], 1001)]),
+            rows(&[(&["A"], 0)]),
+            rows(&[(&["A"], u64::MAX)]),
+            rows(&[(&["A"], 1), (&["A"], 1)]),
+            rows(&[(&["\n"], 1)]),
+        ] {
+            assert!(parse_rows(&bad).is_err(), "{bad}");
+        }
+        let long = vec!["A"; 65];
+        assert!(parse_rows(&rows(&[(&long, 1)])).is_err());
+        let labels: Vec<_> = (0..33).map(|i| i.to_string()).collect();
+        let too_many = json!(
+            labels
+                .iter()
+                .map(|s| json!({"sequence":[s],"frequency":1}))
+                .collect::<Vec<_>>()
+        );
+        assert!(parse_rows(&too_many).is_err());
+        assert!(parse_rows(&rows(&[(&vec!["A"; 64], 313)])).is_err());
+    }
+    #[test]
+    fn loop_and_empty_case_fit_and_bridge_matches_historical_semantics() {
+        let input = rows(&[(&["A", "B", "A", "C"], 2), (&[], 1)]);
+        let model = discover(&input, &mut |_| Ok(())).unwrap();
+        let (old, _) = quality::bridge::from_model(&model).unwrap();
+        let (new, _) = crate::full_log_bridge::from_model(&model).unwrap();
+        assert_eq!(
+            serde_json::to_value(old).unwrap(),
+            serde_json::to_value(new).unwrap()
+        );
+        let report = evaluate(&model, &input, &mut |_| Ok(())).unwrap();
+        assert_eq!(
+            report["metrics"]["fitness"]["integer_components"]["weighted_total_cost"],
+            0
+        );
+        let xml = bpmn::serialize(&model).unwrap();
+        let imported = bpmn::parse(xml.as_bytes()).unwrap();
+        assert_eq!(
+            report["metrics"],
+            evaluate(&imported, &input, &mut |_| Ok(())).unwrap()["metrics"]
+        );
+    }
+    #[test]
+    fn adjacency_generalization_is_measured_instead_of_claimed_exact() {
+        let input = rows(&[(&["A", "B", "C"], 1), (&["D", "B", "E"], 1)]);
+        let model = discover(&input, &mut |_| Ok(())).unwrap();
+        let report = evaluate(&model, &input, &mut |_| Ok(())).unwrap();
+        assert!(report["metrics"]["precision"]["scalar"].as_f64().unwrap() < 1.0);
+        let unseen = rows(&[(&["A", "B", "E"], 1)]);
+        assert_eq!(
+            evaluate(&model, &unseen, &mut |_| Ok(())).unwrap()["metrics"]["fitness"]["integer_components"]
+                ["weighted_total_cost"],
+            0
+        );
+        let mut reversed = input.as_array().unwrap().clone();
+        reversed.reverse();
+        assert_eq!(
+            serde_json::to_value(&model).unwrap(),
+            serde_json::to_value(discover(&json!(reversed), &mut |_| Ok(())).unwrap()).unwrap()
+        );
+    }
+    #[test]
+    fn cancellation_precedes_construction() {
+        let error = discover(&rows(&[(&["A"], 1)]), &mut |_| {
+            Err(Issue::refused("cancelled"))
+        })
+        .unwrap_err();
+        assert_eq!(error.reason, "cancelled");
+    }
 }

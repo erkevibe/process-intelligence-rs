@@ -22,6 +22,7 @@ pub mod domain;
 pub mod event_io;
 pub mod filters;
 pub mod folders;
+mod full_log_bridge;
 pub mod import_provenance;
 pub mod jobs;
 mod migrations;
