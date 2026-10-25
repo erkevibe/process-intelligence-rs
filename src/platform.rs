@@ -27,6 +27,11 @@ use std::{
     time::Instant,
 };
 use tokio::sync::Semaphore;
+#[cfg(test)]
+#[path = "csv_performance_http_tests.rs"]
+mod csv_performance_http_tests;
+#[path = "csv_performance_render.rs"]
+mod csv_performance_render;
 #[derive(Clone, Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
 pub(crate) struct StoredModel {
@@ -523,6 +528,10 @@ pub(crate) fn routes() -> Router<AppState> {
         .route("/csv", get(csv_form))
         .route("/csv/preview", post(csv_preview))
         .route("/csv/import", post(csv_import))
+        .route(
+            "/csv/performance",
+            post(csv_performance).layer(DefaultBodyLimit::max(64 * 1024)),
+        )
         .route("/xes", get(xes_form))
         .route("/xes/preview", post(xes_preview))
         .route("/xes/previews/{token}/report", get(xes_report))
@@ -1265,9 +1274,160 @@ struct CsvForm {
     #[serde(default)]
     timestamp_column: String,
     #[serde(default)]
+    naive_timestamp_offset: String,
+    #[serde(default)]
     lifecycle_column: String,
     order: NormalizationOrder,
 }
+
+#[derive(Clone, Deserialize)]
+struct CsvPerformanceForm {
+    token: String,
+    case_column: String,
+    activity_column: String,
+    #[serde(default)]
+    timestamp_column: String,
+    #[serde(default)]
+    start_timestamp_column: String,
+    #[serde(default)]
+    naive_timestamp_offset: String,
+    #[serde(default)]
+    lifecycle_column: String,
+    order: NormalizationOrder,
+    #[serde(default = "csv_performance_days")]
+    threshold_days: u32,
+    #[serde(default = "csv_performance_all")]
+    cohort: String,
+    #[serde(default)]
+    output: String,
+}
+fn csv_performance_days() -> u32 {
+    28
+}
+fn csv_performance_all() -> String {
+    "all".into()
+}
+
+fn csv_performance_error(error: ImportError, wants_json: bool) -> Response {
+    if wants_json {
+        return response_error(error);
+    }
+    let status = response_error(error.clone()).status();
+    let mut response = page(
+        "Длительности не рассчитаны",
+        format!(
+            "<h1>Проверьте настройки времени</h1><p role=\"alert\">{}</p><p>Исправьте выбранные колонки или смещение UTC в предыдущей форме и повторите просмотр. Если пять минут уже прошли, загрузите CSV заново.</p><p><a href=\"/csv\">Загрузить CSV заново</a></p>",
+            render::html_escape(&error.message)
+        ),
+    );
+    *response.status_mut() = status;
+    response
+}
+
+async fn csv_performance(
+    Workspace(state): Workspace,
+    headers: HeaderMap,
+    Form(form): Form<CsvPerformanceForm>,
+) -> Response {
+    let wants_json = headers
+        .get(header::ACCEPT)
+        .is_some_and(|v| v == "application/json");
+    let cpu = match state.cpu.clone().try_acquire_owned() {
+        Ok(permit) => permit,
+        Err(_) => {
+            return csv_performance_error(
+                failure("busy", "Другой журнал уже анализируется."),
+                wants_json,
+            );
+        }
+    };
+    let result = blocking(move || {
+        let _cpu = cpu;
+        state.validate_resource_actor()?;
+        if !["all", "fast", "boundary", "slow"].contains(&form.cohort.as_str())
+            || !["", "json"].contains(&form.output.as_str())
+        {
+            return Err(failure(
+                "csv_performance",
+                "Неизвестная группа или формат просмотра.",
+            ));
+        }
+        let p = platform(&state)?;
+        let a = actor(&state)?;
+        let (bytes, filename, delimiter) = {
+            let pending = p.pending.lock().expect("CSV mutex");
+            let source = pending
+                .get(&form.token)
+                .filter(|v| {
+                    v.user == a.id
+                        && v.project == a.project_id
+                        && v.expires > chrono::Utc::now().timestamp()
+                })
+                .ok_or_else(|| {
+                    failure(
+                        "preview_expired",
+                        "Предварительный просмотр истёк. Загрузите CSV заново.",
+                    )
+                })?;
+            (
+                source.bytes.clone(),
+                source.filename.clone(),
+                source.delimiter,
+            )
+        };
+        let mapping = CsvMapping {
+            case_column: form.case_column.clone(),
+            activity_column: form.activity_column.clone(),
+            timestamp_column: (!form.timestamp_column.is_empty())
+                .then(|| form.timestamp_column.clone()),
+            naive_timestamp_offset: (!form.naive_timestamp_offset.is_empty())
+                .then(|| form.naive_timestamp_offset.clone()),
+            lifecycle_column: (!form.lifecycle_column.is_empty())
+                .then(|| form.lifecycle_column.clone()),
+            delimiter,
+            order: form.order,
+        };
+        let report = crate::csv_performance::analyze_csv(
+            &bytes,
+            &mapping,
+            &form.start_timestamp_column,
+            form.threshold_days,
+        )?;
+        let response = if form.output == "json" {
+            let raw = serde_json::to_vec(&report)
+                .map_err(|_| failure("csv_performance", "Не удалось сформировать отчёт."))?;
+            if raw.len() > 8 * 1024 * 1024 {
+                return Err(failure("csv_performance", "Отчёт превышает предел 8 МиБ."));
+            }
+            (
+                [
+                    (header::CONTENT_TYPE, "application/json; charset=utf-8"),
+                    (
+                        header::CONTENT_DISPOSITION,
+                        "attachment; filename=csv-performance.json",
+                    ),
+                ],
+                raw,
+            )
+                .into_response()
+        } else {
+            page(
+                "Длительности CSV",
+                csv_performance_render::render(&report, &filename, &form),
+            )
+        };
+        // The source token and result remain scoped to current membership even
+        // when access changes while the blocking calculation runs.
+        p.auth
+            .with_view_access(current_session(&state)?, &a, || Ok(response))
+    })
+    .await;
+    match result {
+        Ok(response) => response,
+        Err(error) => csv_performance_error(error, wants_json),
+    }
+}
+
 async fn csv_import(Workspace(state): Workspace, Form(form): Form<CsvForm>) -> Response {
     let permit = match state.cpu.clone().try_acquire_owned() {
         Ok(p) => p,
@@ -1298,6 +1458,8 @@ async fn csv_import(Workspace(state): Workspace, Form(form): Form<CsvForm>) -> R
             case_column: form.case_column,
             activity_column: form.activity_column,
             timestamp_column: (!form.timestamp_column.is_empty()).then_some(form.timestamp_column),
+            naive_timestamp_offset: (!form.naive_timestamp_offset.is_empty())
+                .then_some(form.naive_timestamp_offset),
             lifecycle_column: (!form.lifecycle_column.is_empty()).then_some(form.lifecycle_column),
             delimiter,
             order: form.order,

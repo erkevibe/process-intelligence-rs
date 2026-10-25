@@ -420,6 +420,7 @@ fn csv(input: &[u8], inventory: &mut Inventory) -> Result<(EventLog, Core)> {
         case_column: "case".into(),
         activity_column: "activity".into(),
         timestamp_column: Some("timestamp".into()),
+        naive_timestamp_offset: None,
         lifecycle_column: Some("lifecycle".into()),
         delimiter: b',',
         order: NormalizationOrder::Source,

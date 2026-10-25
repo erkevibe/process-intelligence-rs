@@ -1,0 +1,10 @@
+[Unit]
+Description=ProcessMining daily backup at 03:00 Asia/Qyzylorda
+
+[Timer]
+OnCalendar=*-*-* 03:00:00 Asia/Qyzylorda
+Persistent=true
+Unit=process-intelligence-backup.service
+
+[Install]
+WantedBy=timers.target

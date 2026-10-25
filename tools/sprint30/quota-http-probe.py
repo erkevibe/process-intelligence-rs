@@ -5,6 +5,7 @@ import http.cookiejar
 import json
 import os
 from pathlib import Path
+import tomllib
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -70,7 +71,10 @@ def upload():
 
 
 code,raw=request('GET','/health')
-check('actual_011_ready',code==200 and json.loads(raw)['version']=='0.11.0')
+expected_version=tomllib.loads(Path('Cargo.toml').read_text())['package']['version']
+health=json.loads(raw)
+# Preserve the historical observation ID while requiring the exact current build.
+check('actual_011_ready',code==200 and health['status']=='ready' and health['version']==expected_version)
 code,_=request('POST','/setup',dict(username='s30_http_owner',password='S30QuotaHttpOwnerPassword123'))
 check('fresh_owner_setup',code==303)
 initial=status()

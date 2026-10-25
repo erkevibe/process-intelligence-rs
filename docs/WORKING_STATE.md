@@ -1,5 +1,31 @@
 # Рабочее состояние ProcessMining
 
+## Sprint34: установка на предоставленный LAN-сервер
+
+Новое окно пользователя: 25.10.2026 08:44:58–16:44:58 UTC
+(13:44:58–21:44:58 Asia/Qyzylorda). Предыдущее окно завершено, не продолжается.
+Ветка `codex/sprint-34-lan-operations` от принятого main14a75e3.
+Принятый бинарник c9440eb/0.11.0 установлен на Ubuntu24.04/LXC; manifest1267
+и GitHub ZIP сверены. PostgreSQL18.6 UTF8, schema6, Caddy2.11.7, службы
+systemd и LAN-firewall работают. Rust-код не менялся.
+
+38 целевых проверок/58 запросов, полный BPMN roundtrip, numeric replay,
+restart/persistence, полная копия и восстановление в отдельную базу прошли.
+Проверены запуск восстановленной базы, отказ pg_dump, SIGKILL backup-процесса
+с восстановлением app через ExecStopPost, согласованный restart PostgreSQL.
+Импорт100000events/20000cases прошёл; BPMN по-прежнему64cases/500events.
+Ежедневная копия03:00Asia/Qyzylorda,14завершённых копий; первая off-host
+копия на защищённом каталоге PC сверена. Регулярный off-host транспорт не задан.
+
+Точка продолжения `.local/server-deploy-20261025/checkpoint.json`.
+Доступ и секреты в защищённом `C:/Users/alikh/.codex/private-server-access`,
+содержимое не публиковать. Ключ id_baurfax исключён локальным Git exclude.
+Ожидается пользовательское подтверждение Windows CA; браузер без доверия
+закономерно ERR_CERT_AUTHORITY_INVALID, обход проверки не применяется.
+Пользовательский сервис3131 и прежние локальные PG/app не трогать.
+Отчёт [SPRINT_34_REPORT.md](SPRINT_34_REPORT.md),
+эксплуатация [LINUX_LAN_OPERATIONS.md](LINUX_LAN_OPERATIONS.md).
+
 ## Sprint33: реальный DDL-переход v5→v6 под обычной ролью
 
 PR45 принят в maincb22669c: точныйddbd61f,8/8CI, независимый итоговый PASS.

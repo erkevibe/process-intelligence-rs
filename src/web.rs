@@ -817,7 +817,13 @@ async fn guard_inner(State(state): State<AppState>, mut request: Request, next: 
                 || path == "/models" && method != axum::http::Method::GET
                 || matches!(
                     path.as_str(),
-                    "/backup" | "/restore" | "/demo" | "/jobs" | "/csv/preview" | "/csv/import"
+                    "/backup"
+                        | "/restore"
+                        | "/demo"
+                        | "/jobs"
+                        | "/csv/preview"
+                        | "/csv/import"
+                        | "/csv/performance"
                 );
             permit = if heavy {
                 if let Some(p) = &state.platform {

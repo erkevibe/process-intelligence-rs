@@ -24,14 +24,17 @@ trap cleanup EXIT
 export S29_SERVER_PID="$pi_contract_pid"
 wait_ready() {
 python3 - <<'PY'
-import json, os, time, urllib.error, urllib.request
+import json, os, time, tomllib, urllib.error, urllib.request
+from pathlib import Path
 client = urllib.request.build_opener(urllib.request.ProxyHandler({}))
+expected_version = tomllib.loads(Path('Cargo.toml').read_text())['package']['version']
 end = time.monotonic()+20
 while True:
     os.kill(int(os.environ['S29_SERVER_PID']),0)
     try:
         with client.open('http://127.0.0.1:3147/health',timeout=1) as response:
-            assert response.status == 200 and json.load(response)['version'] == '0.11.0'
+            value = json.load(response)
+            assert response.status == 200 and value['status'] == 'ready' and value['version'] == expected_version
         break
     except urllib.error.URLError:
         if time.monotonic() >= end:
