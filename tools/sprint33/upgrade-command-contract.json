@@ -1,0 +1,283 @@
+{
+  "schema_version": 1,
+  "scope": "Exactordered60nativecommands/7stableHTTPqualifiedb70e7d6; orderunchangedfrom91c928; variablehealthretriescheckedseparately; retainedconsistency,notexecutionreplay",
+  "commands": [
+    {
+      "label": "s33-database-absent",
+      "program": "docker"
+    },
+    {
+      "label": "unit-identity",
+      "program": "systemctl"
+    },
+    {
+      "label": "unit-identity",
+      "program": "systemctl"
+    },
+    {
+      "label": "full-private-database-snapshot",
+      "program": "docker"
+    },
+    {
+      "label": "s33-private-clone-dump",
+      "program": "docker"
+    },
+    {
+      "label": "s33-create-owned-clone",
+      "program": "docker"
+    },
+    {
+      "label": "s33-restore-owned-clone",
+      "program": "docker"
+    },
+    {
+      "label": "s33-v6-snapshot",
+      "program": "docker"
+    },
+    {
+      "label": "s33-ownership-and-role",
+      "program": "docker"
+    },
+    {
+      "label": "s33-expected-header-policy-removal",
+      "program": "docker"
+    },
+    {
+      "label": "s33-construct-only-synthetic-v5",
+      "program": "docker"
+    },
+    {
+      "label": "s33-v5-snapshot",
+      "program": "docker"
+    },
+    {
+      "label": "s33-v5-barrier-and-policies",
+      "program": "docker"
+    },
+    {
+      "label": "replace-credential-restore",
+      "program": "sudo"
+    },
+    {
+      "label": "replaced-credential-stat",
+      "program": "sudo"
+    },
+    {
+      "label": "unit-identity",
+      "program": "systemctl"
+    },
+    {
+      "label": "unit-identity",
+      "program": "systemctl"
+    },
+    {
+      "label": "s32-transient-properties",
+      "program": "systemctl"
+    },
+    {
+      "label": "s32-offline-cli-0",
+      "program": "sudo"
+    },
+    {
+      "label": "s32-transient-properties",
+      "program": "systemctl"
+    },
+    {
+      "label": "s32-unit-object",
+      "program": "busctl"
+    },
+    {
+      "label": "s32-credential-binding",
+      "program": "busctl"
+    },
+    {
+      "label": "s32-stop-owned-transient",
+      "program": "sudo"
+    },
+    {
+      "label": "s32-transient-properties",
+      "program": "systemctl"
+    },
+    {
+      "label": "s33-v6-snapshot",
+      "program": "docker"
+    },
+    {
+      "label": "s33-new-quota-table-owner",
+      "program": "docker"
+    },
+    {
+      "label": "s33-private-records-for-recount",
+      "program": "docker"
+    },
+    {
+      "label": "s33-private-quota-counters",
+      "program": "docker"
+    },
+    {
+      "label": "s33-project-ids",
+      "program": "docker"
+    },
+    {
+      "label": "unit-identity",
+      "program": "systemctl"
+    },
+    {
+      "label": "unit-identity",
+      "program": "systemctl"
+    },
+    {
+      "label": "s32-transient-properties",
+      "program": "systemctl"
+    },
+    {
+      "label": "s32-offline-cli-0",
+      "program": "sudo"
+    },
+    {
+      "label": "s32-transient-properties",
+      "program": "systemctl"
+    },
+    {
+      "label": "s32-unit-object",
+      "program": "busctl"
+    },
+    {
+      "label": "s32-credential-binding",
+      "program": "busctl"
+    },
+    {
+      "label": "s32-stop-owned-transient",
+      "program": "sudo"
+    },
+    {
+      "label": "s32-transient-properties",
+      "program": "systemctl"
+    },
+    {
+      "label": "s33-v6-snapshot",
+      "program": "docker"
+    },
+    {
+      "label": "s33-start-app",
+      "program": "sudo"
+    },
+    {
+      "label": "s33-start-proxy",
+      "program": "sudo"
+    },
+    {
+      "label": "unit-identity",
+      "program": "systemctl"
+    },
+    {
+      "label": "running-executable",
+      "program": "sudo"
+    },
+    {
+      "label": "running-user",
+      "program": "sudo"
+    },
+    {
+      "label": "running-arguments",
+      "program": "sudo"
+    },
+    {
+      "label": "credential-environment",
+      "program": "sudo"
+    },
+    {
+      "label": "unit-identity",
+      "program": "systemctl"
+    },
+    {
+      "label": "running-executable",
+      "program": "sudo"
+    },
+    {
+      "label": "running-user",
+      "program": "sudo"
+    },
+    {
+      "label": "running-arguments",
+      "program": "sudo"
+    },
+    {
+      "label": "full-private-database-snapshot",
+      "program": "docker"
+    },
+    {
+      "label": "s33-private-service-and-cli-journals",
+      "program": "sudo"
+    },
+    {
+      "label": "s33-stop-proxy",
+      "program": "sudo"
+    },
+    {
+      "label": "s33-stop-app",
+      "program": "sudo"
+    },
+    {
+      "label": "unit-identity",
+      "program": "systemctl"
+    },
+    {
+      "label": "unit-identity",
+      "program": "systemctl"
+    },
+    {
+      "label": "replace-credential-restore",
+      "program": "sudo"
+    },
+    {
+      "label": "replaced-credential-stat",
+      "program": "sudo"
+    },
+    {
+      "label": "s33-private-restored-credential-sha",
+      "program": "sudo"
+    },
+    {
+      "label": "full-private-database-snapshot",
+      "program": "docker"
+    }
+  ],
+  "requests": [
+    {
+      "method": "POST",
+      "path_pattern": "/login",
+      "status": 303
+    },
+    {
+      "method": "GET",
+      "path_pattern": "/quota/status",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "path_pattern": "/quality/jobs/job-3/report",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path_pattern": "/login",
+      "status": 303
+    },
+    {
+      "method": "POST",
+      "path_pattern": "/projects/project-[0-9a-f]{32}/open",
+      "status": 303
+    },
+    {
+      "method": "GET",
+      "path_pattern": "/quality/jobs/job-3/report",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path_pattern": "/quota",
+      "status": 403
+    }
+  ]
+}

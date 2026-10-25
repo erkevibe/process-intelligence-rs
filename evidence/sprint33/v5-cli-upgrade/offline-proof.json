@@ -1,0 +1,635 @@
+{
+  "status": "S32_OFFLINE_CREDENTIAL_MIGRATION_PASS",
+  "source_commit": "b70e7d657bf41ef70948260d87de3a71d8b6ee7f",
+  "cases": [
+    {
+      "case": "fixed_transient_unit_names_and_paths_are_absent",
+      "outcome": "pass"
+    },
+    {
+      "case": "offline_v6_repeat_through_LoadCredential_keeps_full_database_snapshot",
+      "outcome": "pass"
+    },
+    {
+      "case": "offline_CLI_checksum_refusal_exit1_keeps_corrupted_snapshot_unchanged",
+      "outcome": "pass"
+    },
+    {
+      "case": "explicit_owned_fixture_repair_restores_exact_pretest_snapshot",
+      "outcome": "pass"
+    },
+    {
+      "case": "new_service_process_preserves_report_quota_ledger_and_viewer_grant_after_offline_CLI",
+      "outcome": "pass"
+    },
+    {
+      "case": "offline_unit_journals_do_not_contain_fixture_secrets",
+      "outcome": "pass"
+    },
+    {
+      "case": "all_owned_services_and_transient_jobs_are_stopped_before_firewall_cleanup",
+      "outcome": "pass"
+    }
+  ],
+  "commands": [
+    {
+      "label": "s32-transient-absent",
+      "program": "systemctl",
+      "native_exit": 0,
+      "stdout_sha256": "391bc413c3044926b4afa41806bf4a5c4fad68a3165b8563fe1bffec0792fc76",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "s32-transient-absent",
+      "program": "systemctl",
+      "native_exit": 0,
+      "stdout_sha256": "391bc413c3044926b4afa41806bf4a5c4fad68a3165b8563fe1bffec0792fc76",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "unit-identity",
+      "program": "systemctl",
+      "native_exit": 0,
+      "stdout_sha256": "5947de05d7527d082c20f45dd5a79b7e50c69a51826c13996f5c69017c9dc05d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "unit-identity",
+      "program": "systemctl",
+      "native_exit": 0,
+      "stdout_sha256": "4b8531f2c2a4c064632725b585ae1b5012f5e434ccdbc2f51a0456e072469835",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "full-private-database-snapshot",
+      "program": "docker",
+      "native_exit": 0,
+      "stdout_sha256": "2f0b81baa9649798671252998a9f61b30a811b2fb2279cb9bb19a9787d7cd21d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "unit-identity",
+      "program": "systemctl",
+      "native_exit": 0,
+      "stdout_sha256": "5947de05d7527d082c20f45dd5a79b7e50c69a51826c13996f5c69017c9dc05d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "unit-identity",
+      "program": "systemctl",
+      "native_exit": 0,
+      "stdout_sha256": "4b8531f2c2a4c064632725b585ae1b5012f5e434ccdbc2f51a0456e072469835",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "s32-transient-properties",
+      "program": "systemctl",
+      "native_exit": 0,
+      "stdout_sha256": "cd8a72ddfdbdcbae4e401d617cd315bcfde925fcfc9e25dbf900531f0b2eeb6f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "s32-offline-cli-0",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "s32-transient-properties",
+      "program": "systemctl",
+      "native_exit": 0,
+      "stdout_sha256": "2843de3b942b647d2751f1f3a166bd63c83a41ea25fcdf43df19bf43934d0352",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "s32-unit-object",
+      "program": "busctl",
+      "native_exit": 0,
+      "stdout_sha256": "2b8d1ef4c9b62856755ce65cf5a7eea17b4f36e22e18b3616752d47587512e82",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "s32-credential-binding",
+      "program": "busctl",
+      "native_exit": 0,
+      "stdout_sha256": "98e78078d43f8c12e0244d19c8adebbeed6e6c0bc5eba5abb17886a0df45aeb3",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "s32-stop-owned-transient",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "s32-transient-properties",
+      "program": "systemctl",
+      "native_exit": 0,
+      "stdout_sha256": "449ec8ca36dfeaffcb0635eeebb6d721ea5a397bc9c8f285200f84bfaa5ad3d6",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "full-private-database-snapshot",
+      "program": "docker",
+      "native_exit": 0,
+      "stdout_sha256": "2f0b81baa9649798671252998a9f61b30a811b2fb2279cb9bb19a9787d7cd21d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "s32-read-owned-checksum",
+      "program": "docker",
+      "native_exit": 0,
+      "stdout_sha256": "c4fdc14e877cd01d10de2cbcb669dcc280d27ffdb84c0d6f8c622e5dabb97612",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "s32-corrupt-only-owned-v6-checksum",
+      "program": "docker",
+      "native_exit": 0,
+      "stdout_sha256": "827d096d92f3deeaa0e8070d79f45beb176768e57a958a1cd325f5f4b754b048",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "full-private-database-snapshot",
+      "program": "docker",
+      "native_exit": 0,
+      "stdout_sha256": "181c91478dd305fa64acd2cc23c9c032d4012662839f38f6cf3667fddc601612",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "unit-identity",
+      "program": "systemctl",
+      "native_exit": 0,
+      "stdout_sha256": "5947de05d7527d082c20f45dd5a79b7e50c69a51826c13996f5c69017c9dc05d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "unit-identity",
+      "program": "systemctl",
+      "native_exit": 0,
+      "stdout_sha256": "4b8531f2c2a4c064632725b585ae1b5012f5e434ccdbc2f51a0456e072469835",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "s32-transient-properties",
+      "program": "systemctl",
+      "native_exit": 0,
+      "stdout_sha256": "cd8a72ddfdbdcbae4e401d617cd315bcfde925fcfc9e25dbf900531f0b2eeb6f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "s32-offline-cli-1",
+      "program": "sudo",
+      "native_exit": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "s32-transient-properties",
+      "program": "systemctl",
+      "native_exit": 0,
+      "stdout_sha256": "d63c4281377b33835bbeada276d04edde5755e017e7a6abfe9030477812878c3",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "s32-unit-object",
+      "program": "busctl",
+      "native_exit": 0,
+      "stdout_sha256": "ce4e962e6f7287a0d7cb6222a2946951c8729ff1a92056b13ff5a9c2040ea82c",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "s32-credential-binding",
+      "program": "busctl",
+      "native_exit": 0,
+      "stdout_sha256": "98e78078d43f8c12e0244d19c8adebbeed6e6c0bc5eba5abb17886a0df45aeb3",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "s32-private-schema-refusal-journal",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "0dba338d5c349907a17e649af0c6fa9bc61d82bbe52ba850f1a65124a573153a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "s32-stop-owned-transient",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "s32-transient-properties",
+      "program": "systemctl",
+      "native_exit": 0,
+      "stdout_sha256": "f1d9a5739fcb92a32c1fae2ce67d23951814bdf8fe2e18a93e5f5a6913c71d4d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "s32-reset-owned-failure",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "s32-transient-properties",
+      "program": "systemctl",
+      "native_exit": 0,
+      "stdout_sha256": "449ec8ca36dfeaffcb0635eeebb6d721ea5a397bc9c8f285200f84bfaa5ad3d6",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "full-private-database-snapshot",
+      "program": "docker",
+      "native_exit": 0,
+      "stdout_sha256": "181c91478dd305fa64acd2cc23c9c032d4012662839f38f6cf3667fddc601612",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "s32-repair-only-original-fixture-checksum",
+      "program": "docker",
+      "native_exit": 0,
+      "stdout_sha256": "c4fdc14e877cd01d10de2cbcb669dcc280d27ffdb84c0d6f8c622e5dabb97612",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "full-private-database-snapshot",
+      "program": "docker",
+      "native_exit": 0,
+      "stdout_sha256": "2f0b81baa9649798671252998a9f61b30a811b2fb2279cb9bb19a9787d7cd21d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "s32-start-app",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "s32-start-proxy",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "unit-identity",
+      "program": "systemctl",
+      "native_exit": 0,
+      "stdout_sha256": "0890c970e317d5fa0dce4c821f80b521937393053e8a36713eeb7386f494b9f8",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "running-executable",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "cfce8973e9e6f59c9e30456e0ec1ba335634bd771f9fbbd5b6199b16e458c5f2",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "running-user",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "f55f2b6329104b6f5b6520b410b54fc048ba82528d8f034303a56a46b4cbceee",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "running-arguments",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "898b71783fc687802751f3ed7cc067584e117cc88d2ff4ea0355c8ffb65bf8cf",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "credential-environment",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "305f7f2a3e2cfb30a1baf276dcbe6aad09095512e24087b1ba927c1209ccf820",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "unit-identity",
+      "program": "systemctl",
+      "native_exit": 0,
+      "stdout_sha256": "aba8cd57eb0efcabf1530922b85850de624e2dad511c6c5a5a52e7d0005c09e5",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "running-executable",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "b3cda17a3da75d0ee5b420cac35fb9fa9fb8ce677ae0e72facbec41b62297948",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "running-user",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "8522ec307530a5dfba811c34d05453281fbdd6856757d64d77d1db69c2b046b6",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "running-arguments",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "146628c48682e4f0c23833cae8e585822f8359fa87cd7bc9b5ebb3a35d4c2592",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "accounting-snapshot",
+      "program": "docker",
+      "native_exit": 0,
+      "stdout_sha256": "86ccbdd03382c59a14adab695667b71372877a5075d4479125a4faefae66822a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "s32-private-migration-journals",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "ae459acef9a3458e6dac580b893d81cccc6966b8a9fec919c4bd0456f6101fb0",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "s32-stop-proxy",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "s32-stop-app",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "unit-identity",
+      "program": "systemctl",
+      "native_exit": 0,
+      "stdout_sha256": "5947de05d7527d082c20f45dd5a79b7e50c69a51826c13996f5c69017c9dc05d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "unit-identity",
+      "program": "systemctl",
+      "native_exit": 0,
+      "stdout_sha256": "4b8531f2c2a4c064632725b585ae1b5012f5e434ccdbc2f51a0456e072469835",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/health",
+      "status": 502,
+      "content_type": "",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/health",
+      "status": 200,
+      "content_type": "application/json",
+      "bytes": 37,
+      "sha256": "73e46233c653c17c07c500e7fb80ed40078254ec607ea83432e0e295e83e4541"
+    },
+    {
+      "method": "POST",
+      "path": "/login",
+      "status": 303,
+      "content_type": "",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/quota/status",
+      "status": 200,
+      "content_type": "application/json",
+      "bytes": 202,
+      "sha256": "99ffaca4098fd9299c7254e30ddbc4a56ed071bb531b8980889e4ce4b6ce9414"
+    },
+    {
+      "method": "GET",
+      "path": "/quality/jobs/job-3/report",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "bytes": 2786,
+      "sha256": "18d392f74f63d33fd8026bbb22a58e05f2f329f4ea49fc499fafc2a1a2e0817b"
+    },
+    {
+      "method": "GET",
+      "path": "/backup",
+      "status": 200,
+      "content_type": "application/json",
+      "bytes": 12042,
+      "sha256": "2ad5609a9812ace5dd3f6608c3f968a12618d87ccb12a5ba212562c3ab2cf49f"
+    },
+    {
+      "method": "POST",
+      "path": "/login",
+      "status": 303,
+      "content_type": "",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "POST",
+      "path": "/projects/project-05cecde8830841a39fd094c54efaa6b7/open",
+      "status": 303,
+      "content_type": "",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/quality/jobs/job-3/report",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "bytes": 2786,
+      "sha256": "18d392f74f63d33fd8026bbb22a58e05f2f329f4ea49fc499fafc2a1a2e0817b"
+    },
+    {
+      "method": "POST",
+      "path": "/quota",
+      "status": 403,
+      "content_type": "application/json",
+      "bytes": 98,
+      "sha256": "e8b39ee28961f0f537f279b9f0e78c1f5c418d406ca9b614eb472b96e1b07c60"
+    }
+  ],
+  "baseline_snapshot_sha256": "2f0b81baa9649798671252998a9f61b30a811b2fb2279cb9bb19a9787d7cd21d",
+  "corrupted_snapshot_sha256": "181c91478dd305fa64acd2cc23c9c032d4012662839f38f6cf3667fddc601612",
+  "repeat": {
+    "wrapper_native_exit": 0,
+    "configured_unit_properties": {
+      "Type": "oneshot",
+      "Restart": "no",
+      "RemainAfterExit": "yes",
+      "SuccessExitStatus": "",
+      "MainPID": "0",
+      "Result": "success",
+      "ExecMainPID": "3919",
+      "ExecMainCode": "1",
+      "ExecMainStatus": "0",
+      "ExecStart": "{ path=/opt/process-intelligence/current/process-intelligence-rs ; argv[]=/opt/process-intelligence/current/process-intelligence-rs --migrate-storage ; ignore_errors=no ; start_time=[Sun 2026-10-25 00:22:17 UTC] ; stop_time=[Sun 2026-10-25 00:22:17 UTC] ; pid=3919 ; code=exited ; status=0 }",
+      "Environment": "PI_DATABASE_URL_FILE=/run/credentials/pi-s32-migrate-repeat.service/database-url",
+      "UnsetEnvironment": "PI_DATABASE_URL PI_EPHEMERAL",
+      "WorkingDirectory": "/opt/process-intelligence/current",
+      "User": "process-intelligence",
+      "Group": "process-intelligence",
+      "LoadCredential": "[unprintable]",
+      "ProtectSystem": "strict",
+      "NoNewPrivileges": "yes",
+      "LoadState": "loaded",
+      "ActiveState": "active",
+      "SubState": "exited",
+      "FragmentPath": "/run/systemd/transient/pi-s32-migrate-repeat.service",
+      "Transient": "yes"
+    },
+    "credential_binding": {
+      "unit": "pi-s32-migrate-repeat.service",
+      "object_path": "/org/freedesktop/systemd1/unit/pi_2ds32_2dmigrate_2drepeat_2eservice",
+      "property": {
+        "type": "a(ss)",
+        "data": [
+          [
+            "database-url",
+            "/etc/process-intelligence/database-url"
+          ]
+        ]
+      }
+    },
+    "normalized_refusal_reason": null,
+    "refusal_journal_source": null,
+    "retired": {
+      "MainPID": "0",
+      "LoadState": "not-found",
+      "ActiveState": "inactive"
+    },
+    "process_proc_identity_observed": false
+  },
+  "refusal": {
+    "wrapper_native_exit": 1,
+    "configured_unit_properties": {
+      "Type": "oneshot",
+      "Restart": "no",
+      "RemainAfterExit": "yes",
+      "SuccessExitStatus": "",
+      "MainPID": "0",
+      "Result": "exit-code",
+      "ExecMainPID": "4052",
+      "ExecMainCode": "1",
+      "ExecMainStatus": "1",
+      "ExecStart": "{ path=/opt/process-intelligence/current/process-intelligence-rs ; argv[]=/opt/process-intelligence/current/process-intelligence-rs --migrate-storage ; ignore_errors=no ; start_time=[Sun 2026-10-25 00:22:17 UTC] ; stop_time=[Sun 2026-10-25 00:22:17 UTC] ; pid=4052 ; code=exited ; status=1 }",
+      "Environment": "PI_DATABASE_URL_FILE=/run/credentials/pi-s32-migrate-refuse.service/database-url",
+      "UnsetEnvironment": "PI_DATABASE_URL PI_EPHEMERAL",
+      "WorkingDirectory": "/opt/process-intelligence/current",
+      "User": "process-intelligence",
+      "Group": "process-intelligence",
+      "LoadCredential": "[unprintable]",
+      "ProtectSystem": "strict",
+      "NoNewPrivileges": "yes",
+      "LoadState": "loaded",
+      "ActiveState": "failed",
+      "SubState": "failed",
+      "FragmentPath": "/run/systemd/transient/pi-s32-migrate-refuse.service",
+      "Transient": "yes"
+    },
+    "credential_binding": {
+      "unit": "pi-s32-migrate-refuse.service",
+      "object_path": "/org/freedesktop/systemd1/unit/pi_2ds32_2dmigrate_2drefuse_2eservice",
+      "property": {
+        "type": "a(ss)",
+        "data": [
+          [
+            "database-url",
+            "/etc/process-intelligence/database-url"
+          ]
+        ]
+      }
+    },
+    "normalized_refusal_reason": "schema_unsupported",
+    "refusal_journal_source": {
+      "unit": "pi-s32-migrate-refuse.service",
+      "pid": "4052",
+      "matched_message_sha256": "0dd907c3d0e3854e69e5808a90e665886784d28b9ed5bf2a4c937753e1d68517"
+    },
+    "retired": {
+      "MainPID": "0",
+      "LoadState": "not-found",
+      "ActiveState": "inactive"
+    },
+    "process_proc_identity_observed": false
+  },
+  "app_after": {
+    "MainPID": "4160",
+    "Result": "success",
+    "NRestarts": "0",
+    "ExecMainStartTimestampMonotonic": "128262103",
+    "ExecMainStatus": "0",
+    "WorkingDirectory": "/opt/process-intelligence/current",
+    "User": "process-intelligence",
+    "Group": "process-intelligence",
+    "ProtectSystem": "strict",
+    "NoNewPrivileges": "yes",
+    "ActiveState": "active",
+    "FragmentPath": "/etc/systemd/system/process-intelligence.service",
+    "DropInPaths": "",
+    "executable_sha256": "0fb885f8251d7088a430409e82d52d0213286794c884eb498bdf6eba663aa2b8"
+  },
+  "proxy_after": {
+    "MainPID": "4164",
+    "Result": "success",
+    "NRestarts": "0",
+    "ExecMainStartTimestampMonotonic": "128283097",
+    "ExecMainStatus": "0",
+    "WorkingDirectory": "",
+    "User": "caddy",
+    "Group": "caddy",
+    "ProtectSystem": "full",
+    "NoNewPrivileges": "no",
+    "ActiveState": "active",
+    "FragmentPath": "/etc/systemd/system/caddy.service",
+    "DropInPaths": "/etc/systemd/system/caddy.service.d/process-intelligence.conf",
+    "executable_sha256": "678ade3bfc088749c81a681adc603333ee0bb023b6a6cfe3c0f58bef8ff854e9"
+  },
+  "app_stopped": {
+    "MainPID": "0",
+    "Result": "success",
+    "NRestarts": "0",
+    "ExecMainStartTimestampMonotonic": "0",
+    "ExecMainStatus": "0",
+    "WorkingDirectory": "/opt/process-intelligence/current",
+    "User": "process-intelligence",
+    "Group": "process-intelligence",
+    "ProtectSystem": "strict",
+    "NoNewPrivileges": "yes",
+    "ActiveState": "inactive",
+    "FragmentPath": "/etc/systemd/system/process-intelligence.service",
+    "DropInPaths": ""
+  },
+  "proxy_stopped": {
+    "MainPID": "0",
+    "Result": "success",
+    "NRestarts": "0",
+    "ExecMainStartTimestampMonotonic": "0",
+    "ExecMainStatus": "0",
+    "WorkingDirectory": "",
+    "User": "caddy",
+    "Group": "caddy",
+    "ProtectSystem": "full",
+    "NoNewPrivileges": "no",
+    "ActiveState": "inactive",
+    "FragmentPath": "/etc/systemd/system/caddy.service",
+    "DropInPaths": "/etc/systemd/system/caddy.service.d/process-intelligence.conf"
+  },
+  "scope": "fresh owned Ubuntu24.04 VM; v6 idempotent repeat and deliberate synthetic checksum refusal/repair only, not v5 upgrade or production migration; short CLI configured unit properties observed, no live /proc UID/NoNewPrivs claim; S31 firewall remains until all owned units stop; failed fixtures are discarded, never repaired automatically"
+}

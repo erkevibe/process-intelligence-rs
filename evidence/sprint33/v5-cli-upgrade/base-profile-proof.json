@@ -1,0 +1,1683 @@
+{
+  "status": "S31_SYSTEMD_RELEASE_PROFILE_PASS",
+  "source_commit": "b70e7d657bf41ef70948260d87de3a71d8b6ee7f",
+  "package_archive_sha256": "5b60bc6533ddfd256c75ce83e4ed1ecd84914431ea80f408237b7ac3bc60b1f5",
+  "package_manifest_sha256": "be67075c54e6026ad028caccd44213e097f977a5841293a03e1ddabd2ac93224",
+  "installed_profile_files": {
+    "deploy/linux/process-intelligence.service": {
+      "path": "/etc/systemd/system/process-intelligence.service",
+      "sha256": "9c4be964b0a5f572322cdb97ede919caf842b3c2c7d8da580e810d44b0b9d3ae"
+    },
+    "deploy/linux/Caddyfile": {
+      "path": "/etc/caddy/Caddyfile",
+      "sha256": "1bf82b3dac3835c9df1fe8c9fa5e5096cd5f63c79de62d73fa520ae36f021933"
+    },
+    "deploy/linux/caddy-process-intelligence.conf": {
+      "path": "/etc/systemd/system/caddy.service.d/process-intelligence.conf",
+      "sha256": "3133db592a0dc1e1a4ca70fad8338c92813d9ed77e9438c5912a281578375da3"
+    }
+  },
+  "package_app_sha256": "0fb885f8251d7088a430409e82d52d0213286794c884eb498bdf6eba663aa2b8",
+  "vendor_unit_sha256": "6c271e030644bd36a0c8956885934f16c928f88202bc126f12cde519ef9693ff",
+  "caddy_archive_sha256": "727b91701a392de6ebc5027509f548bf39979e5216340d0faed8fa5e69c84f8b",
+  "container_image": "sha256:6cb75ec20a1d7a81c2c92b9a0ab681ffa4d540a5ec404a977def81ffd0138eca",
+  "cases": [
+    {
+      "case": "fresh_host_paths_users_units_and_listener_ports",
+      "outcome": "pass"
+    },
+    {
+      "case": "postgres18_container_has_owned_loopback_55449_mapping",
+      "outcome": "pass"
+    },
+    {
+      "case": "application_database_role_is_not_cluster_administrator",
+      "outcome": "pass"
+    },
+    {
+      "case": "credential_source_root0600_not_directly_readable_by_app_user",
+      "outcome": "pass"
+    },
+    {
+      "case": "default_80_443_profile_redirect_follow_accepts_real_explicit_443_Host",
+      "outcome": "pass"
+    },
+    {
+      "case": "downloaded_app_and_delivered_units_are_the_running_processes",
+      "outcome": "pass"
+    },
+    {
+      "case": "systemd_LoadCredential_and_actual_NoNewPrivs_without_URL_in_environment",
+      "outcome": "pass"
+    },
+    {
+      "case": "release_service_publishes_and_numerically_verifies_saved_quality_report",
+      "outcome": "pass"
+    },
+    {
+      "case": "grant_and_viewer_reads_remain_available_while_over_quota",
+      "outcome": "pass"
+    },
+    {
+      "case": "systemctl_restart_changes_app_process_and_preserves_quota_backup_report_and_ledger",
+      "outcome": "pass"
+    },
+    {
+      "case": "viewer_grant_and_write_refusal_survive_application_restart",
+      "outcome": "pass"
+    },
+    {
+      "case": "full_pg_restore_matches_quiescent_source_before_first_target_start",
+      "outcome": "pass"
+    },
+    {
+      "case": "restored_service_retains_overquota_report_and_grants_without_changing_source_database_content",
+      "outcome": "pass"
+    },
+    {
+      "case": "fresh_TCP_authentication_rejects_old_role_password_and_accepts_new_password",
+      "outcome": "pass"
+    },
+    {
+      "case": "stopped_service_loads_rotated_role_credential_without_environment_or_business_data_change",
+      "outcome": "pass"
+    },
+    {
+      "case": "manual_leaf_replacement_and_proxy_restart_serve_new_CA_verified_certificate",
+      "outcome": "pass"
+    },
+    {
+      "case": "proxy_service_restart_keeps_app_and_allows_new_terminal_SSE_connection",
+      "outcome": "pass"
+    },
+    {
+      "case": "fixture_credentials_and_private_keys_not_in_unit_journals",
+      "outcome": "pass"
+    },
+    {
+      "case": "both_owned_units_stop_inactive_with_zero_main_pid_and_successful_exit",
+      "outcome": "pass"
+    }
+  ],
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/health",
+      "status": 502,
+      "content_type": "",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/health",
+      "status": 502,
+      "content_type": "",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/health",
+      "status": 502,
+      "content_type": "",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/health",
+      "status": 200,
+      "content_type": "application/json",
+      "bytes": 37,
+      "sha256": "73e46233c653c17c07c500e7fb80ed40078254ec607ea83432e0e295e83e4541"
+    },
+    {
+      "method": "POST",
+      "path": "/setup",
+      "status": 303,
+      "content_type": "",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "POST",
+      "path": "/logs",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 11092,
+      "sha256": "741e79b562309d8c45bcae4d1fae5179bd4b422a5e1f5b8e72b8d829e12fa676"
+    },
+    {
+      "method": "POST",
+      "path": "/models/import",
+      "status": 303,
+      "content_type": "",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/backup",
+      "status": 200,
+      "content_type": "application/json",
+      "bytes": 3910,
+      "sha256": "9e11f624b81baba2cfa3a7c759d6ca542b037a5e45bd952dbaf81a9daa790fe6"
+    },
+    {
+      "method": "GET",
+      "path": "/models/model-2/quality/new",
+      "status": 200,
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 3500,
+      "sha256": "504db52c33209896adf4f4ffc3cc8f72723dea82f6773c3edf51db88dc6380eb"
+    },
+    {
+      "method": "POST",
+      "path": "/models/model-2/quality/jobs",
+      "status": 202,
+      "content_type": "application/json",
+      "bytes": 1029,
+      "sha256": "3489a62234af6c1bed6ee7f14c7a7c0b6d0bec5b148dce561919af3d8db6f0f0"
+    },
+    {
+      "method": "GET",
+      "path": "/quality/jobs/job-3",
+      "status": 200,
+      "content_type": "application/json",
+      "bytes": 1030,
+      "sha256": "b96780bcfcc504f65e6696750ea16a1de51d1ba575bf0a10ced5e0f3468cb59c"
+    },
+    {
+      "method": "GET",
+      "path": "/quality/jobs/job-3",
+      "status": 200,
+      "content_type": "application/json",
+      "bytes": 1104,
+      "sha256": "7f5594a4864731c42b57f12713d35093a7a3fe103a2e88e0bb1c560945650e9a"
+    },
+    {
+      "method": "GET",
+      "path": "/quality/jobs/job-3/report",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "bytes": 2786,
+      "sha256": "18d392f74f63d33fd8026bbb22a58e05f2f329f4ea49fc499fafc2a1a2e0817b"
+    },
+    {
+      "method": "GET",
+      "path": "/quota/status",
+      "status": 200,
+      "content_type": "application/json",
+      "bytes": 206,
+      "sha256": "f0ce0647c2e6d5a36ee48e8b448fc2e9de4fe7e7563ae903581e45a65cf644dc"
+    },
+    {
+      "method": "POST",
+      "path": "/quota",
+      "status": 303,
+      "content_type": "",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "POST",
+      "path": "/users",
+      "status": 303,
+      "content_type": "",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/backup",
+      "status": 200,
+      "content_type": "application/json",
+      "bytes": 12042,
+      "sha256": "2ad5609a9812ace5dd3f6608c3f968a12618d87ccb12a5ba212562c3ab2cf49f"
+    },
+    {
+      "method": "POST",
+      "path": "/projects/project-05cecde8830841a39fd094c54efaa6b7/members",
+      "status": 303,
+      "content_type": "",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "POST",
+      "path": "/login",
+      "status": 303,
+      "content_type": "",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "POST",
+      "path": "/projects/project-05cecde8830841a39fd094c54efaa6b7/open",
+      "status": 303,
+      "content_type": "",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/quality/jobs/job-3/report",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "bytes": 2786,
+      "sha256": "18d392f74f63d33fd8026bbb22a58e05f2f329f4ea49fc499fafc2a1a2e0817b"
+    },
+    {
+      "method": "POST",
+      "path": "/quota",
+      "status": 403,
+      "content_type": "application/json",
+      "bytes": 98,
+      "sha256": "e8b39ee28961f0f537f279b9f0e78c1f5c418d406ca9b614eb472b96e1b07c60"
+    },
+    {
+      "method": "GET",
+      "path": "/quota/status",
+      "status": 200,
+      "content_type": "application/json",
+      "bytes": 202,
+      "sha256": "99ffaca4098fd9299c7254e30ddbc4a56ed071bb531b8980889e4ce4b6ce9414"
+    },
+    {
+      "method": "GET",
+      "path": "/backup",
+      "status": 200,
+      "content_type": "application/json",
+      "bytes": 12042,
+      "sha256": "2ad5609a9812ace5dd3f6608c3f968a12618d87ccb12a5ba212562c3ab2cf49f"
+    },
+    {
+      "method": "GET",
+      "path": "/health",
+      "status": 502,
+      "content_type": "",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/health",
+      "status": 200,
+      "content_type": "application/json",
+      "bytes": 37,
+      "sha256": "73e46233c653c17c07c500e7fb80ed40078254ec607ea83432e0e295e83e4541"
+    },
+    {
+      "method": "POST",
+      "path": "/login",
+      "status": 303,
+      "content_type": "",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/quota/status",
+      "status": 200,
+      "content_type": "application/json",
+      "bytes": 202,
+      "sha256": "99ffaca4098fd9299c7254e30ddbc4a56ed071bb531b8980889e4ce4b6ce9414"
+    },
+    {
+      "method": "GET",
+      "path": "/quality/jobs/job-3/report",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "bytes": 2786,
+      "sha256": "18d392f74f63d33fd8026bbb22a58e05f2f329f4ea49fc499fafc2a1a2e0817b"
+    },
+    {
+      "method": "GET",
+      "path": "/backup",
+      "status": 200,
+      "content_type": "application/json",
+      "bytes": 12042,
+      "sha256": "2ad5609a9812ace5dd3f6608c3f968a12618d87ccb12a5ba212562c3ab2cf49f"
+    },
+    {
+      "method": "POST",
+      "path": "/login",
+      "status": 303,
+      "content_type": "",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "POST",
+      "path": "/projects/project-05cecde8830841a39fd094c54efaa6b7/open",
+      "status": 303,
+      "content_type": "",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/quality/jobs/job-3/report",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "bytes": 2786,
+      "sha256": "18d392f74f63d33fd8026bbb22a58e05f2f329f4ea49fc499fafc2a1a2e0817b"
+    },
+    {
+      "method": "POST",
+      "path": "/quota",
+      "status": 403,
+      "content_type": "application/json",
+      "bytes": 98,
+      "sha256": "e8b39ee28961f0f537f279b9f0e78c1f5c418d406ca9b614eb472b96e1b07c60"
+    },
+    {
+      "method": "GET",
+      "path": "/health",
+      "status": 502,
+      "content_type": "",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/health",
+      "status": 200,
+      "content_type": "application/json",
+      "bytes": 37,
+      "sha256": "73e46233c653c17c07c500e7fb80ed40078254ec607ea83432e0e295e83e4541"
+    },
+    {
+      "method": "POST",
+      "path": "/login",
+      "status": 303,
+      "content_type": "",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/quota/status",
+      "status": 200,
+      "content_type": "application/json",
+      "bytes": 202,
+      "sha256": "99ffaca4098fd9299c7254e30ddbc4a56ed071bb531b8980889e4ce4b6ce9414"
+    },
+    {
+      "method": "GET",
+      "path": "/quality/jobs/job-3/report",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "bytes": 2786,
+      "sha256": "18d392f74f63d33fd8026bbb22a58e05f2f329f4ea49fc499fafc2a1a2e0817b"
+    },
+    {
+      "method": "GET",
+      "path": "/backup",
+      "status": 200,
+      "content_type": "application/json",
+      "bytes": 12042,
+      "sha256": "2ad5609a9812ace5dd3f6608c3f968a12618d87ccb12a5ba212562c3ab2cf49f"
+    },
+    {
+      "method": "POST",
+      "path": "/login",
+      "status": 303,
+      "content_type": "",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "POST",
+      "path": "/projects/project-05cecde8830841a39fd094c54efaa6b7/open",
+      "status": 303,
+      "content_type": "",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/quality/jobs/job-3/report",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "bytes": 2786,
+      "sha256": "18d392f74f63d33fd8026bbb22a58e05f2f329f4ea49fc499fafc2a1a2e0817b"
+    },
+    {
+      "method": "POST",
+      "path": "/quota",
+      "status": 403,
+      "content_type": "application/json",
+      "bytes": 98,
+      "sha256": "e8b39ee28961f0f537f279b9f0e78c1f5c418d406ca9b614eb472b96e1b07c60"
+    },
+    {
+      "method": "GET",
+      "path": "/health",
+      "status": 502,
+      "content_type": "",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/health",
+      "status": 200,
+      "content_type": "application/json",
+      "bytes": 37,
+      "sha256": "73e46233c653c17c07c500e7fb80ed40078254ec607ea83432e0e295e83e4541"
+    },
+    {
+      "method": "POST",
+      "path": "/login",
+      "status": 303,
+      "content_type": "",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/quota/status",
+      "status": 200,
+      "content_type": "application/json",
+      "bytes": 202,
+      "sha256": "99ffaca4098fd9299c7254e30ddbc4a56ed071bb531b8980889e4ce4b6ce9414"
+    },
+    {
+      "method": "GET",
+      "path": "/quality/jobs/job-3/report",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "bytes": 2786,
+      "sha256": "18d392f74f63d33fd8026bbb22a58e05f2f329f4ea49fc499fafc2a1a2e0817b"
+    },
+    {
+      "method": "GET",
+      "path": "/backup",
+      "status": 200,
+      "content_type": "application/json",
+      "bytes": 12042,
+      "sha256": "2ad5609a9812ace5dd3f6608c3f968a12618d87ccb12a5ba212562c3ab2cf49f"
+    },
+    {
+      "method": "POST",
+      "path": "/login",
+      "status": 303,
+      "content_type": "",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "POST",
+      "path": "/projects/project-05cecde8830841a39fd094c54efaa6b7/open",
+      "status": 303,
+      "content_type": "",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "method": "GET",
+      "path": "/quality/jobs/job-3/report",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "bytes": 2786,
+      "sha256": "18d392f74f63d33fd8026bbb22a58e05f2f329f4ea49fc499fafc2a1a2e0817b"
+    },
+    {
+      "method": "POST",
+      "path": "/quota",
+      "status": 403,
+      "content_type": "application/json",
+      "bytes": 98,
+      "sha256": "e8b39ee28961f0f537f279b9f0e78c1f5c418d406ca9b614eb472b96e1b07c60"
+    },
+    {
+      "method": "GET",
+      "path": "/health",
+      "status": 200,
+      "content_type": "application/json",
+      "bytes": 37,
+      "sha256": "73e46233c653c17c07c500e7fb80ed40078254ec607ea83432e0e295e83e4541"
+    },
+    {
+      "method": "GET",
+      "path": "/quality/jobs/job-3/events",
+      "status": 200,
+      "content_type": "text/event-stream",
+      "bytes": 979,
+      "sha256": "a87babdb0dd6cca4de316373a24421a2a0b8ae64b9401d364ed82b90bc9574c7"
+    },
+    {
+      "method": "GET",
+      "path": "/quality/jobs/job-3/report",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "bytes": 2786,
+      "sha256": "18d392f74f63d33fd8026bbb22a58e05f2f329f4ea49fc499fafc2a1a2e0817b"
+    }
+  ],
+  "commands": [
+    {
+      "label": "sudo-available",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "unit-absent",
+      "program": "systemctl",
+      "native_exit": 0,
+      "stdout_sha256": "391bc413c3044926b4afa41806bf4a5c4fad68a3165b8563fe1bffec0792fc76",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "unit-absent",
+      "program": "systemctl",
+      "native_exit": 0,
+      "stdout_sha256": "391bc413c3044926b4afa41806bf4a5c4fad68a3165b8563fe1bffec0792fc76",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "privileged-listener-preflight",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "container-identity",
+      "program": "docker",
+      "native_exit": 0,
+      "stdout_sha256": "cf574f52126fd19a5d650781519905a7545819b85cc58a00c682cd7f314c1029",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "postgres-version",
+      "program": "docker",
+      "native_exit": 0,
+      "stdout_sha256": "eef977c220f0b24545feca5839c8076f25715747f8af9057976fe89aa803c23f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "role-absent",
+      "program": "docker",
+      "native_exit": 0,
+      "stdout_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "database-absent",
+      "program": "docker",
+      "native_exit": 0,
+      "stdout_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "restore-database-absent",
+      "program": "docker",
+      "native_exit": 0,
+      "stdout_sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "firewall-absent",
+      "program": "sudo",
+      "native_exit": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e647b93ea0ace29fea182867f7547a11832d05c03e2a689d49dcbb7eaec8bb8b"
+    },
+    {
+      "label": "firewall-absent",
+      "program": "sudo",
+      "native_exit": 1,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "f0b506fbc06549b3c45f127f28ec5137e4b07f57153ef22d2a35be8d34fd5d15"
+    },
+    {
+      "label": "firewall-create",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "firewall-tcp",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "firewall-udp",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "firewall-return",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "firewall-attach",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "firewall-create",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "firewall-tcp",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "firewall-udp",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "firewall-return",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "firewall-attach",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "create-role",
+      "program": "docker",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "create-database",
+      "program": "docker",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "deny-other-database",
+      "program": "docker",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "role-policy",
+      "program": "docker",
+      "native_exit": 0,
+      "stdout_sha256": "b437433d9941cf4a137791db130d3e8ab44e27d2e4d81b1a9eccf7526aaffc64",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "download-caddy",
+      "program": "curl",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "vendor-unit",
+      "program": "curl",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "create-app-user",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "create-proxy-user",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "install-directories",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "proxy-private-directories",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "certificate-directory",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "install-package",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "installed-app-owner",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "4626bd040a8e847142682f73f2508d8816650beab7f1cd4ca7d3e1cdeef3c7aa",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "install-proxy",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "install-profile-file",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "installed-profile-sha",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "23506543a529c5b0c95405e73b48e23cddda68579354af7c24781772ad4852b5",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "install-profile-file",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "installed-profile-sha",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "31325242f9f5c9f5970728d9aae1fcf6b5b84fae99ad5a2a76d2807f528854fa",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "install-profile-file",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "installed-profile-sha",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "4fe64ae3cb42bb8e342d2c66c9bd6feb19d7ff993c36c6c932db6c1529283c95",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "install-proxy-unit",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "installed-vendor-sha",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "98b42d6dad07b507fa2384f0e180dd9ec5e5a38f612699384269402239a39c82",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "ca",
+      "program": "openssl",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "5503083e3b56a7285d4f85aec93f954be9ec93aa2b20fb91ad9adcff8893ebe0"
+    },
+    {
+      "label": "leaf-request",
+      "program": "openssl",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "ba6f88f19661fba6e11e81084d1d9e19ae1644ef805ae34122bc4228c2414ea6"
+    },
+    {
+      "label": "leaf-certificate",
+      "program": "openssl",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "f08ddac3de021da3a1b364489940aae250c85bafaae29a600c0e67d54e61cc6a"
+    },
+    {
+      "label": "install-private-configuration",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "install-private-configuration",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "install-private-configuration",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "install-leaf",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "install-leaf",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "credential-permissions",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "credential-stat",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "6de0786b7b063570555f2d797cf891f6b3b37249e208da711e30991f14625426",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "manager-reload",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "start-app",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "start-proxy",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "unit-identity",
+      "program": "systemctl",
+      "native_exit": 0,
+      "stdout_sha256": "01bd25a54a4c3771202dbd5520efc1c1c97811c23509d0a063a85f04b90887c3",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "running-executable",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "db03542b7d42e6c8cfd36897250d3e88ec4e0c032a1e9347af619abcd6e0f262",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "running-user",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "65d8b0b7ed64883136b5584d1988f1cbe28aee9aba2c25e4255378ded15025db",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "running-arguments",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "898b71783fc687802751f3ed7cc067584e117cc88d2ff4ea0355c8ffb65bf8cf",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "credential-environment",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "b984082468acbf9ce270cfc4c2ca987152ffbb6e005c2f71c52fdfc7f97735f7",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "unit-identity",
+      "program": "systemctl",
+      "native_exit": 0,
+      "stdout_sha256": "9d5647a4ed76c3ac618862d7c07c9950852a5e6aac45253d1c731cfcdd6095d1",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "running-executable",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "f3ff26089528fea8783084919a247eee8842b2746e06c5314e0d3b6c535fbba8",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "running-user",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "dd1047aea3fe6e60b6af2bb39ed84e1ae74fe583df002ff146485a25d926aa04",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "running-arguments",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "146628c48682e4f0c23833cae8e585822f8359fa87cd7bc9b5ebb3a35d4c2592",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "numeric-report",
+      "program": "process-intelligence-rs",
+      "native_exit": 0,
+      "stdout_sha256": "c5092d8984f0dcaefa25e24ebdf2c4686a02da9db6a5423e0eb7bd7089d6858d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "accounting-snapshot",
+      "program": "docker",
+      "native_exit": 0,
+      "stdout_sha256": "86ccbdd03382c59a14adab695667b71372877a5075d4479125a4faefae66822a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "restart-app",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "unit-identity",
+      "program": "systemctl",
+      "native_exit": 0,
+      "stdout_sha256": "feb283aff59a25aed665b5e99b9ffb8b7932fd7045b0eb6c3aa13577454e22bb",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "running-executable",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "eb640dabdea624bd02fd4bef7140f57ba063373725838b054272cba97a9e7d14",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "running-user",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "9e3b4255744727a9e0c1b8f7f62c13e8fba323a5b69e2080b01c5efe7fdb91b2",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "running-arguments",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "898b71783fc687802751f3ed7cc067584e117cc88d2ff4ea0355c8ffb65bf8cf",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "credential-environment",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e33dbc5cfdd6a0ff9cf42408f5e0dddfa9f9bcd4e14c3346ad721dc5f71a0d40",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "accounting-snapshot",
+      "program": "docker",
+      "native_exit": 0,
+      "stdout_sha256": "86ccbdd03382c59a14adab695667b71372877a5075d4479125a4faefae66822a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "stop-before-backup",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "unit-identity",
+      "program": "systemctl",
+      "native_exit": 0,
+      "stdout_sha256": "5947de05d7527d082c20f45dd5a79b7e50c69a51826c13996f5c69017c9dc05d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "full-private-database-snapshot",
+      "program": "docker",
+      "native_exit": 0,
+      "stdout_sha256": "b4e45b2526312079b52955df93155a8fd5a07aa5f2294b94f8c76a59210fc297",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "private-full-backup",
+      "program": "docker",
+      "native_exit": 0,
+      "stdout_sha256": "4037b1afb88df88cbff8f42a684949208f68630afbe2e35d3f72c37d853dbb78",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "create-restore-database",
+      "program": "docker",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "restore-new-database",
+      "program": "docker",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "full-private-database-snapshot",
+      "program": "docker",
+      "native_exit": 0,
+      "stdout_sha256": "b4e45b2526312079b52955df93155a8fd5a07aa5f2294b94f8c76a59210fc297",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "replace-credential-restore",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "replaced-credential-stat",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "6de0786b7b063570555f2d797cf891f6b3b37249e208da711e30991f14625426",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "start-restored-service",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "unit-identity",
+      "program": "systemctl",
+      "native_exit": 0,
+      "stdout_sha256": "e1857faa26d08b6487ad1db75bc075b4cb9389415f17bd46fb223318efc7ff4b",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "running-executable",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e8bc3b6a5b96d2c27da8bc3b2677124f7eee548c5270be80d75be7e75291cfe0",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "running-user",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "40901b31dc1d7236000bb6ffbf8163603ca79b7d0919547bf8860bd4f5ac118d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "running-arguments",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "898b71783fc687802751f3ed7cc067584e117cc88d2ff4ea0355c8ffb65bf8cf",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "credential-environment",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "66c71d3b6a6398e539246d983107f2768bb14e385b892f6dc7e1be2fbd56cdf3",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "accounting-snapshot",
+      "program": "docker",
+      "native_exit": 0,
+      "stdout_sha256": "86ccbdd03382c59a14adab695667b71372877a5075d4479125a4faefae66822a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "full-private-database-snapshot",
+      "program": "docker",
+      "native_exit": 0,
+      "stdout_sha256": "b4e45b2526312079b52955df93155a8fd5a07aa5f2294b94f8c76a59210fc297",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "stop-before-credential-rotation",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "unit-identity",
+      "program": "systemctl",
+      "native_exit": 0,
+      "stdout_sha256": "5947de05d7527d082c20f45dd5a79b7e50c69a51826c13996f5c69017c9dc05d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "rotate-owned-database-role-password",
+      "program": "docker",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "old-role-password-refused",
+      "program": "sh",
+      "native_exit": 2,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "adf5cfbf869896ff8e020ef62f048feb936fa3d30596cb7c44970952b8155a02"
+    },
+    {
+      "label": "new-role-password-accepted",
+      "program": "sh",
+      "native_exit": 0,
+      "stdout_sha256": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "replace-credential-rotation",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "replaced-credential-stat",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "6de0786b7b063570555f2d797cf891f6b3b37249e208da711e30991f14625426",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "start-rotated-credential-service",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "unit-identity",
+      "program": "systemctl",
+      "native_exit": 0,
+      "stdout_sha256": "8caeb69d9176c683e6359cd50b42c56761cfef3dd23bc971e738dd6d186ec381",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "running-executable",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "4c1ea86783d9f2cadb9dd76930b49c82032c248759c680e7bbf4c2873a7b9d8f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "running-user",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e2b684c10823c0380fb92fb9a8015e65e8348e3d46010c0eb681e401768880c2",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "running-arguments",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "898b71783fc687802751f3ed7cc067584e117cc88d2ff4ea0355c8ffb65bf8cf",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "credential-environment",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "3359f459eb86ec4c50491a1371d1589f418e786f9c4fe72126b29025bd7079ac",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "accounting-snapshot",
+      "program": "docker",
+      "native_exit": 0,
+      "stdout_sha256": "86ccbdd03382c59a14adab695667b71372877a5075d4479125a4faefae66822a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "full-private-database-snapshot",
+      "program": "docker",
+      "native_exit": 0,
+      "stdout_sha256": "b4e45b2526312079b52955df93155a8fd5a07aa5f2294b94f8c76a59210fc297",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "renewal-key-and-request",
+      "program": "openssl",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "fc3918afa9a403f35e68ec339fd6338036f43c9bc6c8124d68a529c642f19927"
+    },
+    {
+      "label": "renewal-certificate",
+      "program": "openssl",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "f08ddac3de021da3a1b364489940aae250c85bafaae29a600c0e67d54e61cc6a"
+    },
+    {
+      "label": "replace-manual-leaf",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "replace-manual-leaf",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "restart-proxy",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "unit-identity",
+      "program": "systemctl",
+      "native_exit": 0,
+      "stdout_sha256": "10360f10d10a0d001f7dec025f00c70fb59947005b1e6c1aae9073b4c4291ee8",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "running-executable",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "aa5511be502847b1b8c33f1b9a7f2e9e44f42b0d6e1d6aba1a11cff61469bcdc",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "running-user",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e74e0a191c649822ffeb5baceee2b161183afb382c4d0d28cc78bbdccd2dd968",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "running-arguments",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "146628c48682e4f0c23833cae8e585822f8359fa87cd7bc9b5ebb3a35d4c2592",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "unit-identity",
+      "program": "systemctl",
+      "native_exit": 0,
+      "stdout_sha256": "8caeb69d9176c683e6359cd50b42c56761cfef3dd23bc971e738dd6d186ec381",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "running-executable",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "4c1ea86783d9f2cadb9dd76930b49c82032c248759c680e7bbf4c2873a7b9d8f",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "running-user",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "61d20e2c6a78ad45ee236572e680a030189b065b26a8a0c62ebb6f2e449ec97a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "running-arguments",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "898b71783fc687802751f3ed7cc067584e117cc88d2ff4ea0355c8ffb65bf8cf",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "credential-environment",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "3359f459eb86ec4c50491a1371d1589f418e786f9c4fe72126b29025bd7079ac",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "accounting-snapshot",
+      "program": "docker",
+      "native_exit": 0,
+      "stdout_sha256": "86ccbdd03382c59a14adab695667b71372877a5075d4479125a4faefae66822a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "private-journal",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "3954c5cdde7d1b51145bcda9bcbbaa3c1903dd811def5673a7e4c4a5cbbcf2b2",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "stop-proxy",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "unit-identity",
+      "program": "systemctl",
+      "native_exit": 0,
+      "stdout_sha256": "4b8531f2c2a4c064632725b585ae1b5012f5e434ccdbc2f51a0456e072469835",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "stop-app",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "unit-identity",
+      "program": "systemctl",
+      "native_exit": 0,
+      "stdout_sha256": "5947de05d7527d082c20f45dd5a79b7e50c69a51826c13996f5c69017c9dc05d",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "cleanup-stop",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "cleanup-state",
+      "program": "systemctl",
+      "native_exit": 0,
+      "stdout_sha256": "a64fecb99a35e55c98d2d44288a904ae8994105b87529ee96c8043c211efb945",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "cleanup-stop",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "cleanup-state",
+      "program": "systemctl",
+      "native_exit": 0,
+      "stdout_sha256": "a64fecb99a35e55c98d2d44288a904ae8994105b87529ee96c8043c211efb945",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "cleanup-firewall",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "cleanup-firewall",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "cleanup-firewall",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "cleanup-firewall",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "cleanup-firewall",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "label": "cleanup-firewall",
+      "program": "sudo",
+      "native_exit": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "app_before": {
+    "MainPID": "3308",
+    "Result": "success",
+    "NRestarts": "0",
+    "ExecMainStartTimestampMonotonic": "123780106",
+    "ExecMainStatus": "0",
+    "WorkingDirectory": "/opt/process-intelligence/current",
+    "User": "process-intelligence",
+    "Group": "process-intelligence",
+    "ProtectSystem": "strict",
+    "NoNewPrivileges": "yes",
+    "ActiveState": "active",
+    "FragmentPath": "/etc/systemd/system/process-intelligence.service",
+    "DropInPaths": "",
+    "executable_sha256": "0fb885f8251d7088a430409e82d52d0213286794c884eb498bdf6eba663aa2b8"
+  },
+  "app_after": {
+    "MainPID": "3732",
+    "Result": "success",
+    "NRestarts": "0",
+    "ExecMainStartTimestampMonotonic": "126203107",
+    "ExecMainStatus": "0",
+    "WorkingDirectory": "/opt/process-intelligence/current",
+    "User": "process-intelligence",
+    "Group": "process-intelligence",
+    "ProtectSystem": "strict",
+    "NoNewPrivileges": "yes",
+    "ActiveState": "active",
+    "FragmentPath": "/etc/systemd/system/process-intelligence.service",
+    "DropInPaths": "",
+    "executable_sha256": "0fb885f8251d7088a430409e82d52d0213286794c884eb498bdf6eba663aa2b8"
+  },
+  "proxy_before": {
+    "MainPID": "3312",
+    "Result": "success",
+    "NRestarts": "0",
+    "ExecMainStartTimestampMonotonic": "123808123",
+    "ExecMainStatus": "0",
+    "WorkingDirectory": "",
+    "User": "caddy",
+    "Group": "caddy",
+    "ProtectSystem": "full",
+    "NoNewPrivileges": "no",
+    "ActiveState": "active",
+    "FragmentPath": "/etc/systemd/system/caddy.service",
+    "DropInPaths": "/etc/systemd/system/caddy.service.d/process-intelligence.conf",
+    "executable_sha256": "678ade3bfc088749c81a681adc603333ee0bb023b6a6cfe3c0f58bef8ff854e9"
+  },
+  "proxy_after": {
+    "MainPID": "3816",
+    "Result": "success",
+    "NRestarts": "0",
+    "ExecMainStartTimestampMonotonic": "126964102",
+    "ExecMainStatus": "0",
+    "WorkingDirectory": "",
+    "User": "caddy",
+    "Group": "caddy",
+    "ProtectSystem": "full",
+    "NoNewPrivileges": "no",
+    "ActiveState": "active",
+    "FragmentPath": "/etc/systemd/system/caddy.service",
+    "DropInPaths": "/etc/systemd/system/caddy.service.d/process-intelligence.conf",
+    "executable_sha256": "678ade3bfc088749c81a681adc603333ee0bb023b6a6cfe3c0f58bef8ff854e9"
+  },
+  "app_after_normal_restart": {
+    "MainPID": "3394",
+    "Result": "success",
+    "NRestarts": "0",
+    "ExecMainStartTimestampMonotonic": "124700100",
+    "ExecMainStatus": "0",
+    "WorkingDirectory": "/opt/process-intelligence/current",
+    "User": "process-intelligence",
+    "Group": "process-intelligence",
+    "ProtectSystem": "strict",
+    "NoNewPrivileges": "yes",
+    "ActiveState": "active",
+    "FragmentPath": "/etc/systemd/system/process-intelligence.service",
+    "DropInPaths": "",
+    "executable_sha256": "0fb885f8251d7088a430409e82d52d0213286794c884eb498bdf6eba663aa2b8"
+  },
+  "app_after_restore": {
+    "MainPID": "3594",
+    "Result": "success",
+    "NRestarts": "0",
+    "ExecMainStartTimestampMonotonic": "125579102",
+    "ExecMainStatus": "0",
+    "WorkingDirectory": "/opt/process-intelligence/current",
+    "User": "process-intelligence",
+    "Group": "process-intelligence",
+    "ProtectSystem": "strict",
+    "NoNewPrivileges": "yes",
+    "ActiveState": "active",
+    "FragmentPath": "/etc/systemd/system/process-intelligence.service",
+    "DropInPaths": "",
+    "executable_sha256": "0fb885f8251d7088a430409e82d52d0213286794c884eb498bdf6eba663aa2b8"
+  },
+  "app_after_credential_rotation": {
+    "MainPID": "3732",
+    "Result": "success",
+    "NRestarts": "0",
+    "ExecMainStartTimestampMonotonic": "126203107",
+    "ExecMainStatus": "0",
+    "WorkingDirectory": "/opt/process-intelligence/current",
+    "User": "process-intelligence",
+    "Group": "process-intelligence",
+    "ProtectSystem": "strict",
+    "NoNewPrivileges": "yes",
+    "ActiveState": "active",
+    "FragmentPath": "/etc/systemd/system/process-intelligence.service",
+    "DropInPaths": "",
+    "executable_sha256": "0fb885f8251d7088a430409e82d52d0213286794c884eb498bdf6eba663aa2b8"
+  },
+  "app_stopped": {
+    "MainPID": "0",
+    "Result": "success",
+    "NRestarts": "0",
+    "ExecMainStartTimestampMonotonic": "0",
+    "ExecMainStatus": "0",
+    "WorkingDirectory": "/opt/process-intelligence/current",
+    "User": "process-intelligence",
+    "Group": "process-intelligence",
+    "ProtectSystem": "strict",
+    "NoNewPrivileges": "yes",
+    "ActiveState": "inactive",
+    "FragmentPath": "/etc/systemd/system/process-intelligence.service",
+    "DropInPaths": ""
+  },
+  "proxy_stopped": {
+    "MainPID": "0",
+    "Result": "success",
+    "NRestarts": "0",
+    "ExecMainStartTimestampMonotonic": "0",
+    "ExecMainStatus": "0",
+    "WorkingDirectory": "",
+    "User": "caddy",
+    "Group": "caddy",
+    "ProtectSystem": "full",
+    "NoNewPrivileges": "no",
+    "ActiveState": "inactive",
+    "FragmentPath": "/etc/systemd/system/caddy.service",
+    "DropInPaths": "/etc/systemd/system/caddy.service.d/process-intelligence.conf"
+  },
+  "quota": {
+    "enabled": true,
+    "header_reserve": 268369920,
+    "metric": "structural_bytes_v1",
+    "payload_allowance": 0,
+    "payload_used": 9975,
+    "revision": 12,
+    "scope": "logical structural units; disk, WAL, backups and RAM excluded"
+  },
+  "active_database": "pi_s31_restored_ci",
+  "private_dump_sha256": "4037b1afb88df88cbff8f42a684949208f68630afbe2e35d3f72c37d853dbb78",
+  "prestart_source_and_restore_snapshot_sha256": "b4e45b2526312079b52955df93155a8fd5a07aa5f2294b94f8c76a59210fc297",
+  "leaf_before_der_sha256": "bd4f9b459a2d6649281beedd8d9de83cdcadebc9dccfbbbce203eb37181a3edc",
+  "leaf_after_der_sha256": "f93fe6a053573632090a1c3a0b92863e22e114027b5c88cf847b86379a294d46",
+  "report_sha256": "18d392f74f63d33fd8026bbb22a58e05f2f329f4ea49fc499fafc2a1a2e0817b",
+  "project_backup_sha256": "2ad5609a9812ace5dd3f6608c3f968a12618d87ccb12a5ba212562c3ab2cf49f",
+  "accounting_sha256": "ceababcd21209a9d884bf41608f4fbdd6e2c803c3e9fe97002c38a0bd9cf9a3c",
+  "numeric_replay": {
+    "author_signature_verified": false,
+    "input_model_sha256": "2571d22f5726396689a7788281fe15b8fd638cc702f6f8d2db705533583e400e",
+    "input_variants_sha256": "d46d51d4bb9fe27d0269b0065111b5a0ddb4c5ca53fc26e33a5c0b24f6f62c18",
+    "method_sha256": "be4a5a27bb061b0e4fc3a35a365061b4541281d613fd9bde3742572c6defea88",
+    "numeric_replay": true,
+    "status": "quality_report_verified"
+  },
+  "global_CA_store_modified": false,
+  "scope": "fresh GitHub-hosted Ubuntu24.04 VM, exact delivered app unit/Caddyfile/drop-in, default80/443, vendor proxy unit; Docker PG18 on loopback55449; source database CONTENT unchanged, but synthetic role password rotation is cluster-global and changes that roles login credential for both databases; unit Wants may also start preinstalled OS PostgreSQL5432; manual same-CA leaf replacement does not revoke old leaf or implement auto-renewal; no production host, public DNS/CA, VM reboot, OS PostgreSQL qualification, HA/SLA or continuous SSE across restart"
+}

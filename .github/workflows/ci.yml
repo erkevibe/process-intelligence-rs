@@ -107,6 +107,7 @@ jobs:
           python3 -I -B tools/sprint30/verify-evidence.py evidence/sprint30/project-quota --self-test
           python3 -I -B tools/sprint31/verify-service-evidence.py evidence/sprint31/systemd-profile --self-test
           python3 -I -B tools/sprint32/verify-offline-evidence.py evidence/sprint32/offline-migration --self-test
+          python3 -I -B tools/sprint33/verify-upgrade-evidence.py evidence/sprint33/v5-cli-upgrade --self-test
           (cd evidence/sprint30/linux-ci && sha256sum --check --strict SHA256SUMS)
           (cd evidence/sprint30/quota-browser && sha256sum --check --strict SHA256SUMS)
           cargo test --locked --lib -- migration_v6::tests::populated_v5_full_accounting_repeat_and_malformed_refusals --ignored --exact --nocapture --test-threads=1
@@ -334,6 +335,7 @@ jobs:
           cp -r evidence/sprint30 dist/evidence/
           cp -r evidence/sprint31 dist/evidence/
           cp -r evidence/sprint32 dist/evidence/
+          cp -r evidence/sprint33 dist/evidence/
           cp -r evidence/sprint28 evidence/sprint29 dist/evidence/
           cp -r tools/sprint28 tools/sprint29 dist/tools/
           mkdir -p dist/tools/sprint23-miner dist/evidence
@@ -586,6 +588,8 @@ jobs:
           S31_PACKAGE_ROOT: ${{ runner.temp }}/sprint33-package
           POSTGRES_CONTAINER: ${{ job.services.service-postgres.id }}
         run: timeout --signal=INT --kill-after=90s 420s python3 -I -B tools/sprint33/v5-cli-upgrade-ci.py
+      - name: Verify fresh v5 upgrade and independent accounting observations
+        run: python3 -I -B tools/sprint33/verify-upgrade-evidence.py --runtime .local/sprint33/v5-upgrade/proof.json .local/sprint33/v5-upgrade/base-profile-proof.json .local/sprint33/v5-upgrade/offline-proof.json systemd-package-verification.json .local/sprint33/v5-upgrade/accounting-proof.json .local/sprint33/v5-upgrade/recount-records.json .local/sprint33/v5-upgrade/recount-quota.json .local/sprint33/v5-upgrade/recount-projects.json > v5-observation-verification.json
       - name: Preserve selected v5 upgrade observations
         if: always()
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
@@ -601,6 +605,7 @@ jobs:
             .local/sprint33/v5-upgrade/offline-proof.json
             .local/sprint33/v5-upgrade/failure.json
             systemd-package-verification.json
+            v5-observation-verification.json
           include-hidden-files: true
           if-no-files-found: error
           retention-days: 14
