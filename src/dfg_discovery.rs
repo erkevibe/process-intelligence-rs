@@ -263,6 +263,16 @@ pub fn evaluate(
     rows: &Value,
     checkpoint: &mut impl FnMut(&str) -> Result<()>,
 ) -> Result<Value> {
+    evaluate_inner(model, rows, checkpoint).map_err(|mut issue| {
+        issue.details = Value::Null;
+        issue
+    })
+}
+fn evaluate_inner(
+    model: &ProcessModel,
+    rows: &Value,
+    checkpoint: &mut impl FnMut(&str) -> Result<()>,
+) -> Result<Value> {
     checkpoint("validate")?;
     let variants = parse_rows(rows)?;
     if model.nodes.len() > 128 || model.flows.len() > 256 {
@@ -294,7 +304,7 @@ pub fn evaluate(
             compact[k] = v.clone();
         }
     }
-    let value = json!({"schema_version":1,"profile":PROFILE,"algorithm":ALGORITHM,"trace_count":variants.values().sum::<u64>(),"variant_count":variants.len(),"model_sha256":quality::sha(&serde_json::to_vec(model).map_err(|_|Issue::refused("model_serialization"))?),"variants_sha256":quality::sha(&serde_json::to_vec(&canonical).map_err(|_|Issue::refused("variant_serialization"))?),"metrics":{"fitness":compact,"precision":precision,"simplicity":quality::metrics::simplicity(&net)},"marking_states":graph.states.len(),"limits":limits(),"policy":"all_cases_no_sampling_adjacency_generalization_no_concurrency_inference"});
+    let value = json!({"schema_version":1,"profile":PROFILE,"evaluation_method":"flow_place_alignment_precision_single_token_v1","trace_count":variants.values().sum::<u64>(),"variant_count":variants.len(),"model_sha256":quality::sha(&serde_json::to_vec(model).map_err(|_|Issue::refused("model_serialization"))?),"variants_sha256":quality::sha(&serde_json::to_vec(&canonical).map_err(|_|Issue::refused("variant_serialization"))?),"metrics":{"fitness":compact,"precision":precision,"simplicity":quality::metrics::simplicity(&net)},"marking_states":graph.states.len(),"limits":limits(),"soundness":{"one_safety":true,"option_to_complete":true,"proper_completion":true,"no_dead_transitions":true,"scope":"enumerated_reachable_markings_for_this_model"},"policy":"all_cases_no_sampling_single_token_no_training_independence_claim"});
     if serde_json::to_vec(&value)
         .map_err(|_| Issue::refused("report_serialization"))?
         .len()
@@ -425,5 +435,23 @@ mod tests {
         })
         .unwrap_err();
         assert_eq!(error.reason, "cancelled");
+    }
+
+    #[test]
+    fn empty_only_language_has_no_invented_precision_and_unsupported_models_are_bounded() {
+        let input = rows(&[(&[], 625)]);
+        let model = discover(&input, &mut |_| Ok(())).unwrap();
+        let report = evaluate(&model, &input, &mut |_| Ok(())).unwrap();
+        assert_eq!(
+            report["metrics"]["fitness"]["integer_components"]["weighted_total_cost"],
+            0
+        );
+        assert!(report["metrics"]["precision"]["scalar"].is_null());
+        assert_ne!(report["metrics"]["precision"]["status"], "measured");
+        let parallel =
+            crate::bpmn::parse(include_bytes!("../fixtures/quality/parallel.bpmn")).unwrap();
+        let result = evaluate(&parallel, &rows(&[(&["A", "B"], 1)]), &mut |_| Ok(()));
+        assert!(result.is_err());
+        assert!(result.unwrap_err().details.is_null());
     }
 }

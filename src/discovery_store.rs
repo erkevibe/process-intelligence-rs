@@ -273,6 +273,7 @@ pub(crate) fn validate_artifact(
                         "application_bounded_v1"
                     }
                 || output.tree.is_some() != meta.profile.is_none()
+                || (meta.profile.is_some() && output.exact_variant_fallbacks != 0)
             {
                 return Err(corrupt());
             }
