@@ -342,7 +342,7 @@ jobs:
             cp docs/SELF_CHECK_RU.md dist/docs/
           cp tools/sprint23/decode-report.py tools/sprint23/audit-compact.py dist/tools/sprint23/
             cp tools/oracle/audit-conversion-evidence.py dist/tools/oracle/
-          cp docs/SPRINT_35_REPORT.md dist/CANDIDATE_STATUS.md
+          cp docs/SPRINT_36_REPORT.md dist/CANDIDATE_STATUS.md
           cp docs/PROJECT_QUOTA_CONTRACT.md docs/LINUX_TLS_DEPLOYMENT.md docs/SPRINT_30_REPORT.md dist/docs/
           cp docs/*.md dist/docs/
           mkdir -p dist/deploy dist/evidence
@@ -351,6 +351,7 @@ jobs:
           cp -r tools/sprint31 dist/tools/
           cp -r tools/sprint32 dist/tools/
           cp -r tools/sprint33 dist/tools/
+          cp -r tools/sprint36 dist/tools/
           cp -r evidence/sprint30 dist/evidence/
           cp -r evidence/sprint31 dist/evidence/
           cp -r evidence/sprint32 dist/evidence/

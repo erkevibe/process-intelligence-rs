@@ -94,8 +94,15 @@ def audit(rows, xml, report):
     return dict(status='FULL_LOG_INDEPENDENT_XML_AND_INTEGER_METRICS_PASS',cases=cases,events=events,variants=len(rows),activities=len(tasks),nodes=len(nodes),flows=len(edges),precision_numerator=activated-escaping,precision_denominator=activated,simplicity_numerator=simplicity.numerator,simplicity_denominator=simplicity.denominator,scope='Exact observed language containment and DFG adjacency, single-token completion, integer training metrics; no held-out independence claim')
 
 if __name__=='__main__':
-    assert len(sys.argv) in (4,5),'audit-full-log.py VARIANTS_JSON MODEL_BPMN REPORT_JSON [--self-test]'
-    rows=json.loads(Path(sys.argv[1]).read_text());xml=Path(sys.argv[2]).read_bytes();report=json.loads(Path(sys.argv[3]).read_text())
+    if len(sys.argv)>=2 and sys.argv[1]=='--discovery-export':
+        assert len(sys.argv) in (4,5),'audit-full-log.py --discovery-export DISCOVERY_JSON MODEL_BPMN [--self-test]'
+        export=json.loads(Path(sys.argv[2]).read_text())
+        assert export['algorithm']=='directly_follows_state_machine_v1'
+        assert export['metadata']['profile']==export['artifact']['input']['profile']=='full_log_state_machine_v1'
+        rows=export['artifact']['input']['variants'];xml=Path(sys.argv[3]).read_bytes();report=export['artifact']['output']['training_report']
+    else:
+        assert len(sys.argv) in (4,5),'audit-full-log.py VARIANTS_JSON MODEL_BPMN REPORT_JSON [--self-test]'
+        rows=json.loads(Path(sys.argv[1]).read_text());xml=Path(sys.argv[2]).read_bytes();report=json.loads(Path(sys.argv[3]).read_text())
     result=audit(rows,xml,report)
     if len(sys.argv)==5:
         assert sys.argv[4]=='--self-test'
