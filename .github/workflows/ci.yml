@@ -36,9 +36,12 @@ jobs:
           POSTGRES_CONTAINER: ${{ job.services.quality-postgres.id }}
           S36_FULL_DATABASE_URL: postgresql://pi_s21_app:sprint25-ci-only@127.0.0.1:5432/pi_s36_full_test
           S36_FULL_OWNED_FIXTURE: 'yes'
+          S36_CONTROL_DATABASE_URL: postgresql://pi_s21_app:sprint25-ci-only@127.0.0.1:5432/pi_s36_control_test
         run: |
           docker exec "$POSTGRES_CONTAINER" psql -U pi_s21_app -d postgres -v ON_ERROR_STOP=1 -c 'CREATE DATABASE pi_s36_full_test OWNER pi_s21_app;'
           cargo test --locked --lib -- full_log_http_tests::postgres_full_log_http_publication_replay_restart_and_backup --ignored --exact --nocapture --test-threads=1
+          docker exec "$POSTGRES_CONTAINER" psql -U pi_s21_app -d postgres -v ON_ERROR_STOP=1 -c 'CREATE DATABASE pi_s36_control_test OWNER pi_s21_app;'
+          cargo test --locked --lib -- discovery_workflow::tests::postgres_full_profile_cancel_revoke_and_interrupted_retry --ignored --exact --nocapture --test-threads=1
       - name: Sprint27 prospective miner comparison portable evidence replay
         run: python3 -I -B tools/sprint27/audit-public-miner.py evidence/sprint27/miner-comparison
       - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6

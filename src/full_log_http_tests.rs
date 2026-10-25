@@ -119,6 +119,11 @@ async fn postgres_full_log_http_publication_replay_restart_and_backup() {
     let url = std::env::var("S36_FULL_DATABASE_URL").expect("owned fixture URL");
     let config: postgres::Config = url.parse().unwrap();
     assert_eq!(config.get_dbname(), Some("pi_s36_full_test"));
+    assert!(matches!(config.get_hosts(),[postgres::config::Host::Tcp(host)] if host=="127.0.0.1"));
+    assert!(matches!(
+        config.get_user(),
+        Some("pi_s36_test" | "pi_s21_app")
+    ));
     let cloned = url.clone();
     tokio::task::spawn_blocking(move || {
         let mut p = postgres::Client::connect(&cloned, postgres::NoTls).unwrap();
