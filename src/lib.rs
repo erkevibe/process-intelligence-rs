@@ -55,3 +55,6 @@ mod quota_workflow_tests;
 
 #[cfg(test)]
 mod public_origin_tests;
+
+#[cfg(test)]
+mod full_log_http_tests;
