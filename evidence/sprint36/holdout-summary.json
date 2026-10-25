@@ -1,0 +1,151 @@
+{
+  "control": {
+    "evaluation_method": "flow_place_alignment_precision_single_token_v1",
+    "limits": {
+      "arcs": 1024,
+      "equivalence": 1000,
+      "fitness": 1000,
+      "markings": 1000,
+      "nodes": 512,
+      "prefix": 1000,
+      "tau": 1000
+    },
+    "marking_states": 99,
+    "metrics": {
+      "fitness": {
+        "costs": {
+          "log": 1,
+          "model": 1,
+          "sync": 0,
+          "tau": 0
+        },
+        "fitness": {
+          "average_fitness": 0.9996220710506425,
+          "log_fitness": 0.9995242626070409,
+          "perfectly_fitting_frac": 0.9920634920634921,
+          "total_costs": 1
+        },
+        "integer_components": {
+          "empty_cost": 1,
+          "events": 1976,
+          "log_denominator": 2102,
+          "traces": 126,
+          "weighted_total_cost": 1
+        },
+        "status": "measured"
+      },
+      "precision": {
+        "nonfitting_trace_frequency": 1,
+        "policy": "no_silent_prefix_dropping",
+        "scalar": null,
+        "status": "requires_fitting_log"
+      },
+      "simplicity": {
+        "arcs": 240,
+        "denominator": 87,
+        "k": 2,
+        "mean_degree_denominator": 219,
+        "mean_degree_numerator": 480,
+        "metric": "inverse_mean_arc_degree",
+        "numerator": 73,
+        "places": 99,
+        "representation": "exact_hashed_net_no_reduction",
+        "scalar": 0.8390804597701149,
+        "status": "measured",
+        "transitions": 120
+      }
+    },
+    "model_sha256": "22b913c76b306b75c0d886e18ad48187c2ea9af2c34c70b56abff773499e7ace",
+    "policy": "all_cases_no_sampling_single_token_no_training_independence_claim",
+    "profile": "full_log_state_machine_v1",
+    "schema_version": 1,
+    "soundness": {
+      "no_dead_transitions": true,
+      "one_safety": true,
+      "option_to_complete": true,
+      "proper_completion": true,
+      "scope": "enumerated_reachable_markings_for_this_model"
+    },
+    "trace_count": 126,
+    "variant_count": 50,
+    "variants_sha256": "cc934f0232ea8e8ee8d0762122ae3c13d5e03cb256f0167266162bfb7cb3cf4f"
+  },
+  "held_out_supplied_to_miner": false,
+  "method_sha256": "3ae6df20f5ec276c4d11091661a1097962f4673b5f46ecb7d41afbc915b4e533",
+  "status": "full_log_holdout_evaluated",
+  "training": {
+    "evaluation_method": "flow_place_alignment_precision_single_token_v1",
+    "limits": {
+      "arcs": 1024,
+      "equivalence": 1000,
+      "fitness": 1000,
+      "markings": 1000,
+      "nodes": 512,
+      "prefix": 1000,
+      "tau": 1000
+    },
+    "marking_states": 99,
+    "metrics": {
+      "fitness": {
+        "costs": {
+          "log": 1,
+          "model": 1,
+          "sync": 0,
+          "tau": 0
+        },
+        "fitness": {
+          "average_fitness": 1.0,
+          "log_fitness": 1.0,
+          "perfectly_fitting_frac": 1.0,
+          "total_costs": 0
+        },
+        "integer_components": {
+          "empty_cost": 1,
+          "events": 7094,
+          "log_denominator": 7593,
+          "traces": 499,
+          "weighted_total_cost": 0
+        },
+        "status": "measured"
+      },
+      "precision": {
+        "activated_weight": 14158,
+        "denominator": 14158,
+        "escaping_weight": 1987,
+        "numerator": 12171,
+        "policy": "proper_prefix_all_min_tau_stop_states_label_union_fitting_log_v1",
+        "prefixes": [],
+        "scalar": 0.8596553185478175,
+        "status": "measured"
+      },
+      "simplicity": {
+        "arcs": 240,
+        "denominator": 87,
+        "k": 2,
+        "mean_degree_denominator": 219,
+        "mean_degree_numerator": 480,
+        "metric": "inverse_mean_arc_degree",
+        "numerator": 73,
+        "places": 99,
+        "representation": "exact_hashed_net_no_reduction",
+        "scalar": 0.8390804597701149,
+        "status": "measured",
+        "transitions": 120
+      }
+    },
+    "model_sha256": "22b913c76b306b75c0d886e18ad48187c2ea9af2c34c70b56abff773499e7ace",
+    "policy": "all_cases_no_sampling_single_token_no_training_independence_claim",
+    "profile": "full_log_state_machine_v1",
+    "schema_version": 1,
+    "soundness": {
+      "no_dead_transitions": true,
+      "one_safety": true,
+      "option_to_complete": true,
+      "proper_completion": true,
+      "scope": "enumerated_reachable_markings_for_this_model"
+    },
+    "trace_count": 499,
+    "variant_count": 124,
+    "variants_sha256": "c9a1f81aa39c0c118323ba43fe4c02083493abd4d702b461f6de49d4252b27a5"
+  }
+}
