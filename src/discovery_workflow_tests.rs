@@ -2,6 +2,7 @@ use super::*;
 use std::collections::BTreeMap;
 fn input() -> DiscoveryInput {
     DiscoveryInput {
+        profile: None,
         variants: json!([{"sequence":["A","B","B","C"],"frequency":10},{"sequence":["A","B","C"],"frequency":10}]),
     }
 }
@@ -10,6 +11,7 @@ fn fixture() -> (DiscoveryMeta, DiscoveryArtifact) {
     let lease = jobs.create_with_id(Some("job-1".into())).unwrap();
     let input = input();
     let m = DiscoveryMeta {
+        profile: None,
         snapshot: lease.job.snapshot(),
         artifact_id: "discovery-2".into(),
         owner: "owner".into(),
@@ -161,6 +163,7 @@ fn seed(s: &AppState) -> String {
 }
 fn form(version: u64) -> SubmitForm {
     SubmitForm {
+        profile: None,
         analysis_version: version,
         model_name: "<script>bad()</script> Модель".into(),
         request_key: quality::request_key(),
@@ -241,6 +244,7 @@ fn postgres_durable_discovery_publication_retries_revocation_and_recovery() {
         assert!(accept_new(&s, &log, &f).launch.is_none());
         assert_eq!(s.repository.lock().unwrap().storage_revision, revision);
         let mut conflicting = SubmitForm {
+            profile: None,
             analysis_version: f.analysis_version,
             model_name: "Different".into(),
             request_key: f.request_key.clone(),

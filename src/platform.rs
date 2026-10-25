@@ -2090,7 +2090,7 @@ pub(crate) fn validate_backup(repo: &Repository) -> Result<(), ImportError> {
         let export = json!({"schema_version":1,"method_sha256":meta.method_sha256,"evaluation":artifact.report,"input":artifact.input});
         let bytes =
             crate::quality_store::bytes(&export, crate::quality_store::MAX_ARTIFACT + 16 * 1024)?;
-        crate::bpmn_quality::saved::verify_export_with_deadline(&bytes, quality_deadline)?;
+        crate::full_log_saved::verify_any_with_deadline(&bytes, quality_deadline)?;
     }
     for meta in repo.discovery_jobs.values() {
         crate::discovery_store::verify_restored(

@@ -16,6 +16,67 @@ pub const MAX_ACTIVITIES: usize = 32;
 pub const MAX_TRACE: usize = 64;
 pub type Variants = BTreeMap<Vec<String>, u64>;
 
+pub(crate) fn profile_valid(profile: Option<&str>) -> bool {
+    profile.is_none() || profile == Some(PROFILE)
+}
+pub(crate) fn rows_for(
+    log: &EventLog,
+    profile: Option<&str>,
+) -> std::result::Result<Value, ImportError> {
+    match profile {
+        None => crate::bpmn_quality_preview::rows(log),
+        Some(PROFILE) => rows(log),
+        _ => Err(ImportError::new(
+            "unsupported_profile",
+            "Выберите поддерживаемый профиль.",
+        )),
+    }
+}
+pub(crate) fn variants_for(rows: &Value, profile: Option<&str>) -> Result<Variants> {
+    match profile {
+        None => {
+            quality::facade::validate_rows(rows)?;
+            quality::metrics::variants(rows)
+        }
+        Some(PROFILE) => parse_rows(rows),
+        _ => Err(Issue::refused("unsupported_profile")),
+    }
+}
+pub fn method_sha256() -> &'static str {
+    static HASH: std::sync::OnceLock<String> = std::sync::OnceLock::new();
+    HASH.get_or_init(||quality::sha(&serde_json::to_vec(&json!({"algorithm":ALGORITHM,"profile":PROFILE,"source":include_str!("dfg_discovery.rs").replace("\r\n","\n"),"bridge":include_str!("full_log_bridge.rs").replace("\r\n","\n"),"legacy_quality_method":crate::quality_store::method_sha256(),"limits":limits()})).expect("method JSON")))
+}
+pub(crate) fn quality_method(profile: Option<&str>) -> &'static str {
+    if profile == Some(PROFILE) {
+        method_sha256()
+    } else {
+        crate::quality_store::method_sha256()
+    }
+}
+pub(crate) fn evaluate_for(
+    model: &ProcessModel,
+    rows: &Value,
+    profile: Option<&str>,
+    checkpoint: &mut impl FnMut(&str) -> Result<()>,
+) -> Result<Value> {
+    match profile {
+        None => quality::facade::evaluate_model(model, rows, &Value::Null, checkpoint),
+        Some(PROFILE) => evaluate(model, rows, checkpoint),
+        _ => Err(Issue::refused("unsupported_profile")),
+    }
+}
+pub(crate) fn result_core(result: Result<Value>, profile: Option<&str>) -> Value {
+    if profile.is_none() {
+        return quality::saved::result_core(result);
+    }
+    match result {
+        Ok(v) => v,
+        Err(issue) => {
+            json!({"schema_version":1,"profile":PROFILE,"metrics":{"fitness":issue,"precision":{"status":"inconclusive","reason":"model_not_admitted"},"simplicity":{"status":"inconclusive","reason":"model_not_admitted"}}})
+        }
+    }
+}
+
 pub fn rows(log: &EventLog) -> std::result::Result<Value, ImportError> {
     if log.cases.len() > MAX_CASES {
         return Err(ImportError::new(
@@ -357,4 +418,12 @@ mod tests {
         .unwrap_err();
         assert_eq!(error.reason, "cancelled");
     }
+}
+
+pub(crate) fn optional_profile<'de, D: serde::Deserializer<'de>>(
+    deserializer: D,
+) -> std::result::Result<Option<String>, D::Error> {
+    use serde::Deserialize;
+    let value = Option::<String>::deserialize(deserializer)?;
+    Ok(value.filter(|s| !s.is_empty()))
 }

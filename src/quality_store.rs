@@ -22,6 +22,8 @@ pub(crate) const MAX_REPORT: usize = 80 * 1024;
 #[derive(Clone, Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
 pub(crate) struct QualityMeta {
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub profile: Option<String>,
     pub snapshot: JobSnapshot,
     pub artifact_id: String,
     pub owner: String,
@@ -48,6 +50,8 @@ pub(crate) struct QualityMeta {
 #[derive(Clone, Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
 pub(crate) struct QualityInput {
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub profile: Option<String>,
     pub model: ProcessModel,
     pub variants: Value,
 }
@@ -177,10 +181,9 @@ pub(crate) fn input_hashes(input: &QualityInput) -> Result<(String, String), Imp
         return Err(corrupt());
     }
     crate::bpmn::validate(&input.model).map_err(|_| corrupt())?;
-    crate::bpmn_quality::facade::validate_rows(&input.variants).map_err(|_| corrupt())?;
     // Store one canonical row per variant, not arbitrary duplicate/reordered rows.
-    let variants =
-        crate::bpmn_quality::metrics::variants(&input.variants).map_err(|_| corrupt())?;
+    let variants = crate::dfg_discovery::variants_for(&input.variants, input.profile.as_deref())
+        .map_err(|_| corrupt())?;
     let canonical: Vec<_> = variants
         .iter()
         .map(|(sequence, frequency)| json!({"sequence":sequence,"frequency":frequency}))
@@ -202,6 +205,9 @@ pub(crate) fn validate_metadata(
     }
     let mut artifacts = BTreeSet::new();
     for (id, m) in all {
+        if !crate::dfg_discovery::profile_valid(m.profile.as_deref()) {
+            return Err(corrupt());
+        }
         if id != &m.snapshot.id
             || !id_valid(id, "job-")
             || !id_valid(&m.artifact_id, "quality-")
@@ -337,7 +343,7 @@ pub(crate) fn training_relation(
     }
 }
 pub(crate) fn validate_artifact(m: &QualityMeta, a: &QualityArtifact) -> Result<(), ImportError> {
-    if a.id != m.artifact_id || bytes(a, MAX_ARTIFACT).is_err() {
+    if a.input.profile != m.profile || a.id != m.artifact_id || bytes(a, MAX_ARTIFACT).is_err() {
         return Err(corrupt());
     }
     let (model, variants) = input_hashes(&a.input)?;
@@ -349,7 +355,12 @@ pub(crate) fn validate_artifact(m: &QualityMeta, a: &QualityArtifact) -> Result<
             || Some(crate::storage::sha256(&bytes(report, MAX_REPORT)?)) != m.report_sha256
             || report != &envelope(m, report["report"].clone())
             || report["report"]["schema_version"] != 1
-            || report["report"]["profile"] != "application_bounded_v1"
+            || report["report"]["profile"]
+                != if m.profile.is_some() {
+                    crate::dfg_discovery::PROFILE
+                } else {
+                    "application_bounded_v1"
+                }
         {
             return Err(corrupt());
         }

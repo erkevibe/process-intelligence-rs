@@ -33,6 +33,8 @@ pub(crate) struct TrainingIdentity {
 #[derive(Clone, Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
 pub(crate) struct DiscoveryMeta {
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub profile: Option<String>,
     pub snapshot: JobSnapshot,
     pub artifact_id: String,
     pub owner: String,
@@ -54,13 +56,16 @@ pub(crate) struct DiscoveryMeta {
 #[derive(Clone, Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
 pub(crate) struct DiscoveryInput {
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub profile: Option<String>,
     pub variants: Value,
 }
 #[derive(Clone, Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
 pub(crate) struct DiscoveryOutput {
     pub model: ProcessModel,
-    pub tree: Tree,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub tree: Option<Tree>,
     pub exact_variant_fallbacks: usize,
     pub model_sha256: String,
     pub training_report: Value,
@@ -92,10 +97,23 @@ pub(crate) fn method_sha256() -> &'static str {
     static HASH: OnceLock<String> = OnceLock::new();
     HASH.get_or_init(||{let source=include_str!("structured_discovery.rs").replace("\r\n","\n");crate::storage::sha256(&serde_json::to_vec(&json!({"algorithm":ALGORITHM,"parameters":parameters(),"source":source,"quality_method":quality::method_sha256()})).expect("method JSON"))})
 }
+pub(crate) fn method_for(profile: Option<&str>) -> &'static str {
+    if profile == Some(crate::dfg_discovery::PROFILE) {
+        crate::dfg_discovery::method_sha256()
+    } else {
+        method_sha256()
+    }
+}
+pub(crate) fn parameters_for(profile: Option<&str>) -> Value {
+    if profile.is_none() {
+        parameters()
+    } else {
+        json!({"algorithm":crate::dfg_discovery::ALGORITHM,"profile":crate::dfg_discovery::PROFILE,"max_traces":1000,"max_events":20000,"max_variants":256,"max_activities":32,"max_trace_events":64,"max_model_nodes":128,"max_model_flows":256,"sampling":false,"concurrency_inference":false})
+    }
+}
 pub(crate) fn input_hash(input: &DiscoveryInput) -> Result<String, ImportError> {
-    facade::validate_rows(&input.variants).map_err(|_| corrupt())?;
-    let variants =
-        crate::bpmn_quality::metrics::variants(&input.variants).map_err(|_| corrupt())?;
+    let variants = crate::dfg_discovery::variants_for(&input.variants, input.profile.as_deref())
+        .map_err(|_| corrupt())?;
     let canonical: Vec<_> = variants
         .iter()
         .map(|(sequence, frequency)| json!({"sequence":sequence,"frequency":frequency}))
@@ -115,7 +133,12 @@ pub(crate) fn identity(meta: &DiscoveryMeta) -> TrainingIdentity {
         analysis_version: meta.analysis_version,
         source_sha256: meta.source_sha256.clone(),
         variants_sha256: meta.variants_sha256.clone(),
-        algorithm: ALGORITHM.into(),
+        algorithm: if meta.profile.as_deref() == Some(crate::dfg_discovery::PROFILE) {
+            crate::dfg_discovery::ALGORITHM
+        } else {
+            ALGORITHM
+        }
+        .into(),
         method_sha256: meta.method_sha256.clone(),
         job_id: meta.snapshot.id.clone(),
     }
@@ -127,7 +150,10 @@ pub(crate) fn validate_identity(value: &TrainingIdentity) -> Result<(), ImportEr
         || value.analysis_version == 0
         || !quality::hash_valid(&value.source_sha256)
         || !quality::hash_valid(&value.variants_sha256)
-        || value.algorithm != ALGORITHM
+        || !matches!(
+            value.algorithm.as_str(),
+            ALGORITHM | crate::dfg_discovery::ALGORITHM
+        )
         || !quality::hash_valid(&value.method_sha256)
         || !id_valid(&value.job_id, "job-")
     {
@@ -146,6 +172,9 @@ pub(crate) fn validate_metadata(
     let mut artifacts = BTreeSet::new();
     for (id, m) in all {
         validate_identity(&identity(m))?;
+        if !crate::dfg_discovery::profile_valid(m.profile.as_deref()) {
+            return Err(corrupt());
+        }
         let s = &m.snapshot;
         if id != &s.id
             || !id_valid(id, "job-")
@@ -217,7 +246,8 @@ pub(crate) fn validate_artifact(
     meta: &DiscoveryMeta,
     a: &DiscoveryArtifact,
 ) -> Result<(), ImportError> {
-    if a.id != meta.artifact_id
+    if a.input.profile != meta.profile
+        || a.id != meta.artifact_id
         || quality::bytes(a, MAX_ARTIFACT).is_err()
         || input_hash(&a.input)? != meta.variants_sha256
     {
@@ -227,8 +257,8 @@ pub(crate) fn validate_artifact(
         Some(output) => {
             crate::bpmn::validate(&output.model).map_err(|_| corrupt())?;
             if meta.snapshot.state != JobState::Completed
-                || output.model.nodes.len() > 64
-                || output.model.flows.len() > 128
+                || output.model.nodes.len() > if meta.profile.is_some() { 128 } else { 64 }
+                || output.model.flows.len() > if meta.profile.is_some() { 256 } else { 128 }
                 || output.exact_variant_fallbacks > 32
                 || Some(crate::storage::sha256(&quality::bytes(output, MAX_OUTPUT)?))
                     != meta.output_sha256
@@ -236,7 +266,13 @@ pub(crate) fn validate_artifact(
                     != output.model_sha256
                 || output.training_report["model_sha256"] != output.model_sha256
                 || output.training_report["variants_sha256"] != meta.variants_sha256
-                || output.training_report["profile"] != "application_bounded_v1"
+                || output.training_report["profile"]
+                    != if meta.profile.is_some() {
+                        crate::dfg_discovery::PROFILE
+                    } else {
+                        "application_bounded_v1"
+                    }
+                || output.tree.is_some() != meta.profile.is_none()
             {
                 return Err(corrupt());
             }
@@ -348,6 +384,9 @@ pub(crate) fn compute(
     checkpoint: &mut dyn FnMut(&str) -> Result<(), ImportError>,
 ) -> Result<DiscoveryOutput, ImportError> {
     input_hash(input)?;
+    if input.profile.as_deref() == Some(crate::dfg_discovery::PROFILE) {
+        return compute_full(input, until, checkpoint);
+    }
     let variants =
         crate::bpmn_quality::metrics::variants(&input.variants).map_err(|_| corrupt())?;
     if variants.is_empty() {
@@ -454,7 +493,7 @@ pub(crate) fn compute(
     let output = DiscoveryOutput {
         model_sha256: crate::storage::sha256(&quality::bytes(&discovered.model, 1024 * 1024)?),
         model: discovered.model,
-        tree: discovered.tree,
+        tree: Some(discovered.tree),
         exact_variant_fallbacks: discovered.exact_variant_fallbacks,
         training_report: report,
     };
@@ -468,7 +507,7 @@ pub(crate) fn verify_restored(
 ) -> Result<(), ImportError> {
     validate_artifact(meta, a)?;
     if let Some(expected) = &a.output {
-        if meta.method_sha256 != method_sha256() {
+        if meta.method_sha256 != method_for(meta.profile.as_deref()) {
             return Err(ImportError::new(
                 "discovery_method_changed",
                 "Метод построения изменился; восстановление этого результата не подтверждено.",
@@ -508,4 +547,57 @@ pub(crate) fn validate_full(repo: &crate::web::Repository) -> Result<(), ImportE
         validate_artifact(m, &repo.discovery_artifacts[&m.artifact_id])?
     }
     Ok(())
+}
+
+fn compute_full(
+    input: &DiscoveryInput,
+    until: Instant,
+    checkpoint: &mut dyn FnMut(&str) -> Result<(), ImportError>,
+) -> Result<DiscoveryOutput, ImportError> {
+    let mut interrupted = None;
+    let mut check = |stage: &str| {
+        if Instant::now() >= until {
+            return Err(crate::bpmn_quality::Issue::cap("deadline"));
+        }
+        checkpoint(stage).map_err(|e| {
+            let code = e.code.clone();
+            interrupted = Some(e);
+            crate::bpmn_quality::Issue::refused(&code)
+        })
+    };
+    let computed = (|| {
+        let model = crate::dfg_discovery::discover(&input.variants, &mut check)?;
+        let report = crate::dfg_discovery::evaluate(&model, &input.variants, &mut check)?;
+        if report["metrics"]["fitness"]["integer_components"]["weighted_total_cost"] != 0 {
+            return Err(crate::bpmn_quality::Issue::refused(
+                "discovery_nonfitting_training",
+            ));
+        }
+        let xml = crate::bpmn::serialize(&model)
+            .map_err(|e| crate::bpmn_quality::Issue::refused(&e.code))?;
+        let imported = crate::bpmn::parse(xml.as_bytes())
+            .map_err(|e| crate::bpmn_quality::Issue::refused(&e.code))?;
+        let replay = crate::dfg_discovery::evaluate(&imported, &input.variants, &mut check)?;
+        if report["metrics"] != replay["metrics"] {
+            return Err(crate::bpmn_quality::Issue::refused(
+                "discovery_roundtrip_mismatch",
+            ));
+        }
+        Ok((model, report))
+    })();
+    if let Some(e) = interrupted {
+        return Err(e);
+    }
+    let (model, report) = computed.map_err(|e: crate::bpmn_quality::Issue| {
+        ImportError::new(&e.reason, "Полная модель не прошла ограниченную проверку.")
+    })?;
+    let output = DiscoveryOutput {
+        model_sha256: crate::storage::sha256(&quality::bytes(&model, 1024 * 1024)?),
+        model,
+        tree: None,
+        exact_variant_fallbacks: 0,
+        training_report: report,
+    };
+    quality::bytes(&output, MAX_OUTPUT)?;
+    Ok(output)
 }

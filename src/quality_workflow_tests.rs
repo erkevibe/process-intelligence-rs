@@ -4,6 +4,7 @@ use std::collections::BTreeMap;
 fn fixture() -> (QualityMeta, QualityArtifact) {
     let model = crate::bpmn::parse(include_bytes!("../fixtures/quality/linear.bpmn")).unwrap();
     let input = QualityInput {
+        profile: None,
         model,
         variants: json!([{"sequence":["A","B","C"],"frequency":1}]),
     };
@@ -11,6 +12,7 @@ fn fixture() -> (QualityMeta, QualityArtifact) {
     let jobs = crate::jobs::JobStore::new();
     let lease = jobs.create_with_id(Some("job-1".into())).unwrap();
     let m = QualityMeta {
+        profile: None,
         snapshot: lease.job.snapshot(),
         artifact_id: "quality-2".into(),
         owner: "owner".into(),
@@ -274,6 +276,7 @@ fn seed(state: &AppState) -> (String, String) {
 }
 fn submission(log: &str, revision: u64) -> SubmitForm {
     SubmitForm {
+        profile: None,
         log_id: log.into(),
         revision,
         request_key: store::request_key(),
